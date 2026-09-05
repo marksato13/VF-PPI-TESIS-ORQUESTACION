@@ -94,3 +94,21 @@ Todas costaron tiempo real. Están aquí para que no vuelvan a costarlo.
 Una fase solo está terminada con: configuración persistente · prueba positiva ·
 prueba negativa · evidencia fechada · evaluación de riesgos · documentación
 reproducible · commit identificable sin secretos.
+
+## Trampa 9 · Acentos graves en un mensaje de commit
+
+`git commit -m "...con acentos graves..."` entre **comillas dobles** hace que
+bash ejecute lo que hay dentro de los acentos graves como una orden. Ocurrio de
+verdad el 5 de septiembre de 2026 en el commit `7e44fc5`: se ejecutaron
+`usermod -aG docker` y `docker sin sudo` sin querer, y el mensaje perdio cuatro
+fragmentos tecnicos.
+
+El sistema no sufrio danho por casualidad —el `usermod` iba sin nombre de
+usuario—, no por prudencia.
+
+**Siempre** escribir el mensaje en un archivo y usar `git commit -F archivo`.
+Nunca `-m` con comillas dobles si el texto lleva acentos graves, `$(...)`, `$`
+o `!`.
+
+Y no se enmienda: si el commit ya se publico, se anota con `git notes`. En este
+proyecto no se reescriben commits publicados.
