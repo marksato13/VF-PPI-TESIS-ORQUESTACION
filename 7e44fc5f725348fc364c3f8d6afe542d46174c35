@@ -1,0 +1,23 @@
+CORRECCION DEL MENSAJE DE ESTE COMMIT
+
+El mensaje se escribio con `git commit -m "..."` entre comillas dobles y
+contenia acentos graves. Bash los interpreto como sustitucion de ordenes y
+ejecuto su contenido, dejando huecos en los puntos 3 y 4.
+
+No se enmienda el commit porque ya estaba publicado y reescribir commits
+publicados esta prohibido en este proyecto. El sistema no sufrio cambios: el
+usermod que se ejecuto por accidente iba sin nombre de usuario y solo imprimio
+su ayuda; el grupo quedo intacto en docker:x:115:m4rk.
+
+Texto correcto de los dos puntos afectados:
+
+3. La deteccion de tipografia nunca se cumplia, por "set -o pipefail" con
+   "fc-list | grep -q": grep sale al primer acierto, fc-list recibe SIGPIPE y
+   pipefail convierte ese exito en fallo. El resultado era silencioso: se
+   usaba Latin Modern y se perdian 15 glifos. Con DejaVu Serif quedan 3, y los
+   tres son emoji. La lista se captura ahora antes de examinarla.
+
+4. Mismo patron otra vez: el grep que busca glifos perdidos devuelve 1 cuando
+   no encuentra ninguno, y con "set -e" abortaba el script. Un documento
+   perfecto -sin un solo glifo perdido- se reportaba como fallo. Corregido con
+   "|| true" y un exit explicito.
