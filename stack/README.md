@@ -38,12 +38,19 @@ stack/preflight.sh                # sin root, no modifica nada
 sudo stack/install.sh             # todo
 sudo stack/install.sh docs        # solo un bloque
 stack/verify.sh                   # comprueba qué quedó funcionando
+
+`verify.sh` **ejecuta** cada componente en vez de mirar si el paquete está
+instalado. La diferencia no es teórica: con `pdflatex` presente decía que la
+cadena documental estaba lista, y no lo estaba.
+
+`docker sin sudo` seguirá en rojo hasta que **cierre la sesión y vuelva a
+entrar**: la pertenencia a un grupo solo se aplica al iniciar sesión.
 ```
 
 | Bloque | Qué instala | Para qué |
 |---|---|---|
 | `base` | git, jq, python3-venv, pipx, sqlite3 | requisito de los demás |
-| `docs` | pandoc, LaTeX, graphviz | **el PDF del artículo de IJIES** |
+| `docs` | pandoc, LaTeX (+ luatex y xetex), graphviz | **el PDF del artículo de IJIES** |
 | `docker` | docker.io 29.x, compose v2 | servicios opcionales |
 | `backup` | restic, age | copias cifradas |
 
@@ -51,6 +58,31 @@ Todo viene de los repositorios de Ubuntu 26.04. **No se añade ningún
 repositorio de terceros**: menos superficie y menos mantenimiento.
 
 Los instaladores son idempotentes: repetirlos no reinstala ni rompe nada.
+
+---
+
+### La cadena documental necesita un motor Unicode
+
+`ppi-doc` elige motor en este orden: **lualatex → xelatex → pdflatex**.
+
+`pdflatex` no sirve para estos documentos. Falla con un error de LaTeX
+ilegible en cuanto aparece `τ`, `ν`, `α`, `→` o `≥`, y aquí aparecen
+constantemente. Por eso `texlive-luatex` y `texlive-xetex` son obligatorios en
+el bloque `docs`, no opcionales.
+
+Un glifo que la tipografía no tiene **no sale en el PDF: desaparece sin dejar
+hueco**. Si es un símbolo de una tabla de cumplimiento, el documento cambia de
+significado en silencio. Por eso `ppi-doc` los lista al terminar:
+
+```
+Caracteres que NO aparecen en el PDF (3 distintos):
+  ⏳ (U+23F3)
+  ✅ (U+2705)
+  ❌ (U+274C)
+```
+
+Los emoji no están en ninguna tipografía de texto. Sustitúyalos en el `.md`
+por palabras antes de entregar el documento.
 
 ---
 

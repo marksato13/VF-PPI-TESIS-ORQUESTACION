@@ -13,16 +13,60 @@ ent="$1"; sal="${2:-${1%.*}.pdf}"
 command -v pandoc >/dev/null || {
   echo "Falta pandoc. Instalalo con:  sudo stack/install.sh docs"; exit 3; }
 
-motor=pdflatex
-command -v "$motor" >/dev/null || {
-  echo "Falta LaTeX. Instalalo con:  sudo stack/install.sh docs"; exit 3; }
+# Motor Unicode primero. pdflatex se atraganta con los simbolos que usan
+# estos documentos —tau, nu, alpha, flechas— y falla con un error de LaTeX
+# ilegible en vez de decir que le falta el glifo.
+motor=""
+for m in lualatex xelatex pdflatex; do
+  command -v "$m" >/dev/null && { motor="$m"; break; }
+done
+[ -n "$motor" ] || { echo "Falta LaTeX. Instalalo con:  sudo stack/install.sh docs"; exit 3; }
 
-pandoc "$ent" -o "$sal" \
+# Con motor Unicode se fija una tipografia con cobertura griega y de flechas.
+tipo=()
+if [ "$motor" != pdflatex ]; then
+  # La lista se captura ANTES de examinarla. Con `set -o pipefail`, un
+  # `fc-list | grep -q` devuelve 141: grep sale al primer acierto, fc-list
+  # recibe SIGPIPE y pipefail convierte ese exito en fallo silencioso.
+  disponibles="$(fc-list : family 2>/dev/null || true)"
+  for f in "DejaVu Serif" "Liberation Serif" "Latin Modern Roman"; do
+    case "$disponibles" in
+      *"$f"*) tipo=(-V "mainfont=$f" -V "monofont=DejaVu Sans Mono"); break ;;
+    esac
+  done
+  [ ${#tipo[@]} -gt 0 ] || echo "AVISO: sin tipografia de cobertura amplia." >&2
+else
+  echo "AVISO: solo hay pdflatex; los simbolos no ASCII pueden fallar." >&2
+fi
+
+err="$(mktemp)"
+trap 'rm -f "$err"' EXIT
+
+pandoc "$ent" -o "$sal" 2> >(tee "$err" >&2) \
   --pdf-engine="$motor" \
   --toc --number-sections \
   -V lang=es -V papersize=a4 -V fontsize=11pt \
   -V geometry:margin=2.5cm \
   -V colorlinks=true -V linkcolor=black -V urlcolor=blue \
-  -V documentclass=article
+  -V documentclass=article "${tipo[@]}"
 
-printf '%s  ->  %s  (%s)\n' "$ent" "$sal" "$(du -h "$sal" | cut -f1)"
+printf '%s  ->  %s  (%s, motor %s)\n' "$ent" "$sal" "$(du -h "$sal" | cut -f1)" "$motor"
+
+# Un glifo que la tipografia no tiene NO sale en el PDF: desaparece sin dejar
+# hueco. Si es un simbolo de una tabla de cumplimiento, el documento cambia de
+# significado en silencio. Por eso se informa aparte y no como un aviso mas.
+# LuaTeX repite el codigo: «There is no X (U+NNNN) (U+NNNN) in font». La
+# clase [^(] corta en el primer parentesis para no arrastrar el duplicado.
+perdidos="$(grep -oE 'There is no [^(]+\(U\+[0-9A-F]+\)' "$err" 2>/dev/null \
+            | sed -E 's/^There is no //' | sort -u || true)"
+if [ -n "$perdidos" ]; then
+  printf '\n\033[33mCaracteres que NO aparecen en el PDF\033[0m (%s distintos):\n' \
+    "$(printf '%s\n' "$perdidos" | wc -l)"
+  printf '%s\n' "$perdidos" | sed 's/^/  /'
+  echo "  Sustituyelos en el .md por texto antes de entregar el documento."
+fi
+
+# El estado de salida de un script es el de su ultima orden. Sin este
+# exit explicito, un documento SIN glifos perdidos hacia que el `if` anterior
+# fuese falso y ppi-doc devolvia 1: exito reportado como fallo.
+exit 0

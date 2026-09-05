@@ -23,5 +23,12 @@ apt_faltantes(){
   DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends "${faltan[@]}"
 }
 
-# El usuario real, no root, cuando se invoca con sudo.
-usuario_real(){ echo "${SUDO_USER:-${USER:-root}}"; }
+# El usuario real, no root. Con sudo llega en SUDO_USER; con pkexec solo
+# llega el UID en PKEXEC_UID y USER vale "root". Sin este caso, un
+# `usermod -aG docker` anhadiria root al grupo en vez del usuario: inutil y
+# ademas un permiso de mas.
+usuario_real(){
+  if [ -n "${SUDO_USER:-}" ]; then echo "$SUDO_USER"
+  elif [ -n "${PKEXEC_UID:-}" ]; then id -nu "$PKEXEC_UID"
+  else echo "${USER:-root}"; fi
+}

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Prueba de humo de la cadena documental: genera un PDF con los simbolos que
+# de verdad aparecen en estos documentos. Sale 0 solo si el PDF existe y pesa.
+set -euo pipefail
+d="$(mktemp -d)"
+trap 'rm -rf "$d"' EXIT
+printf '# Prueba\n\nUmbral tau = 1,8126 con nu = 0,05 y alfa >= 0,05.\nSimbolos reales: τ ν α ≥ → σ μ\n' > "$d/t.md"
+"$(dirname "$0")/ppi-doc" "$d/t.md" "$d/t.pdf" >/dev/null 2>&1
+[ -s "$d/t.pdf" ]
