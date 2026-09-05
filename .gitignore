@@ -13,3 +13,8 @@ secrets/
 __pycache__/
 .venv/
 .DS_Store
+
+# ── stack ────────────────────────────────────────────────────────────
+stack/.env
+stack/var/*.db
+stack/var/*.db-journal

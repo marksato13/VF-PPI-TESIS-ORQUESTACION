@@ -1,0 +1,451 @@
+#!/usr/bin/env python3
+"""Indice de trazabilidad del PPI.
+
+Responde, sobre datos versionados y sin depender de la memoria de nadie:
+
+    ¿De donde sale esta cifra?   ¿Que artefacto la demuestra?
+    ¿Obtenida, validada o planificada?   ¿En que entregable aparece?
+
+La base de datos NO es fuente de verdad. Se reconstruye entera con `ingest`
+desde los .md y .csv del repositorio. Si se borra, no se pierde nada.
+
+Solo biblioteca estandar: funciona sin instalar nada.
+"""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import os
+import re
+import sqlite3
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+
+RAIZ = Path(__file__).resolve().parents[2]
+PRODUCTO = Path(
+    os.environ.get("PPI_PRODUCTO", RAIZ.parent / "vf-sistema-final")
+).resolve()
+BASE = Path(os.environ.get("PPI_DB", RAIZ / "stack" / "var" / "trazabilidad.db"))
+ESQUEMA = RAIZ / "stack" / "db" / "01-schema.sql"
+
+# ─── presentacion ────────────────────────────────────────────────────────────
+_TTY = sys.stdout.isatty()
+
+
+def _c(txt: str, code: str) -> str:
+    return f"\033[{code}m{txt}\033[0m" if _TTY else txt
+
+
+BOLD = lambda s: _c(s, "1")
+DIM = lambda s: _c(s, "2")
+OK = lambda s: _c(s, "32")
+MAL = lambda s: _c(s, "31")
+AVISO = lambda s: _c(s, "33")
+
+COLOR_ESTADO = {
+    "OBTENIDO": OK, "VALIDADO": OK, "PLANIFICADO": AVISO, "REFUTADO": MAL,
+    "cumplido": OK, "parcial": AVISO, "no_cumplido": MAL,
+    "cumplido_con_reserva": AVISO,
+}
+
+
+def pinta_estado(e: str) -> str:
+    return COLOR_ESTADO.get(e, lambda s: s)(e)
+
+
+def limpio(s: str) -> str:
+    """Quita el marcado Markdown de una celda, deja el texto."""
+    s = re.sub(r"`([^`]*)`", r"\1", s)
+    s = re.sub(r"\*\*([^*]*)\*\*", r"\1", s)
+    s = re.sub(r"\*([^*]*)\*", r"\1", s)
+    return s.strip()
+
+
+def filas_tabla(texto: str):
+    """Devuelve las filas de datos de toda tabla Markdown del texto."""
+    for linea in texto.splitlines():
+        linea = linea.strip()
+        if not linea.startswith("|"):
+            continue
+        celdas = [limpio(c) for c in linea.strip("|").split("|")]
+        if not celdas or not celdas[0]:
+            continue
+        # descarta separadores (---) y cabeceras (sin ID en la primera celda)
+        if set(celdas[0]) <= {"-", ":", " "}:
+            continue
+        yield celdas
+
+
+# ─── ingesta ─────────────────────────────────────────────────────────────────
+RX_ID = re.compile(r"^(REQ|CLAIM|RISK|DOC|DEC)-\d{3}$")
+
+# Una cifra con al menos un decimal, o un cociente n/m. Los enteros sueltos
+# generan demasiado ruido (anhos, numeros de seccion) para ser utiles.
+RX_CIFRA = re.compile(r"\d+(?:[.,]\d+)+\s*%?|\b\d+\s*/\s*\d+\b")
+
+
+def normaliza_cifra(txt: str) -> str:
+    t = txt.replace("%", "").replace(" ", "").strip()
+    if "/" in t:
+        return t
+    # 1.234,5 -> 1234.5   |   88,8 -> 88.8
+    if "," in t and "." in t:
+        t = t.replace(".", "").replace(",", ".")
+    else:
+        t = t.replace(",", ".")
+    try:
+        return f"{float(t):g}"
+    except ValueError:
+        return t
+
+
+RX_RUTA = re.compile(r"^[\w.\-]+(?:/[\w.\-]+)+/?$")
+
+
+def es_ruta(txt: str) -> bool:
+    """Distingue una fuente citable de una nota en prosa.
+
+    Un claim PLANIFICADO o REFUTADO no tiene archivo que lo respalde: tiene una
+    explicacion. Tratar esa explicacion como ruta rota seria ruido, y el ruido
+    acaba haciendo que nadie mire la verificacion.
+    """
+    return bool(RX_RUTA.match(txt.strip()))
+
+
+def sha256(p: Path) -> str:
+    h = hashlib.sha256()
+    with p.open("rb") as fh:
+        for bloque in iter(lambda: fh.read(1 << 20), b""):
+            h.update(bloque)
+    return h.hexdigest()
+
+
+def conecta() -> sqlite3.Connection:
+    BASE.parent.mkdir(parents=True, exist_ok=True)
+    cx = sqlite3.connect(BASE)
+    cx.row_factory = sqlite3.Row
+    cx.executescript(ESQUEMA.read_text(encoding="utf-8"))
+    return cx
+
+
+def ingest(verbose: bool = True) -> dict:
+    cx = conecta()
+    for t in ("requisito", "claim", "enlace", "riesgo", "entregable",
+              "artefacto", "cifra"):
+        cx.execute(f"DELETE FROM {t}")
+
+    tz = datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds")
+    tr = RAIZ / "trazabilidad"
+    cuenta: dict[str, int] = {}
+
+    def leer(nombre):
+        p = tr / nombre
+        return p.read_text(encoding="utf-8") if p.exists() else ""
+
+    # requisitos.md ── ID | texto | origen | fase | estado | evidencia
+    for f in filas_tabla(leer("requisitos.md")):
+        if not RX_ID.match(f[0]) or not f[0].startswith("REQ"):
+            continue
+        f += [""] * (6 - len(f))
+        cx.execute(
+            "INSERT OR REPLACE INTO requisito"
+            "(id,texto,origen,fase,estado,evidencia) VALUES (?,?,?,?,?,?)",
+            (f[0], f[1], f[2], f[3], f[4].lower().replace(" ", "_"), f[5]),
+        )
+        cuenta["requisito"] = cuenta.get("requisito", 0) + 1
+
+    # afirmaciones-cientificas.md ── ID | texto | estado | fuente
+    ultima_fuente = ""
+    for f in filas_tabla(leer("afirmaciones-cientificas.md")):
+        if not f[0].startswith("CLAIM"):
+            continue
+        f += [""] * (4 - len(f))
+        fuente = f[3].strip()
+        # «idem» remite a la fila anterior, como en el documento impreso
+        if fuente.lower().rstrip(".") in ("idem", "ídem", ""):
+            fuente = ultima_fuente
+        elif es_ruta(fuente):
+            ultima_fuente = fuente
+        cx.execute(
+            "INSERT OR REPLACE INTO claim(id,texto,estado,fuente) VALUES (?,?,?,?)",
+            (f[0], f[1], f[2].upper(), fuente),
+        )
+        cuenta["claim"] = cuenta.get("claim", 0) + 1
+        for m in RX_CIFRA.finditer(f[1]):
+            cx.execute(
+                "INSERT INTO cifra(valor,crudo,claim,contexto) VALUES (?,?,?,?)",
+                (normaliza_cifra(m.group()), m.group().strip(), f[0], f[1]),
+            )
+
+    for nombre, tabla, cols in (
+        ("riesgos.md", "riesgo", ("id", "texto", "severidad", "estado")),
+        ("entregables.md", "entregable", ("id", "nombre", "estado", "ruta")),
+    ):
+        pref = "RISK" if tabla == "riesgo" else "DOC"
+        for f in filas_tabla(leer(nombre)):
+            if not f[0].startswith(pref):
+                continue
+            f += [""] * (len(cols) - len(f))
+            cx.execute(
+                f"INSERT OR REPLACE INTO {tabla}({','.join(cols)}) "
+                f"VALUES ({','.join('?' * len(cols))})",
+                tuple(f[: len(cols)]),
+            )
+            cuenta[tabla] = cuenta.get(tabla, 0) + 1
+
+    # requisitos-a-evidencias.csv
+    import csv as _csv
+
+    p = tr / "requisitos-a-evidencias.csv"
+    if p.exists():
+        with p.open(encoding="utf-8") as fh:
+            for r in _csv.DictReader(fh):
+                cx.execute(
+                    "INSERT INTO enlace(requisito,claim,artefacto,fuente,estado)"
+                    " VALUES (?,?,?,?,?)",
+                    (r.get("requisito"), r.get("claim"), r.get("artefacto"),
+                     r.get("fuente_primaria"), r.get("estado_afirmacion")),
+                )
+                cuenta["enlace"] = cuenta.get("enlace", 0) + 1
+
+    # requisitos-a-fases.csv  ── completa responsable y fecha
+    p = tr / "requisitos-a-fases.csv"
+    if p.exists():
+        with p.open(encoding="utf-8") as fh:
+            for r in _csv.DictReader(fh):
+                cx.execute(
+                    "UPDATE requisito SET responsable=?, compromiso=?, fase=COALESCE(NULLIF(fase,''),?)"
+                    " WHERE id=?",
+                    (r.get("responsable"), r.get("fecha_compromiso"),
+                     r.get("fase"), r.get("requisito")),
+                )
+
+    # hash de cada fuente primaria citada que exista en el producto
+    rutas = {r[0] for r in cx.execute(
+        "SELECT fuente FROM claim WHERE fuente<>'' UNION "
+        "SELECT fuente FROM enlace WHERE fuente<>''")}
+    for ruta in sorted(r for r in rutas if es_ruta(r)):
+        real = PRODUCTO / ruta
+        if real.is_dir():
+            hijos = sorted(x for x in real.rglob("*") if x.is_file())
+            if not hijos:
+                continue
+            h = hashlib.sha256()
+            for x in hijos:
+                h.update(sha256(x).encode())
+            cx.execute(
+                "INSERT OR REPLACE INTO artefacto VALUES (?,?,?,?)",
+                (ruta, h.hexdigest(), sum(x.stat().st_size for x in hijos), tz))
+            cuenta["artefacto"] = cuenta.get("artefacto", 0) + 1
+        elif real.is_file():
+            cx.execute("INSERT OR REPLACE INTO artefacto VALUES (?,?,?,?)",
+                       (ruta, sha256(real), real.stat().st_size, tz))
+            cuenta["artefacto"] = cuenta.get("artefacto", 0) + 1
+
+    cx.commit()
+    if verbose:
+        print(BOLD("Indexado desde archivos versionados"))
+        for k in ("requisito", "claim", "enlace", "riesgo", "entregable",
+                  "artefacto"):
+            print(f"  {k:<12} {cuenta.get(k, 0):>4}")
+        n = cx.execute("SELECT COUNT(*) FROM cifra").fetchone()[0]
+        print(f"  {'cifra':<12} {n:>4}  extraidas del texto de los claims")
+        print(DIM(f"\n  base: {BASE}"))
+        print(DIM(f"  producto: {PRODUCTO}"))
+    cx.close()
+    return cuenta
+
+
+# ─── consultas ───────────────────────────────────────────────────────────────
+def _abre() -> sqlite3.Connection:
+    if not BASE.exists():
+        print(MAL("No hay indice. Ejecuta primero:  ppi-trace ingest"))
+        sys.exit(2)
+    cx = sqlite3.connect(BASE)
+    cx.row_factory = sqlite3.Row
+    return cx
+
+
+def _fuente(cx, ruta: str) -> str:
+    if not ruta:
+        return DIM("sin fuente declarada")
+    if not es_ruta(ruta):
+        return f"{DIM('(nota, no archivo)')} {ruta}"
+    a = cx.execute("SELECT sha256 FROM artefacto WHERE ruta=?", (ruta,)).fetchone()
+    existe = (PRODUCTO / ruta).exists()
+    marca = OK("existe") if existe else MAL("NO EXISTE en el producto")
+    h = f"  sha {a['sha256'][:12]}" if a else ""
+    return f"{ruta}  [{marca}]{DIM(h)}"
+
+
+def cmd_cifra(args):
+    cx = _abre()
+    objetivo = normaliza_cifra(args.valor)
+    filas = cx.execute(
+        "SELECT DISTINCT c.claim, c.crudo, k.texto, k.estado, k.fuente "
+        "FROM cifra c JOIN claim k ON k.id=c.claim "
+        "WHERE c.valor=? OR c.crudo LIKE ? ORDER BY c.claim",
+        (objetivo, f"%{args.valor}%"),
+    ).fetchall()
+    if not filas:
+        print(MAL(f"Ninguna afirmacion registra la cifra {args.valor!r}."))
+        print(DIM("  Si aparece en un documento, no esta en afirmaciones-cientificas.md:"))
+        print(DIM("  o falta registrarla, o el documento la inventa. Ambas cosas importan."))
+        return 1
+    print(BOLD(f"\n{args.valor}  ->  {len(filas)} afirmacion(es)\n"))
+    for f in filas:
+        print(f"  {BOLD(f['claim'])}  [{pinta_estado(f['estado'])}]  aparece como {BOLD(f['crudo'])}")
+        print(f"    {f['texto']}")
+        print(f"    fuente: {_fuente(cx, f['fuente'])}")
+        reqs = [r[0] for r in cx.execute(
+            "SELECT DISTINCT requisito FROM enlace WHERE claim=?", (f["claim"],))]
+        if reqs:
+            print(f"    responde a: {', '.join(reqs)}")
+        print()
+    return 0
+
+
+def cmd_req(args):
+    cx = _abre()
+    r = cx.execute("SELECT * FROM requisito WHERE id=?", (args.id.upper(),)).fetchone()
+    if not r:
+        print(MAL(f"No existe {args.id}."))
+        return 1
+    print(BOLD(f"\n{r['id']}  {r['texto']}\n"))
+    print(f"  origen       {r['origen']}")
+    print(f"  fase         {r['fase']}     responsable  {r['responsable'] or '—'}")
+    print(f"  estado       {pinta_estado(r['estado'])}")
+    if r["compromiso"]:
+        print(f"  compromiso   {AVISO(r['compromiso'])}")
+    print(f"  evidencia    {r['evidencia']}")
+    filas = cx.execute(
+        "SELECT e.claim, e.artefacto, e.fuente, k.texto, k.estado FROM enlace e "
+        "LEFT JOIN claim k ON k.id=e.claim WHERE e.requisito=?", (r["id"],)).fetchall()
+    if filas:
+        print(BOLD("\n  Sostenido por:"))
+        for f in filas:
+            print(f"    {f['claim']}  [{pinta_estado(f['estado'] or '')}]  {f['texto'] or ''}")
+            print(f"      {_fuente(cx, f['fuente'])}")
+    else:
+        print(AVISO("\n  Sin claim enlazado: el requisito se declara cumplido sin"))
+        print(AVISO("  afirmacion trazable que lo sostenga."))
+    print()
+    return 0
+
+
+def cmd_claim(args):
+    cx = _abre()
+    k = cx.execute("SELECT * FROM claim WHERE id=?", (args.id.upper(),)).fetchone()
+    if not k:
+        print(MAL(f"No existe {args.id}."))
+        return 1
+    print(BOLD(f"\n{k['id']}  [{pinta_estado(k['estado'])}]\n"))
+    print(f"  {k['texto']}\n")
+    print(f"  fuente: {_fuente(cx, k['fuente'])}")
+    reqs = cx.execute(
+        "SELECT DISTINCT r.id, r.texto FROM enlace e JOIN requisito r "
+        "ON r.id=e.requisito WHERE e.claim=?", (k["id"],)).fetchall()
+    if reqs:
+        print(BOLD("\n  Requisitos que sostiene:"))
+        for r in reqs:
+            print(f"    {r['id']}  {r['texto']}")
+    cifras = [c[0] for c in cx.execute(
+        "SELECT DISTINCT crudo FROM cifra WHERE claim=?", (k["id"],))]
+    if cifras:
+        print(f"\n  cifras: {', '.join(cifras)}")
+    print()
+    return 0
+
+
+def cmd_check(args):
+    """Verifica que lo declarado siga siendo cierto. Sale != 0 si algo falla."""
+    cx = _abre()
+    problemas = []
+    print(BOLD("\nVerificacion del indice\n"))
+
+    faltan = [(f["id"], f["fuente"]) for f in cx.execute(
+        "SELECT id,fuente FROM claim WHERE fuente<>''")
+        if es_ruta(f["fuente"]) and not (PRODUCTO / f["fuente"]).exists()]
+    print(f"  fuentes primarias citadas que no existen ... "
+          f"{MAL(str(len(faltan))) if faltan else OK('0')}")
+    for i, r in faltan:
+        problemas.append(f"{i} cita {r}, que no existe en el producto")
+
+    cambiados = []
+    for a in cx.execute("SELECT * FROM artefacto"):
+        real = PRODUCTO / a["ruta"]
+        if real.is_file() and sha256(real) != a["sha256"]:
+            cambiados.append(a["ruta"])
+    print(f"  artefactos cuyo hash cambio desde la indexacion ... "
+          f"{AVISO(str(len(cambiados))) if cambiados else OK('0')}")
+    for r in cambiados:
+        problemas.append(f"{r} cambio: reindexa y revisa las afirmaciones que lo citan")
+
+    huerf = [r[0] for r in cx.execute(
+        "SELECT id FROM requisito WHERE estado LIKE 'cumplido%' AND id NOT IN "
+        "(SELECT requisito FROM enlace WHERE claim<>'')")]
+    print(f"  requisitos 'cumplido' sin claim que los sostenga ... "
+          f"{AVISO(str(len(huerf))) if huerf else OK('0')}")
+
+    ref = [r[0] for r in cx.execute("SELECT id FROM claim WHERE estado='REFUTADO'")]
+    if ref:
+        print(f"  {AVISO('afirmaciones REFUTADAS')}: {', '.join(ref)}")
+        print(DIM("    no son un error: son honestidad. No deben citarse como logro."))
+
+    if problemas:
+        print(MAL(f"\n  {len(problemas)} punto(s) que exigen accion:"))
+        for p in problemas:
+            print(f"    - {p}")
+        print()
+        return 1
+    print(OK("\n  Sin inconsistencias.\n"))
+    return 0
+
+
+def cmd_estado(args):
+    cx = _abre()
+    print(BOLD("\nEstado del proyecto segun lo indexado\n"))
+    print(BOLD("  Requisitos"))
+    for f in cx.execute("SELECT estado, COUNT(*) n FROM requisito "
+                        "GROUP BY estado ORDER BY n DESC"):
+        print(f"    {pinta_estado(f['estado']):<28} {f['n']:>3}")
+    print(BOLD("\n  Afirmaciones"))
+    for f in cx.execute("SELECT estado, COUNT(*) n FROM claim "
+                        "GROUP BY estado ORDER BY n DESC"):
+        print(f"    {pinta_estado(f['estado']):<28} {f['n']:>3}")
+    pend = cx.execute(
+        "SELECT id,texto,compromiso FROM requisito WHERE estado NOT LIKE 'cumplido' "
+        "ORDER BY CASE WHEN compromiso='' THEN 1 ELSE 0 END, compromiso").fetchall()
+    if pend:
+        print(BOLD("\n  Lo que falta"))
+        for f in pend:
+            print(f"    {f['id']}  {AVISO(f['compromiso'] or 'sin fecha'):<22} {f['texto'][:52]}")
+    print()
+    return 0
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(
+        prog="ppi-trace", description=__doc__,
+        formatter_class=argparse.RawDescriptionHelpFormatter)
+    sub = ap.add_subparsers(dest="cmd", required=True)
+    sub.add_parser("ingest", help="reconstruye el indice desde los archivos")
+    p = sub.add_parser("cifra", help="de donde sale un numero")
+    p.add_argument("valor")
+    p = sub.add_parser("req", help="cadena completa de un requisito")
+    p.add_argument("id")
+    p = sub.add_parser("claim", help="una afirmacion y su respaldo")
+    p.add_argument("id")
+    sub.add_parser("check", help="verifica que lo declarado siga siendo cierto")
+    sub.add_parser("estado", help="resumen del proyecto")
+    a = ap.parse_args()
+    if a.cmd == "ingest":
+        ingest()
+        return 0
+    return {"cifra": cmd_cifra, "req": cmd_req, "claim": cmd_claim,
+            "check": cmd_check, "estado": cmd_estado}[a.cmd](a)
+
+
+if __name__ == "__main__":
+    sys.exit(main())

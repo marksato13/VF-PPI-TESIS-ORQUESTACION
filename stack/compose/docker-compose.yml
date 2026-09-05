@@ -1,0 +1,61 @@
+# Servicios opcionales. El nucleo (ppi-trace, ppi-secrets) NO los necesita.
+#
+# Se levantan solo cuando un paso concreto los pide. Un servicio sin usuario
+# es deuda, no infraestructura: eso esta escrito en PLANIFICACION.md y aqui
+# se respeta.
+#
+#   docker compose --profile indice up -d      PostgreSQL + pgvector
+#   docker compose --profile git    up -d      Gitea (espejo, no origen)
+#   docker compose down                        apagar todo
+#
+# Todo escucha SOLO en loopback. Nada de este stack debe quedar expuesto a
+# la red del laboratorio.
+name: ppi
+
+services:
+  postgres:
+    profiles: ["indice"]
+    image: pgvector/pgvector:pg17
+    container_name: ppi-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-ppi}
+      POSTGRES_USER: ${POSTGRES_USER:-ppi}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?define POSTGRES_PASSWORD en stack/.env}
+      POSTGRES_INITDB_ARGS: "--data-checksums"
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ../db:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-ppi} -d ${POSTGRES_DB:-ppi}"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+    deploy:
+      resources:
+        limits: {cpus: "1.5", memory: 1500M}
+
+  gitea:
+    profiles: ["git"]
+    image: gitea/gitea:1.24
+    container_name: ppi-gitea
+    restart: unless-stopped
+    environment:
+      USER_UID: "1000"
+      USER_GID: "1000"
+      GITEA__server__ROOT_URL: "http://127.0.0.1:3000/"
+      GITEA__service__DISABLE_REGISTRATION: "true"
+    ports:
+      - "127.0.0.1:3000:3000"
+      - "127.0.0.1:2222:22"
+    volumes:
+      - giteadata:/data
+    deploy:
+      resources:
+        limits: {cpus: "1.0", memory: 1024M}
+
+volumes:
+  pgdata:
+  giteadata:

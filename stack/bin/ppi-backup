@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Copia cifrada con restic de lo que no se puede regenerar.
+#
+# Lee el destino y la clave de stack/.env, que NO se versiona.
+# Los artefactos del producto ya estan en Git; lo que se copia aqui es la
+# evidencia pesada que Git no debe llevar.
+set -euo pipefail
+raiz="$(cd "$(dirname "$0")/../.." && pwd)"
+env_f="$raiz/stack/.env"
+[ -f "$env_f" ] || { echo "Falta $env_f — copia stack/compose/.env.example y rellenalo"; exit 2; }
+# shellcheck disable=SC1090
+set -a; . "$env_f"; set +a
+: "${RESTIC_REPOSITORY:?define RESTIC_REPOSITORY en stack/.env}"
+: "${RESTIC_PASSWORD_FILE:?define RESTIC_PASSWORD_FILE en stack/.env}"
+command -v restic >/dev/null || { echo "Falta restic:  sudo stack/install.sh backup"; exit 3; }
+
+restic snapshots >/dev/null 2>&1 || { echo "Inicializando repositorio restic…"; restic init; }
+
+restic backup \
+  --tag ppi --tag "$(date +%Y-%m-%d)" \
+  --exclude-caches \
+  ${PPI_BACKUP_RUTAS:-/srv/ppi-evidence}
+
+restic forget --prune --keep-daily 7 --keep-weekly 4 --keep-monthly 6
+restic snapshots --compact | tail -5
+echo
+echo "Un backup que nunca se restauro no es un backup. Prueba:  ppi-restore-test"

@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Markdown -> PDF con numeracion, indice y tipografia de articulo.
+#
+#   ppi-doc informe.md              -> informe.pdf
+#   ppi-doc informe.md salida.pdf
+#
+# Existe para que el articulo de IJIES salga del .md versionado y no de un
+# documento paralelo que se desincroniza. Ese fallo ya ocurrio una vez.
+set -euo pipefail
+[ $# -ge 1 ] || { echo "uso: ppi-doc <archivo.md> [salida.pdf]"; exit 2; }
+ent="$1"; sal="${2:-${1%.*}.pdf}"
+[ -f "$ent" ] || { echo "no existe: $ent"; exit 2; }
+command -v pandoc >/dev/null || {
+  echo "Falta pandoc. Instalalo con:  sudo stack/install.sh docs"; exit 3; }
+
+motor=pdflatex
+command -v "$motor" >/dev/null || {
+  echo "Falta LaTeX. Instalalo con:  sudo stack/install.sh docs"; exit 3; }
+
+pandoc "$ent" -o "$sal" \
+  --pdf-engine="$motor" \
+  --toc --number-sections \
+  -V lang=es -V papersize=a4 -V fontsize=11pt \
+  -V geometry:margin=2.5cm \
+  -V colorlinks=true -V linkcolor=black -V urlcolor=blue \
+  -V documentclass=article
+
+printf '%s  ->  %s  (%s)\n' "$ent" "$sal" "$(du -h "$sal" | cut -f1)"
