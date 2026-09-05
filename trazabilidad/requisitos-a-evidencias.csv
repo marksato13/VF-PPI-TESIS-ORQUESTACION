@@ -1,0 +1,11 @@
+requisito,claim,artefacto,fuente_primaria,estado_afirmacion
+REQ-002,CLAIM-009,ablacion-multicapa,docs/fase04-modelado/07-ablacion-multicapa.md,OBTENIDO
+REQ-004,CLAIM-009,ablacion-multicapa,docs/fase04-modelado/07-ablacion-multicapa.md,OBTENIDO
+REQ-005,CLAIM-013,,,PLANIFICADO
+REQ-011,CLAIM-007,ocsvm_scaled.joblib,docs/fase04-modelado/09-validacion-cruzada-y-estabilidad.md,VALIDADO
+REQ-011,CLAIM-008,manifest.json,docs/fase04-modelado/09-validacion-cruzada-y-estabilidad.md,OBTENIDO
+REQ-012,CLAIM-011,SHA256SUMS,docs/entregables/02-validacion-y-confiabilidad/informe-validacion-confiabilidad.md,VALIDADO
+REQ-013,CLAIM-014,respuestas-sus.csv,docs/entregables/08-validacion-usuarios/,PLANIFICADO
+REQ-014,CLAIM-005,f6_resultados.jsonl,docs/fase07-validacion-final/02-resultados-f6.md,OBTENIDO
+REQ-014,CLAIM-006,f6_resultados.jsonl,docs/fase07-validacion-final/02-resultados-f6.md,VALIDADO
+REQ-001,CLAIM-004,f6_resultados.jsonl,docs/fase07-validacion-final/02-resultados-f6.md,OBTENIDO
