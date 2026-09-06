@@ -10,28 +10,22 @@ explica; la decision es de una persona.
 
 | Categoria | N | Que significa |
 |---|---:|---|
-| `ACTIVO` | 269 | algo lo referencia, o es codigo, configuracion o artefacto en uso |
+| `ACTIVO` | 275 | algo lo referencia, o es codigo, configuracion o artefacto en uso |
 | `HISTORICO` | 349 | registro fechado; no se actualiza por disenho |
 | `DUPLICADO` | 4 | otro archivo tiene exactamente el mismo contenido |
-| `DESACTUALIZADO` | 9 | enlaza o cita documentos que ya no existen |
+| `DESACTUALIZADO` | 3 | enlaza o cita documentos que ya no existen |
 | `NO_VERIFICABLE` | 0 | sin contenido comprobable |
 | `CANDIDATO_ARCHIVO` | 8 | nadie lo referencia y no es registro ni codigo |
 
 ---
 
-## DESACTUALIZADO (9)
+## DESACTUALIZADO (3)
 
 | Archivo | Motivo | Ultimo commit |
 |---|---|---|
 | `.agent/RESULTADO-ULTIMA-EJECUCION.md` | cita 1 documento(s) inexistente(s): plan-de-validacion.md | 2026-09-02 |
 | `.agent/TASK-ACTUAL.md` | cita 1 documento(s) inexistente(s): 07-plan-de-validacion/plan-de-validacion.md | 2026-09-02 |
 | `docs/entregables/08-validacion-usuarios/README.md` | cita 1 documento(s) inexistente(s): resultados-sus.md | 2026-09-02 |
-| `docs/fase01-diseno-experimental/18-congelamiento-protocolo-R04-R05.md` | cita 2 documento(s) inexistente(s): ../F4-modelado/03-protocolo-modelado-F1-v2.md | 2026-08-18 |
-| `docs/fase01-diseno-experimental/README.md` | cita 1 documento(s) inexistente(s): ../F4-modelado/03-protocolo-modelado-F1-v2.md | 2026-08-18 |
-| `docs/fase02-features-multicapa/01-diccionario-multicapa-G5.md` | cita 1 documento(s) inexistente(s): 03-protocolo-modelado-F1-v2.md | 2026-08-18 |
-| `docs/fase04-modelado/06-modelo-final-congelado-ocsvm.md` | cita 2 documento(s) inexistente(s): 07-resultado-calibracion-multilayer-v2-v1.md | 2026-09-02 |
-| `docs/fase05-motor-tiempo-real/01-diseno-motor-tiempo-real.md` | cita 1 documento(s) inexistente(s): 08-modelo-final-congelado-ocsvm.md | 2026-08-18 |
-| `docs/fase06-dashboard/01-diseno-dashboard-motor.md` | cita 2 documento(s) inexistente(s): 08-modelo-final-congelado-ocsvm.md | 2026-08-18 |
 
 ---
 
@@ -68,10 +62,10 @@ explica; la decision es de una persona.
 | `docs/fase03-dataset` | 0 | 182 | 0 |
 | `docs/revisiones-claude` | 0 | 167 | 0 |
 | `docs/entregables` | 43 | 0 | 3 |
-| `docs/fase01-diseno-experimental` | 12 | 0 | 7 |
+| `docs/fase01-diseno-experimental` | 14 | 0 | 5 |
 | `scripts/entregables` | 15 | 0 | 0 |
 | `tests` | 13 | 0 | 0 |
-| `docs/fase04-modelado` | 10 | 0 | 1 |
+| `docs/fase04-modelado` | 11 | 0 | 0 |
 | `.agents/skills` | 10 | 0 | 0 |
 | `.claude/skills` | 10 | 0 | 0 |
 | `ansible/playbooks` | 10 | 0 | 0 |
@@ -93,7 +87,7 @@ explica; la decision es de una persona.
 | `results/ablacion` | 4 | 0 | 0 |
 | `scripts/analysis` | 4 | 0 | 0 |
 | `configs/suricata` | 3 | 0 | 0 |
-| `docs/fase02-features-multicapa` | 2 | 0 | 1 |
+| `docs/fase02-features-multicapa` | 3 | 0 | 0 |
 | `ansible/inventories` | 2 | 0 | 0 |
 | `configs/features` | 2 | 0 | 0 |
 | `configs/time` | 2 | 0 | 0 |
@@ -101,8 +95,8 @@ explica; la decision es de una persona.
 | `docs/07-mejoras-futuras` | 2 | 0 | 0 |
 | `docs/agent-context` | 1 | 0 | 1 |
 | `docs/articulo` | 2 | 0 | 0 |
-| `docs/fase05-motor-tiempo-real` | 1 | 0 | 1 |
-| `docs/fase06-dashboard` | 1 | 0 | 1 |
+| `docs/fase05-motor-tiempo-real` | 2 | 0 | 0 |
+| `docs/fase06-dashboard` | 2 | 0 | 0 |
 | `docs/fase07-validacion-final` | 2 | 0 | 0 |
 | `mcp-servers/mendeley` | 2 | 0 | 0 |
 | `results/f6` | 2 | 0 | 0 |
