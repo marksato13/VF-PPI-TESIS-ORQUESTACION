@@ -320,7 +320,11 @@ def main() -> int:
     hoy = date.today().isoformat()
     csv_p = SALIDA / f"inventario-{hoy}.csv"
     with csv_p.open("w", newline="", encoding="utf-8") as fh:
-        w = csv.DictWriter(fh, fieldnames=list(filas[0].keys()))
+        # lineterminator explicito: csv.DictWriter usa \r\n por defecto, y un
+        # CSV versionado con CRLF hace que `git diff --check` marque cada linea
+        # y que cada regeneracion produzca un diff sucio.
+        w = csv.DictWriter(fh, fieldnames=list(filas[0].keys()),
+                           lineterminator="\n")
         w.writeheader()
         w.writerows(filas)
 

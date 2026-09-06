@@ -26,12 +26,12 @@ explica; la decision es de una persona.
 | `.agent/RESULTADO-ULTIMA-EJECUCION.md` | cita 1 documento(s) inexistente(s): plan-de-validacion.md | 2026-09-02 |
 | `.agent/TASK-ACTUAL.md` | cita 1 documento(s) inexistente(s): 07-plan-de-validacion/plan-de-validacion.md | 2026-09-02 |
 | `docs/entregables/08-validacion-usuarios/README.md` | cita 1 documento(s) inexistente(s): resultados-sus.md | 2026-09-02 |
-| `docs/fase01-diseno-experimental/18-congelamiento-protocolo-R04-R05.md` | cita 2 documento(s) inexistente(s): 03-protocolo-modelado-F1-v2.md | 2026-08-18 |
+| `docs/fase01-diseno-experimental/18-congelamiento-protocolo-R04-R05.md` | cita 2 documento(s) inexistente(s): ../F4-modelado/03-protocolo-modelado-F1-v2.md | 2026-08-18 |
 | `docs/fase01-diseno-experimental/README.md` | cita 1 documento(s) inexistente(s): ../F4-modelado/03-protocolo-modelado-F1-v2.md | 2026-08-18 |
 | `docs/fase02-features-multicapa/01-diccionario-multicapa-G5.md` | cita 1 documento(s) inexistente(s): 03-protocolo-modelado-F1-v2.md | 2026-08-18 |
 | `docs/fase04-modelado/06-modelo-final-congelado-ocsvm.md` | cita 2 documento(s) inexistente(s): 07-resultado-calibracion-multilayer-v2-v1.md | 2026-09-02 |
 | `docs/fase05-motor-tiempo-real/01-diseno-motor-tiempo-real.md` | cita 1 documento(s) inexistente(s): 08-modelo-final-congelado-ocsvm.md | 2026-08-18 |
-| `docs/fase06-dashboard/01-diseno-dashboard-motor.md` | cita 2 documento(s) inexistente(s): 09-diseno-motor-tiempo-real.md | 2026-08-18 |
+| `docs/fase06-dashboard/01-diseno-dashboard-motor.md` | cita 2 documento(s) inexistente(s): 08-modelo-final-congelado-ocsvm.md | 2026-08-18 |
 
 ---
 
