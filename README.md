@@ -12,6 +12,13 @@ Unión).
 
 ---
 
+## Procedimiento de las fases
+
+[`fases/PROCEDIMIENTO.md`](fases/PROCEDIMIENTO.md) responde, por fase: qué se
+hizo, con qué comando y qué artefacto verificable produjo. Incluye la
+correspondencia entre la numeración de este repositorio y la del producto,
+que **no coinciden**.
+
 ## Qué es y qué no es este repositorio
 
 **Es** la capa que conecta requisito → fase → decisión → prueba → evidencia →

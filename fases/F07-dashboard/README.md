@@ -26,6 +26,11 @@ identificable— **y además**:
 - Fuente de cada dato declarada
 - Solo lectura, sin acciones
 
+## Procedimiento
+
+Qué se hizo, con qué comando y qué artefacto verificable produjo:
+[`../PROCEDIMIENTO.md`](../PROCEDIMIENTO.md#f07-dashboard).
+
 ## Evidencia
 
 | Artefacto | Estado | Hash o ruta |

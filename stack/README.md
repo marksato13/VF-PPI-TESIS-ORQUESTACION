@@ -100,7 +100,31 @@ levanta nada**. Todo escucha solo en `127.0.0.1`.
 
 ---
 
-## Hermes Agent
+## Hermes Agent — instalado, NO utilizable
+
+> **5 de septiembre de 2026 · no se usa en este proyecto.** Está todo cableado
+> y verificado, pero Anthropic responde:
+>
+> ```
+> HTTP 400: Third-party apps now draw from your extra usage,
+> not your plan limits.
+> ```
+>
+> **Una suscripción de Claude Pro o Max no cubre a Hermes.** Las aplicaciones
+> de terceros consumen de un saldo aparte que se compra. Los artículos que
+> describen lo contrario son anteriores a ese cambio.
+>
+> El fallo es comercial, no técnico: `auth logged in`, `model
+> claude-sonnet-5`, `mcp ppi-trace` conectado en 182 ms. Hermes llegó hasta
+> Anthropic y Anthropic contestó.
+>
+> Alternativas sin verificar: comprar saldo en `claude.ai/settings/usage`,
+> probar `hermes auth add openai-codex --type oauth` —hay credenciales en
+> `~/.codex/auth.json`—, u OpenRouter de prepago.
+>
+> **El proyecto trabaja con Claude, sus subagentes y las habilidades de
+> `agent-skills/`.** Esto queda documentado, no borrado, para no repetir el
+> camino.
 
 Instalado el 5 de septiembre de 2026 a petición expresa del usuario.
 

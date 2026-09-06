@@ -26,6 +26,11 @@ identificable— **y además**:
 - Observabilidad declarada por variable
 - Coste online estimado
 
+## Procedimiento
+
+Qué se hizo, con qué comando y qué artefacto verificable produjo:
+[`../PROCEDIMIENTO.md`](../PROCEDIMIENTO.md#f03-contrato-de-variables).
+
 ## Evidencia
 
 | Artefacto | Estado | Hash o ruta |

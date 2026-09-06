@@ -28,6 +28,11 @@ identificable— **y además**:
 - Significancia entre modelos
 - **Selección posterior declarada**
 
+## Procedimiento
+
+Qué se hizo, con qué comando y qué artefacto verificable produjo:
+[`../PROCEDIMIENTO.md`](../PROCEDIMIENTO.md#f05-modelado).
+
 ## Evidencia
 
 | Artefacto | Estado | Hash o ruta |

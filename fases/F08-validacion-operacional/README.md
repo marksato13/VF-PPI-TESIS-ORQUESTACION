@@ -27,6 +27,11 @@ identificable— **y además**:
 - Prueba de aislamiento
 - **Validación con usuarios**
 
+## Procedimiento
+
+Qué se hizo, con qué comando y qué artefacto verificable produjo:
+[`../PROCEDIMIENTO.md`](../PROCEDIMIENTO.md#f08-validación-operacional).
+
 ## Evidencia
 
 | Artefacto | Estado | Hash o ruta |

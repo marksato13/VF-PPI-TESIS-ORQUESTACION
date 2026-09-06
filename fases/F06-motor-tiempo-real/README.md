@@ -28,6 +28,11 @@ identificable— **y además**:
 - Prueba de recuperación
 - Límites de carga declarados
 
+## Procedimiento
+
+Qué se hizo, con qué comando y qué artefacto verificable produjo:
+[`../PROCEDIMIENTO.md`](../PROCEDIMIENTO.md#f06-motor-en-tiempo-real).
+
 ## Evidencia
 
 | Artefacto | Estado | Hash o ruta |

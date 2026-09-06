@@ -27,6 +27,11 @@ identificable— **y además**:
 - `no_episode_split = true`
 - SHA-256 publicado
 
+## Procedimiento
+
+Qué se hizo, con qué comando y qué artefacto verificable produjo:
+[`../PROCEDIMIENTO.md`](../PROCEDIMIENTO.md#f04-dataset).
+
 ## Evidencia
 
 | Artefacto | Estado | Hash o ruta |
