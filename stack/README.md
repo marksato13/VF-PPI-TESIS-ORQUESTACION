@@ -100,12 +100,79 @@ levanta nada**. Todo escucha solo en `127.0.0.1`.
 
 ---
 
+## Hermes Agent
+
+Instalado el 5 de septiembre de 2026 a petición expresa del usuario.
+
+```
+hermes --version
+  Hermes Agent v0.19.0 (2026.7.20)
+  Python: 3.13.15 · OpenAI SDK: 2.24.0
+  /home/m4rk/.local/share/pipx/venvs/hermes-agent
+```
+
+Binarios: `hermes`, `hermes-acp`, `hermes-agent` en `~/.local/bin`.
+
+### Por qué hizo falta un Python aparte
+
+Hermes exige `>=3.11,<3.14` y Ubuntu 26.04 trae **3.14.4**, que queda excluido.
+El repositorio de Ubuntu **no tiene** `python3.12` ni `python3.13`, así que
+`pipx` habría rechazado el paquete por incompatible.
+
+La vía fue `uv`, que descarga un Python autónomo a `~/.local` sin `sudo` y sin
+tocar el sistema:
+
+```bash
+pipx install uv
+uv python install 3.13
+pipx install hermes-agent \
+  --python "$HOME/.local/share/uv/python/cpython-3.13-linux-x86_64-gnu/bin/python3.13"
+```
+
+Verificado tras instalar: el Python del sistema **no** ve el paquete; vive solo
+en su venv de pipx. `uv` ya figuraba en el plan original, no es una pieza
+añadida para esto.
+
+### La versión de npm no sirve
+
+`npm install hermes-agent` trae un **puente no oficial** de un tercero
+(`wyrtensi/hermes-agent-npm`), no el producto. El oficial es el de PyPI, de
+**Nous Research**. Y `herdr`, el otro componente que nombraba el plan, es en
+npm un **nombre reservado en versión 0.0.0**: no hay software que instalar.
+
+### Límites de uso, y no son de estilo
+
+**Hermes orquesta; no toca artefactos ni cifras.** Se describe a sí mismo como
+*self-improving — creates skills from experience, improves them during use*.
+Un componente que cambia entre ejecuciones por diseño **no es reproducible**, y
+esta tesis defiende exactamente lo contrario: un modelo congelado con hash
+verificable. Si participa en producir un resultado, ese resultado deja de ser
+defendible ante el jurado.
+
+Reparto que sí se sostiene: Hermes planifica y lleva estados · Codex implementa
+· Claude audita. Ninguno decide lo que dice `metricas_offline.txt`.
+
+**La clave de API nunca va a un archivo versionado.** Hermes trae `openai` como
+dependencia dura y pedirá una. Va en `stack/.env` o en `hermes secrets`.
+`ppi-secrets` la detectaría y bloquearía el commit, pero es mejor no llegar
+ahí: si una clave llega a un commit publicado, borrarla no basta — hay que
+rotarla.
+
+**Usar `--safe-mode`, no `--yolo`.** Hermes trae subcomandos que van mucho más
+allá de orquestar una tesis —`computer-use`, `whatsapp`, `cron`, `serve`,
+`gateway`—. Ninguno hace falta aquí.
+
+Sin configurar no hace nada: `hermes setup` es el asistente y `hermes model`
+elige proveedor y modelo.
+
+---
+
 ## Lo que NO está aquí, y por qué
 
 | Componente | Motivo |
 |---|---|
-| **Hermes Agent**, **Herdr** | No pude verificar que existan como producto instalable. No escribo un instalador para algo que no puedo comprobar |
-| **OpenCode** | El registro de npm es inalcanzable desde esta VM (`registry.npmjs.org` no resuelve; `download.docker.com` sí) |
+| **Herdr** | Verificado el 5 sep 2026: en npm es un **nombre reservado en versión 0.0.0**, sin software. No hay nada que instalar |
+| **OpenCode** | Existe y está muy activo (`opencode-ai`, MIT). No instalado: nadie lo ha pedido todavía, y un servicio sin usuario es deuda |
 | **Tailscale** | Necesita cuenta y clave de autenticación del usuario. VM01 ya tiene RustDesk |
 | **JupyterLab** | El propio plan dice que ningún resultado nace en un notebook. Añadirlo sería contradecirlo |
 | **Cloudflare Quick Tunnel** | La URL cambia y no tiene garantía. No es infraestructura |
