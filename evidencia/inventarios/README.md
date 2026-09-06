@@ -1,9 +1,9 @@
 # Inventario del producto
 
-**2026-09-05** · 639 archivos versionados de `vf-sistema-final`
+**2026-09-06** · 639 archivos versionados de `vf-sistema-final`
 
 Generado por `stack/bin/ppi-inventario` desde el repositorio, no
-redactado a mano. Datos completos en [`inventario-2026-09-05.csv`](inventario-2026-09-05.csv).
+redactado a mano. Datos completos en [`inventario-2026-09-06.csv`](inventario-2026-09-06.csv).
 
 **No se ha borrado ni movido nada.** Este documento clasifica y
 explica; la decision es de una persona.
@@ -68,6 +68,7 @@ explica; la decision es de una persona.
 | `docs/fase04-modelado` | 11 | 0 | 0 |
 | `.agents/skills` | 10 | 0 | 0 |
 | `.claude/skills` | 10 | 0 | 0 |
+| `agent-skills` | 10 | 0 | 0 |
 | `ansible/playbooks` | 10 | 0 | 0 |
 | `configs/sensor` | 10 | 0 | 0 |
 | `artifacts/model` | 5 | 0 | 4 |
@@ -104,16 +105,6 @@ explica; la decision es de una persona.
 | `scripts/engine` | 2 | 0 | 0 |
 | `scripts/f6` | 2 | 0 | 0 |
 | `.codex` | 1 | 0 | 0 |
-| `agent-skills/ppi-dataset-audit` | 1 | 0 | 0 |
-| `agent-skills/ppi-datasheet-builder` | 1 | 0 | 0 |
-| `agent-skills/ppi-experiment-freezer` | 1 | 0 | 0 |
-| `agent-skills/ppi-feature-contract-review` | 1 | 0 | 0 |
-| `agent-skills/ppi-leakage-validity-audit` | 1 | 0 | 0 |
-| `agent-skills/ppi-model-evaluation` | 1 | 0 | 0 |
-| `agent-skills/ppi-operational-validation` | 1 | 0 | 0 |
-| `agent-skills/ppi-release-readiness` | 1 | 0 | 0 |
-| `agent-skills/ppi-scientific-claim-audit` | 1 | 0 | 0 |
-| `agent-skills/ppi-scientific-figures` | 1 | 0 | 0 |
 | `ansible/scripts` | 1 | 0 | 0 |
 | `configs/storage` | 1 | 0 | 0 |
 | `docs/auditorias` | 1 | 0 | 0 |

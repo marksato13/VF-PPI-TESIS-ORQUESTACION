@@ -280,10 +280,12 @@ def main() -> int:
             cat, razon = "DUPLICADO", f"contenido identico a {gemelos[0]}"
         elif os.path.basename(a).startswith("."):
             cat, razon = "ACTIVO", "archivo de configuracion del repositorio"
-        elif a.startswith("agent-skills/") and a.endswith("SKILL.md"):
+        elif a.endswith("SKILL.md") and (
+                a.startswith("agent-skills/") or "/skills/" in a):
             # El runtime de agentes carga las habilidades por el nombre de su
             # carpeta, no por un enlace Markdown. Nadie las «referencia» y
-            # todas estan vivas.
+            # todas estan vivas. Vale para .claude/skills/, .agents/skills/ y
+            # agent-skills/: la ubicacion real cambio, la naturaleza no.
             cat, razon = "ACTIVO", "habilidad de agente: se carga por carpeta"
         elif suf in CODIGO or suf in BINARIO or a.startswith(CONFIG_DIR):
             cat, razon = "ACTIVO", f"codigo, configuracion o artefacto ({suf or 'sin extension'})"
