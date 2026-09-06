@@ -1,0 +1,342 @@
+#!/usr/bin/env python3
+"""Inventario clasificado del repositorio del producto.
+
+Clasifica cada archivo versionado en una de las seis categorias que exige
+PLANIFICACION.md, y para cada uno registra POR QUE. Ninguna categoria se
+asigna por intuicion: todas salen de una senhal comprobable.
+
+    ACTIVO             algo lo referencia, o es codigo o artefacto en uso
+    HISTORICO          es un registro fechado; no se actualiza por disenho
+    DUPLICADO          otro archivo tiene exactamente el mismo contenido
+    DESACTUALIZADO     apunta a rutas que ya no existen
+    NO_VERIFICABLE     afirma sobre artefactos ausentes
+    CANDIDATO_ARCHIVO  nadie lo referencia y no es registro ni codigo
+
+No borra ni mueve nada. Produce un CSV y un resumen para que decida una
+persona. Solo biblioteca estandar.
+"""
+from __future__ import annotations
+
+import csv
+import hashlib
+import os
+import re
+import subprocess
+import sys
+from collections import defaultdict
+from datetime import date
+from pathlib import Path
+
+RAIZ = Path(__file__).resolve().parents[2]
+PRODUCTO = Path(os.environ.get("PPI_PRODUCTO", RAIZ.parent / "vf-sistema-final")).resolve()
+SALIDA = RAIZ / "evidencia" / "inventarios"
+
+# Carpetas cuyo contenido es un registro fechado: se escriben una vez y no se
+# actualizan. Marcarlas como "desactualizadas" seria un error de categoria.
+REGISTROS = ("docs/fase03-dataset/", "docs/revisiones-claude/",
+             "docs/bitacora/", "auditorias/")
+CODIGO = (".py", ".sh", ".yml", ".yaml", ".json", ".service", ".conf",
+          ".sql", ".cfg", ".toml", ".ini", ".txt", ".rules", ".sources",
+          ".sudoers", ".jsonl", ".csv", ".gitkeep", ".cnf", ".repo")
+# Un archivo de configuracion puede ser diminuto y estar perfectamente vigente:
+# un .sudoers de 63 bytes es una regla de seguridad, no un documento vacio.
+CONFIG_DIR = ("configs/", "ansible/", "systemd/", "scripts/")
+BINARIO = (".png", ".jpg", ".pdf", ".docx", ".xlsx", ".pptx", ".joblib",
+           ".pkl", ".gz", ".zip", ".ico", ".svg")
+
+# Solo un enlace Markdown DEBE resolver. Una ruta entre acentos graves puede
+# ser una ruta de ejecucion —/var/log/suricata/eve.json— o el nombre de un
+# archivo citado en prosa. Tratarlas igual inflaba «desactualizado» con falsos
+# positivos: era el error de la primera version de esta herramienta.
+RX_ENLACE = re.compile(r'\]\((?!https?:|mailto:|#)([^)\s]+)')
+RX_MENCION = re.compile(r'`([\w./-]+\.(?:md|py|sh|json|csv|yml|jsonl))`')
+
+
+def git(*args) -> str:
+    return subprocess.run(["git", "-C", str(PRODUCTO), *args],
+                          capture_output=True, text=True).stdout
+
+
+def sha256(p: Path) -> str:
+    h = hashlib.sha256()
+    with p.open("rb") as fh:
+        for b in iter(lambda: fh.read(1 << 20), b""):
+            h.update(b)
+    return h.hexdigest()
+
+
+def fechas_por_archivo() -> dict[str, tuple[str, int]]:
+    """Una sola pasada de git log para los 639 archivos, no 639 llamadas."""
+    salida = git("log", "--pretty=format:@%ad", "--date=short", "--name-only")
+    fecha_actual = ""
+    ultima: dict[str, str] = {}
+    veces: dict[str, int] = defaultdict(int)
+    for linea in salida.splitlines():
+        if linea.startswith("@"):
+            fecha_actual = linea[1:]
+        elif linea.strip():
+            ultima.setdefault(linea, fecha_actual)   # el log va de nuevo a viejo
+            veces[linea] += 1
+    return {k: (v, veces[k]) for k, v in ultima.items()}
+
+
+DEFINICION = {
+    "ACTIVO": "algo lo referencia, o es codigo, configuracion o artefacto en uso",
+    "HISTORICO": "registro fechado; no se actualiza por disenho",
+    "DUPLICADO": "otro archivo tiene exactamente el mismo contenido",
+    "DESACTUALIZADO": "enlaza o cita documentos que ya no existen",
+    "NO_VERIFICABLE": "sin contenido comprobable",
+    "CANDIDATO_ARCHIVO": "nadie lo referencia y no es registro ni codigo",
+}
+
+
+def escribe_resumen(filas, destino: Path, hoy: str, csv_nombre: str) -> None:
+    porc = defaultdict(list)
+    for f in filas:
+        porc[f["categoria"]].append(f)
+    total = len(filas)
+
+    L = [f"# Inventario del producto\n",
+         f"**{hoy}** · {total} archivos versionados de `vf-sistema-final`\n",
+         "Generado por `stack/bin/ppi-inventario` desde el repositorio, no",
+         f"redactado a mano. Datos completos en [`{csv_nombre}`]({csv_nombre}).\n",
+         "**No se ha borrado ni movido nada.** Este documento clasifica y",
+         "explica; la decision es de una persona.\n",
+         "| Categoria | N | Que significa |", "|---|---:|---|"]
+    for c, d in DEFINICION.items():
+        L.append(f"| `{c}` | {len(porc[c])} | {d} |")
+
+    for c in ("DESACTUALIZADO", "DUPLICADO", "NO_VERIFICABLE", "CANDIDATO_ARCHIVO"):
+        if not porc[c]:
+            continue
+        L.append(f"\n---\n\n## {c} ({len(porc[c])})\n")
+        L.append("| Archivo | Motivo | Ultimo commit |")
+        L.append("|---|---|---|")
+        for f in sorted(porc[c], key=lambda x: x["ruta"]):
+            L.append(f"| `{f['ruta']}` | {f['motivo']} | {f['ultimo_commit']} |")
+
+    L.append("\n---\n\n## Lo ACTIVO e HISTORICO, por carpeta\n")
+    carp = defaultdict(lambda: defaultdict(int))
+    for f in filas:
+        d = os.path.dirname(f["ruta"]) or "(raiz)"
+        d = "/".join(d.split("/")[:2])
+        carp[d][f["categoria"]] += 1
+    L.append("| Carpeta | Activo | Historico | Otros |")
+    L.append("|---|---:|---:|---:|")
+    for d in sorted(carp, key=lambda x: -sum(carp[x].values())):
+        a = carp[d].get("ACTIVO", 0); h = carp[d].get("HISTORICO", 0)
+        o = sum(carp[d].values()) - a - h
+        L.append(f"| `{d}` | {a} | {h} | {o} |")
+    destino.write_text("\n".join(L) + "\n", encoding="utf-8")
+
+
+def main() -> int:
+    if not PRODUCTO.exists():
+        print(f"No existe el producto en {PRODUCTO}")
+        return 2
+
+    archivos = [a for a in git("ls-files").split("\n") if a.strip()]
+    print(f"  {len(archivos)} archivos versionados en {PRODUCTO.name}")
+
+    meta = fechas_por_archivo()
+    conjunto = set(archivos)
+
+    # ── quien referencia a quien ────────────────────────────────────────
+    entrantes: dict[str, int] = defaultdict(int)
+    rotos: dict[str, list[str]] = defaultdict(list)
+    muertas: dict[str, list[str]] = defaultdict(list)
+    textos: dict[str, str] = {}
+    # Indice por nombre de archivo: una mencion por nombre suelto se considera
+    # resuelta si ese nombre existe en cualquier parte del repositorio.
+    por_nombre: dict[str, list[str]] = defaultdict(list)
+    for a in archivos:
+        por_nombre[os.path.basename(a)].append(a)
+    directorios = {os.path.dirname(a) for a in archivos if os.path.dirname(a)}
+
+    for a in archivos:
+        if not a.endswith(".md"):
+            continue
+        p = PRODUCTO / a
+        try:
+            t = p.read_text(encoding="utf-8", errors="replace")
+        except OSError:
+            continue
+        textos[a] = t
+        base = os.path.dirname(a)
+        def resolver(c: str):
+            c = c.split("#")[0].strip()
+            if not c:
+                return "vacio", None
+            rel = os.path.normpath(os.path.join(base, c))
+            abs_ = os.path.normpath(c)
+            if rel in conjunto:
+                return "ok", rel
+            if abs_ in conjunto:
+                return "ok", abs_
+            if (PRODUCTO / rel).exists() or (PRODUCTO / abs_).exists():
+                return "ok", None          # existe pero no versionado (p. ej. .gitignore)
+            hom = por_nombre.get(os.path.basename(c), [])
+            if len(hom) == 1:
+                return "por_nombre", hom[0]
+            if hom:
+                return "por_nombre", None   # ambiguo: no se cuenta como referencia
+            return "roto", None
+
+        for c in set(m.group(1) for m in RX_ENLACE.finditer(t)):
+            estado, destino = resolver(c)
+            if estado == "roto":
+                rotos[a].append(c)          # un enlace SI debe resolver
+            elif destino and destino != a:
+                entrantes[destino] += 1
+
+        for c in set(m.group(1) for m in RX_MENCION.finditer(t)):
+            estado, destino = resolver(c)
+            if destino and destino != a:
+                entrantes[destino] += 1
+            elif estado == "roto" and c.endswith(".md"):
+                # Solo los .md: un documento citado que no existe en ninguna
+                # parte es una referencia muerta. Un eve.json o un .pcap
+                # citados en prosa son rutas de ejecucion, no de este
+                # repositorio, y confundirlos fue el error de la v1.
+                muertas[a].append(c)
+
+    # ── citas desde la trazabilidad de ESTE repositorio ─────────────────
+    # Un archivo del producto puede no estar enlazado por ningun documento del
+    # producto y aun asi ser la fuente primaria de una afirmacion cientifica.
+    # Sin esta pasada, 07-metricas-clasificacion... aparecia como huerfano
+    # siendo el respaldo de CLAIM-001.
+    externas: dict[str, int] = defaultdict(int)
+    for f in sorted((RAIZ / "trazabilidad").glob("*")) if (RAIZ / "trazabilidad").exists() else []:
+        if f.suffix not in (".md", ".csv"):
+            continue
+        t = f.read_text(encoding="utf-8", errors="replace")
+        for c in set(re.findall(r"[\w./-]+\.(?:md|py|sh|json|csv|jsonl)", t)):
+            c = os.path.normpath(c)
+            if c in conjunto:
+                externas[c] += 1
+            else:
+                hom = por_nombre.get(os.path.basename(c), [])
+                if len(hom) == 1:
+                    externas[hom[0]] += 1
+        # tambien las rutas de directorio citadas como fuente
+        for d in set(re.findall(r"[\w./-]+/", t)):
+            d = os.path.normpath(d)
+            if d in directorios:
+                for a in archivos:
+                    if os.path.dirname(a) == d:
+                        externas[a] += 1
+
+    # ── duplicados exactos ──────────────────────────────────────────────
+    por_hash: dict[str, list[str]] = defaultdict(list)
+    hashes: dict[str, str] = {}
+    enlaces: dict[str, str] = {}
+    for a in archivos:
+        p = PRODUCTO / a
+        # Un enlace simbolico a un DIRECTORIO no es is_file(). Descartarlo por
+        # eso dejaba 20 entradas fuera del inventario sin decirlo: el total
+        # impreso y el del resumen no cuadraban.
+        if p.is_symlink():
+            enlaces[a] = os.readlink(p)
+            hashes[a] = hashlib.sha256(enlaces[a].encode()).hexdigest()
+            continue
+        if not p.is_file():
+            continue
+        h = sha256(p)
+        hashes[a] = h
+        por_hash[h].append(a)
+
+    # ── clasificacion ───────────────────────────────────────────────────
+    filas = []
+    for a in sorted(archivos):
+        p = PRODUCTO / a
+        if a not in hashes:
+            continue
+        h = hashes[a]
+        fecha, veces = meta.get(a, ("", 0))
+        ent = entrantes.get(a, 0) + externas.get(a, 0)
+        rot = rotos.get(a, [])
+        mue = muertas.get(a, [])
+        gemelos = [x for x in por_hash[h] if x != a]
+        suf = Path(a).suffix.lower()
+        es_registro = a.startswith(REGISTROS)
+
+        if a in enlaces:
+            destino_e = os.path.normpath(os.path.join(os.path.dirname(a), enlaces[a]))
+            vivo = (PRODUCTO / destino_e).exists()
+            cat = "ACTIVO" if vivo else "DESACTUALIZADO"
+            razon = (f"enlace simbolico a {destino_e}" if vivo
+                     else f"enlace simbolico ROTO: {enlaces[a]}")
+            filas.append({
+                "ruta": a, "categoria": cat, "motivo": razon,
+                "bytes": 0, "sha256": h,
+                "ultimo_commit": meta.get(a, ("", 0))[0],
+                "commits": meta.get(a, ("", 0))[1],
+                "referencias_entrantes": 0, "citada_por_trazabilidad": 0,
+                "enlaces_rotos": 0, "menciones_muertas": 0, "duplicado_de": "",
+            })
+            continue
+
+        if gemelos:
+            cat, razon = "DUPLICADO", f"contenido identico a {gemelos[0]}"
+        elif os.path.basename(a).startswith("."):
+            cat, razon = "ACTIVO", "archivo de configuracion del repositorio"
+        elif a.startswith("agent-skills/") and a.endswith("SKILL.md"):
+            # El runtime de agentes carga las habilidades por el nombre de su
+            # carpeta, no por un enlace Markdown. Nadie las «referencia» y
+            # todas estan vivas.
+            cat, razon = "ACTIVO", "habilidad de agente: se carga por carpeta"
+        elif suf in CODIGO or suf in BINARIO or a.startswith(CONFIG_DIR):
+            cat, razon = "ACTIVO", f"codigo, configuracion o artefacto ({suf or 'sin extension'})"
+        elif es_registro:
+            cat, razon = "HISTORICO", "registro fechado: no se actualiza por disenho"
+        elif rot:
+            cat = "DESACTUALIZADO"
+            razon = f"{len(rot)} enlace(s) que no resuelven: {rot[0]}"
+        elif mue:
+            cat = "DESACTUALIZADO"
+            razon = f"cita {len(mue)} documento(s) inexistente(s): {mue[0]}"
+        elif ent > 0:
+            cat, razon = "ACTIVO", f"referenciado por {ent} documento(s)"
+        elif Path(a).name.upper().startswith("README"):
+            cat, razon = "ACTIVO", "indice de su carpeta"
+        elif p.stat().st_size < 200:
+            cat, razon = "NO_VERIFICABLE", f"solo {p.stat().st_size} bytes: sin contenido comprobable"
+        else:
+            cat, razon = "CANDIDATO_ARCHIVO", "ningun documento lo referencia"
+
+        filas.append({
+            "ruta": a, "categoria": cat, "motivo": razon,
+            "bytes": p.stat().st_size, "sha256": h,
+            "ultimo_commit": fecha, "commits": veces,
+            "referencias_entrantes": ent,
+            "citada_por_trazabilidad": externas.get(a, 0),
+            "enlaces_rotos": len(rot),
+            "menciones_muertas": len(mue),
+            "duplicado_de": gemelos[0] if gemelos else "",
+        })
+
+    # ── salida ──────────────────────────────────────────────────────────
+    SALIDA.mkdir(parents=True, exist_ok=True)
+    hoy = date.today().isoformat()
+    csv_p = SALIDA / f"inventario-{hoy}.csv"
+    with csv_p.open("w", newline="", encoding="utf-8") as fh:
+        w = csv.DictWriter(fh, fieldnames=list(filas[0].keys()))
+        w.writeheader()
+        w.writerows(filas)
+
+    # ── resumen legible, generado del mismo CSV ────────────────────────
+    escribe_resumen(filas, SALIDA / "README.md", hoy, csv_p.name)
+
+    cuenta: dict[str, int] = defaultdict(int)
+    for f in filas:
+        cuenta[f["categoria"]] += 1
+    print()
+    for c in ("ACTIVO", "HISTORICO", "DUPLICADO", "DESACTUALIZADO",
+              "NO_VERIFICABLE", "CANDIDATO_ARCHIVO"):
+        print(f"  {c:<20} {cuenta[c]:>4}")
+    print(f"\n  -> {csv_p.relative_to(RAIZ)}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
