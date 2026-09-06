@@ -1,0 +1,244 @@
+#!/usr/bin/env python3
+"""Servidor MCP que expone la trazabilidad del PPI a otro agente.
+
+Habla MCP 2024-11-05 por stdio con la biblioteca estandar: no necesita el
+paquete `mcp` ni ningun otro. Asi funciona con el Python del sistema, con el
+de Hermes o con cualquier otro, sin instalar nada.
+
+Devuelve JSON estructurado, no el texto coloreado de `ppi-trace`. Un agente
+necesita datos, no una tabla bonita.
+
+REGLA CRITICA: nada puede escribir en stdout salvo JSON-RPC. Un solo print
+fuera de protocolo rompe la sesion entera. Los diagnosticos van a stderr.
+"""
+from __future__ import annotations
+
+import json
+import os
+import sqlite3
+import subprocess
+import sys
+from pathlib import Path
+
+RAIZ = Path(__file__).resolve().parents[2]
+BASE = Path(os.environ.get("PPI_DB", RAIZ / "stack" / "var" / "trazabilidad.db"))
+TRACE = RAIZ / "stack" / "bin" / "ppi-trace"
+PRODUCTO = Path(os.environ.get("PPI_PRODUCTO", RAIZ.parent / "vf-sistema-final"))
+PROTOCOLO = "2024-11-05"
+
+
+def log(*a) -> None:
+    print(*a, file=sys.stderr, flush=True)
+
+
+def asegura_indice() -> None:
+    """Si no hay base, la construye. La salida se captura: jamas a stdout."""
+    if BASE.exists():
+        return
+    log("ppi-trace-mcp: no hay indice, reconstruyendo…")
+    subprocess.run([sys.executable, str(TRACE), "ingest"],
+                   capture_output=True, text=True, timeout=180)
+
+
+def cx() -> sqlite3.Connection:
+    asegura_indice()
+    c = sqlite3.connect(f"file:{BASE}?mode=ro", uri=True)
+    c.row_factory = sqlite3.Row
+    return c
+
+
+def filas(sql: str, *p) -> list[dict]:
+    with cx() as c:
+        return [dict(r) for r in c.execute(sql, p)]
+
+
+# ─── implementacion de cada herramienta ──────────────────────────────────────
+def t_cifra(valor: str) -> dict:
+    r = filas(
+        "SELECT DISTINCT c.claim, c.crudo, k.texto, k.estado, k.fuente "
+        "FROM cifra c JOIN claim k ON k.id=c.claim "
+        "WHERE c.crudo LIKE ? OR c.valor LIKE ? ORDER BY c.claim",
+        f"%{valor}%", f"%{valor}%")
+    for x in r:
+        x["fuente_existe"] = bool(x["fuente"]) and (PRODUCTO / x["fuente"]).exists()
+        x["requisitos"] = [y["requisito"] for y in filas(
+            "SELECT DISTINCT requisito FROM enlace WHERE claim=?", x["claim"])]
+    if not r:
+        return {"encontrado": False, "valor": valor, "afirmaciones": [],
+                "aviso": "Ninguna afirmacion registrada contiene esa cifra. "
+                         "Si aparece en un documento, o falta registrarla o el "
+                         "documento la inventa."}
+    return {"encontrado": True, "valor": valor, "afirmaciones": r}
+
+
+def t_requisito(id_: str) -> dict:
+    r = filas("SELECT * FROM requisito WHERE id=?", id_.upper())
+    if not r:
+        return {"encontrado": False, "id": id_}
+    d = r[0]
+    d["sostenido_por"] = filas(
+        "SELECT e.claim, e.fuente, k.texto, k.estado FROM enlace e "
+        "LEFT JOIN claim k ON k.id=e.claim WHERE e.requisito=?", d["id"])
+    return {"encontrado": True, **d}
+
+
+def t_afirmacion(id_: str) -> dict:
+    r = filas("SELECT * FROM claim WHERE id=?", id_.upper())
+    if not r:
+        return {"encontrado": False, "id": id_}
+    d = r[0]
+    d["fuente_existe"] = bool(d["fuente"]) and (PRODUCTO / d["fuente"]).exists()
+    d["requisitos"] = filas(
+        "SELECT DISTINCT r.id, r.texto FROM enlace e JOIN requisito r "
+        "ON r.id=e.requisito WHERE e.claim=?", d["id"])
+    d["cifras"] = [x["crudo"] for x in filas(
+        "SELECT DISTINCT crudo FROM cifra WHERE claim=?", d["id"])]
+    return {"encontrado": True, **d}
+
+
+def t_estado() -> dict:
+    return {
+        "requisitos": filas("SELECT estado, COUNT(*) n FROM requisito GROUP BY estado"),
+        "afirmaciones": filas("SELECT estado, COUNT(*) n FROM claim GROUP BY estado"),
+        "refutadas": [x["id"] for x in filas(
+            "SELECT id FROM claim WHERE estado='REFUTADO'")],
+        "nota": "Una afirmacion REFUTADA no es un error: es honestidad medida. "
+                "No debe citarse como logro.",
+    }
+
+
+def t_pendientes() -> dict:
+    r = filas("SELECT id,texto,estado,responsable,compromiso FROM requisito "
+              "WHERE estado <> 'cumplido' ORDER BY "
+              "CASE WHEN compromiso='' THEN 1 ELSE 0 END, compromiso")
+    return {"pendientes": r, "total": len(r)}
+
+
+def t_verificar() -> dict:
+    faltan = [x for x in filas("SELECT id,fuente FROM claim WHERE fuente<>''")
+              if "/" in x["fuente"] and not (PRODUCTO / x["fuente"]).exists()]
+    huerfanos = filas(
+        "SELECT id,texto FROM requisito WHERE estado LIKE 'cumplido%' AND id NOT IN "
+        "(SELECT requisito FROM enlace WHERE claim<>'')")
+    return {
+        "fuentes_inexistentes": faltan,
+        "cumplidos_sin_claim": huerfanos,
+        "coherente": not faltan,
+    }
+
+
+def t_reindexar() -> dict:
+    p = subprocess.run([sys.executable, str(TRACE), "ingest"],
+                       capture_output=True, text=True, timeout=180)
+    return {"ok": p.returncode == 0, "salida": p.stdout.strip()[-800:]}
+
+
+HERRAMIENTAS = [
+    {"name": "ppi_cifra",
+     "description": "De donde sale una cifra del proyecto. Devuelve las "
+                    "afirmaciones que la contienen, su estado, su fuente "
+                    "primaria y si esa fuente existe hoy en el repositorio. "
+                    "Usalo antes de repetir cualquier numero.",
+     "inputSchema": {"type": "object", "required": ["valor"], "properties": {
+         "valor": {"type": "string",
+                   "description": "La cifra tal como aparece: 88,8 · 4,71 · 143/161"}}},
+     "fn": lambda a: t_cifra(a["valor"])},
+    {"name": "ppi_requisito",
+     "description": "Cadena completa de un requisito de tesis o del jurado: "
+                    "origen, fase, responsable, fecha de compromiso, estado y "
+                    "las afirmaciones que lo sostienen.",
+     "inputSchema": {"type": "object", "required": ["id"], "properties": {
+         "id": {"type": "string", "description": "REQ-001 … REQ-016"}}},
+     "fn": lambda a: t_requisito(a["id"])},
+    {"name": "ppi_afirmacion",
+     "description": "Una afirmacion cientifica con su estado (OBTENIDO, "
+                    "VALIDADO, PLANIFICADO o REFUTADO), su fuente primaria y "
+                    "los requisitos que sostiene.",
+     "inputSchema": {"type": "object", "required": ["id"], "properties": {
+         "id": {"type": "string", "description": "CLAIM-001 … CLAIM-014"}}},
+     "fn": lambda a: t_afirmacion(a["id"])},
+    {"name": "ppi_estado",
+     "description": "Resumen del proyecto: cuantos requisitos y afirmaciones "
+                    "hay en cada estado, y cuales estan refutadas.",
+     "inputSchema": {"type": "object", "properties": {}},
+     "fn": lambda a: t_estado()},
+    {"name": "ppi_pendientes",
+     "description": "Que falta, con responsable y fecha de compromiso, "
+                    "ordenado por fecha. Lo primero que preguntara el jurado.",
+     "inputSchema": {"type": "object", "properties": {}},
+     "fn": lambda a: t_pendientes()},
+    {"name": "ppi_verificar",
+     "description": "Comprueba que lo declarado siga siendo cierto: fuentes "
+                    "primarias que ya no existen y requisitos marcados "
+                    "cumplidos sin ninguna afirmacion que los sostenga.",
+     "inputSchema": {"type": "object", "properties": {}},
+     "fn": lambda a: t_verificar()},
+    {"name": "ppi_reindexar",
+     "description": "Reconstruye el indice desde los archivos versionados. "
+                    "Usalo tras cambiar la trazabilidad. La base no es fuente "
+                    "de verdad: se regenera entera.",
+     "inputSchema": {"type": "object", "properties": {}},
+     "fn": lambda a: t_reindexar()},
+]
+POR_NOMBRE = {h["name"]: h for h in HERRAMIENTAS}
+
+
+# ─── bucle JSON-RPC por stdio ────────────────────────────────────────────────
+def responde(id_, resultado=None, error=None) -> None:
+    m = {"jsonrpc": "2.0", "id": id_}
+    m["error" if error else "result"] = error or resultado
+    sys.stdout.write(json.dumps(m, ensure_ascii=False) + "\n")
+    sys.stdout.flush()
+
+
+def main() -> int:
+    log(f"ppi-trace-mcp listo · base {BASE} · producto {PRODUCTO}")
+    for linea in sys.stdin:
+        linea = linea.strip()
+        if not linea:
+            continue
+        try:
+            m = json.loads(linea)
+        except json.JSONDecodeError:
+            continue
+        metodo, id_ = m.get("method"), m.get("id")
+
+        if metodo == "initialize":
+            responde(id_, {"protocolVersion": PROTOCOLO,
+                           "capabilities": {"tools": {}},
+                           "serverInfo": {"name": "ppi-trace", "version": "1.0.0"}})
+        elif metodo in ("notifications/initialized", "notifications/cancelled"):
+            continue                      # una notificacion no lleva respuesta
+        elif metodo == "tools/list":
+            responde(id_, {"tools": [{k: v for k, v in h.items() if k != "fn"}
+                                     for h in HERRAMIENTAS]})
+        elif metodo == "tools/call":
+            p = m.get("params", {})
+            h = POR_NOMBRE.get(p.get("name"))
+            if not h:
+                responde(id_, error={"code": -32602,
+                                     "message": f"herramienta desconocida: {p.get('name')}"})
+                continue
+            try:
+                r = h["fn"](p.get("arguments") or {})
+                responde(id_, {"content": [{"type": "text",
+                                            "text": json.dumps(r, ensure_ascii=False,
+                                                               indent=2, default=str)}]})
+            except Exception as e:        # un fallo de una herramienta no debe
+                log(f"error en {h['name']}: {e!r}")   # tumbar el servidor
+                responde(id_, {"content": [{"type": "text",
+                                            "text": json.dumps({"error": str(e)},
+                                                               ensure_ascii=False)}],
+                               "isError": True})
+        elif metodo in ("ping",):
+            responde(id_, {})
+        elif id_ is not None:
+            responde(id_, error={"code": -32601, "message": f"metodo no soportado: {metodo}"})
+    return 0
+
+
+if __name__ == "__main__":
+    try:
+        sys.exit(main())
+    except (BrokenPipeError, KeyboardInterrupt):
+        sys.exit(0)

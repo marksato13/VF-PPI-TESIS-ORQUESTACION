@@ -140,6 +140,45 @@ añadida para esto.
 **Nous Research**. Y `herdr`, el otro componente que nombraba el plan, es en
 npm un **nombre reservado en versión 0.0.0**: no hay software que instalar.
 
+### Hermes consulta la trazabilidad por MCP
+
+`stack/bin/ppi-trace-mcp` expone el índice a Hermes como servidor MCP. Siete
+herramientas, todas de solo lectura salvo `ppi_reindexar`, que reconstruye la
+base desde los archivos versionados:
+
+```
+ppi_cifra        de dónde sale un número
+ppi_requisito    cadena completa de un requisito
+ppi_afirmacion   una afirmación y su respaldo
+ppi_estado       resumen del proyecto
+ppi_pendientes   qué falta, con fecha y responsable
+ppi_verificar    ¿sigue siendo cierto lo declarado?
+ppi_reindexar    reconstruye el índice
+```
+
+Registrado con:
+
+```bash
+hermes mcp add ppi-trace --command /usr/bin/python3 \
+  --args ~/…/stack/bin/ppi-trace-mcp
+hermes mcp test ppi-trace     # ✓ Connected · 7 tools
+```
+
+Habla MCP `2024-11-05` por stdio **con biblioteca estándar**: no necesita el
+paquete `mcp` ni ningún otro, así que corre con el Python del sistema, con el
+de Hermes o con cualquier otro. Devuelve JSON estructurado, no el texto
+coloreado de `ppi-trace` — un agente necesita datos, no una tabla bonita.
+
+Regla que el código respeta y conviene no romper: **nada escribe en `stdout`
+salvo JSON-RPC**. Un solo `print` fuera de protocolo rompe la sesión entera;
+los diagnósticos van a `stderr`.
+
+Lo que **no** se conectó, y por qué: `hermes mcp serve` expone diez
+herramientas que resultaron ser todas de mensajería —WhatsApp, Slack,
+Telegram—, incluida `messages_send`, que envía mensajes en nombre del usuario.
+Ninguna toca requisitos, evidencias ni afirmaciones. Se comprobó antes de
+cablear precisamente para esto.
+
 ### Límites de uso, y no son de estilo
 
 **Hermes orquesta; no toca artefactos ni cifras.** Se describe a sí mismo como
