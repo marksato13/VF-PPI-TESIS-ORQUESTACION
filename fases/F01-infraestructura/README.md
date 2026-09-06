@@ -28,6 +28,11 @@ identificable— **y además**:
 - Healthchecks
 - **Evidencia de restauración de backup**
 
+## Procedimiento
+
+Qué se hizo, con qué comando y qué artefacto verificable produjo:
+[`../PROCEDIMIENTO.md`](../PROCEDIMIENTO.md#f01--infraestructura).
+
 ## Evidencia
 
 | Artefacto | Estado | Hash o ruta |

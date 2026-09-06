@@ -29,6 +29,11 @@ identificable— **y además**:
 - Cero drops verificado
 - Ledger con hashes
 
+## Procedimiento
+
+Qué se hizo, con qué comando y qué artefacto verificable produjo:
+[`../PROCEDIMIENTO.md`](../PROCEDIMIENTO.md#f02--diseño-experimental).
+
 ## Evidencia
 
 | Artefacto | Estado | Hash o ruta |

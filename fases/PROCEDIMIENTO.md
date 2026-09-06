@@ -32,6 +32,122 @@ Es la trampa más fácil de este repositorio. `F05` aquí **no** es
 
 ---
 
+## F01 · Infraestructura
+
+**Producto:** `docs/fase00-infraestructura/`
+
+Cinco máquinas virtuales sobre VMware ESXi, tres redes aisladas:
+
+| VM | Función | PPI-MGMT | PPI-LAN | PPI-DMZ |
+|---|---|---|---|---|
+| VM01 | Administración y agentes | `10.10.10.10` | — | — |
+| VM02 | Sensor, router, Suricata, motor | `10.10.10.20` | `10.20.0.1` | `10.30.0.1` |
+| VM03 | Servidor protegido | `10.10.10.30` | — | `10.30.0.10` |
+| VM04 | Kali, ataques controlados | `10.10.10.40` | `10.20.0.100` | — |
+| VM05 | Cliente legítimo | `10.10.10.50` | `10.20.0.20` | — |
+
+Todo el tráfico entre Cliente/Kali y el Servidor **cruza el Sensor**, que tiene
+`ip_forward=1` y política de reenvío con nftables.
+
+Se despliega con Ansible, en este orden:
+
+```
+ansible/playbooks/00-validar-controlador.yml
+                  01-comprobar-conectividad.yml
+                  02-auditar-recursos.yml
+                  03-configurar-servicios-servidor.yml
+                  04-configurar-cliente-f1.yml
+                  05-ajustar-captura-suricata.yml
+```
+
+Acceso por la cuenta técnica `useransible` con claves Ed25519. **Sin sudo
+general**: en VM02–VM05 solo puede ejecutar el reinicio exacto
+`/usr/bin/systemctl reboot --no-wall`, y en el Sensor tres helpers versionados
+—`ppi-suricata-metrics`, `ppi-pcap-control` y `ppi-enforce`—. La prueba
+negativa con `/usr/bin/id` **falla en las cuatro VMs**, que es lo que se
+quería.
+
+VM01 tiene un segundo disco de 150 GiB montado por UUID en `/srv/ppi-evidence`,
+con `nosuid,nodev,noexec`. Sobrevivió a un reinicio con el mismo UUID.
+Auditable con `scripts/storage/audit_evidence_disk.py`.
+
+**El riesgo que se encontró y se cerró:** las NIC externas de `172.17.25.0/24`
+permitían **saltarse el Sensor**. No era hipotético — VM01 alcanzó el TCP/22
+del Servidor por `172.17.25.112` sin cruzarlo. Durante campañas oficiales,
+esas NIC deben estar desconectadas en ESXi en VM02–VM05.
+
+---
+
+## F02 · Diseño experimental
+
+**Producto:** `docs/fase01-diseno-experimental/` — 19 documentos.
+
+Nada se ejecuta a mano. El orquestador está en `scripts/campaign/`:
+
+```
+start.sh · stop.sh          arranque y cierre de campaña
+run-f1.sh                   tráfico benigno desde el Cliente
+run-f1-kali.sh              tráfico anómalo desde Kali
+sample-sensor.sh            serie temporal del Sensor
+archive-failed-attempt.sh   archiva un intento fallido SIN borrarlo
+common.sh                   preflight y gates compartidos
+```
+
+Cada campaña produce manifiesto, inventario, contadores, serie temporal del
+Sensor, segmento EVE y hashes.
+
+### Los techos de carga están en el código, no en un documento
+
+`scripts/f1/run-benign.sh` **rechaza** cualquier valor fuera de su lista
+blanca. No es una recomendación escrita: es una condición que aborta:
+
+```
+TCP     10M · 25M · 50M · 100M · 200M      máximo 200 Mbit/s
+UDP     1M · 10M · 25M · 50M               máximo  50 Mbit/s
+HTTP    2M · 5M · 10M · 20M bytes/s        máximo  20 MB/s
+tamaño  10MB · 100MB · 500MB · 1GB
+```
+
+Y hay un control adicional que un simple techo no daría: un presupuesto
+conjunto de `1459200000` bytes, porque una combinación de valores
+individualmente válidos —200M durante 600 s— sí sería excesiva.
+
+Existe por una razón medida: una prueba iperf3 **sin** pacing alcanzó
+2,58 Gbit/s y produjo **389.932 descartes**. Está excluida del dataset.
+
+### Gates G0–G7
+
+La progresión de comprobaciones antes de dar por buena una campaña. Los que
+dejaron documento propio:
+
+- **G0** línea base y auditoría inicial
+- **G2** calibración de carga, TCP/UDP y HTTP/HTTPS
+- **G3** validación del orquestador — `CAL-F1-DNS-003`: 6 paquetes, cero
+  descartes, 7 registros EVE exactos y 7 muestras del Sensor
+- **G4** captura PCAP por campaña, con `ppi-pcap-control`. En
+  `CAL-G4-HTTP-001`, **7.242 de 8.484 paquetes IPv4 (85,36 %)** midieron entre
+  500 y 1500 bytes, cero descartes y SHA remoto y local coincidentes
+- **G5** contrato de variables (pasa a F03)
+- **G7** aislamiento, persistencia y NTP interno
+
+**Un fallo real y cómo se resolvió:** el preflight de `HTTP-C8/R01` se detuvo
+sin crear artefactos porque el Sensor perdió `NTPSynchronized=yes` tras unas
+18 horas sin alcanzar sus fuentes públicas por la NIC aislada. Se montó la
+jerarquía VM01 → Sensor → VM03–VM05; `prefer require` —sin `trust`— resolvió
+la espera. Tres gates consecutivos pasaron con desfases por debajo de 100 ms.
+
+### Nada se borra
+
+`17-archivado-intentos-fallidos.md` fija la regla. El intento rechazado
+`F1N-HTTP-C8-R01` se archivó como `attempt-01` **sin eliminarlo**, con los
+hashes del manifiesto, el ledger y ambos PCAP verificados de nuevo. El
+reintento reutiliza el identificador canónico y vuelve a pasar todos los gates.
+
+Esa misma disciplina explica que en F08 exista
+`f6_resultados.pass1-contaminado.jsonl`: un pase descartado que se conserva.
+
+---
+
 ## F03 · Contrato de variables
 
 **Producto:** `docs/fase02-features-multicapa/`
