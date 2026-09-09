@@ -1,0 +1,140 @@
+#!/usr/bin/env python3
+"""Subraya frases dentro de un PDF y dice cuales NO encontro.
+
+    ppi-subrayar articulo.pdf "primera frase" "segunda frase"
+    ppi-subrayar articulo.pdf --desde frases.txt -o salida.pdf
+    ppi-subrayar articulo.pdf --desde frases.txt --color amarillo
+
+Lo importante no es lo que subraya, sino lo que informa cuando NO encuentra
+una frase. Un subrayador que falla en silencio hace creer que el texto decia
+algo que no dice.
+
+Necesita PyMuPDF. Si el interprete actual no lo tiene, busca uno que si.
+"""
+from __future__ import annotations
+
+import argparse
+import os
+import re
+import sys
+from pathlib import Path
+
+# ─── localizar un Python con PyMuPDF ─────────────────────────────────────────
+try:
+    import pymupdf                                   # noqa: F401
+except ImportError:                                  # pragma: no cover
+    import subprocess
+    for cand in (Path.home() / ".local/share/ppi-pdf/bin/python",
+                 Path.home() / ".local/bin/python3.13"):
+        if cand.exists():
+            try:
+                subprocess.run([str(cand), "-c", "import pymupdf"], check=True,
+                               capture_output=True)
+            except Exception:
+                continue
+            os.execv(str(cand), [str(cand), __file__, *sys.argv[1:]])
+    sys.exit("Falta PyMuPDF. Instalalo con:\n"
+             "  uv venv ~/.local/share/ppi-pdf --python 3.13\n"
+             "  uv pip install --python ~/.local/share/ppi-pdf/bin/python pymupdf")
+
+import pymupdf
+
+COLORES = {
+    "amarillo": (1, 0.92, 0.23), "verde": (0.55, 0.9, 0.55),
+    "azul": (0.55, 0.78, 1), "rosa": (1, 0.65, 0.8),
+    "naranja": (1, 0.75, 0.35),
+}
+
+_ESP = re.compile(r"\s+")
+
+
+def normaliza(t: str) -> str:
+    return _ESP.sub(" ", t).strip()
+
+
+def busca(pagina, frase: str):
+    """Busca una frase tolerando saltos de linea y guiones de corte.
+
+    Un PDF a dos columnas parte las frases; la busqueda literal falla y
+    haria creer que la frase no esta.
+    """
+    r = pagina.search_for(frase)
+    if r:
+        return r
+    # sin el guion de corte de linea
+    r = pagina.search_for(frase.replace("- ", ""))
+    if r:
+        return r
+    # por trozos: si la frase es larga, subraya el fragmento mas largo hallado
+    palabras = frase.split()
+    for corte in (12, 8, 6):
+        if len(palabras) > corte:
+            r = pagina.search_for(" ".join(palabras[:corte]))
+            if r:
+                return r
+    return []
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(prog="ppi-subrayar", description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("pdf")
+    ap.add_argument("frases", nargs="*", help="frases a subrayar")
+    ap.add_argument("--desde", help="archivo de texto, una frase por linea")
+    ap.add_argument("-o", "--salida", help="PDF de salida (por defecto <nombre>-subrayado.pdf)")
+    ap.add_argument("--color", default="amarillo", choices=list(COLORES))
+    ap.add_argument("--nota", help="comentario adjunto a cada subrayado")
+    a = ap.parse_args()
+
+    ent = Path(a.pdf)
+    if not ent.is_file():
+        return print(f"No existe: {ent}") or 2
+
+    frases = [normaliza(f) for f in a.frases if normaliza(f)]
+    if a.desde:
+        p = Path(a.desde)
+        if not p.is_file():
+            return print(f"No existe: {p}") or 2
+        frases += [normaliza(l) for l in p.read_text(encoding="utf-8").splitlines()
+                   if normaliza(l) and not l.lstrip().startswith("#")]
+    if not frases:
+        return print("No diste ninguna frase.") or 2
+
+    sal = Path(a.salida) if a.salida else ent.with_name(ent.stem + "-subrayado.pdf")
+    doc = pymupdf.open(ent)
+    color = COLORES[a.color]
+
+    hallado: dict[str, list[int]] = {f: [] for f in frases}
+    total = 0
+    for n, pagina in enumerate(doc, 1):
+        for f in frases:
+            for rect in busca(pagina, f):
+                an = pagina.add_highlight_annot(rect)
+                an.set_colors(stroke=color)
+                if a.nota:
+                    an.set_info(content=a.nota)
+                an.update()
+                hallado[f].append(n)
+                total += 1
+
+    doc.save(sal, garbage=3, deflate=True)
+    doc.close()
+
+    ok = [f for f in frases if hallado[f]]
+    no = [f for f in frases if not hallado[f]]
+    print(f"\n{ent.name} -> {sal.name}")
+    print(f"  {len(ok)}/{len(frases)} frases encontradas · {total} subrayados\n")
+    for f in ok:
+        pgs = sorted(set(hallado[f]))
+        print(f"  ✓ p.{','.join(map(str, pgs))}  {f[:64]}")
+    if no:
+        print(f"\n  \033[33mNO encontradas ({len(no)}) — el PDF no dice esto, "
+              f"o lo dice con otras palabras:\033[0m")
+        for f in no:
+            print(f"    ✗ {f[:70]}")
+    print()
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

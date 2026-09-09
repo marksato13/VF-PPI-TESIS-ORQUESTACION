@@ -242,6 +242,44 @@ elige proveedor y modelo.
 
 ---
 
+## Subrayar PDF
+
+```bash
+stack/bin/ppi-subrayar articulo.pdf "una frase" "otra frase"
+stack/bin/ppi-subrayar articulo.pdf --desde frases.txt --color verde
+```
+
+**No se instaló ningún MCP para esto porque no existe uno maduro.**
+`@modelcontextprotocol/server-pdf` solo extrae texto, `pdf-mcp` solo borra
+páginas, y el único con `allow_annotating` va por la versión `0.1.2`. Todos
+envuelven **PyMuPDF**, así que se usa PyMuPDF directamente.
+
+Lo que hace distinto a un subrayador cualquiera: **informa de las frases que
+NO encontró**. Un subrayador que falla en silencio hace creer que el PDF decía
+algo que no dice — y en una tesis eso acaba en una cita falsa.
+
+```
+3/4 frases encontradas · 43 subrayados
+  ✓ p.1,5,6  deep autoencoder
+  NO encontradas (1) — el PDF no dice esto, o lo dice con otras palabras:
+    ✗ esta frase no aparece…
+```
+
+Tolera los cortes de línea y los guiones de un PDF a dos columnas: si buscara
+literal, una frase partida en dos columnas se daría por ausente.
+
+Las anotaciones son reales y quedan incrustadas en el PDF, así que se ven y se
+borran desde cualquier lector.
+
+Necesita PyMuPDF, en un entorno aparte que no toca el Python del sistema:
+
+```bash
+uv venv ~/.local/share/ppi-pdf --python 3.13
+uv pip install --python ~/.local/share/ppi-pdf/bin/python pymupdf
+```
+
+---
+
 ## Copias
 
 ```bash
