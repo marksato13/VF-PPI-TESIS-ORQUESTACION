@@ -320,6 +320,34 @@ propósito: un pase descartado que **no se borró**.
 
 ---
 
+## Las fases NO son las secciones del artículo
+
+Se confunden con facilidad. Las fases organizan **el trabajo**; las
+subsecciones narran ese trabajo **a un revisor**. Diez fases caben en seis
+subsecciones sin perder nada:
+
+| Subsección del artículo | Fases que la alimentan |
+|---|---|
+| 3.1 Testbed and traffic generation | `F01` + `F02` |
+| 3.2 Multi-layer feature extraction | `F03` |
+| 3.3 Dataset construction and labeling | `F04` |
+| 3.4 Detection model and threshold calibration | `F05` |
+| 3.5 Real-time engine and inline enforcement | `F06` + `F07` |
+| 3.6 Evaluation protocol | `F08` |
+
+`F00` gobernanza y `F09` tesis y publicación no tienen subsección: la primera
+es organización interna, y la segunda **es** el artículo.
+
+Las variables van antes que el dataset —3.2 antes de 3.3— porque el extractor
+convierte los paquetes en vectores y **esos vectores son las filas del
+dataset**. Es el orden de `F03` antes de `F04`, y el inverso al de los
+artículos de IJIES, cuyos autores descargan un dataset ya hecho.
+
+Las seis subsecciones, con su justificación y los DOI analizados, están en el
+producto: `docs/articulo/02-estructura-metodologia.md`.
+
+---
+
 ## Cómo verificar todo esto sin fiarse de este documento
 
 ```bash
