@@ -12,6 +12,12 @@ Unión).
 
 ---
 
+## Diagrama de la metodología
+
+[`trazabilidad/diagrama-metodologia.md`](trazabilidad/diagrama-metodologia.md)
+dibuja en Mermaid las seis subsecciones del artículo y de qué fase sale cada
+una. GitHub lo renderiza sin exportar imágenes.
+
 ## Procedimiento de las fases
 
 [`fases/PROCEDIMIENTO.md`](fases/PROCEDIMIENTO.md) responde, por fase: qué se
