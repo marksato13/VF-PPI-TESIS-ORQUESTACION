@@ -1,0 +1,113 @@
+# Estado
+
+**Actualizado:** 17 de septiembre de 2026
+
+---
+
+## En una frase
+
+El sistema está **desplegado y funcionando sobre tráfico real**, en modo
+observación. Lo que bloquea la tesis ya no es técnico: **la red no tiene
+tráfico de usuarios que analizar**.
+
+---
+
+## Qué está en marcha
+
+| Componente | Estado | Evidencia |
+|---|---|---|
+| Espejo SPAN del núcleo hacia el sensor | ✅ validado | `04-evidencias/cyberflow/D-validacion-espejo-2026-09-17.md` |
+| Suricata sobre `ens37`, `eve.json` con tráfico real | ✅ activo | `G-suricata-2026-09-17.md` |
+| Búfer en anillo de PCAP, 240 s | ✅ activo | `I-motor-desplegado-2026-09-17.md` |
+| Motor de decisión (OCSVM), **modo observación** | ✅ activo | ídem |
+| Bloqueo con `nftables` | ⬜ desactivado a propósito | ver decisión pendiente 1 |
+
+**Las etiquetas 802.1Q sobreviven al espejo** y llegan hasta `eve.json`. Eso
+confirma que la variable de distribución por VLAN es viable, que estaba en duda.
+
+---
+
+## Lo que bloquea
+
+### 🔴 1 · No hay tráfico de usuarios
+
+Medido el 17 de septiembre, ventana de 95 s y 1647 paquetes:
+
+| Tipo | Paquetes | % |
+|---|---|---|
+| STP / PVST+ | 470 | 29 % |
+| VRRP / CARP | 441 | 27 % |
+| pfsync | ~511 | 31 % |
+| **Tráfico IP real** | **211** | **13 %** |
+
+**El 87 % es plano de control de los switches y del cortafuegos.** Las VLAN de
+usuarios tienen *exactamente* 96 paquetes cada una: un BPDU por VLAN, no
+tráfico. Los tres switches de acceso no tienen ni una estación conectada.
+
+Una línea base tomada así enseña al modelo que lo normal es el latido de STP y
+CARP. **Sin resolver esto, la recalibración no produce nada utilizable.**
+
+### 🔴 2 · El modelo no es trasladable, y ya está medido
+
+Primeros minutos sobre tráfico real, **sin ningún ataque en curso**:
+
+```
+decisiones : 92 en 7 ventanas
+  ALERT     85    92,4 %
+  PERMIT     7     7,6 %
+```
+
+Las entidades señaladas eran las interfaces de VLAN de pfSense emitiendo CARP.
+**92,4 % de falsos positivos.** Predicho por la metodología, ahora medido — y
+sirve como línea base contra la que medir la mejora de la recalibración.
+
+### 🟡 3 · El entorno congelado no es reproducible en el sensor
+
+`requirements-model.txt` está fijado para CPython 3.14.4; el sensor tiene
+3.12.3, y tres de seis dependencias **no existen** para esa versión
+(`numpy 2.5.1`, `scikit-learn 1.9.0`, `scipy 1.18.0`). El modelo carga con las
+versiones disponibles, pero scikit-learn lo marca como no soportado.
+
+Sirve para ver el sistema en marcha. **No sirve para ninguna cifra publicable.**
+
+---
+
+## Decisiones pendientes
+
+| # | Decisión | Por qué importa |
+|---|---|---|
+| 1 | **¿El bloqueo es demostrativo o corta tráfico real?** | Con un espejo el sensor observa pero no está en el camino. Cambia el alcance de la tesis |
+| 2 | **¿La réplica es para disponibilidad o para rendimiento?** | No se diseña igual |
+| 3 | **¿Cómo se genera el tráfico?** | Es lo que desbloquea todo lo demás |
+| 4 | **¿Montar Python 3.14 o recongelar sobre 3.12?** | Afecta al artefacto ya publicado |
+| 5 | **`tls_handshake_failure_ratio_60s`** | Hacerla observable, retirarla, o documentarla como no observable. Dejarla ambigua, no |
+
+---
+
+## Correcciones al material anterior
+
+Medido el 17 de septiembre, contradice lo documentado antes:
+
+- **La máscara de la VLAN 60 es `/24`**, confirmado contra pfSense
+  (`VLAN60_GESTION -> v4: 10.10.60.2/24`). Estaba documentada como `/24` y `/28`
+  en sitios distintos.
+- **pfSense-B sí emite.** Figuraba como «no responde a nada»; en la VLAN 100
+  transmite 200 paquetes y recibe 281. Puede seguir sin responder a sondeos IP
+  desde la VLAN 10, que es como se midió entonces.
+- **El disco del sensor no estaba ampliado.** El disco virtual sí (40 GB), pero
+  el volumen lógico seguía en 18,5 GB. Corregido a 36,9 GB.
+- **La interfaz de captura pedía DHCP** y había una interfaz `ens38`
+  configurada que no existe. Corregido.
+- **La VLAN 40 se llama SERVICIOS** en pfSense, no FILESERVER. La 70 es
+  TRANSIT_FORTIGATE.
+
+---
+
+## Lo siguiente, por orden
+
+1. Decidir cómo se genera el tráfico *(decisión 3)*
+2. Levantar los servicios que faltan: servidor web, ficheros, base de datos
+3. Tomar una línea base que merezca ese nombre
+4. Recalibrar, y comparar contra el 92,4 %
+5. Diseñar los escenarios de ataque *(datos reales, escenarios controlados)*
+6. Capa 2: las nueve variables, con los ocho pasos de validación

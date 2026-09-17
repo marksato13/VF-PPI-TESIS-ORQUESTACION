@@ -1,0 +1,20 @@
+# Nunca en este repositorio
+*.pcap
+*.pcapng
+eve.json*
+*.joblib
+*.csv.gz
+.env
+*.key
+*.pem
+secrets/
+
+# Locales
+__pycache__/
+.venv/
+.DS_Store
+
+# ── stack ────────────────────────────────────────────────────────────
+stack/.env
+stack/var/*.db
+stack/var/*.db-journal
