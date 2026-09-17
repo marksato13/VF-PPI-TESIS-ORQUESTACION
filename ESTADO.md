@@ -61,14 +61,34 @@ Las entidades señaladas eran las interfaces de VLAN de pfSense emitiendo CARP.
 **92,4 % de falsos positivos.** Predicho por la metodología, ahora medido — y
 sirve como línea base contra la que medir la mejora de la recalibración.
 
-### 🟡 3 · El entorno congelado no es reproducible en el sensor
+### 🟡 3 · El entorno congelado exige Python 3.14.4, y no es negociable
 
-`requirements-model.txt` está fijado para CPython 3.14.4; el sensor tiene
-3.12.3, y tres de seis dependencias **no existen** para esa versión
-(`numpy 2.5.1`, `scikit-learn 1.9.0`, `scipy 1.18.0`). El modelo carga con las
-versiones disponibles, pero scikit-learn lo marca como no soportado.
+El sensor tenía 3.12.3 y tres de las seis dependencias fijadas no existen para
+esa versión. Se intentó recongelar el entorno sobre 3.12 ejecutando el
+protocolo completo, y **hubo que revertirlo**:
 
-Sirve para ver el sistema en marcha. **No sirve para ninguna cifra publicable.**
+| Detector | 3.14 / sklearn 1.9.0 | 3.12 / sklearn 1.7.2 |
+|---|---|---|
+| `ocsvm_scaled` (desplegado) | 158/179 | 158/179 ✅ |
+| **`if_primary_weighted`** | **97/179** | **103/179** ❌ |
+
+Causa medida: en scikit-learn 1.7.2, `IsolationForest.fit` **acepta
+`sample_weight`, no avisa, no falla y lo ignora**. Delta máximo entre ajustar
+con y sin pesos: `0.0000000000`.
+
+El protocolo pondera por `1/filas_por_episodio` para corregir un desbalance
+medido —5 de 132 episodios concentran el 31,7 % de las filas—, y bajo 1.7.2 esa
+corrección no ocurre sin que nada lo indique.
+
+**Resuelto compilando CPython 3.14.4 desde el código fuente en el sensor**
+(deadsnakes solo ofrece 3.14.6, y el guardarraíl exige la versión exacta).
+Evidencia completa en `04-evidencias/cyberflow/J-recongelado-entorno-2026-09-17.md`.
+
+### 🟡 4 · El modelo principal declarado no es el que se ejecuta
+
+El manifiesto declara `if_primary_weighted` como conclusión principal, pero el
+motor despliega `ocsvm_scaled`. Hay que explicarlo en la tesis o alinearlo. No
+es consecuencia de nada reciente: ya estaba así.
 
 ---
 
