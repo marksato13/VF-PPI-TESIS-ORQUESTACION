@@ -263,6 +263,17 @@ el tamaño. `02-fp-ventana-sin-paquetes.md` documenta el tercero.
 un segundo umbral sin calibrar; y el anillo guarda unos 120 s, menos que una
 campaña offline completa.
 
+**Registros por triplicado (2026-09-19).** Cada decisión se escribía en su
+fichero, en el journal y, desde ahí, en `/var/log/syslog`: 86 939 líneas
+duplicadas y 320 MB entre los dos. La unidad pasa a `StandardOutput=null` y
+conserva `StandardError=journal`.
+
+**Privilegio mínimo del operador (2026-09-19).** Se sustituyó `NOPASSWD: ALL`
+por una lista acotada. El operador conserva root con contraseña; lo que
+desaparece es el root desatendido. Fuera a propósito `tcpdump` (su `-z`
+ejecuta programas como root) y todo lo que escribe ficheros. **Consecuencia
+declarada:** desplegar cambios exige contraseña, ya no es automatizable.
+
 **El anillo no era un anillo (2026-09-19).** `tcpdump -G` con un nombre con
 fecha no reutiliza nombres, así que `-W 16` no borra nada: 6707 ficheros y
 403 MB en un día. El motor ya ignoraba los viejos por su `mtime` —la detección
