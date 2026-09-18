@@ -263,6 +263,13 @@ el tamaño. `02-fp-ventana-sin-paquetes.md` documenta el tercero.
 un segundo umbral sin calibrar; y el anillo guarda unos 120 s, menos que una
 campaña offline completa.
 
+**Rotación del registro (2026-09-19).** El registro de decisiones crecía sin
+tope: 16 MB y 54 318 líneas en un día. `logrotate` solo cubría Suricata. Ahora
+el generador escribe `/etc/logrotate.d/cyberflow` (diario, 200 MB, 14 copias).
+Probado en caliente: el motor sigue escribiendo sin señales ni reinicio. El
+histórico anterior queda comprimido, así que la vista de 24 h del panel solo
+cubre desde la última rotación.
+
 **Alcance (2026-09-18).** El motor puntuaba toda IP dentro de un único CIDR.
 En la red de Franco's eso incluía las interfaces VLAN del cortafuegos, que
 emiten un anuncio CARP por segundo: 14 de 23 entidades y el 87,1 % de las

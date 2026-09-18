@@ -118,6 +118,8 @@ Medido el 17 de septiembre, contradice lo documentado antes:
   el volumen lógico seguía en 18,5 GB. Corregido a 36,9 GB.
 - **La interfaz de captura pedía DHCP** y había una interfaz `ens38`
   configurada que no existe. Corregido.
+- **El espejo ya es permanente.** Estaba solo en `running-config` y un reinicio
+  del switch lo borraba; ahora figura en `startup-config`.
 - **La VLAN 40 se llama SERVICIOS** en pfSense, no FILESERVER. La 70 es
   TRANSIT_FORTIGATE.
 
