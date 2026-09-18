@@ -41,15 +41,23 @@ execute-once -> codigo de salida 0
 
 ## 3. El resultado
 
-| Detector | Antes (3.14 / sklearn 1.9.0) | Ahora (3.12 / sklearn 1.7.2) |
-|---|---|---|
-| `ocsvm_scaled` **(desplegado)** | 158/179 | **158/179** ✅ |
-| `elliptic_envelope_scaled` | 49/179 | 49/179 ✅ |
-| `lof_scaled` | 77/179 | 77/179 ✅ |
-| `if_exact_collapsed` | 103/179 | 103/179 ✅ |
-| `if_uniform` | 103/179 | 103/179 ✅ |
-| **`if_primary_weighted`** | **97/179** | **103/179** ❌ |
-| `if_scaled_weighted` | 97/179 | 103/179 ❌ |
+| Detector | Detecciones 3.14 → 3.12 | Umbral | Hash del modelo |
+|---|---|---|---|
+| `ocsvm_scaled` **(desplegado)** | 158 → 158 | igual | distinto |
+| `lof_scaled` | 77 → 77 | igual | distinto |
+| `elliptic_envelope_scaled` | 49 → 49 | **distinto** | distinto |
+| `if_exact_collapsed` | 103 → 103 | **distinto** | distinto |
+| `if_uniform` | 103 → 103 | **distinto** | distinto |
+| **`if_primary_weighted`** | **97 → 103** | **distinto** | distinto |
+| `if_scaled_weighted` | 97 → 103 | **distinto** | distinto |
+
+> **Corrección del 2026-09-18.** La primera versión de esta tabla comparaba solo
+> el número de detecciones y daba por exactos a `elliptic_envelope_scaled`,
+> `if_exact_collapsed` e `if_uniform`. Al automatizar la comprobación con
+> `scripts/analysis/verificar_reproduccion.py` apareció que sus **umbrales
+> también cambian**, aunque el recuento coincida. Solo el OCSVM y el LOF
+> conservan el umbral, y **ningún modelo conserva el hash**. Comparar
+> recuentos no basta.
 
 Los umbrales lo explican:
 
@@ -104,7 +112,7 @@ justificación escrita en el código.
 
 | Para qué | Entorno |
 |---|---|
-| Desplegar y ver el sistema funcionando | 3.12 sirve: el OCSVM reproduce exacto |
+| Desplegar y ver el sistema funcionando | 3.12 sirve: el OCSVM conserva resultado y umbral |
 | Calibrar, reentrenar o publicar una cifra | **3.14.4, sin excepción** |
 
 ## 7. Una tensión que esto sacó a la luz
@@ -125,10 +133,16 @@ sha256sum -c docs/dataset/SHA256SUMS
   sha256sum: WARNING: 2 computed checksums did NOT match
 ```
 
-Causa: al clonar el repositorio en Windows, `core.autocrlf` convirtió los
-finales de línea de LF a CRLF, y esos bytes se publicaron. Los datos no estaban
-alterados, pero **la comprobación de integridad fallaba**, que es exactamente
-lo que ese fichero existe para impedir.
+Causa: los CSV publicados son **CRLF** —el módulo `csv` de Python escribe
+`
+` por defecto— y su hash se calculó sobre esos bytes. Al commitear desde
+Windows, `core.autocrlf` los **normalizó a LF**, y esos bytes se publicaron.
+Los datos no estaban alterados, pero **la comprobación de integridad fallaba**,
+que es exactamente lo que ese fichero existe para impedir.
+
+> **Corrección del 2026-09-18.** La primera versión de este apartado decía que
+> la conversión había sido de LF a CRLF. Es al revés: se comprobó contando los
+> bytes del fichero original, que tiene 1374 retornos de carro, uno por línea.
 
 Corregido restaurando los bytes originales y añadiendo `.gitattributes` para
 que los artefactos publicados no se conviertan en ninguna plataforma.
