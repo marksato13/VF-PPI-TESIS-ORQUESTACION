@@ -263,6 +263,12 @@ el tamaño. `02-fp-ventana-sin-paquetes.md` documenta el tercero.
 un segundo umbral sin calibrar; y el anillo guarda unos 120 s, menos que una
 campaña offline completa.
 
+**El anillo no era un anillo (2026-09-19).** `tcpdump -G` con un nombre con
+fecha no reutiliza nombres, así que `-W 16` no borra nada: 6707 ficheros y
+403 MB en un día. El motor ya ignoraba los viejos por su `mtime` —la detección
+era correcta—, pero el disco crecía sin fin. Se añadió una poda cada 5 min
+(`captura.retener_minutos`). Medido: 404 MB → 8,8 MB, sin afectar al motor.
+
 **Rotación del registro (2026-09-19).** El registro de decisiones crecía sin
 tope: 16 MB y 54 318 líneas en un día. `logrotate` solo cubría Suricata. Ahora
 el generador escribe `/etc/logrotate.d/cyberflow` (diario, 200 MB, 14 copias).
