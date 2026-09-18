@@ -263,9 +263,17 @@ el tamaño. `02-fp-ventana-sin-paquetes.md` documenta el tercero.
 un segundo umbral sin calibrar; y el anillo guarda unos 120 s, menos que una
 campaña offline completa.
 
+**Alcance (2026-09-18).** El motor puntuaba toda IP dentro de un único CIDR.
+En la red de Franco's eso incluía las interfaces VLAN del cortafuegos, que
+emiten un anuncio CARP por segundo: 14 de 23 entidades y el 87,1 % de las
+decisiones. Se añadieron `--excluir-protocolos` (112 VRRP/CARP, 240 pfsync,
+descartados antes de atribuir el flujo) y `--excluir` (redes que no se
+puntúan). Medido tras el cambio: 5 entidades y 47,0 % de ALERT. **Es una
+decisión de alcance y debe declararse en la tesis.**
+
 | Artefacto | SHA-256 |
 |---|---|
-| `scripts/engine/motor_decision.py` | `b46333b04b75…` |
+| `scripts/engine/motor_decision.py` | `e9ad29f67ff1…` |
 
 ---
 
@@ -273,12 +281,19 @@ campaña offline completa.
 
 **Producto:** `docs/fase06-dashboard/`
 
-`ppi-dashboard.service` en VM02, puerto `8788` **solo en loopback**, acceso
-remoto exclusivamente por túnel SSH. Solo lectura: no ejecuta ninguna acción.
+`ppi-dashboard.service`, puerto `8788`. Solo lectura: no ejecuta ninguna
+acción. Por omisión escucha en loopback y se ve por túnel SSH; desde
+2026-09-18 puede exponerse en la red declarando los orígenes permitidos, y el
+generador crea una regla `nftables` sin la cual el panel no arranca.
 
 Umbral y métricas se **leen del `manifest.json` congelado, no están escritos en
 el código**. Validado end-to-end: una IP bloqueada automáticamente por el motor
 apareció en el panel con su expiración exacta.
+
+El panel **advierte cuando el umbral no se calibró en esta red** en vez de
+anunciar sus alertas como reales, y muestra el **alcance del análisis**: qué
+protocolos y entidades se excluyen y cuántos paquetes y ventanas ha descartado
+por ello.
 
 Hay manual de usuario aparte: `02-manual-dashboard-analista.md`.
 
