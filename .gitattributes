@@ -1,0 +1,11 @@
+# Finales de linea. Anadido el 2026-09-17: al clonar en Windows,
+# core.autocrlf convierte LF a CRLF y esos bytes acaban commiteados. En el
+# repositorio del producto eso rompio dos hashes publicados.
+* text=auto eol=lf
+
+# Los documentos binarios no se tocan.
+*.docx binary
+*.xlsx binary
+*.pdf  binary
+*.png  binary
+*.jpg  binary
