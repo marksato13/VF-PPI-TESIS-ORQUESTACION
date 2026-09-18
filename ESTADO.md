@@ -123,6 +123,17 @@ Medido el 17 de septiembre, contradice lo documentado antes:
 
 ---
 
+## Pendientes del producto (aparcados el 2026-09-18)
+
+| # | Tarea | Qué la desbloquea |
+|---|---|---|
+| P1 | **Instalar en una segunda VM limpia** (Ubuntu 24.04, dos interfaces, captura en `PG-CYBERFLOW-SPAN`) | Que Mark cree la VM en el HIPERVISOR 4. Es lo que convierte «reinstalable» en «replicable» |
+| P2 | **Etiquetar `v1.0.0`** | Después de P1, para que la 1.0 sea la instalada en dos máquinas |
+
+Ya hecho y verificado: instalación desde cero en el sensor (`instalar.sh` /
+`desinstalar.sh`), CI con 104 tests y recalibración del modelo en cada cambio,
+panel web funcionando.
+
 ## Lo siguiente, por orden
 
 1. Decidir cómo se genera el tráfico *(decisión 3)*
