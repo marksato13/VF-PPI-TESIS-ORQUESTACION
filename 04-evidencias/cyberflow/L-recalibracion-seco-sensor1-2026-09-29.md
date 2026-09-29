@@ -63,6 +63,27 @@ bloques horarios con banda de guarda de 60 s).
 base): demuestra que el modelo deja de gritar «lobo», no su capacidad de
 **detección**. Esa otra mitad se validará con la corrida de la Kali del piloto.
 
+## 2.bis Detección preliminar (cross-dataset, indicativa)
+
+Se puntuó el conjunto de **anomalías congelado** (`artifacts/dataset/multilayer-v2-anomalies.csv`,
+179 ventanas) con este mismo modelo preliminar y su umbral:
+
+```
+detectadas (score < umbral): 81 / 179  ->  TPR = 45,3 %
+score anomalias: min -0,1744 · mediana -0,0645 · max 0,069   (umbral -0,068892)
+```
+
+**No es la cifra de tesis, y es un piso pesimista.** Esas 179 anomalías vienen de
+**otra red** (el dataset v2 original), puntuadas por un modelo entrenado sobre el
+**normal de sensor1**: las escalas de features no coinciden y la mediana de score
+queda pegada al umbral. Como referencia, el OCSVM desplegado —entrenado sobre el
+*mismo* normal que esas anomalías— sacaba 158/179 (88 %). La cifra publicable de
+detección exige la **Kali sobre la red de sensor1** (misma distribución que el
+normal de entrenamiento). Harness: `scripts/modeling/puntuar_deteccion.py`.
+
+Modelo preliminar persistido (no es el desplegado):
+`artifacts/preliminar/ensayo-if-v2.joblib` + `ensayo-if-v2.json`.
+
 ## 4. Pendiente para cerrar
 
 - Corrida de la Kali → medir detección (TPR) con este mismo umbral.
