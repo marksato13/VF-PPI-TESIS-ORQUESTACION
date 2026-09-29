@@ -139,9 +139,16 @@ Medido el 17 de septiembre, contradice lo documentado antes:
   wheels `cp314`) → transferido por el bastión → instalado **sin Internet**.
   Documentado en `docs/INSTALACION.md` (Anexos A/B/C).
 - **Herramientas nuevas del producto:** `scripts/setup/configurar.sh` (asistente
-  que auto-detecta interfaz/red/MAC y escribe el `.toml`),
-  `scripts/setup/preparar-bundle.sh` (arma el bundle offline en un host conectado),
-  `scripts/setup/doctor.sh` (chequeo de salud del sistema en marcha).
+  que auto-detecta interfaz/red/MAC y escribe el `.toml`; ahora con **menú de
+  escenarios 1/2/3** —observación por SPAN / en línea con bloqueo / personalizado—
+  commit `73d292c`), `scripts/setup/preparar-bundle.sh` (arma el bundle offline en
+  un host conectado), `scripts/setup/doctor.sh` (chequeo de salud del sistema en
+  marcha).
+- **Instalador adaptable a los dos escenarios de conectividad:** detecta si hay
+  bundle de `.deb` e instala Suricata **offline con `dpkg -i`** (sin colgarse
+  buscando Internet); si no, usa `apt-get` (commit `da43aa8`). Con esto quedan
+  cubiertos los modos que se planificaron: auto-detección + operación
+  (observación/bloqueo) + instalación (online/offline).
 - **Fixes hallados probando el despliegue real:** el instalador ahora habilita
   `cyberflow-acumular.timer` y el desinstalador lo elimina; instalación offline de
   paquetes con `dpkg -i` (no `apt-get`); el instalador imprime la URL del panel;

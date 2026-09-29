@@ -40,6 +40,10 @@ Qué se hizo, con qué comando y qué artefacto verificable produjo:
 | Ciclo llave-en-mano en 2ª VM (desinstalar → reinstalar → doctor) | ACTIVO | orquestación: `04-evidencias/cyberflow/K-despliegue-turnkey-sensor2-2026-09-29.md` |
 | Chequeo de salud del sistema en marcha | ACTIVO | producto: `scripts/setup/doctor.sh` (commit `2dbe6f7`) |
 | Fix hallado en la prueba: panel sin auth = AVISO, no FALLO | ACTIVO | producto: `scripts/setup/instalar.sh` (commit `131ac27`) |
+| Fix: timers a `OnCalendar` (no quedan sin próximo disparo tras reinstalar/reiniciar) | ACTIVO | producto: `scripts/setup/cyberflow_config.py` (commit `56c01e8`) |
+| Fix: `doctor.sh` cuenta bien los avisos | ACTIVO | producto: `scripts/setup/doctor.sh` (commit `f7d0fe8`) |
+| Instalador offline-aware (Suricata por `dpkg` desde el bundle si no hay red) | ACTIVO | producto: `scripts/setup/instalar.sh` (commit `da43aa8`) |
+| Asistente con menú de escenarios de despliegue (1/2/3) | ACTIVO | producto: `scripts/setup/configurar.sh` (commit `73d292c`) |
 | Pertinencia (usuarios) | PLANIFICADO | instrumento TAM preparado; sin aplicar |
 
 ## Decisiones tomadas
