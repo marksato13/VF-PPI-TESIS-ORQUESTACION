@@ -1,6 +1,6 @@
 # Estado
 
-**Actualizado:** 17 de septiembre de 2026
+**Actualizado:** 29 de septiembre de 2026
 
 ---
 
@@ -125,16 +125,34 @@ Medido el 17 de septiembre, contradice lo documentado antes:
 
 ---
 
-## Pendientes del producto (aparcados el 2026-09-18)
+## Pendientes del producto
 
-| # | Tarea | Qué la desbloquea |
+| # | Tarea | Estado |
 |---|---|---|
-| P1 | **Instalar en una segunda VM limpia** (Ubuntu 24.04, dos interfaces, captura en `PG-CYBERFLOW-SPAN`) | Que Mark cree la VM en el HIPERVISOR 4. Es lo que convierte «reinstalable» en «replicable» |
-| P2 | **Etiquetar `v1.0.0`** | Después de P1, para que la 1.0 sea la instalada en dos máquinas |
+| P1 | **Instalar en una segunda VM limpia** (Ubuntu 24.04, dos NIC, captura en el puerto SPAN) | ✅ **HECHO (29-sep):** `cyberflow-sensor2` (10.10.60.12) desplegado **100 % offline** (sin Internet en el sensor, sin depender del sensor 1). `doctor.sh` sano; motor decidiendo; panel activo. Convierte «reinstalable» en «replicable». |
+| P2 | **Etiquetar `v1.0.0`** | Desbloqueado por P1; pendiente tras recalibrar en la 2ª VM |
 
-Ya hecho y verificado: instalación desde cero en el sensor (`instalar.sh` /
-`desinstalar.sh`), CI con 104 tests y recalibración del modelo en cada cambio,
-panel web funcionando.
+### Novedades desde el 17-sep (repo de producto)
+
+- **Despliegue offline real** validado en una VM aislada: host de construcción
+  (contenedor Docker con Internet) → *bundle* (Suricata `.deb` + CPython 3.14.4 +
+  wheels `cp314`) → transferido por el bastión → instalado **sin Internet**.
+  Documentado en `docs/INSTALACION.md` (Anexos A/B/C).
+- **Herramientas nuevas del producto:** `scripts/setup/configurar.sh` (asistente
+  que auto-detecta interfaz/red/MAC y escribe el `.toml`),
+  `scripts/setup/preparar-bundle.sh` (arma el bundle offline en un host conectado),
+  `scripts/setup/doctor.sh` (chequeo de salud del sistema en marcha).
+- **Fixes hallados probando el despliegue real:** el instalador ahora habilita
+  `cyberflow-acumular.timer` y el desinstalador lo elimina; instalación offline de
+  paquetes con `dpkg -i` (no `apt-get`); el instalador imprime la URL del panel.
+- **Panel** mejorado: fila de KPIs, topología con recorrido y nodo «Cómo decide»,
+  variables por capa con paleta, tabla con mini-barra de score, actividad con
+  tooltip, asistente guiado y modo demo.
+- **Entregables de tesis preparados:** informe consolidado de actualización,
+  **instrumento TAM** e **instrumento de juicio de expertos** (validez del entorno).
+
+Ya hecho y verificado antes: instalación/desinstalación desde cero, CI con tests,
+recalibración del modelo en cada cambio, panel web funcionando.
 
 ## Lo siguiente, por orden
 
