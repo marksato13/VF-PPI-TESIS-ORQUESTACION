@@ -7,8 +7,12 @@
 ## En una frase
 
 El sistema está **desplegado y funcionando sobre tráfico real**, en modo
-observación. Lo que bloquea la tesis ya no es técnico: **la red no tiene
-tráfico de usuarios que analizar**.
+observación. El bloqueo del 17-sep —«la red no tiene tráfico de usuarios»— **está
+superado**: la campaña `piloto-con-dns` inyecta tráfico representativo (~44–48 %
+de las ventanas con L7, hosts repartidos por VLAN). Una **recalibración en seco**
+sobre esa base (29-sep, sensor1) baja el FPR de **92,4 % a 4,45 %** en tráfico
+normal retenido. Falta validar la **detección de ataques** (corrida de la Kali) y
+**congelar** el modelo.
 
 ---
 
@@ -29,9 +33,9 @@ confirma que la variable de distribución por VLAN es viable, que estaba en duda
 
 ## Lo que bloquea
 
-### 🔴 1 · No hay tráfico de usuarios
+### 🟢 1 · Tráfico de usuarios — RESUELTO por el piloto (29-sep)
 
-Medido el 17 de septiembre, ventana de 95 s y 1647 paquetes:
+**Contexto (17-sep).** Medido entonces, ventana de 95 s y 1647 paquetes:
 
 | Tipo | Paquetes | % |
 |---|---|---|
@@ -40,12 +44,21 @@ Medido el 17 de septiembre, ventana de 95 s y 1647 paquetes:
 | pfsync | ~511 | 31 % |
 | **Tráfico IP real** | **211** | **13 %** |
 
-**El 87 % es plano de control de los switches y del cortafuegos.** Las VLAN de
-usuarios tienen *exactamente* 96 paquetes cada una: un BPDU por VLAN, no
-tráfico. Los tres switches de acceso no tienen ni una estación conectada.
+Entonces el 87 % era plano de control y las VLAN de usuarios no tenían estaciones.
 
-Una línea base tomada así enseña al modelo que lo normal es el latido de STP y
-CARP. **Sin resolver esto, la recalibración no produce nada utilizable.**
+**Actualización (29-sep), medido sobre la línea base acumulada (336 964 filas,
+45 entidades, campaña `piloto-con-dns`):**
+
+| Señal | Sensor1 |
+|---|---|
+| Ventanas con L7 (HTTP/DNS/TLS) | **44,2 %** (HTTP 109k · DNS 100k · TLS 48k) |
+| Ventanas con datos TCP | 18,6 % |
+| Ventanas con SYN | 21,2 % |
+| «Solo control» | 55,7 % |
+
+Las entidades top son **hosts de usuario** repartidos por VLAN 10/20/30/40/100
+(~7 % de filas cada uno), **no** los switches/pfSense emitiendo CARP. El piloto
+inyectó tráfico representativo: la línea base ya sirve para recalibrar.
 
 ### 🔴 2 · El modelo no es trasladable, y ya está medido
 
@@ -60,6 +73,22 @@ decisiones : 92 en 7 ventanas
 Las entidades señaladas eran las interfaces de VLAN de pfSense emitiendo CARP.
 **92,4 % de falsos positivos.** Predicho por la metodología, ahora medido — y
 sirve como línea base contra la que medir la mejora de la recalibración.
+
+**Medida de la mejora (29-sep, recalibración EN SECO en sensor1).** Con la línea
+base enriquecida por el piloto (337 980 filas elegibles, **sin fuga temporal**,
+69,6 h; train 204 148 / validation 65 633 / test 65 421), umbral congelado desde
+validación (`alpha=0,05`):
+
+```
+FPR validacion : 0,0500
+FPR TEST       : 0,0445   (4,45 %)   vs   0,924 (92,4 %) sin recalibrar
+```
+
+El FPR sobre tráfico normal retenido baja de **92,4 % a 4,45 %** (~20× menos) y
+clava el objetivo. Es una recalibración **en seco**: escribió en `/tmp/recal`, no
+tocó el modelo desplegado ni el piloto. **Matiz:** mide falsos positivos sobre
+tráfico normal (no hay ataques en la base); la **detección de ataques** se validará
+con la corrida de la Kali. Falta **congelar** para dejar `calibrado_en_esta_red=true`.
 
 ### 🟡 3 · El entorno congelado exige Python 3.14.4, y no es negociable
 
