@@ -146,7 +146,10 @@ Medido el 17 de septiembre, contradice lo documentado antes:
   `cyberflow-acumular.timer` y el desinstalador lo elimina; instalación offline de
   paquetes con `dpkg -i` (no `apt-get`); el instalador imprime la URL del panel;
   y, hallado en el ciclo desinstalar/reinstalar del 29-sep, el panel sin sus
-  ficheros de auth se reporta como **AVISO, no FALLO** (commit `131ac27`).
+  ficheros de auth se reporta como **AVISO, no FALLO** (commit `131ac27`); los
+  **timers pasan a `OnCalendar`** porque con `OnUnitActiveSec` se quedaban sin
+  próximo disparo tras reinstalar y la línea base dejaba de crecer (commit
+  `56c01e8`); y `doctor.sh` ya **cuenta bien los avisos** (commit `f7d0fe8`).
 - **Panel** mejorado: fila de KPIs, topología con recorrido y nodo «Cómo decide»,
   variables por capa con paleta, tabla con mini-barra de score, actividad con
   tooltip, asistente guiado y modo demo.
