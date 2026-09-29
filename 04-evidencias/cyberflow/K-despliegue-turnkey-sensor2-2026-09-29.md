@@ -84,6 +84,28 @@ crear las cuentas; cualquier otro fallo del panel sigue siendo `FALLO`.
 
 Referencia (producto): `scripts/setup/instalar.sh`, commit **`131ac27`**.
 
+## Post-despliegue: dos bugs más, hallados y corregidos
+
+Vigilando el sistema tras el ciclo aparecieron dos defectos, ambos corregidos:
+
+1. **Los timers se quedaban sin próximo disparo tras reinstalar.** Medido: el
+   acumulador corrió cada 10 min de 06:19 a 07:19 y **se paró en la reinstalación
+   (07:19)**; `NextElapseUSecMonotonic=infinity`. Causa: los timers usaban
+   `OnUnitActiveSec`, que agenda relativo a la última activación del `.service`;
+   el `reset-failed`/`daemon-reload` de la reinstalación borra esa marca
+   (`ExecMainStartTimestamp=` vacío) y el timer queda *active* pero muerto. Sin
+   esto, **la línea base nunca volvería a crecer y la recalibración se quedaría
+   sin datos nuevos, sin que nada lo indicara**. Corregido a `OnCalendar`
+   (`*:0/10` acumular, `*:0/5` limpieza), que siempre tiene próximo disparo.
+   Verificado: tras aplicarlo, `NextElapse=2026-09-29 07:50:00` y la línea base
+   pasó de **6753 → 7762 filas** (+1009 en una pasada). Producto: commit `56c01e8`.
+2. **`doctor.sh` infravaloraba los avisos.** El aviso de «pcaps ilegibles» se
+   imprimía desde el bloque Python sin pasar por la función `aviso()` de bash, así
+   que el resumen decía «1 aviso» mostrando 2. Corregido: Python solo extrae los
+   números y bash da el veredicto. Producto: commit `f7d0fe8`.
+
+Ambos son del tipo que solo se caza **operando y midiendo**, no leyendo el código.
+
 ## Conclusión
 
 La guía instala **de cero, offline, sin depender del sensor 1**, y `doctor.sh`
