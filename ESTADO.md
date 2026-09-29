@@ -129,7 +129,7 @@ Medido el 17 de septiembre, contradice lo documentado antes:
 
 | # | Tarea | Estado |
 |---|---|---|
-| P1 | **Instalar en una segunda VM limpia** (Ubuntu 24.04, dos NIC, captura en el puerto SPAN) | ✅ **HECHO (29-sep):** `cyberflow-sensor2` (10.10.60.12) desplegado **100 % offline** (sin Internet en el sensor, sin depender del sensor 1). `doctor.sh` sano; motor decidiendo; panel activo. Convierte «reinstalable» en «replicable». |
+| P1 | **Instalar en una segunda VM limpia** (Ubuntu 24.04, dos NIC, captura en el puerto SPAN) | ✅ **HECHO (29-sep):** `cyberflow-sensor2` (10.10.60.12) desplegado **100 % offline** (sin Internet en el sensor, sin depender del sensor 1). Probado el **ciclo completo** desinstalar → reinstalar desde un clon **fresco** de `main` → `doctor.sh` sano. Evidencia: `04-evidencias/cyberflow/K-despliegue-turnkey-sensor2-2026-09-29.md`. Convierte «reinstalable» en **«replicable llave-en-mano»**. |
 | P2 | **Etiquetar `v1.0.0`** | Desbloqueado por P1; pendiente tras recalibrar en la 2ª VM |
 
 ### Novedades desde el 17-sep (repo de producto)
@@ -144,7 +144,9 @@ Medido el 17 de septiembre, contradice lo documentado antes:
   `scripts/setup/doctor.sh` (chequeo de salud del sistema en marcha).
 - **Fixes hallados probando el despliegue real:** el instalador ahora habilita
   `cyberflow-acumular.timer` y el desinstalador lo elimina; instalación offline de
-  paquetes con `dpkg -i` (no `apt-get`); el instalador imprime la URL del panel.
+  paquetes con `dpkg -i` (no `apt-get`); el instalador imprime la URL del panel;
+  y, hallado en el ciclo desinstalar/reinstalar del 29-sep, el panel sin sus
+  ficheros de auth se reporta como **AVISO, no FALLO** (commit `131ac27`).
 - **Panel** mejorado: fila de KPIs, topología con recorrido y nodo «Cómo decide»,
   variables por capa con paleta, tabla con mini-barra de score, actividad con
   tooltip, asistente guiado y modo demo.

@@ -37,8 +37,9 @@ Qué se hizo, con qué comando y qué artefacto verificable produjo:
 | Artefacto | Estado | Ruta o commit |
 |---|---|---|
 | Validación operacional F6 (58 corridas) | ACTIVO | producto: `results/f6/f6_resultados.jsonl` |
-| Despliegue offline en 2ª VM (`cyberflow-sensor2`) | ACTIVO | orquestación: `04-evidencias/cyberflow/` (evidencia por fechar del 29-sep) |
+| Ciclo llave-en-mano en 2ª VM (desinstalar → reinstalar → doctor) | ACTIVO | orquestación: `04-evidencias/cyberflow/K-despliegue-turnkey-sensor2-2026-09-29.md` |
 | Chequeo de salud del sistema en marcha | ACTIVO | producto: `scripts/setup/doctor.sh` (commit `2dbe6f7`) |
+| Fix hallado en la prueba: panel sin auth = AVISO, no FALLO | ACTIVO | producto: `scripts/setup/instalar.sh` (commit `131ac27`) |
 | Pertinencia (usuarios) | PLANIFICADO | instrumento TAM preparado; sin aplicar |
 
 ## Decisiones tomadas
@@ -48,5 +49,7 @@ Qué se hizo, con qué comando y qué artefacto verificable produjo:
 | — | La 2ª VM se instala **offline** (bundle) para probar replicabilidad sin Internet en el sensor | 2026-09-29 |
 | — | El TAM se aplica **sobre el sistema ya recalibrado**, no antes | 2026-09 |
 
-> Una carpeta vacía **no cuenta como fase cerrada**. Pendiente: crear la evidencia
-> fechada del despliegue en la 2ª VM y aplicar el TAM.
+> Una carpeta vacía **no cuenta como fase cerrada**. La evidencia fechada del
+> despliegue en la 2ª VM ya existe (`K-…-2026-09-29.md`). Pendiente para cerrar:
+> aplicar el TAM y recalibrar (ambas gobernadas por decisiones abiertas del
+> `ESTADO.md`, no por herramienta).
