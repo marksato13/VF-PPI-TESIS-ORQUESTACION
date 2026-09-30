@@ -33,22 +33,28 @@ tiene `ocsvm_scaled` cableado**:
 
 ---
 
-## 🟧 Enforcement — activar en producción
-Código completo y probado en `main` (dormido); e2e demostrado (un BLOCK corta el
-ataque en el host, nota `N`). Falta el despliegue operativo:
-- **Publicador en timer:** `publicar_feed.py` como servicio+timer systemd en el sensor.
-- **Transporte del feed a los hosts:** el host DMZ **no alcanza al sensor directo**
-  (segmentación) → usar el **bastión como distribuidor** (o un canal dedicado) para
-  que los agentes traigan el feed.
-- **Integración motor→feed en vivo:** que la detección real dispare el feed sola (el
-  motor ya emite el campo `heuristico`; falta encadenarlo al publicador en vivo).
-- **Agente en los hosts:** `agente_enforce.py` + `feed.py` + clave pública + timer
-  systemd en cada host protegido (empezar por el DMZ).
-- **DNS-entropy 0 %:** re-probar el ataque contra el **resolver real `10.10.10.20`**
-  (no el DMZ) para cerrar ese hueco (notas `M`/`N`).
-- **Panel:** mostrar las acciones **LIMIT/BLOCK** (hoy el panel es ALERT/PERMIT).
-- **Seguridad:** **revocar mi llave `cyberflow-to-srv`** del host DMZ
-  (`~/.ssh/authorized_keys` de `adminsrvdmz@10.10.30.10`) cuando termine el despliegue.
+## 🟧 Enforcement — pasar a producción/vivo
+Código completo en `main`. **Pipeline entero PROBADO** (nota `N`): un BLOCK real
+corta el ataque en el host, y la automatización sensor→bastión→agente funciona sola
+(en **dry-run**). Infra ya montada en el sensor: claves ed25519 persistentes
+(`artifacts/feed-keys/`), `publicar_feed.py` produce el feed en `~/feed/`; el bastión
+relaya al host; el agente verifica y planea. Falta para dejarlo **vivo y recurrente**:
+- **Recurrencia:** cron/timer en sensor (publicar), bastión (relay) y host (agente).
+  Se puede con **crons de usuario** (sin sudo con clave) + el `sudo` sin clave del
+  host DMZ para el `nft`.
+- **Decisión de Mark — pasar el agente a `--aplicar`:** hoy en dry-run. En vivo
+  **rate-limitaría ocasionalmente a clientes legítimos** por los falsos positivos del
+  modelo (visto: `10.10.20.24` → LIMIT). Es suave/reversible (LIMIT 300 s), pero toca
+  el piloto. Decidir cuándo (¿tras el piloto? ¿aceptando el coste del LIMIT?).
+- **Motor con heurísticos en vivo:** desplegado en el repo del sensor; **falta
+  reiniciar `ppi-motor`** (sudo con clave de Mark) para que emita el campo
+  `heuristico` → así el feed llevaría BLOCK de port-scan/brute-force, no solo LIMIT.
+- **DNS-entropy 0 %:** re-probar contra el **resolver real `10.10.10.20`** (nota `M`/`N`).
+- **Panel:** mostrar las acciones **LIMIT/BLOCK** (hoy ALERT/PERMIT).
+- **Seguridad (higiene, NO urgente):** la llave `cyberflow-to-srv` **se queda**
+  mientras se construye/despliega el enforcement (hace falta para desplegar en el
+  host DMZ). Revocarla es opcional, al **cierre del proyecto** o cuando ya no se
+  quieran despliegues (`~/.ssh/authorized_keys` de `adminsrvdmz@10.10.30.10`).
 
 ---
 
