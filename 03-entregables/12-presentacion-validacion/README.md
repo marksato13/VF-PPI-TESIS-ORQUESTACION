@@ -52,13 +52,13 @@ aquí primero.
 
 ### Agenda
 
-| Min | Bloque | Quién |
-|---|---|---|
-| 0–2 | Bienvenida, objetivo de la sesión, cómo se evalúa | Mark |
-| 2–17 | Diapositivas 1–10 (con saltos al panel, ver abajo) | Mark + Uziel |
-| 17–25 | **Demo en vivo**: ataque → alerta en el panel | Uziel lanza, Mark explica |
-| 25–35 | Preguntas y recorrido libre por el repo | Ambos |
-| 35–45 | Llenan el formulario (Parte A, Parte B, ficha, K, dictamen) | Validadores |
+| Min | Bloque |
+|---|---|
+| 0–2 | Bienvenida, objetivo de la sesión, cómo se evalúa |
+| 2–17 | Diapositivas 1–10 (con saltos al panel, ver abajo) |
+| 17–25 | **Demo en vivo**: ataque → alerta en el panel |
+| 25–35 | Preguntas y recorrido libre por el repo |
+| 35–45 | Los validadores llenan el formulario (Parte A, Parte B, ficha, K, dictamen) |
 
 ### Diapositivas y su evidencia en el panel
 
@@ -129,17 +129,17 @@ experto y suben el esfuerzo percibido (PE3).
 
 ## 5. Antes de las sesiones
 
-| Fecha límite | Tarea | Responsable |
-|---|---|---|
-| 2-oct | Cerrar la lista de validadores (3 internos, 5–8 externos) y confirmar nombres | Mark |
-| 2-oct | Pedir 2–3 horarios a cada uno y anotarlos en la hoja *Disponibilidad* | Mark |
-| 3-oct | Instrumento interno ampliado con la Parte B (C8–C14); TAM con IU3 | Mark |
-| 3-oct | Formularios en Google Forms (interno y TAM) con su hoja de respuestas | Mark |
-| 4-oct | **Panel coherente con el modelo desplegado** (ver abajo) | Mark |
-| 4-oct | Canva: 10 diapositivas (interna) y 4 (externa) | Mark + Uziel |
-| 5-oct | Producto listo; video de respaldo de la demo grabado | Mark + Uziel |
-| 5-oct | Ensayo completo de las dos sesiones, cronometrado | Mark + Uziel |
-| 6-oct | Enviar el material previo a los validadores internos | Mark |
+| Fecha límite | Tarea |
+|---|---|
+| 2-oct | Cerrar la lista de validadores (3 internos, 5–8 externos) y confirmar nombres |
+| 2-oct | Pedir 2–3 horarios a cada uno y anotarlos en la hoja *Disponibilidad* |
+| 3-oct | Instrumento interno ampliado con la Parte B (C8–C14); TAM con IU3 |
+| 3-oct | Formularios en Google Forms (interno y TAM) con su hoja de respuestas |
+| 4-oct | **Panel coherente con el modelo desplegado** (ver abajo) |
+| 4-oct | Canva: 10 diapositivas (interna) y 4 (externa) |
+| 5-oct | Producto listo; video de respaldo de la demo grabado |
+| 5-oct | Ensayo completo de las dos sesiones, cronometrado |
+| 6-oct | Enviar el material previo a los validadores internos |
 
 ### Panel: revisar antes de mostrarlo
 
