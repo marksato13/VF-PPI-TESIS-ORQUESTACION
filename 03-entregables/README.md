@@ -5,7 +5,8 @@ Todo el material del curso Investigación V y de la publicación. Vive aquí y
 
 | Carpeta | Qué hay |
 |---|---|
-| `01-evaluacion-critica/` … `10-mapeo-secciones-articulo/` | Los entregables del curso y los de apoyo |
+| `01-evaluacion-critica/` … `11-justificacion-ataques/` | Los entregables del curso y los de apoyo |
+| [`12-presentacion-validacion/`](12-presentacion-validacion/) | Planificación de las dos sesiones de validación: interna (expertos) y externa (TAM) |
 | [`articulo/`](articulo/) | Material para IJIES, con la estructura de la sección 3 |
 | `graficas/` · `diagramas/` · `assets/` | Figuras de los entregables |
 
