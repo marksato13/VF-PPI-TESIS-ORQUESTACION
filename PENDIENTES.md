@@ -33,7 +33,18 @@ tiene `ocsvm_scaled` cableado**:
 
 ---
 
-## 🟧 Enforcement — pasar a producción/vivo
+## 🟦 Enforcement — MODO SOMBRA ya corriendo (observe-only)
+El pipeline completo corre **autónomo cada minuto, en dry-run** (no aplica nada, cero
+impacto en el piloto), vía **crons de usuario**:
+- **Sensor** (`crontab` de m4rk): `publicar_feed.py` → `~/feed/feed.json`+`.sig`.
+- **Bastión** (`crontab` de gadmin): `~/relay-feed.sh` (pull del sensor → push al host).
+- **Host DMZ** (`crontab` de adminsrvdmz): `agente_enforce.py` (dry-run) → `~/enforce/shadow.log`.
+
+Sirve para **medir los falsos positivos antes de ir en vivo** (ahora mismo registra
+`LIMIT 10.10.20.24`, un cliente legítimo). **Para pararlo:** `crontab -e` (quitar la
+línea) en cada host, o `crontab -r`.
+
+## 🟧 Enforcement — pasar a VIVO (desde el modo sombra)
 Código completo en `main`. **Pipeline entero PROBADO** (nota `N`): un BLOCK real
 corta el ataque en el host, y la automatización sensor→bastión→agente funciona sola
 (en **dry-run**). Infra ya montada en el sensor: claves ed25519 persistentes
