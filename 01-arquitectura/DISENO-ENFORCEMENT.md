@@ -183,3 +183,47 @@ arquitectura (consume Suricata, emite a Wazuh, aislado sin egress).
 
 > Replicar este posicionamiento en el `README` del producto y en el **artículo**
 > (sección de contribución/alcance).
+
+---
+
+## 9. Caducidad y escalado
+
+**Principio:** el coste de **equivocarse** (falso positivo) debe estar **acotado en
+el tiempo**; el coste de ser un **atacante reincidente** debe **crecer**. Asimétrico
+a propósito.
+
+### La escalera (por IP origen)
+
+| Nivel | Disparador | Acción | Duración |
+|---|---|---|---|
+| 1 | 1ª vez anómalo (score) | **LIMIT** | 300 s |
+| 2 | heurístico confirmado, o repite | **BLOCK** | 300 s |
+| 3 | 2ª reincidencia (< 24 h) | BLOCK | 1800 s |
+| 4 | 3ª+ reincidencia (< 24 h) | BLOCK | 3600 s (tope automático) **+ marcar para revisión humana** |
+| ∞ | — | permanente | **SOLO un humano**, tras revisar la cola de candidatos |
+
+### Reglas que la hacen segura
+1. **Nunca `∞` automático.** El tope de la máquina es 3600 s; lo permanente lo
+   decide una persona desde el panel/Wazuh sobre la **cola de candidatos** (nivel 4).
+2. **Caducidad = fail-safe.** Toda acción automática lleva `timeout` en el set de
+   nftables → se quita sola. Si el sensor o el feed mueren, los bloqueos **expiran
+   igual**; nada queda colgado para siempre por un fallo.
+3. **Decaimiento del contador.** Si una IP se porta bien **24 h**, su contador de
+   reincidencia **se reinicia** → la próxima ofensa vuelve a 300 s. Un falso
+   positivo aislado no escala a esa IP durante semanas.
+4. **La lista de nunca-bloquear manda siempre** (gateways, DNS, sensor, bastión).
+
+### Justificación (con el FPR medido)
+- 4,45 % de FPR ≈ **1 de cada ~22** ventanas marcadas es falsa. Un `∞` sobre eso
+  deja un host legítimo fuera **indefinidamente** → para disponibilidad, peor que el
+  ataque.
+- **300 s primero** acota el daño de un falso positivo a **≤ 5 min** (y con LIMIT ni
+  corta: degrada).
+- La escalera **sube solo con reincidencia**, que un falso positivo casual no cumple;
+  un atacante persistente sí → a él le sube el coste mientras el legítimo apenas lo nota.
+- El **humano** entra solo para lo irreversible (`∞`).
+
+### Estado necesario
+Un **estado por IP** (contador de reincidencia + último visto) que **persista** entre
+bloqueos, para saber el nivel. Vive en el sensor (junto al feed); el `timeout` de
+nftables borra en cada host.
