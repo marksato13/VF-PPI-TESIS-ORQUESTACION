@@ -163,7 +163,7 @@ Medido el 17 de septiembre, contradice lo documentado antes:
 | # | Tarea | Estado |
 |---|---|---|
 | P1 | **Instalar en una segunda VM limpia** (Ubuntu 24.04, dos NIC, captura en el puerto SPAN) | ✅ **HECHO (29-sep):** `cyberflow-sensor2` (10.10.60.12) desplegado **100 % offline** (sin Internet en el sensor, sin depender del sensor 1). Probado el **ciclo completo** desinstalar → reinstalar desde un clon **fresco** de `main` → `doctor.sh` sano. Evidencia: `04-evidencias/cyberflow/K-despliegue-turnkey-sensor2-2026-09-29.md`. Convierte «reinstalable» en **«replicable llave-en-mano»**. |
-| P2 | **Etiquetar `v1.0.0`** | Desbloqueado por P1; pendiente tras recalibrar en la 2ª VM |
+| P2 | **Etiquetar `v1.0.0`** | ✅ **HECHO (30-sep):** tag `v1.0.0` en el producto (commit `f9ced59`), CI en verde (265 pruebas). Release tras congelar el modelo recalibrado y calibrar la red. |
 
 ### Novedades desde el 17-sep (repo de producto)
 
