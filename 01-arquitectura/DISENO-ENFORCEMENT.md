@@ -126,3 +126,60 @@ publica; si lo comprometen no tiene escritura directa en los hosts).
 5. Pruebas: unit (reconciliación idempotente, firma, nunca-bloquear) + e2e con la
    Kali (que un BLOCK real corte el ataque en el host, medido).
 6. Documentar y, si se quiere, subir a `v1.1`.
+
+---
+
+## 7. Alertas y notificación
+
+**Regla de diseño:** las alertas fluyen **hacia adentro**, a un concentrador
+(Wazuh), **no hacia afuera** desde el sensor. El sensor está en VLAN60 **sin salida
+a Internet**, y eso **no es una limitación sino una propiedad de seguridad**: el
+sensor observa pero **no puede ser un pivote de exfiltración**. Por eso **Telegram
+desde el sensor queda descartado** (exigiría abrir egress y sacaría IPs internas y
+scores a un tercero).
+
+**Por capas:**
+
+1. **Canal primario — Wazuh como concentrador** (el previsto en VLAN60): el sensor
+   **emite** por **syslog/agente**, todo **intra-VLAN60 (sin egress)**. Wazuh aporta
+   tablero, correlación e histórico; es el hub de alertas.
+2. **Ya disponible hoy** (sin esperar a Wazuh): `motor_decision.log` /
+   `predictor.log` (registro local estructurado) y el **panel de solo-lectura** que
+   muestra decisiones/alertas en vivo. Visibilidad inmediata, cero egress.
+3. **Push externo (al teléfono), si de verdad se quiere:** sale **desde Wazuh** (o un
+   notificador dedicado con **egress estrecho y auditado**), **nunca desde el
+   sensor**, y **sanitizado** (nada de IPs internas ni scores crudos; un aviso
+   mínimo tipo «N alertas, severidad alta, revisa la consola»). Preferir **correo
+   interno/corporativo** antes que un bot público. *(Este push queda como opcional,
+   a decidir; el sistema no lo necesita para actuar.)*
+
+En la imagen de arquitectura, la caja «2) ALERTA + LOG» pasa a ser **Wazuh + log +
+panel**, no Telegram.
+
+---
+
+## 8. Posicionamiento: complementa, no reemplaza
+
+CyberFlow **se enchufa en el stack de seguridad, no lo suplanta** — y la propia
+arquitectura lo demuestra: **consume** Suricata (`eve.json`) y **emite** hacia Wazuh
+(alertas adentro, no afuera), sin duplicar lo que esas herramientas ya hacen.
+
+| Capa | Herramienta | Rol |
+|---|---|---|
+| Firmas / amenazas conocidas | **Suricata** | CyberFlow lo **consume** (`eve.json`), no lo reemplaza |
+| SIEM / logs / correlación / cumplimiento / EDR | **Wazuh** | el **hub**: CyberFlow le **emite** sus veredictos |
+| Detección **conductual de lo desconocido** + respuesta temprana | **CyberFlow** | el nicho: modelo *one-class* por entidad, **recalibrado a la red** (92,4 %→4,45 %), con *lead-time* y acción graduada |
+
+**Lo que CyberFlow NO intenta ser** (y por eso complementa): gestor de logs, EDR de
+host, motor de cumplimiento, tablero-para-todo → eso es Wazuh. **Lo que aporta y los
+demás no:** anomalía conductual no supervisada, **calibrada a la red concreta**, con
+respuesta graduada, **alimentando** al SIEM.
+
+**Valor para la tesis:** (a) honestidad — ocupa un nicho concreto y medible, no
+compite con productos maduros; (b) adopción real — un equipo con Suricata+Wazuh lo
+**añade** sin arrancar nada (clave para el **TAM**: utilidad + facilidad de
+integración); (c) verificable, no declarativo — la complementariedad está en la
+arquitectura (consume Suricata, emite a Wazuh, aislado sin egress).
+
+> Replicar este posicionamiento en el `README` del producto y en el **artículo**
+> (sección de contribución/alcance).
