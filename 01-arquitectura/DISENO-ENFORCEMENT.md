@@ -247,13 +247,24 @@ nftables borra en cada host.
 | Alertas | **Wazuh + log + panel**, no Telegram (§7) | ✅ |
 
 ### Bloques de implementación
-| Bloque | Qué | Toca producción |
-|---|---|---|
-| B1 · Feed + estado (sensor) | `publicar_feed.py`: lista firmada + escalera de reincidencia | no |
-| B2 · Agente de host | `agente-enforce`: pull, verifica, reconcilia nftables (BLOCK+timeout / LIMIT), nunca-bloquear, fail-safe | sí (DMZ) |
-| B3 · Heurísticos | los 3 + DNS-entropy, umbrales versionados → LIMIT/BLOCK | no |
-| B4 · Pruebas | unit (reconciliación, firma, escalera) + e2e Kali (BLOCK real corta en el host) | e2e sí |
-| B5 · Diagrama + README | diagrama alineado a v1.0.0 + posicionamiento | no |
+| Bloque | Qué | Toca producción | Estado |
+|---|---|---|---|
+| B1 · Feed + estado (sensor) | `feed.py` (firma ed25519/openssl), `escalada.py`, `publicar_feed.py` | no | ✅ **hecho** (rama, CI verde, 20 tests) |
+| B2 · Agente de host | `agente-enforce`: pull, verifica, reconcilia nftables (BLOCK+timeout / LIMIT), nunca-bloquear, fail-safe | sí (DMZ) | pendiente (tras 7-oct) |
+| B3 · Heurísticos | `heuristicos.py`: brute-force, port-scan, http-abuse, dns-entropy, umbrales versionados → LIMIT/BLOCK | no | ✅ **hecho** (rama, CI verde, 14 tests) |
+| B4 · Pruebas | unit ✅ + **e2e Kali** (BLOCK real corta en el host) pendiente | e2e sí | parcial (unit hechos) |
+| B5 · Diagrama + README | diagrama alineado a v1.0.0 + posicionamiento | no | pendiente |
+
+> **Validación real de B3 (30-sep, sensor1):** los heurísticos disparan en **47/104**
+> ventanas de ataque de la Kali (port-scan 20→BLOCK, http-abuse 27→LIMIT) y en solo
+> **11/13 144** de tráfico normal → **0,08 % de falsos positivos**. Complementan al
+> modelo (que ya daba 100 % en HTTP) con casi cero ruido. *(dns-entropy no disparó:
+> el ataque DNS apuntó al DMZ, no al resolver real — mismo caveat de la nota M.)*
+
+> **Falta para wiring completo (integración, parte de B1/B2):** el motor
+> (`motor_decision.py`) hoy emite ALERT/PERMIT; para que el feed lleve LIMIT/BLOCK con
+> los 4 heurísticos hay que **integrar `heuristicos.py` en el motor** (cambia el motor
+> vivo → hacerlo en rama y validar con B4 antes de v1.1.0).
 
 **Diferido:** predictor P% (v1.2), Opción B gateway (permiso pfSense), Opción C inline.
 
