@@ -9,22 +9,16 @@ y `TRASPASO.md`.
 
 ## 🟥 Prioridad para la validación (sesiones del 7-oct)
 
-### 1. GUI / Dashboard — actualizar al modelo recalibrado
-El panel ya **lee el manifiesto nuevo** (detector `if_recalibrado_2026_09`, umbral
-`-0,568892`, `calibrado_en_esta_red=true`), **pero `scripts/engine/dashboard.py`
-tiene `ocsvm_scaled` cableado**:
-- **Bug (importante):** `dashboard.py` ~líneas **2063–2070** cuenta las alertas con
-  `detector_name == "ocsvm_scaled"`. Con el detector nuevo, **esos contadores salen
-  en 0** → las estadísticas del panel no reflejan el modelo desplegado. Arreglar:
-  contar por el **detector activo** (leído del manifiesto/config), no hardcodeado.
-- ~línea **644**: mapa de nombre de detector → etiqueta; añadir `if_recalibrado_2026_09`
-  (o hacerlo genérico) para que muestre una etiqueta legible.
-- ~línea **1203**: la tarjeta de "reproducibilidad" menciona `ocsvm_scaled.joblib` →
-  actualizar al modelo recalibrado + su hash (`if_recalibrado_desplegable.joblib`).
-- **Verificar** que el banner "sin calibrar" desapareció y que el nodo "Cómo decide"
-  muestra el umbral `-0,568892`.
-- Requiere: editar `dashboard.py` (+ extraer el `<script>` y `node --check`, tests
-  del panel), desplegar al sensor y reiniciar `ppi-dashboard`.
+### 1. GUI / Dashboard — ✅ HECHO (falta solo reiniciar el panel)
+- ✅ **Contadores por detector activo** (no `ocsvm_scaled` fijo) — ya no salen en 0
+  tras congelar. `compute_counters(detector_modelo=args.detector_name)` + 5 tests.
+- ✅ **Etiquetas** del detector recalibrado y los 4 heurísticos.
+- ✅ **Topología rehecha:** modelo recalibrado (no "OCSVM congelado"), cadena de
+  enforcement (heurísticos → decisión LIMIT/BLOCK → feed firmado → agente en host),
+  Wazuh en observabilidad, fases y conectores nuevos, archivos por nodo.
+- ✅ Desplegado al repo del sensor; **CI verde**.
+- ⏳ **Falta:** `sudo systemctl restart ppi-dashboard` (sudo de Mark) para que el
+  panel vivo cargue el código nuevo.
 
 ### 2. Validación con usuarios y expertos
 - **TAM** (utilidad/aceptación, Likert 1–7) + **Alfa de Cronbach** (≥0,70).
