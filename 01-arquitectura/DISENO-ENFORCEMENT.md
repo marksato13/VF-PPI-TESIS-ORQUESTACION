@@ -268,19 +268,26 @@ nftables borra en cada host.
 
 **Diferido:** predictor P% (v1.2), Opción B gateway (permiso pfSense), Opción C inline.
 
-### Trabajo en rama y release
-- Todo se implementa en la rama **`v1.1-enforcement`**, **sin tocar `main`/v1.0.0**
-  (que se valida el 7-oct).
-- **Orden:** B3 y B1 (sensor-side, no invasivos) → B5 → **tras el 7-oct**: B2 y B4
-  (tocan hosts / e2e).
+### Versionado: una sola línea, `v1.0.0` como versión principal
+Decisión de Mark (30-sep): **no se crea un `v1.1.0` aparte**. El enforcement se
+**actualiza sobre la misma versión principal**, que es **`v1.0.0` sobre `main`**.
 
-### Criterio de cierre → **etiquetar `v1.1.0`**
-Se libera `v1.1.0` (bump *minor*: capacidad nueva, el núcleo de observación sigue)
-**solo cuando**:
-1. B1–B5 implementados y **CI en verde**.
-2. **e2e con la Kali**: un BLOCK real **corta el ataque en el host**, medido (no
-   demostrativo) — y un LIMIT degrada la tasa, medido.
-3. La escalera de caducidad (§9) verificada (un falso positivo simulado caduca en
-   300 s; reincidencia escala).
-4. `README` + diagrama alineados.
-5. Merge de `v1.1-enforcement` → `main` → tag anotado `v1.1.0` (sin trailer de Claude).
+- El **tag `v1.0.0`** (y su Release) es una **foto inmutable** del commit `f9ced59`
+  y **se queda como está** (no se mueve).
+- La **versión principal viva es `main`**: ahí aterriza el enforcement, bajo la
+  identidad v1.0.0, sin número nuevo.
+- **Estado:** el núcleo (B1/B3/B5) ya está **fusionado a `main`** (commit `5e6e27e`,
+  CI verde). Son módulos **dormidos** (aún no enchufados al motor) → **no cambian el
+  comportamiento desplegado** de v1.0.0.
+- **Lo que falta** (B2 agente, integración en el motor, B4 e2e Kali) va **también a
+  `main`**, tras la validación del 7-oct (tocan hosts / motor vivo / necesitan Kali).
+
+### Criterio para dar el enforcement por "activo"
+No es un tag nuevo, sino cuándo el enforcement pasa de *dormido* a *operativo*:
+1. Integrado en el motor (emite LIMIT/BLOCK) + agente de host desplegado.
+2. **e2e con la Kali**: un BLOCK real **corta el ataque en el host**, medido; un
+   LIMIT degrada la tasa, medido.
+3. Escalera de caducidad (§9) verificada (falso positivo caduca en 300 s;
+   reincidencia escala).
+Todo en `main`, con CI en verde. Si en el futuro se quiere marcar un hito, se
+decide entonces; por defecto la versión sigue siendo **v1.0.0**.
