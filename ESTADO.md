@@ -13,8 +13,10 @@ de las ventanas con L7, hosts repartidos por VLAN). Una **recalibración
 en seco** (29-sep, sensor1) baja el FPR de **92,4 % a 4,45 %** en tráfico normal
 retenido, y la **corrida de la Kali** (30-sep) mide la detección: **TPR 69 % global,
 100 % en ataques HTTP** (fuerza bruta/flood/web-scan), 63 % escaneo, 0 % DNS-entropy
-—limitación declarada— al mismo umbral (notas `L` y `M`). Falta **congelar** el
-modelo (`calibrado=true`) para cerrar `v1.0.0`.
+—limitación declarada— al mismo umbral (notas `L` y `M`). El **30-sep se congeló**
+el modelo recalibrado como detector desplegado (`if_recalibrado_2026_09`) y
+`calibrado_en_esta_red=true` en sensor1: el motor ya decide con él. Solo queda
+**etiquetar `v1.0.0`**.
 
 ---
 
