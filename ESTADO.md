@@ -9,10 +9,12 @@
 El sistema está **desplegado y funcionando sobre tráfico real**, en modo
 observación. El bloqueo del 17-sep —«la red no tiene tráfico de usuarios»— **está
 superado**: la campaña `piloto-con-dns` inyecta tráfico representativo (~44–48 %
-de las ventanas con L7, hosts repartidos por VLAN). Una **recalibración en seco**
-sobre esa base (29-sep, sensor1) baja el FPR de **92,4 % a 4,45 %** en tráfico
-normal retenido. Falta validar la **detección de ataques** (corrida de la Kali) y
-**congelar** el modelo.
+de las ventanas con L7, hosts repartidos por VLAN). Una **recalibración
+en seco** (29-sep, sensor1) baja el FPR de **92,4 % a 4,45 %** en tráfico normal
+retenido, y la **corrida de la Kali** (30-sep) mide la detección: **TPR 69 % global,
+100 % en ataques HTTP** (fuerza bruta/flood/web-scan), 63 % escaneo, 0 % DNS-entropy
+—limitación declarada— al mismo umbral (notas `L` y `M`). Falta **congelar** el
+modelo (`calibrado=true`) para cerrar `v1.0.0`.
 
 ---
 
