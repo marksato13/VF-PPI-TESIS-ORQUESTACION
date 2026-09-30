@@ -227,3 +227,49 @@ a propósito.
 Un **estado por IP** (contador de reincidencia + último visto) que **persista** entre
 bloqueos, para saber el nivel. Vive en el sensor (junto al feed); el `timeout` de
 nftables borra en cada host.
+
+---
+
+## 10. Cierre de planificación y release v1.1.0
+
+### Decisiones cerradas (§5 y puntos 4–8)
+| # | Decisión | Resuelto |
+|---|---|---|
+| Score → acción | score = PERMIT/anómalo → **LIMIT**; heurístico confirmado → **BLOCK** | ✅ |
+| Nivel LIMIT | **nftables `limit rate`** en el **host** (no `tc`, no gateway) | ✅ |
+| Heurísticos | los 3 (http-abuse, brute-force, port-scan) **+ DNS-entropy**, umbrales **versionados en el `.toml`** | ✅ |
+| ipset vs nftables | **solo nftables** (sets + limit) | ✅ |
+| Predictor P% | **diferido a v1.2** (proxy: score + banda) | ✅ |
+| Transporte del feed | **fichero firmado (ed25519), pull** por el host | ✅ |
+| Alcance | **global** para BLOCK y LIMIT (configurable) | ✅ |
+| Timeouts | **300 / 1800 / 3600 s**, nunca `∞` auto (§9) | ✅ |
+| Fail-safe | conservador: mantener reglas aplicadas, no añadir sin feed | ✅ |
+| Alertas | **Wazuh + log + panel**, no Telegram (§7) | ✅ |
+
+### Bloques de implementación
+| Bloque | Qué | Toca producción |
+|---|---|---|
+| B1 · Feed + estado (sensor) | `publicar_feed.py`: lista firmada + escalera de reincidencia | no |
+| B2 · Agente de host | `agente-enforce`: pull, verifica, reconcilia nftables (BLOCK+timeout / LIMIT), nunca-bloquear, fail-safe | sí (DMZ) |
+| B3 · Heurísticos | los 3 + DNS-entropy, umbrales versionados → LIMIT/BLOCK | no |
+| B4 · Pruebas | unit (reconciliación, firma, escalera) + e2e Kali (BLOCK real corta en el host) | e2e sí |
+| B5 · Diagrama + README | diagrama alineado a v1.0.0 + posicionamiento | no |
+
+**Diferido:** predictor P% (v1.2), Opción B gateway (permiso pfSense), Opción C inline.
+
+### Trabajo en rama y release
+- Todo se implementa en la rama **`v1.1-enforcement`**, **sin tocar `main`/v1.0.0**
+  (que se valida el 7-oct).
+- **Orden:** B3 y B1 (sensor-side, no invasivos) → B5 → **tras el 7-oct**: B2 y B4
+  (tocan hosts / e2e).
+
+### Criterio de cierre → **etiquetar `v1.1.0`**
+Se libera `v1.1.0` (bump *minor*: capacidad nueva, el núcleo de observación sigue)
+**solo cuando**:
+1. B1–B5 implementados y **CI en verde**.
+2. **e2e con la Kali**: un BLOCK real **corta el ataque en el host**, medido (no
+   demostrativo) — y un LIMIT degrada la tasa, medido.
+3. La escalera de caducidad (§9) verificada (un falso positivo simulado caduca en
+   300 s; reincidencia escala).
+4. `README` + diagrama alineados.
+5. Merge de `v1.1-enforcement` → `main` → tag anotado `v1.1.0` (sin trailer de Claude).
