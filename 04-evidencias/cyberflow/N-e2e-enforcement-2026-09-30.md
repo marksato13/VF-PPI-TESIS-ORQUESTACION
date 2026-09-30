@@ -52,6 +52,27 @@ cesa.
   bastión como distribuidor, o un canal dedicado) + integración motor→feed en vivo
   (que la detección real dispare el feed sola).
 
+## Pipeline completo (automatización) — probado en dry-run
+
+Además del bloqueo aislado, se probó la **cadena entera** con datos en vivo:
+
+```
+Sensor: el motor decide → publicar_feed.py firma y publica el feed (claves ed25519
+        persistentes en artifacts/feed-keys/, feed en ~/feed/)
+  → Bastión: relay (pull del sensor con cyberflow-to-sensor, push al host con
+     cyberflow-to-srv) — el bastión es un relay tonto; no puede forjar (la clave
+     privada se queda en el sensor)
+    → Host DMZ: agente verifica la firma y PLANEA la acción
+       resultado: {"estado": "dry-run", "limit": ["10.10.20.24"]}
+```
+
+**Hallazgo importante:** con tráfico real, el modelo marcó al **cliente legítimo
+`10.10.20.24` → LIMIT** (un falso positivo, el 4,45 % FPR en acción). El nivel
+**LIMIT** hace justo su papel (degrada, reversible, 300 s, no corta). Pero implica
+que **enforcement en vivo durante el piloto rate-limitaría ocasionalmente a clientes
+legítimos**. Por eso el pipeline se dejó en **dry-run**: la decisión de pasar a
+`--aplicar` (y cuándo, respecto al piloto) es de Mark.
+
 ## Seguridad de la prueba
 Tabla aislada (no tocó el firewall del host), `policy accept` (solo cae lo del set),
 solo la IP de la Kali, timeout corto, host restaurado. Acceso del agente por llave
