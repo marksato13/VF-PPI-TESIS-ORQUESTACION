@@ -24,6 +24,24 @@ El motor (`scripts/engine/motor_decision.py`) espera:
 
 ## 2. Producir el artefacto congelado (NO invasivo: escribe en un candidato)
 
+> **✅ HECHO (30-sep).** Candidato construido en el sensor1, sin tocar producción:
+> - Artefacto: `artifacts/preliminar/if_recalibrado_desplegable.joblib`
+>   (`Pipeline([scaler, IsolationForest])`, con `.score_samples` sobre crudo).
+>   `sha256 = d27f68711fcb0f6657611bd7feb17759bc4fae36b9e61fbd5ca8d1190128125a`.
+> - **Umbral convertido a `score_samples` = -0,568892** (= `decision_function` -0,068892
+>   + `offset_` -0,5). Verificado: detecta **las mismas 54 ventanas** que en la nota `M`.
+> - Fragmento de manifiesto: `artifacts/preliminar/manifest-if-recalibrado.json`
+>   (detector `if_recalibrado_2026_09`).
+> - Deja para el paso 3 (sudo) solo apuntar el servicio a este artefacto.
+>
+> **Nota metodológica:** el TPR *global* es sensible al nº de ventanas-cola de baja
+> señal que se cuenten (bajó de 0,69 a 0,635 al crecer el denominador de 78→85
+> ventanas, con las **mismas 54 detecciones**). Las cifras robustas para la tesis
+> son **por categoría** (HTTP 100 %, escaneo ~63 %, DNS 0 %) y el conteo de
+> detecciones fuertes, no el global suelto.
+
+Receta usada (referencia, ya ejecutada):
+
 Guion a ejecutar en el sensor con el venv (`.venv/bin/python`), escribiendo en
 `artifacts/model/candidates/` — **sin tocar el modelo desplegado**:
 
