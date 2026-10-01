@@ -1,22 +1,19 @@
 # Estado
 
-**Actualizado:** 29 de septiembre de 2026
+**Actualizado:** 1 de octubre de 2026
 
 ---
 
 ## En una frase
 
-El sistema está **desplegado y funcionando sobre tráfico real**, en modo
-observación. El bloqueo del 17-sep —«la red no tiene tráfico de usuarios»— **está
-superado**: la campaña `piloto-con-dns` inyecta tráfico representativo (~44–48 %
-de las ventanas con L7, hosts repartidos por VLAN). Una **recalibración
-en seco** (29-sep, sensor1) baja el FPR de **92,4 % a 4,45 %** en tráfico normal
-retenido, y la **corrida de la Kali** (30-sep) mide la detección: **TPR 69 % global,
-100 % en ataques HTTP** (fuerza bruta/flood/web-scan), 63 % escaneo, 0 % DNS-entropy
-—limitación declarada— al mismo umbral (notas `L` y `M`). El **30-sep se congeló**
-el modelo recalibrado como detector desplegado (`if_recalibrado_2026_09`) y
-`calibrado_en_esta_red=true` en sensor1: el motor ya decide con él. Solo queda
-**etiquetar `v1.0.0`**.
+El sistema está **desplegado y funcionando sobre tráfico real**. La campaña
+`piloto-con-dns` ya aporta tráfico representativo; la recalibración bajó el FPR de
+**92,4 % a 4,45 %**, el detector recalibrado está congelado en sensor1 y `v1.0.0`
+está etiquetada. La Kali midió **TPR 69 % global**, 100 % en ataques HTTP, 63 % en
+escaneo y 0 % en DNS-entropy (notas `L` y `M`). El enforcement pasó a **vivo**:
+la campaña del 1-oct detectó una anomalía y aplicó un LIMIT automático específico
+a la Kali por la cadena feed firmado → relay → `nftables` (nota `O`). Falta probar
+un BLOCK automático y resolver la visibilidad DNS.
 
 ---
 
@@ -27,8 +24,8 @@ el modelo recalibrado como detector desplegado (`if_recalibrado_2026_09`) y
 | Espejo SPAN del núcleo hacia el sensor | ✅ validado | `04-evidencias/cyberflow/D-validacion-espejo-2026-09-17.md` |
 | Suricata sobre `ens37`, `eve.json` con tráfico real | ✅ activo | `G-suricata-2026-09-17.md` |
 | Búfer en anillo de PCAP, 240 s | ✅ activo | `I-motor-desplegado-2026-09-17.md` |
-| Motor de decisión (OCSVM), **modo observación** | ✅ activo | ídem |
-| Bloqueo con `nftables` | ⬜ desactivado a propósito | ver decisión pendiente 1 |
+| Motor de decisión (OCSVM) + heurísticos | ✅ activo | notas `M` y `O` |
+| Enforcement con `nftables` en host DMZ | ✅ vivo; LIMIT real aplicado | `O-enforcement-vivo-campana-ataque-2026-10-01.md` |
 
 **Las etiquetas 802.1Q sobreviven al espejo** y llegan hasta `eve.json`. Eso
 confirma que la variable de distribución por VLAN es viable, que estaba en duda.
@@ -92,7 +89,8 @@ El FPR sobre tráfico normal retenido baja de **92,4 % a 4,45 %** (~20× menos) 
 clava el objetivo. Es una recalibración **en seco**: escribió en `/tmp/recal`, no
 tocó el modelo desplegado ni el piloto. **Matiz:** mide falsos positivos sobre
 tráfico normal (no hay ataques en la base); la **detección de ataques** se validará
-con la corrida de la Kali. Falta **congelar** para dejar `calibrado_en_esta_red=true`.
+con la corrida de la Kali. Ya se congeló como `if_recalibrado_2026_09` y
+`calibrado_en_esta_red=true`; la limitación aún abierta es DNS-entropy (0 %).
 
 ### 🟡 3 · El entorno congelado exige Python 3.14.4, y no es negociable
 
@@ -129,11 +127,11 @@ es consecuencia de nada reciente: ya estaba así.
 
 | # | Decisión | Por qué importa |
 |---|---|---|
-| 1 | **¿El bloqueo es demostrativo o corta tráfico real?** | Con un espejo el sensor observa pero no está en el camino. Cambia el alcance de la tesis |
-| 2 | **¿La réplica es para disponibilidad o para rendimiento?** | No se diseña igual |
-| 3 | **¿Cómo se genera el tráfico?** | Es lo que desbloquea todo lo demás |
-| 4 | **¿Montar Python 3.14 o recongelar sobre 3.12?** | Afecta al artefacto ya publicado |
-| 5 | **`tls_handshake_failure_ratio_60s`** | Hacerla observable, retirarla, o documentarla como no observable. Dejarla ambigua, no |
+| 1 | **Demostrar un BLOCK automático** | El LIMIT vivo está probado; falta que un heurístico origine un BLOCK end-to-end |
+| 2 | **DNS-entropy** | Confirmar si Suricata registra las consultas reales antes de cambiar umbrales |
+| 3 | **Visibilidad de port-scan** | El SPAN no ve los puertos que el firewall ya filtró; decidir si se mide en otro punto |
+| 4 | **Manifiesto vs motor** | El manifiesto declara `if_primary_weighted`, mientras el motor usa `ocsvm_scaled` |
+| 5 | **`tls_handshake_failure_ratio_60s`** | Hacerla observable, retirarla o documentarla como no observable |
 
 ---
 
@@ -201,9 +199,9 @@ recalibración del modelo en cada cambio, panel web funcionando.
 
 ## Lo siguiente, por orden
 
-1. Decidir cómo se genera el tráfico *(decisión 3)*
-2. Levantar los servicios que faltan: servidor web, ficheros, base de datos
-3. Tomar una línea base que merezca ese nombre
-4. Recalibrar, y comparar contra el 92,4 %
-5. Diseñar los escenarios de ataque *(datos reales, escenarios controlados)*
-6. Capa 2: las nueve variables, con los ocho pasos de validación
+1. Desplegar al sensor el `dashboard.py` con la columna Acción y reiniciar el panel
+2. Ejecutar, solo contra un endpoint autorizado, la prueba sostenida que demuestre
+   un BLOCK automático
+3. Diagnosticar DNS-entropy y revisar el alcance de port-scan desde el SPAN
+4. Aplicar TAM y juicio de expertos; consolidar Alfa de Cronbach y V de Aiken
+5. Enviar el artículo a IJIES y alinear cifras/limitaciones en la tesis

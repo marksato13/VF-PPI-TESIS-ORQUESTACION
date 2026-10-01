@@ -1,15 +1,16 @@
 # Traspaso — CyberFlow (tesis PPI)
 
 **Para:** el agente que continúe este trabajo.
-**Fecha del traspaso:** 29 de septiembre de 2026.
-**Estado en una frase:** sistema desplegado y sano sobre tráfico real; el bloqueo
-histórico («no hay tráfico de usuarios») está superado por la campaña piloto; una
-recalibración **en seco** ya midió el salto de FPR **92,4 % → 4,45 %**. Falta la
-corrida de la Kali (detección) y **congelar** el modelo para etiquetar `v1.0.0`.
+**Fecha del traspaso:** 1 de octubre de 2026.
+**Estado en una frase:** sistema desplegado y sano sobre tráfico real; el piloto
+superó el bloqueo histórico, la recalibración bajó el FPR **92,4 % → 4,45 %**, la
+Kali midió TPR **69 % global** y el modelo está congelado y versionado en `v1.0.0`.
+El enforcement está **vivo** y ya aplicó LIMIT automático ante una campaña real;
+falta demostrar un BLOCK automático y resolver DNS-entropy.
 
 > Lee también, en este repo: `ESTADO.md` (estado vivo), `PLANIFICACION.md` (plan
 > maestro y reglas), `04-evidencias/cyberflow/` (evidencia fechada, incluidas las
-> notas `K` y `L` del 29-sep). Este documento las resume; ellas mandan en el detalle.
+> notas `K`–`O`). Este documento las resume; ellas mandan en el detalle.
 
 ---
 
@@ -75,10 +76,10 @@ líos de comillas): ver `scratchpad/run_s2.ps1` de la sesión (portátil→basti
 
 ## 4. Qué se construyó y en qué estado está
 
-### Producto (repo del producto) — HEAD `73d292c`
+### Producto (repo del producto) — `v1.0.0` en `f9ced59`
 | Parte | Ruta | Estado |
 |---|---|---|
-| Motor de decisión (OCSVM) | `scripts/engine/motor_decision.py` | ✅ desplegado, modo observación |
+| Motor de decisión (OCSVM) | `scripts/engine/motor_decision.py` | ✅ desplegado; emite heurísticos para enforcement |
 | Panel web (solo lectura) | `scripts/engine/dashboard.py` | ✅ auth+TLS+rol, KPIs, topología, «Cómo decide», paleta, tour, demo |
 | Instalador | `scripts/setup/instalar.sh` | ✅ **offline-aware** (dpkg desde bundle si no hay red; si no, apt) — `da43aa8` |
 | Asistente de configuración | `scripts/setup/configurar.sh` | ✅ auto-detecta NIC/red/MAC + **menú de escenarios 1/2/3** — `73d292c` |
@@ -104,10 +105,11 @@ líos de comillas): ver `scratchpad/run_s2.ps1` de la sesión (portátil→basti
 | `calibrado_en_esta_red` | **false** | **false** |
 | Commit desplegado | (clon de trabajo) | `99d5005` (clon fresco del ciclo turnkey) |
 
-### Orquestación (este repo) — HEAD `5da1eff`
-`ESTADO.md` al día; fases `F00–F09` reconciliadas; evidencia en
-`04-evidencias/cyberflow/` (`B,D,G,H,I,J` del 17-sep; `K` = ciclo turnkey 29-sep;
-`L` = recalibración en seco 29-sep); huellas en `04-evidencias/hashes/`.
+### Orquestación (este repo)
+`ESTADO.md` y `PENDIENTES.md` al día; fases `F00–F09` reconciliadas; evidencia en
+`04-evidencias/cyberflow/` (notas `K` = ciclo turnkey, `L` = recalibración,
+`M` = detección Kali, `N` = e2e en banco, `O` = enforcement vivo); huellas en
+`04-evidencias/hashes/`.
 
 ### Entregables de tesis (fuera de los repos, en OneDrive `…\INFORME\INFORME\`)
 Informe consolidado de actualización, **instrumento TAM**, **instrumento de juicio
@@ -159,40 +161,40 @@ entorno se valida por **juicio de expertos** (V de Aiken ≥ 0,80).
 
 > **Ojo con la interpretación del 4,45 %:** mide falsos positivos sobre tráfico
 > **normal** (no hay ataques en la base). Demuestra que el modelo deja de gritar
-> «lobo»; **no** su capacidad de detección. Esa mitad la da la corrida de la Kali.
+> «lobo»; **no** su capacidad de detección. Esa mitad la aportó la corrida de la
+> Kali: TPR 69 % global, 100 % HTTP, 63 % escaneo y 0 % DNS-entropy (nota `M`).
 
 ---
 
 ## 7. Problemas abiertos
 
-1. **Detección (TPR) sin medir.** Falta la corrida de la **Kali** para puntuar
-   ataques con el **mismo umbral congelado** y medir cuántos detecta. Es la otra
-   mitad de la afirmación de tesis.
-2. **Congelar pendiente.** Pasar del modelo preliminar (en `/tmp/recal` del
-   sensor1) al modelo desplegado y poner `calibrado_en_esta_red=true`. **Toca el
-   modelo vivo** → coordinar con el fin del piloto.
-3. **`v1.0.0` (P2) bloqueado** por los dos anteriores.
+1. **BLOCK automático en vivo.** El LIMIT automático ya se demostró con la Kali
+   (nota `O`), pero falta una campaña sostenida contra un endpoint autorizado que
+   active `brute_force` y llegue a `cyberflow_bloqueados`.
+2. **DNS-entropy.** Las 200 consultas NXDOMAIN al resolver real no dispararon el
+   heurístico; verificar primero el conteo de Suricata en la ventana en vivo.
+3. **Visibilidad de port-scan.** Los SYN a puertos filtrados por el firewall no
+   cruzan el SPAN; decidir si se mide en otro punto o se acepta como dominio del
+   firewall que CyberFlow complementa.
 4. **Manifiesto vs motor.** El manifiesto declara `if_primary_weighted` como
    conclusión principal, pero el motor despliega `ocsvm_scaled`. Hay que **alinearlo
    o explicarlo** en la tesis. No es reciente; ya estaba así.
 5. **`tls_handshake_failure_ratio_60s`:** decidir si se hace observable, se retira
    o se documenta como no observable. No dejarla ambigua (decisión pendiente 5).
-6. **Decisión 1:** ¿el bloqueo es demostrativo o corta tráfico real? Cambia el
-   alcance de la tesis.
-7. **TAM sin aplicar** (instrumento listo) y **artículo sin enviar** a IJIES.
+6. **TAM sin aplicar** (instrumento listo) y **artículo sin enviar** a IJIES.
 
 ---
 
 ## 8. Próximos pasos (orden sugerido)
 
-1. **Preparar** la corrida de la Kali (sin dispararla) para medir detección con el
-   umbral congelado del ensayo. **No** dispararla sin el visto bueno de Mark.
-2. Cuando termine el piloto: **congelar** el preliminar → `calibrado_en_esta_red=true`
-   → `doctor.sh` debe dejar de avisar «sin calibrar».
-3. **Etiquetar `v1.0.0`** (P2) y, si se quiere, publicar DOI (`.zenodo.json` listo).
+1. **Desplegar** el `dashboard.py` con la columna Acción al sensor y reiniciar
+   `ppi-dashboard`.
+2. **Preparar y autorizar** una campaña sostenida contra un endpoint con 401/403
+   para demostrar un BLOCK automático real.
+3. **Diagnosticar DNS** y decidir el alcance de port-scan a la luz del SPAN.
 4. **Aplicar TAM** a los usuarios y **juicio de expertos** al entorno; consolidar
    V de Aiken / K.
-5. **Enviar el artículo** a IJIES.
+5. **Enviar el artículo** a IJIES; publicar DOI cuando corresponda.
 6. Alinear/explicar manifiesto vs motor (§7.4) y resolver la variable TLS (§7.5).
 
 ---
