@@ -36,18 +36,21 @@ Es la trampa más fácil de este repositorio. `F05` aquí **no** es
 
 **Producto:** `docs/fase00-infraestructura/`
 
-Cinco máquinas virtuales sobre VMware ESXi, tres redes aisladas:
+La topología operativa vigente sobre VMware ESXi usa las redes actuales
+`10.10.20.0/24` (usuarios/ataques) y `10.10.30.0/24` (DMZ):
 
-| VM | Función | PPI-MGMT | PPI-LAN | PPI-DMZ |
+| Equipo | Hostname | Gestión/SSH | IP de trabajo | Función |
 |---|---|---|---|---|
-| VM01 | Administración y agentes | `10.10.10.10` | — | — |
-| VM02 | Sensor, router, Suricata, motor | `10.10.10.20` | `10.20.0.1` | `10.30.0.1` |
-| VM03 | Servidor protegido | `10.10.10.30` | — | `10.30.0.10` |
-| VM04 | Kali, ataques controlados | `10.10.10.40` | `10.20.0.100` | — |
-| VM05 | Cliente legítimo | `10.10.10.50` | `10.20.0.20` | — |
+| Bastión | `VM-GESTION` | `10.10.10.30` | — | Salto SSH por Tailscale |
+| Sensor1 | `cyberflow-sensor` | `10.10.60.11` | `ens37` | Suricata y motor, red real |
+| Sensor2 | `cyberflow-sensor2` | `10.10.60.12` | interfaz de captura | Replicabilidad |
+| Servidor | `srv-dmz` | `10.10.30.10` | `10.10.30.10` | Servicio DMZ |
+| Kali | `kali` | `10.10.20.30` | `10.10.20.30` | Ataques controlados |
+| Clientes | `clientesadmin` | `10.10.20.20`–`10.10.20.26` | `10.10.20.20`–`10.10.20.26` | Tráfico legítimo |
 
-Todo el tráfico entre Cliente/Kali y el Servidor **cruza el Sensor**, que tiene
-`ip_forward=1` y política de reenvío con nftables.
+El tráfico entre Kali/clientes y el servidor se observa mediante el espejo SPAN del
+CORE-STACK en los sensores. El despliegue vigente está en modo observación; el
+sensor no debe tratarse como router del tráfico de producción.
 
 Se despliega con Ansible, en este orden:
 
