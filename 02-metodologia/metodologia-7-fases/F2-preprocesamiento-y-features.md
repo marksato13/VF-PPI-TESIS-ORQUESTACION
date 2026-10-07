@@ -47,6 +47,24 @@ Clave metodológica: el **diccionario se genera desde el extractor congelado**
 no pueden divergir. La **capa 2** (ARP) entra en la dedup pero **no** en el
 scoring de v2; está prevista para v3 (no desplegado) → trabajo futuro.
 
+## Limpieza de datos
+
+El preprocesamiento **no imputa ni codifica categóricas**; se limita a dos
+operaciones:
+
+- **Deduplicación del espejo** (`deduplicar_espejo`, en `extract_multilayer_v3.py`).
+  El SPAN entrega cada trama **dos veces** —una al entrar y otra al salir del
+  cortafuegos, que difieren en 1 de TTL, más duplicados de difusión—. Sin quitarlas
+  se **inflan las tasas** y se leen como **retransmisiones** TCP (un artefacto de
+  captura leído como problema de red). Se detectan por (5-tupla + `ip_id` + longitud
+  + `seq`) dentro de 5 ms con ΔTTL ≤ 1, y se conserva la copia de **mayor TTL** (la
+  original, la que puso el emisor). *Medido: 290 pares en 6 396 paquetes.*
+- **Validación *fail-closed* (sin imputación).** La ausencia de un evento vale **0**
+  legítimamente (no es un faltante); solo entran filas con historia verificada
+  (`eligible_training`), y si falta una fuente (PCAP o `eve.json`) el proceso
+  **aborta** (`raise SystemExit`) en vez de generar filas inválidas. **No hay
+  valores faltantes por diseño.** (`build_multilayer_v2_dataset.py`.)
+
 ## Cómo se ejecuta
 
 ```bash
