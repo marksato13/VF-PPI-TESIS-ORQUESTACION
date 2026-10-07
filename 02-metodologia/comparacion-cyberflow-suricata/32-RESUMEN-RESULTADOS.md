@@ -61,7 +61,10 @@ Ninguno basta solo (el modelo no ve DNS; los heurísticos perdían escaneos); el
 - N=3 por familia (piloto ampliado); para la tesis conviene N mayor.
 - Suricata 0/9 con ET Open **por defecto** + `-sT` + HOME_NET=DMZ: alcance, no
   absoluto (un ruleset afinado podría variar).
-- Falta la 4ª familia de ataque **fuerza bruta real (401)**: bloqueada por el
-  cortafuegos (puerto 8081 Kali→DMZ); código listo.
+- 4ª familia **fuerza bruta real (401)**: ✅ confirmada tras abrir 8081 en pfSense
+  (regla aplicada por Mark). CyberFlow detecta `brute_force`→BLOCK ("240 req
+  HTTP/60s con 100% de fallo de auth"), chequeo rápido en vivo (N=1). Pendiente: la
+  medición de 3 tiempos (la mató la presión de memoria de la laptop) y la
+  comparación vs Suricata por replay.
 - Variables de **capa 2** no entran al scoring del modelo v2 (sí en la dedup y en
   v3, no desplegado): ARP spoofing es trabajo futuro (reentrenar v3).
