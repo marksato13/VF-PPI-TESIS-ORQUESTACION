@@ -64,3 +64,17 @@ Los archivos citados en cada fase viven en dos repositorios:
 | `.jsonl` | resultados línea-por-registro (validación, scores) |
 | `.log` | registro de decisiones del motor |
 | `.md` | documentación y evidencia verificable |
+
+## Metodología vs. Resultados (dónde va la GUI y las alertas)
+
+Regla simple: **la metodología dice _cómo funciona_; los resultados dicen _qué pasó_.**
+
+| Concepto | ¿Metodología o Resultados? |
+|---|---|
+| **El panel / GUI como componente** (de solo lectura, qué muestra: salud, actividad, bloqueos, decisiones, *scores*) | **Metodología** — es parte del sistema desplegado (F6) y del método de validación (F7). Se describe **brevemente**: para qué sirve y qué expone. |
+| **El mecanismo de alertas** (a Wazuh + registro + panel; hacia dentro de la red) | **Metodología** — F5 (respuesta). Se describe el mecanismo. |
+| **Capturas del panel con detecciones/bloqueos reales**, alertas que saltaron, la demo en vivo | **Resultados** — son evidencia de operación (figuras/tablas de resultados). |
+| **Cifras** (9/9 vs 0/9, FPR, latencias, lead time) | **Resultados**. |
+
+Es decir: **la GUI no es una fase aparte.** Como herramienta vive en F6/F7; lo que la
+GUI *mostró* durante la evaluación (capturas, alertas, bloqueos) va en **Resultados**.

@@ -44,6 +44,27 @@ El ML por sí solo no basta: el **modelo** marca la anomalía → **LIMIT**; los
 **heurísticos** confirmados (fuerza bruta, escaneo) → **BLOCK**, y cubren los
 huecos del modelo (el modelo no "ve" DNS). `motor_decision.py` **combina** ambos.
 
+## Partición (split) y balanceo
+
+- **Partición 60/20/20 (train/validación/test), no 80/20.** El patrón
+  `["train","train","validation","train","test"]` (`particionar_linea_base.py`)
+  reparte 3/1/1. Se usan **tres** grupos porque, además de entrenar el IF, hay que
+  **calibrar el umbral**: la validación fija el umbral (percentil `α=0,05`) y la
+  prueba se mantiene **ciega**. Un 80/20 obligaría a elegir el umbral sobre el test →
+  métricas optimistas.
+- **Sin fuga temporal.** No es aleatoria: se parte por **bloques horarios** (reparto
+  cíclico que cubre el ciclo diario) con una **banda de guarda de 60 s** —la ventana
+  máxima— entre bloques; y es **disjunta por episodio** (el builder aborta si un
+  episodio cae en dos particiones).
+- **Sin balanceo sintético.** No se aplica SMOTE/ADASYN: es detección de **una sola
+  clase** (entrenada solo con normal) → no hay desbalance que corregir; el punto de
+  operación se ajusta por **recalibración del umbral** en red real (FPR 92,4 % →
+  4,45 %).
+
+> **Escala del umbral.** −0,568892 es en `score_samples`; equivale a **−0,068892**
+> en `decision_function` (difieren en el `offset_` de IsolationForest). Mismo punto
+> de operación, dos formas de escribirlo.
+
 ## Cómo se ejecuta
 
 ```bash
