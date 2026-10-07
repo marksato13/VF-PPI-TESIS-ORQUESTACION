@@ -58,8 +58,9 @@ código** (`run-benign.sh` aborta fuera de su lista blanca: TCP ≤ 200 Mbit/s,
 etc.) y hay un presupuesto conjunto de bytes. **Nada se borra**: los intentos
 rechazados se archivan con sus hashes.
 
-El dataset de línea base se acumula en `multilayer-v3.csv` (el anillo solo guarda
-~4 min, así que un *timer* extrae y **añade filas**). Finalmente se **recalibra**
+El dataset de línea base se acumula en `multilayer-v3.csv` (el anillo en disco
+solo retiene ~15 min —`retener_minutos`—, así que `cyberflow-acumular.timer`
+extrae y **añade filas**). Finalmente se **recalibra**
 contra tráfico propio: es lo que baja el FPR de 92,4 % a 4,45 % y separa una
 demostración de una medición.
 
