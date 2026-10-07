@@ -3,21 +3,32 @@
 **Objetivo.** Convertir el tráfico capturado en **28 variables multicapa
 (L3/L4/L7)** por IP iniciadora, con un **esquema de features congelado**. Aquí se
 unifican lo que los artículos separan en preprocesamiento + extracción +
-selección de features.
+selección de features. Va **antes** que el dataset: las filas del CSV **son** las
+ventanas que produce el extractor.
 
 ## Diagrama
 
 ```mermaid
 flowchart LR
-  PCAP["*.pcap (anillo)"] --> DEDUP["Dedup del espejo<br/>VLAN / ip_id"]
-  EVE["eve.json (Suricata)"] --> L7["Señales L7 pasivas<br/>HTTP / DNS / TLS"]
-  DEDUP --> WIN["Ventaneo<br/>10 / 30 / 60 s<br/>por IP iniciadora"]
-  L7 --> WIN
-  WIN --> EXT["extract_multilayer_v2.py<br/>(extractor congelado)"]
-  SCH["configs/features/multilayer-v2.json<br/>(esquema de 28 features)"] --> EXT
-  EXT --> CSV["multilayer-v2-normal.csv<br/>multilayer-v2-anomalies.csv"]
-  EXT --> DIC["generar_diccionario_features.py<br/>→ DICCIONARIO_VARIABLES.md"]
-
+  subgraph ENT["Entradas"]
+    PCAP["*.pcap · anillo"]
+    EVE["eve.json · Suricata"]
+    SCH["multilayer-v2.json<br/>esquema de 28 features"]
+  end
+  subgraph PROC["Proceso · extract_multilayer_v2.py (congelado)"]
+    DEDUP["Dedup del espejo<br/>VLAN / ip_id"]
+    L7["Señales L7 pasivas<br/>HTTP / DNS / TLS"]
+    WIN["Ventaneo 10 / 30 / 60 s<br/>por IP iniciadora"]
+  end
+  subgraph OUT["Salidas"]
+    CSV["multilayer-v2-normal.csv<br/>multilayer-v2-anomalies.csv"]
+    DIC["DICCIONARIO_VARIABLES.md<br/>(generado del extractor)"]
+  end
+  PCAP --> DEDUP --> WIN
+  EVE --> L7 --> WIN
+  SCH --> WIN
+  WIN --> CSV
+  WIN --> DIC
   classDef out fill:#EAF7EC,stroke:#3A9D3A;
   class CSV,DIC out;
 ```
@@ -26,17 +37,34 @@ flowchart LR
 
 El extractor toma los paquetes del anillo y las señales L7 de `eve.json` y, por
 cada **IP iniciadora**, calcula variables causales en ventanas de **10, 30 y
-60 s**. El **esquema está congelado** en `configs/features/multilayer-v2.json`
-(28 variables; de ellas **27 con variación observable** —
-`tls_handshake_failure_ratio_60s` queda constante en esta configuración y se
-declara como límite). Ejemplos de features: entropía de DNS, ratios de puertos,
-tasas por protocolo.
+60 s** (entropía de DNS, ratios de puertos, tasas por protocolo…). El **esquema
+está congelado** en `configs/features/multilayer-v2.json`: **28 variables**, de
+las cuales **27 tienen variación observable** (`tls_handshake_failure_ratio_60s`
+queda constante en esta configuración y se declara como límite).
 
-Clave metodológica: el **diccionario de variables se genera desde el extractor
-congelado** (`generar_diccionario_features.py`), no se redacta a mano, de modo que
-documento y código no pueden divergir. Las **filas del CSV resultante son las
-ventanas** que alimentan el dataset y el modelo — por eso F2 va **antes** que la
-construcción del dataset.
+Clave metodológica: el **diccionario se genera desde el extractor congelado**
+(`generar_diccionario_features.py`), no se redacta a mano, así documento y código
+no pueden divergir. La **capa 2** (ARP) entra en la dedup pero **no** en el
+scoring de v2; está prevista para v3 (no desplegado) → trabajo futuro.
+
+## Cómo se ejecuta
+
+```bash
+# Extracción de features (produce las filas del dataset)
+python3 scripts/dataset/build_multilayer_v2_dataset.py
+python3 scripts/dataset/audit_multilayer_v2.py          # auditoría del esquema
+# Diccionario desde el extractor congelado (no a mano)
+python3 scripts/entregables/generar_diccionario_features.py
+```
+
+## Cifras / evidencia clave
+
+- **28 features** multicapa (L3/L4/L7); **27 observables**, 1 constante declarada.
+- Ventanas de **10 / 30 / 60 s** por IP iniciadora (features causales).
+- Hashes publicados en `docs/dataset/SHA256SUMS`:
+  `configs/features/multilayer-v2.json` y `scripts/features/extract_multilayer_v2.py`.
+- Datasheet y diccionario: `docs/dataset/DATASHEET_MULTILAYER_V2.md`,
+  `DICCIONARIO_VARIABLES.md`.
 
 ## Entradas y salidas
 
