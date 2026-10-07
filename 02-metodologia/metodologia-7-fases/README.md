@@ -39,6 +39,26 @@ flowchart LR
   class F5,F6,F7 aporte;
 ```
 
+## Contribución (valor agregado)
+
+Qué distingue a este trabajo de los 15 artículos semilla:
+
+- **Detecta ataques SIN firma:** **9/9** vs **0/9** de Suricata (ET Open).
+  Complementa a Suricata (firmas), no compite.
+- **Dataset propio de red real** (segmentada, conmutador físico, espejo SPAN), no
+  datasets públicos → cierra el salto simulación→realidad.
+- **Recalibración en la propia red** (FPR 92,4 % → 4,45 %): medición, no demo.
+- **Responde, no solo detecta** ◆: PERMIT/LIMIT/BLOCK con feed firmado (Ed25519) y
+  enforcement en los hosts.
+- **Desplegado y operando en vivo** ◆: en el sensor, replicable, 58 corridas sin
+  caídas.
+- **Detector híbrido (modelo + heurísticos):** 9/9 (modelo solo 6/9, heurísticos
+  7/9), sin datos sintéticos (sin SMOTE).
+- **Validación real** ◆: interna (demo técnica) + externa (TAM + juicio de expertos).
+
+**Dónde NO destaca (honesto):** en **velocidad** cuando el ataque tiene firma
+(Nikto: Suricata 3,4 s vs 12 s), y el FPR **sube en operación** (~23–26 %).
+
 ## Dónde viven los artefactos reales
 
 Los archivos citados en cada fase viven en dos repositorios:

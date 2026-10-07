@@ -61,9 +61,43 @@ huecos del modelo (el modelo no "ve" DNS). `motor_decision.py` **combina** ambos
   operación se ajusta por **recalibración del umbral** en red real (FPR 92,4 % →
   4,45 %).
 
-> **Escala del umbral.** −0,568892 es en `score_samples`; equivale a **−0,068892**
-> en `decision_function` (difieren en el `offset_` de IsolationForest). Mismo punto
-> de operación, dos formas de escribirlo.
+## Calibración y validación del umbral
+
+**Por qué lo fijamos nosotros.** El umbral por defecto de IsolationForest (vía el
+parámetro `contamination`) no se ajusta a la red real: sin recalibrar daba **92,4 %
+de falsos positivos** (alarmaba a casi todo). Por eso se calibra sobre tráfico
+propio para un objetivo de falsos positivos del **5 %**.
+
+**Cómo se obtiene −0,568892 (paso a paso):**
+1. Entrenar IsolationForest (500 árboles) **solo con tráfico normal** (partición
+   *train*).
+2. Calcular los *scores* sobre la partición de **validación** (también normal).
+3. Umbral = **percentil α = 0,05** de esos *scores* → el corte que deja fuera solo
+   el 5 % del tráfico normal. Resultado: **−0,568892** (`score_samples`).
+4. **Congelar** el umbral **antes** de tocar el test.
+
+**Las dos escalas (es el mismo umbral).** `decision_function = score_samples + 0,5`
+(desfase fijo `offset_` de sklearn), de modo que **−0,568892 (`score_samples`) =
+−0,068892 (`decision_function`)**. El motor desplegado usa `score_samples`. El 0,5
+**no** es el 5 %: el 5 % elige el valor del umbral; el 0,5 solo cambia de escala.
+
+**Validación — antes vs. después de fijar el umbral:**
+
+| | Sin recalibrar | Umbral fijado (objetivo 5 %) |
+|---|---|---|
+| FPR (tráfico normal) | **92,4 %** | **4,45 %** (en test ciego) |
+| Detección útil | no (alarmaba a todo) | **100 % HTTP · 69 % global** (Kali real) |
+
+El umbral es correcto porque, en datos que nunca vio, **acierta el objetivo de FP**
+y **detecta los ataques reales**; además es **estable** (validación cruzada del
+umbral) y **reproducible** (determinismo con semillas). El 4,45 % es sobre datos de
+la misma distribución; **en operación el FPR sube a ~23–26 %** (el tráfico legítimo
+pesado se apiña cerca del umbral) → ver limitaciones en [F7](F7-validacion.md) y
+trabajo futuro. Bajarlo moviendo el umbral sacrificaría detección (compromiso
+FP↔TPR); la mejora real es reentrenar con tráfico pesado representativo.
+
+Evidencia: `04-evidencias/cyberflow/{L-recalibracion-seco-sensor1-2026-09-29,
+M-deteccion-kali-sensor1-2026-09-30}.md`.
 
 ## Cómo se ejecuta
 
