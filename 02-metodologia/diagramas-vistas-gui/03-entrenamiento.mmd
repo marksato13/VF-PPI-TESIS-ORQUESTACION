@@ -1,0 +1,17 @@
+---
+title: CyberFlow — Vista Entrenamiento (el ciclo · datos → comparar → entrenar → reentrenar)
+---
+flowchart LR
+  e_datos["Datos acumulados<br/>multilayer-v3.csv"]
+  e_part["Partición 60/20/20<br/>sin fuga temporal"]
+  e_comp["Comparar 7 modelos<br/>elegir el mejor"]
+  e_train["Entrenar + congelar<br/>umbral α=0,05"]
+  e_eval["Evaluar FPR / TPR<br/>test ciego + Kali"]
+  e_antes["Antes vs después<br/>¿mejora?"]
+  e_dec["Desplegar o conservar<br/>criterio"]
+
+  e_datos --> e_part --> e_comp --> e_train --> e_eval --> e_antes --> e_dec
+  e_dec -. "reentrenar: mensual / por deriva" .-> e_datos
+
+  classDef accent fill:#13343b,stroke:#2a7f8a,color:#8fe0ea;
+  class e_comp,e_train,e_dec accent;
