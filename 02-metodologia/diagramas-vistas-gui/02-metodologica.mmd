@@ -1,0 +1,30 @@
+---
+title: CyberFlow — Vista Metodológica (cómo se construyó · las 7 fases del método)
+---
+flowchart LR
+  subgraph F1["1 · Datos y línea base"]
+    m_datos["Línea base real<br/>SPAN · PCAP · eve"]
+  end
+  subgraph F2["2 · Preproceso y features"]
+    m_feat["28 features L3/L4/L7<br/>extractor congelado"]
+  end
+  subgraph F3["3 · Modelado híbrido"]
+    m_modelo["IF + heurísticos<br/>híbrido"]
+  end
+  subgraph F4["4 · Experimento y eval."]
+    m_eval["Replay vs Suricata<br/>9/9 vs 0/9"]
+  end
+  subgraph F5["5 · Respuesta"]
+    m_resp["PERMIT/LIMIT/BLOCK<br/>feed firmado"]
+  end
+  subgraph F6["6 · Despliegue"]
+    m_desp["Desplegado en sensor<br/>systemd · replicable"]
+  end
+  subgraph F7["7 · Validación"]
+    m_valid["Interna + externa<br/>demo · TAM"]
+  end
+
+  m_datos --> m_feat --> m_modelo --> m_eval --> m_resp --> m_desp --> m_valid
+
+  classDef accent fill:#13343b,stroke:#2a7f8a,color:#8fe0ea;
+  class m_modelo,m_resp accent;
