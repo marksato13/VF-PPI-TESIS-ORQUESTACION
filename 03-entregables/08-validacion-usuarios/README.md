@@ -1,5 +1,11 @@
 # Validación con usuarios — protocolo
 
+> **Documento histórico SUS; no es el protocolo externo vigente.** La decisión
+> actual separa validación **interna técnica** (demo grabada y observaciones) de
+> validación **externa TAM + juicio de expertos**. Este protocolo SUS no debe
+> administrarse ni puntuarse como TAM sin una nueva decisión metodológica. Ver
+> `02-metodologia/validacion-interna-profesor/PLAN-IMPLEMENTACION-COBERTURA-AUDIOS.md`.
+
 > **Estado: instrumento listo, sin aplicar.** Esta carpeta contiene todo lo
 > necesario para ejecutar la sesión; falta convocar a los evaluadores.
 
