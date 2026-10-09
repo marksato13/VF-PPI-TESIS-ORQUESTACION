@@ -5,6 +5,14 @@ Fuente única de "qué falta". Lo **hecho** está al final para contexto; el det
 vive en `04-evidencias/cyberflow/` (notas K–O), `01-arquitectura/DISENO-ENFORCEMENT.md`
 y `TRASPASO.md`.
 
+> **Reconciliación 2026-10-09.** Correcciones a este corte del 1-oct: el motor vivo corre
+> **Isolation Forest recalibrado** (`if_recalibrado_2026_09`), no OCSVM; el enforcement
+> migró de **crons** a **timers systemd** (ver sección Enforcement); la GUI de 3 vistas /
+> visor / «Pruebas previas» está **implementada en Git, no desplegada** (falta push +
+> `restart ppi-dashboard`). Distinguir siempre *implementado en Git · publicado ·
+> desplegado · validado*. Verdad del despliegue:
+> `producto-as-deployed/docs/FICHA-TECNICA-DESPLIEGUE-VIGENTE.md`.
+
 ---
 
 ## 🟥 Prioridad para la validación (sesiones del 7-oct)
@@ -44,9 +52,11 @@ y `TRASPASO.md`.
 
 ---
 
-## 🟦 Enforcement — EN VIVO (go-live 1-oct)
-El pipeline completo corre **autónomo y aplicando** decisiones en el host DMZ, vía
-crons de usuario:
+## 🟦 Enforcement — EN VIVO (go-live 1-oct; migrado a systemd el 6-oct)
+El pipeline completo corre **autónomo y aplicando** decisiones en el host DMZ. Hoy por
+**timers systemd** (`OnCalendar=minutely`), que **reemplazaron los crons** del go-live:
+`ppi-publicar-feed` (sensor), `ppi-relay-feed` (bastión), `ppi-enforce-agent` (host DMZ).
+Mecanismo original del go-live (histórico, crons de usuario):
 - **Sensor** (`crontab` de m4rk): `publicar_feed.py` → `~/feed/feed.json`+`.sig`.
 - **Bastión** (`crontab` de gadmin): `~/relay-feed.sh` (pull del sensor → push al host).
 - **Host DMZ** (`crontab` de adminsrvdmz): `agente_enforce.py --aplicar --sudo` →
