@@ -1,6 +1,21 @@
 # Estado
 
-**Actualizado:** 1 de octubre de 2026
+**Actualizado:** 1 de octubre de 2026.
+**Reconciliación 2026-10-09** (verificación por SSH en Sensor1; supera puntos de este corte).
+
+> Lo verificado el 9-oct corrige/puntualiza este snapshot del 1-oct:
+> - **Modelo activo:** el motor vivo corre **Isolation Forest recalibrado**
+>   (`if_recalibrado_2026_09`), **no** `ocsvm_scaled`. Donde abajo se lea «motor (OCSVM)»
+>   es texto heredado. Detalle y hashes: `producto-as-deployed/docs/RECONCILIACION-MANIFIESTO-MOTOR.md`.
+> - **Enforcement:** ya **no** son «crons de usuario» sino **timers systemd**
+>   (`ppi-publicar-feed` / `ppi-relay-feed` / `ppi-enforce-agent`, `OnCalendar=minutely`).
+> - **Cuatro estados a distinguir por tarea** (no son lo mismo): *implementado en Git* ≠
+>   *publicado* ≠ *desplegado en Sensor1* ≠ *validado*. P. ej. la GUI de 3 vistas / visor /
+>   «Pruebas previas» está **implementada en Git**, aún **no desplegada** (falta push +
+>   `restart ppi-dashboard`).
+> - Fuente de verdad del despliegue: `producto-as-deployed/docs/FICHA-TECNICA-DESPLIEGUE-VIGENTE.md`.
+>   Afirmaciones con estado y fuente: `02-metodologia/trazabilidad/afirmaciones-cientificas.md`.
+>   Estado por bloques de la validación: `02-metodologia/validacion-interna-profesor/ESTADO-IMPLEMENTACION-20261009.md`.
 
 ---
 
@@ -24,7 +39,7 @@ un BLOCK automático y resolver la visibilidad DNS.
 | Espejo SPAN del núcleo hacia el sensor | ✅ validado | `04-evidencias/cyberflow/D-validacion-espejo-2026-09-17.md` |
 | Suricata sobre `ens37`, `eve.json` con tráfico real | ✅ activo | `G-suricata-2026-09-17.md` |
 | Búfer en anillo de PCAP, 240 s | ✅ activo | `I-motor-desplegado-2026-09-17.md` |
-| Motor de decisión (OCSVM) + heurísticos | ✅ activo | notas `M` y `O` |
+| Motor de decisión (**Isolation Forest recalibrado** `if_recalibrado_2026_09`) + heurísticos | ✅ activo | notas `L`/`M`/`O`; reconciliación 9-oct |
 | Enforcement con `nftables` en host DMZ | ✅ vivo; LIMIT real aplicado | `O-enforcement-vivo-campana-ataque-2026-10-01.md` |
 
 **Las etiquetas 802.1Q sobreviven al espejo** y llegan hasta `eve.json`. Eso
@@ -115,11 +130,14 @@ corrección no ocurre sin que nada lo indique.
 (deadsnakes solo ofrece 3.14.6, y el guardarraíl exige la versión exacta).
 Evidencia completa en `04-evidencias/cyberflow/J-recongelado-entorno-2026-09-17.md`.
 
-### 🟡 4 · El modelo principal declarado no es el que se ejecuta
+### 🟡 4 · Tres modelos distintos en los artefactos (reconciliado 9-oct)
 
-El manifiesto declara `if_primary_weighted` como conclusión principal, pero el
-motor despliega `ocsvm_scaled`. Hay que explicarlo en la tesis o alinearlo. No
-es consecuencia de nada reciente: ya estaba así.
+El manifiesto de laboratorio declara `if_primary_weighted` como conclusión
+principal; el `.toml` genérico apunta a `ocsvm_scaled`; y el **motor vivo ejecuta
+un tercero, `if_recalibrado_2026_09`** (Isolation Forest recalibrado en esta red),
+según la verificación por SSH del 9-oct. No se intercambian umbrales entre ellos.
+Hay que explicarlo en la tesis, no «alinearlo» borrando el linaje. Detalle:
+`producto-as-deployed/docs/RECONCILIACION-MANIFIESTO-MOTOR.md`.
 
 ---
 
@@ -130,7 +148,7 @@ es consecuencia de nada reciente: ya estaba así.
 | 1 | **Demostrar un BLOCK automático** | El LIMIT vivo está probado; falta que un heurístico origine un BLOCK end-to-end |
 | 2 | **DNS-entropy** | Confirmar si Suricata registra las consultas reales antes de cambiar umbrales |
 | 3 | **Visibilidad de port-scan** | El SPAN no ve los puertos que el firewall ya filtró; decidir si se mide en otro punto |
-| 4 | **Manifiesto vs motor** | El manifiesto declara `if_primary_weighted`, mientras el motor usa `ocsvm_scaled` |
+| 4 | **Manifiesto vs motor** | Reconciliado 9-oct: motor vivo = `if_recalibrado_2026_09`; manifiesto declara `if_primary_weighted`; `.toml` genérico apunta a `ocsvm_scaled`. Decidir plantilla histórica vs perfil real |
 | 5 | **`tls_handshake_failure_ratio_60s`** | Hacerla observable, retirarla o documentarla como no observable |
 
 ---
