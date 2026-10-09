@@ -54,7 +54,7 @@ Ninguno basta solo (el modelo no ve DNS; los heurísticos perdían escaneos); el
   añadió una rama OR para ráfaga masiva de baja completitud (`flow≥200 & syn≤0,1`),
   FPR neutro (validado sobre 712 450 ventanas). Desplegado (`VERSION_UMBRALES
   2026-10-06.2`) y validado en vivo. **Confirmación N=3: 3/3** (antes 1/3).
-  (Ver `producto-as-deployed/docs/MEJORA-PORT-SCAN.md`.)
+  (Ver [`producto/docs/MEJORA-PORT-SCAN.md`](https://github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos/blob/8d696e5d61d3f90b4c3c2106ea503db83ca26950/docs/MEJORA-PORT-SCAN.md).)
 
 ## 6. Límites declarados (no esconder)
 

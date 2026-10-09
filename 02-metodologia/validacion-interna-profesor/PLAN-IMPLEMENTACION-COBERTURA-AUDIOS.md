@@ -5,8 +5,8 @@
 ## Fuentes y alcance
 
 - `CYBERFLOW/PROMPTS-CODEX-OPENCODE.md`: reglas de trabajo y tres encargos para el producto.
-- `CYBERFLOW/producto-as-deployed/docs/VALIDACION-INTERNA-COBERTURA-AUDIOS.md` (`8118d7d`): siete requisitos del profesor, evidencia y responsables.
-- `producto-as-deployed/docs/VALIDACION-INTERNA-TECNICA.md` y `docs/GUION-DEMO.md`: requisitos técnicos, límites y guion.
+- [`producto/docs/VALIDACION-INTERNA-COBERTURA-AUDIOS.md`](https://github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos/blob/8d696e5d61d3f90b4c3c2106ea503db83ca26950/docs/VALIDACION-INTERNA-COBERTURA-AUDIOS.md) (`8118d7d`): siete requisitos del profesor, evidencia y responsables.
+- [`producto/docs/VALIDACION-INTERNA-TECNICA.md`](https://github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos/blob/8d696e5d61d3f90b4c3c2106ea503db83ca26950/docs/VALIDACION-INTERNA-TECNICA.md) y `docs/GUION-DEMO.md`: requisitos técnicos, límites y guion.
 - `orquestacion-limpio/02-metodologia/metodologia-7-fases/` y `comparacion-cyberflow-suricata/`: método y resultados. Las notas 26, 28, 31 y 32 sostienen 9/9 vs 0/9, Nikto y ablación, **con sus límites**.
 
 La **validación interna** es una demostración técnica grabada y observaciones del profesor/expertos. **TAM y juicio de expertos externos** constituyen una validación posterior; la lista de tablas/figuras y el artículo son entregables editoriales. No mezclar esos cierres con una modificación del panel.
@@ -15,7 +15,7 @@ La **validación interna** es una demostración técnica grabada y observaciones
 
 | Aspecto | Estado constatado | Consecuencia |
 |---|---|---|
-| Repo de trabajo | `producto-as-deployed`, rama local `master`, **4 commits adelante** de `origin/as-deployed-sensor-20261006`, árbol limpio. Los cuatro son `edb4036`, `6e2a25d`, `5c9d0ac`, `8118d7d`. | No hacer pull/reset ni push automático; preservar los cuatro commits de Mark/Claude. El mapa de audios dice «3 commits» y debe actualizarse a cuatro. |
+| Repo de trabajo | [`producto-as-deployed`](https://github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos/tree/8d696e5d61d3f90b4c3c2106ea503db83ca26950), rama local `master`, **4 commits adelante** de `origin/as-deployed-sensor-20261006`, árbol limpio. Los cuatro son `edb4036`, `6e2a25d`, `5c9d0ac`, `8118d7d`. | No hacer pull/reset ni push automático; preservar los cuatro commits de Mark/Claude. El mapa de audios dice «3 commits» y debe actualizarse a cuatro. |
 | GUI local vs sensor | SHA-256 de `scripts/engine/dashboard.py` local `e3648ab0...58fea0`; en Sensor1 `53499d6c...70a2ec32f`. `ppi-dashboard` está activo, pero **no sirve aún el mismo archivo local**. | Una casilla «listo en código» no prueba «visible en vivo». Desplegar únicamente tras QA y respaldo del archivo del sensor. |
 | Modelo vivo | Sensor1 usa `if_recalibrado_2026_09`, Pipeline IsolationForest, umbral `score_samples=-0,568892`, `calibrado_en_esta_red=true`. | No cambiar joblib, manifiesto, umbral ni servicio del motor en estos bloques. Conservar la entrada histórica OCSVM en logs, pero no mostrarla como detector actual. |
 | GUI local | Ya existen tres vistas de topología, visor `/api/archivo`, «Pruebas previas» y columna Acción. Aún figuran `card('Detector', 'OCSVM')` y un paso del tour que dice «One-Class SVM». | Corregir textos y probar roles/JS; **no volver a implementar** vistas, visor ni columna. |
@@ -33,7 +33,7 @@ B0 congelar estado y fuentes
 
 ### B0 — Preflight y protección del trabajo existente (P0)
 
-**Dónde:** `producto-as-deployed` y Sensor1 en lectura. **Responsable:** implementación local; Mark aprueba cualquier despliegue.
+**Dónde:** [`producto-as-deployed`](https://github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos/tree/8d696e5d61d3f90b4c3c2106ea503db83ca26950) y Sensor1 en lectura. **Responsable:** implementación local; Mark aprueba cualquier despliegue.
 
 1. Registrar HEAD, estado limpio, los cuatro commits no publicados y hashes del panel local/vivo; revisar diff antes de editar.
 2. Identificar el comando de demo, fixtures y tests relevantes. Confirmar que las rutas del visor `/api/archivo` tienen lista de permitidos y control de rol; no exponer secretos ni rutas arbitrarias.
@@ -43,7 +43,7 @@ B0 congelar estado y fuentes
 
 ### B1 — Coherencia de GUI y recorrido guiado (P0; requisitos 1, 2, 4 y 5)
 
-**Dónde:** `producto-as-deployed/scripts/engine/dashboard.py` (Prompt 1). **Dependencia:** B0.
+**Dónde:** [`producto/scripts/engine/dashboard.py`](https://github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos/blob/01b6f3fa71bb4daca320b8928ef912e5f4dc8dc2/scripts/engine/dashboard.py) (Prompt 1). **Dependencia:** B0.
 
 1. Sustituir `card('Detector', 'OCSVM')` por el nombre real de `/api/status`, usando `DETECTOR_LABEL` con fallback; mantener `ocsvm_scaled` como etiqueta histórica.
 2. Corregir el paso «One-Class SVM» del tour y cubrir tres vistas, *Pruebas previas* y el flujo real del visor («Ver archivos» → ficha → «◎ Ver contenido»). Comprobar que pasos ocultos por rol se omitan correctamente.
@@ -54,7 +54,7 @@ B0 congelar estado y fuentes
 
 ### B2 — Reconciliación del modelo desplegado (P0; requisitos 1, 2 y 6)
 
-**Dónde:** Prompt 2, `configs/cyberflow.toml`, manifiestos y model cards de `producto-as-deployed`. **Dependencia:** B0; puede prepararse al mismo tiempo que B1.
+**Dónde:** Prompt 2, `configs/cyberflow.toml`, manifiestos y model cards de [`producto-as-deployed`](https://github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos/tree/8d696e5d61d3f90b4c3c2106ea503db83ca26950). **Dependencia:** B0; puede prepararse al mismo tiempo que B1.
 
 1. Elaborar `docs/RECONCILIACION-MANIFIESTO-MOTOR.md`: origen de cada ruta/umbral, valor en el artefacto, valor efectivo del servicio, acción segura.
 2. Explicar la secuencia histórica: `if_primary_weighted` declarado principal en el experimento, OCSVM comparador/promovido antes y **IsolationForest recalibrado** efectivo hoy. Distinguir `decision_function=-0,068892` de `score_samples=-0,568892`.
@@ -124,7 +124,7 @@ B0 congelar estado y fuentes
 
 ## Reglas de ejecución
 
-- Mantener separados `producto-as-deployed` (código de demo) y `orquestacion-limpio` (plan/evidencias). Este archivo es solo planificación.
+- Mantener separados [`producto-as-deployed`](https://github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos/tree/8d696e5d61d3f90b4c3c2106ea503db83ca26950) (código de demo) y `orquestacion-limpio` (plan/evidencias). Este archivo es solo planificación.
 - No sobrescribir los cuatro commits locales ni el `dashboard.py` vivo sin diff y respaldo. No tocar infraestructura, modelo congelado, umbrales, pfSense, CORE ni ejecutar Kali por este plan.
 - No hacer push, reinicios ni despliegues sin intervención de Mark. No registrar contraseñas, claves privadas, PCAP completos ni datos sensibles en Git.
 - En la fase de código seguir el formato del repo y comprobar **JavaScript servido**, no solo la cadena Python. Si la demo no tiene la evidencia, declararlo pendiente.

@@ -63,7 +63,7 @@ Qué distingue a este trabajo de los 15 artículos semilla:
 
 Los archivos citados en cada fase viven en dos repositorios:
 
-- **`producto-as-deployed/`** — el producto tal como se desplegó: `scripts/`,
+- **[`producto-as-deployed`](https://github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos/tree/8d696e5d61d3f90b4c3c2106ea503db83ca26950)** — el producto tal como se desplegó: `scripts/`,
   `configs/`, `artifacts/`, `dashboard/`, `ansible/`, `docs/`.
 - **`orquestacion-limpio/`** (este repo) — orquestación, método de comparación
   vs Suricata (`02-metodologia/comparacion-cyberflow-suricata/`), evidencias
