@@ -1,16 +1,29 @@
-# Vistas de la GUI de CyberFlow — en Mermaid
+# Vistas de CyberFlow — en Mermaid
 
-Réplica **1:1** de las tres vistas de topología del panel (`dashboard.py`,
-`TOPO_VISTAS`), en Mermaid editable. Fuente de verdad: los datasets `completa`,
-`metodologica` y `entrenamiento` del panel a fecha 2026-10-09.
+Las tres vistas de topología del panel (`dashboard.py`, `TOPO_VISTAS`), en Mermaid
+editable, **corregidas el 2026-10-09** tras la revisión de la documentación:
 
 - `01-operacional.mmd` — **Operacional**: cómo funciona en vivo (el camino del paquete).
 - `02-metodologica.mmd` — **Metodológica**: cómo se construyó (las 7 fases del método).
-- `03-entrenamiento.mmd` — **Entrenamiento**: el ciclo datos → comparar → entrenar → reentrenar.
+- `03-entrenamiento.mmd` — **Entrenamiento**: el procedimiento datos → selección →
+  entrenamiento → evaluación → decisión.
 
-Cada `.mmd` tiene su `.png` ya renderizado al lado. Convención de color (igual que la GUI):
-hosts en azul, **artefactos** (ficheros) como cilindros con borde punteado, **sumidero**
-en rojo, y acento teal para modelo/decisión/respuesta.
+Cada `.mmd` tiene su `.png` renderizado al lado. Este README se genera a partir de los
+`.mmd`: si se cambia un diagrama, se regenera. Convención de color: hosts en azul,
+**artefactos** como cilindros con borde punteado, **sumidero** en rojo y acento teal para
+modelo, decisión y respuesta.
+
+## Precisiones (no son decoración)
+
+- **Selección del modelo.** Los candidatos se comparan **en validación** con un criterio
+  **fijado antes** de mirar el test; el **test se reserva** para una sola evaluación final.
+  La comparación histórica de siete candidatos del laboratorio promovió el OCSVM **después**
+  de ver el test (sesgo declarado): el diagrama describe el procedimiento correcto, no aquel.
+- **Reentrenamiento mensual o por deriva = política propuesta.** No hay automatización
+  comprobada del reentrenamiento: lo automatizado es la **acumulación** de la línea base
+  (`cyberflow-acumular.timer`). El ciclo se ejecuta a mano, en seco, con el runbook, y solo
+  se despliega si mejora o iguala la cobertura sin empeorar el FPR.
+- **Variables.** El extractor v3 emite 31; el modelo consume **28** (contrato v2).
 
 ---
 
@@ -43,7 +56,7 @@ flowchart LR
     motor["Atribución de flujo<br/>SERVICIO"]
     variables["Variables / 10 s<br/>L2·L3·L4·L7"]
     descartes["Fuera del cálculo<br/>SUMIDERO"]
-    reentrenamiento["Reentrenamiento<br/>MENSUAL / POR DERIVA"]
+    reentrenamiento["Reentrenamiento<br/>POLÍTICA PROPUESTA · manual"]
     modelo["Modelo recalibrado<br/>IF · CALIBRADO"]
     heuristicos["Heurísticos<br/>DETERMINISTAS"]
   end
@@ -134,23 +147,23 @@ flowchart LR
 
 ---
 
-## 3 · Entrenamiento (el ciclo · reentrenamiento)
+## 3 · Entrenamiento (procedimiento)
 
 ```mermaid
 ---
-title: CyberFlow — Vista Entrenamiento (el ciclo · datos → comparar → entrenar → reentrenar)
+title: CyberFlow — Vista Entrenamiento (procedimiento · el reentrenamiento periódico es política propuesta)
 ---
 flowchart LR
   e_datos["Datos acumulados<br/>multilayer-v3.csv"]
   e_part["Partición 60/20/20<br/>sin fuga temporal"]
-  e_comp["Comparar 7 modelos<br/>elegir el mejor"]
-  e_train["Entrenar + congelar<br/>umbral α=0,05"]
-  e_eval["Evaluar FPR / TPR<br/>test ciego + Kali"]
-  e_antes["Antes vs después<br/>¿mejora?"]
-  e_dec["Desplegar o conservar<br/>criterio"]
+  e_comp["Comparar candidatos<br/>en validación · criterio prefijado"]
+  e_train["Entrenar + congelar umbral<br/>α=0,05 sobre validación"]
+  e_eval["Evaluar una sola vez<br/>test reservado + Kali"]
+  e_antes["Antes vs después<br/>mismas métricas, mismos datos"]
+  e_dec["Desplegar o conservar<br/>cobertura ≥ y FPR ≤ actual"]
 
   e_datos --> e_part --> e_comp --> e_train --> e_eval --> e_antes --> e_dec
-  e_dec -. "reentrenar: mensual / por deriva" .-> e_datos
+  e_dec -. "reentrenar: mensual / por deriva · política propuesta, no automatizada" .-> e_datos
 
   classDef accent fill:#13343b,stroke:#2a7f8a,color:#8fe0ea;
   class e_comp,e_train,e_dec accent;
