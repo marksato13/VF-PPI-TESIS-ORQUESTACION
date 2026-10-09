@@ -29,6 +29,6 @@ por el replay — ver nota 19.)
 - **29 — PLAN DE EVALUACIÓN**: métricas, criterios, modelos a comparar, backlog.
 
 ## Relacionado (otros repos)
-- Producto *as-deployed*: `producto-as-deployed/` (código, modelo, enforcement). Docs
+- Producto *as-deployed*: [`producto-as-deployed`](https://github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos/tree/8d696e5d61d3f90b4c3c2106ea503db83ca26950) (código, modelo, enforcement). Docs
   clave: `GUION-DEMO.md`, `VALIDACION-INTERNA-TECNICA.md`, `MEJORA-PORT-SCAN.md`,
   `PLAN-REENTRENAMIENTO.md`, `evidencias/tiempos-2026-10-06.md`, `demo/brute/`.

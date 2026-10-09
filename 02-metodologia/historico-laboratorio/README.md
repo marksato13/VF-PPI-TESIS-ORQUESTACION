@@ -32,4 +32,7 @@ sin cambios de contenido desde el registro original (`investigacion/`).
 | F7 · validación | [`fase07-validacion-final/02-resultados-f6.md`](fase07-validacion-final/02-resultados-f6.md) | CLAIM-004, 005, 006 (F6) |
 
 Los enlaces internos de estos informes apuntan a la estructura antigua y pueden no
-resolver; su contenido y sus cifras son los originales.
+resolver; su contenido y sus cifras son los originales. Del mismo modo, cuando un
+entregable antiguo de `03-entregables/` cita `docs/faseXX-…/fichero.md`, el fichero
+correspondiente —si es uno de los anteriores— está en esta carpeta como
+`faseXX-…/fichero.md`.
