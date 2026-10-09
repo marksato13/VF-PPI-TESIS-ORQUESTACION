@@ -1,136 +1,101 @@
 # Pendientes — CyberFlow
 
-**Actualizado:** 1 de octubre de 2026.
-Fuente única de "qué falta". Lo **hecho** está al final para contexto; el detalle
-vive en `04-evidencias/cyberflow/` (notas K–O), `01-arquitectura/DISENO-ENFORCEMENT.md`
-y `TRASPASO.md`.
-
-> **Reconciliación 2026-10-09.** Correcciones a este corte del 1-oct: el motor vivo corre
-> **Isolation Forest recalibrado** (`if_recalibrado_2026_09`), no OCSVM; el enforcement
-> migró de **crons** a **timers systemd** (ver sección Enforcement); la GUI de 3 vistas /
-> visor / «Pruebas previas» está **implementada en Git, no desplegada** (falta push +
-> `restart ppi-dashboard`). Distinguir siempre *implementado en Git · publicado ·
-> desplegado · validado*. Verdad del despliegue:
-> `producto-as-deployed/docs/FICHA-TECNICA-DESPLIEGUE-VIGENTE.md`.
+**Actualizado:** 9 de octubre de 2026. Fuente única de «qué falta». El estado de cada
+componente, con sus cuatro estados (implementado · publicado · desplegado · validado), está
+en [`ESTADO.md`](ESTADO.md); el detalle, en `04-evidencias/cyberflow/` (notas K–O) y en la
+[ficha técnica del producto](https://github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos/blob/01b6f3fa71bb4daca320b8928ef912e5f4dc8dc2/docs/FICHA-TECNICA-DESPLIEGUE-VIGENTE.md).
 
 ---
 
-## 🟥 Prioridad para la validación (sesiones del 7-oct)
+## 🟥 Para cerrar la validación interna
 
-### 1. GUI / Dashboard — ✅ HECHO Y EN VIVO
-- ✅ **Contadores por detector activo** (no `ocsvm_scaled` fijo) — ya no salen en 0
-  tras congelar. `compute_counters(detector_modelo=args.detector_name)` + 5 tests.
-- ✅ **Etiquetas** del detector recalibrado y los 4 heurísticos.
-- ✅ **Topología rehecha:** modelo recalibrado (no "OCSVM congelado"), cadena de
-  enforcement (heurísticos → decisión LIMIT/BLOCK → feed firmado → agente en host),
-  Wazuh en observabilidad, fases y conectores nuevos, archivos por nodo.
-- ✅ Desplegado al repo del sensor; **CI verde**.
-- ✅ **Panel reiniciado (30-sep):** `ppi-dashboard` corre el código nuevo.
-- ⚠️ **Bug corregido (30-sep):** una etiqueta de arista con `<` pegado a una letra
-  (`score<umbral`) rompía el parseo del SVG y ocultaba TODAS las cajas de nodos.
-  Escapado a `&lt;` (commit `921f0b1`). El sensor se parcheó en vivo (`sed`) y se
-  reinició; las cajas ya se ven.
-- ✅ **Topología HORIZONTAL (30-sep, commit `594b197`):** vista Completa rediseñada,
-  flujo izquierda→derecha con las fases en columnas y más espacio. Validado sin
-  solapes / fuera de banda. Con `b2900e8`: panel de detalle plegable (diagrama a
-  todo el ancho), letras más gruesas, iconos más adecuados, fases numeradas y zoom
-  por sección (`d29f7f4`). El número "31 variables" de una arista sigue **por
-  reconciliar** con `/api/variables` (¿28?).
-- ✅ **Panel derecho enriquecido (30-sep, commit `d1be279`):** flujo interno paso a
-  paso del **Motor** (atribución→filtrado→ventaneo→puntuación) y de la **Decisión**
-  (modelo+heurístico→acción más severa→escalada→nunca-bloquear); cada flujo con su
-  título propio (se corrigió el bug del título fijo "reentrenamiento").
-- ⏳ **Falta:** copiar al sensor el `dashboard.py` que añade la columna **Acción**
-  (PERMIT/LIMIT/BLOCK) y ejecutar `sudo systemctl restart ppi-dashboard`. El sensor
-  no tiene egress, por lo que el despliegue debe ir por el bastión; la visualización
-  de topología ya está desplegada y en vivo.
+| # | Pendiente | Quién | Criterio de cierre |
+|---|---|---|---|
+| 1 | **Equivalencia del umbral sobre el artefacto vivo** | Mark (Sensor1) | Salida `EQUIVALENTE` de `scripts/modeling/verificar_equivalencia_umbral.py` publicada en `04-evidencias/cyberflow/`, con los SHA-256 del joblib y del manifiesto |
+| 2 | **Etiqueta de versión del feed** | Mark (Sensor1) | La unidad del publicador pasa `2026-10-06.2` (o se despliega el publicador de `main`, que la toma del código) y un feed nuevo lo muestra |
+| 3 | **QA autenticada del panel por rol** | Mark | Capturas fechadas con `admin` y `lector`: tarjeta Detector, tres vistas, visor de código, «Pruebas previas»; el `lector` recibe 403 en lo de desarrollador |
+| 4 | **Reentrenamiento ANTES/DESPUÉS con datos reales reservados** (bloque B3) | Mark + apoyo | Tabla `comparacion-*.md` sobre normal y ataques nuevos no vistos; decisión justificada; **sin desplegar** |
+| 5 | **Sesión interna con el profesor** (bloque B6) | Mark | Acta o vídeo, observaciones y trazabilidad requisito → demo → evidencia |
 
-### 2. Validación con usuarios y expertos
-- **TAM** (utilidad/aceptación, Likert 1–7) + **Alfa de Cronbach** (≥0,70).
-- **Juicio de expertos** del entorno + **V de Aiken** (≥0,80).
-- Instrumentos ya preparados (carpeta de informes / entregable de orquestación).
+## 🟧 Enforcement — pendientes de validación
 
----
+- **BLOCK automático de punta a punta.** Fuerza bruta **sostenida** solo contra un endpoint
+  autorizado del DMZ que responda 401/403: debe disparar `brute_force` y poblar
+  `cyberflow_bloqueados`. Hoy el BLOCK está validado en banco (nota `N`), no originado por
+  la detección en vivo. El puerto 8081 está filtrado entre la Kali y el DMZ: abrirlo o
+  servir el endpoint en `:80` durante la prueba.
+- **DNS.** Confirmar en PCAP y EVE que las consultas al resolver real (`10.10.10.20`)
+  llegan, se atribuyen a la entidad y elevan `dns_query_count_60s`, antes de concluir nada
+  sobre el modelo. El 0/8 del piloto apuntó a otro host.
+- **Port scan.** Separar tráfico generado, descartado por el cortafuegos y visto por el
+  sensor (en una campaña el sensor solo vio 80/443 de 1000 puertos).
+- **Lista nunca-bloquear** fijada en el código del publicador y del agente: llevarla a
+  configuración por despliegue y comprobar que ambos aplican la misma.
+- **Tiempo de punta a punta** del pipeline distribuido (detección → feed → relay → agente
+  → `nftables`), medido sobre esta cadena; la mediana de 8,0 s es de F6.
 
-## 🟦 Enforcement — EN VIVO (go-live 1-oct; migrado a systemd el 6-oct)
-El pipeline completo corre **autónomo y aplicando** decisiones en el host DMZ. Hoy por
-**timers systemd** (`OnCalendar=minutely`), que **reemplazaron los crons** del go-live:
-`ppi-publicar-feed` (sensor), `ppi-relay-feed` (bastión), `ppi-enforce-agent` (host DMZ).
-Mecanismo original del go-live (histórico, crons de usuario):
-- **Sensor** (`crontab` de m4rk): `publicar_feed.py` → `~/feed/feed.json`+`.sig`.
-- **Bastión** (`crontab` de gadmin): `~/relay-feed.sh` (pull del sensor → push al host).
-- **Host DMZ** (`crontab` de adminsrvdmz): `agente_enforce.py --aplicar --sudo` →
-  `~/enforce/shadow.log` y reglas `nftables`.
+## 🟦 Enforcement vigente — cómo opera y cómo se revierte
 
-**Verificado en el host:** tabla `inet cyberflow`, cadena `entrada` (hook input,
-policy accept), set de bloqueados y set de limitados (100/s, ráfaga 5). `sudo -n nft`
-es NOPASSWD, por lo que el agente eleva solo `nft`, no todo el proceso. El arreglo
-`5368613` incorporó `--sudo` y reporte de errores; antes el agente podía reportar
-"aplicado" aun si `nft` fallaba.
+Corre por **timers systemd** con `OnCalendar=minutely` (reemplazaron a los crons el
+6-oct): `ppi-publicar-feed` en el sensor, `ppi-relay-feed` en el bastión y
+`ppi-enforce-agent` en el host DMZ. En el host, tabla `inet cyberflow` (cadena `entrada`,
+hook input, política accept), set de bloqueados y set de limitados (100/s, ráfaga 5). El
+agente eleva solo `nft` con `sudo -n` (NOPASSWD acotado).
 
-La campaña real `prueba-ataque-20261001-031730` desde Kali `10.10.20.30` demostró la
-cadena automática: el modelo detectó la anomalía → emitió LIMIT en el feed firmado →
-relay → el agente aplicó `nft` (`errores:0`). El rate-limit fue específico para la
-Kali y se retiró al cesar el ataque. Además se observó un LIMIT de 3 min sobre
-`10.10.20.24`, un falso positivo legítimo: el coste de un LIMIT es reversible, pero
-debe seguir midiéndose durante el piloto. Evidencia completa: nota `O`.
+**Rollback:**
 
-**Rollback:** quitar `--aplicar --sudo` del cron y ejecutar
-`sudo nft delete table inet cyberflow`.
+```bash
+# en el HOST: modo sombra (quitar --aplicar del ExecStart) o parada completa
+sudo systemctl edit --full ppi-enforce-agent.service && sudo systemctl daemon-reload
+sudo systemctl disable --now ppi-enforce-agent.timer && sudo nft delete table inet cyberflow
+# en el SENSOR (opcional): dejar de publicar
+sudo systemctl disable --now ppi-publicar-feed.timer
+```
 
-## ✅ Código del panel: acción PERMIT/LIMIT/BLOCK (30-sep, commit `27a96a7`)
-La tabla de Decisiones y el CSV tienen columna **Acción** (verde/ámbar/rojo),
-derivada del veredicto + `heurístico` (misma lógica que `publicar_feed.py`).
-El motor ya emite `heurístico`; falta desplegar este `dashboard.py` al sensor,
-como se indica arriba, para que el panel vivo lo muestre.
+## 🟨 Producto
 
-## ✅ Autenticación del panel: HABILITADA (30-sep)
-El código ya existía (login scrypt, TLS, roles, cerrojo, auditoría). Mark creó
-cuentas/clave/cert con `cyberflow_usuarios.py` y regeneró la unidad. Panel ahora
-en `https://10.10.60.11:8788`.
+- **Unificar `main` y el panel desplegado.** Las tres vistas, el visor de código y
+  «Pruebas previas» están en la rama del sensor (`as-deployed-sensor-20261006`); `main`
+  tiene la documentación canónica, los heurísticos `.2`, el publicador corregido y la
+  tarjeta Detector real, pero no esas vistas. Decidir cómo converger sin perder ninguna de
+  las dos.
+- **Perfil de configuración real**: hoy `configs/cyberflow.toml` es el perfil genérico
+  histórico (OCSVM, `1,8126`); Sensor1 usa `cyberflow.local.toml`.
+- **Descripción de la unidad `ppi-motor`**: aún dice «OCSVM»; corregir al planificar un
+  despliegue.
+- **Higiene:** revocar la llave `cyberflow-to-srv` al cerrar el proyecto.
 
-## ⏳ Enforcement — pendientes de validación
-- **Demostrar un BLOCK automático real:** realizar fuerza bruta **sostenida**
-  (`hydra`) únicamente contra un endpoint autorizado del DMZ que responda 401/403.
-  Debe disparar `brute_force` y poblar `cyberflow_bloqueados`. El BLOCK aislado con
-  regla explícita ya se probó en banco (nota `N`); falta la evidencia end-to-end
-  originada por la detección en vivo.
-- **DNS-entropy:** diagnosticar por qué 200 consultas NXDOMAIN únicas al resolver
-  real `10.10.10.20` no elevaron `dns_query_count_60s`. Es consistente con el hueco
-  histórico de DNS (0 % en nota `M`): primero confirmar si Suricata las registra en
-  la ventana en vivo.
-- **Port scan:** revisar umbrales o el punto de captura. En la campaña, 998 de 1000
-  puertos fueron filtrados por el firewall antes del troncal espejado: el sensor solo
-  vio los puertos 80/443, insuficientes para `port_scan` (≥20). CyberFlow complementa
-  al firewall; no debe atribuirse la visibilidad del tráfico que este ya descartó.
-- **Panel:** desplegar la columna Acción descrita arriba.
-- **Seguridad (higiene, no urgente):** conservar la llave `cyberflow-to-srv` mientras
-  se necesiten despliegues; revocarla al cierre del proyecto o al detenerlos.
+## 🟩 Publicación (tesis)
 
----
-
-## 🟨 Publicación (tesis)
-- **Artículo a IJIES** (enviar).
-- **DOI Zenodo** (`.zenodo.json` ya está; publicar cuando toque).
-- Alinear cifras y limitaciones en todos los documentos.
-
----
-
-## 🟩 Versionado (decidido)
-- **Una sola versión principal: `v1.0.0` sobre `main`.** No se crea `v1.1.0`; las
-  mejoras se actualizan sobre `main`. El tag `v1.0.0` es foto inmutable; `main` es la
-  versión viva.
+- **Artículo a IJIES**: el cambio OCSVM → IF lo lleva el compañero con
+  [`02-metodologia/trazabilidad/FICHA-CAMBIO-ARTICULO-OCSVM-A-IF.md`](02-metodologia/trazabilidad/FICHA-CAMBIO-ARTICULO-OCSVM-A-IF.md).
+- **Validación externa**: aplicar TAM y juicio de expertos; Alfa de Cronbach ≥ 0,70 y V de
+  Aiken ≥ 0,80 con respuestas reales. Tener los instrumentos no la cierra.
+- **DOI Zenodo**: `.zenodo.json` ya describe el despliegue vigente; publicar cuando toque.
+- **Versionado**: una sola versión principal, `v1.0.0` sobre `main` (decisión del 30-sep);
+  el tag es foto inmutable y `main` la versión viva.
 
 ---
 
 ## ✅ Hecho (contexto)
-- **v1.0.0** tag + Release GitHub; CI verde.
-- **Replicabilidad**: 2ª VM turnkey offline (nota `K`).
-- **Recalibración**: FPR **92,4 % → 4,45 %** (nota `L`).
-- **Detección (Kali)**: TPR **100 % HTTP**, 63 % escaneo, 69 % global (nota `M`).
-- **Congelado + calibrado** en sensor1 (`if_recalibrado_2026_09`, `calibrado=true`).
-- **Enforcement**: diseño cerrado (`DISENO-ENFORCEMENT.md` + `flujo-decision.md`);
-  código en `main` (heurísticos, feed firmado ed25519, escalera, publicador,
-  integración aditiva en el motor, agente); 47 tests, CI verde; **e2e: un BLOCK
-  corta el ataque en el host** (nota `N`).
-- **Posicionamiento** "complementa, no reemplaza" en README + diseño.
+
+- **Documentación pública alineada al despliegue** en `main@01b6f3f`, con CI verde
+  (incluye 328 pruebas en CPython 3.14.4 y la reproducción del modelo publicado) — 9-oct.
+- **Panel desplegado** en Sensor1 con TLS + login + roles (30-sep) y con tres vistas,
+  visor y «Pruebas previas» (9-oct).
+- **Replicabilidad del despliegue**: 2.ª VM instalada sin Internet (nota `K`).
+- **Recalibración**: IF con FPR 4,45 % sobre test normal retenido (nota `L`); detección
+  54/78 Kali (nota `M`).
+- **Enforcement**: LIMIT automático en vivo (nota `O`); BLOCK en banco (nota `N`);
+  heurísticos `2026-10-06.2`; timers systemd.
+- **v1.0.0** etiquetada con Release en GitHub.
+
+## Histórico (registro del go-live del 1-oct)
+
+El enforcement se puso en vivo el 1-oct con **crons de usuario**: `publicar_feed.py` en el
+crontab del sensor, `relay-feed.sh` en el del bastión y `agente_enforce.py --aplicar
+--sudo` en el del host DMZ; entonces el rollback era quitar `--aplicar --sudo` del cron y
+borrar la tabla. La campaña `prueba-ataque-20261001-031730` demostró la cadena automática
+(LIMIT específico a la Kali, `errores:0`) y registró un LIMIT de 3 min sobre `10.10.20.24`,
+falso positivo legítimo y reversible. El arreglo `5368613` añadió `--sudo` y el reporte de
+errores del agente.

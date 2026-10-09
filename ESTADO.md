@@ -1,225 +1,167 @@
 # Estado
 
-**Actualizado:** 1 de octubre de 2026.
-**Reconciliación 2026-10-09** (verificación por SSH en Sensor1; supera puntos de este corte).
+**Actualizado:** 9 de octubre de 2026 (verificación por SSH en Sensor1 y publicación de
+la documentación del producto en `main`).
 
-> Lo verificado el 9-oct corrige/puntualiza este snapshot del 1-oct:
-> - **Modelo activo:** el motor vivo corre **Isolation Forest recalibrado**
->   (`if_recalibrado_2026_09`), **no** `ocsvm_scaled`. Donde abajo se lea «motor (OCSVM)»
->   es texto heredado. Detalle y hashes: `producto-as-deployed/docs/RECONCILIACION-MANIFIESTO-MOTOR.md`.
-> - **Enforcement:** ya **no** son «crons de usuario» sino **timers systemd**
->   (`ppi-publicar-feed` / `ppi-relay-feed` / `ppi-enforce-agent`, `OnCalendar=minutely`).
-> - **Cuatro estados a distinguir por tarea** (no son lo mismo): *implementado en Git* ≠
->   *publicado* ≠ *desplegado en Sensor1* ≠ *validado*. P. ej. la GUI de 3 vistas / visor /
->   «Pruebas previas» está **implementada en Git**, aún **no desplegada** (falta push +
->   `restart ppi-dashboard`).
-> - Fuente de verdad del despliegue: `producto-as-deployed/docs/FICHA-TECNICA-DESPLIEGUE-VIGENTE.md`.
->   Afirmaciones con estado y fuente: `02-metodologia/trazabilidad/afirmaciones-cientificas.md`.
->   Estado por bloques de la validación: `02-metodologia/validacion-interna-profesor/ESTADO-IMPLEMENTACION-20261009.md`.
+Fuente de verdad del despliegue:
+[ficha técnica](https://github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos/blob/01b6f3fa71bb4daca320b8928ef912e5f4dc8dc2/docs/FICHA-TECNICA-DESPLIEGUE-VIGENTE.md)
+(producto, `main@01b6f3f`). Afirmaciones con estado y fuente:
+[`02-metodologia/trazabilidad/afirmaciones-cientificas.md`](02-metodologia/trazabilidad/afirmaciones-cientificas.md).
+Estado por bloques de la validación interna:
+[`02-metodologia/validacion-interna-profesor/ESTADO-IMPLEMENTACION-20261009.md`](02-metodologia/validacion-interna-profesor/ESTADO-IMPLEMENTACION-20261009.md).
 
 ---
 
 ## En una frase
 
-El sistema está **desplegado y funcionando sobre tráfico real**. La campaña
-`piloto-con-dns` ya aporta tráfico representativo; la recalibración bajó el FPR de
-**92,4 % a 4,45 %**, el detector recalibrado está congelado en sensor1 y `v1.0.0`
-está etiquetada. La Kali midió **TPR 69 % global**, 100 % en ataques HTTP, 63 % en
-escaneo y 0 % en DNS-entropy (notas `L` y `M`). El enforcement pasó a **vivo**:
-la campaña del 1-oct detectó una anomalía y aplicó un LIMIT automático específico
-a la Kali por la cadena feed firmado → relay → `nftables` (nota `O`). Falta probar
-un BLOCK automático y resolver la visibilidad DNS.
+El sistema está **desplegado sobre tráfico real** en Sensor1 por **espejo SPAN**: el
+motor ejecuta un **Isolation Forest recalibrado** en esa red (`if_recalibrado_2026_09`,
+umbral `score_samples < −0,568892`) junto con cuatro heurísticos, y la respuesta
+**PERMIT / LIMIT / BLOCK** la aplica un **agente en el host protegido** a partir de un
+feed firmado. Está **validado en vivo un LIMIT automático** de punta a punta (nota `O`);
+falta demostrar un **BLOCK automático** originado por la detección.
 
----
+## Cuatro estados — no son lo mismo
 
-## Qué está en marcha
+*Implementado en Git* (existe en un commit) · *Publicado* (en el remoto, rama indicada) ·
+*Desplegado* (corriendo en Sensor1 / hosts) · *Validado* (con evidencia de que funciona).
 
-| Componente | Estado | Evidencia |
-|---|---|---|
-| Espejo SPAN del núcleo hacia el sensor | ✅ validado | `04-evidencias/cyberflow/D-validacion-espejo-2026-09-17.md` |
-| Suricata sobre `ens37`, `eve.json` con tráfico real | ✅ activo | `G-suricata-2026-09-17.md` |
-| Búfer en anillo de PCAP, 240 s | ✅ activo | `I-motor-desplegado-2026-09-17.md` |
-| Motor de decisión (**Isolation Forest recalibrado** `if_recalibrado_2026_09`) + heurísticos | ✅ activo | notas `L`/`M`/`O`; reconciliación 9-oct |
-| Enforcement con `nftables` en host DMZ | ✅ vivo; LIMIT real aplicado | `O-enforcement-vivo-campana-ataque-2026-10-01.md` |
+| Componente | Implementado | Publicado | Desplegado | Validado | Evidencia |
+|---|---|---|---|---|---|
+| Espejo SPAN → sensor (`ens37`, sin IP) | ✅ | ✅ `main` | ✅ | ✅ | notas `B`, `D` (17-sep) |
+| Suricata + `eve.json` | ✅ | ✅ `main` | ✅ | ✅ | nota `G` (17-sep) |
+| Motor con **IF recalibrado** | ✅ código | ✅ código en `main`; el joblib **no** se publica (solo su hash) | ✅ | FPR 4,45 % en test normal (nota `L`); 54/78 Kali (nota `M`) | reconciliación por SSH (9-oct) |
+| Equivalencia de escalas del umbral | ✅ `verificar_equivalencia_umbral.py` | ✅ `main@33549a1` | — | ⏳ falta correrlo sobre el joblib vivo y publicar su salida | ficha técnica §2 |
+| Heurísticos `2026-10-06.2` | ✅ | ✅ `main@9425373` y rama del sensor | ✅ | port_scan 3/3 tras la rama OR; dns_entropy → LIMIT en vivo (6-oct) | notas 26, 31 |
+| Etiqueta de versión en el feed | ✅ ahora sale del código | ✅ `main@9425373` | ❌ la unidad del publicador en Sensor1 aún pasa `--umbrales 2026-10-06.1` | — | ver «Instrucciones vigentes» |
+| LIMIT automático (modelo → feed → relay → agente → nft) | ✅ | ✅ | ✅ | ✅ en vivo | nota `O` (1-oct) |
+| BLOCK aislado con regla explícita en el host | ✅ | ✅ | ✅ | ✅ en banco | nota `N` (30-sep) |
+| BLOCK automático de punta a punta | ✅ | ✅ | ✅ | ❌ **pendiente** | — |
+| Timers systemd (publicar / relay / agente) | ✅ | ✅ | ✅ (reemplazaron los crons el 6-oct) | ✅ | `OnCalendar=minutely` |
+| Panel con TLS + login + roles | ✅ | ✅ | ✅ (30-sep) | ⏳ QA por rol con capturas | — |
+| Panel: 3 vistas, visor de código, «Pruebas previas», detector real | ✅ | ✅ rama del sensor `8d696e5`; la tarjeta Detector también en `main@308fc97` | ✅ (9-oct) | ⏳ QA autenticada por rol | contenido idéntico a `8d696e5` salvo finales de línea |
+| Documentación pública alineada al despliegue | ✅ | ✅ `main@01b6f3f` | — | — | CI de `main` |
+| Suite de pruebas en Linux | ✅ | ✅ | — | ✅ 328 pruebas OK en CPython 3.14.4 (WSL) y CI de GitHub | 9-oct |
+| Validación interna con el profesor | — | — | — | ❌ pendiente | bloque B6 |
+| Validación externa (TAM + expertos) | instrumentos listos | — | — | ❌ sin respuestas | bloque B7 |
 
-**Las etiquetas 802.1Q sobreviven al espejo** y llegan hasta `eve.json`. Eso
-confirma que la variable de distribución por VLAN es viable, que estaba en duda.
+## Instrucciones vigentes (operación en Sensor1 y hosts)
 
----
+**Comprobar que corre.** En el sensor: `systemctl is-active ppi-motor ppi-dashboard
+ppi-publicar-feed.timer`. En el host protegido: `systemctl is-active
+ppi-enforce-agent.timer` y `sudo nft list table inet cyberflow`.
 
-## Lo que bloquea
+**Corregir la etiqueta de versión del feed** (cosmético: no cambia las reglas aplicadas).
+En el sensor:
 
-### 🟢 1 · Tráfico de usuarios — RESUELTO por el piloto (29-sep)
-
-**Contexto (17-sep).** Medido entonces, ventana de 95 s y 1647 paquetes:
-
-| Tipo | Paquetes | % |
-|---|---|---|
-| STP / PVST+ | 470 | 29 % |
-| VRRP / CARP | 441 | 27 % |
-| pfsync | ~511 | 31 % |
-| **Tráfico IP real** | **211** | **13 %** |
-
-Entonces el 87 % era plano de control y las VLAN de usuarios no tenían estaciones.
-
-**Actualización (29-sep), medido sobre la línea base acumulada (336 964 filas,
-45 entidades, campaña `piloto-con-dns`):**
-
-| Señal | Sensor1 |
-|---|---|
-| Ventanas con L7 (HTTP/DNS/TLS) | **44,2 %** (HTTP 109k · DNS 100k · TLS 48k) |
-| Ventanas con datos TCP | 18,6 % |
-| Ventanas con SYN | 21,2 % |
-| «Solo control» | 55,7 % |
-
-Las entidades top son **hosts de usuario** repartidos por VLAN 10/20/30/40/100
-(~7 % de filas cada uno), **no** los switches/pfSense emitiendo CARP. El piloto
-inyectó tráfico representativo: la línea base ya sirve para recalibrar.
-
-### 🔴 2 · El modelo no es trasladable, y ya está medido
-
-Primeros minutos sobre tráfico real, **sin ningún ataque en curso**:
-
-```
-decisiones : 92 en 7 ventanas
-  ALERT     85    92,4 %
-  PERMIT     7     7,6 %
+```bash
+systemctl cat ppi-publicar-feed.service | grep -n -- --umbrales
+sudo systemctl edit --full ppi-publicar-feed.service   # cambiar 2026-10-06.1 por 2026-10-06.2
+sudo systemctl daemon-reload
 ```
 
-Las entidades señaladas eran las interfaces de VLAN de pfSense emitiendo CARP.
-**92,4 % de falsos positivos.** Predicho por la metodología, ahora medido — y
-sirve como línea base contra la que medir la mejora de la recalibración.
+Con el publicador de `main` la etiqueta ya sale de `heuristicos.VERSION_UMBRALES`; al
+desplegarlo, el argumento sobra.
 
-**Medida de la mejora (29-sep, recalibración EN SECO en sensor1).** Con la línea
-base enriquecida por el piloto (337 980 filas elegibles, **sin fuga temporal**,
-69,6 h; train 204 148 / validation 65 633 / test 65 421), umbral congelado desde
-validación (`alpha=0,05`):
+**Verificar la equivalencia del umbral sobre el artefacto vivo** (publicar la salida
+como evidencia en `04-evidencias/cyberflow/`):
 
+```bash
+python3 scripts/modeling/verificar_equivalencia_umbral.py \
+  --modelo artifacts/preliminar/if_recalibrado_desplegable.joblib \
+  --manifiesto artifacts/preliminar/manifest-if-recalibrado.json \
+  --detector if_recalibrado_2026_09 --umbral-decision -0.06889178778834089 \
+  --salida /tmp/equivalencia-umbral.json
 ```
-FPR validacion : 0,0500
-FPR TEST       : 0,0445   (4,45 %)   vs   0,924 (92,4 %) sin recalibrar
+
+**Rollback del enforcement** (antes se hacía quitando opciones del cron; ya no hay cron):
+
+```bash
+# 1) dejar el agente en modo sombra (decide y registra, no aplica): en el HOST
+sudo systemctl edit --full ppi-enforce-agent.service   # quitar --aplicar de ExecStart
+sudo systemctl daemon-reload
+# 2) o pararlo del todo y retirar sus reglas: en el HOST
+sudo systemctl disable --now ppi-enforce-agent.timer
+sudo nft delete table inet cyberflow
+# 3) opcional, dejar de publicar el feed: en el SENSOR
+sudo systemctl disable --now ppi-publicar-feed.timer
 ```
 
-El FPR sobre tráfico normal retenido baja de **92,4 % a 4,45 %** (~20× menos) y
-clava el objetivo. Es una recalibración **en seco**: escribió en `/tmp/recal`, no
-tocó el modelo desplegado ni el piloto. **Matiz:** mide falsos positivos sobre
-tráfico normal (no hay ataques en la base); la **detección de ataques** se validará
-con la corrida de la Kali. Ya se congeló como `if_recalibrado_2026_09` y
-`calibrado_en_esta_red=true`; la limitación aún abierta es DNS-entropy (0 %).
+La tabla `inet cyberflow` es propia y aislada: borrarla no toca el cortafuegos del host.
 
-### 🟡 3 · El entorno congelado exige Python 3.14.4, y no es negociable
+**Rollback del panel** (si una versión nueva falla): restaurar el respaldo y reiniciar
+solo el panel —`cp dashboard.py.bak-AAAAMMDD-HHMM dashboard.py && sudo systemctl restart
+ppi-dashboard`—; no reiniciar motor ni Suricata.
 
-El sensor tenía 3.12.3 y tres de las seis dependencias fijadas no existen para
-esa versión. Se intentó recongelar el entorno sobre 3.12 ejecutando el
-protocolo completo, y **hubo que revertirlo**:
-
-| Detector | 3.14 / sklearn 1.9.0 | 3.12 / sklearn 1.7.2 |
-|---|---|---|
-| `ocsvm_scaled` (desplegado) | 158/179 | 158/179 ✅ |
-| **`if_primary_weighted`** | **97/179** | **103/179** ❌ |
-
-Causa medida: en scikit-learn 1.7.2, `IsolationForest.fit` **acepta
-`sample_weight`, no avisa, no falla y lo ignora**. Delta máximo entre ajustar
-con y sin pesos: `0.0000000000`.
-
-El protocolo pondera por `1/filas_por_episodio` para corregir un desbalance
-medido —5 de 132 episodios concentran el 31,7 % de las filas—, y bajo 1.7.2 esa
-corrección no ocurre sin que nada lo indique.
-
-**Resuelto compilando CPython 3.14.4 desde el código fuente en el sensor**
-(deadsnakes solo ofrece 3.14.6, y el guardarraíl exige la versión exacta).
-Evidencia completa en `04-evidencias/cyberflow/J-recongelado-entorno-2026-09-17.md`.
-
-### 🟡 4 · Tres modelos distintos en los artefactos (reconciliado 9-oct)
-
-El manifiesto de laboratorio declara `if_primary_weighted` como conclusión
-principal; el `.toml` genérico apunta a `ocsvm_scaled`; y el **motor vivo ejecuta
-un tercero, `if_recalibrado_2026_09`** (Isolation Forest recalibrado en esta red),
-según la verificación por SSH del 9-oct. No se intercambian umbrales entre ellos.
-Hay que explicarlo en la tesis, no «alinearlo» borrando el linaje. Detalle:
-`producto-as-deployed/docs/RECONCILIACION-MANIFIESTO-MOTOR.md`.
-
----
+**No hacer:** regenerar las unidades de Sensor1 con `configs/cyberflow.toml` (es el
+perfil genérico histórico: OCSVM, `1,8126`, `calibrado=false`); Sensor1 usa
+`configs/cyberflow.local.toml`.
 
 ## Decisiones pendientes
 
 | # | Decisión | Por qué importa |
 |---|---|---|
-| 1 | **Demostrar un BLOCK automático** | El LIMIT vivo está probado; falta que un heurístico origine un BLOCK end-to-end |
-| 2 | **DNS-entropy** | Confirmar si Suricata registra las consultas reales antes de cambiar umbrales |
-| 3 | **Visibilidad de port-scan** | El SPAN no ve los puertos que el firewall ya filtró; decidir si se mide en otro punto |
-| 4 | **Manifiesto vs motor** | Reconciliado 9-oct: motor vivo = `if_recalibrado_2026_09`; manifiesto declara `if_primary_weighted`; `.toml` genérico apunta a `ocsvm_scaled`. Decidir plantilla histórica vs perfil real |
-| 5 | **`tls_handshake_failure_ratio_60s`** | Hacerla observable, retirarla o documentarla como no observable |
-
----
-
-## Correcciones al material anterior
-
-Medido el 17 de septiembre, contradice lo documentado antes:
-
-- **La máscara de la VLAN 60 es `/24`**, confirmado contra pfSense
-  (`VLAN60_GESTION -> v4: 10.10.60.2/24`). Estaba documentada como `/24` y `/28`
-  en sitios distintos.
-- **pfSense-B sí emite.** Figuraba como «no responde a nada»; en la VLAN 100
-  transmite 200 paquetes y recibe 281. Puede seguir sin responder a sondeos IP
-  desde la VLAN 10, que es como se midió entonces.
-- **El disco del sensor no estaba ampliado.** El disco virtual sí (40 GB), pero
-  el volumen lógico seguía en 18,5 GB. Corregido a 36,9 GB.
-- **La interfaz de captura pedía DHCP** y había una interfaz `ens38`
-  configurada que no existe. Corregido.
-- **El espejo ya es permanente.** Estaba solo en `running-config` y un reinicio
-  del switch lo borraba; ahora figura en `startup-config`.
-- **La VLAN 40 se llama SERVICIOS** en pfSense, no FILESERVER. La 70 es
-  TRANSIT_FORTIGATE.
-
----
-
-## Pendientes del producto
-
-| # | Tarea | Estado |
-|---|---|---|
-| P1 | **Instalar en una segunda VM limpia** (Ubuntu 24.04, dos NIC, captura en el puerto SPAN) | ✅ **HECHO (29-sep):** `cyberflow-sensor2` (10.10.60.12) desplegado **100 % offline** (sin Internet en el sensor, sin depender del sensor 1). Probado el **ciclo completo** desinstalar → reinstalar desde un clon **fresco** de `main` → `doctor.sh` sano. Evidencia: `04-evidencias/cyberflow/K-despliegue-turnkey-sensor2-2026-09-29.md`. Convierte «reinstalable» en **«replicable llave-en-mano»**. |
-| P2 | **Etiquetar `v1.0.0`** | ✅ **HECHO (30-sep):** tag `v1.0.0` en el producto (commit `f9ced59`), CI en verde (265 pruebas). Release tras congelar el modelo recalibrado y calibrar la red. |
-
-### Novedades desde el 17-sep (repo de producto)
-
-- **Despliegue offline real** validado en una VM aislada: host de construcción
-  (contenedor Docker con Internet) → *bundle* (Suricata `.deb` + CPython 3.14.4 +
-  wheels `cp314`) → transferido por el bastión → instalado **sin Internet**.
-  Documentado en `docs/INSTALACION.md` (Anexos A/B/C).
-- **Herramientas nuevas del producto:** `scripts/setup/configurar.sh` (asistente
-  que auto-detecta interfaz/red/MAC y escribe el `.toml`; ahora con **menú de
-  escenarios 1/2/3** —observación por SPAN / en línea con bloqueo / personalizado—
-  commit `73d292c`), `scripts/setup/preparar-bundle.sh` (arma el bundle offline en
-  un host conectado), `scripts/setup/doctor.sh` (chequeo de salud del sistema en
-  marcha).
-- **Instalador adaptable a los dos escenarios de conectividad:** detecta si hay
-  bundle de `.deb` e instala Suricata **offline con `dpkg -i`** (sin colgarse
-  buscando Internet); si no, usa `apt-get` (commit `da43aa8`). Con esto quedan
-  cubiertos los modos que se planificaron: auto-detección + operación
-  (observación/bloqueo) + instalación (online/offline).
-- **Fixes hallados probando el despliegue real:** el instalador ahora habilita
-  `cyberflow-acumular.timer` y el desinstalador lo elimina; instalación offline de
-  paquetes con `dpkg -i` (no `apt-get`); el instalador imprime la URL del panel;
-  y, hallado en el ciclo desinstalar/reinstalar del 29-sep, el panel sin sus
-  ficheros de auth se reporta como **AVISO, no FALLO** (commit `131ac27`); los
-  **timers pasan a `OnCalendar`** porque con `OnUnitActiveSec` se quedaban sin
-  próximo disparo tras reinstalar y la línea base dejaba de crecer (commit
-  `56c01e8`); y `doctor.sh` ya **cuenta bien los avisos** (commit `f7d0fe8`).
-- **Panel** mejorado: fila de KPIs, topología con recorrido y nodo «Cómo decide»,
-  variables por capa con paleta, tabla con mini-barra de score, actividad con
-  tooltip, asistente guiado y modo demo.
-- **Entregables de tesis preparados:** informe consolidado de actualización,
-  **instrumento TAM** e **instrumento de juicio de expertos** (validez del entorno).
-
-Ya hecho y verificado antes: instalación/desinstalación desde cero, CI con tests,
-recalibración del modelo en cada cambio, panel web funcionando.
+| 1 | **Demostrar un BLOCK automático** | Solo con un endpoint autorizado (401/403) y fuerza bruta sostenida; hoy el BLOCK está validado en banco, no originado por la detección en vivo |
+| 2 | **DNS** | El 0/8 del piloto apuntó a un host que no era el resolver: verificar consultas en PCAP, EVE, atribución y variables antes de concluir que el modelo falla |
+| 3 | **Visibilidad de port-scan** | El cortafuegos descarta antes del troncal espejado casi todos los puertos (998/1000 en una campaña): separar tráfico generado, descartado y visto |
+| 4 | **Perfil de configuración** | Publicar o no un perfil reproducible del despliegue real en lugar del genérico histórico |
+| 5 | **Lista nunca-bloquear** | Hoy fijada en el código del publicador y del agente; pasarla a configuración por despliegue |
+| 6 | **`tls_handshake_failure_ratio_60s`** | Hacerla observable, retirarla o mantenerla documentada como no observable |
+| 7 | **Despliegue de `main` en Sensor1** | `main` tiene el publicador corregido y la documentación canónica; el sensor corre el snapshot de la rama `as-deployed-sensor-20261006` |
 
 ## Lo siguiente, por orden
 
-1. Desplegar al sensor el `dashboard.py` con la columna Acción y reiniciar el panel
-2. Ejecutar, solo contra un endpoint autorizado, la prueba sostenida que demuestre
-   un BLOCK automático
-3. Diagnosticar DNS-entropy y revisar el alcance de port-scan desde el SPAN
-4. Aplicar TAM y juicio de expertos; consolidar Alfa de Cronbach y V de Aiken
-5. Enviar el artículo a IJIES y alinear cifras/limitaciones en la tesis
+1. Correr la verificación de equivalencia sobre el joblib vivo y publicar su salida.
+2. Corregir la etiqueta `--umbrales` del publicador en Sensor1.
+3. QA autenticada del panel por rol (capturas fechadas).
+4. Demostrar el BLOCK automático contra un endpoint autorizado.
+5. Ensayo y sesión de validación interna (B6); después TAM y juicio de expertos (B7).
+
+---
+
+## Histórico (antes del 9 de octubre)
+
+> Lo que sigue se conserva como registro. Donde contradiga lo anterior, manda lo de
+> arriba.
+
+**Corte del 1 de octubre.** Recalibración congelada en Sensor1, `v1.0.0` etiquetada, Kali
+con TPR 69 % global (HTTP 27/27, escaneo 27/43, DNS 0/8) y primer LIMIT automático en
+vivo. Entonces el enforcement corría por **crons de usuario** y el panel con la columna
+Acción aún no estaba desplegado. En ese corte se escribió «motor (OCSVM)» en la tabla de
+componentes: era texto heredado; el motor ya ejecutaba el IF recalibrado.
+
+**Tráfico de usuarios (17-sep → 29-sep).** El 17-sep, en 95 s, el 87 % de las tramas
+eran plano de control (STP/PVST+, VRRP/CARP, pfsync) y solo 13 % tráfico IP real. Tras la
+campaña `piloto-con-dns` (29-sep), sobre 336 964 filas y 45 entidades, el 44,2 % de las
+ventanas tenían L7 y las entidades principales eran hosts de usuario: la línea base sirvió
+para recalibrar.
+
+**El modelo de laboratorio no era trasladable (medido).** En los primeros minutos sobre
+tráfico real y sin ataques, el OCSVM dio **92,4 % de ALERT** (85 de 92 decisiones en 7
+ventanas), casi todo sobre interfaces del cortafuegos emitiendo CARP. Después, el IF
+recalibrado dio **4,45 %** sobre test normal retenido (337 980 filas elegibles, sin fuga
+temporal; train 204 148 / validation 65 633 / test 65 421; umbral desde validación con
+`alpha = 0,05`). **Esa diferencia no aísla el efecto de recalibrar:** cambiaron a la vez el
+modelo (OCSVM → IF), los datos (minutos iniciales → ~70 h de línea base) y el alcance (se
+excluyó el plano de control y se deduplicó el espejo). Para atribuir la mejora a la
+recalibración habría que puntuar ambos modelos sobre el mismo conjunto retenido.
+
+**Entorno congelado (17-sep).** El sensor tenía Python 3.12.3; con scikit-learn 1.7.2,
+`IsolationForest.fit` acepta `sample_weight` y lo ignora en silencio (`if_primary_weighted`
+pasaba de 97/179 a 103/179). Se compiló CPython 3.14.4 en el sensor. Evidencia: nota `J`.
+
+**Manifiesto frente a motor.** El manifiesto de laboratorio declaraba `if_primary_weighted`
+como principal, el `.toml` genérico apunta a `ocsvm_scaled` y el motor vivo ejecuta un
+tercer modelo, `if_recalibrado_2026_09`: reconciliado el 9-oct (ver la reconciliación en
+el producto). No se intercambian umbrales entre ellos.
+
+**Correcciones al material anterior (17-sep).** La VLAN 60 es `/24`; pfSense-B sí emite;
+el volumen lógico del sensor se amplió de 18,5 GB a 36,9 GB; la interfaz de captura pedía
+DHCP y había una `ens38` inexistente; el espejo pasó a `startup-config`; la VLAN 40 es
+SERVICIOS y la 70 TRANSIT_FORTIGATE.
+
+**Producto (hasta el 30-sep).** Segunda VM instalada 100 % offline con el ciclo
+desinstalar → reinstalar sano (nota `K`); `v1.0.0` etiquetada con CI verde (265 pruebas en
+aquel momento); instalador para observación por SPAN, bloqueo en línea o personalizado,
+online u offline; `doctor.sh`; timers con `OnCalendar`; panel con KPIs, topología y modo
+demo; instrumentos TAM y de juicio de expertos preparados.
