@@ -35,14 +35,14 @@ falta demostrar un **BLOCK automático** originado por la detección.
 | Promoción paquete → artefacto desplegable (`promover_preliminar.py`) | ✅ | ✅ `main@488b086` y rama del sensor | ✅ ejecutada en Sensor1 sobre el paquete original (sin desplegar) | ✅ funcionalmente idéntica al vivo: scores con diferencia 0,0 en 5000 filas, 0 decisiones distintas; **no** byte a byte | [nota `Q`](04-evidencias/cyberflow/Q-promocion-reproducible-sensor1-2026-10-10/README.md) |
 | Manifiesto operativo e informe de calibración | ✅ | ✅ publicados (`564b3a08…`, `ec3ed063…`) | — | — | nota `Q` |
 | Heurísticos `2026-10-06.2` | ✅ | ✅ `main@9425373` y rama del sensor | ✅ | port_scan 3/3 tras la rama OR; dns_entropy → LIMIT en vivo (6-oct) | notas 26, 31 |
-| Etiqueta de versión en el feed | ✅ ahora sale del código | ✅ `main@9425373` | ❌ la unidad del publicador en Sensor1 aún pasa `--umbrales 2026-10-06.1` | — | ver «Instrucciones vigentes» |
+| Etiqueta de versión en el feed | ✅ sale del código | ✅ `main@9425373` | ✅ (10-oct, 04:50 UTC) publicador nuevo en Sensor1 | ✅ feed vivo y copia del host DMZ etiquetados `2026-10-06.2`; el agente verifica y aplica con `errores: 0` | la unidad aún pasa `.1` (solo genera un aviso en el journal) |
 | LIMIT automático (modelo → feed → relay → agente → nft) | ✅ | ✅ | ✅ | ✅ en vivo | nota `O` (1-oct) |
 | BLOCK aislado con regla explícita en el host | ✅ | ✅ | ✅ | ✅ en banco | nota `N` (30-sep) |
 | BLOCK automático de punta a punta | ✅ | ✅ | ✅ | ❌ **pendiente** | — |
 | Timers systemd (publicar / relay / agente) | ✅ | ✅ | ✅ (reemplazaron los crons el 6-oct) | ✅ | `OnCalendar=minutely` |
 | Panel con TLS + login + roles | ✅ | ✅ | ✅ (30-sep) | ⏳ QA por rol con capturas | — |
-| Panel muestra el detector del motor | ✅ generador y panel corregidos | ✅ `main@a2a5b2b` | ❌ **la unidad de Sensor1 no pasa `--detector-name`**: el panel cae a `ocsvm_scaled` y muestra umbral, FPR y detección del OCSVM | ❌ | comprobado en Sensor1 (10-oct) |
-| Panel: 3 vistas, visor de código, «Pruebas previas», detector real, vista Entrenamiento corregida | ✅ | ✅ rama del sensor (`dashboard.py` de `3ce0f01`); la tarjeta Detector también en `main@308fc97` | ✅ (10-oct, 04:29 UTC): `dashboard.py` de `4be3b76`, SHA-256 `ef56b24f…` **idéntico al commit**; responde por HTTPS (401 sin login) desde el bastión | ⏳ QA autenticada por rol | respaldo previo `dashboard.py.bak-20261010-042924` |
+| Panel muestra el detector del motor | ✅ generador, panel y resolución desde la configuración | ✅ `main@5573d43` y rama del sensor `1fc8772` | ✅ (10-oct, 04:48 UTC): sin tocar la unidad, el panel toma `if_recalibrado_2026_09` de `configs/cyberflow.local.toml` | ✅ journal: `panel: detector if_recalibrado_2026_09`; umbral mostrado −0,568892; FPR y detección «—» (el manifiesto no las trae) | antes mostraba cifras del OCSVM |
+| Panel: 3 vistas, visor de código, «Pruebas previas», detector real, vista Entrenamiento corregida | ✅ | ✅ rama del sensor; la tarjeta Detector también en `main` | ✅ (10-oct, 04:48 UTC): `dashboard.py` de `1fc8772`, SHA-256 `03e3ef48…` **idéntico al commit**; responde por HTTPS (401 sin login) desde el bastión | ⏳ QA autenticada por rol | respaldo previo `dashboard.py.bak-20261010-044838` |
 | Documentación pública alineada al despliegue | ✅ | ✅ `main@01b6f3f` | — | — | CI de `main` |
 | Suite de pruebas en Linux | ✅ | ✅ | — | ✅ 328 pruebas OK en CPython 3.14.4 (WSL) y CI de GitHub | 9-oct |
 | Validación interna con el profesor | — | — | — | ❌ pendiente | bloque B6 |
@@ -114,15 +114,13 @@ perfil genérico histórico: OCSVM, `1,8126`, `calibrado=false`); Sensor1 usa
 
 ## Lo siguiente, por orden
 
-1. **Panel con el detector correcto** en Sensor1: desplegar el `dashboard.py` corregido y
-   regenerar sus unidades con `cyberflow_config.py --escribir` (sudo con contraseña), para
-   que el panel reciba `--detector-name if_recalibrado_2026_09`. Hasta entonces sus cifras
-   de Modelo son las del OCSVM.
-2. Corregir la etiqueta `--umbrales` del publicador en Sensor1 (misma regeneración de
-   unidades, o desplegar el publicador de `main`).
-3. QA autenticada del panel por rol (capturas fechadas), después del punto 1.
-4. Demostrar el BLOCK automático contra un endpoint autorizado.
-5. Ensayo y sesión de validación interna (B6); después TAM y juicio de expertos (B7).
+1. QA autenticada del panel por rol (capturas fechadas).
+2. Decidir si el panel debe mostrar FPR y detección del IF: añadirlas al manifiesto
+   operativo o apuntar el panel al manifiesto que genera la promoción.
+3. Demostrar el BLOCK automático contra un endpoint autorizado.
+4. Ensayo y sesión de validación interna (B6); después TAM y juicio de expertos (B7).
+5. Limpieza opcional (sudo): regenerar las unidades para que el panel reciba
+   `--detector-name` explícito y el publicador deje de pasar `--umbrales 2026-10-06.1`.
 
 ---
 
