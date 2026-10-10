@@ -42,7 +42,7 @@ falta demostrar un **BLOCK automático** originado por la detección.
 | Timers systemd (publicar / relay / agente) | ✅ | ✅ | ✅ (reemplazaron los crons el 6-oct) | ✅ | `OnCalendar=minutely` |
 | Panel con TLS + login + roles | ✅ | ✅ | ✅ (30-sep) | ⏳ QA por rol con capturas | — |
 | Panel muestra el detector del motor | ✅ generador y panel corregidos | ✅ `main@a2a5b2b` | ❌ **la unidad de Sensor1 no pasa `--detector-name`**: el panel cae a `ocsvm_scaled` y muestra umbral, FPR y detección del OCSVM | ❌ | comprobado en Sensor1 (10-oct) |
-| Panel: 3 vistas, visor de código, «Pruebas previas», detector real, vista Entrenamiento corregida | ✅ | ✅ rama del sensor (`dashboard.py` de `3ce0f01`); la tarjeta Detector también en `main@308fc97` | ✅ (10-oct): SHA-256 `d4a7358b…` **idéntico al commit**; responde por HTTPS (401 sin login) desde el bastión | ⏳ QA autenticada por rol | respaldo previo `dashboard.py.bak-20261010-002127` |
+| Panel: 3 vistas, visor de código, «Pruebas previas», detector real, vista Entrenamiento corregida | ✅ | ✅ rama del sensor (`dashboard.py` de `3ce0f01`); la tarjeta Detector también en `main@308fc97` | ✅ (10-oct, 04:29 UTC): `dashboard.py` de `4be3b76`, SHA-256 `ef56b24f…` **idéntico al commit**; responde por HTTPS (401 sin login) desde el bastión | ⏳ QA autenticada por rol | respaldo previo `dashboard.py.bak-20261010-042924` |
 | Documentación pública alineada al despliegue | ✅ | ✅ `main@01b6f3f` | — | — | CI de `main` |
 | Suite de pruebas en Linux | ✅ | ✅ | — | ✅ 328 pruebas OK en CPython 3.14.4 (WSL) y CI de GitHub | 9-oct |
 | Validación interna con el profesor | — | — | — | ❌ pendiente | bloque B6 |
