@@ -1,0 +1,31 @@
+---
+title: CyberFlow — Construcción y entrenamiento (de los datos al modelo congelado y su ciclo de vida)
+---
+flowchart LR
+  subgraph C1["1 · Construcción (una vez, en seco)"]
+    direction LR
+    c_datos["Datos de la red<br/>SPAN → PCAP + eve.json<br/>335 202 ventanas normales"]
+    c_limpia["Limpieza y alcance<br/>sin plano de control, sin copias<br/>del espejo · sin imputación"]
+    c_part["Partición sin fuga temporal<br/>204 148 / 65 633 / 65 421<br/>bloques horarios + guarda 60 s"]
+    c_cand["Candidatos<br/>7 en laboratorio (IF×4, LOF,<br/>OCSVM, EE) · IF en esta red"]
+    c_metr["Comparar métricas<br/>FPR val/test · detección Kali<br/>F1 · MCC · AUC (laboratorio)"]
+    c_sel["Selección<br/>IF recalibrado: transfiere<br/>a esta red (OCSVM no)"]
+    c_datos --> c_limpia --> c_part --> c_cand --> c_metr --> c_sel
+  end
+  subgraph C2["2 · Operación y ciclo"]
+    direction LR
+    c_cong["Congelar modelo + umbral<br/>α = 0,05 en validación<br/>score_samples < −0,568892"]
+    c_desp["Despliegue<br/>promover + verificar<br/>hash · orden · equivalencia"]
+    c_acum["Acumulación<br/>temporizador · filas v3<br/>(única parte automática)"]
+    c_reent["Reentrenar / recalibrar<br/>mensual o por deriva<br/>POLÍTICA PROPUESTA"]
+    c_antes["Antes vs después<br/>mismos datos y métricas<br/>ref.: FPR 92,4 % → 4,45 %"]
+    c_cong --> c_desp --> c_acum --> c_reent --> c_antes
+  end
+  c_sel -->|"umbral desde validación"| c_cong
+  c_reent -. "repite 3→6 con datos nuevos" .-> c_part
+  c_antes -. "FPR ≤ y detección ≥ → se congela el nuevo; si no, se queda el vigente" .-> c_cong
+
+  classDef accent fill:#13343b,stroke:#2a7f8a,color:#8fe0ea;
+  classDef prop fill:#2b2410,stroke:#7a6420,color:#f0d890;
+  class c_part,c_sel,c_cong accent;
+  class c_reent prop;

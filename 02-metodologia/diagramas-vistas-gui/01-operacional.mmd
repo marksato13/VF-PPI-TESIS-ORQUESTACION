@@ -1,5 +1,5 @@
 ---
-title: CyberFlow — Vista Operacional (cómo funciona en vivo · el camino del paquete)
+title: CyberFlow — Vista Operacional (dos fuentes, dos parsers, una decisión por IP y ventana)
 ---
 flowchart LR
   subgraph G0["Hosts · VLAN 20/30"]
@@ -9,35 +9,36 @@ flowchart LR
     servidor(["Servidor<br/>10.10.30.10 · objetivo HTTP/HTTPS"])
     gateway(["pfSense / gateway<br/>10.10.20.1 · enruta entre VLAN"])
   end
-  subgraph G1["1 · Adquisición"]
+  subgraph G1["1 · Adquisición (una copia, dos fuentes)"]
     direction TB
     red["Red de la entidad<br/>VLAN 10-100"]
     span["Espejo SPAN<br/>CORE-STACK"]
     nic["Interfaz en escucha<br/>ens37 · SIN IP"]
-    captura["tcpdump<br/>SERVICIO"]
-    pcap[("anillo live-*.pcap<br/>ARTEFACTO")]
-    suricata["Suricata<br/>SERVICIO"]
-    eve[("eve.json<br/>ARTEFACTO")]
+    captura["tcpdump<br/>captura cruda"]
+    pcap[("anillo live-*.pcap<br/>FUENTE CRUDA")]
+    suricata["Suricata<br/>parseo de protocolos"]
+    eve[("eve.json<br/>FUENTE ESTRUCTURADA")]
   end
   subgraph G2["2 · Análisis"]
     direction TB
-    motor["Atribución de flujo<br/>SERVICIO"]
-    variables["Variables / 10 s<br/>L2·L3·L4·L7"]
-    descartes["Fuera del cálculo<br/>SUMIDERO"]
+    motor["Parser de paquetes<br/>trama → flujo · L2·L3·L4"]
+    parser_eve["Parser de eventos<br/>JSON → L7 · http·dns·tls"]
+    variables["Variables / 10 s<br/>por IP y ventana 10/30/60 s"]
+    descartes["Fuera del cálculo<br/>control · espejo · excluidas"]
     reentrenamiento["Reentrenamiento<br/>POLÍTICA PROPUESTA · manual"]
-    modelo["Modelo recalibrado<br/>IF · CALIBRADO"]
-    heuristicos["Heurísticos<br/>DETERMINISTAS"]
+    modelo["Modelo recalibrado<br/>IF · umbral −0,568892"]
+    heuristicos["Heurísticos<br/>4 reglas · 2026-10-06.2"]
   end
   subgraph G3["3 · Decisión y respuesta"]
     direction TB
-    control["Decisión<br/>PERMIT / LIMIT / BLOCK"]
+    control["Decisión<br/>PERMIT · ALERT → LIMIT/BLOCK"]
     feed[("Feed firmado<br/>ed25519")]
     agente["Agente en host<br/>nftables LIMIT/BLOCK"]
   end
   subgraph G4["4 · Observabilidad"]
     direction TB
     registro[("motor_decision.log<br/>ARTEFACTO")]
-    panel["Este panel<br/>SOLO LECTURA"]
+    panel["Panel · Datos en vivo<br/>SOLO LECTURA"]
     wazuh["Wazuh (SIEM)<br/>CONCENTRADOR"]
   end
 
@@ -47,23 +48,26 @@ flowchart LR
   gateway -->|enruta| red
   red -->|al troncal| span
   span -->|copia| nic
-  nic -->|paquetes| captura
-  nic -->|paquetes| suricata
+  nic -->|tramas| captura
+  nic -->|tramas| suricata
   captura --> pcap
   suricata --> eve
-  pcap -->|"L3·L4"| motor
-  eve -->|"HTTP·DNS·TLS"| motor
-  motor -->|atribuye por IP| variables
+  pcap -->|tramas| motor
+  eve -->|eventos| parser_eve
+  motor -->|"L2·L3·L4 por IP"| variables
+  parser_eve -->|"L7 por IP"| variables
   motor -. descarta .-> descartes
   variables -->|"28 al modelo (31 extraídas)"| modelo
-  variables -->|mismas variables| heuristicos
+  variables -->|"variables + conteos"| heuristicos
   reentrenamiento -->|entrena y congela| modelo
-  modelo -->|"score &lt; umbral"| control
-  heuristicos -->|confirmado| control
+  modelo -->|"score &lt; umbral → ALERT"| control
+  heuristicos -->|"regla cumplida → ALERT"| control
   control -->|veredicto firmado| feed
   feed -->|pull + verifica| agente
   control -->|cada decisión| registro
   registro -->|lee| panel
+  pcap -. "tramo reciente" .-> panel
+  eve -. "tramo reciente" .-> panel
   registro -->|syslog| wazuh
 
   classDef host fill:#1b2b3a,stroke:#3a5169,color:#dce8f5;
@@ -73,4 +77,4 @@ flowchart LR
   class atacante,clientes,servidor,gateway host;
   class pcap,eve,registro,feed arte;
   class descartes sink;
-  class modelo,control accent;
+  class motor,parser_eve,modelo,control accent;
