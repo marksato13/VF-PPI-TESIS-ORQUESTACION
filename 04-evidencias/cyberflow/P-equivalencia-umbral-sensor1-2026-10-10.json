@@ -1,0 +1,22 @@
+{
+  "contamination": "auto",
+  "desvio_umbrales": 2.1221165902307604e-07,
+  "detector": "if_recalibrado_2026_09",
+  "estimador_final": "IsolationForest",
+  "filas": 256,
+  "fuente_umbral": "detectors.if_recalibrado_2026_09.calibration.threshold",
+  "manifiesto": "artifacts/preliminar/manifest-if-recalibrado.json",
+  "max_desvio_ss_menos_df_vs_offset": 0.0,
+  "modelo": "artifacts/preliminar/if_recalibrado_desplegable.joblib",
+  "offset_": -0.5,
+  "origen_filas": "sinteticas",
+  "relacion_ss_df_ok": true,
+  "sha256_manifiesto": "564b3a080e22f20731d3a9ec8bde251cc166ce37be8e78e5247e4e3ed1e8fb5e",
+  "sha256_modelo": "d27f68711fcb0f6657611bd7feb17759bc4fae36b9e61fbd5ca8d1190128125a",
+  "tipo": "Pipeline",
+  "umbral_decision_function_implicito": -0.06889199999999995,
+  "umbral_decision_function_informe": -0.06889178778834089,
+  "umbral_score_samples_manifiesto": -0.568892,
+  "umbrales_equivalentes": true,
+  "veredicto": "EQUIVALENTE"
+}
