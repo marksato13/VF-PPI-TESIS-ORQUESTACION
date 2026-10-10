@@ -11,8 +11,8 @@ en [`ESTADO.md`](ESTADO.md); el detalle, en `04-evidencias/cyberflow/` (notas K�
 
 | # | Pendiente | Quién | Criterio de cierre |
 |---|---|---|---|
-| 1 | **Equivalencia del umbral sobre el artefacto vivo** | Mark (Sensor1) | Salida `EQUIVALENTE` de `scripts/modeling/verificar_equivalencia_umbral.py` publicada en `04-evidencias/cyberflow/`, con los SHA-256 del joblib y del manifiesto |
-| 2 | **Etiqueta de versión del feed** | Mark (Sensor1) | La unidad del publicador pasa `2026-10-06.2` (o se despliega el publicador de `main`, que la toma del código) y un feed nuevo lo muestra |
+| 1 | ~~Equivalencia del umbral sobre el artefacto vivo~~ | — | ✅ **Cerrado el 10-oct**: `EQUIVALENTE` ([nota `P`](04-evidencias/cyberflow/P-equivalencia-umbral-sensor1-2026-10-10.md)) |
+| 2 | **Etiqueta de versión del feed** | Mark (Sensor1) | La unidad del publicador pasa `2026-10-06.2` (editar la unidad pide la contraseña de sudo) o se despliega el publicador de `main`, que la toma del código; un feed nuevo lo muestra. Hoy el feed sigue en `2026-10-06.1` |
 | 3 | **QA autenticada del panel por rol** | Mark | Capturas fechadas con `admin` y `lector`: tarjeta Detector, tres vistas, visor de código, «Pruebas previas»; el `lector` recibe 403 en lo de desarrollador |
 | 4 | **Reentrenamiento ANTES/DESPUÉS con datos reales reservados** (bloque B3) | Mark + apoyo | Tabla `comparacion-*.md` sobre normal y ataques nuevos no vistos; decisión justificada; **sin desplegar** |
 | 5 | **Sesión interna con el profesor** (bloque B6) | Mark | Acta o vídeo, observaciones y trazabilidad requisito → demo → evidencia |

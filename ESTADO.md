@@ -31,7 +31,7 @@ falta demostrar un **BLOCK automático** originado por la detección.
 | Espejo SPAN → sensor (`ens37`, sin IP) | ✅ | ✅ `main` | ✅ | ✅ | notas `B`, `D` (17-sep) |
 | Suricata + `eve.json` | ✅ | ✅ `main` | ✅ | ✅ | nota `G` (17-sep) |
 | Motor con **IF recalibrado** | ✅ código | ✅ código en `main`; el joblib **no** se publica (solo su hash) | ✅ | FPR 4,45 % en test normal (nota `L`); 54/78 Kali (nota `M`) | reconciliación por SSH (9-oct) |
-| Equivalencia de escalas del umbral | ✅ `verificar_equivalencia_umbral.py` | ✅ `main@33549a1` | — | ⏳ falta correrlo sobre el joblib vivo y publicar su salida | ficha técnica §2 |
+| Equivalencia de escalas del umbral | ✅ `verificar_equivalencia_umbral.py` | ✅ `main@98d7c62` y rama del sensor `56cce52` | ✅ ejecutado en Sensor1 | ✅ **EQUIVALENTE** sobre el joblib vivo; diferencia 2,1·10⁻⁷ por redondeo a 6 decimales en el manifiesto | [nota `P`](04-evidencias/cyberflow/P-equivalencia-umbral-sensor1-2026-10-10.md) (10-oct) |
 | Heurísticos `2026-10-06.2` | ✅ | ✅ `main@9425373` y rama del sensor | ✅ | port_scan 3/3 tras la rama OR; dns_entropy → LIMIT en vivo (6-oct) | notas 26, 31 |
 | Etiqueta de versión en el feed | ✅ ahora sale del código | ✅ `main@9425373` | ❌ la unidad del publicador en Sensor1 aún pasa `--umbrales 2026-10-06.1` | — | ver «Instrucciones vigentes» |
 | LIMIT automático (modelo → feed → relay → agente → nft) | ✅ | ✅ | ✅ | ✅ en vivo | nota `O` (1-oct) |
@@ -39,7 +39,7 @@ falta demostrar un **BLOCK automático** originado por la detección.
 | BLOCK automático de punta a punta | ✅ | ✅ | ✅ | ❌ **pendiente** | — |
 | Timers systemd (publicar / relay / agente) | ✅ | ✅ | ✅ (reemplazaron los crons el 6-oct) | ✅ | `OnCalendar=minutely` |
 | Panel con TLS + login + roles | ✅ | ✅ | ✅ (30-sep) | ⏳ QA por rol con capturas | — |
-| Panel: 3 vistas, visor de código, «Pruebas previas», detector real | ✅ | ✅ rama del sensor `8d696e5`; la tarjeta Detector también en `main@308fc97` | ✅ (9-oct) | ⏳ QA autenticada por rol | contenido idéntico a `8d696e5` salvo finales de línea |
+| Panel: 3 vistas, visor de código, «Pruebas previas», detector real, vista Entrenamiento corregida | ✅ | ✅ rama del sensor (`dashboard.py` de `3ce0f01`); la tarjeta Detector también en `main@308fc97` | ✅ (10-oct): SHA-256 `d4a7358b…` **idéntico al commit**; responde por HTTPS (401 sin login) desde el bastión | ⏳ QA autenticada por rol | respaldo previo `dashboard.py.bak-20261010-002127` |
 | Documentación pública alineada al despliegue | ✅ | ✅ `main@01b6f3f` | — | — | CI de `main` |
 | Suite de pruebas en Linux | ✅ | ✅ | — | ✅ 328 pruebas OK en CPython 3.14.4 (WSL) y CI de GitHub | 9-oct |
 | Validación interna con el profesor | — | — | — | ❌ pendiente | bloque B6 |
@@ -63,8 +63,8 @@ sudo systemctl daemon-reload
 Con el publicador de `main` la etiqueta ya sale de `heuristicos.VERSION_UMBRALES`; al
 desplegarlo, el argumento sobra.
 
-**Verificar la equivalencia del umbral sobre el artefacto vivo** (publicar la salida
-como evidencia en `04-evidencias/cyberflow/`):
+**Verificar la equivalencia del umbral sobre el artefacto vivo.** Hecho el 10-oct
+(veredicto `EQUIVALENTE`, nota `P`). Repetirlo cada vez que se promocione un modelo:
 
 ```bash
 python3 scripts/modeling/verificar_equivalencia_umbral.py \
@@ -111,11 +111,11 @@ perfil genérico histórico: OCSVM, `1,8126`, `calibrado=false`); Sensor1 usa
 
 ## Lo siguiente, por orden
 
-1. Correr la verificación de equivalencia sobre el joblib vivo y publicar su salida.
-2. Corregir la etiqueta `--umbrales` del publicador en Sensor1.
-3. QA autenticada del panel por rol (capturas fechadas).
-4. Demostrar el BLOCK automático contra un endpoint autorizado.
-5. Ensayo y sesión de validación interna (B6); después TAM y juicio de expertos (B7).
+1. Corregir la etiqueta `--umbrales` del publicador en Sensor1 (requiere la contraseña
+   de sudo de Mark, o desplegar el publicador de `main`).
+2. QA autenticada del panel por rol (capturas fechadas).
+3. Demostrar el BLOCK automático contra un endpoint autorizado.
+4. Ensayo y sesión de validación interna (B6); después TAM y juicio de expertos (B7).
 
 ---
 
