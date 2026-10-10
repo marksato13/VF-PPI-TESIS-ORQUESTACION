@@ -64,6 +64,26 @@ ejecuta Mark (necesita su contraseña de sudo o su presencia).
 **Criterio:** hash idéntico; hay ruedas `cp314` para todo `requirements-model.txt` (si
 faltan, B0-bis: `preparar-bundle.sh` en WSL/Docker con red).
 
+**✅ Hecho el 10-oct.** Versión fijada en `main@b9245ed` (ya con las guías ilustradas).
+`~/cyberflow-main.tgz` en la VM2 con SHA-256 `8ce8d60f…7e608a` **idéntico** en origen y
+destino. Las seis ruedas de `~/cyberflow/ruedas` coinciden con `requirements-model.txt`.
+Foto del antes: las siete unidades activas, Suricata 7.0.3, 9,1 GB libres, perfil
+genérico (`interfaz = "ens37"`, `10.10.0.0/16`, `observacion`, sin `detector`).
+
+### Cómo se sacan las capturas
+
+Cada comando de B1–B7 se ejecuta dentro de `script`, que guarda la salida tal como se
+vio en la terminal (colores incluidos) con el nombre de su figura:
+
+```bash
+mkdir -p ~/capturas
+script -q -c "sudo bash scripts/setup/instalar.sh --comprobar" ~/capturas/06-02-instalar-comprobar.log
+```
+
+Claude convierte cada `.log` en el PNG de su figura (mismo nombre, en `docs/img/`), y las
+del navegador (panel) se hacen con captura de pantalla normal. Las contraseñas no se ven
+en el `.log`: se teclean sin eco.
+
 ### B1 · Desinstalar (M) — 10 min
 ```bash
 cd ~/cyberflow
