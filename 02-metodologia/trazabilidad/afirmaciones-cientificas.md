@@ -59,6 +59,8 @@ a `main@01b6f3f`:
 | `CLAIM-026` | Los heurísticos vigentes son `VERSION_UMBRALES = 2026-10-06.2` y el feed se etiqueta con esa versión | **OBTENIDO** en código (`main@9425373`); en Sensor1 la etiqueta del feed **aún** es `2026-10-06.1` → **PLANIFICADO** su corrección | [`heuristicos.py`](https://github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos/blob/01b6f3fa71bb4daca320b8928ef912e5f4dc8dc2/scripts/engine/heuristicos.py); [`ESTADO.md`](../../ESTADO.md) |
 | `CLAIM-027` | El umbral promovido al motor es el mismo punto de corte en `decision_function` y en `score_samples` (`offset_ = −0,5`); la única diferencia, 2,1·10⁻⁷, es el redondeo a 6 decimales del manifiesto | **VALIDADO** sobre el artefacto vivo (Sensor1, 10-oct) | [nota P](../../04-evidencias/cyberflow/P-equivalencia-umbral-sensor1-2026-10-10.md); [`verificar_equivalencia_umbral.py`](https://github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos/blob/98d7c62c90b656cca6ae5e0e9843107bb7687922/scripts/modeling/verificar_equivalencia_umbral.py) |
 
+| `CLAIM-028` | La cadena publicada entrenar (contrato v2) → `promover_preliminar.py` → verificar produce un artefacto que el motor carga, y desde el paquete original reproduce el modelo vivo **funcionalmente** (scores idénticos en 5000 filas, mismo orden de variables, umbral igual salvo redondeo); **no** es una reproducción byte a byte | **VALIDADO** (Sensor1, 10-oct) | [nota Q](../../04-evidencias/cyberflow/Q-promocion-reproducible-sensor1-2026-10-10/README.md); `tests/test_promover_preliminar.py` |
+
 ## Afirmaciones que NO deben hacerse
 
 | No decir | Por qué | Qué decir |
@@ -71,5 +73,7 @@ a `main@01b6f3f`:
 | «CyberFlow detecta 9/9» | El 9/9 es del stack por episodio, no del modelo solo (6/9) | «El stack (modelo + heurísticos) cubrió 9/9; el modelo solo, 6/9» |
 | «El FPR del sistema es 4,45 %» | Es del modelo sobre test normal retenido | «4,45 % es el FPR del IF sobre test normal; el del sistema se mide aparte» |
 | «Suricata nunca detecta» | El 0/9 es bajo ET Open en esa configuración | «Bajo ese ruleset, Suricata cubrió 0/9 de esa batería» |
+| «El panel muestra las métricas del modelo desplegado» | Hasta regenerar su unidad, el panel de Sensor1 muestra las del OCSVM (detector por omisión) | «Las cifras del modelo vigente están en la ficha técnica y la model card; el panel se corrige al regenerar su unidad» |
+| «El artefacto se reproduce byte a byte» | La reproducción desde el paquete da los mismos scores, pero otro fichero | «Se reproduce funcionalmente: mismos scores y mismo umbral salvo redondeo» |
 | «Bloqueo inline en el sensor» | El sensor es SPAN y no bloquea; lo aplica el agente del host | «El sensor decide; el host aplica la acción por feed firmado» |
 | «Calidad validada según ISO 25010» | 4 de 8 características sin evidencia | «Cuatro con evidencia y cuatro sin ella» |

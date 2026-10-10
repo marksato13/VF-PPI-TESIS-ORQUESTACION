@@ -11,7 +11,9 @@ en [`ESTADO.md`](ESTADO.md); el detalle, en `04-evidencias/cyberflow/` (notas K�
 
 | # | Pendiente | Quién | Criterio de cierre |
 |---|---|---|---|
+| 0 | **Panel con el detector del motor** | Mark (Sensor1, sudo) | Unidad del panel regenerada con `--detector-name if_recalibrado_2026_09` y `dashboard.py` corregido; la sección Modelo muestra umbral −0,568892 y FPR 4,45 %, no las cifras del OCSVM |
 | 1 | ~~Equivalencia del umbral sobre el artefacto vivo~~ | — | ✅ **Cerrado el 10-oct**: `EQUIVALENTE` ([nota `P`](04-evidencias/cyberflow/P-equivalencia-umbral-sensor1-2026-10-10.md)) |
+| 1b | ~~Promoción ejecutable y manifiesto operativo publicados~~ | — | ✅ **Cerrado el 10-oct**: `promover_preliminar.py` reproduce el modelo vivo desde su paquete (scores idénticos; no byte a byte) y se publican manifiesto e informe ([nota `Q`](04-evidencias/cyberflow/Q-promocion-reproducible-sensor1-2026-10-10/README.md)) |
 | 2 | **Etiqueta de versión del feed** | Mark (Sensor1) | La unidad del publicador pasa `2026-10-06.2` (editar la unidad pide la contraseña de sudo) o se despliega el publicador de `main`, que la toma del código; un feed nuevo lo muestra. Hoy el feed sigue en `2026-10-06.1` |
 | 3 | **QA autenticada del panel por rol** | Mark | Capturas fechadas con `admin` y `lector`: tarjeta Detector, tres vistas, visor de código, «Pruebas previas»; el `lector` recibe 403 en lo de desarrollador |
 | 4 | **Reentrenamiento ANTES/DESPUÉS con datos reales reservados** (bloque B3) | Mark + apoyo | Tabla `comparacion-*.md` sobre normal y ataques nuevos no vistos; decisión justificada; **sin desplegar** |
