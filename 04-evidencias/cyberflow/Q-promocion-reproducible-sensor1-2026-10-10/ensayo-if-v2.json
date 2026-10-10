@@ -1,0 +1,53 @@
+{
+  "alpha": 0.05,
+  "entrada_sha256": "bdf6f6419ec19e711c7add9e8b5f1440b896b32270c25d69b7e8267d4f9aba7a",
+  "features": [
+    "packet_rate_10s",
+    "byte_rate_10s",
+    "mean_ip_len_10s",
+    "large_ip_ratio_10s",
+    "unique_dst_ip_ratio_30s",
+    "icmp_ratio_10s",
+    "flow_attempt_rate_10s",
+    "syn_rate_10s",
+    "syn_completion_ratio_10s",
+    "rst_ratio_10s",
+    "unique_dst_port_ratio_30s",
+    "http_error_ratio_60s",
+    "dns_nxdomain_ratio_60s",
+    "tls_session_rate_60s",
+    "ttl_mean_10s",
+    "fragment_ratio_10s",
+    "protocol_diversity_30s",
+    "tcp_retransmission_ratio_10s",
+    "flow_duration_mean_30s",
+    "tx_rx_byte_ratio_30s",
+    "http_request_rate_60s",
+    "http_method_entropy_60s",
+    "http_auth_failure_ratio_60s",
+    "dns_query_rate_60s",
+    "unique_dns_name_ratio_60s",
+    "tls_handshake_failure_ratio_60s",
+    "tls_version_ratio_60s",
+    "http_status_5xx_ratio_60s"
+  ],
+  "filas": {
+    "test": 65421,
+    "train": 204148,
+    "validation": 65633
+  },
+  "fpr_test": 0.044527,
+  "fpr_test_objetivo": 0.05,
+  "fpr_validacion": 0.050005,
+  "generado": "2026-09-29T22:52:48.976873+00:00",
+  "n_features": 28,
+  "nota": "umbral congelado desde validacion; la Kali se puntua despues con este mismo modelo, sin reajustar nada",
+  "parametros": {
+    "n_estimators": 500,
+    "semilla": 20260813
+  },
+  "salida_sha256": "9a4e02645df9484037ba9386c488cc431cba4b8564c3b4892de3c5ed210c579d",
+  "schema": "multilayer-v2.json",
+  "tipo": "modelo-preliminar-ensayo-funcional",
+  "umbral_decision_function": -0.06889178778834089
+}

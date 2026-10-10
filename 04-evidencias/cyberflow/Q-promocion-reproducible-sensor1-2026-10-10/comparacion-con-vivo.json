@@ -1,0 +1,21 @@
+{
+  "sha256_vivo": "d27f68711fcb0f6657611bd7feb17759bc4fae36b9e61fbd5ca8d1190128125a",
+  "sha256_reproducido": "e901ce9e9361073085db8b7bfda7a4f9154b32171d5cff2faacb0f75126bfc46",
+  "mismo_fichero_byte_a_byte": false,
+  "pasos_vivo": [
+    "scaler",
+    "model"
+  ],
+  "pasos_reproducido": [
+    "scaler",
+    "model"
+  ],
+  "filas_comparadas": 5000,
+  "max_dif_score_samples": 0.0,
+  "umbral_vivo_manifiesto": -0.568892,
+  "umbral_reproducido_exacto": -0.5688917877883409,
+  "dif_umbral": 2.1221165902307604e-07,
+  "decisiones_distintas_con_cada_umbral": 0,
+  "orden_igual_al_extractor": true,
+  "n_features": 28
+}

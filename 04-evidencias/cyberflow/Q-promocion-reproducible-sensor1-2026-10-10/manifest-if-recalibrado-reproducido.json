@@ -1,0 +1,79 @@
+{
+  "tipo": "manifiesto-desplegable",
+  "generado": "2026-10-10T04:24:30.347062+00:00",
+  "detectors": {
+    "if_recalibrado_2026_09": {
+      "kind": "isolation_forest_pipeline",
+      "model_path": "/home/m4rk/cf-deploy/reproduccion-20261010042428/if_recalibrado_2026_09_desplegable.joblib",
+      "model_sha256": "e901ce9e9361073085db8b7bfda7a4f9154b32171d5cff2faacb0f75126bfc46",
+      "schema": "multilayer-v2.json",
+      "n_features": 28,
+      "features": [
+        "packet_rate_10s",
+        "byte_rate_10s",
+        "mean_ip_len_10s",
+        "large_ip_ratio_10s",
+        "unique_dst_ip_ratio_30s",
+        "icmp_ratio_10s",
+        "flow_attempt_rate_10s",
+        "syn_rate_10s",
+        "syn_completion_ratio_10s",
+        "rst_ratio_10s",
+        "unique_dst_port_ratio_30s",
+        "http_error_ratio_60s",
+        "dns_nxdomain_ratio_60s",
+        "tls_session_rate_60s",
+        "ttl_mean_10s",
+        "fragment_ratio_10s",
+        "protocol_diversity_30s",
+        "tcp_retransmission_ratio_10s",
+        "flow_duration_mean_30s",
+        "tx_rx_byte_ratio_30s",
+        "http_request_rate_60s",
+        "http_method_entropy_60s",
+        "http_auth_failure_ratio_60s",
+        "dns_query_rate_60s",
+        "unique_dns_name_ratio_60s",
+        "tls_handshake_failure_ratio_60s",
+        "tls_version_ratio_60s",
+        "http_status_5xx_ratio_60s"
+      ],
+      "calibration": {
+        "threshold": -0.5688917877883409,
+        "comparison": "score < threshold",
+        "score_function": "score_samples",
+        "threshold_decision_function": -0.06889178778834089,
+        "offset": -0.5,
+        "alpha": 0.05
+      },
+      "origen": {
+        "paquete": "artifacts/preliminar/ensayo-if-v2.joblib",
+        "paquete_sha256": "9a4e02645df9484037ba9386c488cc431cba4b8564c3b4892de3c5ed210c579d",
+        "informe": "artifacts/preliminar/ensayo-if-v2.json",
+        "informe_sha256": "ec3ed06304fdbe6367ab1b69e40498980e6eed6df890f67ae5c4001f98c86421"
+      }
+    }
+  },
+  "evaluation": {
+    "if_recalibrado_2026_09": {
+      "threshold_used": -0.5688917877883409,
+      "validation": {
+        "fpr": 0.050005
+      },
+      "test": {
+        "fpr": 0.044527,
+        "rows": 65421
+      },
+      "anomalies": {
+        "detection_rate": 0.6923076923076923,
+        "kali_real_detection_rate": 0.6923076923076923,
+        "fuente": "nota M: 54/78 ventanas Kali"
+      }
+    }
+  },
+  "runtime": {
+    "python": "3.14.4",
+    "scikit_learn": "1.9.0",
+    "numpy": "2.5.1"
+  }
+}

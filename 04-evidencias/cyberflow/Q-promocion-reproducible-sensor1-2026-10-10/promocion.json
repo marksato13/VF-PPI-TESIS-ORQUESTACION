@@ -1,0 +1,21 @@
+{
+  "detector": "if_recalibrado_2026_09",
+  "equivalencia": "EQUIVALENTE",
+  "filas_control": 512,
+  "manifiesto": "/home/m4rk/cf-deploy/reproduccion-20261010042428/manifest-if-recalibrado-reproducido.json",
+  "max_desvio_ss_menos_df_vs_offset": 0.0,
+  "modelo": "/home/m4rk/cf-deploy/reproduccion-20261010042428/if_recalibrado_2026_09_desplegable.joblib",
+  "n_features": 28,
+  "offset_": -0.5,
+  "origen": {
+    "informe": "artifacts/preliminar/ensayo-if-v2.json",
+    "informe_sha256": "ec3ed06304fdbe6367ab1b69e40498980e6eed6df890f67ae5c4001f98c86421",
+    "paquete": "artifacts/preliminar/ensayo-if-v2.joblib",
+    "paquete_sha256": "9a4e02645df9484037ba9386c488cc431cba4b8564c3b4892de3c5ed210c579d"
+  },
+  "schema": "multilayer-v2.json",
+  "sha256_manifiesto": "a79fb4af5e3061b63b6b1be4d5f6be90d35e445edc762bf126fb3529055870e6",
+  "sha256_modelo": "e901ce9e9361073085db8b7bfda7a4f9154b32171d5cff2faacb0f75126bfc46",
+  "umbral_decision_function": -0.06889178778834089,
+  "umbral_score_samples": -0.5688917877883409
+}
