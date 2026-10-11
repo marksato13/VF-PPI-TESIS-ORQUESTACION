@@ -86,6 +86,12 @@ sudo systemctl disable --now ppi-publicar-feed.timer
   (incluye 328 pruebas en CPython 3.14.4 y la reproducción del modelo publicado) — 9-oct.
 - **Panel desplegado** en Sensor1 con TLS + login + roles (30-sep) y con tres vistas,
   visor y «Pruebas previas» (9-oct).
+- **Reentrenamiento supervisado** (11-oct, `main@7ca06d1`): saneamiento, linaje, límite
+  de influencia y deriva contra el conjunto de oro. El candidato es nocturno y lo promueve
+  una persona. Tiene sección «Aprendizaje» en el panel y aparece en la Vista 3 del diagrama.
+  **Pendiente:** activarlo en el Sensor1 (crear el oro desde el particionado de la nota L,
+  `activo = true`, regenerar unidades), que es decisión de Mark. Falta también portar el
+  panel a la rama del sensor.
 - **Replicabilidad del despliegue**: 2.ª VM instalada sin Internet (nota `K`);
   reinstalada desde cero con `main@b9245ed` siguiendo solo los manuales: R1–R8 cumplen, R9
   salvo el login por roles en el navegador (nota `R`, 11-oct).
