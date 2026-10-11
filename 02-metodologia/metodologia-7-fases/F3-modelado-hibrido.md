@@ -86,7 +86,7 @@ propio para un objetivo de falsos positivos del **5 %**.
 | | Sin recalibrar | Umbral fijado (objetivo 5 %) |
 |---|---|---|
 | FPR (tráfico normal) | **92,4 %** | **4,45 %** (en test ciego) |
-| Detección útil | no (alarmaba a todo) | **100 % HTTP · 69 % global** (Kali real) |
+| Detección útil | no (alarmaba a todo) | **81 % HTTP · 64,3 % global** (Kali real, nota S) |
 
 El umbral es correcto porque, en datos que nunca vio, **acierta el objetivo de FP**
 y **detecta los ataques reales**; además es **estable** (validación cruzada del

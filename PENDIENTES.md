@@ -99,7 +99,7 @@ sudo systemctl disable --now ppi-publicar-feed.timer
   reinstalada desde cero con `main@b9245ed` siguiendo solo los manuales: R1–R8 cumplen, R9
   salvo el login por roles en el navegador (nota `R`, 11-oct).
 - **Recalibración**: IF con FPR 4,45 % sobre test normal retenido (nota `L`); detección
-  54/78 Kali (nota `M`).
+  54/84 Kali, 64,3 % (notas `M` y `S`).
 - **Enforcement**: LIMIT automático en vivo (nota `O`); BLOCK en banco (nota `N`);
   heurísticos `2026-10-06.2`; timers systemd.
 - **v1.0.0** etiquetada con Release en GitHub.
