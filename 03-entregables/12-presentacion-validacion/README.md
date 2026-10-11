@@ -39,7 +39,7 @@ aquí primero.
 | Falsos positivos recalibrado (test retenido) | **4,45 %** | nota `L` (29-sep) |
 | Detección global (Kali, misma red) | **64,3 %** (54/84 ventanas) | notas `M` (30-sep) y `S` |
 | Detección HTTP (ventanas con peticiones HTTP) | **81 %** (35/43) | nota `S` |
-| Detección escaneo de puertos | **63 %** (27/43) | nota `M` |
+| Detección escaneo de puertos | **58 %** (19/33) | nota `S` |
 | DNS de alta entropía · ARP spoofing | **0 %** · **0 %** — límite declarado | nota `M` · entregable 11 §4 |
 | Modelo desplegado | `if_recalibrado_2026_09`, congelado, `calibrado_en_esta_red=true` | `ESTADO.md` (30-sep) |
 | Versión | `v1.0.0` (producto `f9ced59`), CI verde, 265 pruebas | `ESTADO.md` P2 |
@@ -59,6 +59,11 @@ aquí primero.
 | 17–25 | **Demo en vivo**: ataque → alerta en el panel |
 | 25–35 | Preguntas y recorrido libre por el repo |
 | 35–45 | Los validadores llenan el formulario (Parte A, Parte B, ficha, K, dictamen) |
+
+**Presentación actualizada (11-oct):** 20 diapositivas y 3 anexos de ensayo (checklist,
+cronómetro, qué decir y qué no), con quién habla, los minutos y qué abrir del panel en cada
+una: <https://claude.ai/artifact/ErERBpjvE9X5B5e4Z4VhC3> (privada hasta compartirla). La
+tabla de abajo es la versión anterior, de 10 diapositivas.
 
 ### Diapositivas y su evidencia en el panel
 
