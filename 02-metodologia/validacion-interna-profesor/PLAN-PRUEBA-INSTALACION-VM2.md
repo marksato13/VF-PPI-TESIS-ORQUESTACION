@@ -164,6 +164,10 @@ rota, el acumulador escribe y no hay descartes de captura.
 
 ---
 
+**✅ B1–B8 hechos el 11-oct** (instalación 03:28–03:35 UTC). Resultado y desviaciones en
+[`R-instalacion-desde-cero-vm2-2026-10-11.md`](../../04-evidencias/cyberflow/R-instalacion-desde-cero-vm2-2026-10-11.md).
+Queda el login `admin`/`lector` en el navegador (R9) y repetir `doctor.sh` a los 30 min.
+
 ## Criterios de aceptación (lo que se presenta como «replicable»)
 
 | # | Criterio | Bloque | Se cumple si… |
