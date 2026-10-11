@@ -89,9 +89,12 @@ sudo systemctl disable --now ppi-publicar-feed.timer
 - **Reentrenamiento supervisado** (11-oct, `main@7ca06d1`): saneamiento, linaje, límite
   de influencia y deriva contra el conjunto de oro. El candidato es nocturno y lo promueve
   una persona. Tiene sección «Aprendizaje» en el panel y aparece en la Vista 3 del diagrama.
-  **Pendiente:** activarlo en el Sensor1 (crear el oro desde el particionado de la nota L,
-  `activo = true`, regenerar unidades), que es decisión de Mark. Falta también portar el
-  panel a la rama del sensor.
+  **Activado en el Sensor1** (nota `S`):
+  - base y oro reconstruidos desde la nota L, verificados por sha256;
+  - el primer lote real (10-oct) fue rechazado porque la red estaba sin tráfico de usuarios.
+
+  **Pendiente:** Mark instala el temporizador con sudo (2 comandos en la nota S) y decide
+  entre reinyectar tráfico representativo o recalibrar con un oro nuevo.
 - **Replicabilidad del despliegue**: 2.ª VM instalada sin Internet (nota `K`);
   reinstalada desde cero con `main@b9245ed` siguiendo solo los manuales: R1–R8 cumplen, R9
   salvo el login por roles en el navegador (nota `R`, 11-oct).
