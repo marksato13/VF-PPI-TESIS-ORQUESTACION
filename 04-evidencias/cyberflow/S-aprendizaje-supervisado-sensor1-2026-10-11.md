@@ -66,6 +66,50 @@ plano de control y hosts en reposo.
   2. **Declarar que la red cambió y recalibrar entera** (INSTALACION §8), con un oro
      nuevo. No es lo mismo que aceptar lotes a mano por encima del oro viejo.
 
+## 2.bis Conjunto de ataques etiquetados y dos hallazgos sobre las notas L y M
+
+Para que el veredicto de un candidato sea completo hacen falta ataques de **esta**
+red. Se construyó `artifacts/aprendizaje/ataques/ataques-nota-M.csv` (solo lectura,
+sha256 `4affd07f…`) con este criterio:
+- ventanas de la Kali (10.10.20.30) con `packet_count_10s > 0`;
+- entre las 00:00 y las 02:00 UTC del 30-sep, la campaña de la nota M.
+
+Se apuntó `[reentrenamiento] ataques` a ese fichero.
+
+**Hallazgo 1. El denominador de la nota M es 84, no 78.** Las **54 detectadas se
+reproducen exactas** con el modelo desplegado, pero la ráfaga tiene **84** ventanas
+activas (de 00:10 a 01:52). Fuera de la ráfaga, la Kali solo emite 1 o 2 ventanas por
+hora de ruido de sistema.
+
+| | Nota M / model card | Medido hoy |
+|---|---|---|
+| Ventanas de ataque | 78 | **84** |
+| Detectadas | 54 | 54 |
+| Tasa | 69 % | **64,3 %** |
+
+Hay que corregir la cifra en la model card o justificar el criterio de las 78. No
+se ha cambiado nada sin la decisión de Mark.
+
+**Hallazgo 2. La línea base de la nota L contiene una ráfaga de la Kali.**
+- El 27-sep, de 21:40 a 21:59 UTC, hubo 51 ventanas activas de la Kali.
+- Esas ventanas quedaron en la partición **train** del modelo desplegado.
+- El modelo marca 44 de ellas y, en total, 50 de las 549 ventanas de la Kali que hay en train.
+
+La memoria del ensayo decía que la Kali estuvo apagada en esa ventana. Los datos dicen
+que no.
+
+**Lo que no afecta:** el conjunto de oro no tiene ventanas de ataque. Sus 74 ventanas
+de la Kali son ruido de sistema, el modelo no marca ninguna y el FPR sin ellas es 4,46 %
+frente a 4,45 %. **El 4,45 % se sostiene.**
+
+**Lo que sí afecta:** la afirmación de que el modelo «se entrenó con tráfico limpio»
+deja de ser exacta. Un candidato futuro volvería a aprender esa ráfaga.
+
+**Corrección aplicada** (sin tocar el modelo desplegado):
+- se añadió `excluir_ventanas = ["10.10.20.30@2026-09-27T21:35/22:05"]` a la política;
+- ningún candidato entrenará con ese tramo, ni desde la base ni desde los lotes;
+- cada candidato registra cuántas filas excluyó.
+
 ## 3. Temporizador
 
 **✅ Instalado por Mark el 11-oct, 05:24 UTC.** Estado: `active`. Primer disparo el
