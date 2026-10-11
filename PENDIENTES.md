@@ -86,7 +86,9 @@ sudo systemctl disable --now ppi-publicar-feed.timer
   (incluye 328 pruebas en CPython 3.14.4 y la reproducción del modelo publicado) — 9-oct.
 - **Panel desplegado** en Sensor1 con TLS + login + roles (30-sep) y con tres vistas,
   visor y «Pruebas previas» (9-oct).
-- **Replicabilidad del despliegue**: 2.ª VM instalada sin Internet (nota `K`).
+- **Replicabilidad del despliegue**: 2.ª VM instalada sin Internet (nota `K`);
+  reinstalada desde cero con `main@b9245ed` siguiendo solo los manuales: R1–R8 cumplen, R9
+  salvo el login por roles en el navegador (nota `R`, 11-oct).
 - **Recalibración**: IF con FPR 4,45 % sobre test normal retenido (nota `L`); detección
   54/78 Kali (nota `M`).
 - **Enforcement**: LIMIT automático en vivo (nota `O`); BLOCK en banco (nota `N`);
