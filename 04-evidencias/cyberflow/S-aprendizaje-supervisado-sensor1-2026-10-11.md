@@ -66,7 +66,12 @@ plano de control y hosts en reposo.
   2. **Declarar que la red cambió y recalibrar entera** (INSTALACION §8), con un oro
      nuevo. No es lo mismo que aceptar lotes a mano por encima del oro viejo.
 
-## 3. Lo que queda (Mark, con sudo)
+## 3. Temporizador
+
+**✅ Instalado por Mark el 11-oct, 05:24 UTC.** Estado: `active`. Primer disparo el
+12-oct a las 00:30 UTC.
+
+Detalle de la instalación:
 
 Las unidades `cyberflow-aprendizaje.service` y `.timer` están generadas en
 `~/cf-deploy/unidades/`: corren como `m4rk`, a las 00:30 UTC, con `Nice=19`.
