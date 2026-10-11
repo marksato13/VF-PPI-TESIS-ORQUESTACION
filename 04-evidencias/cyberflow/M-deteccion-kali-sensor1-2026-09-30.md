@@ -1,5 +1,19 @@
 # M · Detección de ataques reales (Kali) con el modelo recalibrado — sensor1
 
+> **Errata (11-oct-2026, [nota S](S-aprendizaje-supervisado-sensor1-2026-10-11.md)).**
+> Las **54 detectadas** se reproducen exactas con el modelo desplegado, pero el
+> denominador no es 78. La ráfaga de la campaña (30-sep, 00:10–01:52 UTC) tiene **84**
+> ventanas activas de la Kali, así que la tasa es **54/84 = 64,3 %**, no 69 %.
+>
+> La división por familias de abajo no se puede reproducir: no quedó registrado cómo se
+> asignó cada ventana. Con un criterio observable (HTTP si la ventana tuvo peticiones
+> HTTP, DNS si tuvo consultas DNS, escaneo en otro caso) sale **HTTP 35/43 (81 %),
+> escaneo 19/33 (58 %) y DNS 0/8**.
+>
+> Tampoco es exacto que la Kali estuviera apagada toda la línea base. Hubo una ráfaga
+> el 27-sep, de 21:40 a 21:59 UTC, que quedó en el entrenamiento del modelo (nota S).
+> El texto original se conserva tal cual, como registro de lo que se midió entonces.
+
 **Fecha:** 30 de septiembre de 2026
 **Máquina:** `cyberflow-sensor1` (10.10.60.11), red real; atacante Kali `10.10.20.30` → DMZ `10.10.30.10`.
 **Objetivo:** cerrar la otra mitad del FPR de la nota `L`: medir la **detección (TPR)**

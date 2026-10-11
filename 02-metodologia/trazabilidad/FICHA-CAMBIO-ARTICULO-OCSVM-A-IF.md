@@ -28,8 +28,8 @@ atribución, hay que puntuar ambos modelos sobre el mismo conjunto retenido.
 | Modelo / detector | One-Class SVM | **Isolation Forest recalibrado** (`if_recalibrado_2026_09`), Pipeline escalador + IF | ficha técnica §2 | listo |
 | Contaminación | `nu = 0,05` | percentil **`alpha = 0,05`** sobre validación | nota L | listo |
 | Umbral | `1,8126` | **`score_samples < −0,568892`** (= `decision_function < −0,068892`) | ficha técnica §2 | listo; la equivalencia sobre el artefacto vivo, pendiente de publicar |
-| Detección global | 88,8 % (143/161) | **69 % = 54/78** ventanas Kali | nota M | listo |
-| Detección por familia | — | **HTTP 27/27**, escaneo **27/43**, DNS **0/8** (ensayo DNS contra un host que no era el resolver) | nota M | listo |
+| Detección global | 88,8 % (143/161) | **64,3 % = 54/84** ventanas Kali | notas M y S | listo |
+| Detección por familia | — | **HTTP 35/43**, escaneo **19/33**, DNS **0/8** (ensayo DNS contra un host que no era el resolver) | nota M | listo |
 | FPR | 4,71 % (13/276) | **4,45 % sobre test normal retenido (65 421 ventanas)**. No presentarlo como «bajada desde 92,4 %» (ver §1) | nota L | listo |
 | FPR en operación | 25,81 % / 22,97 % | **No reutilizar**: son del OCSVM en F6. El FPR del **sistema completo** se mide aparte | — | a medir |
 | Cobertura del sistema | — | **Stack híbrido 9/9** por episodio (modelo solo 6/9, heurísticos 7/9). No atribuir 9/9 al modelo | 31, 32 | listo |

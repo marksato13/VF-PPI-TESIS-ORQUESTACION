@@ -4,7 +4,7 @@
 **Fecha del traspaso:** 1 de octubre de 2026.
 **Estado en una frase:** sistema desplegado y sano sobre tráfico real; el piloto
 superó el bloqueo histórico, la recalibración bajó el FPR **92,4 % → 4,45 %**, la
-Kali midió TPR **69 % global** y el modelo está congelado y versionado en `v1.0.0`.
+Kali midió TPR **64,3 % global** (54/84; recontado en la nota S) y el modelo está congelado y versionado en `v1.0.0`.
 El enforcement está **vivo** y ya aplicó LIMIT automático ante una campaña real;
 falta demostrar un BLOCK automático y resolver DNS-entropy.
 
@@ -162,7 +162,7 @@ entorno se valida por **juicio de expertos** (V de Aiken ≥ 0,80).
 > **Ojo con la interpretación del 4,45 %:** mide falsos positivos sobre tráfico
 > **normal** (no hay ataques en la base). Demuestra que el modelo deja de gritar
 > «lobo»; **no** su capacidad de detección. Esa mitad la aportó la corrida de la
-> Kali: TPR 69 % global, 100 % HTTP, 63 % escaneo y 0 % DNS-entropy (nota `M`).
+> Kali: TPR 64,3 % global, 81 % HTTP, 58 % escaneo y 0 % DNS-entropy (notas `M` y `S`).
 
 ---
 

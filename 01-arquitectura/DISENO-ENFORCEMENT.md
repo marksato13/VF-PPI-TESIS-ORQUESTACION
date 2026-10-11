@@ -258,7 +258,7 @@ nftables borra en cada host.
 > **Validación real de B3 (30-sep, sensor1):** los heurísticos disparan en **47/104**
 > ventanas de ataque de la Kali (port-scan 20→BLOCK, http-abuse 27→LIMIT) y en solo
 > **11/13 144** de tráfico normal → **0,08 % de falsos positivos**. Complementan al
-> modelo (que ya daba 100 % en HTTP) con casi cero ruido. *(dns-entropy no disparó:
+> modelo (81 % en las ventanas HTTP, nota S) con casi cero ruido. *(dns-entropy no disparó:
 > el ataque DNS apuntó al DMZ, no al resolver real — mismo caveat de la nota M.)*
 
 > **Falta para wiring completo (integración, parte de B1/B2):** el motor

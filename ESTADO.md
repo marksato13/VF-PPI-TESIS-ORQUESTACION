@@ -30,7 +30,7 @@ falta demostrar un **BLOCK automático** originado por la detección.
 |---|---|---|---|---|---|
 | Espejo SPAN → sensor (`ens37`, sin IP) | ✅ | ✅ `main` | ✅ | ✅ | notas `B`, `D` (17-sep) |
 | Suricata + `eve.json` | ✅ | ✅ `main` | ✅ | ✅ | nota `G` (17-sep) |
-| Motor con **IF recalibrado** | ✅ código | ✅ código en `main`; el joblib **no** se publica (solo su hash) | ✅ | FPR 4,45 % en test normal (nota `L`); 54/78 Kali (nota `M`) | reconciliación por SSH (9-oct) |
+| Motor con **IF recalibrado** | ✅ código | ✅ código en `main`; el joblib **no** se publica (solo su hash) | ✅ | FPR 4,45 % en test normal (nota `L`); 54/84 Kali, 64,3 % (notas `M` y `S`) | reconciliación por SSH (9-oct) |
 | Equivalencia de escalas del umbral | ✅ `verificar_equivalencia_umbral.py` | ✅ `main@98d7c62` y rama del sensor `56cce52` | ✅ ejecutado en Sensor1 | ✅ **EQUIVALENTE** sobre el joblib vivo; diferencia 2,1·10⁻⁷ por redondeo a 6 decimales en el manifiesto | [nota `P`](04-evidencias/cyberflow/P-equivalencia-umbral-sensor1-2026-10-10.md) (10-oct) |
 | Promoción paquete → artefacto desplegable (`promover_preliminar.py`) | ✅ | ✅ `main@488b086` y rama del sensor | ✅ ejecutada en Sensor1 sobre el paquete original (sin desplegar) | ✅ funcionalmente idéntica al vivo: scores con diferencia 0,0 en 5000 filas, 0 decisiones distintas; **no** byte a byte | [nota `Q`](04-evidencias/cyberflow/Q-promocion-reproducible-sensor1-2026-10-10/README.md) |
 | Manifiesto operativo e informe de calibración | ✅ | ✅ publicados (`564b3a08…`, `ec3ed063…`) | — | — | nota `Q` |
@@ -131,7 +131,7 @@ perfil genérico histórico: OCSVM, `1,8126`, `calibrado=false`); Sensor1 usa
 > arriba.
 
 **Corte del 1 de octubre.** Recalibración congelada en Sensor1, `v1.0.0` etiquetada, Kali
-con TPR 69 % global (HTTP 27/27, escaneo 27/43, DNS 0/8) y primer LIMIT automático en
+con TPR 64,3 % global (54/84; HTTP 35/43, escaneo 19/33, DNS 0/8; recuento de la nota S) y primer LIMIT automático en
 vivo. Entonces el enforcement corría por **crons de usuario** y el panel con la columna
 Acción aún no estaba desplegado. En ese corte se escribió «motor (OCSVM)» en la tabla de
 componentes: era texto heredado; el motor ya ejecutaba el IF recalibrado.

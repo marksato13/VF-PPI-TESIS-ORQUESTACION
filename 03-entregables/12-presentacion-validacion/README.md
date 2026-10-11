@@ -37,8 +37,8 @@ aquí primero.
 |---|---|---|
 | Falsos positivos sin recalibrar | **92,4 %** | `ESTADO.md` §2 (17-sep) |
 | Falsos positivos recalibrado (test retenido) | **4,45 %** | nota `L` (29-sep) |
-| Detección global (Kali, misma red) | **69 %** (54/78 ventanas) | nota `M` (30-sep) |
-| Detección HTTP (web-scan, fuerza bruta, flood) | **100 %** (27/27) | nota `M` |
+| Detección global (Kali, misma red) | **64,3 %** (54/84 ventanas) | notas `M` (30-sep) y `S` |
+| Detección HTTP (ventanas con peticiones HTTP) | **81 %** (35/43) | nota `S` |
 | Detección escaneo de puertos | **63 %** (27/43) | nota `M` |
 | DNS de alta entropía · ARP spoofing | **0 %** · **0 %** — límite declarado | nota `M` · entregable 11 §4 |
 | Modelo desplegado | `if_recalibrado_2026_09`, congelado, `calibrado_en_esta_red=true` | `ESTADO.md` (30-sep) |
@@ -71,7 +71,7 @@ aquí primero.
 | 5 | Metodología (fases, una línea de tiempo) | — | — |
 | 6 | Arquitectura: SPAN → Suricata → variables → modelo → decisión → panel | Panel · *Salud* + *Topología y flujo* | C5, C8 |
 | 7 | Entorno: VLAN, pfSense HA, 6 perfiles de tráfico, Kali aislada | Panel · *Topología* + *Simulación → Tráfico normal* | C1–C4, C7 |
-| 8 | **Resultados**: FPR 92,4 → 4,45 % · TPR 69 % / 100 % HTTP | Panel · *Modelo congelado* → **demo** | C12 |
+| 8 | **Resultados**: FPR 92,4 → 4,45 % · TPR 64,3 % / 81 % HTTP | Panel · *Modelo congelado* → **demo** | C12 |
 | 9 | Reproducible y replicable: SHA-256, entorno congelado, 2.ª VM, CI | **Terminal**: `doctor.sh`, `SHA256SUMS`, tag `v1.0.0` | C9–C11, C13 |
 | 10 | Limitaciones y trabajo futuro: DNS y ARP, simulado → real | Panel · *IPs bloqueadas* (modo observación) | — |
 
@@ -151,7 +151,7 @@ La captura del 29-sep mostraba datos que no cuadran con el modelo congelado el
 - [ ] La *Distribución de scores* compara contra el umbral del modelo desplegado
       (la captura decía «100 % por debajo del umbral», en rojo, con todo en PERMIT).
 - [ ] Las tasas de detección de la tarjeta coinciden con la nota `M`
-      (69 % / 100 % HTTP), o indican de qué dataset salen.
+      (64,3 % / 81 % HTTP), o indican de qué dataset salen.
 - [ ] El aviso de *punto débil* habla de DNS y ARP (nota `M`), no de la fuerza
       bruta, que ahora se detecta al 100 %.
 - [ ] El botón *Modo desarrollo* no aparece en la demo.
@@ -177,7 +177,7 @@ La captura del 29-sep mostraba datos que no cuadran con el modelo congelado el
 |---|---|
 | «Detecta y alerta; en modo observación no bloquea. El bloqueo es opcional si el sensor está en línea» | «Bloquea las IPs» |
 | «Se recalibra por lotes con la línea base y luego se congela con un umbral fijo» | «Aprende en tiempo real» |
-| «Detecta el 100 % de los ataques HTTP y el 69 % en global» | Solo el 100 %, sin el global |
+| «Detecta el 81 % de las ventanas de ataque HTTP y el 64,3 % en global» | Solo el 81 %, sin el global |
 | «DNS de alta entropía y ARP no se detectan: piden una regla determinista, es trabajo futuro» | Ocultar los 0 % |
 | «Datos reales capturados en un entorno de simulación con parámetros controlados» | «Probado en una empresa real» |
 

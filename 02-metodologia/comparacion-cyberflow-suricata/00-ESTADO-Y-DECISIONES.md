@@ -107,7 +107,7 @@ medicion comparativa. Ver `16-PILOTO-PASIVO-20261002.md` y
 ## 5. Resultados de CyberFlow que sirven como referencia
 
 - FPR recalibrado sobre trafico normal retenido: `4,45 %`.
-- TPR de la corrida real de Kali: `69 %` global.
+- TPR de la corrida real de Kali: `64,3 %` global (54/84; recontado en la nota S, antes 54/78).
 - Ataques HTTP: `100 %` de deteccion en la corrida documentada.
 - Latencia de bloqueo previa en F6: mediana aproximada de `8 s`.
 - Duracion configurada del bloqueo: `120 s`.
