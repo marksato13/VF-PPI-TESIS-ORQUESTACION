@@ -10,7 +10,9 @@ Las vistas de topología del panel (`dashboard.py`, `TOPO_VISTAS`), en Mermaid e
 - `02-metodologica.mmd` — **Fases del método**: las 7 fases de la tesis.
 - `03-construccion-entrenamiento.mmd` — **Construcción y entrenamiento**: datos →
   limpieza → partición → candidatos → métricas → selección → congelación → despliegue →
-  acumulación → reentrenamiento → antes/después, con las cifras del informe de calibración.
+  acumulación, con las cifras del informe de calibración. Incluye el **aprendizaje
+  supervisado** (actualizado el 2026-10-11): conjunto de oro, las cuatro defensas
+  (saneamiento, linaje, límite de influencia y deriva), el veredicto y la aprobación humana.
 
 Cada `.mmd` tiene su `.png` al lado. Este README se genera desde los `.mmd` y, la matriz,
 desde el código del producto (`scripts/engine/vista_vivo.py`): si cambia uno, se regenera.
@@ -32,9 +34,18 @@ omisión solo los registros que aportan. La tercera pestaña es la matriz de aba
 - **«92,4 % → 4,45 %» no es un reentrenamiento del mismo modelo**: es cambio de modelo y
   de umbral. La comparación antes/después de un reentrenamiento con datos reservados
   nuevos sigue pendiente (bloque B3).
-- **Reentrenamiento mensual o por deriva = política propuesta.** Lo automatizado es la
-  **acumulación** de la línea base; el ciclo se ejecuta a mano, en seco, y solo se promueve
-  si el FPR no empeora y la detección no baja.
+- **El reentrenamiento es supervisado, no automático** (`main@7ca06d1`,
+  `cyberflow_aprendizaje.py`, `docs/APRENDIZAJE.md`). Cada noche se hace solo esto:
+  - se sanea y registra un lote;
+  - se mide la deriva contra el oro;
+  - cada 30 días, o con deriva sostenida 3 días, se entrena y evalúa un candidato.
+
+  El modelo en uso solo cambia con `promover`, que lanza una persona y se deshace con
+  `revertir`. Se promueve solo si el FPR en el oro no empeora y la detección no baja.
+
+  **Estado:** implementado y probado con datos sintéticos (16 pruebas). **No activado
+  aún en el Sensor1** (`reentrenamiento.activo = false`) y **sin un ciclo real
+  ejecutado**: la comparación antes/después con datos reservados sigue siendo el bloque B3.
 - **Variables.** El extractor v3 emite 31; el modelo consume **28** (contrato v2).
 
 ---
@@ -69,7 +80,7 @@ flowchart LR
     parser_eve["Parser de eventos<br/>JSON → L7 · http·dns·tls"]
     variables["Variables / 10 s<br/>por IP y ventana 10/30/60 s"]
     descartes["Fuera del cálculo<br/>control · espejo · excluidas"]
-    reentrenamiento["Reentrenamiento<br/>POLÍTICA PROPUESTA · manual"]
+    reentrenamiento["Aprendizaje supervisado<br/>candidato nocturno · lo promueve una persona"]
     modelo["Modelo recalibrado<br/>IF · umbral −0,568892"]
     heuristicos["Heurísticos<br/>4 reglas · 2026-10-06.2"]
   end
@@ -103,7 +114,7 @@ flowchart LR
   motor -. descarta .-> descartes
   variables -->|"28 al modelo (31 extraídas)"| modelo
   variables -->|"variables + conteos"| heuristicos
-  reentrenamiento -->|entrena y congela| modelo
+  reentrenamiento -->|"promover: nuevo modelo + umbral"| modelo
   modelo -->|"score &lt; umbral → ALERT"| control
   heuristicos -->|"regla cumplida → ALERT"| control
   control -->|veredicto firmado| feed
@@ -130,7 +141,7 @@ flowchart LR
 
 ```mermaid
 ---
-title: CyberFlow — Construcción y entrenamiento (de los datos al modelo congelado y su ciclo de vida)
+title: CyberFlow — Construcción y entrenamiento (de los datos al modelo congelado y su aprendizaje supervisado)
 ---
 flowchart LR
   subgraph C1["1 · Construcción (una vez, en seco)"]
@@ -143,23 +154,46 @@ flowchart LR
     c_sel["Selección<br/>IF recalibrado: transfiere<br/>a esta red (OCSVM no)"]
     c_datos --> c_limpia --> c_part --> c_cand --> c_metr --> c_sel
   end
-  subgraph C2["2 · Operación y ciclo"]
+  subgraph C2["2 · Operación"]
     direction LR
     c_cong["Congelar modelo + umbral<br/>α = 0,05 en validación<br/>score_samples < −0,568892"]
     c_desp["Despliegue<br/>promover + verificar<br/>hash · orden · equivalencia"]
-    c_acum["Acumulación<br/>temporizador · filas v3<br/>(única parte automática)"]
-    c_reent["Reentrenar / recalibrar<br/>mensual o por deriva<br/>POLÍTICA PROPUESTA"]
-    c_antes["Antes vs después<br/>mismos datos y métricas<br/>ref.: FPR 92,4 % → 4,45 %"]
-    c_cong --> c_desp --> c_acum --> c_reent --> c_antes
+    c_acum["Acumulación<br/>cyberflow-acumular · cada 10 min<br/>filas v3 de la línea base"]
+    c_motor["Motor en vivo<br/>PERMIT · ALERT → LIMIT/BLOCK<br/>marca IPs sospechosas"]
+    c_cong --> c_desp --> c_acum
+    c_desp --> c_motor
+  end
+  subgraph C3["3 · Aprendizaje supervisado (cada noche)"]
+    direction LR
+    a_oro[("Conjunto de ORO<br/>test de la calibración · 65 421<br/>fijo · solo lectura · nunca entrena")]
+    a_san["① Saneamiento del lote<br/>fuera IPs marcadas ±5 min<br/>y filas atípicas · PSI > 0,5 → rechazo"]
+    a_lin[("② Linaje<br/>registro.jsonl · sha256 encadenado<br/>retocar un lote rompe la cadena")]
+    a_der["④ Deriva<br/>vigente contra el oro y el lote<br/>PSI de scores · % anómalo"]
+    a_inf["③ Candidato con límite de influencia<br/>nuevo ≤ 30 % · ninguna IP > 10 %<br/>misma cadena: partición → umbral"]
+    a_ver{"Veredicto en los mismos conjuntos<br/>FPR en oro ≤ vigente<br/>detección Kali ≥ vigente"}
+    a_hum["Aprobación HUMANA<br/>promover (copia del .toml)<br/>revertir · 3 modelos de respaldo"]
+    a_san --> a_lin --> a_inf --> a_ver
+    a_oro -. "referencia" .-> a_san
+    a_oro -. "referencia" .-> a_der
+    a_oro -. "evalúa" .-> a_ver
+    a_der -- "deriva 3 días o cadencia 30 días" --> a_inf
+    a_ver -- "PROMOVIBLE" --> a_hum
   end
   c_sel -->|"umbral desde validación"| c_cong
-  c_reent -. "repite 3→6 con datos nuevos" .-> c_part
-  c_antes -. "FPR ≤ y detección ≥ → se congela el nuevo; si no, se queda el vigente" .-> c_cong
+  c_part -. "su test se congela como oro" .-> a_oro
+  c_acum -->|"lote del día"| a_san
+  c_motor -. "IPs marcadas" .-> a_san
+  a_hum -->|"nuevo modelo + umbral"| c_cong
+  a_ver -. "NO_PROMOVER / INCOMPLETA → se queda el vigente" .-> c_motor
 
   classDef accent fill:#13343b,stroke:#2a7f8a,color:#8fe0ea;
-  classDef prop fill:#2b2410,stroke:#7a6420,color:#f0d890;
+  classDef defensa fill:#1d2a1a,stroke:#4f8a3a,color:#c8f0b0;
+  classDef humano fill:#2b2410,stroke:#7a6420,color:#f0d890;
+  classDef arte fill:#15202c,stroke:#2b3a4a,color:#9fd0ff,stroke-dasharray:4 3;
   class c_part,c_sel,c_cong accent;
-  class c_reent prop;
+  class a_san,a_inf,a_der defensa;
+  class a_lin,a_oro arte;
+  class a_hum,a_ver humano;
 ```
 
 ---

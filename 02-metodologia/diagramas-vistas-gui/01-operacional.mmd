@@ -25,7 +25,7 @@ flowchart LR
     parser_eve["Parser de eventos<br/>JSON → L7 · http·dns·tls"]
     variables["Variables / 10 s<br/>por IP y ventana 10/30/60 s"]
     descartes["Fuera del cálculo<br/>control · espejo · excluidas"]
-    reentrenamiento["Reentrenamiento<br/>POLÍTICA PROPUESTA · manual"]
+    reentrenamiento["Aprendizaje supervisado<br/>candidato nocturno · lo promueve una persona"]
     modelo["Modelo recalibrado<br/>IF · umbral −0,568892"]
     heuristicos["Heurísticos<br/>4 reglas · 2026-10-06.2"]
   end
@@ -59,7 +59,7 @@ flowchart LR
   motor -. descarta .-> descartes
   variables -->|"28 al modelo (31 extraídas)"| modelo
   variables -->|"variables + conteos"| heuristicos
-  reentrenamiento -->|entrena y congela| modelo
+  reentrenamiento -->|"promover: nuevo modelo + umbral"| modelo
   modelo -->|"score &lt; umbral → ALERT"| control
   heuristicos -->|"regla cumplida → ALERT"| control
   control -->|veredicto firmado| feed
