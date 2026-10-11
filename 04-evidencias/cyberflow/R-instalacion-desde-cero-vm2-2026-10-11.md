@@ -53,6 +53,7 @@ Cada comando corrió dentro de `script`, así que las salidas están completas e
 | `instalar.sh` y `doctor.sh` mostraban «0» y en otra línea «0 decisiones» cuando aún no había decisiones (`grep -c … \|\| echo 0`) | `main@bba15b6`. **La fig. 6.4 muestra la salida anterior a la corrección** |
 | El instalador imprimía «Ahora: sudo systemctl enable --now …» y luego lo hacía él mismo | `cyberflow_config.py` solo lo imprime en una terminal (`main@bba15b6`). Sigue visible en la fig. 6.3 |
 | `demo.sh` usaba siempre el puerto 8788, que en un sensor instalado ocupa el panel real | Variable `PUERTO`, documentada en el README (`main@1a83ad9`) |
+| `doctor.sh` avisó «eve.json no creció en 4 s» a los 11 min, con poco tráfico L7, aunque en 60 s había crecido 54 líneas (fig. 5.2): falso aviso | Si no crece en 4 s pero se escribió hace ≤ 60 s, cuenta como OK (`main@b5e38d9`). Probado en la VM2 |
 
 No se encontró ningún paso del manual que no funcionara tal como está escrito.
 
@@ -61,7 +62,20 @@ No se encontró ningún paso del manual que no funcionara tal como está escrito
 - **Mark:** entrar al panel con `admin` y `lector` (túnel `ssh -L 8788:127.0.0.1:8788`) y
   comprobar que el `lector` no ve la parte de desarrollador. Así R9 queda completo, y salen
   las capturas 7.4 y G.x del navegador.
-- `doctor.sh` a los 30 min: la segunda pasada fue a los 9 min (ver abajo). Conviene
-  repetirla antes de la sesión con el profesor.
-- Faltan 18 de 30 capturas. Las de navegador, switch e hipervisor son de Mark (índice en
+
+## `doctor.sh` a los 30 minutos (04:03 UTC)
+
+«Operativo, con 2 avisos»: el PCAP ilegible del arranque y la calibración, los dos ya
+explicados.
+
+| Comprobación | +11 min | +30 min |
+|---|---|---|
+| Decisiones registradas | 82 | 295 |
+| Filas en la línea base (`multilayer-v3.csv`) | 230 | 1178 |
+| Ficheros `live-*.pcap` en el anillo | 37 | 73 |
+| Fichero más viejo del anillo | 03:32:23 | 03:44:55 |
+
+El fichero más viejo avanza: la poda de 15 min funciona y el anillo no crece sin
+límite. Salida completa en `~/capturas/07-01c-doctor-30min.log`.
+- Faltan 13 de 30 capturas (`main@b5e38d9`: ya son reales también 3.1, 4.1, 5.2, 6.6 y A.2). Las de navegador, switch e hipervisor son de Mark (índice en
   `docs/img/CAPTURAS.md`).
