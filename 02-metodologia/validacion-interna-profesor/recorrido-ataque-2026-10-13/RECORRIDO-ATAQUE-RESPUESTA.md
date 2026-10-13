@@ -9,6 +9,12 @@ Kali, lo que hace el motor, cómo se propaga la respuesta hasta el host, y **dó
 se ve cada cosa en el panel**. Al final, cómo validar que lo ejecutado coincide
 con lo visualizado.
 
+> **Capturas actualizadas (panel revisado).** Las imágenes son del panel tras una
+> pasada de precisión: «Alertas reales» → «Anomalías del modelo» (no equivalen a
+> ataques confirmados), «Aprendizaje supervisado» → «Reentrenamiento con aprobación
+> humana», y Bloqueos declara que su estado es **reconstruido del registro y del
+> feed**, no leído del nftables remoto del host.
+
 ---
 
 ## 0. Componentes activos (antes de empezar)
@@ -120,9 +126,11 @@ modelo), el motivo y la mini-barra de score frente al umbral.
 
 ![Alertas](img/01-alertas.png)
 
-Se ven las 6 ventanas BLOCK de la Kali: **REGLA: PORT_SCAN** en todas, y
+Se ven las ventanas BLOCK de la Kali: **REGLA: PORT_SCAN** en todas, y
 **ANOMALÍA DEL MODELO** en las que el score bajó del umbral. El resumen cuenta
-*6 por reglas · 2 anomalías del modelo* en la última hora.
+las de la última hora por tipo (*por reglas* · *anomalías del modelo*). El KPI de
+Salud que antes se llamaba «Alertas reales» pasó a **«Anomalías del modelo»**,
+porque una anomalía del modelo no equivale a un ataque confirmado.
 
 ### 4.2 Decisiones — *el registro por ventana*
 
@@ -141,9 +149,16 @@ resto del tráfico, verde (normal).
 
 ### 4.4 Bloqueos — *la respuesta efectiva*
 
-La Kali aparece **BLOCK en vigor** con su motivo (`port_scan: 6011 intentos/30s`),
+La Kali aparece **BLOCK en vigor** con su motivo (`port_scan: … intentos/30s`),
 desde cuándo, cuánto le queda y el nivel de reincidencia. Debajo, el historial de
-24 h con los episodios (uno «en vigor», otro «caducada»).
+24 h con los episodios (uno «en vigor», los anteriores «caducada»).
+
+> **Fuente del estado (importante para no confundir cifras):** esta vista está
+> **reconstruida del registro del motor y del feed publicado**, no leída del
+> nftables remoto del host. Es lo que el sensor *sabe* que publicó, no una
+> verificación directa en srv-dmz. Por eso puede diferir del feed instantáneo
+> (0 entradas entre ciclos) o del historial (un episodio ya caducado). La vista
+> ahora lo declara explícitamente.
 
 ![Bloqueos](img/07-bloqueos.png)
 
@@ -168,7 +183,7 @@ El flujo de la decisión: variables → modelo / heurísticos → la más severa
 
 | Lo que hice en la Kali | Lo que hace el motor | Dónde se ve en el panel |
 |---|---|---|
-| `nmap` ~3000 puertos a srv-dmz | detecta `port_scan` (6011 intentos/30s) + score −0,62 < umbral | **Alertas** (REGLA: PORT_SCAN + ANOMALÍA), **Decisiones** (fila BLOCK), **Scores** (barra roja) |
+| `nmap` ~3000 puertos a srv-dmz | detecta `port_scan` (~6000 intentos/30s) + score por debajo del umbral | **Alertas** (REGLA: PORT_SCAN + ANOMALÍA), **Decisiones** (fila BLOCK), **Scores** (barra roja) |
 | — | acción más severa = BLOCK, con escalera y lista nunca-bloquear | **Decisiones** (acción), **Mapa → Decisión** |
 | — | publica el feed firmado, el agente lo aplica | **Bloqueos** (en vigor, «feed publicado»), **Despliegue** (cadena) |
 | `nmap -p443` tras el bloqueo → `filtered` | el host dropea a la Kali | **Bloqueos** (BLOCK vigente con caducidad) |
@@ -188,11 +203,31 @@ excluye las IP que el motor marcó como sospechosas durante esas ventanas.
 
 ---
 
-## 7. Qué se añadió a raíz de esta validación
+## 7. Qué se añadió y corrigió a raíz de esta validación
+
+**Añadido**
 
 - **Vista «Alertas»** (nueva, en Vigilancia): faltaba una vista dedicada; antes
   las alertas solo estaban como un contador (KPI) y un filtro de Decisiones.
   Ahora hay un feed claro de lo detectado, con tipo, motivo, score y acción.
+
+**Correcciones de precisión (tras revisión externa)**
+
+- «Alertas reales» → **«Anomalías del modelo»** (no equivalen a ataques confirmados).
+- «Aprendizaje supervisado» → **«Reentrenamiento con aprobación humana»**.
+- El salto de FPR 92,4 % → 4,45 % **ya no se atribuye solo a recalibrar**: cambiaron
+  también el modelo (OCSVM→IsolationForest), los datos y el alcance; el efecto no
+  se aisló.
+- **Bloqueos** declara que su estado es reconstruido del registro y del feed, no
+  leído del nftables remoto.
+- Construcción **declara la contaminación documentada de la Kali** y su exclusión
+  por `excluir_ventanas` y el saneamiento.
+- La barra lateral muestra **«captura degradada»** cuando hay un PCAP ilegible o
+  drops subiendo, en vez de «todo en marcha».
+- El mensaje de reentrenamiento ya no implica reentrenamiento inminente cuando los
+  lotes están rechazados.
+- El Mapa **se reajusta al abrir la sección** (ya no queda al zoom mínimo).
+- Afirmaciones de «estado del arte» suavizadas a lo verificable.
 
 ## 8. Pendientes observados
 
@@ -202,3 +237,9 @@ excluye las IP que el motor marcó como sospechosas durante esas ventanas.
 - Los escenarios HTTP (nikto, flood) necesitan el puerto 80 en claro, hoy
   *filtered* por el cortafuegos de segmentación: quedan para un estado de red que
   lo permita, o reorientados a un servicio HTTP de prueba alcanzable.
+- **Discrepancia de versión del feed** `.1`/`.2`: verificada aún vigente (la unidad
+  del publicador declara `2026-10-06.1`, el motor `.2`); corregir la unidad necesita
+  `sudo`.
+- El dato **«nikto: CyberFlow 12 s»** de la comparación con Suricata es una cota
+  (el heurístico combinado no se midió por separado): conviene mostrarlo como
+  «≤12 s».
