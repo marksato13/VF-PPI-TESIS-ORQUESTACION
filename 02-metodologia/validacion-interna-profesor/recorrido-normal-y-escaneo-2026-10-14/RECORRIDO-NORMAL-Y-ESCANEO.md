@@ -1,4 +1,4 @@
-# Recorrido: tráfico normal (0 falsos positivos) + escaneo detectado, a la vez
+# Recorrido: tráfico normal (ningún bloqueo; FP del modelo → LIMIT) + escaneo detectado
 
 **Fecha:** 14-oct-2026 · **Escenario doble:** tráfico legítimo de los 6 perfiles
 **y**, en la misma ventana, un escaneo de puertos desde la Kali.
@@ -36,7 +36,7 @@ Cada perfil es una IP distinta golpeando al servidor con un patrón realista:
 ofimática (.21), navegación (.22), descargas (.23), aplicación (.24), ligero
 (.25), errático (.26). El motor puntúa **por IP**, así que son seis entidades.
 
-**Resultado en el motor** (registro real, mismas ventanas):
+**Resultado en el motor** (la mayoría de las ventanas, PERMIT):
 
 ```
 PERMIT  10.10.20.24  modelo recalibrado (IsolationForest)  normal -0.554
@@ -44,8 +44,25 @@ PERMIT  10.10.20.25  modelo recalibrado (IsolationForest)  normal -0.434
 PERMIT  10.10.20.26  modelo recalibrado (IsolationForest)  normal -0.460
 ```
 
-**Todos los clientes PERMIT. Ningún falso positivo.** Sus scores quedan por
-encima del umbral (−0,568892): son tráfico normal, que es con lo que se calibró.
+**Ningún cliente es BLOQUEADO.** Los heurísticos de alta confianza (fuerza
+bruta, escaneo…) **no disparan** con tráfico legítimo: 0 heurísticos, 0 BLOCK.
+
+Pero hay que decirlo con precisión: el **modelo** tiene un FPR de ~4,45 %, así
+que marca una **fracción** de las ventanas de los clientes como anomalía. Esas
+no se bloquean: se traducen en **LIMIT** (degradar la tasa, reversible). Medido
+en esta corrida (~1 h de tráfico real):
+
+| | ventanas |
+|---|---|
+| ALERT del **modelo** sobre clientes (→ LIMIT) | 168 (.22: 76 · .24: 63 · .26: 14 · .21: 11) |
+| Heurísticos disparados sobre clientes | **0** |
+| Clientes **BLOQUEADOS** | **0** |
+| En el feed: `.21`, `.22`, `.24` | **LIMIT** (nunca BLOCK) |
+
+Es el **coste conocido de un falso positivo del modelo**, y es exactamente por
+esto que una anomalía del modelo da **LIMIT y no BLOCK**: equivocarse solo
+degrada, nunca corta. El camino que SÍ corta (los heurísticos) no se equivocó
+ni una vez con los clientes.
 
 ---
 
@@ -74,8 +91,12 @@ ALERT  10.10.20.30  modelo if_recalibrado_2026_09  +  heuristico port_scan BLOCK
 
 En el panel, sección **Alertas**: *2 alertas en la última hora · 2 por reglas ·
 1 anomalía del modelo*, las dos para **10.10.20.30** con acción **BLOCK** y la
-etiqueta `REGLA: PORT_SCAN` (una además con `ANOMALÍA DEL MODELO`). Ningún
-cliente aparece. **(captura `img/CAMP-02-alertas.png`)**
+etiqueta `REGLA: PORT_SCAN` (una además con `ANOMALÍA DEL MODELO`).
+**(captura `img/CAMP-02-alertas.png`, de los primeros minutos).**
+
+> A lo largo de la hora, los clientes legítimos también aparecen en Alertas,
+> pero como **anomalía del modelo** (score bajo el umbral) con acción **LIMIT**,
+> nunca con `REGLA`/BLOCK: es el FPR del modelo del punto 1, no un ataque.
 
 En **Decisiones**, los clientes se ven en PERMIT con score normal y, a la
 derecha del scatter, los puntos del escaneo caen por debajo del umbral.
@@ -111,15 +132,17 @@ El agente del host, al leer el feed, **decide bloquear** la Kali (`~/enforce/sha
 
 ## 5. Qué justifica este recorrido
 
-- **Falsos positivos:** con tráfico legítimo real de seis perfiles, el sistema
-  marcó **0** clientes. Es la comprobación en vivo de la tasa de falsos
-  positivos (el modelo congelado tiene 4,45 % de FPR sobre la partición de
-  prueba; con los heurísticos y la lista de nunca-bloquear, sobre el benigno del
-  ensayo el sistema completo da 0).
-- **Detección simultánea:** en la misma ventana, el único que se marcó fue el
-  atacante, por el modelo **y** por el heurístico `port_scan`, con BLOCK.
+- **Falsos positivos, con honestidad:** ningún cliente legítimo fue **bloqueado**
+  (0 heurísticos, 0 BLOCK). El modelo, con su FPR ~4,45 %, sí marcó una fracción
+  de ventanas de clientes como anomalía, pero esas van a **LIMIT** (degradar,
+  reversible), no a BLOCK. El coste de un falso positivo del modelo está acotado
+  por diseño: es la razón de ser de la respuesta graduada. El bloqueo se reserva
+  para los heurísticos de alta confianza, que no se equivocaron.
+- **Detección simultánea:** en la misma ventana, el **único BLOQUEADO** fue el
+  atacante, por el modelo **y** por el heurístico `port_scan`.
 - **Separación limpia:** no hace falta parar el tráfico legítimo para ver el
-  ataque; el sistema distingue uno de otro por IP y ventana.
+  ataque; el sistema distingue uno de otro por IP y ventana, y gradúa la
+  respuesta (clientes → a lo sumo LIMIT; atacante → BLOCK).
 
 Cobertura completa por familia en
 [COBERTURA-ATAQUES-COMPROBADOS.md](../COBERTURA-ATAQUES-COMPROBADOS.md).
