@@ -98,6 +98,23 @@ laboratorio (OCSVM) directamente **no transfiere**: en esta red no distingue
 ataque de tráfico normal (ROC-AUC 0,456). Esto justifica empíricamente la
 decisión de desplegar el IF recalibrado y no el ganador de laboratorio.
 
+---
+
+## Anexo · CyberFlow vs Suricata (por familia)
+
+![CyberFlow vs Suricata](img/SUR-01-comparacion.png)
+
+Mismo PCAP a los dos (Suricata con ET Open, 53 013 reglas). **Suricata solo
+detecta lo que tiene firma (Nikto, 1/1); las familias SIN firma —DNS, flood,
+escaneo— las detecta 0/3.** CyberFlow detecta las cuatro.
+
+**Honestidad metodológica (importante):** esta comparación se hizo por **replay**
+del mismo PCAP, **no** con las dos máquinas compitiendo en vivo. Suricata SÍ
+corre en vivo en el sensor —de hecho CyberFlow consume sus eventos EVE
+(http/dns/tls) para las variables L7—, pero su *detección* aquí se midió offline.
+Falta, para una comparación más completa (campaña C3): medir los **falsos
+positivos de Suricata** sobre la línea base y una corrida **en vivo** simultánea.
+
 > **Nota sobre precisión/F1.** Son bajos para TODOS por el desbalance extremo
 > (84 ataques entre 65 505 ventanas): un FPR del 4,45 % ya genera miles de FP
 > frente a decenas de TP. En operación eso no se traduce en bloqueos: una
