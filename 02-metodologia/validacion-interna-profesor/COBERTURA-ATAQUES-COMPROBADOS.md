@@ -72,21 +72,27 @@ intenso, y mide los **falsos positivos de Suricata** sobre la línea base.
 
 ## 4 · Falsos positivos (por qué se puede confiar)
 
-Sobre **527 ventanas de tráfico normal** (seis perfiles legítimos):
+Sobre **527 ventanas de tráfico normal** del ensayo, **falsos positivos que
+BLOQUEAN**:
 
-| | Falsos positivos |
+| | Falsos que bloquean |
 |---|---|
-| Modelo | **0** |
-| Heurísticos | **0** |
-| Combinado (CyberFlow) | **0** |
+| Heurísticos (el camino que corta) | **0** |
+| Combinado (CyberFlow) → BLOCK | **0** |
 | Suricata | no medido (va en C3) |
 
-El modelo congelado tiene un **4,45 % de FPR** sobre las 65 421 ventanas de la
-partición de prueba (resultado único de la calibración, con el objetivo de FPR
-fijado antes de mirar la prueba). Ese 4,45 % es del **modelo solo**; con los
-heurísticos y la lista de nunca-bloquear, sobre las 527 ventanas benignas del
-ensayo el sistema completo marcó **0**. La campaña con tráfico normal (recorrido
-aparte) lo vuelve a comprobar en vivo.
+**Hay que distinguir bloqueo de degradación.** El camino que BLOQUEA son los
+heurísticos de alta confianza, y sobre tráfico legítimo **no se equivocan: 0
+BLOCK**. El **modelo**, en cambio, tiene un **4,45 % de FPR** (sobre las 65 421
+ventanas de prueba; objetivo fijado antes de mirar la prueba), así que en vivo
+marca una fracción de las ventanas normales como anomalía — pero esas van a
+**LIMIT** (rate-limit reversible), **nunca a BLOCK**. Comprobado en vivo el
+14-oct: 168 ventanas de clientes en ALERT del modelo (→ LIMIT), 0 heurísticos,
+0 bloqueos (recorrido `recorrido-normal-y-escaneo-2026-10-14/`).
+
+Por eso la respuesta es **graduada**: un falso positivo del modelo cuesta solo
+un rate-limit temporal, nunca un corte. Ese es, precisamente, el motivo de que
+una anomalía del modelo dé LIMIT y no BLOCK.
 
 ---
 
