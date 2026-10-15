@@ -267,19 +267,22 @@ siguiente paso.
 
 ---
 
-## 8. Observaciones y pendientes
+## 8. Observaciones y correcciones aplicadas
 
-- **Red:** el panel (Topología) todavía trae la nota antigua *"puerto 80 filtered,
-  ataques HTTP no llegan"*. Esta noche el 80 estaba abierto y los HTTP sí llegaron:
-  **actualizar la nota** de Topología/Alcance.
-- **Display `>100% NXDOMAIN`** en tarjetas del resolutor: acotar el ratio a 100% en la
-  presentación (artefacto del espejo; no afecta la decisión).
-- **Reincidencia alta (`nivel 15`→`nivel 20 · revisar`)** de la Kali por los muchos
-  ensayos acumulados: conviene **resetear el contador de reincidencia** del atacante
-  antes de una demo formal, para que la caducidad del bloqueo sea la de primer nivel.
+Las tres incoherencias que destapó este recorrido ya están **corregidas y
+desplegadas** (producto-main `ad47745`, as-deployed `2d854a9`):
+
+- **Red (resuelto):** la nota de Topología/Alcance ya refleja que el puerto 80 está
+  abierto E2E y que los ataques HTTP (flood→LIMIT, fuerza bruta→BLOCK) se validaron de
+  extremo a extremo; se eliminó la afirmación antigua de que no llegaban.
+- **Display `>100% NXDOMAIN` (resuelto):** el ratio se acota a 1.0 en el extractor v2
+  (la raíz, lo que ve el modelo) y en el motivo del heurístico `dns_entropy` (la
+  presentación). Se reinició `ppi-motor`; las nuevas decisiones DNS ya muestran ≤100%.
+- **Reincidencia de la Kali (resuelto):** se reseteó el contador (estaba en **20**) en
+  el estado de la escalera del sensor y se limpió su bloqueo; la Kali vuelve a estar
+  alcanzable y una próxima ofensa arrancaría en el primer nivel (300 s).
 - **Alertas ya cuadra con Actividad:** el titular de Alertas toma el recuento de la
-  hora de los contadores del servidor (arreglo de esta sesión), así que "N alertas en
-  la última hora" coincide entre secciones.
-- **Estado final de la Kali:** queda **BLOCK por `brute_force`** (caduca sola por
-  timeout). Es el estado natural de contención; no se forzó su limpieza.
+  hora de los contadores del servidor (arreglo previo de esta sesión).
+- **Estado final de la Kali:** **sin bloqueo y alcanzable** (pizarra limpia para una
+  demo); la línea base sigue protegida por `excluir_ventanas`.
 </content>
