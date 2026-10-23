@@ -1,0 +1,42 @@
+{
+  "meta": {
+    "suricata": "This is Suricata version 7.0.3 RELEASE",
+    "home_net": "HOME_NET: \"[10.10.0.0/16]\"",
+    "rules_sha16": "e3b0c44298fc1c14",
+    "pcap": "/tmp/campana-pcap/pass.pcap",
+    "n_ventanas_cf": 56,
+    "n_alertas_suricata_atacante": 0
+  },
+  "filas": [
+    {
+      "familia": "DNS",
+      "cf_detecta": true,
+      "cf_componente": "modelo+heuristico",
+      "cf_reglas": "dns_entropy|http_abuse|port_scan",
+      "t_cf_s": 9.3,
+      "t_cf_modelo_s": 59.3,
+      "sur_detecta": false,
+      "t_sur_s": null
+    },
+    {
+      "familia": "flood",
+      "cf_detecta": true,
+      "cf_componente": "heuristico",
+      "cf_reglas": "http_abuse",
+      "t_cf_s": 1.3,
+      "t_cf_modelo_s": null,
+      "sur_detecta": false,
+      "t_sur_s": null
+    },
+    {
+      "familia": "escaneo",
+      "cf_detecta": false,
+      "cf_componente": "-",
+      "cf_reglas": "",
+      "t_cf_s": null,
+      "t_cf_modelo_s": null,
+      "sur_detecta": false,
+      "t_sur_s": null
+    }
+  ]
+}
