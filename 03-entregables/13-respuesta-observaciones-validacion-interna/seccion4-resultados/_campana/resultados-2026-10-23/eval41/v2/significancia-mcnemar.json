@@ -1,0 +1,58 @@
+[
+  {
+    "vs": "IF recalibrado (contaminado, antecedente)",
+    "b_limpio_mejor": 179,
+    "c_otro_mejor": 227,
+    "p": 0.019558764400027743,
+    "metodo": "binomial exacta",
+    "p_holm": 0.019558764400027743
+  },
+  {
+    "vs": "IF scaled (lab)",
+    "b_limpio_mejor": 16939,
+    "c_otro_mejor": 74,
+    "p": 0.0,
+    "metodo": "normal (continuidad)",
+    "p_holm": 0
+  },
+  {
+    "vs": "IF primary (lab)",
+    "b_limpio_mejor": 16140,
+    "c_otro_mejor": 101,
+    "p": 0.0,
+    "metodo": "normal (continuidad)",
+    "p_holm": 0
+  },
+  {
+    "vs": "IF uniform (lab)",
+    "b_limpio_mejor": 19398,
+    "c_otro_mejor": 49,
+    "p": 0.0,
+    "metodo": "normal (continuidad)",
+    "p_holm": 0
+  },
+  {
+    "vs": "OCSVM (lab)",
+    "b_limpio_mejor": 62180,
+    "c_otro_mejor": 30,
+    "p": 0.0,
+    "metodo": "normal (continuidad)",
+    "p_holm": 0
+  },
+  {
+    "vs": "LOF (lab)",
+    "b_limpio_mejor": 49706,
+    "c_otro_mejor": 2431,
+    "p": 0.0,
+    "metodo": "normal (continuidad)",
+    "p_holm": 0
+  },
+  {
+    "vs": "Elliptic Envelope (lab)",
+    "b_limpio_mejor": 56281,
+    "c_otro_mejor": 2372,
+    "p": 0.0,
+    "metodo": "normal (continuidad)",
+    "p_holm": 0
+  }
+]
