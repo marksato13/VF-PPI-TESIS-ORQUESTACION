@@ -1,0 +1,46 @@
+{
+  "experimento": "4.2 ablacion sensor (valida) modelo limpio + heuristicos vigentes",
+  "fecha_analisis": "2026-10-23",
+  "modelo": {
+    "id": "if_limpio_2026_10",
+    "sha256_paquete": "1a91ac54e0a92e2a18b36a2b3e08efbbd2c3c4a4a4f41dc1cdf5b563dc765986",
+    "umbral_df": -0.06939699363223557
+  },
+  "heuristicos": {
+    "sha256": "10deb05d22fa0215e5f5f37bc6f05225cda31b806c67051a6584d878e25ed6a2",
+    "version": "2026-10-06.2"
+  },
+  "ataque_sensor": {
+    "n_ventanas": 181,
+    "n_episodios": 1,
+    "IF_vent": 50,
+    "heur_vent": 41,
+    "hib_vent": 54,
+    "IF_ep": 1,
+    "heur_ep": 1,
+    "hib_ep": 1,
+    "reglas": {
+      "port_scan": 9,
+      "http_abuse": 32
+    }
+  },
+  "benigno_sensor": {
+    "n": 65421,
+    "IF": 2961,
+    "heur": 472,
+    "hibrido": 3423,
+    "fpr_IF": 0.04526069610675471,
+    "fpr_heur": 0.007214808700570154,
+    "fpr_hibrido": 0.052322648690787364,
+    "limit": 472,
+    "block": 0
+  },
+  "fuentes": {
+    "limpio_csv": "C:\\Users\\markp\\AppData\\Local\\Temp\\claude\\C--Users-markp-Desktop-PY-MEGATRON-PY---PERSONAL-TESIS\\51c74eee-a71d-4dd3-9ea4-b614ec3c2579\\scratchpad\\exp\\limpio.csv",
+    "normal_reservado": "C:\\Users\\markp\\AppData\\Local\\Temp\\claude\\C--Users-markp-Desktop-PY-MEGATRON-PY---PERSONAL-TESIS\\51c74eee-a71d-4dd3-9ea4-b614ec3c2579\\scratchpad\\run\\normal-reservado.csv"
+  },
+  "repos": {
+    "producto-main": "fa9e5b0 (2026-10-19)",
+    "orquestacion-limpio": "2f72d4d (2026-10-19)"
+  }
+}
