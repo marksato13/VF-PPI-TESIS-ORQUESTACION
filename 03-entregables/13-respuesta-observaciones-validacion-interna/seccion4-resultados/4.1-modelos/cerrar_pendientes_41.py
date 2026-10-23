@@ -92,7 +92,7 @@ def update_alpha_outputs() -> dict[str, object]:
             "F1": entry["F1"],
         })
     with (OUT / "ALFA-F6.csv").open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=["alfa", "umbral", "fpr_obs", "recall", "precision", "F1"])
+        writer = csv.DictWriter(handle, fieldnames=["alfa", "umbral", "fpr_obs", "recall", "precision", "F1"], lineterminator="\n")
         writer.writeheader()
         writer.writerows(values)
     return {"n_val": p1["n_val_total"], "values": values}
@@ -103,7 +103,7 @@ def update_metrics(alpha: dict[str, object]) -> dict[str, object]:
     metrics["alfa_sensibilidad"] = alpha["values"]
     metrics["alfa_sensibilidad_n_val"] = alpha["n_val"]
     metrics["alfa_sensibilidad_n_val_complementaria"] = json.loads(P1.read_text(encoding="utf-8"))["n_val_sin_kali"]
-    METRICS.write_text(json.dumps(metrics, indent=2, ensure_ascii=False), encoding="utf-8")
+    METRICS.write_text(json.dumps(metrics, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
     return metrics
 
 
@@ -113,18 +113,37 @@ def make_figure(rows: list[dict[str, str]], metrics: dict[str, object]) -> None:
         names.append((item["modelo"], item["sha256"], item["umbral"]))
     y = np.asarray([int(row["label"]) for row in rows])
     colors = plt.cm.tab10(np.linspace(0, 1, len(names)))
-    fig, axes = plt.subplots(1, 2, figsize=(13, 5.6), constrained_layout=True)
+    # 7,2 pulgadas ≈ 183 mm: tipografía especificada al tamaño de publicación.
+    plt.rcParams.update({"font.size": 9, "axes.titlesize": 10,
+                         "axes.labelsize": 9, "xtick.labelsize": 8,
+                         "ytick.labelsize": 8, "svg.fonttype": "none"})
+    fig, axes = plt.subplots(1, 2, figsize=(7.2, 5.3))
+    fig.subplots_adjust(left=0.085, right=0.975, bottom=0.36, top=0.90, wspace=0.30)
+    short = {
+        "IF limpio (desplegado)": "IF limpio (actual)",
+        "IF recalibrado (contaminado, antecedente)": "IF anterior (antecedente)",
+        "IF exact (lab)": "IF exact (lab; = uniform)",
+    }
     for (name, _, threshold), color in zip(names, colors):
         field = f"score::{name}"
         score = np.asarray([float(row[field]) for row in rows], dtype=float)
         anomaly = -score
-        fpr, tpr, _ = roc_curve(y, anomaly)
-        precision, recall, _ = precision_recall_curve(y, anomaly)
-        axes[0].plot(fpr, tpr, color=color, linewidth=1.7, label=name)
-        axes[1].plot(recall, precision, color=color, linewidth=1.7, label=name)
+        fpr, tpr, _ = roc_curve(y, anomaly, drop_intermediate=False)
+        precision, recall, _ = precision_recall_curve(y, anomaly, drop_intermediate=False)
+        clean = name == "IF limpio (desplegado)"
+        width = 2.1 if clean else 1.0
+        style = "--" if name == "IF exact (lab)" else "-"
+        label = short.get(name, name)
+        axes[0].plot(fpr, tpr, color=color, linewidth=width, linestyle=style,
+                     zorder=5 if clean else 2, label=label)
+        # sklearn devuelve recall descendente; steps-post coincide con su Display.
+        # No interpolación lineal, subsampling, suavizado ni envolvente de precisión.
+        axes[1].step(recall, precision, where="post", color=color, linewidth=width,
+                     linestyle=style, zorder=5 if clean else 2, label=label)
     prevalence = ATTACK / TOTAL
-    axes[0].plot([0, 1], [0, 1], color="#999999", linestyle="--", linewidth=0.9)
-    axes[1].axhline(prevalence, color="#999999", linestyle="--", linewidth=0.9, label=f"Prevalencia = {prevalence:.3%}")
+    axes[0].plot([0, 1], [0, 1], color="#777777", linestyle=":", linewidth=0.9)
+    axes[1].axhline(prevalence, color="#777777", linestyle=":", linewidth=0.9,
+                    label=f"Prevalencia PR = {prevalence:.3%}")
     axes[0].set_title("(a) Curva ROC")
     axes[1].set_title("(b) Curva precisión-recall")
     axes[0].set_xlabel("Tasa de falsos positivos")
@@ -137,9 +156,13 @@ def make_figure(rows: list[dict[str, str]], metrics: dict[str, object]) -> None:
     axes[1].set_ylim(0, 1.02)
     axes[0].grid(alpha=0.2)
     axes[1].grid(alpha=0.2)
-    axes[1].legend(loc="center left", bbox_to_anchor=(1.02, 0.5), fontsize=7, frameon=False)
-    fig.suptitle("Comparación de configuraciones sobre 65 505 ventanas", fontsize=13)
-    fig.savefig(OUT / "figura-roc-pr-v2.png", dpi=300)
+    handles, labels = axes[1].get_legend_handles_labels()
+    legend = fig.legend(handles, labels, loc="lower center", bbox_to_anchor=(0.5, 0.035),
+                        ncol=2, fontsize=8.5, frameon=False, handlelength=2.8,
+                        columnspacing=2.0, labelspacing=0.55)
+    legend.get_texts()[0].set_weight("bold")
+    fig.suptitle("Comparación sobre 65 505 ventanas", fontsize=11)
+    fig.savefig(OUT / "figura-roc-pr-v2.png", dpi=600)
     fig.savefig(OUT / "figura-roc-pr-v2.svg")
     fig.savefig(OUT / "figura-roc-pr-v2.pdf")
     plt.close(fig)
@@ -224,7 +247,7 @@ En la auditoría del test normal, 19 863 ventanas tuvieron paquetes en los últi
 - CONSERVADO: modelo, escalador, umbral y despliegue sin cambios.
 - PENDIENTE: incorporar estos textos y tablas al Word; test ciego independiente; confirmación externa de familias; replay ET Open no pertenece a 4.1.
 """
-    (EDITORIAL / "BASE-EDITORIAL-4.1.md").write_text(text, encoding="utf-8")
+    (EDITORIAL / "BASE-EDITORIAL-4.1.md").write_text(text, encoding="utf-8", newline="\n")
 
 
 def write_manifest(metrics: dict[str, object], fields: list[str], alpha: dict[str, object]) -> None:
@@ -250,7 +273,7 @@ def write_manifest(metrics: dict[str, object], fields: list[str], alpha: dict[st
         "files": {name: sha256(OUT / name) for name in files},
         "model_or_deployment_changes": False,
     }
-    (OUT / "MANIFIESTO-4.1-CANONICO.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8")
+    (OUT / "MANIFIESTO-4.1-CANONICO.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
 
 
 def main() -> None:

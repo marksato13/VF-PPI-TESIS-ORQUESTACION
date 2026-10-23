@@ -25,5 +25,5 @@
   },
   "fp_total_offline": 2961,
   "fp_en_ventanas_cero_10s": 124,
-  "nota_politica": "El motor EN VIVO marca PERMIT las ventanas sin paquetes (heuristico no_live_packets) y NO puntua el modelo; el evaluador OFFLINE si las puntua. Por eso 124 de los 2961 FP offline (4.2%) caen en ventanas con packet_count_10s=0 que en operacion serian PERMIT -> el FP operativo del modelo es menor que el FP offline."
+  "nota_politica": "Offline se puntúan todas las ventanas. En el motor vivo, packet_count_10s=0 omite el IF, pero aún pueden activarse heurísticos sobre información retrospectiva. Los 124 FP offline en ventanas sin paquetes recientes no implican 124 acciones finales PERMIT ni determinan el FPR operativo del híbrido. Se corrige esta nota interpretativa sin cambiar recuentos."
 }

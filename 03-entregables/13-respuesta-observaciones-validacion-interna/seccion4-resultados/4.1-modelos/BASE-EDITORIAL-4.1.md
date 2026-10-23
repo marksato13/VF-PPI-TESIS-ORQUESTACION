@@ -1,5 +1,7 @@
 # Base editorial para la sección 4.1
 
+> **Versión de cierre:** usar [BASE-EDITORIAL-FINAL-4.1.md](BASE-EDITORIAL-FINAL-4.1.md) y [SUSTITUCIONES-EXACTAS-WORD-4.1.md](SUSTITUCIONES-EXACTAS-WORD-4.1.md). Aclaran la categoría residual no confirmada como escaneo, la precisión completa y las condiciones de esta evaluación descriptiva. El texto de abajo se conserva como antecedente editorial.
+
 Fecha de cierre: 2026-10-23. Este documento no sustituye la sección 4 del Word; sirve como base verificable para redactarla sin inventar resultados.
 
 ## A. Presentación de la evaluación
