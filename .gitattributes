@@ -9,3 +9,7 @@
 *.pdf  binary
 *.png  binary
 *.jpg  binary
+
+# Evidencia primaria del replay: conservar los bytes usados por sus SHA-256.
+03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/_campana/resultados-2026-10-23/replay43/etopen-20261023/eve.json -text
+03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/_campana/resultados-2026-10-23/replay43/etopen-20261023/suricata.log -text

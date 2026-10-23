@@ -1,0 +1,21 @@
+[6771 - Suricata-Main] 2026-10-23 20:47:20 Notice: suricata: This is Suricata version 7.0.3 RELEASE running in USER mode
+[6771 - Suricata-Main] 2026-10-23 20:47:20 Info: cpu: CPUs/cores online: 4
+[6771 - Suricata-Main] 2026-10-23 20:47:20 Info: suricata: Setting engine mode to IDS mode by default
+[6771 - Suricata-Main] 2026-10-23 20:47:20 Info: exception-policy: master exception-policy set to: auto
+[6771 - Suricata-Main] 2026-10-23 20:47:21 Info: logopenfile: fast output device (regular) initialized: fast.log
+[6771 - Suricata-Main] 2026-10-23 20:47:21 Info: logopenfile: eve-log output device (regular) initialized: eve.json
+[6771 - Suricata-Main] 2026-10-23 20:47:21 Info: logopenfile: stats output device (regular) initialized: stats.log
+[6771 - Suricata-Main] 2026-10-23 20:47:37 Info: detect: 1 rule files processed. 53013 rules successfully loaded, 0 rules failed, 0
+[6771 - Suricata-Main] 2026-10-23 20:47:37 Info: threshold-config: Threshold config parsed: 0 rule(s) found
+[6771 - Suricata-Main] 2026-10-23 20:47:37 Info: detect: 53018 signatures processed. 1252 are IP-only rules, 4540 are inspecting packet payload, 46993 inspect application layer, 108 are decoder event only
+[6771 - Suricata-Main] 2026-10-23 20:48:07 Info: unix-manager: unix socket '/var/run/suricata-command.socket'
+[6771 - Suricata-Main] 2026-10-23 20:48:07 Warning: unix-manager: Unix socket: UNIX socket bind(/var/run/suricata-command.socket) error: Permission denied
+[6771 - Suricata-Main] 2026-10-23 20:48:07 Warning: unix-manager: Unable to create unix command socket
+[6773 - W#01] 2026-10-23 20:48:07 Info: pcap: Starting file run for /tmp/cf-qc-20261023-pass.pcap
+[6771 - Suricata-Main] 2026-10-23 20:48:07 Notice: threads: Threads created -> W: 1 FM: 1 FR: 1   Engine started.
+[6773 - W#01] 2026-10-23 20:48:07 Info: checksum: No packets with invalid checksum, assuming checksum offloading is NOT used
+[6773 - W#01] 2026-10-23 20:48:07 Info: pcap: pcap file /tmp/cf-qc-20261023-pass.pcap end of file reached (pcap err code 0)
+[6771 - Suricata-Main] 2026-10-23 20:48:07 Notice: suricata: Signal Received.  Stopping engine.
+[6771 - Suricata-Main] 2026-10-23 20:48:07 Info: suricata: time elapsed 0.244s
+[6773 - W#01] 2026-10-23 20:48:07 Notice: pcap: read 1 file, 9470 packets, 949173 bytes
+[6771 - Suricata-Main] 2026-10-23 20:48:07 Info: counters: Alerts: 55
