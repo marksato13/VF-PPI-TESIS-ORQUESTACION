@@ -8,6 +8,10 @@ explicando el recorrido detección → decisión → respuesta.
 > host en ~2 minutos**, porque viaja en un feed firmado que se publica cada 60 s y
 > el agente del host lo trae cada 60 s. No es lentitud: es la cadena distribuida.
 
+> **Actualización 17-oct:** la cadena vigente es de **10 s escalonados** (`:00`/`:03`/`:06`)
+> y la respuesta medida es **41,4 s** extremo a extremo (no ~2 min). El texto de arriba
+> refleja la demo del 14-oct, cuando los timers eran de 60 s.
+
 ---
 
 ## Paso 0 — Abrir el panel (elige UNA opción)

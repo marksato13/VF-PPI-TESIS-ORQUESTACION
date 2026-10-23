@@ -39,7 +39,7 @@ falta demostrar un **BLOCK automático** originado por la detección.
 | LIMIT automático (modelo → feed → relay → agente → nft) | ✅ | ✅ | ✅ | ✅ en vivo | nota `O` (1-oct) |
 | BLOCK aislado con regla explícita en el host | ✅ | ✅ | ✅ | ✅ en banco | nota `N` (30-sep) |
 | BLOCK automático de punta a punta | ✅ | ✅ | ✅ | ❌ **pendiente** | — |
-| Timers systemd (publicar / relay / agente) | ✅ | ✅ | ✅ (reemplazaron los crons el 6-oct) | ✅ | `OnCalendar=minutely` |
+| Timers systemd (publicar / relay / agente) | ✅ | ✅ | ✅ (crons→systemd 6-oct; cadena a 10 s 15-oct) | ✅ | `OnCalendar=*:*:00/10` escalonado :00/:03/:06 |
 | Panel con TLS + login + roles | ✅ | ✅ | ✅ (30-sep) | ⏳ QA por rol con capturas | — |
 | Panel muestra el detector del motor | ✅ generador, panel y resolución desde la configuración | ✅ `main@5573d43` y rama del sensor `1fc8772` | ✅ (10-oct, 04:48 UTC): sin tocar la unidad, el panel toma `if_recalibrado_2026_09` de `configs/cyberflow.local.toml` | ✅ journal: `panel: detector if_recalibrado_2026_09`; umbral mostrado −0,568892; FPR y detección «—» (el manifiesto no las trae) | antes mostraba cifras del OCSVM |
 | Panel: 3 vistas, visor de código, «Pruebas previas», detector real, vista Entrenamiento corregida | ✅ | ✅ rama del sensor; la tarjeta Detector también en `main` | ✅ (10-oct, 04:48 UTC): `dashboard.py` de `1fc8772`, SHA-256 `03e3ef48…` **idéntico al commit**; responde por HTTPS (401 sin login) desde el bastión | ⏳ QA autenticada por rol | respaldo previo `dashboard.py.bak-20261010-044838` |

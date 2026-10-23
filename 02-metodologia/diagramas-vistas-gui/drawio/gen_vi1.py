@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """VI-1 Arquitectura operativa. Correcciones respecto del SVG:
 pfSense en la ruta, la copia SPAN sale del conmutador, el recorrido no pasa por
-srv-dmz, cadencia de 60 s en publicador/relay/agente, Wazuh como previsto,
+srv-dmz, cadena escalonada de 10 s en publicador/relay/agente (:00/:03/:06), Wazuh como previsto,
 srv-dmz identificado como el host protegido de la zona 03."""
 import cfkit, arqkit
 from cfkit import Fig, DATOS, COPIA, RED, PREV, GRIS
@@ -35,16 +35,16 @@ ext = L.card(IZ, 290, CW, 64, "Extractor", z2, "engranaje", "28 variables por ve
 mot = L.card(DE, 290, CW, 64, "Motor híbrido", z2, "arbol", "Isolation Forest + heurísticos",
              fondo="#EEF3F8")
 obs = L.card(IZ, 410, CW, 64, "Observación", z2, "pantalla", "Registro de decisiones · panel")
-pub = L.card(DE, 410, CW, 64, "Publicador", z2, "firma", "Feed firmado Ed25519 · cada 60 s",
+pub = L.card(DE, 410, CW, 64, "Publicador", z2, "firma", "Feed firmado Ed25519 · ciclo 10 s (:00)",
              fondo="#EEF3F8")
 waz = L.card(IZ, 530, CW, 56, "Wazuh", z2, "campana", "previsto", prev=True)
 L.texto(DE, 540, CW, 40, "Sin enforcement local:\nel sensor no toca la red.", z2)
 
 # 03: bastion y host protegido como limites de maquina
 mb = L.maquina("BASTIÓN", 16, 60, 424, 120, z3)
-rel = L.card(16, 36, 392, 64, "Relay del feed", mb, "red", "Réplica en la red interna · cada 60 s")
+rel = L.card(16, 36, 392, 64, "Relay del feed", mb, "red", "Réplica en la red interna · ciclo 10 s (:03)")
 mh = L.maquina("HOST PROTEGIDO · srv-dmz", 16, 210, 424, 400, z3)
-age = L.card(16, 36, 392, 64, "Agente", mh, "engranaje", "Pull del feed · cada 60 s")
+age = L.card(16, 36, 392, 64, "Agente", mh, "engranaje", "Pull del feed · ciclo 10 s (:06)")
 ver = L.card(16, 150, 392, 64, "Verificación de firma", mh, "llave", "Firma inválida: no aplica cambios")
 nft = L.card(16, 264, 392, 80, "nftables", mh, "candado", "LIMIT: limitación de tasa\nBLOCK: conjunto con expiración",
              fondo="#EEF3F8")

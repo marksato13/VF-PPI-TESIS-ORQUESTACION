@@ -39,8 +39,9 @@ en [`ESTADO.md`](ESTADO.md); el detalle, en `04-evidencias/cyberflow/` (notas K�
 
 ## 🟦 Enforcement vigente — cómo opera y cómo se revierte
 
-Corre por **timers systemd** con `OnCalendar=minutely` (reemplazaron a los crons el
-6-oct): `ppi-publicar-feed` en el sensor, `ppi-relay-feed` en el bastión y
+Corre por **timers systemd** escalonados cada 10 s (`OnCalendar=*:*:00/10`, en
+:00/:03/:06; reemplazaron a los crons el 6-oct y pasaron de `minutely` a 10 s el
+15-oct): `ppi-publicar-feed` en el sensor, `ppi-relay-feed` en el bastión y
 `ppi-enforce-agent` en el host DMZ. En el host, tabla `inet cyberflow` (cadena `entrada`,
 hook input, política accept), set de bloqueados y set de limitados (100/s, ráfaga 5). El
 agente eleva solo `nft` con `sudo -n` (NOPASSWD acotado).

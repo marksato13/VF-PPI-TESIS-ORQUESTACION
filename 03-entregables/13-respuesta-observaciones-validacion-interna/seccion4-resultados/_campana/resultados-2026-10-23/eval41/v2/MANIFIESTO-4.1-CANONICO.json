@@ -1,0 +1,45 @@
+{
+  "generated_at_utc": "2026-10-23T20:27:24.983168+00:00",
+  "source_scores": {
+    "file": "scores-todos-candidatos-full.csv.gz",
+    "sha256": "6e98219fb79a187b7256e664a4791a0619be70a68d9a23eee1e61c45de98ffc8",
+    "rows": 65505,
+    "fields": [
+      "idx",
+      "campaign_id",
+      "entity_ip",
+      "window_end_utc",
+      "label",
+      "familia_proxy",
+      "score::IF limpio (desplegado)",
+      "score::IF recalibrado (contaminado, antecedente)",
+      "score::IF scaled (lab)",
+      "score::IF primary (lab)",
+      "score::IF uniform (lab)",
+      "score::IF exact (lab)",
+      "score::OCSVM (lab)",
+      "score::LOF (lab)",
+      "score::Elliptic Envelope (lab)"
+    ]
+  },
+  "expected_hash_match": true,
+  "metrics_source": "metricas.json + recomputacion directa desde scores-todos-candidatos-full.csv.gz",
+  "figure_script": "cerrar_pendientes_41.py",
+  "figure_method": "ROC y precision-recall sobre score=-score_samples; todas las observaciones; prevalencia 84/65505",
+  "alpha_source": {
+    "file": "p1-reconciliacion.json",
+    "n_val": 65633
+  },
+  "files": {
+    "scores-todos-candidatos-full.csv.gz": "6e98219fb79a187b7256e664a4791a0619be70a68d9a23eee1e61c45de98ffc8",
+    "TABLA6.md": "ff145af8a90d5b3bfd604e467cc8e169526ebc3e069cba8f4a32256aa7429711",
+    "TABLA7.md": "5c62dc7242d2151f0734b7c554d5e5be123d7dc2464aa9f2802abca7b4c0b27f",
+    "ALFA-F6.csv": "edab46dffe3d48ae443cc5e45e3a9637f19f4eb40b80cfeff38db30022458ba0",
+    "ALFA-F6.md": "7577c87f359321fb900f26077e0ace2b676d5bdb2605c46bc88414305d60dbb4",
+    "metricas.json": "9557d73435a61bbf91cbbf2c2a5936db6547430f906aeb17ae236d244e624e62",
+    "figura-roc-pr-v2.png": "c7ff251ac98b45587ce75a115e1ca4fdd3129d7389fc2be982bc8c246cc52605",
+    "figura-roc-pr-v2.svg": "864bee62a914635fb752e8163b9742e962e54b56e3078e46dff76c7c39a64182",
+    "figura-roc-pr-v2.pdf": "ad55e7465b1f59675382b7d459361e374f506baadc8378c1112c85eb1824587f"
+  },
+  "model_or_deployment_changes": false
+}

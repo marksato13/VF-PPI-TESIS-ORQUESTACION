@@ -15,7 +15,7 @@ Precision/Recall/FPR en %; F1/ROC-AUC/AP en [0,1]. Umbral propio de cada modelo 
 | Elliptic Envelope (lab) | laboratorio | 0.06 % | 42.86 % | 0.0013 | 86.90 % | 0.3443 | 0.0014 |
 
 **Lecturas honestas:**
-- **El IF limpio NO gana en todas las metricas:** ROC-AUC limpio 0,9247 > contaminado 0,9228, pero **AP contaminado 0,2026 > limpio 0,1858** y FPR contaminado 4,45 % < limpio 4,53 %. Son **equivalentes** (diferencias dentro del ruido de muestra; mismo TP=54, mismo recall 64,3 %). Conclusion: **limpiar la contaminacion NO degrado la deteccion.**
+- **El IF limpio NO gana en todas las metricas:** ROC-AUC limpio 0,9247 > contaminado 0,9228, pero **AP contaminado 0,2026 > limpio 0,1858** y FPR contaminado 4,45 % < limpio 4,53 %. Ambos detectaron 54/84 y difirieron en FP, ROC-AUC y AP. Esta coincidencia de recall no demuestra equivalencia estadistica ni superioridad.
 - `IF uniform` e `IF exact` son **identicos** (mismo vector de scores): hay 8 configuraciones distintas, no 9.
 - Candidatos de **laboratorio**: recall alto pero **FPR 29-99,6 %** (inservibles en esta red); OCSVM marca el 99,6 % del normal (ROC-AUC 0,455, bajo el azar); LOF ROC-AUC 0,299.
 - Es una comparacion de **transferencia** al entorno objetivo (los datos de entrenamiento difieren), **no** una prueba aislada de superioridad del algoritmo IF.

@@ -43,7 +43,7 @@ reg = L.card(1180, 62, 308, 242, "Registro de decisión", n1, "tabla",
              "IP · ventana · score · regla\nmotor_decision.log")
 
 # ------------------------------------------------- nivel 2: publicador
-n2 = L.zona("02", "NIVEL 2 · PUBLICADOR — cada 60 s, sobre los últimos 120 s, por IP", 48, 600, 1504, 150)
+n2 = L.zona("02", "NIVEL 2 · PUBLICADOR — ciclo 10 s, sobre los últimos 120 s, por IP", 48, 600, 1504, 150)
 fil = L.card(16, 56, 316, 64, "Nunca bloquear", n2, "embudo", "Bastión · sensor · gateways · DNS")
 com = L.card(400, 56, 316, 64, "La más severa por IP", n2, "visto", "Modelo → LIMIT · regla → su acción")
 esc = L.card(784, 56, 316, 64, "Escalera de caducidad", n2, "reloj", "Reincidencia en 24 h")

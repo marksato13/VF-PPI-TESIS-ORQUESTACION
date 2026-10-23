@@ -4,6 +4,12 @@
 **Ataque desde:** Kali `10.10.20.30` · **Objetivo:** srv-dmz `10.10.30.10`
 **Detecta/decide:** Sensor `10.10.60.11` · **Aplica el bloqueo:** agente en srv-dmz (nftables)
 
+> **Cadena vigente (actualización 17-oct).** La cadena de respuesta es ahora de **10 s
+> escalonados** (publicador `:00` · relay `:03` · agente `:06`), medida en **decisión→nftables
+> 15,3 s · total ataque→bloqueo 41,4 s** (`producto-main/docs/evidencias/tiempos-2026-10-15-cadena-10s.md`).
+> **Los tiempos de abajo (~2 min, «cada 60 s») son los del recorrido del 13-oct**, cuando la
+> cadena corría a 60 s; se conservan como registro de ese día.
+
 Este documento sigue un ataque real de principio a fin: lo que se ejecuta en la
 Kali, lo que hace el motor, cómo se propaga la respuesta hasta el host, y **dónde
 se ve cada cosa en el panel**. Al final, cómo validar que lo ejecutado coincide

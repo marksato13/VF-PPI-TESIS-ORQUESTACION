@@ -78,7 +78,7 @@ veredicto, esfuerzo de mantenimiento (reglas vs reentrenamiento), licencia/opens
 | # | Mejora | Por qué (evidencia) | Esfuerzo |
 |---|---|---|---|
 | 1 | Afinar `port_scan` (ventana/umbral para escaneos cortos) | disparó 1/3 (nota 26) | bajo |
-| 2 | Respuesta rápida para severidad alta (feed event-driven, no solo minutely) | respuesta 1–2,5 min (tiempos) | medio |
+| 2 | Respuesta rápida para severidad alta (feed event-driven, no solo por cadencia) | respuesta 41,4 s con cadena 10 s; sigue siendo cadencia-bound (tiempos 15-oct) | medio |
 | 3 | Reentrenar **v3 con features L2** | ARP spoof 0 %; recom. ing. Fernando | alto |
 | 4 | Mejorar modelo **DNS** (hoy 0 %, lo salva el heurístico) | nota 26 | medio |
 | 5 | Cerrar **fuerza bruta (E2)** con endpoint 401 | modelo 50–55 % | bajo (falta abrir red) |
