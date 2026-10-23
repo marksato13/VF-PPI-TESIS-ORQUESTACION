@@ -1,0 +1,179 @@
+{
+  "checked_at_utc": "2026-10-23T21:14:56.590073+00:00",
+  "artifact_commit": "51cdcf2254044dce28fea7299b4037176c38254b",
+  "manifest_url": "https://raw.githubusercontent.com/marksato13/VF-PPI-TESIS-ORQUESTACION/51cdcf2254044dce28fea7299b4037176c38254b/03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/_campana/resultados-2026-10-23/eval41/v2/MANIFIESTO-4.1-CANONICO.json",
+  "downloaded_manifest_sha256": "c89f93ea4c5d77a72ed22600d3deecf4fa010fb885595acfcea565b8ed2987a1",
+  "verification": "Descarga HTTP de cada archivo desde raw.githubusercontent.com con commit fijo; hashes sobre bytes recibidos, sin normalización",
+  "files_checked": 21,
+  "discrepancies": 0,
+  "checks": [
+    {
+      "file": "scores-todos-candidatos-full.csv.gz",
+      "url": "https://raw.githubusercontent.com/marksato13/VF-PPI-TESIS-ORQUESTACION/51cdcf2254044dce28fea7299b4037176c38254b/03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/_campana/resultados-2026-10-23/eval41/v2/scores-todos-candidatos-full.csv.gz",
+      "expected_sha256": "6e98219fb79a187b7256e664a4791a0619be70a68d9a23eee1e61c45de98ffc8",
+      "downloaded_sha256": "6e98219fb79a187b7256e664a4791a0619be70a68d9a23eee1e61c45de98ffc8",
+      "match": true,
+      "bytes": 2635226
+    },
+    {
+      "file": "metricas.json",
+      "url": "https://raw.githubusercontent.com/marksato13/VF-PPI-TESIS-ORQUESTACION/51cdcf2254044dce28fea7299b4037176c38254b/03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/_campana/resultados-2026-10-23/eval41/v2/metricas.json",
+      "expected_sha256": "1714bb751e35a347e5e02e3d36a7407871fdd1dba7dd0ee172c895db46096902",
+      "downloaded_sha256": "1714bb751e35a347e5e02e3d36a7407871fdd1dba7dd0ee172c895db46096902",
+      "match": true,
+      "bytes": 8448
+    },
+    {
+      "file": "TABLA6.md",
+      "url": "https://raw.githubusercontent.com/marksato13/VF-PPI-TESIS-ORQUESTACION/51cdcf2254044dce28fea7299b4037176c38254b/03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/_campana/resultados-2026-10-23/eval41/v2/TABLA6.md",
+      "expected_sha256": "a1944e671335e9e7d066b10733ffe81dbf9d93d438776300cda2de32a42099a3",
+      "downloaded_sha256": "a1944e671335e9e7d066b10733ffe81dbf9d93d438776300cda2de32a42099a3",
+      "match": true,
+      "bytes": 1413
+    },
+    {
+      "file": "TABLA6.csv",
+      "url": "https://raw.githubusercontent.com/marksato13/VF-PPI-TESIS-ORQUESTACION/51cdcf2254044dce28fea7299b4037176c38254b/03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/_campana/resultados-2026-10-23/eval41/v2/TABLA6.csv",
+      "expected_sha256": "ff3d2e349138bd804ac37158d9c84cec37ddbd9f7d2201005e99f34fc407b81a",
+      "downloaded_sha256": "ff3d2e349138bd804ac37158d9c84cec37ddbd9f7d2201005e99f34fc407b81a",
+      "match": true,
+      "bytes": 488
+    },
+    {
+      "file": "TABLA7.md",
+      "url": "https://raw.githubusercontent.com/marksato13/VF-PPI-TESIS-ORQUESTACION/51cdcf2254044dce28fea7299b4037176c38254b/03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/_campana/resultados-2026-10-23/eval41/v2/TABLA7.md",
+      "expected_sha256": "d2795642e028d362b3fbc7f39ef725d17801569d5415c37985d924a9f725bef4",
+      "downloaded_sha256": "d2795642e028d362b3fbc7f39ef725d17801569d5415c37985d924a9f725bef4",
+      "match": true,
+      "bytes": 2209
+    },
+    {
+      "file": "TABLA7.csv",
+      "url": "https://raw.githubusercontent.com/marksato13/VF-PPI-TESIS-ORQUESTACION/51cdcf2254044dce28fea7299b4037176c38254b/03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/_campana/resultados-2026-10-23/eval41/v2/TABLA7.csv",
+      "expected_sha256": "4b5bcb9da99b222281fed1eafdef62302b22a050c08924e20c96a0d6423e27e6",
+      "downloaded_sha256": "4b5bcb9da99b222281fed1eafdef62302b22a050c08924e20c96a0d6423e27e6",
+      "match": true,
+      "bytes": 2239
+    },
+    {
+      "file": "ALFA-F6.csv",
+      "url": "https://raw.githubusercontent.com/marksato13/VF-PPI-TESIS-ORQUESTACION/51cdcf2254044dce28fea7299b4037176c38254b/03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/_campana/resultados-2026-10-23/eval41/v2/ALFA-F6.csv",
+      "expected_sha256": "4ccc521113226b82ce7274a564db7d11b83e7f910aa1e92b0e0cb30e802faf62",
+      "downloaded_sha256": "4ccc521113226b82ce7274a564db7d11b83e7f910aa1e92b0e0cb30e802faf62",
+      "match": true,
+      "bytes": 460
+    },
+    {
+      "file": "ALFA-F6.md",
+      "url": "https://raw.githubusercontent.com/marksato13/VF-PPI-TESIS-ORQUESTACION/51cdcf2254044dce28fea7299b4037176c38254b/03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/_campana/resultados-2026-10-23/eval41/v2/ALFA-F6.md",
+      "expected_sha256": "7577c87f359321fb900f26077e0ace2b676d5bdb2605c46bc88414305d60dbb4",
+      "downloaded_sha256": "7577c87f359321fb900f26077e0ace2b676d5bdb2605c46bc88414305d60dbb4",
+      "match": true,
+      "bytes": 2011
+    },
+    {
+      "file": "p1-reconciliacion.json",
+      "url": "https://raw.githubusercontent.com/marksato13/VF-PPI-TESIS-ORQUESTACION/51cdcf2254044dce28fea7299b4037176c38254b/03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/_campana/resultados-2026-10-23/eval41/v2/p1-reconciliacion.json",
+      "expected_sha256": "2d6b11daa0262060dda8e482eb3dda74814f229fe4081a71728eaa721fa5c689",
+      "downloaded_sha256": "2d6b11daa0262060dda8e482eb3dda74814f229fe4081a71728eaa721fa5c689",
+      "match": true,
+      "bytes": 2520
+    },
+    {
+      "file": "p3-ventanas-cero.json",
+      "url": "https://raw.githubusercontent.com/marksato13/VF-PPI-TESIS-ORQUESTACION/51cdcf2254044dce28fea7299b4037176c38254b/03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/_campana/resultados-2026-10-23/eval41/v2/p3-ventanas-cero.json",
+      "expected_sha256": "0d5caae22a768932faeabe37807b4bef78d617d4d27fea79c3abf3e94591b2b9",
+      "downloaded_sha256": "0d5caae22a768932faeabe37807b4bef78d617d4d27fea79c3abf3e94591b2b9",
+      "match": true,
+      "bytes": 922
+    },
+    {
+      "file": "figura-roc-pr-v2.png",
+      "url": "https://raw.githubusercontent.com/marksato13/VF-PPI-TESIS-ORQUESTACION/51cdcf2254044dce28fea7299b4037176c38254b/03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/_campana/resultados-2026-10-23/eval41/v2/figura-roc-pr-v2.png",
+      "expected_sha256": "a07dad56d11379dfbda545658df1dccd0302fc05321492f6e26b5d395172abe5",
+      "downloaded_sha256": "a07dad56d11379dfbda545658df1dccd0302fc05321492f6e26b5d395172abe5",
+      "match": true,
+      "bytes": 420929
+    },
+    {
+      "file": "figura-roc-pr-v2.svg",
+      "url": "https://raw.githubusercontent.com/marksato13/VF-PPI-TESIS-ORQUESTACION/51cdcf2254044dce28fea7299b4037176c38254b/03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/_campana/resultados-2026-10-23/eval41/v2/figura-roc-pr-v2.svg",
+      "expected_sha256": "b9c79ab986186089d75d016cda5aa0b8ddccb7d4695c3106ce7fbedd87d94c20",
+      "downloaded_sha256": "b9c79ab986186089d75d016cda5aa0b8ddccb7d4695c3106ce7fbedd87d94c20",
+      "match": true,
+      "bytes": 69224
+    },
+    {
+      "file": "figura-roc-pr-v2.pdf",
+      "url": "https://raw.githubusercontent.com/marksato13/VF-PPI-TESIS-ORQUESTACION/51cdcf2254044dce28fea7299b4037176c38254b/03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/_campana/resultados-2026-10-23/eval41/v2/figura-roc-pr-v2.pdf",
+      "expected_sha256": "112ea232d3cd15059489b62372e8e83b98ff57d392b758b08a53b9b0be9bb49f",
+      "downloaded_sha256": "112ea232d3cd15059489b62372e8e83b98ff57d392b758b08a53b9b0be9bb49f",
+      "match": true,
+      "bytes": 32371
+    },
+    {
+      "file": "COMPROBACION-METRICAS-4.1.json",
+      "url": "https://raw.githubusercontent.com/marksato13/VF-PPI-TESIS-ORQUESTACION/51cdcf2254044dce28fea7299b4037176c38254b/03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/_campana/resultados-2026-10-23/eval41/v2/COMPROBACION-METRICAS-4.1.json",
+      "expected_sha256": "f31bcbd1fc421b5de80c11ec0328a26dec617360b022b2f43a9a02dade8c550c",
+      "downloaded_sha256": "f31bcbd1fc421b5de80c11ec0328a26dec617360b022b2f43a9a02dade8c550c",
+      "match": true,
+      "bytes": 6032
+    },
+    {
+      "file": "../../../../4.1-modelos/BASE-EDITORIAL-FINAL-4.1.md",
+      "url": "https://raw.githubusercontent.com/marksato13/VF-PPI-TESIS-ORQUESTACION/51cdcf2254044dce28fea7299b4037176c38254b/03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/BASE-EDITORIAL-FINAL-4.1.md",
+      "expected_sha256": "14fdab8af9999258404b9e6be3110ae9f4425b4f65b13e04fa11fac19e3e9fbb",
+      "downloaded_sha256": "14fdab8af9999258404b9e6be3110ae9f4425b4f65b13e04fa11fac19e3e9fbb",
+      "match": true,
+      "bytes": 6723
+    },
+    {
+      "file": "../../../../4.1-modelos/BASE-EDITORIAL-4.1.md",
+      "url": "https://raw.githubusercontent.com/marksato13/VF-PPI-TESIS-ORQUESTACION/51cdcf2254044dce28fea7299b4037176c38254b/03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/BASE-EDITORIAL-4.1.md",
+      "expected_sha256": "3e716d9929688dc7194198ec11b388dcc44bf5912ee914ec6c67020df7837789",
+      "downloaded_sha256": "3e716d9929688dc7194198ec11b388dcc44bf5912ee914ec6c67020df7837789",
+      "match": true,
+      "bytes": 7112
+    },
+    {
+      "file": "../../../../4.1-modelos/SUSTITUCIONES-EXACTAS-WORD-4.1.md",
+      "url": "https://raw.githubusercontent.com/marksato13/VF-PPI-TESIS-ORQUESTACION/51cdcf2254044dce28fea7299b4037176c38254b/03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/SUSTITUCIONES-EXACTAS-WORD-4.1.md",
+      "expected_sha256": "385089170a75100bd71457067eb25cde4459b25d16dcb37ff33c1a19f92a5e2b",
+      "downloaded_sha256": "385089170a75100bd71457067eb25cde4459b25d16dcb37ff33c1a19f92a5e2b",
+      "match": true,
+      "bytes": 13128
+    },
+    {
+      "file": "../../../../4.1-modelos/finalizar_41.py",
+      "url": "https://raw.githubusercontent.com/marksato13/VF-PPI-TESIS-ORQUESTACION/51cdcf2254044dce28fea7299b4037176c38254b/03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/finalizar_41.py",
+      "expected_sha256": "d112e5181e9dd62059eaaaf0828f62d593976c50ce1df34a21263fce14174853",
+      "downloaded_sha256": "d112e5181e9dd62059eaaaf0828f62d593976c50ce1df34a21263fce14174853",
+      "match": true,
+      "bytes": 21738
+    },
+    {
+      "file": "../../../../4.1-modelos/cerrar_pendientes_41.py",
+      "url": "https://raw.githubusercontent.com/marksato13/VF-PPI-TESIS-ORQUESTACION/51cdcf2254044dce28fea7299b4037176c38254b/03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/cerrar_pendientes_41.py",
+      "expected_sha256": "56f038cc72a4297abadd56c3ae8a1e8ab70f4c4640a8b3219c72c21ad0b2a844",
+      "downloaded_sha256": "56f038cc72a4297abadd56c3ae8a1e8ab70f4c4640a8b3219c72c21ad0b2a844",
+      "match": true,
+      "bytes": 17156
+    },
+    {
+      "file": "../../../../../../../.gitattributes",
+      "url": "https://raw.githubusercontent.com/marksato13/VF-PPI-TESIS-ORQUESTACION/51cdcf2254044dce28fea7299b4037176c38254b/.gitattributes",
+      "expected_sha256": "7299166b78dd094ba221654d81899d5bd9ee4668f1260b8afc3f94cc58c513d0",
+      "downloaded_sha256": "7299166b78dd094ba221654d81899d5bd9ee4668f1260b8afc3f94cc58c513d0",
+      "match": true,
+      "bytes": 1383
+    },
+    {
+      "file": "../../../../4.1-modelos/ENTREGABLES-FINALES-4.1.md",
+      "url": "https://raw.githubusercontent.com/marksato13/VF-PPI-TESIS-ORQUESTACION/51cdcf2254044dce28fea7299b4037176c38254b/03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/ENTREGABLES-FINALES-4.1.md",
+      "expected_sha256": "4f3de3674777d9d16bccd0cd911b07312b664393f332b460b1e11abeef79abf2",
+      "downloaded_sha256": "4f3de3674777d9d16bccd0cd911b07312b664393f332b460b1e11abeef79abf2",
+      "match": true,
+      "bytes": 10537
+    }
+  ]
+}
