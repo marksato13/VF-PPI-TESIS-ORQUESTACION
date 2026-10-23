@@ -1,0 +1,122 @@
+{"logged_at": 1792784154.2787073, "window_end_utc": "2026-10-23T19:35:10+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": {"accion": "BLOCK", "heuristico": "port_scan", "motivo": "10008 intentos/30s a muchos puertos, 0% completados"}}
+{"logged_at": 1792784154.278856, "window_end_utc": "2026-10-23T19:35:20+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": {"accion": "BLOCK", "heuristico": "port_scan", "motivo": "10000 intentos/30s a muchos puertos, 0% completados"}}
+{"logged_at": 1792784154.2789576, "window_end_utc": "2026-10-23T19:35:30+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784154.2790473, "window_end_utc": "2026-10-23T19:35:40+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784154.2791495, "window_end_utc": "2026-10-23T19:35:50+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784154.2792625, "window_end_utc": "2026-10-23T19:36:00+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784493.4882483, "window_end_utc": "2026-10-23T19:41:30+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784493.488421, "window_end_utc": "2026-10-23T19:41:40+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": {"accion": "LIMIT", "heuristico": "dns_entropy", "motivo": "46 consultas DNS/60s, 0% NXDOMAIN, 50% nombres \u00fanicos"}}
+{"logged_at": 1792784503.3513591, "window_end_utc": "2026-10-23T19:41:50+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": {"accion": "LIMIT", "heuristico": "dns_entropy", "motivo": "201 consultas DNS/60s, 0% NXDOMAIN, 50% nombres \u00fanicos"}}
+{"logged_at": 1792784513.5967586, "window_end_utc": "2026-10-23T19:42:00+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": {"accion": "LIMIT", "heuristico": "dns_entropy", "motivo": "320 consultas DNS/60s, 0% NXDOMAIN, 50% nombres \u00fanicos"}}
+{"logged_at": 1792784603.646295, "window_end_utc": "2026-10-23T19:42:10+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": {"accion": "LIMIT", "heuristico": "dns_entropy", "motivo": "320 consultas DNS/60s, 0% NXDOMAIN, 50% nombres \u00fanicos"}}
+{"logged_at": 1792784603.646488, "window_end_utc": "2026-10-23T19:42:20+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": {"accion": "LIMIT", "heuristico": "dns_entropy", "motivo": "320 consultas DNS/60s, 0% NXDOMAIN, 50% nombres \u00fanicos"}}
+{"logged_at": 1792784603.646623, "window_end_utc": "2026-10-23T19:42:30+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": {"accion": "LIMIT", "heuristico": "dns_entropy", "motivo": "314 consultas DNS/60s, 0% NXDOMAIN, 50% nombres \u00fanicos"}}
+{"logged_at": 1792784603.6467288, "window_end_utc": "2026-10-23T19:42:40+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": {"accion": "LIMIT", "heuristico": "dns_entropy", "motivo": "162 consultas DNS/60s, 0% NXDOMAIN, 50% nombres \u00fanicos"}}
+{"logged_at": 1792784603.646829, "window_end_utc": "2026-10-23T19:42:50+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784603.6469343, "window_end_utc": "2026-10-23T19:43:00+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784603.6470213, "window_end_utc": "2026-10-23T19:43:10+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784603.6471057, "window_end_utc": "2026-10-23T19:43:20+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784603.6471877, "window_end_utc": "2026-10-23T19:43:30+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": {"accion": "LIMIT", "heuristico": "dns_entropy", "motivo": "36 consultas DNS/60s, 0% NXDOMAIN, 50% nombres \u00fanicos"}}
+{"logged_at": 1792784613.5633817, "window_end_utc": "2026-10-23T19:43:40+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": {"accion": "LIMIT", "heuristico": "dns_entropy", "motivo": "192 consultas DNS/60s, 0% NXDOMAIN, 50% nombres \u00fanicos"}}
+{"logged_at": 1792784623.5191865, "window_end_utc": "2026-10-23T19:43:50+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": {"accion": "LIMIT", "heuristico": "dns_entropy", "motivo": "320 consultas DNS/60s, 0% NXDOMAIN, 50% nombres \u00fanicos"}}
+{"logged_at": 1792784713.5600274, "window_end_utc": "2026-10-23T19:44:00+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": {"accion": "LIMIT", "heuristico": "dns_entropy", "motivo": "320 consultas DNS/60s, 0% NXDOMAIN, 50% nombres \u00fanicos"}}
+{"logged_at": 1792784713.5601425, "window_end_utc": "2026-10-23T19:44:10+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": {"accion": "LIMIT", "heuristico": "dns_entropy", "motivo": "320 consultas DNS/60s, 0% NXDOMAIN, 50% nombres \u00fanicos"}}
+{"logged_at": 1792784713.5602655, "window_end_utc": "2026-10-23T19:44:20+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": {"accion": "LIMIT", "heuristico": "dns_entropy", "motivo": "320 consultas DNS/60s, 0% NXDOMAIN, 50% nombres \u00fanicos"}}
+{"logged_at": 1792784713.5603666, "window_end_utc": "2026-10-23T19:44:30+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": {"accion": "LIMIT", "heuristico": "dns_entropy", "motivo": "170 consultas DNS/60s, 0% NXDOMAIN, 50% nombres \u00fanicos"}}
+{"logged_at": 1792784713.5604708, "window_end_utc": "2026-10-23T19:44:40+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784713.5605567, "window_end_utc": "2026-10-23T19:44:50+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784713.5606387, "window_end_utc": "2026-10-23T19:45:00+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784713.5607197, "window_end_utc": "2026-10-23T19:45:10+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784713.560799, "window_end_utc": "2026-10-23T19:45:20+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": {"accion": "LIMIT", "heuristico": "dns_entropy", "motivo": "32 consultas DNS/60s, 0% NXDOMAIN, 50% nombres \u00fanicos"}}
+{"logged_at": 1792784723.7211664, "window_end_utc": "2026-10-23T19:45:30+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": {"accion": "LIMIT", "heuristico": "dns_entropy", "motivo": "188 consultas DNS/60s, 0% NXDOMAIN, 50% nombres \u00fanicos"}}
+{"logged_at": 1792784733.7894745, "window_end_utc": "2026-10-23T19:45:40+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": {"accion": "LIMIT", "heuristico": "dns_entropy", "motivo": "320 consultas DNS/60s, 0% NXDOMAIN, 50% nombres \u00fanicos"}}
+{"logged_at": 1792784843.7620668, "window_end_utc": "2026-10-23T19:45:50+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": {"accion": "LIMIT", "heuristico": "dns_entropy", "motivo": "320 consultas DNS/60s, 0% NXDOMAIN, 50% nombres \u00fanicos"}}
+{"logged_at": 1792784843.7622764, "window_end_utc": "2026-10-23T19:46:00+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": {"accion": "LIMIT", "heuristico": "dns_entropy", "motivo": "320 consultas DNS/60s, 0% NXDOMAIN, 50% nombres \u00fanicos"}}
+{"logged_at": 1792784843.7624211, "window_end_utc": "2026-10-23T19:46:10+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": {"accion": "LIMIT", "heuristico": "dns_entropy", "motivo": "320 consultas DNS/60s, 0% NXDOMAIN, 50% nombres \u00fanicos"}}
+{"logged_at": 1792784843.7625277, "window_end_utc": "2026-10-23T19:46:20+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": {"accion": "LIMIT", "heuristico": "dns_entropy", "motivo": "176 consultas DNS/60s, 0% NXDOMAIN, 50% nombres \u00fanicos"}}
+{"logged_at": 1792784843.7626286, "window_end_utc": "2026-10-23T19:46:30+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784843.7627168, "window_end_utc": "2026-10-23T19:46:40+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784843.7628021, "window_end_utc": "2026-10-23T19:46:50+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784843.7628953, "window_end_utc": "2026-10-23T19:47:00+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784843.827017, "window_end_utc": "2026-10-23T19:47:10+00:00", "decision": "PERMIT", "score": -0.5333422410190934, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784843.8911378, "window_end_utc": "2026-10-23T19:47:20+00:00", "decision": "PERMIT", "score": -0.5241562394919865, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784853.7375007, "window_end_utc": "2026-10-23T19:47:30+00:00", "decision": "PERMIT", "score": -0.530967916483365, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784873.7148256, "window_end_utc": "2026-10-23T19:47:40+00:00", "decision": "PERMIT", "score": -0.531780858726196, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784873.7795482, "window_end_utc": "2026-10-23T19:47:50+00:00", "decision": "PERMIT", "score": -0.5279314782279031, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784883.679356, "window_end_utc": "2026-10-23T19:48:00+00:00", "decision": "PERMIT", "score": -0.5447515623906337, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784903.7261925, "window_end_utc": "2026-10-23T19:48:10+00:00", "decision": "PERMIT", "score": -0.545006681268021, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784993.589785, "window_end_utc": "2026-10-23T19:48:20+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784993.5899332, "window_end_utc": "2026-10-23T19:48:30+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784993.5900776, "window_end_utc": "2026-10-23T19:48:40+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784993.590182, "window_end_utc": "2026-10-23T19:48:50+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784993.5902948, "window_end_utc": "2026-10-23T19:49:00+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784993.590382, "window_end_utc": "2026-10-23T19:49:10+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784993.5904644, "window_end_utc": "2026-10-23T19:49:20+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784993.590546, "window_end_utc": "2026-10-23T19:49:30+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784993.654667, "window_end_utc": "2026-10-23T19:49:40+00:00", "decision": "PERMIT", "score": -0.5230791784918063, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792784993.7189863, "window_end_utc": "2026-10-23T19:49:50+00:00", "decision": "PERMIT", "score": -0.5295983396043631, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785003.617336, "window_end_utc": "2026-10-23T19:50:00+00:00", "decision": "PERMIT", "score": -0.5603393001638127, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785023.7628157, "window_end_utc": "2026-10-23T19:50:10+00:00", "decision": "PERMIT", "score": -0.5603393001638127, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785023.8269963, "window_end_utc": "2026-10-23T19:50:20+00:00", "decision": "PERMIT", "score": -0.5571187450777317, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785033.6465573, "window_end_utc": "2026-10-23T19:50:30+00:00", "decision": "PERMIT", "score": -0.5606584105481424, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785053.8002186, "window_end_utc": "2026-10-23T19:50:40+00:00", "decision": "PERMIT", "score": -0.5606584105481424, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785053.8647385, "window_end_utc": "2026-10-23T19:50:50+00:00", "decision": "PERMIT", "score": -0.5565176933831001, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785153.5936737, "window_end_utc": "2026-10-23T19:51:00+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785153.5938368, "window_end_utc": "2026-10-23T19:51:10+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785153.5939581, "window_end_utc": "2026-10-23T19:51:20+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785153.5940495, "window_end_utc": "2026-10-23T19:51:30+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785153.594136, "window_end_utc": "2026-10-23T19:51:40+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785153.5942566, "window_end_utc": "2026-10-23T19:51:50+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785153.5943537, "window_end_utc": "2026-10-23T19:52:00+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785153.5944364, "window_end_utc": "2026-10-23T19:52:10+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785153.6586142, "window_end_utc": "2026-10-23T19:52:20+00:00", "decision": "PERMIT", "score": -0.5227402195185729, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785153.723, "window_end_utc": "2026-10-23T19:52:30+00:00", "decision": "PERMIT", "score": -0.5330337050890785, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785173.7304254, "window_end_utc": "2026-10-23T19:52:40+00:00", "decision": "PERMIT", "score": -0.5321514917164746, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785173.7946706, "window_end_utc": "2026-10-23T19:52:50+00:00", "decision": "PERMIT", "score": -0.5279340275667509, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785183.8201764, "window_end_utc": "2026-10-23T19:53:00+00:00", "decision": "PERMIT", "score": -0.5367592142791285, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785203.7866924, "window_end_utc": "2026-10-23T19:53:10+00:00", "decision": "PERMIT", "score": -0.5585818293258252, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785203.8512962, "window_end_utc": "2026-10-23T19:53:20+00:00", "decision": "PERMIT", "score": -0.5562851254749908, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785213.7185862, "window_end_utc": "2026-10-23T19:53:30+00:00", "decision": "PERMIT", "score": -0.5562851254749908, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785303.6376097, "window_end_utc": "2026-10-23T19:53:40+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785303.6377635, "window_end_utc": "2026-10-23T19:53:50+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785303.6378999, "window_end_utc": "2026-10-23T19:54:00+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785303.6379921, "window_end_utc": "2026-10-23T19:54:10+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785303.63808, "window_end_utc": "2026-10-23T19:54:20+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785303.638182, "window_end_utc": "2026-10-23T19:54:30+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785303.6382923, "window_end_utc": "2026-10-23T19:54:40+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785303.638376, "window_end_utc": "2026-10-23T19:54:50+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785303.7024837, "window_end_utc": "2026-10-23T19:55:00+00:00", "decision": "PERMIT", "score": -0.46444150248111415, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785323.7223942, "window_end_utc": "2026-10-23T19:55:10+00:00", "decision": "PERMIT", "score": -0.49087349714538453, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785323.7866893, "window_end_utc": "2026-10-23T19:55:20+00:00", "decision": "PERMIT", "score": -0.4657081704173655, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785333.7490842, "window_end_utc": "2026-10-23T19:55:30+00:00", "decision": "PERMIT", "score": -0.48997708018007974, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785353.841044, "window_end_utc": "2026-10-23T19:55:40+00:00", "decision": "PERMIT", "score": -0.4881635963733204, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785353.9053752, "window_end_utc": "2026-10-23T19:55:50+00:00", "decision": "PERMIT", "score": -0.46516008118532304, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785363.8997147, "window_end_utc": "2026-10-23T19:56:00+00:00", "decision": "PERMIT", "score": -0.48997708018007974, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785383.7206926, "window_end_utc": "2026-10-23T19:56:10+00:00", "decision": "PERMIT", "score": -0.4963774627406535, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785383.785008, "window_end_utc": "2026-10-23T19:56:20+00:00", "decision": "PERMIT", "score": -0.4589077241422555, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785393.6426692, "window_end_utc": "2026-10-23T19:56:30+00:00", "decision": "PERMIT", "score": -0.4881635963733204, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785393.707104, "window_end_utc": "2026-10-23T19:56:40+00:00", "decision": "PERMIT", "score": -0.4302959380785832, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785413.688056, "window_end_utc": "2026-10-23T19:56:50+00:00", "decision": "PERMIT", "score": -0.4591561839268139, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785423.6996388, "window_end_utc": "2026-10-23T19:57:00+00:00", "decision": "PERMIT", "score": -0.4963774627406535, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785423.7638056, "window_end_utc": "2026-10-23T19:57:10+00:00", "decision": "PERMIT", "score": -0.4261443147564321, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785443.5740428, "window_end_utc": "2026-10-23T19:57:20+00:00", "decision": "PERMIT", "score": -0.46445870860590444, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785453.6403947, "window_end_utc": "2026-10-23T19:57:30+00:00", "decision": "PERMIT", "score": -0.496082769505025, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785453.7043946, "window_end_utc": "2026-10-23T19:57:40+00:00", "decision": "PERMIT", "score": -0.43514446932679013, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785473.5909352, "window_end_utc": "2026-10-23T19:57:50+00:00", "decision": "PERMIT", "score": -0.46445870860590444, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785483.6932993, "window_end_utc": "2026-10-23T19:58:00+00:00", "decision": "PERMIT", "score": -0.4792775794470195, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785533.678762, "window_end_utc": "2026-10-23T19:58:10+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785533.6789286, "window_end_utc": "2026-10-23T19:58:20+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785533.679083, "window_end_utc": "2026-10-23T19:58:30+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785533.6791747, "window_end_utc": "2026-10-23T19:58:40+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785533.7434828, "window_end_utc": "2026-10-23T19:58:50+00:00", "decision": "PERMIT", "score": -0.47529931763323635, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785533.7437387, "window_end_utc": "2026-10-23T19:59:00+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785883.6296022, "window_end_utc": "2026-10-23T20:04:40+00:00", "decision": "PERMIT", "score": -0.49399970566162477, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785893.495231, "window_end_utc": "2026-10-23T20:04:50+00:00", "decision": "PERMIT", "score": -0.47699971693018745, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785903.588025, "window_end_utc": "2026-10-23T20:05:00+00:00", "decision": "PERMIT", "score": -0.47398487642403997, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785903.652098, "window_end_utc": "2026-10-23T20:05:10+00:00", "decision": "PERMIT", "score": -0.4385988613846457, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785983.4762836, "window_end_utc": "2026-10-23T20:05:20+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785983.4764547, "window_end_utc": "2026-10-23T20:05:30+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785983.4765851, "window_end_utc": "2026-10-23T20:05:40+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785983.4766765, "window_end_utc": "2026-10-23T20:05:50+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785983.476764, "window_end_utc": "2026-10-23T20:06:00+00:00", "decision": "PERMIT", "score": null, "threshold": -0.5693969936322356, "heuristico": null}
+{"logged_at": 1792785983.541033, "window_end_utc": "2026-10-23T20:06:10+00:00", "decision": "PERMIT", "score": -0.47251278336448416, "threshold": -0.5693969936322356, "heuristico": null}

@@ -1,0 +1,11 @@
+id,familia,n_ventanas,dur_ataque_s,IF,heur,hibrido,reglas,acciones,t1_modelo_s,t1_heur_s,t1_any_s
+CLOCK,clock,0,1933.4,0,0,0,,,,,
+E-scan-1,scan,10,18.3,0,1,1,dns_entropy|port_scan,BLOCK|LIMIT,,29.7,29.7
+E-dns-1,dns,11,20.7,0,1,1,dns_entropy,LIMIT,,69.6,69.6
+E-dns-2,dns,11,20.2,0,1,1,dns_entropy,LIMIT,,68.8,68.8
+E-dns-3,dns,11,20.5,0,1,1,dns_entropy,LIMIT,,88.8,88.8
+E-flood-1,flood,17,68.7,0,0,0,,,,,
+E-flood-2,flood,15,68.6,0,0,0,,,,,
+E-flood-3,flood,16,68.6,0,0,0,,,,,
+E-brute-1,brute,25,181.6,0,0,0,,,,,
+E-nikto-1,nikto,6,40.6,0,0,0,,,,,
