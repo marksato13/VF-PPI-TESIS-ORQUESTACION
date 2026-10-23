@@ -12,7 +12,7 @@
 set -u
 OUT="${OUT:-/tmp/campana-limpio}"; mkdir -p "$OUT"
 MARCAS="$OUT/marcas.jsonl"; : > "$MARCAS"
-N="${N:-3}"; NB="${NB:-1}"
+N="${N:-3}"; NB="${NB:-1}"; NS="${NS:-$N}"   # NS = repeticiones de escaneo (def = N)
 TARGET="${TARGET:-10.10.30.10}"
 RESOLVER="${RESOLVER:-10.10.10.20}"
 BRUTE_HOST="${BRUTE_HOST:-10.10.30.10:8081}"
@@ -59,7 +59,7 @@ for r in $(seq 1 "$NB"); do
 done
 
 # 4) Escaneo de puertos -> port_scan -> BLOCK + corte real
-for r in $(seq 1 "$N"); do
+for r in $(seq 1 "$NS"); do
   ep="E-scan-$r"; echo "[$ep] scan"; marca "$ep" scan "$r" inicio
   nmap -sT -T4 --max-retries 1 -p 1-3000 --open "$TARGET" >/dev/null 2>&1
   marca "$ep" scan "$r" fin
