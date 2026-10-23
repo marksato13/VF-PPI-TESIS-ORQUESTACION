@@ -1,0 +1,92 @@
+{
+  "IF limpio (desplegado)": {
+    "modelo": "IF limpio (desplegado)",
+    "origen": "esta red",
+    "roc_auc": 0.9247,
+    "ap": 0.1858,
+    "det_fpr5": 0.6548,
+    "fpr5_real": 0.05,
+    "umbral": -0.5693969936322356,
+    "TP": 54,
+    "FP": 2961,
+    "TN": 62460,
+    "FN": 30,
+    "precision": 0.0179,
+    "recall": 0.6429,
+    "F1": 0.0348,
+    "FPR": 0.0453
+  },
+  "IF recalibrado (contaminado, respaldo)": {
+    "modelo": "IF recalibrado (contaminado, respaldo)",
+    "origen": "esta red",
+    "roc_auc": 0.9228,
+    "ap": 0.2026,
+    "det_fpr5": 0.6667,
+    "fpr5_real": 0.05,
+    "umbral": -0.568892,
+    "TP": 54,
+    "FP": 2913,
+    "TN": 62508,
+    "FN": 30,
+    "precision": 0.0182,
+    "recall": 0.6429,
+    "F1": 0.0354,
+    "FPR": 0.0445
+  },
+  "IF scaled (lab)": {
+    "modelo": "IF scaled (lab)",
+    "origen": "laboratorio",
+    "roc_auc": 0.825,
+    "ap": 0.0043,
+    "det_fpr5": 0.1667,
+    "fpr5_real": 0.05
+  },
+  "IF primary (lab)": {
+    "modelo": "IF primary (lab)",
+    "origen": "laboratorio",
+    "roc_auc": 0.8283,
+    "ap": 0.0044,
+    "det_fpr5": 0.1667,
+    "fpr5_real": 0.05
+  },
+  "IF uniform (lab)": {
+    "modelo": "IF uniform (lab)",
+    "origen": "laboratorio",
+    "roc_auc": 0.796,
+    "ap": 0.0054,
+    "det_fpr5": 0.1667,
+    "fpr5_real": 0.05
+  },
+  "IF exact (lab)": {
+    "modelo": "IF exact (lab)",
+    "origen": "laboratorio",
+    "roc_auc": 0.796,
+    "ap": 0.0054,
+    "det_fpr5": 0.1667,
+    "fpr5_real": 0.05
+  },
+  "OCSVM (lab)": {
+    "modelo": "OCSVM (lab)",
+    "origen": "laboratorio",
+    "roc_auc": 0.4555,
+    "ap": 0.0011,
+    "det_fpr5": 0.5595,
+    "fpr5_real": 0.6982
+  },
+  "LOF (lab)": {
+    "modelo": "LOF (lab)",
+    "origen": "laboratorio",
+    "roc_auc": 0.2991,
+    "ap": 0.0009,
+    "det_fpr5": 0.0,
+    "fpr5_real": 0.5029
+  },
+  "Elliptic Envelope (lab)": {
+    "modelo": "Elliptic Envelope (lab)",
+    "origen": "laboratorio",
+    "roc_auc": 0.3443,
+    "ap": 0.0014,
+    "det_fpr5": 0.0595,
+    "fpr5_real": 0.05
+  }
+}
