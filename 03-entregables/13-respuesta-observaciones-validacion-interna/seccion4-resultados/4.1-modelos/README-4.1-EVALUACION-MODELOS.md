@@ -21,9 +21,21 @@ TABLA6.md, TABLA7.md, **figura-roc-pr.png/svg**, scores por ventana). Script rep
   desbalance extremo (prevalencia 0,13 %): miles de FP frente a decenas de TP — por eso el titular
   son ROC-AUC/AP/FPR, no precisión/F1. En operación un FP del modelo da **LIMIT** (reversible), no
   bloqueo.
-- **Detección por familia:** el CSV `ataques-nota-M.csv` no trae etiqueta de familia; la separación
-  HTTP 35/43 · escaneo 19/33 · DNS 0/8 (= 54/84) está en `modelo-vigente.json` / nota M. No se
-  recalcula por familia aquí para no inventar el etiquetado; queda como dato de nota M.
+- **Detección por familia (modelo limpio) — cerrada.** El CSV no trae etiqueta de familia, pero se
+  aplica el **criterio observable de la nota M (errata)**: HTTP si `http_request_count_60s>0`; si no,
+  DNS si `dns_query_count_60s>0`; en otro caso escaneo. Resultado del **IF limpio**:
+
+  | Familia | Ventanas | Detectadas | TPR |
+  |---|---:|---:|---:|
+  | HTTP | 43 | 35 | 81,4 % |
+  | Escaneo | 33 | 19 | 57,6 % |
+  | DNS | 8 | 0 | 0,0 % |
+  | **Total** | **84** | **54** | **64,3 %** |
+
+  **Idéntico** a la reconstrucción de nota M para el contaminado (HTTP 35/43 · escaneo 19/33 · DNS 0/8)
+  → limpiar tampoco cambió la detección por familia. El DNS 0/8 es del montaje de nota M (apuntó al
+  DMZ, no al resolver); lo cubre el heurístico `dns_entropy` (ver 4.2). Detalle:
+  `../_campana/resultados-2026-10-23/eval41/DETECCION-POR-FAMILIA-limpio.md`.
 
 ## Tabla 7 — Candidatos sobre las MISMAS 84 + 65 421 ventanas
 
@@ -41,6 +53,12 @@ TABLA6.md, TABLA7.md, **figura-roc-pr.png/svg**, scores por ventana). Script rep
 
 \* OCSVM/LOF no alcanzan un corte real al 5 % de FPR (scores degenerados: marcan casi todo el normal
 como anómalo en esta red; su FPR al percentil 95 sale 0,70/0,50). Consistente con ROC-AUC ≤ azar.
+
+**Tabla 7 completa (cada modelo a su umbral propio): `../_campana/resultados-2026-10-23/eval41/TABLA7-completa.md`**
+(Precisión/Recall/F1/FPR además de ROC-AUC/AP). Lo esencial: el **IF limpio** (FPR 4,53 %, recall 64,3 %)
+≈ **contaminado** (FPR 4,45 %, recall 64,3 %); los candidatos de laboratorio tienen recall alto pero
+**FPR 29–99 %** (inservibles aquí); OCSVM recall 100 % con **FPR 99,57 %** (marca todo). Hashes de cada
+joblib, umbrales y versiones (sklearn 1.9.0) en `hashes-deps-aux.json`.
 
 **Lectura:**
 - El **IF limpio gana** (ROC-AUC 0,925, Det@FPR5% 65,5 %) y es el único con un **FPR usable** (4,53 %)
@@ -63,11 +81,15 @@ como anómalo en esta red; su FPR al percentil 95 sale 0,70/0,50). Consistente c
   `../_campana/resultados-2026-10-23/eval41/scores-clean-ataque-84.csv`).
 - Umbrales: limpio `−0,569397` (score_samples); contaminado `−0,568892`.
 
-## Pendiente menor
+## Cierre (flecos resueltos 2026-10-23, `cerrar_41.py`)
 
-- Detección por familia del modelo limpio con las etiquetas de nota M (archivo de etiquetas, no en
-  `ataques-nota-M.csv`).
-- Significancia McNemar+Holm del limpio vs candidatos (el script de significancia existe en
-  `producto-main/scripts/modeling/experiments/significancia_modelos.py`; correrlo sobre estas
-  predicciones).
+- ✅ **Detección por familia del modelo limpio** (criterio observable de nota M) — tabla arriba;
+  idéntica al contaminado.
+- ✅ **Tabla 7 completa** con Precisión/Recall/F1/FPR por modelo (`TABLA7-completa.md` / `.csv`).
+- ✅ **Hashes + versiones + umbrales** (`hashes-deps-aux.json`).
+
+## Pendiente (opcional)
+
+- Significancia McNemar+Holm del limpio vs candidatos sobre estas predicciones
+  (`producto-main/scripts/modeling/experiments/significancia_modelos.py`).
 </content>
