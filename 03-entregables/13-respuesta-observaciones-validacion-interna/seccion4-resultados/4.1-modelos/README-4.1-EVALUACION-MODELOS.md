@@ -1,5 +1,12 @@
 # 4.1 — Evaluación del modelo limpio y comparación entre modelos
 
+> **Re-audit endurecido (v2, 2026-10-23): ver `ESQUEMA-AFIRMACIONES-Y-CIERRE-4.1.md`** (autoritativo).
+> Corrige: se **retiró Det@FPR5%** (corte sobre test = fuga), el IF limpio **no gana en todo**
+> (el contaminado tiene AP 0,203 > 0,186 y FPR 4,45 % < 4,53 %; son equivalentes), `IF uniform ≡ IF exact`,
+> la evaluación es **reutilizada** (no test ciego), y se añadió sensibilidad de α (F6) + figura a resolución
+> completa + scores de los 9 candidatos. Resultados duros en `../_campana/resultados-2026-10-23/eval41/v2/`.
+> Lo de abajo es el primer pase (valores coincidentes; el v2 manda).
+
 **Ejecutado 2026-10-23** en el sensor (lectura), modelo **desplegado `if_limpio_2026_10`**.
 Conjunto: **oro = 65 421 ventanas normales** (`artifacts/aprendizaje/oro/oro.csv`) + **84 ventanas
 de ataque** (`artifacts/aprendizaje/ataques/ataques-nota-M.csv`). Cada modelo se carga congelado y
