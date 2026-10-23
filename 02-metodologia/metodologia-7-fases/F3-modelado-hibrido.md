@@ -90,10 +90,15 @@ propio para un objetivo de falsos positivos del **5 %**.
 
 El umbral es correcto porque, en datos que nunca vio, **acierta el objetivo de FP**
 y **detecta los ataques reales**; además es **estable** (validación cruzada del
-umbral) y **reproducible** (determinismo con semillas). El 4,45 % es sobre datos de
-la misma distribución; **en operación el FPR sube a ~23–26 %** (el tráfico legítimo
-pesado se apiña cerca del umbral) → ver limitaciones en [F7](F7-validacion.md) y
-trabajo futuro. Bajarlo moviendo el umbral sacrificaría detección (compromiso
+umbral) y **reproducible** (determinismo con semillas). El 4,45 % es el FPR del
+**modelo** sobre test ciego de la misma distribución. El FPR del **sistema completo en
+operación** con el IF recalibrado está **pendiente de medir** (aún no se ha
+caracterizado sobre tráfico real sostenido). Las cifras de ~23–26 % (25,81 % / 22,97 %)
+que circulaban **pertenecen al OCSVM histórico de F6 y no se reutilizan** para el IF
+—ver la [ficha de cambio OCSVM→IF](../trazabilidad/FICHA-CAMBIO-ARTICULO-OCSVM-A-IF.md),
+fila «FPR en operación» (estado *a medir*)—. Como límite conocido, el tráfico legítimo
+pesado tiende a apiñarse cerca del umbral → ver limitaciones en [F7](F7-validacion.md) y
+trabajo futuro. Bajar el FPR moviendo el umbral sacrificaría detección (compromiso
 FP↔TPR); la mejora real es reentrenar con tráfico pesado representativo.
 
 Evidencia: `04-evidencias/cyberflow/{L-recalibracion-seco-sensor1-2026-09-29,

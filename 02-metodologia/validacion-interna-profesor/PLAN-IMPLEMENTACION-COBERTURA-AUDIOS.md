@@ -101,7 +101,7 @@ B0 congelar estado y fuentes
 
 **Responsable:** Mark + validadores; apoyo técnico prepara evidencia. **Dependencias:** B5 y B3.
 
-1. Ensayo de guion con tiempos diferenciados: detección, decisión y respuesta. Medición con origen/destino y contexto; no prometer «bloqueo en segundos» si el feed minutely tarda 1–2,5 min.
+1. Ensayo de guion con tiempos diferenciados: detección, decisión y respuesta. Medición con origen/destino y contexto; no prometer «bloqueo en segundos» si la cadena de 10 s tarda ~41 s extremo a extremo.
 2. Escenario controlado solo con autorización de Mark: captura por SPAN → decisión del modelo/heurístico → feed firmado → bastión → host → `nftables` → panel. Mantener listo un replay/evidencia histórica si no conviene generar tráfico en vivo.
 3. Iniciar la grabación **con consentimiento de los participantes**; registrar preguntas, observaciones, responsable y mejora con enlace a evidencia. No sustituir la validación técnica por TAM.
 4. Después de la sesión: acta de hallazgos, acciones priorizadas y correcciones localizadas; nunca reescribir un resultado desfavorable como éxito.

@@ -4,6 +4,8 @@
 eve.json*
 *.joblib
 *.csv.gz
+# Respaldo canónico de scores completos de 4.1, exportado con precisión completa.
+!03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/_campana/resultados-2026-10-23/eval41/v2/scores-todos-candidatos-full.csv.gz
 .env
 *.key
 *.pem
