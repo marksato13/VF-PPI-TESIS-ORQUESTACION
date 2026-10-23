@@ -1,0 +1,29 @@
+{
+  "packet_count_10s_presente": 65421,
+  "vacias_str": 0,
+  "no_numericas": 0,
+  "cero_real": 45558,
+  "categorias": {
+    "con_paquetes_10s": {
+      "n": 19863,
+      "fp": 2837,
+      "tn": 17026,
+      "fpr": 0.1428283743643961
+    },
+    "cero_10s_con_retro": {
+      "n": 12208,
+      "fp": 124,
+      "tn": 12084,
+      "fpr": 0.010157273918741808
+    },
+    "cero_10s_sin_actividad": {
+      "n": 33350,
+      "fp": 0,
+      "tn": 33350,
+      "fpr": 0.0
+    }
+  },
+  "fp_total_offline": 2961,
+  "fp_en_ventanas_cero_10s": 124,
+  "nota_politica": "El motor EN VIVO marca PERMIT las ventanas sin paquetes (heuristico no_live_packets) y NO puntua el modelo; el evaluador OFFLINE si las puntua. Por eso 124 de los 2961 FP offline (4.2%) caen en ventanas con packet_count_10s=0 que en operacion serian PERMIT -> el FP operativo del modelo es menor que el FP offline."
+}
