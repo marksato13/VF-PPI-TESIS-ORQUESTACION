@@ -15,7 +15,11 @@ no una prueba inferencial estricta. Dominado por diferencias en falsos positivos
 | Elliptic Envelope (lab) | 56281 | 2372 | 0 | 0 | normal (continuidad) |
 | IF recalibrado (contaminado, antecedente) | 179 | 227 | 0.0196 | 0.0196 | binomial exacta |
 
-**Lectura:** frente a los candidatos de laboratorio y OCSVM/LOF/EE, el limpio difiere con p_Holm muy
-pequeno (comete muchisimos menos FP). Frente al **contaminado** la diferencia es minima (ver b vs c
-cercanos) -> coherente con que son **equivalentes**. No se afirma 'estadisticamente superior' como
-conclusion fuerte por la dependencia entre ventanas; se reporta como diferencia **descriptiva** pareada.
+**Lectura (descriptiva; NO inferencia estricta):** los `p=0` de la tabla son del formato `%.3g`; el valor
+real es **p < 1e-16** (no cero literal). Frente a los candidatos de laboratorio/OCSVM/LOF/EE el limpio
+comete muchisimos menos FP (b >> c). Frente al **contaminado**: discordantes **b=179 (limpio mejor) /
+c=227 (contaminado mejor)**, p ≈ 0,02 → **no se afirma superioridad de ninguno**. La afirmación
+respaldada es solo: **"ambos detectaron 54/84; difirieron en FP, ROC-AUC y AP"**. **El mismo recall NO
+demuestra equivalencia estadistica**, y como las ventanas son **dependientes** (series temporales) McNemar
+aqui es **descriptivo**, no una prueba inferencial valida; no se usan los terminos "equivalentes" ni
+"ruido de muestra" ni "estadisticamente superior".
