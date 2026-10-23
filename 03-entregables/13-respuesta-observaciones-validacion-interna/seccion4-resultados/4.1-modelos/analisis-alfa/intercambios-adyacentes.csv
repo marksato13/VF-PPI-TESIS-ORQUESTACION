@@ -1,0 +1,8 @@
+alfa_desde,alfa_hasta,ventanas_positivas_adicionales,FP_adicionales,FP_por_positiva_adicional,sin_ganancia_deteccion
+0.005,0.01,24,287,11.958333333333334,False
+0.01,0.02,2,563,281.5,False
+0.02,0.025,1,293,293.0,False
+0.025,0.03,1,302,302.0,False
+0.03,0.04,0,576,,True
+0.04,0.05,0,660,,True
+0.05,0.1,5,3146,629.2,False
