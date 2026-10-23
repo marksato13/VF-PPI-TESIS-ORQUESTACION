@@ -36,14 +36,14 @@ done
 # 3) Flood HTTP (LIMIT)
 for r in $(seq 1 "$N"); do
   ep="E-flood-$r"; echo "[$ep] flood"; marca "$ep" flood "$r" inicio
-  seq 1 400 | xargs -P12 -I{} curl -s --max-time 2 -o /dev/null "http://$TARGET/"
+  seq 1 800 | xargs -P16 -I{} curl -s --max-time 5 -o /dev/null "http://$TARGET/"   # vol alto: >=100 req/60s para http_abuse (v2 NS=1 con --max-time 2 lo estrangulo)
   marca "$ep" flood "$r" fin; sleep "$ESPERA_LIMIT"
 done
 
 # 4) Fuerza bruta (BLOCK) - requiere endpoint 401 en $BRUTE
 for r in $(seq 1 "$NB"); do
   ep="E-brute-$r"; echo "[$ep] brute"; marca "$ep" brute "$r" inicio
-  for i in $(seq 1 80); do curl -s --max-time 2 -o /dev/null -u "admin:mal$i" "http://$BRUTE/"; sleep 0.25; done
+  for i in $(seq 1 80); do curl -s --max-time 5 -o /dev/null -u "admin:mal$i" "http://$BRUTE/"; sleep 0.2; done
   marca "$ep" brute "$r" fin; corte "$ep"; sleep "$ESPERA_BLOCK"
 done
 
