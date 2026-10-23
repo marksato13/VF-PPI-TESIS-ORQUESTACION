@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-10-23T20:27:24.983168+00:00",
+  "generated_at_utc": "2026-10-23T21:14:07.656349+00:00",
   "source_scores": {
     "file": "scores-todos-candidatos-full.csv.gz",
     "sha256": "6e98219fb79a187b7256e664a4791a0619be70a68d9a23eee1e61c45de98ffc8",
@@ -23,23 +23,37 @@
     ]
   },
   "expected_hash_match": true,
-  "metrics_source": "metricas.json + recomputacion directa desde scores-todos-candidatos-full.csv.gz",
-  "figure_script": "cerrar_pendientes_41.py",
-  "figure_method": "ROC y precision-recall sobre score=-score_samples; todas las observaciones; prevalencia 84/65505",
+  "metrics_values_unchanged": true,
+  "serialization": "UTF-8 sin BOM, LF; JSON indent=2 ensure_ascii=False con LF final; SHA-256 de bytes finales",
+  "figure_script": "finalizar_41.py (make_figure de cerrar_pendientes_41.py)",
+  "figure_method": "ROC completa y PR steps-post; todos los umbrales; AP=average_precision_score; sin integración trapezoidal",
   "alpha_source": {
     "file": "p1-reconciliacion.json",
     "n_val": 65633
   },
   "files": {
     "scores-todos-candidatos-full.csv.gz": "6e98219fb79a187b7256e664a4791a0619be70a68d9a23eee1e61c45de98ffc8",
-    "TABLA6.md": "ff145af8a90d5b3bfd604e467cc8e169526ebc3e069cba8f4a32256aa7429711",
-    "TABLA7.md": "5c62dc7242d2151f0734b7c554d5e5be123d7dc2464aa9f2802abca7b4c0b27f",
-    "ALFA-F6.csv": "edab46dffe3d48ae443cc5e45e3a9637f19f4eb40b80cfeff38db30022458ba0",
+    "metricas.json": "1714bb751e35a347e5e02e3d36a7407871fdd1dba7dd0ee172c895db46096902",
+    "TABLA6.md": "a1944e671335e9e7d066b10733ffe81dbf9d93d438776300cda2de32a42099a3",
+    "TABLA6.csv": "ff3d2e349138bd804ac37158d9c84cec37ddbd9f7d2201005e99f34fc407b81a",
+    "TABLA7.md": "d2795642e028d362b3fbc7f39ef725d17801569d5415c37985d924a9f725bef4",
+    "TABLA7.csv": "4b5bcb9da99b222281fed1eafdef62302b22a050c08924e20c96a0d6423e27e6",
+    "ALFA-F6.csv": "4ccc521113226b82ce7274a564db7d11b83e7f910aa1e92b0e0cb30e802faf62",
     "ALFA-F6.md": "7577c87f359321fb900f26077e0ace2b676d5bdb2605c46bc88414305d60dbb4",
-    "metricas.json": "9557d73435a61bbf91cbbf2c2a5936db6547430f906aeb17ae236d244e624e62",
-    "figura-roc-pr-v2.png": "c7ff251ac98b45587ce75a115e1ca4fdd3129d7389fc2be982bc8c246cc52605",
-    "figura-roc-pr-v2.svg": "864bee62a914635fb752e8163b9742e962e54b56e3078e46dff76c7c39a64182",
-    "figura-roc-pr-v2.pdf": "ad55e7465b1f59675382b7d459361e374f506baadc8378c1112c85eb1824587f"
+    "p1-reconciliacion.json": "2d6b11daa0262060dda8e482eb3dda74814f229fe4081a71728eaa721fa5c689",
+    "p3-ventanas-cero.json": "0d5caae22a768932faeabe37807b4bef78d617d4d27fea79c3abf3e94591b2b9",
+    "figura-roc-pr-v2.png": "a07dad56d11379dfbda545658df1dccd0302fc05321492f6e26b5d395172abe5",
+    "figura-roc-pr-v2.svg": "b9c79ab986186089d75d016cda5aa0b8ddccb7d4695c3106ce7fbedd87d94c20",
+    "figura-roc-pr-v2.pdf": "112ea232d3cd15059489b62372e8e83b98ff57d392b758b08a53b9b0be9bb49f",
+    "COMPROBACION-METRICAS-4.1.json": "f31bcbd1fc421b5de80c11ec0328a26dec617360b022b2f43a9a02dade8c550c",
+    "../../../../4.1-modelos/BASE-EDITORIAL-FINAL-4.1.md": "14fdab8af9999258404b9e6be3110ae9f4425b4f65b13e04fa11fac19e3e9fbb",
+    "../../../../4.1-modelos/BASE-EDITORIAL-4.1.md": "3e716d9929688dc7194198ec11b388dcc44bf5912ee914ec6c67020df7837789",
+    "../../../../4.1-modelos/SUSTITUCIONES-EXACTAS-WORD-4.1.md": "385089170a75100bd71457067eb25cde4459b25d16dcb37ff33c1a19f92a5e2b",
+    "../../../../4.1-modelos/finalizar_41.py": "d112e5181e9dd62059eaaaf0828f62d593976c50ce1df34a21263fce14174853",
+    "../../../../4.1-modelos/cerrar_pendientes_41.py": "56f038cc72a4297abadd56c3ae8a1e8ab70f4c4640a8b3219c72c21ad0b2a844",
+    "../../../../../../../.gitattributes": "7299166b78dd094ba221654d81899d5bd9ee4668f1260b8afc3f94cc58c513d0",
+    "../../../../4.1-modelos/ENTREGABLES-FINALES-4.1.md": "4f3de3674777d9d16bccd0cd911b07312b664393f332b460b1e11abeef79abf2"
   },
-  "model_or_deployment_changes": false
+  "model_or_deployment_changes": false,
+  "integrity_proof": "VERIFICACION-GITHUB-4.1.json se genera después del push y no se auto-incluye en los hashes"
 }

@@ -4,7 +4,7 @@ Precision/Recall/FPR en %; F1/ROC-AUC/AP en [0,1]. Umbral propio de cada modelo 
 
 | Configuracion | Entrenamiento | Precision | Recall | F1 | FPR | ROC-AUC | AP |
 |---|---|---:|---:|---:|---:|---:|---:|
-| IF limpio (desplegado) | esta red | 1.79 % | 64.29 % | 0.0348 | 4.53 % | 0.9247 | 0.1858 |
+| IF limpio (desplegado) | esta red | 1.79 % | 64.29 % | 0.03485 | 4.53 % | 0.92473 | 0.18581 |
 | IF recalibrado (contaminado, antecedente) | esta red | 1.82 % | 64.29 % | 0.0354 | 4.45 % | 0.9228 | 0.2026 |
 | IF scaled (lab) | laboratorio | 0.39 % | 91.67 % | 0.0077 | 30.34 % | 0.8250 | 0.0043 |
 | IF primary (lab) | laboratorio | 0.36 % | 82.14 % | 0.0072 | 29.07 % | 0.8283 | 0.0044 |

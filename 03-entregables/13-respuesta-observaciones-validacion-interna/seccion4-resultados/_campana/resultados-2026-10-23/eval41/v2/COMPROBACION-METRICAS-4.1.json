@@ -1,0 +1,191 @@
+{
+  "rows": 65505,
+  "normal": 65421,
+  "positive_labeled": 84,
+  "score_source_sha256": "6e98219fb79a187b7256e664a4791a0619be70a68d9a23eee1e61c45de98ffc8",
+  "unchanged_metrics_values": true,
+  "models": [
+    {
+      "modelo": "IF limpio (desplegado)",
+      "TP": 54,
+      "FP": 2961,
+      "TN": 62460,
+      "FN": 30,
+      "precision": 0.01791044776119403,
+      "recall": 0.6428571428571429,
+      "F1": 0.03484995159728945,
+      "FPR": 0.04526069610675471,
+      "roc_auc": 0.9247265513258084,
+      "average_precision": 0.18580688397625872,
+      "pr_points": 20897,
+      "all_threshold_points": true,
+      "ap_step_sum_crosscheck": 0.18580688397625872
+    },
+    {
+      "modelo": "IF recalibrado (contaminado, antecedente)",
+      "TP": 54,
+      "FP": 2913,
+      "TN": 62508,
+      "FN": 30,
+      "precision": 0.01820020222446916,
+      "recall": 0.6428571428571429,
+      "F1": 0.035398230088495575,
+      "FPR": 0.044526986747374694,
+      "roc_auc": 0.9228294977366376,
+      "average_precision": 0.20262877250576297,
+      "pr_points": 20781,
+      "all_threshold_points": true,
+      "ap_step_sum_crosscheck": 0.20262877250576297
+    },
+    {
+      "modelo": "IF scaled (lab)",
+      "TP": 77,
+      "FP": 19849,
+      "TN": 45572,
+      "FN": 7,
+      "precision": 0.0038642979022382815,
+      "recall": 0.9166666666666666,
+      "F1": 0.007696151924037981,
+      "FPR": 0.3034041057152902,
+      "roc_auc": 0.8250339740916162,
+      "average_precision": 0.0043325608859961905,
+      "pr_points": 19890,
+      "all_threshold_points": true,
+      "ap_step_sum_crosscheck": 0.0043325608859961905
+    },
+    {
+      "modelo": "IF primary (lab)",
+      "TP": 69,
+      "FP": 19015,
+      "TN": 46406,
+      "FN": 15,
+      "precision": 0.003615594215049256,
+      "recall": 0.8214285714285714,
+      "F1": 0.007199499165275458,
+      "FPR": 0.2906559055960624,
+      "roc_auc": 0.8282612398377976,
+      "average_precision": 0.004431233959553154,
+      "pr_points": 19847,
+      "all_threshold_points": true,
+      "ap_step_sum_crosscheck": 0.004431233959553154
+    },
+    {
+      "modelo": "IF uniform (lab)",
+      "TP": 72,
+      "FP": 22328,
+      "TN": 43093,
+      "FN": 12,
+      "precision": 0.0032142857142857142,
+      "recall": 0.8571428571428571,
+      "F1": 0.0064045543497598285,
+      "FPR": 0.34129713700493725,
+      "roc_auc": 0.7959899471627356,
+      "average_precision": 0.005446380013753868,
+      "pr_points": 18986,
+      "all_threshold_points": true,
+      "ap_step_sum_crosscheck": 0.005446380013753868
+    },
+    {
+      "modelo": "IF exact (lab)",
+      "TP": 72,
+      "FP": 22328,
+      "TN": 43093,
+      "FN": 12,
+      "precision": 0.0032142857142857142,
+      "recall": 0.8571428571428571,
+      "F1": 0.0064045543497598285,
+      "FPR": 0.34129713700493725,
+      "roc_auc": 0.7959899471627356,
+      "average_precision": 0.005446380013753868,
+      "pr_points": 18986,
+      "all_threshold_points": true,
+      "ap_step_sum_crosscheck": 0.005446380013753868
+    },
+    {
+      "modelo": "OCSVM (lab)",
+      "TP": 84,
+      "FP": 65141,
+      "TN": 280,
+      "FN": 0,
+      "precision": 0.0012878497508623994,
+      "recall": 1.0,
+      "F1": 0.0025723866542130486,
+      "FPR": 0.9957200287369499,
+      "roc_auc": 0.4554791093001301,
+      "average_precision": 0.0011396328291025364,
+      "pr_points": 18930,
+      "all_threshold_points": true,
+      "ap_step_sum_crosscheck": 0.0011396328291025364
+    },
+    {
+      "modelo": "LOF (lab)",
+      "TP": 59,
+      "FP": 50241,
+      "TN": 15180,
+      "FN": 25,
+      "precision": 0.001172962226640159,
+      "recall": 0.7023809523809523,
+      "F1": 0.0023420133375674813,
+      "FPR": 0.76796441509607,
+      "roc_auc": 0.29912886571299,
+      "average_precision": 0.0008827377126942718,
+      "pr_points": 27222,
+      "all_threshold_points": true,
+      "ap_step_sum_crosscheck": 0.0008827377126942718
+    },
+    {
+      "modelo": "Elliptic Envelope (lab)",
+      "TP": 36,
+      "FP": 56852,
+      "TN": 8569,
+      "FN": 48,
+      "precision": 0.0006328223878498101,
+      "recall": 0.42857142857142855,
+      "F1": 0.0012637786983079407,
+      "FPR": 0.8690175937390134,
+      "roc_auc": 0.3442529011726975,
+      "average_precision": 0.001398786032548219,
+      "pr_points": 26081,
+      "all_threshold_points": true,
+      "ap_step_sum_crosscheck": 0.001398786032548219
+    }
+  ],
+  "tables_csv_agree": true,
+  "ap_method": "sklearn.metrics.average_precision_score(y, -score_samples)",
+  "ap_not_trapezoidal": true,
+  "pr_drawstyle": "steps-post",
+  "no_point_selection": true,
+  "previous_published_discrepancy": {
+    "artifact_commit": "474919802e83ab8fe879fc9a3e71c309b894cd66",
+    "file": "metricas.json",
+    "old_manifest_sha256": "9557d73435a61bbf91cbbf2c2a5936db6547430f906aeb17ae236d244e624e62",
+    "downloaded_sha256": "bf72bfb3eb08c229bf2179791d7e0e78b0af018e8141355a3487c35dfad99233",
+    "downloaded_crlf_count": 0,
+    "cause": "El manifiesto se generó sobre bytes locales distintos de los normalizados por Git; no cambió el contenido JSON ni las métricas."
+  },
+  "png": {
+    "pixels": [
+      4320,
+      3180
+    ],
+    "dpi": [
+      599.9988,
+      599.9988
+    ]
+  },
+  "runtime": {
+    "python": "3.14.3",
+    "sklearn": "1.9.1",
+    "matplotlib": "3.11.2"
+  },
+  "reviewed_sources": {
+    "word": {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\orquestacion-limpio\\03-entregables\\13-respuesta-observaciones-validacion-interna\\seccion4-resultados\\4.1-modelos\\Articulo-IJIES-espanol_MARK_4.1-revisado.docx",
+      "sha256": "3f83c6d9136aedc4bd6ff44b7a154895b3dafe62d008a8e24077c78d36297edc"
+    },
+    "excel": {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\orquestacion-limpio\\03-entregables\\13-respuesta-observaciones-validacion-interna\\RESPUESTA-OBSERVACIONES-validacion-interna-CyberFlow.xlsx",
+      "sha256": "cba8c160f3a93fef983f250df281ad2df9c4d0df0b8ede02a7329a50754d64eb"
+    }
+  }
+}
