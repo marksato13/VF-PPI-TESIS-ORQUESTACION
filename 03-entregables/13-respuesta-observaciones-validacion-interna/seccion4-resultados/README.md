@@ -1,0 +1,47 @@
+# Sección 4 (Results and Discussion) — evidencia reproducible (modelo limpio)
+
+Trabajo de evidencia para la Sección 4 del artículo IJIES, con el modelo **desplegado**
+`if_limpio_2026_10` y los heurísticos vigentes (`VERSION_UMBRALES 2026-10-06.2`). **No redacta
+el artículo**: produce números, scripts y procedimiento reproducible (reglas del encargo).
+
+Responde a las observaciones de validación interna: **F5** (modelos), **ablación** (aporte del
+híbrido, 4.2), **Suricata** (4.3), **N1/N3** (LIMIT/BLOCK y tiempos, 4.4).
+
+## Contenido
+
+- `00-inventario/INVENTARIO-Y-FACTIBILIDAD.md` — estado de repos, artefactos y datos; qué es
+  computable offline y qué falta; **lista exacta de faltantes + procedimiento** (reglas 8 y 9).
+- `4.2-ablacion/`
+  - `ablacion_sensor.py` (+ `Tabla8-ablacion-sensor.md`, `matriz-episodios-sensor.csv`,
+    `metadata-ablacion-sensor.json`) — **VÁLIDO**: IF limpio + heurísticos sobre datos del
+    **sensor** (65 421 benignas + 181 ventanas Kali). Valida **FPR IF 4,53 %**.
+  - `ablacion_limpio.py` — demostración de por qué el set de **laboratorio** no sirve para el
+    modelo del sensor (artefacto sim→real, ~90 % FPR). Sus salidas NO son un resultado.
+    Ver el `README.md` de esa carpeta.
+- `_campana/` — kit para la campaña instrumentada (una corrida → Tablas 8/9/10):
+  - `GUION-CAMPANA-LIMPIO.md` — runbook paso a paso.
+  - `orquestar_campana.sh` — orquestador (Kali): batería N≥3 × DNS/flood/escaneo + fuerza bruta
+    aparte; `marcas.jsonl` con t0/t_fin (reloj de pared + monotónico); prueba de corte real.
+  - `analizar_vivo.py` — `marcas.jsonl` + `motor_decision.log` → Tabla 8 (ablación por episodio)
+    + t1 + entrada para `30-metricas.py`.
+  - `heuristicos_por_ventana.py` — componente heurístico en el camino de replay.
+
+## Entradas externas (no versionadas aquí; con hash en los `metadata-*.json`)
+
+- Datasets del sensor: `normal-reservado.csv` (65 421), `limpio.csv` (particionado con las 181
+  ventanas Kali `eligible_training=False`).
+- Paquete del modelo limpio (`paq_despues.joblib`, umbral `decision_function −0,069397` =
+  `score_samples −0,569397`, verificado = el desplegado).
+- Datasets de laboratorio: `producto-main/artifacts/dataset/multilayer-v2-{anomalies,normal}.csv`.
+- Heurísticos: `producto-main/scripts/engine/heuristicos.py`.
+
+## Estado
+
+| Subsección | Hecho (offline, válido) | Pendiente (lo da la campaña) |
+|---|---|---|
+| 4.2 ablación | FPR IF 4,53 % validado; componentes en tráfico Kali real | batería fiel 3×3 → Tabla 8 |
+| 4.3 Suricata | método + tooling listos (replay, modelo limpio) | PCAP por episodio → Tabla 9 |
+| 4.4 tiempos | cadena t0–t5 mapeada; "no medido" declarado | ensayos post-limpio → Tabla 10 |
+
+Revisión: 2026-10-23. Repos base: `producto-main` fa9e5b0, `orquestacion-limpio` 2f72d4d.
+</content>
