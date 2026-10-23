@@ -1,0 +1,276 @@
+{
+  "tabla6_clean": {
+    "modelo": "IF limpio (desplegado)",
+    "origen": "esta red",
+    "sha256": "df547da098e51171aa267c8466edc6624bc1bd5c6b602639cc00bd4711a2fd60",
+    "sha_en_manifest": false,
+    "umbral": -0.5693969936322356,
+    "roc_auc": 0.9247265513258084,
+    "average_precision": 0.18580688397625872,
+    "TP": 54,
+    "FP": 2961,
+    "TN": 62460,
+    "FN": 30,
+    "precision": 0.01791044776119403,
+    "recall": 0.6428571428571429,
+    "F1": 0.03484995159728945,
+    "specificity": 0.9547393038932452,
+    "FPR": 0.04526069610675471
+  },
+  "n_pos": 84,
+  "n_neg": 65421,
+  "n_total": 65505,
+  "per_familia_proxy": {
+    "escaneo": {
+      "n": 33,
+      "det": 19
+    },
+    "HTTP": {
+      "n": 43,
+      "det": 35
+    },
+    "DNS": {
+      "n": 8,
+      "det": 0
+    }
+  },
+  "tabla7": [
+    {
+      "modelo": "IF limpio (desplegado)",
+      "origen": "esta red",
+      "sha256": "df547da098e51171aa267c8466edc6624bc1bd5c6b602639cc00bd4711a2fd60",
+      "sha_en_manifest": false,
+      "umbral": -0.5693969936322356,
+      "roc_auc": 0.9247265513258084,
+      "average_precision": 0.18580688397625872,
+      "TP": 54,
+      "FP": 2961,
+      "TN": 62460,
+      "FN": 30,
+      "precision": 0.01791044776119403,
+      "recall": 0.6428571428571429,
+      "F1": 0.03484995159728945,
+      "specificity": 0.9547393038932452,
+      "FPR": 0.04526069610675471
+    },
+    {
+      "modelo": "IF recalibrado (contaminado, antecedente)",
+      "origen": "esta red",
+      "sha256": "d27f68711fcb0f6657611bd7feb17759bc4fae36b9e61fbd5ca8d1190128125a",
+      "sha_en_manifest": false,
+      "umbral": -0.568892,
+      "roc_auc": 0.9228294977366376,
+      "average_precision": 0.20262877250576297,
+      "TP": 54,
+      "FP": 2913,
+      "TN": 62508,
+      "FN": 30,
+      "precision": 0.01820020222446916,
+      "recall": 0.6428571428571429,
+      "F1": 0.035398230088495575,
+      "specificity": 0.9554730132526253,
+      "FPR": 0.044526986747374694
+    },
+    {
+      "modelo": "IF scaled (lab)",
+      "origen": "laboratorio",
+      "sha256": "37020dc7c7e7e1dfe9f89c0763452093ed00fce0be2553fbe7ea6a7575846144",
+      "sha_en_manifest": true,
+      "umbral": -0.5041873448075626,
+      "roc_auc": 0.8250339740916162,
+      "average_precision": 0.0043325608859961905,
+      "TP": 77,
+      "FP": 19849,
+      "TN": 45572,
+      "FN": 7,
+      "precision": 0.0038642979022382815,
+      "recall": 0.9166666666666666,
+      "F1": 0.007696151924037981,
+      "specificity": 0.6965958942847098,
+      "FPR": 0.3034041057152902
+    },
+    {
+      "modelo": "IF primary (lab)",
+      "origen": "laboratorio",
+      "sha256": "56989fdf01c5d8976708008288ae7ea961443963033640baf20cd8017d6186ba",
+      "sha_en_manifest": true,
+      "umbral": -0.5060656354947982,
+      "roc_auc": 0.8282612398377976,
+      "average_precision": 0.004431233959553154,
+      "TP": 69,
+      "FP": 19015,
+      "TN": 46406,
+      "FN": 15,
+      "precision": 0.003615594215049256,
+      "recall": 0.8214285714285714,
+      "F1": 0.007199499165275458,
+      "specificity": 0.7093440944039375,
+      "FPR": 0.2906559055960624
+    },
+    {
+      "modelo": "IF uniform (lab)",
+      "origen": "laboratorio",
+      "sha256": "5c9a877d1bbfd599f60e7bb6cb10075d599da6f4d2187c57cc300e36f84fac09",
+      "sha_en_manifest": true,
+      "umbral": -0.5543415531007138,
+      "roc_auc": 0.7959899471627356,
+      "average_precision": 0.005446380013753868,
+      "TP": 72,
+      "FP": 22328,
+      "TN": 43093,
+      "FN": 12,
+      "precision": 0.0032142857142857142,
+      "recall": 0.8571428571428571,
+      "F1": 0.0064045543497598285,
+      "specificity": 0.6587028629950628,
+      "FPR": 0.34129713700493725
+    },
+    {
+      "modelo": "IF exact (lab)",
+      "origen": "laboratorio",
+      "sha256": "5c9a877d1bbfd599f60e7bb6cb10075d599da6f4d2187c57cc300e36f84fac09",
+      "sha_en_manifest": true,
+      "umbral": -0.5543415531007138,
+      "roc_auc": 0.7959899471627356,
+      "average_precision": 0.005446380013753868,
+      "TP": 72,
+      "FP": 22328,
+      "TN": 43093,
+      "FN": 12,
+      "precision": 0.0032142857142857142,
+      "recall": 0.8571428571428571,
+      "F1": 0.0064045543497598285,
+      "specificity": 0.6587028629950628,
+      "FPR": 0.34129713700493725
+    },
+    {
+      "modelo": "OCSVM (lab)",
+      "origen": "laboratorio",
+      "sha256": "af9b50c29f839037b2bda380fc197e017dea482d403c61fa7ae3df79cbff7236",
+      "sha_en_manifest": true,
+      "umbral": 1.8126087939765134,
+      "roc_auc": 0.4554791093001301,
+      "average_precision": 0.0011396328291025364,
+      "TP": 84,
+      "FP": 65141,
+      "TN": 280,
+      "FN": 0,
+      "precision": 0.0012878497508623994,
+      "recall": 1.0,
+      "F1": 0.0025723866542130486,
+      "specificity": 0.004279971263050091,
+      "FPR": 0.9957200287369499
+    },
+    {
+      "modelo": "LOF (lab)",
+      "origen": "laboratorio",
+      "sha256": "55e9d582cb23ed40c3999f4f6632ab5ec12632a09083d8a2da43a0f157d93a3b",
+      "sha_en_manifest": true,
+      "umbral": -2.940529252089549,
+      "roc_auc": 0.29912886571299,
+      "average_precision": 0.0008827377126942718,
+      "TP": 59,
+      "FP": 50241,
+      "TN": 15180,
+      "FN": 25,
+      "precision": 0.001172962226640159,
+      "recall": 0.7023809523809523,
+      "F1": 0.0023420133375674813,
+      "specificity": 0.23203558490392992,
+      "FPR": 0.76796441509607
+    },
+    {
+      "modelo": "Elliptic Envelope (lab)",
+      "origen": "laboratorio",
+      "sha256": "7641e965f78f8f19446b066f604958e3cf108eec39a32d6569418efb648c131b",
+      "sha_en_manifest": true,
+      "umbral": -4004950230.7757044,
+      "roc_auc": 0.3442529011726975,
+      "average_precision": 0.001398786032548219,
+      "TP": 36,
+      "FP": 56852,
+      "TN": 8569,
+      "FN": 48,
+      "precision": 0.0006328223878498101,
+      "recall": 0.42857142857142855,
+      "F1": 0.0012637786983079407,
+      "specificity": 0.13098240626098653,
+      "FPR": 0.8690175937390134
+    }
+  ],
+  "variantes_identicas": {
+    "810779dcefba1b49": [
+      "IF uniform (lab)",
+      "IF exact (lab)"
+    ]
+  },
+  "candidatos_fallidos": [],
+  "umbral_limpio": -0.5693969936322356,
+  "umbral_recal": -0.568892,
+  "alfa_sensibilidad": [
+    {
+      "alfa": 0.01,
+      "umbral": -0.6223889502095352,
+      "fpr_obs": 0.008666941807676434,
+      "recall": 0.5952380952380952,
+      "precision": 0.08103727714748785,
+      "F1": 0.14265335235378032,
+      "n_val": 65553
+    },
+    {
+      "alfa": 0.025,
+      "umbral": -0.595282405679162,
+      "fpr_obs": 0.02172085415997921,
+      "recall": 0.6309523809523809,
+      "precision": 0.03595658073270014,
+      "F1": 0.06803594351732992,
+      "n_val": 65553
+    },
+    {
+      "alfa": 0.05,
+      "umbral": -0.5694578968203694,
+      "fpr_obs": 0.04516898243683221,
+      "recall": 0.6428571428571429,
+      "precision": 0.01794616151545364,
+      "F1": 0.03491755577109603,
+      "n_val": 65553
+    },
+    {
+      "alfa": 0.1,
+      "umbral": -0.5370224764877942,
+      "fpr_obs": 0.09311994619464697,
+      "recall": 0.7023809523809523,
+      "precision": 0.009591936270525118,
+      "F1": 0.018925421010425023,
+      "n_val": 65553
+    }
+  ],
+  "auditoria": {
+    "oro": {
+      "n": 65421,
+      "dup_por_entidad_ventana": 0,
+      "vacias_pkt0": 45558,
+      "features_invalidas": 0,
+      "particion": "test (held-out, nota L)",
+      "sha256": "08604ae3754912a17f1e2895fa199b9758bbc0e91a7e9018070953e2f71b6ac1"
+    },
+    "ataques": {
+      "n": 84,
+      "dup_por_entidad_ventana": 0,
+      "vacias_pkt0": 0,
+      "features_invalidas": 0,
+      "procedencia": "Kali 10.10.20.30, 30-sep 00:10-01:52 UTC (nota M); packet_count>0",
+      "sha256": "4affd07fff45f97c91eb531f208d76df0410fbb602ea1b13847336dfb0e2803e"
+    },
+    "reutilizacion": "Este conjunto (84+65421) YA se uso el 14-oct para la comparacion de modelos (COMPARACION-MODELOS.md): es una EVALUACION REUTILIZADA, no una confirmacion independiente. No hay test ciego nuevo para el limpio.",
+    "181_excluidas": "Distintas de estas 84: son la rafaga Kali del 27-sep excluida del ENTRENAMIENTO (eligible_training=False); no entran a esta evaluacion.",
+    "etiquetas_familia": "PROXY observable (nota M, errata): HTTP si http_request_count_60s>0; si no DNS si dns_query_count_60s>0; resto escaneo. NO es ground-truth por ataque."
+  },
+  "versiones": {
+    "python": "3.14.4",
+    "numpy": "2.5.1",
+    "sklearn": "1.9.0",
+    "joblib": "1.5.3",
+    "scipy": "1.18.0"
+  }
+}

@@ -1,0 +1,12 @@
+indicador,valor,numerador_denominador
+TP,54,ventanas de ataque detectadas / 84
+FP,2961,ventanas normales marcadas / 65 421
+TN,62460,- / 65 421
+FN,30,- / 84
+Precision,0.0179 (1.79 %),TP/(TP+FP) = 54/3015
+Recall (TPR),0.6429 (64.29 %),TP/(TP+FN) = 54/84
+F1,0.0348,2PR/(P+R)
+FPR,0.0453 (4.53 %),FP/(FP+TN) = 2961/65421
+Especificidad,0.9547 (95.47 %),TN/(TN+FP)
+ROC-AUC,0.9247,ranking (anomalia = -score_samples)
+Average Precision (AP),0.1858,sklearn average_precision_score

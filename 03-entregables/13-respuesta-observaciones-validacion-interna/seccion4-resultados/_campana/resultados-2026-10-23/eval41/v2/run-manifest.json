@@ -1,0 +1,125 @@
+{
+  "fecha": "2026-10-23",
+  "versiones": {
+    "python": "3.14.4",
+    "numpy": "2.5.1",
+    "sklearn": "1.9.0",
+    "joblib": "1.5.3",
+    "scipy": "1.18.0"
+  },
+  "datos": {
+    "oro": {
+      "sha256": "08604ae3754912a17f1e2895fa199b9758bbc0e91a7e9018070953e2f71b6ac1",
+      "n": 65421
+    },
+    "ataques": {
+      "sha256": "4affd07fff45f97c91eb531f208d76df0410fbb602ea1b13847336dfb0e2803e",
+      "n": 84
+    },
+    "particionado": {
+      "sha256": "bdf6f6419ec19e711c7add9e8b5f1440b896b32270c25d69b7e8267d4f9aba7a"
+    },
+    "manifiesto_limpio": {
+      "sha256": "b3ad680595128189574527208e53058f613822f56f542f914faef6495aa2a9e7"
+    },
+    "manifiesto_candidatos": {
+      "sha256": "f7f446d5efc5bdc9c678e033a2c95d3f40a050497eaceab9c71cfe479f4e9b76"
+    }
+  },
+  "hashes_modelos": {
+    "IF limpio (desplegado)": {
+      "sha256": "df547da098e51171aa267c8466edc6624bc1bd5c6b602639cc00bd4711a2fd60",
+      "en_model_hashes_manifest": false,
+      "umbral": -0.5693969936322356
+    },
+    "IF recalibrado (contaminado, antecedente)": {
+      "sha256": "d27f68711fcb0f6657611bd7feb17759bc4fae36b9e61fbd5ca8d1190128125a",
+      "en_model_hashes_manifest": false,
+      "umbral": -0.568892
+    },
+    "IF scaled (lab)": {
+      "sha256": "37020dc7c7e7e1dfe9f89c0763452093ed00fce0be2553fbe7ea6a7575846144",
+      "en_model_hashes_manifest": true,
+      "umbral": -0.5041873448075626
+    },
+    "IF primary (lab)": {
+      "sha256": "56989fdf01c5d8976708008288ae7ea961443963033640baf20cd8017d6186ba",
+      "en_model_hashes_manifest": true,
+      "umbral": -0.5060656354947982
+    },
+    "IF uniform (lab)": {
+      "sha256": "5c9a877d1bbfd599f60e7bb6cb10075d599da6f4d2187c57cc300e36f84fac09",
+      "en_model_hashes_manifest": true,
+      "umbral": -0.5543415531007138
+    },
+    "IF exact (lab)": {
+      "sha256": "5c9a877d1bbfd599f60e7bb6cb10075d599da6f4d2187c57cc300e36f84fac09",
+      "en_model_hashes_manifest": true,
+      "umbral": -0.5543415531007138
+    },
+    "OCSVM (lab)": {
+      "sha256": "af9b50c29f839037b2bda380fc197e017dea482d403c61fa7ae3df79cbff7236",
+      "en_model_hashes_manifest": true,
+      "umbral": 1.8126087939765134
+    },
+    "LOF (lab)": {
+      "sha256": "55e9d582cb23ed40c3999f4f6632ab5ec12632a09083d8a2da43a0f157d93a3b",
+      "en_model_hashes_manifest": true,
+      "umbral": -2.940529252089549
+    },
+    "Elliptic Envelope (lab)": {
+      "sha256": "7641e965f78f8f19446b066f604958e3cf108eec39a32d6569418efb648c131b",
+      "en_model_hashes_manifest": true,
+      "umbral": -4004950230.7757044
+    }
+  },
+  "model_hashes_manifest": {
+    "models/elliptic_envelope_scaled.joblib": "7641e965f78f8f19446b066f604958e3cf108eec39a32d6569418efb648c131b",
+    "models/if_exact_collapsed.joblib": "5c9a877d1bbfd599f60e7bb6cb10075d599da6f4d2187c57cc300e36f84fac09",
+    "models/if_primary_weighted.joblib": "56989fdf01c5d8976708008288ae7ea961443963033640baf20cd8017d6186ba",
+    "models/if_scaled_weighted.joblib": "37020dc7c7e7e1dfe9f89c0763452093ed00fce0be2553fbe7ea6a7575846144",
+    "models/if_uniform.joblib": "5c9a877d1bbfd599f60e7bb6cb10075d599da6f4d2187c57cc300e36f84fac09",
+    "models/lof_scaled.joblib": "55e9d582cb23ed40c3999f4f6632ab5ec12632a09083d8a2da43a0f157d93a3b",
+    "models/ocsvm_scaled.joblib": "af9b50c29f839037b2bda380fc197e017dea482d403c61fa7ae3df79cbff7236"
+  },
+  "umbrales": {
+    "elliptic_envelope_scaled": -4004950230.7757044,
+    "if_exact_collapsed": -0.5543415531007138,
+    "if_primary_weighted": -0.5060656354947982,
+    "if_scaled_weighted": -0.5041873448075626,
+    "if_uniform": -0.5543415531007138,
+    "lof_scaled": -2.940529252089549,
+    "ocsvm_scaled": 1.8126087939765134
+  },
+  "features_orden": [
+    "packet_rate_10s",
+    "byte_rate_10s",
+    "mean_ip_len_10s",
+    "large_ip_ratio_10s",
+    "unique_dst_ip_ratio_30s",
+    "icmp_ratio_10s",
+    "flow_attempt_rate_10s",
+    "syn_rate_10s",
+    "syn_completion_ratio_10s",
+    "rst_ratio_10s",
+    "unique_dst_port_ratio_30s",
+    "http_error_ratio_60s",
+    "dns_nxdomain_ratio_60s",
+    "tls_session_rate_60s",
+    "ttl_mean_10s",
+    "fragment_ratio_10s",
+    "protocol_diversity_30s",
+    "tcp_retransmission_ratio_10s",
+    "flow_duration_mean_30s",
+    "tx_rx_byte_ratio_30s",
+    "http_request_rate_60s",
+    "http_method_entropy_60s",
+    "http_auth_failure_ratio_60s",
+    "dns_query_rate_60s",
+    "unique_dns_name_ratio_60s",
+    "tls_handshake_failure_ratio_60s",
+    "tls_version_ratio_60s",
+    "http_status_5xx_ratio_60s"
+  ],
+  "comando": "python3 eval_41_v2.py (sensor, venv py3.14.4/sklearn1.9.0)"
+}
