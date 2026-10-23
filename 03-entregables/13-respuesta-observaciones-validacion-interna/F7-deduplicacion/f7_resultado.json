@@ -1,0 +1,76 @@
+{
+  "/tmp/campana-v2/pass.pcap": {
+    "tramas_ipv4": 17238,
+    "copias_quitadas_funcion": 3595,
+    "pares_replicados": 3595,
+    "coinciden": true,
+    "pct_quitado": 20.855,
+    "dist_dTTL": {
+      "1": 3595
+    },
+    "dt_max_us": 2178.0,
+    "similares_legitimos_conservados": 39,
+    "ejemplos": {
+      "dTTL=1": {
+        "proto": 6,
+        "src": "10.10.10.30",
+        "dst": "10.10.20.30",
+        "sport": 55756,
+        "dport": 22,
+        "ip_id": 28948,
+        "ip_length": 60,
+        "tcp_seq": 3784200257,
+        "vlan_a": 10,
+        "vlan_b": 20,
+        "ttl_a": 64,
+        "ttl_b": 63,
+        "dt_us": 256.1
+      }
+    }
+  },
+  "/tmp/campana-pcap/pass.pcap": {
+    "tramas_ipv4": 9466,
+    "copias_quitadas_funcion": 4738,
+    "pares_replicados": 4738,
+    "coinciden": true,
+    "pct_quitado": 50.053,
+    "dist_dTTL": {
+      "1": 4729,
+      "0": 9
+    },
+    "dt_max_us": 918.1,
+    "similares_legitimos_conservados": 2213,
+    "ejemplos": {
+      "dTTL=1": {
+        "proto": 6,
+        "src": "10.10.10.30",
+        "dst": "10.10.20.30",
+        "sport": 45848,
+        "dport": 22,
+        "ip_id": 5989,
+        "ip_length": 60,
+        "tcp_seq": 3405808502,
+        "vlan_a": 10,
+        "vlan_b": 20,
+        "ttl_a": 64,
+        "ttl_b": 63,
+        "dt_us": 1.0
+      },
+      "dTTL=0": {
+        "proto": 6,
+        "src": "10.10.20.30",
+        "dst": "10.10.30.10",
+        "sport": 43410,
+        "dport": 80,
+        "ip_id": 0,
+        "ip_length": 40,
+        "tcp_seq": 838982198,
+        "vlan_a": 20,
+        "vlan_b": 20,
+        "ttl_a": 64,
+        "ttl_b": 64,
+        "dt_us": 22.9
+      }
+    }
+  }
+}
