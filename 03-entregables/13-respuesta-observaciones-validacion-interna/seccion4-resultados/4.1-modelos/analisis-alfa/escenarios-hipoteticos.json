@@ -1,0 +1,74 @@
+[
+  {
+    "escenario": "HIPOTETICO: C_FP=1; C_FN=1",
+    "mejores_en_rejilla": [
+      0.005
+    ],
+    "coste_minimo": 338,
+    "coste_alfa_005": 2991
+  },
+  {
+    "escenario": "HIPOTETICO: C_FP=1; C_FN=100",
+    "mejores_en_rejilla": [
+      0.01
+    ],
+    "coste_minimo": 3967,
+    "coste_alfa_005": 5961
+  },
+  {
+    "escenario": "HIPOTETICO: C_FP=1; C_FN=290",
+    "mejores_en_rejilla": [
+      0.02
+    ],
+    "coste_minimo": 10410,
+    "coste_alfa_005": 11661
+  },
+  {
+    "escenario": "HIPOTETICO: C_FP=1; C_FN=300",
+    "mejores_en_rejilla": [
+      0.025
+    ],
+    "coste_minimo": 10723,
+    "coste_alfa_005": 11961
+  },
+  {
+    "escenario": "HIPOTETICO: C_FP=1; C_FN=400",
+    "mejores_en_rejilla": [
+      0.03
+    ],
+    "coste_minimo": 13725,
+    "coste_alfa_005": 14961
+  },
+  {
+    "escenario": "HIPOTETICO: C_FP=1; C_FN=1000",
+    "mejores_en_rejilla": [
+      0.1
+    ],
+    "coste_minimo": 31107,
+    "coste_alfa_005": 32961
+  },
+  {
+    "escenario": "HIPOTETICO: FPR <=0.01",
+    "mejores_en_rejilla": [
+      0.01
+    ]
+  },
+  {
+    "escenario": "HIPOTETICO: FPR <=0.02",
+    "mejores_en_rejilla": [
+      0.02
+    ]
+  },
+  {
+    "escenario": "HIPOTETICO: recall >=0.64",
+    "mejores_en_rejilla": [
+      0.03
+    ]
+  },
+  {
+    "escenario": "HIPOTETICO: recall >=0.7",
+    "mejores_en_rejilla": [
+      0.1
+    ]
+  }
+]
