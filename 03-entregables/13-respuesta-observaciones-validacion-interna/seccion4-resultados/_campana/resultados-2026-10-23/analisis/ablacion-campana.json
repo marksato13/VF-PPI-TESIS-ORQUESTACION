@@ -1,0 +1,102 @@
+{
+  "episodios": [
+    {
+      "id": "E-dns-1",
+      "familia": "dns",
+      "t_inicio": 1792769090.8640275,
+      "t_fin": 1792769108.9886541
+    },
+    {
+      "id": "E-dns-2",
+      "familia": "dns",
+      "t_inicio": 1792769198.9963994,
+      "t_fin": 1792769217.054352
+    },
+    {
+      "id": "E-dns-3",
+      "familia": "dns",
+      "t_inicio": 1792769307.0609593,
+      "t_fin": 1792769324.8321269
+    },
+    {
+      "id": "E-flood-1",
+      "familia": "flood",
+      "t_inicio": 1792769414.8403616,
+      "t_fin": 1792769445.1790771
+    },
+    {
+      "id": "E-flood-2",
+      "familia": "flood",
+      "t_inicio": 1792769535.1862156,
+      "t_fin": 1792769811.4386907
+    },
+    {
+      "id": "E-flood-3",
+      "familia": "flood",
+      "t_inicio": 1792769901.4449522,
+      "t_fin": 1792770861.8107624
+    },
+    {
+      "id": "E-brute-1",
+      "familia": "brute",
+      "t_inicio": 1792770951.8213031,
+      "t_fin": 1792771802.5382702
+    },
+    {
+      "id": "E-scan-1",
+      "familia": "scan",
+      "t_inicio": 1792772193.6793349,
+      "t_fin": 1792772195.831749
+    }
+  ],
+  "ablacion": [
+    {
+      "id": "E-dns-1",
+      "familia": "dns",
+      "detected_by_model": false,
+      "detected_by_heuristic": true
+    },
+    {
+      "id": "E-dns-2",
+      "familia": "dns",
+      "detected_by_model": true,
+      "detected_by_heuristic": true
+    },
+    {
+      "id": "E-dns-3",
+      "familia": "dns",
+      "detected_by_model": false,
+      "detected_by_heuristic": true
+    },
+    {
+      "id": "E-flood-1",
+      "familia": "flood",
+      "detected_by_model": false,
+      "detected_by_heuristic": true
+    },
+    {
+      "id": "E-flood-2",
+      "familia": "flood",
+      "detected_by_model": true,
+      "detected_by_heuristic": true
+    },
+    {
+      "id": "E-flood-3",
+      "familia": "flood",
+      "detected_by_model": false,
+      "detected_by_heuristic": true
+    },
+    {
+      "id": "E-brute-1",
+      "familia": "brute",
+      "detected_by_model": true,
+      "detected_by_heuristic": true
+    },
+    {
+      "id": "E-scan-1",
+      "familia": "scan",
+      "detected_by_model": false,
+      "detected_by_heuristic": false
+    }
+  ]
+}

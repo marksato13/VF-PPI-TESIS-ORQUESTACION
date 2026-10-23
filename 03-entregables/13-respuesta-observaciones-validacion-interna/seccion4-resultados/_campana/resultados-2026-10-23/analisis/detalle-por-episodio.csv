@@ -1,0 +1,9 @@
+id,familia,n_ventanas,modelo,heuristico,combinado,reglas,acciones,t1_modelo_s,t1_heur_s,t1_any_s
+E-dns-1,dns,11,False,True,True,dns_entropy,LIMIT,,72.1,72.1
+E-dns-2,dns,11,True,True,True,dns_entropy,LIMIT,74.4,74.3,74.3
+E-dns-3,dns,12,False,True,True,dns_entropy|http_abuse|port_scan,BLOCK|LIMIT,,66.0,66.0
+E-flood-1,flood,18,False,True,True,http_abuse,LIMIT,,88.6,88.6
+E-flood-2,flood,43,True,True,True,http_abuse|port_scan,BLOCK|LIMIT,238.5,238.5,238.5
+E-flood-3,flood,109,False,True,True,http_abuse,LIMIT,,12.4,12.4
+E-brute-1,brute,89,True,True,True,brute_force,BLOCK,791.5,791.5,791.5
+E-scan-1,scan,6,False,False,False,,,,,

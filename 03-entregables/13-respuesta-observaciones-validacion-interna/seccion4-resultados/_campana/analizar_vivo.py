@@ -52,8 +52,9 @@ def cargar_log(log_path, entity):
         if entity and d.get("entity_ip") != entity: continue
         la = ts(d.get("logged_at"))
         if la is None: la = ts(d.get("window_end_utc"))
+        sc = d.get("score")
         filas.append({"la": la,
-                      "model": float(d.get("score", 0)) < float(d.get("threshold", -1e9)),
+                      "model": (sc is not None and float(sc) < float(d.get("threshold", -1e9))),
                       "heur": d.get("heuristico") not in (None, "null"),
                       "heur_obj": d.get("heuristico"),
                       "decision": d.get("decision")})
