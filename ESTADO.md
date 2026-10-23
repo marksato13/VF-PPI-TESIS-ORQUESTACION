@@ -1,5 +1,18 @@
 # Estado
 
+## Corte vigente — 23 de octubre de 2026
+
+Los estados originales de abajo son históricos. El estado vigente y los criterios de cierre están en [PENDIENTES.md](PENDIENTES.md), encabezado «Corte vigente».
+
+- **Implementado/publicado:** líneas Git unificadas sin force-push. Tras corregir las regresiones de integración, la suite Linux congelada ejecutó 443 pruebas sin fallos ni errores (una omitida). CI completo verde en `b204f59`, incluida reproducción del modelo publicado y la última corrección del panel.
+- **Desplegado, verificado por SSH:** `ppi-motor`, `ppi-dashboard` y `ppi-publicar-feed.timer` activos. Los units del motor y panel especifican `if_limpio_2026_10` y su manifiesto limpio. Esto confirma el arranque configurado, no la igualdad de todos los archivos vivos con el último commit.
+- **Validado:** 4.1 offline (65 421 normales + 84 etiquetadas); BLOCK/corte en campaña principal; escaneo/DNS en v2. Campaña final consistente y tiempos t0–t5 siguen abiertos.
+- **Replay nuevo:** Suricata 7.0.3 + ET Open (53 013 reglas) sobre 9 470 paquetes: 55 alertas, desglosadas en 54 STREAM y una informativa por curl. Ver [evidencia](03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/_campana/resultados-2026-10-23/replay43/etopen-20261023/README.md).
+- **Artículo:** copia Word y PDF con 4.1 revisada en el repositorio; secciones posteriores y consolidación de referencias todavía abiertas.
+- **Sin cierre empírico:** test independiente, QA visual en Sensor1 por rol, validación externa y reentrenamiento con datos nuevos reservados.
+
+## Registro histórico (corte original del 9-oct)
+
 **Actualizado:** 9 de octubre de 2026 (verificación por SSH en Sensor1 y publicación de
 la documentación del producto en `main`).
 

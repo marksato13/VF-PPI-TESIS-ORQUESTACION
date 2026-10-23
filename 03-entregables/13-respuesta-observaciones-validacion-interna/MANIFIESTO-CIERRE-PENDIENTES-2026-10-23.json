@@ -1,0 +1,140 @@
+{
+  "checked_utc": "2026-10-23T21:05:19.395793+00:00",
+  "product_commit": "b204f599af5114f4c4f02bf0cd53d3d42afa02f9",
+  "product_ci": [
+    {
+      "conclusion": "success",
+      "databaseId": 40023068513,
+      "headSha": "b204f599af5114f4c4f02bf0cd53d3d42afa02f9",
+      "status": "completed",
+      "url": "https://github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos/actions/runs/40023068513"
+    }
+  ],
+  "sensor_read_only": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\orquestacion-limpio\\03-entregables\\13-respuesta-observaciones-validacion-interna\\VERIFICACION-SENSOR-2026-10-23.txt",
+  "files": [
+    {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\orquestacion-limpio\\.gitattributes",
+      "sha256": "d2772f7cfbef0b30d4dfe1015371f9374a10567372193c561d4138ffb94188e5"
+    },
+    {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\orquestacion-limpio\\03-entregables\\13-respuesta-observaciones-validacion-interna\\CIERRE-PENDIENTES-2026-10-23.md",
+      "sha256": "85c34e0038df72dd2160ad933267cfcefea9f2d6b069a5cb4283afaf54154408"
+    },
+    {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\orquestacion-limpio\\03-entregables\\13-respuesta-observaciones-validacion-interna\\PLAN-IMPLEMENTACION-OBSERVACIONES.md",
+      "sha256": "8041a380a72142b800a5ae4f89004d874fb5aa0498cf7f900d733f90e25e8ed8"
+    },
+    {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\orquestacion-limpio\\03-entregables\\13-respuesta-observaciones-validacion-interna\\seccion4-resultados\\4.1-modelos\\Articulo-IJIES-espanol_MARK_4.1-revisado.docx",
+      "sha256": "3f83c6d9136aedc4bd6ff44b7a154895b3dafe62d008a8e24077c78d36297edc"
+    },
+    {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\orquestacion-limpio\\03-entregables\\13-respuesta-observaciones-validacion-interna\\seccion4-resultados\\4.1-modelos\\Articulo-IJIES-espanol_MARK_4.1-revisado.pdf",
+      "sha256": "fa50ee6a30ee93fdfabcc4da061c963239e984cecf1cdd6e4e69708f1535037b"
+    },
+    {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\orquestacion-limpio\\03-entregables\\13-respuesta-observaciones-validacion-interna\\seccion4-resultados\\4.1-modelos\\publicar_word_41.py",
+      "sha256": "8bff8dc53088f5f5a30c272e451fed983a5b600f76a8e18aa4b39d1b0036cd30"
+    },
+    {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\orquestacion-limpio\\03-entregables\\13-respuesta-observaciones-validacion-interna\\seccion4-resultados\\_campana\\resultados-2026-10-23\\replay43\\etopen-20261023\\eve.json",
+      "sha256": "c4cf577a7b7bbd2f357c880a41845eab7b4d25fae8f76347f6ed8b94d028e0af"
+    },
+    {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\orquestacion-limpio\\03-entregables\\13-respuesta-observaciones-validacion-interna\\seccion4-resultados\\_campana\\resultados-2026-10-23\\replay43\\etopen-20261023\\README.md",
+      "sha256": "edddd7fd32bd8ea384783164c7736f476b44688a029192e065f6b7edd9d65361"
+    },
+    {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\orquestacion-limpio\\03-entregables\\13-respuesta-observaciones-validacion-interna\\seccion4-resultados\\_campana\\resultados-2026-10-23\\replay43\\etopen-20261023\\resumen.json",
+      "sha256": "10089e61b9bcee389b2cc363c80d0cb43c20b6fac09f9f66c9ea250861ca307a"
+    },
+    {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\orquestacion-limpio\\03-entregables\\13-respuesta-observaciones-validacion-interna\\seccion4-resultados\\_campana\\resultados-2026-10-23\\replay43\\etopen-20261023\\resumir_replay.py",
+      "sha256": "f1ef9b1976639f0074c78b7d4e48f0ed5a52127e58933ec82f053e5de1119233"
+    },
+    {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\orquestacion-limpio\\03-entregables\\13-respuesta-observaciones-validacion-interna\\seccion4-resultados\\_campana\\resultados-2026-10-23\\replay43\\etopen-20261023\\suricata.log",
+      "sha256": "da2539ade2a0e8f3c704de69f44aeca361ef9b7241131388bc4d6223c6c74a22"
+    },
+    {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\orquestacion-limpio\\03-entregables\\13-respuesta-observaciones-validacion-interna\\seccion4-resultados\\_campana\\resultados-2026-10-23\\replay43\\RESULTADOS-4.3-REPLAY.md",
+      "sha256": "b0f8c357a0eed4aeef90f198fbdb8f5027a76d9e2448e968837270a018bfd933"
+    },
+    {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\orquestacion-limpio\\03-entregables\\13-respuesta-observaciones-validacion-interna\\VERIFICACION-SENSOR-2026-10-23.txt",
+      "sha256": "9fc2f2daa8db1bfbf60c1ef637a40480e5a3fdab890e601753da352e8c6ace91"
+    },
+    {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\orquestacion-limpio\\03-entregables\\13-respuesta-observaciones-validacion-interna\\verificar_cierre_20261023.py",
+      "sha256": "015e4822239a206f0ab155f78637b2ff0c41e508da78c834b859f7ff695069a8"
+    },
+    {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\orquestacion-limpio\\ESTADO.md",
+      "sha256": "86bfb3e9584273fc8b8d9528d31ec0cc916b6ca0d4880bdc47c287baa9dd1c95"
+    },
+    {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\orquestacion-limpio\\PENDIENTES.md",
+      "sha256": "1143a75fdda3ee31dbcf42699ee344a223c4ac8f08402c0a2699945bb1a0dd43"
+    },
+    {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\producto-as-deployed\\.gitattributes",
+      "sha256": "ca595d72611f2e0c2adfee19d3f566f303f1e046daf15f9ce8e8b7dcee6097fd"
+    },
+    {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\producto-as-deployed\\deploy\\enforcement\\ppi-enforce-agent.timer",
+      "sha256": "dd9748fea13982123a7fd1a893c5492316a48fa1f5b3556ccdf8389e416362f1"
+    },
+    {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\producto-as-deployed\\deploy\\enforcement\\ppi-publicar-feed.timer",
+      "sha256": "1d8d6f1eb3a03bb2b929979c8dad7b1867f0d5260c9794da7af6e11f8099ed55"
+    },
+    {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\producto-as-deployed\\deploy\\enforcement\\ppi-relay-feed.timer",
+      "sha256": "add77320890f24909a63f860f0c66986d14f217e80d25fb2a0295f6e838c8741"
+    },
+    {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\producto-as-deployed\\scripts\\dataset\\particionar_linea_base.py",
+      "sha256": "d4b4957152fb144b34ad4a0679ea1304cd64e5b13d3637e21b914853f94c05d7"
+    },
+    {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\producto-as-deployed\\scripts\\enforce\\agente_enforce.py",
+      "sha256": "3ffd53cdff7684a8e30e01467d1366398a66af316bd33be059efdaba3bd4d0c4"
+    },
+    {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\producto-as-deployed\\scripts\\engine\\dashboard.py",
+      "sha256": "a49745dd90e34cefcf1147b608f57cdbe15f8c55f82d70a5196044a923fd5cae"
+    },
+    {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\producto-as-deployed\\scripts\\engine\\escalada.py",
+      "sha256": "0be76d51ab0fc85829c05b7476eebee5950e7c6d7c1d1fec4d8a89675c7c9fe1"
+    },
+    {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\producto-as-deployed\\scripts\\engine\\publicar_feed.py",
+      "sha256": "ea82777c57f336f790f1e64af4471c604bd00e1ed3af75f2f71fba7cf326f808"
+    },
+    {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\producto-as-deployed\\scripts\\modeling\\puntuar_deteccion.py",
+      "sha256": "92d65087cb8fca701c0a2c6b7d30457c9d19aa4eba2fd3899599185727b0710b"
+    },
+    {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\producto-as-deployed\\tests\\test_alertas_panel.py",
+      "sha256": "6896f8a2e9640beea411574d538f6d474d4ed21721e6cecb0ac6ba54d0ef2450"
+    },
+    {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\producto-as-deployed\\tests\\test_panel_auth_e2e.py",
+      "sha256": "e847ac620dfa663f5266242c41c045f826102a987e80cc5d8c8f842fb99e11bb"
+    },
+    {
+      "path": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\producto-as-deployed\\tests\\test_publicar_feed.py",
+      "sha256": "1ae4c36b48df60bd9489b60dc1e02005813a8470be5a1d00d938804058031158"
+    }
+  ],
+  "not_closed": [
+    "campana final N>=3",
+    "Nikto completo",
+    "tiempos t0-t5",
+    "QA visual en Sensor1 por rol",
+    "validacion externa",
+    "articulo completo"
+  ]
+}

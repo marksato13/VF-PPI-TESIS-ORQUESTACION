@@ -1,6 +1,44 @@
 # Pendientes — CyberFlow
 
-**Actualizado:** 9 de octubre de 2026. Fuente única de «qué falta». El estado de cada
+## Corte vigente — 23 de octubre de 2026
+
+Este corte sustituye los estados del registro histórico que se conserva más abajo.
+
+### Cerrado y verificado
+
+- **Publicación y convergencia Git:** ambas líneas de producto están integradas; `main`, `master` y `as-deployed-sensor-20261006` publicadas. No equivale a desplegar en las VMs.
+- **Regresiones del merge:** corregidas conservación de sets/caducidad del agente, agrupación de reincidencia, exclusión por intervalos, interfaz del puntuador y pruebas del panel. Suite Linux congelada: **443 pruebas, cero fallos y errores, una omitida**. CI completo verde en `b204f59` ([ejecución](https://github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos/actions/runs/40023068513)), incluida la última corrección del panel.
+- **Sesión interna:** realizada el 15-oct; el plan de observaciones ya existe. No seguir listándola como una sesión aún no celebrada.
+- **BLOCK automático:** la campaña principal del 23-oct registra `brute_force → BLOCK` y corte real. Queda abierta la batería final y sus tiempos, no la existencia de toda evidencia de BLOCK.
+- **4.1:** respaldo de scores completo publicado, métricas y figura verificadas; sensibilidad de α sobre validación original de 65 633. No es test ciego independiente.
+- **Word:** copia editorial revisada en `03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/Articulo-IJIES-espanol_MARK_4.1-revisado.docx`, con PDF de revisión. Validación OOXML aprobada y revisión visual de 4.1; sigue siendo borrador de artículo.
+- **Sensor1, comprobación SSH de este corte:** motor, panel y publicador activos. Los units del motor y panel declaran `if_limpio_2026_10`. No se cambió modelo ni despliegue durante esta comprobación.
+- **Replay ET Open:** ejecutado en comparadora 10.10.60.13 sobre el PCAP archivado de 9 470 paquetes, con 53 013 reglas cargadas y cero fallidas. **55 alertas: 54 STREAM y una ET INFO por curl**. Evidencia: [replay y hashes](03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/_campana/resultados-2026-10-23/replay43/etopen-20261023/README.md). No afirmar cero alertas.
+
+### Pendientes reales, por prioridad
+
+| Prioridad | Pendiente | Criterio de cierre |
+|---|---|---|
+| Alta | Campaña final 4.2 | Batería N≥3 consistente: escaneo con camino abierto, HTTP con volumen suficiente y sin solape; atribución por episodio. Las dos corridas existentes son parciales. |
+| Alta | Tabla 9 final 4.3 | Mismo PCAP para ambos motores, control Nikto dentro de captura y criterio explícito para alertas informativas/STREAM; declarar HOME_NET. El replay archivado ya está ejecutado. |
+| Alta | Tiempos 4.4 | Marcas t0–t5, desfase entre relojes, caducidad/reversión y figura de evidencia. No reutilizar 8 s del laboratorio como respuesta del modelo limpio. |
+| Alta | Artículo completo | Revisar título/alcance, secciones 4.2–4.4, conclusiones y referencias duplicadas. El Word publicado incorpora 4.1; no es versión final para enviar. |
+| Alta | QA del panel en Sensor1 por rol | Capturas fechadas admin/lector y comprobación de 403; las pruebas automatizadas de autenticación pasan, pero no sustituyen esa evidencia en la VM. |
+| Alta | Desplegar correcciones recientes de código | Comparar hashes y preparar rollback antes de aplicar solo los componentes aprobados; un push no actualiza procesos remotos. |
+| Media | F6, bibliografía | Sensibilidad y narrativa ya corregidas; falta respaldar el procedimiento con referencias verificadas, sin declarar α óptimo. |
+| Media | F7, duplicados | Cuantificar paquetes SPAN y vectores/ventanas por separado; ejemplo reproducible y criterio que preserve tráfico legítimo repetido. |
+| Media | Reentrenamiento antes/después | Evaluación con datos nuevos reservados, decisión documentada y sin promoción automática. |
+| Media | Validación externa | Respuestas TAM y expertos reales, cálculo de fiabilidad/validez; no se cierra con instrumentos vacíos. |
+| Media | Trabajo futuro | IPv6 y pfSense perimetral declarados con alcance consistente; no presentarlos como implementados. |
+| Baja | Cierre operativo/publicación | Argumento viejo `--umbrales` del unit, configuración nunca-bloquear, credenciales al cierre y DOI Zenodo. |
+
+**Límite de este corte:** no se ejecutó una nueva campaña de ataques de 90–110 min. Sí se verificó acceso SSH y se ejecutó replay offline del PCAP archivado. La validación externa requiere respuestas de personas; no se fabrican.
+
+---
+
+## Registro histórico — no usar como lista vigente
+
+**Actualizado originalmente:** 9 de octubre de 2026. Fuente única de «qué falta». El estado de cada
 componente, con sus cuatro estados (implementado · publicado · desplegado · validado), está
 en [`ESTADO.md`](ESTADO.md); el detalle, en `04-evidencias/cyberflow/` (notas K–O) y en la
 [ficha técnica del producto](https://github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos/blob/01b6f3fa71bb4daca320b8928ef912e5f4dc8dc2/docs/FICHA-TECNICA-DESPLIEGUE-VIGENTE.md).

@@ -1,5 +1,7 @@
 # 4.3 — Comparación por replay (pasada limpia 2026-10-23)
 
+> **Actualización posterior del 23-oct:** ya se ejecutó ET Open en la comparadora sobre este PCAP. Resultado: **55 alertas (54 STREAM y una ET INFO por curl)**, con 53 013 reglas cargadas, cero fallidas y HOME_NET 10.10.30.0/24. La falta de ejecución del comparador queda cerrada para este archivo. Ver [EVE, log, hashes y análisis](etopen-20261023/README.md). La tabla y el estado de abajo describen el replay previo sin reglas; se conservan como histórico, no como resultado ET Open vigente. Nikto/captura completa y batería final siguen abiertos.
+
 Método de replay (nota 19): un solo PCAP (`/tmp/campana-pcap/pass.pcap`, 9 470 paquetes, 1,1 MB,
 captura `tcpdump host 10.10.20.30` en el sensor) pasado por CyberFlow (modelo limpio
 `if_limpio_2026_10` + heurísticos `2026-10-06.2`, vía `extract_multilayer_v2` → score_samples) y por

@@ -1,5 +1,7 @@
 # Plan de implementación — Observaciones de la validación interna
 
+> **Actualización 23-oct:** el plan original de abajo se conserva como trazabilidad. La referencia vigente de 4.1 es `seccion4-resultados/4.1-modelos/BASE-EDITORIAL-4.1.md` y `eval41/v2`: modelo limpio, FPR 4,53 %, recall 54/84, precisión 1,79 %. Se retiró **Det@FPR5%** porque fijaba cortes sobre test y no se afirma superioridad general ni equivalencia estadística. F5 tiene evidencia canónica; F6 tiene sensibilidad y narrativa corregidas (bibliografía aún abierta). F7 y la validación externa siguen abiertos. La copia Word de 4.1 está preparada para publicación. El estado consolidado manda en `PENDIENTES.md`, corte 23-oct.
+
 **Sesión validada:** 2026-10-15 · **Plan redactado:** 2026-10-16
 **Tracker de origen:** `RESPUESTA-OBSERVACIONES-validacion-interna-CyberFlow.xlsx`
 (generado por `generar_respuesta_observaciones.py`, en esta misma carpeta).
