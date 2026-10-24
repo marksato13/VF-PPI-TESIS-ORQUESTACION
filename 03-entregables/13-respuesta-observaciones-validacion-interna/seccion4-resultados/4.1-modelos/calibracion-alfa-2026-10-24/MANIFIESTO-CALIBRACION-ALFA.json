@@ -1,5 +1,5 @@
 {
-  "generado_utc": "2026-10-24T19:39:35.942486+00:00",
+  "generado_utc": "2026-10-24T19:40:24.903079+00:00",
   "proposito": "nueva calibración offline (sensibilidad de α); no cambia el sistema desplegado",
   "modelo": {
     "id": "if_limpio_2026_10",
@@ -41,7 +41,7 @@
     "documentacion": {
       "url": "https://github.com/marksato13/VF-PPI-TESIS-ORQUESTACION",
       "rama": "main",
-      "commit_base": "1b45e056fe3d64f38291f5de97c423bbbafe3814"
+      "commit_base": "88692aee601a6e99655e14b608b5fa719f32790e"
     },
     "implementacion": {
       "url": "https://github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos",
@@ -49,13 +49,13 @@
     }
   },
   "salidas_sha256": {
-    "calibrar_alfa.py": "8b2890563981b02debd0f96b5c047dbd9b929a998a94f4e3255c0325a425bb8c",
-    "figura-roc-pr-puntos-operativos.pdf": "2f972eb03bdbad13ffa3370abf25a77f55843c238a798d92d1f8f41a395a2d36",
+    "calibrar_alfa.py": "8f81e75a0e8ad991a6e61cafc282a8a7ad85577332f03096a53367f5879581ee",
+    "figura-roc-pr-puntos-operativos.pdf": "f0e4a61569664f37bee9d222410d6ebacbbb5d70f87e0f4ae7e0e566c421f558",
     "figura-roc-pr-puntos-operativos.png": "1064ad8ae18ca264e31cece859fece65d3f211748223a3f5ac445018e3009f66",
-    "figura-roc-pr-puntos-operativos.svg": "ba57f0dce13df6bb1fec541a41c6a9a830c9f61714f6ed2d30d44ef2dde6904a",
-    "figura-sensibilidad-alfa.pdf": "0eb4132633c60dff499bce713b92edb9f6ba116c702c5e0f00fdd324e92db474",
+    "figura-roc-pr-puntos-operativos.svg": "b1f1eac0e9afc10d69479a6a425900b57760daec73f2815b4188db6c1db3b5c7",
+    "figura-sensibilidad-alfa.pdf": "a8fbd2b844e3b4dfaf328f7a5073cf8e38cdd044b5fa9affb9df3b9a800d54bd",
     "figura-sensibilidad-alfa.png": "b4e3a683b41d175cea3db8bf4ebadac89d279c02073344b59aabeaf460bf70fb",
-    "figura-sensibilidad-alfa.svg": "62217682adbba0d176d9c867b9f6264018d3ac5f2fef541e8e1afe38b9845b99",
+    "figura-sensibilidad-alfa.svg": "2109867a2f13798491c5470ad526031d0c7ed0fa996d80944889d73cd183bb8a",
     "NOTA-CALIBRACION-ALFA.md": "96174ded6e24e224b2f0883599ef75368219e6977c91070152be2b46325bba02",
     "resultados-calibracion-alfa.json": "cf07c0c9545b1f3ac75e7564faf95f3b1225b790d8cf98ba7e287eb5469bd57d",
     "SENSIBILIDAD-ALFA.csv": "e9d63f457751ee5f465653627bbc9b14cb0439073cd9dde1295dd82f78675d72",

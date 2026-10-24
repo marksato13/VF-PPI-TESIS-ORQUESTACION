@@ -275,6 +275,9 @@ def main():
                                "umbral_q05_original_menos_sin_kali": q(sv, 0.05) - q(sv_nk, 0.05)}}
     escribir(AQUI / "resultados-calibracion-alfa.json", json.dumps(res, indent=2, ensure_ascii=False) + "\n")
 
+    for svg in AQUI.glob("*.svg"):  # el repo guarda texto en LF (.gitattributes); hash sobre los bytes publicados
+        svg.write_bytes(svg.read_bytes().replace(b"\r\n", b"\n"))
+
     repo = AQUI
     salidas = sorted(p for p in AQUI.iterdir() if p.is_file() and p.name not in ("MANIFIESTO-CALIBRACION-ALFA.json",)
                      and p.suffix not in (".pyc",))
