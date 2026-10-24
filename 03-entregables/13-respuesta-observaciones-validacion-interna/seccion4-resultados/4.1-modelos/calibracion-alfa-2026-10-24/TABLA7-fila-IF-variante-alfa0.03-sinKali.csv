@@ -1,0 +1,2 @@
+configuracion,origen,precision,recall,F1,FPR,roc_auc,average_precision,umbral,nota
+"IF limpio, α = 0,03 sin Kali (selección posterior; no desplegado)",esta red,0.030388294879009566,0.6428571428571429,0.05803331542181624,0.02633710887941181,0.9247265513258084,0.18580688397625872,-0.5898535710336618,Mismo modelo y scores que la fila 'IF limpio (desplegado)'; solo cambia el umbral. Otras filas sin recalibrar.

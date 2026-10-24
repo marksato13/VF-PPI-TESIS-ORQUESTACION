@@ -1,0 +1,11 @@
+conjunto,filas,variacion,nota
+particionado-limpio.csv (filas totales),337980,,entrada declarada del entrenamiento (sha 5ef83b32…)
+descartadas por banda de guarda,2778,−2 778,60 s al inicio de cada bloque; no pertenecen a ninguna partición
+partición train,204148,,
+  excluidas del entrenamiento (eligible_training=False),181,−181,"Kali 10.10.20.30, ráfaga 27-sep 21:35–22:05 UTC; única diferencia entre particionado-limpio y nota-L"
+  entrenamiento efectivo,203967,203 967,coincide con el informe del modelo
+partición validation (calibración original),65633,65 633,idéntica en nota-L
+  ventanas Kali en validación (excluidas solo de la nueva calibración),80,−80,normalidad no confirmada; NO se etiquetan como ataque
+  validación sin Kali (nueva calibración),65553,65 553,
+partición test = oro (prueba normal),65421,65 421,"mismas claves y valores; incluye 74 ventanas de 10.10.20.30, sin cambios"
+ataques nota M (evaluación),84,84,0 solapes con train/validation/test
