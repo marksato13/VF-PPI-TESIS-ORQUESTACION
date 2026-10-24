@@ -1,0 +1,69 @@
+{
+  "generado_utc": "2026-10-24T19:39:35.942486+00:00",
+  "proposito": "nueva calibración offline (sensibilidad de α); no cambia el sistema desplegado",
+  "modelo": {
+    "id": "if_limpio_2026_10",
+    "sha256_joblib_desplegado": "df547da098e51171aa267c8466edc6624bc1bd5c6b602639cc00bd4711a2fd60",
+    "pipeline": [
+      "scaler",
+      "model"
+    ],
+    "features_28_orden_verificado": true,
+    "umbral_desplegado_sin_cambios": -0.5693969936322356
+  },
+  "entradas_sensor_sha256": {
+    "modelo_desplegado": "df547da098e51171aa267c8466edc6624bc1bd5c6b602639cc00bd4711a2fd60",
+    "manifiesto_desplegable": "b3ad680595128189574527208e53058f613822f56f542f914faef6495aa2a9e7",
+    "informe_entrenamiento": "cb67b3ee608ad6e79cd8dbda436beaa33086ec9ce0e00a034dee6f8e0c14be8e",
+    "particionado_limpio": "5ef83b32469238b74eb16c2c2ff422a7757711318c0c77646e67bb966e61b573",
+    "particionado_nota_L": "bdf6f6419ec19e711c7add9e8b5f1440b896b32270c25d69b7e8267d4f9aba7a",
+    "oro_prueba_normal": "08604ae3754912a17f1e2895fa199b9758bbc0e91a7e9018070953e2f71b6ac1",
+    "ataques_nota_M": "4affd07fff45f97c91eb531f208d76df0410fbb602ea1b13847336dfb0e2803e"
+  },
+  "entradas_locales_sha256": {
+    "scores-todos-candidatos-full.csv.gz": "6e98219fb79a187b7256e664a4791a0619be70a68d9a23eee1e61c45de98ffc8",
+    "metricas.json": "1714bb751e35a347e5e02e3d36a7407871fdd1dba7dd0ee172c895db46096902"
+  },
+  "datos_sensor_sha256": {
+    "exclusiones-entrenamiento-181.csv": "5403ed339b59587010b9a11862c5c925e939e5de7b94938b3939be8b94132301",
+    "scores-ataques-84.csv.gz": "af0b410125f6917f95bf6178931c691a28ab4da05eb6b0c9c44601649d0e5257",
+    "scores-prueba-normal-65421.csv.gz": "175f05aa0c3a62b171aee01f251f8d7a019f6032478c15c2d3a5dc80990d2154",
+    "scores-validacion-65633.csv.gz": "7207933cd8ef5b6ea44b06f64594641142052f527316e8de0e24e104e2704e99",
+    "sensor_calib.py": "6807dfb8f6e71ceac790afee2f81d67078125307e970fb91005fad732a01ad95",
+    "sensor-procedencia.json": "846a5363f5974cd62c9ba477657176247eb603c33ad5fbacf4acafdac9d450f2"
+  },
+  "runtime_sensor": {
+    "python": "3.14.4",
+    "sklearn": "1.9.0",
+    "numpy": "2.5.1"
+  },
+  "repositorios": {
+    "documentacion": {
+      "url": "https://github.com/marksato13/VF-PPI-TESIS-ORQUESTACION",
+      "rama": "main",
+      "commit_base": "1b45e056fe3d64f38291f5de97c423bbbafe3814"
+    },
+    "implementacion": {
+      "url": "https://github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos",
+      "nota": "no se ejecuta código del repo; el sensor usa su copia desplegada (sin .git). Ver NOTA."
+    }
+  },
+  "salidas_sha256": {
+    "calibrar_alfa.py": "8b2890563981b02debd0f96b5c047dbd9b929a998a94f4e3255c0325a425bb8c",
+    "figura-roc-pr-puntos-operativos.pdf": "2f972eb03bdbad13ffa3370abf25a77f55843c238a798d92d1f8f41a395a2d36",
+    "figura-roc-pr-puntos-operativos.png": "1064ad8ae18ca264e31cece859fece65d3f211748223a3f5ac445018e3009f66",
+    "figura-roc-pr-puntos-operativos.svg": "ba57f0dce13df6bb1fec541a41c6a9a830c9f61714f6ed2d30d44ef2dde6904a",
+    "figura-sensibilidad-alfa.pdf": "0eb4132633c60dff499bce713b92edb9f6ba116c702c5e0f00fdd324e92db474",
+    "figura-sensibilidad-alfa.png": "b4e3a683b41d175cea3db8bf4ebadac89d279c02073344b59aabeaf460bf70fb",
+    "figura-sensibilidad-alfa.svg": "62217682adbba0d176d9c867b9f6264018d3ac5f2fef541e8e1afe38b9845b99",
+    "NOTA-CALIBRACION-ALFA.md": "96174ded6e24e224b2f0883599ef75368219e6977c91070152be2b46325bba02",
+    "resultados-calibracion-alfa.json": "cf07c0c9545b1f3ac75e7564faf95f3b1225b790d8cf98ba7e287eb5469bd57d",
+    "SENSIBILIDAD-ALFA.csv": "e9d63f457751ee5f465653627bbc9b14cb0439073cd9dde1295dd82f78675d72",
+    "SENSIBILIDAD-ALFA.md": "b81b58a24556d3f1cd3af046be4f4a979d3406216e2e24b4ede860e327a07713",
+    "TABLA6-variante-alfa0.03-sinKali.csv": "5cf59bcf8aaa1f4570aaba13eea7370e2a04175f0dde4babd8e1933584e3515b",
+    "TABLA7-fila-IF-variante-alfa0.03-sinKali.csv": "f96c302b68df4473ea2962d4fb72ae4a1e0713d6f8236d67d20e4380702adb82",
+    "TRAZABILIDAD-DATOS.csv": "abfbf18583e093509aa5938a45e36b63f292c4239ef79c9231d867f0c727be88",
+    "TRAZABILIDAD-DATOS.md": "a93218f95d87e64077959385880eeb73634ef699a63f3480d67ae3d0160b2986",
+    "validacion-kali-80-excluidas.csv": "a8d1de2d84698f751ca25bcca7a16bfdb51f21ee58e46b99e863af5d687374dc"
+  }
+}

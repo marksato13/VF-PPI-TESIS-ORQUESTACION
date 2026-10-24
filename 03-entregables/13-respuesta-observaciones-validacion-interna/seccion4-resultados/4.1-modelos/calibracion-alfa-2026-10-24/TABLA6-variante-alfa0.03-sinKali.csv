@@ -1,0 +1,12 @@
+indicador,valor,numerador_denominador
+TP,54,/ 84
+FP,1723,/ 65 421
+TN,63698,/ 65 421
+FN,30,/ 84
+Precisión,0.0304 (3.04 %),TP/(TP+FP) = 54/1777
+Recall (TPR),0.6429 (64.29 %),TP/84
+F1,0.05803,2PR/(P+R)
+FPR,0.0263 (2.63 %),FP/65 421
+ROC-AUC,0.92473,sin cambio: no depende del umbral
+Average Precision (AP),0.18581,sin cambio: no depende del umbral
+Umbral,-0.5898535710336618,"cuantil 0,03 de validación sin Kali (selección posterior)"

@@ -1,0 +1,147 @@
+{
+  "generado_utc": "2026-10-24T19:31:27.751029+00:00",
+  "host": "cyberflow-sensor (10.10.60.11)",
+  "modo": "solo lectura",
+  "runtime": {
+    "python": "3.14.4",
+    "sklearn": "1.9.0",
+    "numpy": "2.5.1"
+  },
+  "entradas_sha256": {
+    "modelo_desplegado": "df547da098e51171aa267c8466edc6624bc1bd5c6b602639cc00bd4711a2fd60",
+    "manifiesto_desplegable": "b3ad680595128189574527208e53058f613822f56f542f914faef6495aa2a9e7",
+    "informe_entrenamiento": "cb67b3ee608ad6e79cd8dbda436beaa33086ec9ce0e00a034dee6f8e0c14be8e",
+    "particionado_limpio": "5ef83b32469238b74eb16c2c2ff422a7757711318c0c77646e67bb966e61b573",
+    "particionado_nota_L": "bdf6f6419ec19e711c7add9e8b5f1440b896b32270c25d69b7e8267d4f9aba7a",
+    "oro_prueba_normal": "08604ae3754912a17f1e2895fa199b9758bbc0e91a7e9018070953e2f71b6ac1",
+    "ataques_nota_M": "4affd07fff45f97c91eb531f208d76df0410fbb602ea1b13847336dfb0e2803e"
+  },
+  "modelo": {
+    "sha256_declarado_manifiesto": "df547da098e51171aa267c8466edc6624bc1bd5c6b602639cc00bd4711a2fd60",
+    "sha256_coincide": true,
+    "pasos_pipeline": [
+      "scaler",
+      "model"
+    ],
+    "n_features_in": 28,
+    "orden_features_igual_informe": true,
+    "features": [
+      "packet_rate_10s",
+      "byte_rate_10s",
+      "mean_ip_len_10s",
+      "large_ip_ratio_10s",
+      "unique_dst_ip_ratio_30s",
+      "icmp_ratio_10s",
+      "flow_attempt_rate_10s",
+      "syn_rate_10s",
+      "syn_completion_ratio_10s",
+      "rst_ratio_10s",
+      "unique_dst_port_ratio_30s",
+      "http_error_ratio_60s",
+      "dns_nxdomain_ratio_60s",
+      "tls_session_rate_60s",
+      "ttl_mean_10s",
+      "fragment_ratio_10s",
+      "protocol_diversity_30s",
+      "tcp_retransmission_ratio_10s",
+      "flow_duration_mean_30s",
+      "tx_rx_byte_ratio_30s",
+      "http_request_rate_60s",
+      "http_method_entropy_60s",
+      "http_auth_failure_ratio_60s",
+      "dns_query_rate_60s",
+      "unique_dns_name_ratio_60s",
+      "tls_handshake_failure_ratio_60s",
+      "tls_version_ratio_60s",
+      "http_status_5xx_ratio_60s"
+    ],
+    "umbral_desplegado": -0.5693969936322356,
+    "regla": "score < threshold (score_samples)",
+    "alpha_desplegado": 0.05,
+    "informe_entrada_sha256": "5ef83b32469238b74eb16c2c2ff422a7757711318c0c77646e67bb966e61b573",
+    "informe_entrada_es_particionado_limpio": true,
+    "informe_filas": {
+      "test": 65421,
+      "train": 203967,
+      "validation": 65633
+    }
+  },
+  "conteos": {
+    "particionado_filas": 337980,
+    "particiones": {
+      "train": 204148,
+      "descartada_guarda": 2778,
+      "validation": 65633,
+      "test": 65421
+    },
+    "train_eligible_training": {
+      "True": 203967,
+      "False": 181
+    },
+    "kali_por_particion": {
+      "test": 74,
+      "descartada_guarda": 8,
+      "train": 549,
+      "validation": 80
+    },
+    "oro_filas": 65421,
+    "oro_kali": 74,
+    "ataques_filas": 84,
+    "ataques_entidades": {
+      "10.10.20.30": 84
+    }
+  },
+  "exclusiones_entrenamiento": {
+    "filas_distintas_limpio_vs_notaL": 181,
+    "columnas_que_difieren": {
+      "eligible_training": 181
+    },
+    "particion_de_esas_filas": {
+      "train": 181
+    },
+    "entidades": {
+      "10.10.20.30": 181
+    },
+    "valores_limpio": {
+      "('False',)": 181
+    },
+    "valores_notaL": {
+      "('True',)": 181
+    },
+    "rango_window_end_utc": [
+      "2026-09-27T21:35:00+00:00",
+      "2026-09-27T22:05:00+00:00"
+    ]
+  },
+  "validacion_identica_notaL": true,
+  "solapes": {
+    "oro_igual_test_particion": true,
+    "claves_unicas": {
+      "train": 204148,
+      "validation": 65633,
+      "test": 65421,
+      "oro": 65421,
+      "ataques": 84
+    },
+    "ataques∩validation": 0,
+    "ataques∩train": 0,
+    "ataques∩test": 0,
+    "validation∩test": 0,
+    "validation∩train": 0,
+    "oro_mismos_valores_features_que_test": true
+  },
+  "reproduccion_umbral": {
+    "q05_validacion_completa_linear": -0.5693969936322356,
+    "umbral_desplegado": -0.5693969936322356,
+    "diferencia": 0.0,
+    "fp_oro_umbral_desplegado": 2961,
+    "tp_ataques_umbral_desplegado": 54
+  },
+  "salidas_sha256": {
+    "exclusiones-entrenamiento-181.csv": "5403ed339b59587010b9a11862c5c925e939e5de7b94938b3939be8b94132301",
+    "scores-ataques-84.csv.gz": "af0b410125f6917f95bf6178931c691a28ab4da05eb6b0c9c44601649d0e5257",
+    "scores-prueba-normal-65421.csv.gz": "175f05aa0c3a62b171aee01f251f8d7a019f6032478c15c2d3a5dc80990d2154",
+    "scores-validacion-65633.csv.gz": "7207933cd8ef5b6ea44b06f64594641142052f527316e8de0e24e104e2704e99",
+    "sensor_calib.py": "6807dfb8f6e71ceac790afee2f81d67078125307e970fb91005fad732a01ad95"
+  }
+}
