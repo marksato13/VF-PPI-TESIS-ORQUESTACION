@@ -1,0 +1,66 @@
+{
+ "metodo": "OCSVM",
+ "inicio_utc": "2026-10-25T07:06:20.818882+00:00",
+ "config": {
+  "clase": "sklearn.svm.OneClassSVM",
+  "params": {
+   "kernel": "rbf",
+   "nu": 0.05,
+   "gamma": "scale",
+   "tol": 0.001,
+   "shrinking": true,
+   "cache_size": 4000,
+   "max_iter": -1
+  },
+  "puntuacion": "-score_samples",
+  "justificacion": "nu=0,05 = alfa nominal del despliegue; gamma='scale' = 1/(28*Var(X)) ~ 1/28 en datos estandarizados; sin busqueda: no hay normales etiquetados fuera de validacion y la validacion se reserva para el umbral",
+  "riesgo": "coste O(n^2)-O(n^3) con n = 203 967; si no termina en el presupuesto, se registra y cualquier submuestra se reporta aparte, no en la Tabla 7"
+ },
+ "escalador": {
+  "origen": "if_limpio_2026_10_desplegable.joblib::scaler",
+  "clase": "StandardScaler",
+  "n_features_in": 28,
+  "n_samples_seen": 203967,
+  "with_mean": true,
+  "with_std": true,
+  "avisos_carga": [
+   "Trying to unpickle estimator ExtraTreeRegressor from version 1.9.0 when using version 1.9.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nh",
+   "Trying to unpickle estimator IsolationForest from version 1.9.0 when using version 1.9.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nhttp",
+   "Trying to unpickle estimator Pipeline from version 1.9.0 when using version 1.9.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nhttps://sci",
+   "Trying to unpickle estimator StandardScaler from version 1.9.0 when using version 1.9.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nhttps"
+  ],
+  "igual_a_export_sensor": true
+ },
+ "equipo": {
+  "sistema": "Windows-11-10.0.26300-SP0",
+  "cpu": "Intel(R) Core(TM) Ultra 7 155U",
+  "nucleos_logicos": 14,
+  "python": "3.14.3",
+  "sklearn": "1.9.1",
+  "numpy": "2.4.6",
+  "scipy": "1.18.1"
+ },
+ "t_ajuste_s": 586.1882633000005,
+ "t_inferencia_s": 146.91689829999996,
+ "diagnostico": {
+  "params_usados": {
+   "kernel": "rbf",
+   "nu": 0.05,
+   "gamma": "scale",
+   "tol": 0.001,
+   "shrinking": true,
+   "cache_size": 4000,
+   "max_iter": -1
+  },
+  "n_vectores_soporte": 10235,
+  "gamma_efectivo": 0.038461538461510715
+ },
+ "avisos": [],
+ "n_puntuadas": {
+  "validacion": 65553,
+  "prueba_normal": 65421,
+  "ataque": 84
+ },
+ "puntuaciones_sha256": "f8a3c19c32141182ed3920f9553a7539017490362491513ed40d8195d889da41",
+ "fin_utc": "2026-10-25T07:18:36.529921+00:00"
+}

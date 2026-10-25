@@ -1,0 +1,51 @@
+{
+ "generado_utc": "2026-10-25T07:24:42.131299+00:00",
+ "equipo": {
+  "sistema": "Windows-11-10.0.26300-SP0",
+  "cpu": "Intel(R) Core(TM) Ultra 7 155U",
+  "nucleos_logicos": 14,
+  "python": "3.14.3",
+  "sklearn": "1.9.1",
+  "numpy": "2.4.6",
+  "scipy": "1.18.1"
+ },
+ "semilla": 20260813,
+ "entradas_sha256": {
+  "preliminar/limpio-2026-10/particionado-limpio.csv": "5ef83b32469238b74eb16c2c2ff422a7757711318c0c77646e67bb966e61b573",
+  "preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib": "df547da098e51171aa267c8466edc6624bc1bd5c6b602639cc00bd4711a2fd60",
+  "preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json": "b3ad680595128189574527208e53058f613822f56f542f914faef6495aa2a9e7",
+  "preliminar/limpio-2026-10/if_limpio_2026_10.json": "cb67b3ee608ad6e79cd8dbda436beaa33086ec9ce0e00a034dee6f8e0c14be8e",
+  "aprendizaje/oro/oro.csv": "08604ae3754912a17f1e2895fa199b9758bbc0e91a7e9018070953e2f71b6ac1",
+  "aprendizaje/ataques/ataques-nota-M.csv": "4affd07fff45f97c91eb531f208d76df0410fbb602ea1b13847336dfb0e2803e",
+  "calibracion-alfa-2026-10-24/validacion-kali-80-excluidas.csv": "a8d1de2d84698f751ca25bcca7a16bfdb51f21ee58e46b99e863af5d687374dc",
+  "datos-sensor/scores-ataques-84.csv.gz": "af0b410125f6917f95bf6178931c691a28ab4da05eb6b0c9c44601649d0e5257",
+  "datos-sensor/scores-prueba-normal-65421.csv.gz": "175f05aa0c3a62b171aee01f251f8d7a019f6032478c15c2d3a5dc80990d2154",
+  "datos-sensor/scores-validacion-65633.csv.gz": "7207933cd8ef5b6ea44b06f64594641142052f527316e8de0e24e104e2704e99",
+  "datos-sensor/sensor-procedencia.json": "846a5363f5974cd62c9ba477657176247eb603c33ad5fbacf4acafdac9d450f2"
+ },
+ "codigo_sha256": {
+  "comparar_metodos.py": "212c28c2639acf465058db2e254db2db0b0e6b243d4b078e4664adb0b558447b",
+  "config-comparacion.json": "d4291b951b0c26378e4bd58a6ff105211289c9d45104a0431bf5ab705ce2044f"
+ },
+ "documentacion_sha256": {
+  "AUDITORIA-DATOS.json": "0016c68d6ad73e36b77f2218e78e0e49ac1825e2a5a28e4267c6228c4214e404",
+  "NOTA-COMPARACION.md": "59ee66d1c8e7c8bc9923853f25ecc6d044033eae3e116906a6a962ed8f692876",
+  "REFERENCIAS-VERIFICADAS.md": "33b1b79ee847a2dfa47d6126fbf11aa762b35a40462c0167d68b1de6b007a9ff",
+  "README.md": "d1a36cce947f5ae19174be6cfdba48be6925828dcd617f7c5c7bcdebe70dfc93"
+ },
+ "salidas_sha256": {
+  "salidas/meta-EllipticEnvelope.json": "c7737760b65b251b71001222c948d839ed83510593131954849af5569e9c2103",
+  "salidas/meta-IF.json": "b208e42d021209d30f50b9b7934c383cc2394510a6cd1b9fd0c2944dbe6fcfab",
+  "salidas/meta-LOF.json": "4e1fbe92b0e7dd9302d56bff9358c59cbb5887c69aae3d7f28ae1ec11f637a4d",
+  "salidas/meta-OCSVM.json": "5e49651399327cb1e3e6793255557bedf77a65abda937a25bec8a97f8d7fb249",
+  "salidas/meta-PCA.json": "2b7438de3b246c42f93b7f0d28885a5d77586da8198c8f18c6cebb640bc1fb58",
+  "salidas/puntuaciones-EllipticEnvelope.csv.gz": "3de4f17c61b0f47d6b3b6d45fb9a53e2e95a6375031f334d78b2a366c290f0e9",
+  "salidas/puntuaciones-IF.csv.gz": "536638f47145a8c86d17ba63f7ebf4a2cc3aca2a8294f9ff6d57d8d4ee795fd4",
+  "salidas/puntuaciones-LOF.csv.gz": "b33a6875247828f30185046c01558ae436889509b1b92ee3180c3f047b7e7465",
+  "salidas/puntuaciones-OCSVM.csv.gz": "f8a3c19c32141182ed3920f9553a7539017490362491513ed40d8195d889da41",
+  "salidas/puntuaciones-PCA.csv.gz": "132b5b1c494967efb8df7ee30d3c4d9cf8469ce9ac926ca41252654742aa133c",
+  "TABLA7-comparacion-completa.csv": "1232d87d7c5184ce60f20837fe176f89e02ac004da254da8660d46d539fe1b16",
+  "TABLA7-comparacion.md": "8173e63fce13f8ff19bada9caa4c9db73f4ac9704625ad69deedb586ecbd9886",
+  "resultados-comparacion.json": "be5ff4c6fc58308f4496f45bbe93b67ba356ba5c96eb08d3ccefedc63a610a84"
+ }
+}

@@ -1,5 +1,11 @@
 # 4.1 — Evaluación del modelo limpio y comparación entre modelos
 
+> **Actualización 2026-10-25.** La comparación **entre algoritmos** vigente es
+> `comparacion-metodos-2026-10-25/` (IF congelado frente a OCSVM, LOF, Elliptic Envelope y PCA entrenados con
+> los mismos datos del sensor). La «Tabla 7» de este documento compara candidatos históricos congelados
+> (variantes del IF y un OCSVM de laboratorio) y queda como registro. La calibración α vigente está en
+> `calibracion-alfa-2026-10-24/`.
+
 > **Re-audit endurecido (v2, 2026-10-23): ver `ESQUEMA-AFIRMACIONES-Y-CIERRE-4.1.md`** (autoritativo).
 > Corrige: se **retiró Det@FPR5%** (corte sobre test = fuga), el IF limpio **no gana en todo**
 > (el contaminado tiene AP 0,203 > 0,186 y FPR 4,45 % < 4,53 %; son equivalentes), `IF uniform ≡ IF exact`,

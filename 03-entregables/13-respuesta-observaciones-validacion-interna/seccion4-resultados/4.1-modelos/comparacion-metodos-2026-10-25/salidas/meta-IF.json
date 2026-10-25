@@ -1,0 +1,62 @@
+{
+ "metodo": "IF",
+ "inicio_utc": "2026-10-25T07:02:31.611913+00:00",
+ "config": {
+  "estado": "congelado, no se reentrena",
+  "puntuacion": "-score_samples del pipeline desplegado",
+  "fuente": "puntuaciones del sensor (calibracion-alfa-2026-10-24/datos-sensor); se re-puntua localmente si el joblib carga, solo como verificacion"
+ },
+ "escalador": {
+  "origen": "if_limpio_2026_10_desplegable.joblib::scaler",
+  "clase": "StandardScaler",
+  "n_features_in": 28,
+  "n_samples_seen": 203967,
+  "with_mean": true,
+  "with_std": true,
+  "avisos_carga": [
+   "Trying to unpickle estimator ExtraTreeRegressor from version 1.9.0 when using version 1.9.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nh",
+   "Trying to unpickle estimator IsolationForest from version 1.9.0 when using version 1.9.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nhttp",
+   "Trying to unpickle estimator Pipeline from version 1.9.0 when using version 1.9.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nhttps://sci",
+   "Trying to unpickle estimator StandardScaler from version 1.9.0 when using version 1.9.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nhttps"
+  ],
+  "igual_a_export_sensor": true
+ },
+ "equipo": {
+  "sistema": "Windows-11-10.0.26300-SP0",
+  "cpu": "Intel(R) Core(TM) Ultra 7 155U",
+  "nucleos_logicos": 14,
+  "python": "3.14.3",
+  "sklearn": "1.9.1",
+  "numpy": "2.4.6",
+  "scipy": "1.18.1"
+ },
+ "t_inferencia_s": 3.148603199999343,
+ "t_ajuste_s": null,
+ "diagnostico": {
+  "fuente_puntuaciones": "sensor (datos-sensor/*.csv.gz)",
+  "max_abs_dif_repuntuacion_local": {
+   "validacion": 1.1102230246251565e-16,
+   "prueba_normal": 1.1102230246251565e-16,
+   "ataque": 1.1102230246251565e-16
+  },
+  "modelo_params": {
+   "bootstrap": "False",
+   "contamination": "auto",
+   "max_features": "1.0",
+   "max_samples": "auto",
+   "n_estimators": "500",
+   "n_jobs": "1",
+   "random_state": "20260813",
+   "verbose": "0",
+   "warm_start": "False"
+  }
+ },
+ "avisos": [],
+ "n_puntuadas": {
+  "validacion": 65553,
+  "prueba_normal": 65421,
+  "ataque": 84
+ },
+ "puntuaciones_sha256": "536638f47145a8c86d17ba63f7ebf4a2cc3aca2a8294f9ff6d57d8d4ee795fd4",
+ "fin_utc": "2026-10-25T07:02:39.894782+00:00"
+}
