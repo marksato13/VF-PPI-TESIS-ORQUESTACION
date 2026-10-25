@@ -2,7 +2,7 @@
 
 **Documento intervenido:** `docs/entregables/05-ppi/PPI Editar_actual.docx`
 
-**Respaldo previo:** `docs/entregables/05-ppi/PPI Editar_actual.backup-20260822-before-v2.docx`
+**Respaldo previo:** `PPI Editar_actual.backup-20260822-before-v2.docx`, retirado del árbol; recuperable del historial de git (commit `9cecc1c`).
 
 **Rama:** `main`
 
