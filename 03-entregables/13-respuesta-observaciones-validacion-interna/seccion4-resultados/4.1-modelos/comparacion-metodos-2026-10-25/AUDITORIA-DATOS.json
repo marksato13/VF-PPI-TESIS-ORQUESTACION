@@ -1,0 +1,193 @@
+{
+ "auditoria": {
+  "particionado_filas": 337980,
+  "train_particion": 204148,
+  "train_elegible": 203967,
+  "train_excluidas_bandera": 181,
+  "train_excluidas_entidades": [
+   "10.10.20.30"
+  ],
+  "train_kali_elegibles_conservadas": 368,
+  "validacion_original": 65633,
+  "validacion_excluidas_80": 80,
+  "validacion_comparacion": 65553,
+  "excluidas_80_son_todas_las_kali_de_validacion": true,
+  "prueba_normal": 65421,
+  "prueba_normal_kali_conservadas": 74,
+  "ataques": 84,
+  "evaluacion_total": 65505,
+  "oro_igual_particion_test": true,
+  "solapes": {
+   "train∩val": 0,
+   "train∩oro": 0,
+   "train∩ata": 0,
+   "train∩excl181": 0,
+   "train∩excl80": 0,
+   "val∩oro": 0,
+   "val∩ata": 0,
+   "val∩excl181": 0,
+   "val∩excl80": 0,
+   "oro∩ata": 0,
+   "oro∩excl181": 0,
+   "oro∩excl80": 0,
+   "ata∩excl181": 0,
+   "ata∩excl80": 0,
+   "excl181∩excl80": 0
+  }
+ },
+ "calidad": {
+  "Xtr": {
+   "filas": 203967,
+   "columnas": 28,
+   "no_finitos": 0
+  },
+  "Xva": {
+   "filas": 65553,
+   "columnas": 28,
+   "no_finitos": 0
+  },
+  "Xoro": {
+   "filas": 65421,
+   "columnas": 28,
+   "no_finitos": 0
+  },
+  "Xata": {
+   "filas": 84,
+   "columnas": 28,
+   "no_finitos": 0
+  },
+  "constantes_en_entrenamiento": [
+   "fragment_ratio_10s",
+   "tls_handshake_failure_ratio_60s"
+  ],
+  "rango_entrenamiento": {
+   "packet_rate_10s": [
+    0.0,
+    738.2
+   ],
+   "byte_rate_10s": [
+    0.0,
+    39530.0
+   ],
+   "mean_ip_len_10s": [
+    0.0,
+    379.0
+   ],
+   "large_ip_ratio_10s": [
+    0.0,
+    0.33333333
+   ],
+   "unique_dst_ip_ratio_30s": [
+    0.0,
+    1.0
+   ],
+   "icmp_ratio_10s": [
+    0.0,
+    0.57142857
+   ],
+   "flow_attempt_rate_10s": [
+    0.0,
+    2.3
+   ],
+   "syn_rate_10s": [
+    0.0,
+    2.0
+   ],
+   "syn_completion_ratio_10s": [
+    0.0,
+    1.0
+   ],
+   "rst_ratio_10s": [
+    0.0,
+    0.5
+   ],
+   "unique_dst_port_ratio_30s": [
+    0.0,
+    1.0
+   ],
+   "http_error_ratio_60s": [
+    0.0,
+    1.0
+   ],
+   "dns_nxdomain_ratio_60s": [
+    0.0,
+    2.0
+   ],
+   "tls_session_rate_60s": [
+    0.0,
+    0.7
+   ],
+   "ttl_mean_10s": [
+    0.0,
+    255.0
+   ],
+   "fragment_ratio_10s": [
+    0.0,
+    0.0
+   ],
+   "protocol_diversity_30s": [
+    0.0,
+    1.0
+   ],
+   "tcp_retransmission_ratio_10s": [
+    0.0,
+    0.33333333
+   ],
+   "flow_duration_mean_30s": [
+    0.0,
+    1028.12908411
+   ],
+   "tx_rx_byte_ratio_30s": [
+    0.0,
+    1.0
+   ],
+   "http_request_rate_60s": [
+    0.0,
+    1.78333333
+   ],
+   "http_method_entropy_60s": [
+    0.0,
+    1.75
+   ],
+   "http_auth_failure_ratio_60s": [
+    0.0,
+    1.0
+   ],
+   "dns_query_rate_60s": [
+    0.0,
+    0.73333333
+   ],
+   "unique_dns_name_ratio_60s": [
+    0.0,
+    1.0
+   ],
+   "tls_handshake_failure_ratio_60s": [
+    0.0,
+    0.0
+   ],
+   "tls_version_ratio_60s": [
+    0.0,
+    1.0
+   ],
+   "http_status_5xx_ratio_60s": [
+    0.0,
+    1.0
+   ]
+  },
+  "filas_duplicadas_entrenamiento": 126061,
+  "ventanas_sin_paquetes_recientes(packet_count_10s==0)": {
+   "tr": 146901,
+   "va": 45826,
+   "oro": 45558,
+   "ata": 0
+  }
+ },
+ "entradas_sha256": {
+  "preliminar/limpio-2026-10/particionado-limpio.csv": "5ef83b32469238b74eb16c2c2ff422a7757711318c0c77646e67bb966e61b573",
+  "preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib": "df547da098e51171aa267c8466edc6624bc1bd5c6b602639cc00bd4711a2fd60",
+  "preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json": "b3ad680595128189574527208e53058f613822f56f542f914faef6495aa2a9e7",
+  "preliminar/limpio-2026-10/if_limpio_2026_10.json": "cb67b3ee608ad6e79cd8dbda436beaa33086ec9ce0e00a034dee6f8e0c14be8e",
+  "aprendizaje/oro/oro.csv": "08604ae3754912a17f1e2895fa199b9758bbc0e91a7e9018070953e2f71b6ac1",
+  "aprendizaje/ataques/ataques-nota-M.csv": "4affd07fff45f97c91eb531f208d76df0410fbb602ea1b13847336dfb0e2803e"
+ }
+}

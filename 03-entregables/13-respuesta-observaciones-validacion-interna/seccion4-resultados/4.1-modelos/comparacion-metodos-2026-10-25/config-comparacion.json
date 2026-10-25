@@ -1,0 +1,56 @@
+{
+  "registrado": "2026-10-25, antes de entrenar ningun candidato y sin mirar ataques ni prueba",
+  "semilla": 20260813,
+  "alfas": [0.03, 0.05],
+  "datos": {
+    "entrenamiento": "particionado-limpio.csv: particion == 'train' AND eligible_training == 'True' (203 967; las 181 False quedan fuera por su bandera, no por IP)",
+    "validacion": "particionado-limpio.csv: particion == 'validation' (65 633) menos las 80 claves de validacion-kali-80-excluidas.csv (calibracion alfa 24-oct) = 65 553",
+    "prueba_normal": "oro.csv (65 421; incluye 74 ventanas de 10.10.20.30, sin reetiquetar)",
+    "ataques": "ataques-nota-M.csv (84; solo evaluacion)",
+    "clave": ["campaign_id", "entity_ip", "window_end_utc"],
+    "caracteristicas": "las 28 de manifest-if-limpio-2026-10.json, en ese orden",
+    "preprocesamiento": "StandardScaler congelado del pipeline if_limpio_2026_10_desplegable.joblib (paso 'scaler'); no se reajusta"
+  },
+  "calibracion": {
+    "puntuacion_comun": "mayor = mas anomalo",
+    "umbral": "numpy.quantile(puntuacion_validacion_65553, 1 - alfa, method='linear')",
+    "regla": "anomalia si puntuacion > umbral (estricta)",
+    "empates": "se cuentan las puntuaciones de validacion y evaluacion exactamente iguales al umbral; quedan como normales"
+  },
+  "metodos": {
+    "IF": {
+      "estado": "congelado, no se reentrena",
+      "puntuacion": "-score_samples del pipeline desplegado",
+      "fuente": "puntuaciones del sensor (calibracion-alfa-2026-10-24/datos-sensor); se re-puntua localmente si el joblib carga, solo como verificacion"
+    },
+    "OCSVM": {
+      "clase": "sklearn.svm.OneClassSVM",
+      "params": {"kernel": "rbf", "nu": 0.05, "gamma": "scale", "tol": 0.001, "shrinking": true, "cache_size": 4000, "max_iter": -1},
+      "puntuacion": "-score_samples",
+      "justificacion": "nu=0,05 = alfa nominal del despliegue; gamma='scale' = 1/(28*Var(X)) ~ 1/28 en datos estandarizados; sin busqueda: no hay normales etiquetados fuera de validacion y la validacion se reserva para el umbral",
+      "riesgo": "coste O(n^2)-O(n^3) con n = 203 967; si no termina en el presupuesto, se registra y cualquier submuestra se reporta aparte, no en la Tabla 7"
+    },
+    "LOF": {
+      "clase": "sklearn.neighbors.LocalOutlierFactor",
+      "params": {"n_neighbors": 20, "metric": "minkowski", "p": 2, "algorithm": "auto", "leaf_size": 30, "novelty": true, "n_jobs": -1},
+      "puntuacion": "-score_samples (LOF)",
+      "justificacion": "k=20 = valor por defecto de scikit-learn y dentro del rango MinPts 10-50 sugerido por Breunig et al.; distancia euclidea en el espacio escalado"
+    },
+    "EllipticEnvelope": {
+      "clase": "sklearn.covariance.EllipticEnvelope",
+      "params": {"store_precision": true, "assume_centered": false, "support_fraction": null, "contamination": 0.05, "random_state": 20260813},
+      "puntuacion": "-score_samples = distancia de Mahalanobis al cuadrado respecto de la MCD",
+      "justificacion": "configuracion por defecto (FastMCD); contamination no afecta a la puntuacion continua, solo a offset_, que no se usa",
+      "diagnostico": "variables constantes, rango, numero de condicion de la covarianza robusta, avisos",
+      "params_efectivos": {"store_precision": true, "assume_centered": false, "support_fraction": 0.75, "contamination": 0.05, "random_state": 20260813},
+      "desviacion_D1": "Registrada el 25-oct ANTES de obtener cualquier puntuacion de EE. Con la configuracion original (support_fraction=None -> h=(n+p+1)/2 = 50,0 %) el ajuste falla: 'The covariance matrix of the support data is equal to 0'. Causa, medida solo en entrenamiento: 109 178 de 203 967 filas (53,5 %) son el mismo vector (ventanas sin paquetes, todo ceros), mayor que h, asi que el subconjunto MCD optimo es ese unico punto. Regla: primer valor de la rejilla {0,75; 0,9; 1,0} mayor que 0,535 que permita ajustar -> 0,75. No se uso validacion, prueba ni ataques para elegirlo."
+    },
+    "PCA": {
+      "clase": "sklearn.decomposition.PCA",
+      "params": {"svd_solver": "full", "whiten": false},
+      "componentes": "k minimo con varianza explicada acumulada >= 0,95 en el entrenamiento escalado",
+      "puntuacion": "error de reconstruccion ||z - (mu + (z-mu) V_k V_k^T)||^2 en el espacio escalado z"
+    }
+  },
+  "tiempos": "time.perf_counter; ajuste = fit sobre 203 967; inferencia = puntuar validacion + prueba + ataques (131 058); mismo equipo, una ejecucion por metodo"
+}

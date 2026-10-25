@@ -1,5 +1,9 @@
 # F5 — Comparación de modelos (7 candidatos + OCSVM→IF), lista para el artículo
 
+> **Superado para el artículo (2026-10-25).** La comparación entre algoritmos con los mismos datos del sensor está en
+> `seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/`. Esta tabla (candidatos históricos congelados,
+> OCSVM entrenado en laboratorio) se conserva como registro de la decisión OCSVM→IF.
+
 **Fecha:** 2026-10-18 · **Observación F5:** presentar la tabla de los 7 modelos y la de
 reemplazo OCSVM→IF. **Decidido:** las métricas ya estaban calculadas (re-ejecución en
 `recongelar/`, entorno congelado py3.14.4/sklearn1.9.0); aquí se vuelcan.

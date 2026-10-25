@@ -9,6 +9,13 @@ híbrido, 4.2), **Suricata** (4.3), **N1/N3** (LIMIT/BLOCK y tiempos, 4.4).
 
 ## Contenido
 
+- `4.1-modelos/` — evaluación del IF limpio. Lo vigente:
+  - `comparacion-metodos-2026-10-25/` — **comparación entre algoritmos** (IF congelado, OCSVM, LOF,
+    Elliptic Envelope, PCA) con los mismos datos, escalador y umbral por cuantil; Tabla 7 nueva,
+    puntuaciones por ventana, referencias verificadas. Sustituye a la Tabla 7 de 7 candidatos.
+  - `calibracion-alfa-2026-10-24/` — sensibilidad de α con y sin las 80 ventanas Kali de validación.
+  - `README-4.1-EVALUACION-MODELOS.md` y `../_campana/resultados-2026-10-23/eval41/v2/` — Tabla 6 y
+    paquete canónico del 23-oct (hashes publicados; se conserva tal cual).
 - `00-inventario/INVENTARIO-Y-FACTIBILIDAD.md` — estado de repos, artefactos y datos; qué es
   computable offline y qué falta; **lista exacta de faltantes + procedimiento** (reglas 8 y 9).
 - `4.2-ablacion/`
@@ -43,5 +50,5 @@ híbrido, 4.2), **Suricata** (4.3), **N1/N3** (LIMIT/BLOCK y tiempos, 4.4).
 | 4.3 Suricata | método + tooling listos (replay, modelo limpio) | PCAP por episodio → Tabla 9 |
 | 4.4 tiempos | cadena t0–t5 mapeada; "no medido" declarado | ensayos post-limpio → Tabla 10 |
 
-Revisión: 2026-10-23. Repos base: `producto-main` fa9e5b0, `orquestacion-limpio` 2f72d4d.
+Revisión: 2026-10-25 (índice de 4.1); contenido de 4.2–4.4 del 2026-10-23. Repos base: `producto-main` fa9e5b0, `orquestacion-limpio` 2f72d4d.
 </content>

@@ -1,0 +1,106 @@
+{
+ "metodo": "EllipticEnvelope",
+ "inicio_utc": "2026-10-25T07:03:22.154981+00:00",
+ "config": {
+  "clase": "sklearn.covariance.EllipticEnvelope",
+  "params": {
+   "store_precision": true,
+   "assume_centered": false,
+   "support_fraction": null,
+   "contamination": 0.05,
+   "random_state": 20260813
+  },
+  "puntuacion": "-score_samples = distancia de Mahalanobis al cuadrado respecto de la MCD",
+  "justificacion": "configuracion por defecto (FastMCD); contamination no afecta a la puntuacion continua, solo a offset_, que no se usa",
+  "diagnostico": "variables constantes, rango, numero de condicion de la covarianza robusta, avisos",
+  "params_efectivos": {
+   "store_precision": true,
+   "assume_centered": false,
+   "support_fraction": 0.75,
+   "contamination": 0.05,
+   "random_state": 20260813
+  },
+  "desviacion_D1": "Registrada el 25-oct ANTES de obtener cualquier puntuacion de EE. Con la configuracion original (support_fraction=None -> h=(n+p+1)/2 = 50,0 %) el ajuste falla: 'The covariance matrix of the support data is equal to 0'. Causa, medida solo en entrenamiento: 109 178 de 203 967 filas (53,5 %) son el mismo vector (ventanas sin paquetes, todo ceros), mayor que h, asi que el subconjunto MCD optimo es ese unico punto. Regla: primer valor de la rejilla {0,75; 0,9; 1,0} mayor que 0,535 que permita ajustar -> 0,75. No se uso validacion, prueba ni ataques para elegirlo."
+ },
+ "escalador": {
+  "origen": "if_limpio_2026_10_desplegable.joblib::scaler",
+  "clase": "StandardScaler",
+  "n_features_in": 28,
+  "n_samples_seen": 203967,
+  "with_mean": true,
+  "with_std": true,
+  "avisos_carga": [
+   "Trying to unpickle estimator ExtraTreeRegressor from version 1.9.0 when using version 1.9.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nh",
+   "Trying to unpickle estimator IsolationForest from version 1.9.0 when using version 1.9.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nhttp",
+   "Trying to unpickle estimator Pipeline from version 1.9.0 when using version 1.9.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nhttps://sci",
+   "Trying to unpickle estimator StandardScaler from version 1.9.0 when using version 1.9.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nhttps"
+  ],
+  "igual_a_export_sensor": true
+ },
+ "equipo": {
+  "sistema": "Windows-11-10.0.26300-SP0",
+  "cpu": "Intel(R) Core(TM) Ultra 7 155U",
+  "nucleos_logicos": 14,
+  "python": "3.14.3",
+  "sklearn": "1.9.1",
+  "numpy": "2.4.6",
+  "scipy": "1.18.1"
+ },
+ "t_ajuste_s": 17.3852253999994,
+ "t_inferencia_s": 0.04317550000087067,
+ "diagnostico": {
+  "params_usados": {
+   "store_precision": true,
+   "assume_centered": false,
+   "support_fraction": 0.75,
+   "contamination": 0.05,
+   "random_state": 20260813
+  },
+  "espectro_covarianza": [
+   -2.6961424621413803e-15,
+   -9.696164961292471e-18,
+   -5.275993776118647e-21,
+   -2.661083648474198e-31,
+   -4.6769149064915845e-34,
+   -2.114121895792971e-40,
+   -5.858515167639965e-41,
+   -5.057512663138431e-50,
+   1.6956175798547136e-25,
+   2.708210524687623e-21,
+   1.1347770719897766e-18,
+   7.84889370357412e-18,
+   5.879011390071082e-17,
+   9.22059457554392e-10,
+   2.663794346642698e-08,
+   4.943690238042568e-07,
+   3.751078231876577e-05,
+   4.782745731928899e-05,
+   0.0011611890916508564,
+   0.008947383116286527,
+   0.01902721987545857,
+   0.029902301515484536,
+   0.056006495779649494,
+   0.14594379578978336,
+   0.20998385210959825,
+   0.26256883232053346,
+   0.9672916501018776,
+   2.7286495529529233
+  ],
+  "autovalores_menores_1e_6": 16,
+  "rango_precision": 15,
+  "n_soporte_mcd": 138680,
+  "autovalor_min": -2.6961424621413803e-15,
+  "autovalor_max": 2.7286495529529233,
+  "numero_condicion": "infinito"
+ },
+ "avisos": [
+  "UserWarning: The covariance matrix associated to your dataset is not full rank"
+ ],
+ "n_puntuadas": {
+  "validacion": 65553,
+  "prueba_normal": 65421,
+  "ataque": 84
+ },
+ "puntuaciones_sha256": "3de4f17c61b0f47d6b3b6d45fb9a53e2e95a6375031f334d78b2a366c290f0e9",
+ "fin_utc": "2026-10-25T07:03:42.150514+00:00"
+}

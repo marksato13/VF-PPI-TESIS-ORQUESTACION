@@ -1,0 +1,85 @@
+{
+ "metodo": "PCA",
+ "inicio_utc": "2026-10-25T07:03:00.390840+00:00",
+ "config": {
+  "clase": "sklearn.decomposition.PCA",
+  "params": {
+   "svd_solver": "full",
+   "whiten": false
+  },
+  "componentes": "k minimo con varianza explicada acumulada >= 0,95 en el entrenamiento escalado",
+  "puntuacion": "error de reconstruccion ||z - (mu + (z-mu) V_k V_k^T)||^2 en el espacio escalado z"
+ },
+ "escalador": {
+  "origen": "if_limpio_2026_10_desplegable.joblib::scaler",
+  "clase": "StandardScaler",
+  "n_features_in": 28,
+  "n_samples_seen": 203967,
+  "with_mean": true,
+  "with_std": true,
+  "avisos_carga": [
+   "Trying to unpickle estimator ExtraTreeRegressor from version 1.9.0 when using version 1.9.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nh",
+   "Trying to unpickle estimator IsolationForest from version 1.9.0 when using version 1.9.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nhttp",
+   "Trying to unpickle estimator Pipeline from version 1.9.0 when using version 1.9.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nhttps://sci",
+   "Trying to unpickle estimator StandardScaler from version 1.9.0 when using version 1.9.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nhttps"
+  ],
+  "igual_a_export_sensor": true
+ },
+ "equipo": {
+  "sistema": "Windows-11-10.0.26300-SP0",
+  "cpu": "Intel(R) Core(TM) Ultra 7 155U",
+  "nucleos_logicos": 14,
+  "python": "3.14.3",
+  "sklearn": "1.9.1",
+  "numpy": "2.4.6",
+  "scipy": "1.18.1"
+ },
+ "t_ajuste_s": 0.20283069999823056,
+ "t_inferencia_s": 0.041272700000263285,
+ "diagnostico": {
+  "params_usados": {
+   "svd_solver": "full",
+   "whiten": false
+  },
+  "k": 17,
+  "varianza_explicada_k": 0.9590019585374425,
+  "varianza_acumulada": [
+   0.28393558772970373,
+   0.3948904611226669,
+   0.48209900003477213,
+   0.5445295399496268,
+   0.6016605396050877,
+   0.6563533158628648,
+   0.7004861067526247,
+   0.7403062318810577,
+   0.7787743964848638,
+   0.8170864495355729,
+   0.8502983668387952,
+   0.8803447641924028,
+   0.9056164610386619,
+   0.9212892973137661,
+   0.9356892265931063,
+   0.9480200056601186,
+   0.9590019585374425,
+   0.9678651367260804,
+   0.9758104978427828,
+   0.9824920393475394,
+   0.9882181353252781,
+   0.9930293630426451,
+   0.9973378971755349,
+   0.9992857969523669,
+   0.9999726037212305,
+   1.0,
+   1.0,
+   1.0
+  ]
+ },
+ "avisos": [],
+ "n_puntuadas": {
+  "validacion": 65553,
+  "prueba_normal": 65421,
+  "ataque": 84
+ },
+ "puntuaciones_sha256": "132b5b1c494967efb8df7ee30d3c4d9cf8469ce9ac926ca41252654742aa133c",
+ "fin_utc": "2026-10-25T07:03:03.039318+00:00"
+}
