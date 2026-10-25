@@ -4,7 +4,7 @@
 **Alcance:** desde la sección 2 (Metodología) en adelante, más el sistema de citas
 **Estado:** ✅ **aplicadas al documento** el 26 de agosto de 2026
 
-> Respaldo previo en `PPI Editar_actual.backup-20260826-before-v3.docx`.
+> Respaldo previo (`PPI Editar_actual.backup-20260826-before-v3.docx`): retirado del árbol; recuperable del historial de git (commit `9cecc1c`).
 > Integridad verificada tras editar: 434 párrafos, 11 tablas y **las 4 imágenes
 > intactas**. Las ecuaciones se generaron en **OMML nativo de Word**, no como
 > texto ni como imagen, para que se vean como ecuaciones.

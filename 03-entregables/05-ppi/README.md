@@ -51,7 +51,7 @@ Las tres críticas son las que un dictaminador detecta sin leer el contenido:
 
 Las tres figuras que Codex sustituyó coinciden **byte a byte** con sus fuentes
 del repositorio, y las originales del autor se conservan en el respaldo
-`PPI Editar_actual.backup-20260822-before-v2.docx`.
+`PPI Editar_actual.backup-20260822-before-v2.docx` (retirado del árbol; recuperable del historial de git (commit `9cecc1c`)).
 
 ## Recomendación
 
