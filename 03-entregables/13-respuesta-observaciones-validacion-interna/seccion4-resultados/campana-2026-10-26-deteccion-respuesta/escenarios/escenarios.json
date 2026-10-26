@@ -1,0 +1,66 @@
+{
+  "_nota": "Parametros legibles por maquina de los escenarios. Los destinos deben estar en la lista blanca del laboratorio (generar_campana.sh aborta si no). No se ejecuta nada en la fase de preparacion.",
+  "semilla": 20261026,
+  "repeticiones": 5,
+  "espera_entre_episodios_s": 120,
+  "cola_despues_s": 90,
+  "lista_blanca_destinos": ["10.10.10.20", "10.10.30.10"],
+  "origen": "10.10.20.30",
+  "escenarios": [
+    {
+      "id": "dns_inusual",
+      "destino": "10.10.10.20",
+      "servicio": "UDP/53",
+      "duracion_s": 90,
+      "ritmo": "1 consulta cada 0,4 s (~2,3/s)",
+      "dominio": "<ZONA-LAB-RESERVADA> (pendiente; debe resolver local, no a terceros)",
+      "comando": "fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do dig +time=1 +tries=1 @10.10.10.20 \"$(openssl rand -hex 8).${ZONA_LAB}\" +short >/dev/null 2>&1; sleep 0.4; done",
+      "accion_prevista": "LIMIT (dns_entropy); destino en NUNCA_BLOQUEAR -> solo deteccion",
+      "evidencia_actividad": "conteo de consultas en marcas.jsonl y en eve.json (dns)",
+      "bloqueo_previo": "verificar que la zona existe y resuelve local; si no, NO ejecutar"
+    },
+    {
+      "id": "inundacion_http",
+      "destino": "10.10.30.10",
+      "servicio": "TCP/80",
+      "duracion_s": 90,
+      "ritmo": "peticiones repetidas a un recurso de prueba, concurrencia acotada (p.ej. 10)",
+      "recurso": "http://10.10.30.10/ (recurso de prueba; 200 verificado el 26-oct)",
+      "comando": "fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null --max-time 2 http://10.10.30.10/ ; done   # x concurrencia",
+      "accion_prevista": "LIMIT (http_abuse) o anomalia del modelo",
+      "evidencia_actividad": "conteo de peticiones en marcas.jsonl; http en eve.json",
+      "bloqueo_previo": "ninguno"
+    },
+    {
+      "id": "escaneo_breve",
+      "destino": "10.10.30.10",
+      "servicio": "TCP 1-1000",
+      "duracion_s": "natural (no se prolonga)",
+      "comando": "nmap -sT -T4 --max-retries 1 -p 1-1000 10.10.30.10",
+      "accion_prevista": "BLOCK (port_scan) si la actividad cruza el espejo",
+      "evidencia_actividad": "salida de nmap (puertos vistos) + SYN en el PCAP; se registra duracion del comando y SYN efectivos",
+      "bloqueo_previo": "la mayoria de puertos pueden estar filtrados por el cortafuegos; registrar que llega al espejo"
+    },
+    {
+      "id": "escaneo_sostenido",
+      "destino": "10.10.30.10",
+      "servicio": "TCP 1-65535",
+      "duracion_s": "definida por alcance y ritmo (--max-rate)",
+      "comando": "nmap -sT -T4 --max-retries 0 --max-rate <R> -p- 10.10.30.10",
+      "accion_prevista": "BLOCK (port_scan rama rafaga, >=200 intentos/30s)",
+      "evidencia_actividad": "salida de nmap + SYN en el PCAP; duracion del comando y SYN efectivos",
+      "bloqueo_previo": "fijar <R> antes; no ajustar segun el detector"
+    },
+    {
+      "id": "fuerza_bruta_http",
+      "destino": "10.10.30.10",
+      "servicio": "TCP/HTTP endpoint de prueba (PENDIENTE)",
+      "duracion_s": 90,
+      "comando": "fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null -w '%{http_code}\\n' --max-time 2 -u fake:fake$RANDOM http://10.10.30.10:<PUERTO>/<ruta-auth> ; done",
+      "respuesta_esperada": "401 verificable (NO 404 ni error de conexion)",
+      "accion_prevista": "BLOCK (brute_force: >=5 req/60s y >=80% 401/403)",
+      "evidencia_actividad": "conteo de 401 en marcas.jsonl y en eve.json/access log del endpoint",
+      "bloqueo_previo": "NO existe endpoint de auth (/login -> 404, 8081 cerrado). Preparar servicio aislado que devuelva 401."
+    }
+  ]
+}

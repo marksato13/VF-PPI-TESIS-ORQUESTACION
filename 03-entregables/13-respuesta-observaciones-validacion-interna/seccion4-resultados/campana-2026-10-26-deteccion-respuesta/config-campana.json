@@ -1,0 +1,121 @@
+{
+  "campana": "deteccion-respuesta-2026-10-26",
+  "registrado": "2026-10-26, en la fase de preparacion, antes de ejecutar ningun ataque ni campana.",
+  "proposito": "Completar 4.2 (aporte de componentes, campana A de deteccion) y despues 4.4 (respuesta y tiempos, campana B). No sustituye ni modifica aporte-componentes-r2-2026-10-26; es una campana nueva e independiente.",
+  "no_se_toca": "modelo, escalador, umbrales, heuristicos, servicios desplegados y documento Word. No se reentrena ni se recalibra. No se ajusta ningun escenario a la vista de los resultados del detector.",
+  "autorizacion": "laboratorio propio y autorizado. Esta configuracion se versiona ANTES de ejecutar. La campana A se autoriza en una instruccion posterior.",
+
+  "modelo": {
+    "detector": "if_limpio_2026_10",
+    "artefacto_desplegado": "artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib",
+    "sha256": "df547da098e51171aa267c8466edc6624bc1bd5c6b602639cc00bd4711a2fd60",
+    "tipo": "sklearn Pipeline (escalador + IsolationForest), congelado, sin reentrenar",
+    "puntuacion": "pipeline.score_samples(X); mayor = mas normal",
+    "regla": "senal IF si score_samples < umbral (estricta), igual que motor_decision.py; sin paquetes en 10 s el IF no se puntua"
+  },
+  "umbrales": {
+    "procedencia": "cuantil lineal 1-alfa de -score_samples sobre las 65 553 ventanas de validacion (4.1-modelos/calibracion-alfa-2026-10-24). NO se recalibra con los nuevos ataques.",
+    "0.05": -0.5694578968203694,
+    "0.03": -0.5898535710336618,
+    "desplegado_referencia": -0.5693969936322356,
+    "evaluacion_de_los_dos_alfa": "Un unico modelo puntua cada ventana una sola vez (score_samples). Los dos umbrales se aplican a ESAS MISMAS puntuaciones: IF_0.05 = score < -0.56945..., IF_0.03 = score < -0.58985.... No hay dos modelos ni dos pasadas; son dos cortes del mismo vector de scores."
+  },
+  "caracteristicas_28_orden": [
+    "packet_rate_10s","byte_rate_10s","mean_ip_len_10s","large_ip_ratio_10s","unique_dst_ip_ratio_30s",
+    "icmp_ratio_10s","flow_attempt_rate_10s","syn_rate_10s","syn_completion_ratio_10s","rst_ratio_10s",
+    "unique_dst_port_ratio_30s","http_error_ratio_60s","dns_nxdomain_ratio_60s","tls_session_rate_60s",
+    "ttl_mean_10s","fragment_ratio_10s","protocol_diversity_30s","tcp_retransmission_ratio_10s",
+    "flow_duration_mean_30s","tx_rx_byte_ratio_30s","http_request_rate_60s","http_method_entropy_60s",
+    "http_auth_failure_ratio_60s","dns_query_rate_60s","unique_dns_name_ratio_60s",
+    "tls_handshake_failure_ratio_60s","tls_version_ratio_60s","http_status_5xx_ratio_60s"
+  ],
+  "caracteristicas_nota": "orden = configs/features/multilayer-v2.json por campo 'order' = extract_multilayer_v2.FEATURE_NAMES, como hace motor_decision.py.",
+
+  "codigo": {
+    "repo": "producto-main",
+    "HEAD_en_preparacion": "53f919ed80dfdde5104efa551eb53557b340a068",
+    "ficheros": {
+      "extract_multilayer_v2.py": {"commit": "2d854a9", "blob_git": "ec46849dc8", "sha256_desplegado_sensor": "7130edae65afefa2fd82a9314e20194adec684f4b2c3c35c2337880d8e636ccb"},
+      "extract_multilayer_v3.py": {"commit": "a6d287a", "blob_git": "0739e4cda3", "sha256_desplegado_sensor": "5adbfbf4845554430a3e8b5a4c00eb1e45c2216cae73532da73d9d3f4898fa7f"},
+      "motor_decision.py": {"commit": "62a75a1", "blob_git": "c918f37961", "sha256_desplegado_sensor": "4c41ec44be0fa0dbfbba14b73a4288a37da5d1b2a1ebcf681e58465c14ac17c6"},
+      "heuristicos.py": {"commit": "2d854a9", "blob_git": "ec0fe9e870", "sha256_desplegado_sensor": "10deb05d22fa0215e5f5f37bc6f05225cda31b806c67051a6584d878e25ed6a2", "version_umbrales": "2026-10-06.2"},
+      "publicar_feed.py": {"commit": "22eb2a8", "blob_git": "f73db5af8e", "sha256_desplegado_sensor": "f7bc4c7d8e7ac0cd958f3936d55a5782285e59509919d82bf2998fbb70acc03d"},
+      "escalada.py": {"commit": "22eb2a8", "blob_git": "8f260bd087"},
+      "feed.py": {"commit": "a6d287a", "blob_git": "fa30b818f0"},
+      "agente_enforce.py": {"commit": "22eb2a8", "blob_git": "755cb24450"}
+    },
+    "nota_hashes": "blob_git = objeto del arbol en producto-main HEAD; sha256_desplegado_sensor = hash del fichero realmente en el sensor (copia del 05-oct en datos/). Deben comprobarse de nuevo contra el sensor justo antes de la campana."
+  },
+
+  "combinacion_real": {
+    "verificada_en": ["motor_decision.py", "publicar_feed.py::_verdicto_de", "escalada.py", "agente_enforce.py"],
+    "senal_IF": "score_samples < umbral y packet_count_10s > 0",
+    "senal_heuristica": "heuristicos.evaluar(fila) != None, o la regla heredada auth_failure_heuristic del motor (http_request_count_60s>=5 y http_auth_failure_ratio_60s>=0,8)",
+    "senal_hibrida": "senal_IF OR senal_heuristica (lo que publicar_feed convierte en candidato)",
+    "accion_propuesta": "anomalia del modelo -> LIMIT; heuristico -> su accion (port_scan/brute_force=BLOCK, http_abuse/dns_entropy=LIMIT); por IP gana la mas severa (PERMIT<LIMIT<BLOCK). Un LIMIT posterior NO degrada un BLOCK vivo.",
+    "elegibilidad": "ventanas con eligible_training; sin paquetes en 10 s el IF no se puntua (los heuristicos si)",
+    "exclusiones": {
+      "NUNCA_BLOQUEAR": ["10.10.10.30 (bastion)","10.10.60.11 (sensor)","10.10.30.1","10.10.40.1","10.10.60.1","10.10.20.1 (gateways)","10.10.10.20 (DNS/AD)"],
+      "excluir_motor": "pfSense y equipos del perfil de egreso de la VLAN 60 (aplicado en el sensor el 24-oct)"
+    },
+    "politica_respuesta": "LIMIT=cyberflow_limitados rate over 100/second drop, timeout 300 s plano; BLOCK=cyberflow_bloqueados drop, escalera 300->1800->3600 s por reincidencia <24 h + revision humana en la 3.a; caducidad por timeout nativo de nftables; salir del feed NO retira la regla, expira por timeout."
+  },
+
+  "emitidas_vs_derivadas": {
+    "emitidas_en_vivo": "las decisiones que el motor escriba en motor_decision.log durante la campana, con su hora de escritura. Son las alertas realmente emitidas.",
+    "derivadas_offline": "IF_0.05, IF_0.03, HEUR, HIB_0.05 y HIB_0.03 recomputadas sobre las puntuaciones/ventanas observadas. Se presentan como ANALISIS DE UMBRALES sobre ventanas observadas, NO como alertas emitidas en vivo.",
+    "umbral_del_motor_en_vivo": "el motor en vivo usa alfa 0,05 (umbral desplegado -0,5693969936). alfa 0,03 es un corte derivado offline sobre las mismas puntuaciones, no una emision."
+  },
+
+  "campanas": {
+    "A_deteccion_4.2": {
+      "objetivo": "comparar IF 0,05, IF 0,03, heuristicos, hibrido 0,05 e hibrido 0,03 sobre las mismas ventanas",
+      "modo": "SOMBRA: sin aplicar ninguna restriccion que altere el trafico",
+      "precondicion_critica": "el agente de srv-dmz esta en --aplicar y el publicador corre cada 10 s. Antes de A: poner el agente en dry-run (quitar --aplicar) O detener el publicador, y verificar cyberflow_bloqueados/cyberflow_limitados SIN elements. Revertir al terminar.",
+      "fuentes": "motor_decision.log en vivo (emitidas) + PCAP continuo + EVE + features/scores por ventana (derivadas)"
+    },
+    "B_respuesta_4.4": {
+      "objetivo": "ataque -> senal -> feed firmado -> agente -> nftables -> efecto -> retirada/caducidad",
+      "modo": "APLICAR, en ensayos separados y posteriores a A",
+      "regla": "no mezclar con A: la respuesta activa modifica el trafico posterior. Una familia por bloque; reiniciar o registrar el estado de la escalera entre bloques."
+    }
+  },
+
+  "escenarios": {
+    "repeticiones_por_escenario": 5,
+    "orden": "aleatorizado con semilla fija",
+    "semilla": 20261026,
+    "duracion_dns_http_sostenido_s": 90,
+    "nota_duracion": "90 s para DNS y HTTP sostenido salvo razon tecnica documentada antes de ejecutar. En escaneos se registra la duracion del comando y la actividad efectiva enviada; no se prolonga para asegurar deteccion.",
+    "lista": {
+      "dns_inusual":   {"origen": "10.10.20.30", "destino": "10.10.10.20", "servicio": "UDP/53", "accion_prevista": "LIMIT (dns_entropy); 10.10.10.20 en NUNCA_BLOQUEAR -> sin contencion en ese destino"},
+      "inundacion_http": {"origen": "10.10.20.30", "destino": "10.10.30.10", "servicio": "TCP/80", "accion_prevista": "LIMIT (http_abuse) o anomalia modelo"},
+      "escaneo_breve": {"origen": "10.10.20.30", "destino": "10.10.30.10", "servicio": "TCP rango fijo", "accion_prevista": "BLOCK (port_scan) si la actividad cruza el espejo"},
+      "escaneo_sostenido": {"origen": "10.10.20.30", "destino": "10.10.30.10", "servicio": "TCP rango amplio, ritmo definido", "accion_prevista": "BLOCK (port_scan rama rafaga)"},
+      "fuerza_bruta_http": {"origen": "10.10.20.30", "destino": "10.10.30.10 endpoint de prueba (pendiente)", "servicio": "TCP/HTTP con 401", "accion_prevista": "BLOCK (brute_force)"}
+    }
+  },
+
+  "historia_y_registros": {
+    "antes_de_cada_episodio_s": 120,
+    "despues_de_cada_episodio_s": 90,
+    "conservar": ["PCAP continuo sin huecos","EVE completo","features y scores por ventana","motor_decision.log integro","registro del generador en Kali (marcas.jsonl)"],
+    "campana_B_ademas": ["feed.json y feed.sig por publicacion","registro del relay","journal del agente","nft -j list set cada 2 s"],
+    "prohibido": "simular historia cambiando fechas; concatenar capturas con huecos"
+  },
+  "relojes": {
+    "verificar_en": ["sensor 10.10.60.11","bastion 10.10.10.30","Kali 10.10.20.30","srv-dmz 10.10.30.10"],
+    "estado_26oct": "bastion sincronizado por NTP (chrony, offset ~1 ms); sensor SIN chrony. Corregir el sensor y medir el desfase (antes y despues) ANTES de la campana. Toda correccion se documenta.",
+    "marca_de_referencia": "reloj de pared + monotonico en Kali; el inicio/fin de sesion SSH es solo una aproximacion al comando remoto"
+  },
+
+  "criterios_evaluacion": {
+    "durante": "senal atribuible emitida entre el inicio y el final del ataque",
+    "posterior": "primera senal atribuible despues del final y hasta +60 s",
+    "sin_deteccion": "observacion completa (contexto suficiente) sin senal atribuible",
+    "no_evaluable": "evidencia insuficiente (p.ej. ventana sin >=60 s de historia real o sin datos hasta +60 s)",
+    "atribucion": "escenario + origen + destino + contexto; NO se cuenta cualquier anomalia de la Kali como deteccion del ataque",
+    "control_normal_min": 30,
+    "ventanas_tabla7": "si se calculan metricas por ventana: etiquetado fijado antes, con limites y ventanas con historia del ataque declarados; se mantienen SEPARADAS de las 65 505 ventanas de la Tabla 7"
+  }
+}

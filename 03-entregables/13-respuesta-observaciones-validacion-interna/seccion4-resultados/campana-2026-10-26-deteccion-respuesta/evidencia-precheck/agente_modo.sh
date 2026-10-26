@@ -1,0 +1,1 @@
+ssh -n -o BatchMode=yes -o ConnectTimeout=6 -i ~/.ssh/cyberflow-to-srv adminsrvdmz@10.10.30.10 'systemctl cat ppi-enforce-agent.service ppi-enforce-agent.timer 2>/dev/null | grep -Ei "ExecStart|OnCalendar|OnUnitActive|aplicar|sudo|dry|shadow"' 2>&1 | head -12
