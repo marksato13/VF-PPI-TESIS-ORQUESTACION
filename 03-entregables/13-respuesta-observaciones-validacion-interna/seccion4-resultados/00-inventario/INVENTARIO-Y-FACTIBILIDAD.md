@@ -52,8 +52,9 @@ artefacto; su salida `Tabla8-ablacion-limpio.*` **no es un resultado válido**.)
   resultados históricos **6/9 (modelo) · 7/9 (heur) · 9/9 (combinado)** con el modelo
   **contaminado** `if_recalibrado_2026_09`. Los veredictos están en `26-BATERIA-N3-RESULTADOS.md`
   y `producto-main\docs\evaluacion\comparacion-suricata.json` como **latencias por episodio**.
-  **NO se conservaron los datos por ventana ni los PCAP** (el anillo PCAP del sensor se poda).
-  ⇒ **un re-scoring fiel con el modelo limpio NO es posible offline: hay que RE-CORRER la batería.**
+  ~~NO se conservaron los datos por ventana ni los PCAP~~ **Corregido el 26-oct:** sí se conservaron
+  (Sensor1 `~/piloto/{e3,e4,e1}-r{1,2,3}`: PCAP, `eve.json`, `features.csv`). El re-procesado offline con el modelo
+  limpio está en `../4.2-ablacion/aporte-componentes-2026-10-26/`.
 - **Computable offline AHORA (válido, sensor):** ablación IF/heur/combinado sobre
   {181 Kali del sensor + 65 421 benignas}. Script `4.2-ablacion\ablacion_sensor.py`.
   Resultado: FPR IF **4,53 %** (valida model card), heur 0,72 % (472 LIMIT/0 BLOCK), híbrido

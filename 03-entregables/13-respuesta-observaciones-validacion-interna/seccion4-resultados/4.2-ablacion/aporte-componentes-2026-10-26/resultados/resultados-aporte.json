@@ -1,0 +1,202 @@
+{
+ "tabla8": [
+  {
+   "Familia": "DNS inusual (alta entropia)",
+   "Episodios evaluados": 3,
+   "IF 0,05": "0/3",
+   "IF 0,03": "0/3",
+   "Heuristicos": "3/3",
+   "Hibrido 0,05": "3/3",
+   "Hibrido 0,03": "3/3"
+  },
+  {
+   "Familia": "Inundacion HTTP",
+   "Episodios evaluados": 3,
+   "IF 0,05": "3/3",
+   "IF 0,03": "3/3",
+   "Heuristicos": "3/3",
+   "Hibrido 0,05": "3/3",
+   "Hibrido 0,03": "3/3"
+  },
+  {
+   "Familia": "Escaneo de puertos",
+   "Episodios evaluados": 3,
+   "IF 0,05": "3/3",
+   "IF 0,03": "3/3",
+   "Heuristicos": "3/3",
+   "Hibrido 0,05": "3/3",
+   "Hibrido 0,03": "3/3"
+  },
+  {
+   "Familia": "Total",
+   "Episodios evaluados": 9,
+   "IF 0,05": "6/9",
+   "IF 0,03": "6/9",
+   "Heuristicos": "9/9",
+   "Hibrido 0,05": "9/9",
+   "Hibrido 0,03": "9/9"
+  },
+  {
+   "Familia": "Fuerza bruta HTTP",
+   "Episodios evaluados": 0,
+   "IF 0,05": "no evaluado",
+   "IF 0,03": "no evaluado",
+   "Heuristicos": "no evaluado",
+   "Hibrido 0,05": "no evaluado",
+   "Hibrido 0,03": "no evaluado"
+  }
+ ],
+ "complementariedad": {
+  "0.05": {
+   "ambos": [
+    "e4-r1",
+    "e4-r2",
+    "e4-r3",
+    "e1-r1",
+    "e1-r2",
+    "e1-r3"
+   ],
+   "solo IF": [],
+   "solo heuristicos": [
+    "e3-r1",
+    "e3-r2",
+    "e3-r3"
+   ],
+   "ninguno": []
+  },
+  "0.03": {
+   "ambos": [
+    "e4-r1",
+    "e4-r2",
+    "e4-r3",
+    "e1-r1",
+    "e1-r2",
+    "e1-r3"
+   ],
+   "solo IF": [],
+   "solo heuristicos": [
+    "e3-r1",
+    "e3-r2",
+    "e3-r3"
+   ],
+   "ninguno": []
+  }
+ },
+ "umbrales": {
+  "0.05": -0.5694578968203693,
+  "0.03": -0.5898535710336615
+ },
+ "original_reproducido": {
+  "det_modelo": 6,
+  "det_heur": 7,
+  "det_combinado": 9,
+  "coincide": 9
+ },
+ "control_base": {
+  "IF_0.05": {
+   "falsas_alarmas": 0,
+   "tasa": 0.0,
+   "entidades": []
+  },
+  "IF_0.03": {
+   "falsas_alarmas": 0,
+   "tasa": 0.0,
+   "entidades": []
+  },
+  "HEUR": {
+   "falsas_alarmas": 0,
+   "tasa": 0.0,
+   "entidades": []
+  },
+  "HIB_0.05": {
+   "falsas_alarmas": 0,
+   "tasa": 0.0,
+   "entidades": []
+  },
+  "HIB_0.03": {
+   "falsas_alarmas": 0,
+   "tasa": 0.0,
+   "entidades": []
+  },
+  "ventanas": 61,
+  "duracion_s": 294.8
+ },
+ "contraste_acumulador": {
+  "e3-r1": {
+   "IF_0.05": false,
+   "IF_0.03": false,
+   "HEUR": true,
+   "HIB_0.05": true,
+   "HIB_0.03": true
+  },
+  "e3-r2": {
+   "IF_0.05": true,
+   "IF_0.03": false,
+   "HEUR": true,
+   "HIB_0.05": true,
+   "HIB_0.03": true
+  },
+  "e3-r3": {
+   "IF_0.05": true,
+   "IF_0.03": false,
+   "HEUR": true,
+   "HIB_0.05": true,
+   "HIB_0.03": true
+  },
+  "e4-r1": {
+   "IF_0.05": true,
+   "IF_0.03": true,
+   "HEUR": true,
+   "HIB_0.05": true,
+   "HIB_0.03": true
+  },
+  "e4-r2": {
+   "IF_0.05": true,
+   "IF_0.03": true,
+   "HEUR": true,
+   "HIB_0.05": true,
+   "HIB_0.03": true
+  },
+  "e4-r3": {
+   "IF_0.05": true,
+   "IF_0.03": true,
+   "HEUR": true,
+   "HIB_0.05": true,
+   "HIB_0.03": true
+  },
+  "e1-r1": {
+   "IF_0.05": true,
+   "IF_0.03": true,
+   "HEUR": true,
+   "HIB_0.05": true,
+   "HIB_0.03": true
+  },
+  "e1-r2": {
+   "IF_0.05": true,
+   "IF_0.03": true,
+   "HEUR": true,
+   "HIB_0.05": true,
+   "HIB_0.03": true
+  },
+  "e1-r3": {
+   "IF_0.05": true,
+   "IF_0.03": true,
+   "HEUR": true,
+   "HIB_0.05": true,
+   "HIB_0.03": true
+  }
+ },
+ "no_atribuibles": 52,
+ "entorno": {
+  "python": "3.14.3",
+  "sklearn": "1.9.1",
+  "numpy": "2.4.6",
+  "sistema": "Windows-11-10.0.26300-SP0",
+  "avisos_carga_modelo": [
+   "Trying to unpickle estimator ExtraTreeRegressor from version 1.9.0 when using version 1.9.",
+   "Trying to unpickle estimator IsolationForest from version 1.9.0 when using version 1.9.1. ",
+   "Trying to unpickle estimator Pipeline from version 1.9.0 when using version 1.9.1. This mi",
+   "Trying to unpickle estimator StandardScaler from version 1.9.0 when using version 1.9.1. T"
+  ]
+ }
+}
