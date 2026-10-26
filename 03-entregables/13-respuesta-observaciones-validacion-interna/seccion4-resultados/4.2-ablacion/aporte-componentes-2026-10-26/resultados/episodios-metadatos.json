@@ -1,0 +1,254 @@
+{
+ "e3-r1": {
+  "familia": "DNS inusual (alta entropia)",
+  "mitre": "T1568.002",
+  "origen": "10.10.20.30",
+  "destino": "10.10.10.20:53/udp",
+  "T0_orquestador": "2026-10-05T20:26:57+00:00",
+  "capture_start_original": "2026-10-05T20:26:32+00:00",
+  "primer_paquete_ataque": "2026-10-05T20:26:58.030740+00:00",
+  "ultimo_paquete_ataque": "2026-10-05T20:28:27.689687+00:00",
+  "duracion_ataque_s": 89.7,
+  "paquetes_ataque": 209,
+  "intervalo_atribucion": [
+   "2026-10-05T20:26:57+00:00",
+   "2026-10-05T20:29:27.689687+00:00"
+  ],
+  "procesamiento": {
+   "tramas_ip": 8032,
+   "plano_control_descartado": 4082,
+   "duplicados_espejo": 1173,
+   "paquetes": 2777,
+   "observaciones_paquete": 1859,
+   "observaciones_app": 868,
+   "primer_paquete": "2026-10-05T20:26:51.131720+00:00",
+   "ultimo_paquete": "2026-10-05T20:28:49.399794+00:00",
+   "primera_observacion": "2026-10-05T20:26:39.780698+00:00",
+   "capture_start_usado": "2026-10-05T20:25:39.780698+00:00"
+  }
+ },
+ "e3-r2": {
+  "familia": "DNS inusual (alta entropia)",
+  "mitre": "T1568.002",
+  "origen": "10.10.20.30",
+  "destino": "10.10.10.20:53/udp",
+  "T0_orquestador": "2026-10-05T20:29:41+00:00",
+  "capture_start_original": "2026-10-05T20:29:16+00:00",
+  "primer_paquete_ataque": "2026-10-05T20:29:42.305120+00:00",
+  "ultimo_paquete_ataque": "2026-10-05T20:31:11.944373+00:00",
+  "duracion_ataque_s": 89.6,
+  "paquetes_ataque": 209,
+  "intervalo_atribucion": [
+   "2026-10-05T20:29:41+00:00",
+   "2026-10-05T20:32:11.944373+00:00"
+  ],
+  "procesamiento": {
+   "tramas_ip": 8568,
+   "plano_control_descartado": 4418,
+   "duplicados_espejo": 1279,
+   "paquetes": 2871,
+   "observaciones_paquete": 2020,
+   "observaciones_app": 850,
+   "primer_paquete": "2026-10-05T20:29:21.174008+00:00",
+   "ultimo_paquete": "2026-10-05T20:31:33.202050+00:00",
+   "primera_observacion": "2026-10-05T20:29:22.011558+00:00",
+   "capture_start_usado": "2026-10-05T20:28:22.011558+00:00"
+  }
+ },
+ "e3-r3": {
+  "familia": "DNS inusual (alta entropia)",
+  "mitre": "T1568.002",
+  "origen": "10.10.20.30",
+  "destino": "10.10.10.20:53/udp",
+  "T0_orquestador": "2026-10-05T20:32:26+00:00",
+  "capture_start_original": "2026-10-05T20:32:01+00:00",
+  "primer_paquete_ataque": "2026-10-05T20:32:27.009477+00:00",
+  "ultimo_paquete_ataque": "2026-10-05T20:33:56.594861+00:00",
+  "duracion_ataque_s": 89.6,
+  "paquetes_ataque": 209,
+  "intervalo_atribucion": [
+   "2026-10-05T20:32:26+00:00",
+   "2026-10-05T20:34:56.594861+00:00"
+  ],
+  "procesamiento": {
+   "tramas_ip": 8154,
+   "plano_control_descartado": 4400,
+   "duplicados_espejo": 1172,
+   "paquetes": 2582,
+   "observaciones_paquete": 1918,
+   "observaciones_app": 850,
+   "primer_paquete": "2026-10-05T20:32:07.973098+00:00",
+   "ultimo_paquete": "2026-10-05T20:34:17.715394+00:00",
+   "primera_observacion": "2026-10-05T20:32:07.973098+00:00",
+   "capture_start_usado": "2026-10-05T20:31:07.973098+00:00"
+  }
+ },
+ "e4-r1": {
+  "familia": "Inundacion HTTP",
+  "mitre": "T1498/T1499",
+  "origen": "10.10.20.30",
+  "destino": "10.10.30.10:80/tcp",
+  "T0_orquestador": "2026-10-05T20:35:10+00:00",
+  "capture_start_original": "2026-10-05T20:34:45+00:00",
+  "primer_paquete_ataque": "2026-10-05T20:35:11.419371+00:00",
+  "ultimo_paquete_ataque": "2026-10-05T20:36:41.404311+00:00",
+  "duracion_ataque_s": 90.0,
+  "paquetes_ataque": 44705,
+  "intervalo_atribucion": [
+   "2026-10-05T20:35:10+00:00",
+   "2026-10-05T20:37:41.404311+00:00"
+  ],
+  "procesamiento": {
+   "tramas_ip": 168864,
+   "plano_control_descartado": 12184,
+   "duplicados_espejo": 77593,
+   "paquetes": 79087,
+   "observaciones_paquete": 79072,
+   "observaciones_app": 12693,
+   "primer_paquete": "2026-10-05T20:34:52.562078+00:00",
+   "ultimo_paquete": "2026-10-05T20:37:02.497570+00:00",
+   "primera_observacion": "2026-10-05T20:34:45.252006+00:00",
+   "capture_start_usado": "2026-10-05T20:33:45.252006+00:00"
+  }
+ },
+ "e4-r2": {
+  "familia": "Inundacion HTTP",
+  "mitre": "T1498/T1499",
+  "origen": "10.10.20.30",
+  "destino": "10.10.30.10:80/tcp",
+  "T0_orquestador": "2026-10-05T20:38:16+00:00",
+  "capture_start_original": "2026-10-05T20:37:51+00:00",
+  "primer_paquete_ataque": "2026-10-05T20:38:16.652015+00:00",
+  "ultimo_paquete_ataque": "2026-10-05T20:39:46.779417+00:00",
+  "duracion_ataque_s": 90.1,
+  "paquetes_ataque": 3341,
+  "intervalo_atribucion": [
+   "2026-10-05T20:38:16+00:00",
+   "2026-10-05T20:40:46.779417+00:00"
+  ],
+  "procesamiento": {
+   "tramas_ip": 17352,
+   "plano_control_descartado": 4146,
+   "duplicados_espejo": 6154,
+   "paquetes": 7052,
+   "observaciones_paquete": 6462,
+   "observaciones_app": 838,
+   "primer_paquete": "2026-10-05T20:38:07.551776+00:00",
+   "ultimo_paquete": "2026-10-05T20:40:07.267678+00:00",
+   "primera_observacion": "2026-10-05T20:37:55.435323+00:00",
+   "capture_start_usado": "2026-10-05T20:36:55.435323+00:00"
+  }
+ },
+ "e4-r3": {
+  "familia": "Inundacion HTTP",
+  "mitre": "T1498/T1499",
+  "origen": "10.10.20.30",
+  "destino": "10.10.30.10:80/tcp",
+  "T0_orquestador": "2026-10-05T20:41:01+00:00",
+  "capture_start_original": "2026-10-05T20:40:36+00:00",
+  "primer_paquete_ataque": "2026-10-05T20:41:02.322423+00:00",
+  "ultimo_paquete_ataque": "2026-10-05T20:42:32.309620+00:00",
+  "duracion_ataque_s": 90.0,
+  "paquetes_ataque": 3296,
+  "intervalo_atribucion": [
+   "2026-10-05T20:41:01+00:00",
+   "2026-10-05T20:43:32.309620+00:00"
+  ],
+  "procesamiento": {
+   "tramas_ip": 18153,
+   "plano_control_descartado": 4298,
+   "duplicados_espejo": 6297,
+   "paquetes": 7558,
+   "observaciones_paquete": 6803,
+   "observaciones_app": 859,
+   "primer_paquete": "2026-10-05T20:40:52.560178+00:00",
+   "ultimo_paquete": "2026-10-05T20:42:52.357889+00:00",
+   "primera_observacion": "2026-10-05T20:40:40.594613+00:00",
+   "capture_start_usado": "2026-10-05T20:39:40.594613+00:00"
+  }
+ },
+ "e1-r1": {
+  "familia": "Escaneo de puertos",
+  "mitre": "T1046",
+  "origen": "10.10.20.30",
+  "destino": "10.10.30.10 tcp/1-1000",
+  "T0_orquestador": "2026-10-05T20:43:47+00:00",
+  "capture_start_original": "2026-10-05T20:43:22+00:00",
+  "primer_paquete_ataque": "2026-10-05T20:43:48.022548+00:00",
+  "ultimo_paquete_ataque": "2026-10-05T20:44:05.766473+00:00",
+  "duracion_ataque_s": 17.7,
+  "paquetes_ataque": 2021,
+  "intervalo_atribucion": [
+   "2026-10-05T20:43:47+00:00",
+   "2026-10-05T20:45:05.766473+00:00"
+  ],
+  "procesamiento": {
+   "tramas_ip": 7483,
+   "plano_control_descartado": 1550,
+   "duplicados_espejo": 1192,
+   "paquetes": 4741,
+   "observaciones_paquete": 3321,
+   "observaciones_app": 24,
+   "primer_paquete": "2026-10-05T20:43:38.606365+00:00",
+   "ultimo_paquete": "2026-10-05T20:44:26.418848+00:00",
+   "primera_observacion": "2026-10-05T20:43:30.761056+00:00",
+   "capture_start_usado": "2026-10-05T20:42:30.761056+00:00"
+  }
+ },
+ "e1-r2": {
+  "familia": "Escaneo de puertos",
+  "mitre": "T1046",
+  "origen": "10.10.20.30",
+  "destino": "10.10.30.10 tcp/1-1000",
+  "T0_orquestador": "2026-10-05T20:45:19+00:00",
+  "capture_start_original": "2026-10-05T20:44:54+00:00",
+  "primer_paquete_ataque": "2026-10-05T20:45:20.065586+00:00",
+  "ultimo_paquete_ataque": "2026-10-05T20:46:03.838525+00:00",
+  "duracion_ataque_s": 43.8,
+  "paquetes_ataque": 2043,
+  "intervalo_atribucion": [
+   "2026-10-05T20:45:19+00:00",
+   "2026-10-05T20:47:03.838525+00:00"
+  ],
+  "procesamiento": {
+   "tramas_ip": 6563,
+   "plano_control_descartado": 2452,
+   "duplicados_espejo": 685,
+   "paquetes": 3426,
+   "observaciones_paquete": 2878,
+   "observaciones_app": 38,
+   "primer_paquete": "2026-10-05T20:45:10.474514+00:00",
+   "ultimo_paquete": "2026-10-05T20:46:25.115627+00:00",
+   "primera_observacion": "2026-10-05T20:45:10.475029+00:00",
+   "capture_start_usado": "2026-10-05T20:44:10.475029+00:00"
+  }
+ },
+ "e1-r3": {
+  "familia": "Escaneo de puertos",
+  "mitre": "T1046",
+  "origen": "10.10.20.30",
+  "destino": "10.10.30.10 tcp/1-1000",
+  "T0_orquestador": "2026-10-05T20:47:17+00:00",
+  "capture_start_original": "2026-10-05T20:46:52+00:00",
+  "primer_paquete_ataque": "2026-10-05T20:47:18.364489+00:00",
+  "ultimo_paquete_ataque": "2026-10-05T20:47:36.006328+00:00",
+  "duracion_ataque_s": 17.6,
+  "paquetes_ataque": 2018,
+  "intervalo_atribucion": [
+   "2026-10-05T20:47:17+00:00",
+   "2026-10-05T20:48:36.006328+00:00"
+  ],
+  "procesamiento": {
+   "tramas_ip": 5697,
+   "plano_control_descartado": 1650,
+   "duplicados_espejo": 636,
+   "paquetes": 3411,
+   "observaciones_paquete": 2991,
+   "observaciones_app": 34,
+   "primer_paquete": "2026-10-05T20:47:08.559166+00:00",
+   "ultimo_paquete": "2026-10-05T20:47:57.375706+00:00",
+   "primera_observacion": "2026-10-05T20:46:52.809271+00:00",
+   "capture_start_usado": "2026-10-05T20:45:52.809271+00:00"
+  }
+ }
+}

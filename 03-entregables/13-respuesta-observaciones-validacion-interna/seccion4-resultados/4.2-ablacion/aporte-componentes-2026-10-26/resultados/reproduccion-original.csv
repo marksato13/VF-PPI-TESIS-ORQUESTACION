@@ -1,0 +1,10 @@
+episodio,capture_start,T0,ventanas_kali,modelo_alertas,modelo_primera_s,heur,accion,heur_primera_s,orig_ventanas_kali,orig_modelo_alertas,orig_modelo_primera_s,orig_heur,orig_heur_primera_s,coincide,det_modelo,det_heur,det_combinado
+e3-r1,2026-10-05T20:26:32+00:00,2026-10-05T20:26:57+00:00,10,0,,dns_entropy,LIMIT,13.0,10,0,,dns_entropy,13.0,True,False,True,True
+e3-r2,2026-10-05T20:29:16+00:00,2026-10-05T20:29:41+00:00,10,0,,dns_entropy,LIMIT,9.0,10,0,,dns_entropy,9.0,True,False,True,True
+e3-r3,2026-10-05T20:32:01+00:00,2026-10-05T20:32:26+00:00,12,0,,dns_entropy,LIMIT,14.0,12,0,,dns_entropy,14.0,True,False,True,True
+e4-r1,2026-10-05T20:34:45+00:00,2026-10-05T20:35:10+00:00,10,10,10.0,http_abuse,LIMIT,10.0,10,10,10.0,http_abuse,10.0,True,True,True,True
+e4-r2,2026-10-05T20:37:51+00:00,2026-10-05T20:38:16+00:00,10,10,4.0,http_abuse,LIMIT,14.0,10,10,4.0,http_abuse,14.0,True,True,True,True
+e4-r3,2026-10-05T20:40:36+00:00,2026-10-05T20:41:01+00:00,10,10,9.0,http_abuse,LIMIT,19.0,10,10,9.0,http_abuse,19.0,True,True,True,True
+e1-r1,2026-10-05T20:43:22+00:00,2026-10-05T20:43:47+00:00,3,1,23.0,,,,3,1,23.0,,,True,True,False,True
+e1-r2,2026-10-05T20:44:54+00:00,2026-10-05T20:45:19+00:00,8,2,21.0,port_scan,BLOCK,21.0,8,2,21.0,port_scan,21.0,True,True,True,True
+e1-r3,2026-10-05T20:46:52+00:00,2026-10-05T20:47:17+00:00,3,1,23.0,,,,3,1,23.0,,,True,True,False,True

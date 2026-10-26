@@ -1,0 +1,49 @@
+{
+  "registrado": "2026-10-26, antes de recalcular los episodios con el IF limpio y antes de calcular las metricas por ventana con heuristicos e hibrido",
+  "proposito": "Medir la complementariedad IF/heuristicos y su coste en falsas alarmas. No es una validacion independiente de la eleccion de alfa: los umbrales salen de la misma validacion (65 553) usada en 4.1.",
+  "no_se_toca": "sistema desplegado, sus reglas, umbrales, servicios y artefactos; el documento Word",
+  "modelo": {
+    "detector": "if_limpio_2026_10",
+    "artefacto": "cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib (Pipeline scaler+IsolationForest, congelado, sin reentrenar)",
+    "sha256_esperado": "df547da098e51171aa267c8466edc6624bc1bd5c6b602639cc00bd4711a2fd60",
+    "caracteristicas": "las 28 de configs/features/multilayer-v2.json en su orden (= extract_multilayer_v2.FEATURE_NAMES, como hace motor_decision.py)",
+    "puntuacion": "pipeline.score_samples(X) (mayor = mas normal)",
+    "regla": "senal IF si score_samples < umbral (estricta), igual que motor_decision.py ('score < threshold')"
+  },
+  "umbrales": {
+    "origen": "4.1-modelos/calibracion-alfa-2026-10-24: cuantil lineal 1-alfa de -score_samples sobre las 65 553 ventanas de validacion (65 633 menos las 80 claves Kali de validacion-kali-80-excluidas.csv); umbral en espacio score_samples = -cuantil",
+    "se_recalculan_y_comprueban": true,
+    "esperados": {"0.03": -0.5898535710336618, "0.05": -0.5694578968203694},
+    "desplegado_referencia": {"valor": -0.5693969936322356, "nota": "alfa 0,05 sobre 65 633; solo se informa si cambia algun resultado, no entra en la Tabla 8"},
+    "prohibido": "recalibrar sobre ataques, episodios o prueba"
+  },
+  "heuristicos": {
+    "modulo": "cyberflow/scripts/engine/heuristicos.py (copia del sensor, sha256 10deb05d22fa0215e5f5f37bc6f05225cda31b806c67051a6584d878e25ed6a2)",
+    "version": "2026-10-06.2",
+    "regla": "senal heuristica si heuristicos.evaluar(fila) no es None, o si dispara la regla heredada auth_failure_heuristic del motor (http_request_count_60s >= 5 y http_auth_failure_ratio_60s >= 0,8)",
+    "sin_cambios": "no se ajusta ningun umbral"
+  },
+  "combinacion": {
+    "verificada_en": ["scripts/engine/motor_decision.py (registro por ventana: decision ALERT/PERMIT del modelo o de auth_failure_heuristic + campo heuristico aditivo)", "scripts/engine/publicar_feed.py::_verdicto_de (candidatos LIMIT del modelo y accion del heuristico; gana la mas severa)"],
+    "senal_hibrida": "una ventana tiene senal hibrida si tiene senal IF o senal heuristica (es lo que publicar_feed.py convierte en entrada del feed)",
+    "accion": "max(LIMIT por IF, accion del heuristico) con BLOCK > LIMIT; se informa aparte, no es la deteccion",
+    "aplicacion": "el feed agrega por IP, aplica la escalera de escalada.py y lo ejecuta el agente del host; offline NO se reproduce la aplicacion"
+  },
+  "episodios": {
+    "fuente": "Sensor1 ~/piloto/{e3,e4,e1}-r{1,2,3}: PCAP del anillo (live-*.pcap) y eve.json recortado por proc.sh el 05-oct-2026",
+    "procesamiento_comun": "el del motor vigente: v3.parse_con_contexto por trama -> descartar protocolos 112 y 240 -> v3.deduplicar_espejo -> v2.attribute_packets(10.10.0.0/16) -> v2.load_app_observations(eve) -> v2.build_rows(step 10 s)",
+    "historia": "capture_start = primera observacion - 60 s, para que todas las ventanas sean elegibles como en el motor en marcha (su capture_epoch es el arranque del proceso). Las variables solo usan el pasado disponible en el PCAP (desde ~T0-20 s). Sensibilidad: capture_start = primera observacion y la regla de elegibilidad del motor (cobertura >= 60 s)",
+    "guarda_motor": "sin paquetes en 10 s (packet_count_10s == 0) no se puntua el IF; los heuristicos si se evaluan",
+    "inicio_T0": "lanzamiento del ataque en reloj del sensor (Tsf de orq.sh). Se recupera de features.csv original: capture_start = T0 - 25 s (proc.sh recibe CS = Tsf - 25)",
+    "fin": "ultimo paquete de ataque observado en el PCAP deduplicado",
+    "paquetes_de_ataque": {"e3": "10.10.20.30 -> 10.10.10.20 UDP/53", "e4": "10.10.20.30 -> 10.10.30.10 TCP/80", "e1": "10.10.20.30 -> 10.10.30.10 TCP (cualquier puerto)"},
+    "atribucion": "senal atribuible = senal en una ventana cuya entidad es la fuente del ataque (10.10.20.30) y cuyo window_end esta en [T0, fin + 60 s] (60 s = horizonte maximo de las variables); las senales en otras entidades se informan como no atribuibles",
+    "deteccion": "episodio detectado si hay al menos una senal atribuible"
+  },
+  "ventanas_tabla7": {
+    "poblacion": "oro.csv (65 421, etiqueta 0, incluye 74 ventanas de 10.10.20.30) + ataques-nota-M.csv (84, etiqueta 1) = 65 505",
+    "IF": "la misma regla que la Tabla 7 (todas las ventanas puntuadas, sin guarda), para que coincida con 4.1",
+    "operativa_aparte": "reglas del motor: ventanas no elegibles no se evaluan; packet_count_10s == 0 no se puntua el IF",
+    "no_se_calculan": "ROC-AUC ni AP del hibrido (no hay puntuacion combinada)"
+  }
+}

@@ -1,0 +1,384 @@
+{
+ "fuente": "artifacts/linea-base/multilayer-v3.csv (acumulador en vivo), filas de 05-oct 19:40-20:55",
+ "sha256_extracto": "5f67cf432b42e560321726c4093bf4347981bac952823e8fb643640482311ee0",
+ "episodios": {
+  "e3-r1": {
+   "ventanas_acumulador": 15,
+   "IF_0.05": {
+    "detectado": false,
+    "lat_T0_s": null
+   },
+   "IF_0.03": {
+    "detectado": false,
+    "lat_T0_s": null
+   },
+   "HEUR": {
+    "detectado": true,
+    "lat_T0_s": 13.0
+   },
+   "HIB_0.05": {
+    "detectado": true,
+    "lat_T0_s": 13.0
+   },
+   "HIB_0.03": {
+    "detectado": true,
+    "lat_T0_s": 13.0
+   },
+   "ventanas_comunes_con_replay": 10,
+   "diferencias_replay_vs_vivo": {
+    "packet_count_10s": {
+     "max_abs": 0.0,
+     "iguales": 10
+    },
+    "flow_attempt_count_30s": {
+     "max_abs": 0.0,
+     "iguales": 10
+    },
+    "http_request_count_60s": {
+     "max_abs": 0.0,
+     "iguales": 10
+    },
+    "dns_query_count_60s": {
+     "max_abs": 0.0,
+     "iguales": 10
+    }
+   }
+  },
+  "e3-r2": {
+   "ventanas_acumulador": 15,
+   "IF_0.05": {
+    "detectado": true,
+    "lat_T0_s": 59.0
+   },
+   "IF_0.03": {
+    "detectado": false,
+    "lat_T0_s": null
+   },
+   "HEUR": {
+    "detectado": true,
+    "lat_T0_s": 9.0
+   },
+   "HIB_0.05": {
+    "detectado": true,
+    "lat_T0_s": 9.0
+   },
+   "HIB_0.03": {
+    "detectado": true,
+    "lat_T0_s": 9.0
+   },
+   "ventanas_comunes_con_replay": 10,
+   "diferencias_replay_vs_vivo": {
+    "packet_count_10s": {
+     "max_abs": 0.0,
+     "iguales": 10
+    },
+    "flow_attempt_count_30s": {
+     "max_abs": 2.0,
+     "iguales": 7
+    },
+    "http_request_count_60s": {
+     "max_abs": 0.0,
+     "iguales": 10
+    },
+    "dns_query_count_60s": {
+     "max_abs": 0.0,
+     "iguales": 10
+    }
+   }
+  },
+  "e3-r3": {
+   "ventanas_acumulador": 15,
+   "IF_0.05": {
+    "detectado": true,
+    "lat_T0_s": 34.0
+   },
+   "IF_0.03": {
+    "detectado": false,
+    "lat_T0_s": null
+   },
+   "HEUR": {
+    "detectado": true,
+    "lat_T0_s": 14.0
+   },
+   "HIB_0.05": {
+    "detectado": true,
+    "lat_T0_s": 14.0
+   },
+   "HIB_0.03": {
+    "detectado": true,
+    "lat_T0_s": 14.0
+   },
+   "ventanas_comunes_con_replay": 12,
+   "diferencias_replay_vs_vivo": {
+    "packet_count_10s": {
+     "max_abs": 0.0,
+     "iguales": 12
+    },
+    "flow_attempt_count_30s": {
+     "max_abs": 2.0,
+     "iguales": 5
+    },
+    "http_request_count_60s": {
+     "max_abs": 0.0,
+     "iguales": 12
+    },
+    "dns_query_count_60s": {
+     "max_abs": 0.0,
+     "iguales": 12
+    }
+   }
+  },
+  "e4-r1": {
+   "ventanas_acumulador": 16,
+   "IF_0.05": {
+    "detectado": true,
+    "lat_T0_s": 10.0
+   },
+   "IF_0.03": {
+    "detectado": true,
+    "lat_T0_s": 10.0
+   },
+   "HEUR": {
+    "detectado": true,
+    "lat_T0_s": 10.0
+   },
+   "HIB_0.05": {
+    "detectado": true,
+    "lat_T0_s": 10.0
+   },
+   "HIB_0.03": {
+    "detectado": true,
+    "lat_T0_s": 10.0
+   },
+   "ventanas_comunes_con_replay": 10,
+   "diferencias_replay_vs_vivo": {
+    "packet_count_10s": {
+     "max_abs": 0.0,
+     "iguales": 10
+    },
+    "flow_attempt_count_30s": {
+     "max_abs": 0.0,
+     "iguales": 10
+    },
+    "http_request_count_60s": {
+     "max_abs": 0.0,
+     "iguales": 10
+    },
+    "dns_query_count_60s": {
+     "max_abs": 0.0,
+     "iguales": 10
+    }
+   }
+  },
+  "e4-r2": {
+   "ventanas_acumulador": 15,
+   "IF_0.05": {
+    "detectado": true,
+    "lat_T0_s": 4.0
+   },
+   "IF_0.03": {
+    "detectado": true,
+    "lat_T0_s": 4.0
+   },
+   "HEUR": {
+    "detectado": true,
+    "lat_T0_s": 14.0
+   },
+   "HIB_0.05": {
+    "detectado": true,
+    "lat_T0_s": 4.0
+   },
+   "HIB_0.03": {
+    "detectado": true,
+    "lat_T0_s": 4.0
+   },
+   "ventanas_comunes_con_replay": 10,
+   "diferencias_replay_vs_vivo": {
+    "packet_count_10s": {
+     "max_abs": 0.0,
+     "iguales": 10
+    },
+    "flow_attempt_count_30s": {
+     "max_abs": 92.0,
+     "iguales": 0
+    },
+    "http_request_count_60s": {
+     "max_abs": 1.0,
+     "iguales": 8
+    },
+    "dns_query_count_60s": {
+     "max_abs": 0.0,
+     "iguales": 10
+    }
+   }
+  },
+  "e4-r3": {
+   "ventanas_acumulador": 15,
+   "IF_0.05": {
+    "detectado": true,
+    "lat_T0_s": 9.0
+   },
+   "IF_0.03": {
+    "detectado": true,
+    "lat_T0_s": 9.0
+   },
+   "HEUR": {
+    "detectado": true,
+    "lat_T0_s": 19.0
+   },
+   "HIB_0.05": {
+    "detectado": true,
+    "lat_T0_s": 9.0
+   },
+   "HIB_0.03": {
+    "detectado": true,
+    "lat_T0_s": 9.0
+   },
+   "ventanas_comunes_con_replay": 10,
+   "diferencias_replay_vs_vivo": {
+    "packet_count_10s": {
+     "max_abs": 0.0,
+     "iguales": 10
+    },
+    "flow_attempt_count_30s": {
+     "max_abs": 56.0,
+     "iguales": 0
+    },
+    "http_request_count_60s": {
+     "max_abs": 0.0,
+     "iguales": 10
+    },
+    "dns_query_count_60s": {
+     "max_abs": 0.0,
+     "iguales": 10
+    }
+   }
+  },
+  "e1-r1": {
+   "ventanas_acumulador": 8,
+   "IF_0.05": {
+    "detectado": true,
+    "lat_T0_s": 23.0
+   },
+   "IF_0.03": {
+    "detectado": true,
+    "lat_T0_s": 23.0
+   },
+   "HEUR": {
+    "detectado": true,
+    "lat_T0_s": 23.0
+   },
+   "HIB_0.05": {
+    "detectado": true,
+    "lat_T0_s": 23.0
+   },
+   "HIB_0.03": {
+    "detectado": true,
+    "lat_T0_s": 23.0
+   },
+   "ventanas_comunes_con_replay": 3,
+   "diferencias_replay_vs_vivo": {
+    "packet_count_10s": {
+     "max_abs": 0.0,
+     "iguales": 3
+    },
+    "flow_attempt_count_30s": {
+     "max_abs": 1.0,
+     "iguales": 2
+    },
+    "http_request_count_60s": {
+     "max_abs": 0.0,
+     "iguales": 3
+    },
+    "dns_query_count_60s": {
+     "max_abs": 0.0,
+     "iguales": 3
+    }
+   }
+  },
+  "e1-r2": {
+   "ventanas_acumulador": 11,
+   "IF_0.05": {
+    "detectado": true,
+    "lat_T0_s": 21.0
+   },
+   "IF_0.03": {
+    "detectado": true,
+    "lat_T0_s": 21.0
+   },
+   "HEUR": {
+    "detectado": true,
+    "lat_T0_s": 21.0
+   },
+   "HIB_0.05": {
+    "detectado": true,
+    "lat_T0_s": 21.0
+   },
+   "HIB_0.03": {
+    "detectado": true,
+    "lat_T0_s": 21.0
+   },
+   "ventanas_comunes_con_replay": 8,
+   "diferencias_replay_vs_vivo": {
+    "packet_count_10s": {
+     "max_abs": 0.0,
+     "iguales": 8
+    },
+    "flow_attempt_count_30s": {
+     "max_abs": 1.0,
+     "iguales": 5
+    },
+    "http_request_count_60s": {
+     "max_abs": 0.0,
+     "iguales": 8
+    },
+    "dns_query_count_60s": {
+     "max_abs": 0.0,
+     "iguales": 8
+    }
+   }
+  },
+  "e1-r3": {
+   "ventanas_acumulador": 8,
+   "IF_0.05": {
+    "detectado": true,
+    "lat_T0_s": 23.0
+   },
+   "IF_0.03": {
+    "detectado": true,
+    "lat_T0_s": 23.0
+   },
+   "HEUR": {
+    "detectado": true,
+    "lat_T0_s": 23.0
+   },
+   "HIB_0.05": {
+    "detectado": true,
+    "lat_T0_s": 23.0
+   },
+   "HIB_0.03": {
+    "detectado": true,
+    "lat_T0_s": 23.0
+   },
+   "ventanas_comunes_con_replay": 3,
+   "diferencias_replay_vs_vivo": {
+    "packet_count_10s": {
+     "max_abs": 0.0,
+     "iguales": 3
+    },
+    "flow_attempt_count_30s": {
+     "max_abs": 2.0,
+     "iguales": 2
+    },
+    "http_request_count_60s": {
+     "max_abs": 12.0,
+     "iguales": 0
+    },
+    "dns_query_count_60s": {
+     "max_abs": 0.0,
+     "iguales": 3
+    }
+   }
+  }
+ }
+}

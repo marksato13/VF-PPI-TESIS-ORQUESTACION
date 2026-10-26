@@ -1,0 +1,11 @@
+fam,rep,resultado_cyberflow,resultado_suricata
+e3,1,[RESULT e3-r1 kaliwin=10 model_alerts=0 model_first=- heur=dns_entropy action=LIMIT heur_first=13.0],[SURI e3-r1 alerts=0 first=-]
+e3,2,[RESULT e3-r2 kaliwin=10 model_alerts=0 model_first=- heur=dns_entropy action=LIMIT heur_first=9.0],[SURI e3-r2 alerts=0 first=-]
+e3,3,[RESULT e3-r3 kaliwin=12 model_alerts=0 model_first=- heur=dns_entropy action=LIMIT heur_first=14.0],[SURI e3-r3 alerts=0 first=-]
+e4,1,[RESULT e4-r1 kaliwin=10 model_alerts=10 model_first=10.0 heur=http_abuse action=LIMIT heur_first=10.0],[SURI e4-r1 alerts=0 first=-]
+e4,2,[RESULT e4-r2 kaliwin=10 model_alerts=10 model_first=4.0 heur=http_abuse action=LIMIT heur_first=14.0],[SURI e4-r2 alerts=0 first=-]
+e4,3,[RESULT e4-r3 kaliwin=10 model_alerts=10 model_first=9.0 heur=http_abuse action=LIMIT heur_first=19.0],[SURI e4-r3 alerts=0 first=-]
+e1,1,[RESULT e1-r1 kaliwin=3 model_alerts=1 model_first=23.0 heur=- action=- heur_first=-],[SURI e1-r1 alerts=0 first=-]
+e1,2,[RESULT e1-r2 kaliwin=8 model_alerts=2 model_first=21.0 heur=port_scan action=BLOCK heur_first=21.0],[SURI e1-r2 alerts=0 first=-]
+e1,3,[RESULT e1-r3 kaliwin=3 model_alerts=1 model_first=23.0 heur=- action=- heur_first=-],[SURI e1-r3 alerts=0 first=-]
+ORQ_DONE

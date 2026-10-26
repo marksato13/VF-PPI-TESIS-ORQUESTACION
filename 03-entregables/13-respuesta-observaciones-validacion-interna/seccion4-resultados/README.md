@@ -19,6 +19,10 @@ híbrido, 4.2), **Suricata** (4.3), **N1/N3** (LIMIT/BLOCK y tiempos, 4.4).
 - `00-inventario/INVENTARIO-Y-FACTIBILIDAD.md` — estado de repos, artefactos y datos; qué es
   computable offline y qué falta; **lista exacta de faltantes + procedimiento** (reglas 8 y 9).
 - `4.2-ablacion/`
+  - `aporte-componentes-2026-10-26/` — **VIGENTE (26-oct)**. Contiene:
+    - El antecedente 6/9 · 7/9 · 9/9, verificado: era del modelo contaminado y se reproduce 9/9.
+    - Los 9 episodios del 5-oct re-procesados con el IF limpio (α 0,05 y 0,03), los heurísticos y el híbrido.
+    - La Tabla 8 y las métricas por ventana sobre la población de la Tabla 7.
   - `ablacion_sensor.py` (+ `Tabla8-ablacion-sensor.md`, `matriz-episodios-sensor.csv`,
     `metadata-ablacion-sensor.json`) — **VÁLIDO**: IF limpio + heurísticos sobre datos del
     **sensor** (65 421 benignas + 181 ventanas Kali). Valida **FPR IF 4,53 %**.

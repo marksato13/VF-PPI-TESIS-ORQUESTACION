@@ -1,0 +1,47 @@
+{
+ "duracion_pcap_s": 294.8,
+ "desde": "2026-10-05T19:45:30.050662+00:00",
+ "hasta": "2026-10-05T19:50:24.891010+00:00",
+ "criterio_ventana": "entidad no excluida por el motor; window_end en [primer paquete + 60 s, ultimo paquete]",
+ "criterio_falsa_alarma": "cualquier senal del componente en una ventana del control",
+ "ventanas_elegibles": 61,
+ "entidades": 4,
+ "kali_en_control": 0,
+ "procesamiento": {
+  "tramas_ip": 12958,
+  "plano_control_descartado": 9280,
+  "duplicados_espejo": 954,
+  "paquetes": 2724,
+  "observaciones_paquete": 1894,
+  "observaciones_app": 68,
+  "primer_paquete": "2026-10-05T19:45:30.050662+00:00",
+  "ultimo_paquete": "2026-10-05T19:50:24.891010+00:00",
+  "primera_observacion": "2026-10-05T19:45:16.823758+00:00",
+  "capture_start_usado": "2026-10-05T19:44:16.823758+00:00"
+ },
+ "IF_0.05": {
+  "falsas_alarmas": 0,
+  "tasa": 0.0,
+  "entidades": []
+ },
+ "IF_0.03": {
+  "falsas_alarmas": 0,
+  "tasa": 0.0,
+  "entidades": []
+ },
+ "HEUR": {
+  "falsas_alarmas": 0,
+  "tasa": 0.0,
+  "entidades": []
+ },
+ "HIB_0.05": {
+  "falsas_alarmas": 0,
+  "tasa": 0.0,
+  "entidades": []
+ },
+ "HIB_0.03": {
+  "falsas_alarmas": 0,
+  "tasa": 0.0,
+  "entidades": []
+ }
+}

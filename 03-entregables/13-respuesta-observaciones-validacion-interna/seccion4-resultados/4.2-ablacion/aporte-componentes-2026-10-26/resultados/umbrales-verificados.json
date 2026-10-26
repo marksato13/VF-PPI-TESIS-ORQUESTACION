@@ -1,0 +1,26 @@
+{
+ "n_validacion_total": 65633,
+ "quitadas_kali": 80,
+ "n_calibracion": 65553,
+ "orientacion": "score_samples: mayor = mas normal; puntuacion de anomalia = -score_samples",
+ "operador": "senal si score_samples < umbral (estricto) <=> -score_samples > cuantil",
+ "umbrales": {
+  "0.05": {
+   "cuantil_menos_score": 0.5694578968203693,
+   "umbral_score_samples": -0.5694578968203693,
+   "esperado_4_1": -0.5694578968203694,
+   "dif": 1.1102230246251565e-16,
+   "validacion_con_senal": 3278,
+   "validacion_empates": 0
+  },
+  "0.03": {
+   "cuantil_menos_score": 0.5898535710336615,
+   "umbral_score_samples": -0.5898535710336615,
+   "esperado_4_1": -0.5898535710336618,
+   "dif": 2.220446049250313e-16,
+   "validacion_con_senal": 1967,
+   "validacion_empates": 0
+  }
+ },
+ "desplegado_referencia": -0.5693969936322356
+}
