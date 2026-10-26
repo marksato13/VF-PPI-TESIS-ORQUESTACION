@@ -188,11 +188,13 @@ lo son.
 | Ep. | IF 0,05 | IF 0,03 | Heur. | Híb. 0,05 | Híb. 0,03 | Lectura |
 |---|---|---|---|---|---|---|
 | e3-r1/r2/r3 | NE | NE | D a 62,5 / 48,2 / 43,6 s (`dns_entropy`) | igual | igual | El IF no da señal en las 3–5 ventanas evaluables. **No permite concluir** que no detecte. |
-| e4-r1/r2/r3 | D a 49,0 / 53,9 / 58,1 s | ídem | D (`http_abuse`), misma ventana | D (IF + `http_abuse`, LIMIT) | ídem | Detección durante el ataque, pero en la **primera ventana evaluable**. La latencia no es medible. |
+| e4-r1/r2/r3 | D en +49,0 / 53,9 / 58,1 s | ídem | D (`http_abuse`), misma ventana | D (IF + `http_abuse`, LIMIT) | ídem | Detección durante el ataque, pero en la **primera ventana evaluable** (el desfase no es la latencia real). |
 | e1-r1, e1-r3 | NE | NE | NE | NE | NE | El escaneo (18 s) cae entero en la zona sin contexto |
 | e1-r2 | NE (señal a +6 s del fin) | NE | NE (señal a +6 y +16 s) | NE | NE | Solo hay señales posteriores, en ventanas evaluables, pero las del durante no lo son |
 
-Las latencias se miden desde el inicio del generador hasta el `window_end` de la primera señal.
+Los valores «a N s» son el **desfase `window_end` − inicio del generador** de la primera señal, no una latencia
+de detección: `window_end` es el cierre de la ventana, no el instante en que el motor emitió la alerta (la decisión
+real sale después, §1.2 punto 3). Son, por tanto, una cota inferior del tiempo hasta la alerta, no el tiempo mismo.
 
 ### Sensibilidad: filas del acumulador en vivo (no equivalentes; **no** son el resultado principal)
 

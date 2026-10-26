@@ -6,6 +6,9 @@ eve.json*
 *.csv.gz
 # Respaldo canónico de scores completos de 4.1, exportado con precisión completa.
 !03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/_campana/resultados-2026-10-23/eval41/v2/scores-todos-candidatos-full.csv.gz
+# Entregables por ventana de la revisión 4.2 r2 (anunciados en su README y manifiesto).
+!03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-r2-2026-10-26/resultados/anclas-por-episodio.csv.gz
+!03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-r2-2026-10-26/resultados/ventanas-predicciones.csv.gz
 .env
 *.key
 *.pem

@@ -9,7 +9,7 @@ Revisión de `../aporte-componentes-2026-10-26/`, que se conserva intacta. Por d
 | `evaluar_r2.py` | Cálculo completo: `python evaluar_r2.py --datos <copia del sensor>` |
 | `resultados/TABLA8-r2.md` | Tabla 8 principal (replay con historia real), sensibilidad (acumulador) y categoría D/P/N/NE por episodio |
 | `resultados/contexto-episodios.csv` | Marcas del generador, paquetes, cobertura de PCAP y EVE, huecos y ventanas evaluables |
-| `resultados/categorias-episodio.csv` | Categoría, primera señal, latencias, componente y acción propuesta, por fuente, episodio y configuración |
+| `resultados/categorias-episodio.csv` | Categoría, primera señal, desfase `window_end` − inicio del generador (no es la latencia de emisión), componente y acción propuesta, por fuente, episodio y configuración |
 | `resultados/anclas-por-episodio.csv.gz` | Estado y señal de cada ventana de 10.10.20.30 en [inicio, fin + 60 s], en las dos fuentes |
 | `resultados/senales-compartidas-durante.csv` | Señales IF y heurístico compartidas y exclusivas durante el ataque |
 | `resultados/equivalencia-acumulador.json` | Comparación de las 28 variables entre acumulador y replay (no equivalentes) |
