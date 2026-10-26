@@ -1,0 +1,36 @@
+Comprobaciones benignas previas — 2026-10-26 ~23:33–23:36 UTC
+Ejecutadas de solo lectura; no se generó tráfico de ataque. Fuente: Sensor1 (vía bastión) y bastión.
+
+===== RELOJES
+Sensor 10.10.60.11: 2026-10-26T23:33:36 UTC. chrony NO disponible (reloj sin disciplina NTP).
+Bastión 10.10.10.30: 2026-10-26T23:35:21 UTC. chrony activo, ref evlbi.aggo-conicet.gob.ar,
+  System time 0.001020623 s fast of NTP, Last offset +0.000256145 s.
+=> El sensor NO está sincronizado por NTP. Hay que corregirlo y medir el desfase antes de la campaña.
+
+===== INSTRUMENTACIÓN DEL SENSOR
+Servicios: ppi-motor ACTIVO, ppi-motor-capture ACTIVO, suricata ACTIVO, ppi-dashboard ACTIVO,
+  cyberflow-capture-nic exited(ok), ppi-publicar-feed (inactive como servicio: lo lanza su timer).
+Motor en vivo: detector = if_limpio_2026_10 (confirma que el motor ya usa el IF limpio).
+Anillo PCAP /var/lib/ppi-motor-capture/: 76 ficheros de 15 s (~19 min de retención); recicla.
+EVE /var/log/suricata/eve.json: 204 MB, en escritura.
+motor_decision.log: 24 MB, en escritura, rota a diario.
+Acumulador artifacts/linea-base/multilayer-v3.csv: 979 MB, mtime 23:30 (escribiendo vía timer).
+Disco /: 21 GB libres, 41 % usado.
+
+===== RELOJES/ENFORCEMENT — ESTADO EN VIVO (crítico para separar A y B)
+Publicador: timer ppi-publicar-feed, OnCalendar=*-*-* *:*:00/10 (cada 10 s),
+  ExecStart ... publicar_feed.py --ventana-segundos 120 --umbrales 2026-10-06.1
+  feed.json y feed.sig reescritos a las 23:36:11 (segundos antes). estado.json vivo (IPs con bloqueos:0).
+Relay (bastión): ppi-relay-feed.timer ACTIVO (service inactivo: lo lanza el timer). relay-feed.sh presente.
+Agente (srv-dmz 10.10.30.10): ppi-enforce-agent.timer ACTIVO, OnCalendar=*:*:06/10 (cada 10 s),
+  ExecStart ... agente_enforce.py --aplicar --sudo   <-- ENFORCEMENT EN MODO APLICAR (no sombra).
+  Para sombra: quitar --aplicar.
+  nft inet cyberflow: cyberflow_bloqueados y cyberflow_limitados SIN elements ahora (sin bloqueos residuales).
+=> La cadena publicar→relay→agente está ARMADA y en modo aplicar. Para la campaña A hay que ponerla en sombra.
+
+===== ALCANCE A SERVICIOS (desde el bastión, benigno)
+DNS 10.10.10.20: resuelve www.example.com a IPs públicas (172.66.147.243, 104.20.23.154)
+  => el resolutor REENVÍA a Internet. srv-dmz.lab no resuelve (no hay zona de laboratorio).
+srv-dmz 10.10.30.10: 80 ABIERTO (HTTP 200 en /), 443 ABIERTO, 8081 cerrado/filtrado.
+  /login -> 404 (NO hay endpoint de autenticación; 404 no es fallo de auth).
+Kali 10.10.20.30:22 ABIERTO (encendida en este momento).

@@ -1,0 +1,26 @@
+{
+  "generado_utc": "2026-10-26T23:44:22.4607421Z",
+  "repo": "orquestacion-limpio / VF-PPI-TESIS-ORQUESTACION",
+  "fase": "preparacion (sin ejecutar ataques)",
+  "archivos_sha256": {
+    "COMPROBACIONES-PREVIAS.md": "ab52d160c476efe54f35beb87bb7520c5b01a643a6553ebade3b56d9b579eca2",
+    "config-campana.json": "a283ba27399a3577c116b6bfaf8c9bcf121f8e600ac0154e8a098363f4fbb82b",
+    "escenarios/escenarios.json": "3cf7962f4b82f6b481ad555eb981f4486812cc92eadb51d72130e7c8b77134da",
+    "escenarios/FICHAS-ESCENARIOS.md": "60c93faade6af5c4600e7ecce70423f6244883b5266f8af953d109f90fb745e4",
+    "evidencia-precheck/agente_modo.sh": "0b780cbb27f65e520af2c0e722bdd837b6a95252096df677bffe3e22ecdfc3ee",
+    "evidencia-precheck/cron.sh": "415568ad786a8c0ada1e96acb09c589556f63c174e649cb220cb8eea3f5a58ce",
+    "evidencia-precheck/precheck_bastion.sh": "9fc1c440023a93e6d81a9475b45fbe547fae4bb858f175198e8bd1e8ffec4c03",
+    "evidencia-precheck/precheck-2026-10-26.txt": "a4a64ad685ebf214b841d80de1dad485056b9268415592ff6734925f91a5d11a",
+    "evidencia-precheck/precheck.sh": "503b7d11d975ff9ca48a6244520051610844cc8ecd9d4b44b11ed23d9f47ff3a",
+    "evidencia-precheck/pub.sh": "3f777799934526de341dc2af000d3077c6daa9d97a60b801587c8800572ec3b5",
+    "PLAN-CAMPANA.md": "3f0427476c0ad9ccada1a7f3db968cb1a489a20ddd3453e2c00381ffce72a93a",
+    "README.md": "4c1064d289acf1b79e49fabb3e9e04973929425c71fd8c5794054f7e4fcb5218",
+    "scripts/analizar.py": "325d493ba8bb2edeb6471a989df9072a3c833fba1f13becf3268567a70eb4258",
+    "scripts/capturar.sh": "40c553d118f0af7f197b50aac5e7fc47d4a6bf8b516e97ecae926035b7aac42e",
+    "scripts/comprobar_relojes.sh": "edb701831924bfd05f247025d1bf280e597485b204653f0b1e89e468384618db",
+    "scripts/endpoint_brute_prueba.md": "7d96cf15bfd3ce3f9e63016779de6bc2ef1cd91a104a2a6082348df66d7b9c6d",
+    "scripts/generar_campana.py": "b67a838ad90c1970c6023b93872d7939a4f2934bb9db68827764a52a965739ba",
+    "scripts/modo_sombra.sh": "776b80954cf40745d21716e1b3a90744b0351db4ff36a648758dfdc04c9fa7d0",
+    "scripts/restaurar_enforcement.sh": "b88522d532fc747de5b020de83c43ac6e3b733839afeadf77ad32baf156e06f9"
+  }
+}
