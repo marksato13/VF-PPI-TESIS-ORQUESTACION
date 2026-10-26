@@ -19,7 +19,15 @@ híbrido, 4.2), **Suricata** (4.3), **N1/N3** (LIMIT/BLOCK y tiempos, 4.4).
 - `00-inventario/INVENTARIO-Y-FACTIBILIDAD.md` — estado de repos, artefactos y datos; qué es
   computable offline y qué falta; **lista exacta de faltantes + procedimiento** (reglas 8 y 9).
 - `4.2-ablacion/`
-  - `aporte-componentes-2026-10-26/` — **VIGENTE (26-oct)**. Contiene:
+  - `aporte-componentes-r2-2026-10-26/` — **VIGENTE (r2, 26-oct)**. Contiene:
+    - Los episodios evaluados con la historia real.
+    - Las categorías durante / posterior / sin detección / no evaluable.
+    - La Tabla 8 revisada: 0 de 9 evaluables.
+    - Las métricas por ventana re-verificadas.
+    - El inventario 4.4 y el protocolo de ensayos nuevos.
+
+    Ver `NOTA-R2.md`.
+  - `aporte-componentes-2026-10-26/` — superada por r2; se conserva. Su Tabla 8 usaba una historia simulada. Contiene:
     - El antecedente 6/9 · 7/9 · 9/9, verificado: era del modelo contaminado y se reproduce 9/9.
     - Los 9 episodios del 5-oct re-procesados con el IF limpio (α 0,05 y 0,03), los heurísticos y el híbrido.
     - La Tabla 8 y las métricas por ventana sobre la población de la Tabla 7.

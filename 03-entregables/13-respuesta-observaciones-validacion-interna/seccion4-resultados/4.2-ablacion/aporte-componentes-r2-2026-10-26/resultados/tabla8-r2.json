@@ -1,0 +1,89 @@
+{
+ "celda": "episodios con deteccion durante la ejecucion / episodios evaluables",
+ "principal": "replay",
+ "tablas": {
+  "replay": {
+   "e3": {
+    "evaluables": [],
+    "no_evaluables": [
+     "e3-r1",
+     "e3-r2",
+     "e3-r3"
+    ],
+    "IF_0.05": 0,
+    "IF_0.03": 0,
+    "HEUR": 0,
+    "HIB_0.05": 0,
+    "HIB_0.03": 0
+   },
+   "e4": {
+    "evaluables": [],
+    "no_evaluables": [
+     "e4-r1",
+     "e4-r2",
+     "e4-r3"
+    ],
+    "IF_0.05": 0,
+    "IF_0.03": 0,
+    "HEUR": 0,
+    "HIB_0.05": 0,
+    "HIB_0.03": 0
+   },
+   "e1": {
+    "evaluables": [],
+    "no_evaluables": [
+     "e1-r1",
+     "e1-r2",
+     "e1-r3"
+    ],
+    "IF_0.05": 0,
+    "IF_0.03": 0,
+    "HEUR": 0,
+    "HIB_0.05": 0,
+    "HIB_0.03": 0
+   }
+  },
+  "acumulador": {
+   "e3": {
+    "evaluables": [
+     "e3-r1",
+     "e3-r2",
+     "e3-r3"
+    ],
+    "no_evaluables": [],
+    "IF_0.05": 2,
+    "IF_0.03": 0,
+    "HEUR": 3,
+    "HIB_0.05": 3,
+    "HIB_0.03": 3
+   },
+   "e4": {
+    "evaluables": [
+     "e4-r1",
+     "e4-r2",
+     "e4-r3"
+    ],
+    "no_evaluables": [],
+    "IF_0.05": 3,
+    "IF_0.03": 3,
+    "HEUR": 3,
+    "HIB_0.05": 3,
+    "HIB_0.03": 3
+   },
+   "e1": {
+    "evaluables": [
+     "e1-r1",
+     "e1-r2",
+     "e1-r3"
+    ],
+    "no_evaluables": [],
+    "IF_0.05": 1,
+    "IF_0.03": 1,
+    "HEUR": 1,
+    "HIB_0.05": 1,
+    "HIB_0.03": 1
+   }
+  }
+ },
+ "complementaria_publicable": false
+}

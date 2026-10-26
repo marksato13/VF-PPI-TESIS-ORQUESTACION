@@ -1,0 +1,173 @@
+{
+ "criterio": "28 variables identicas (|dif| <= 1e-9) en todas las ventanas comunes evaluables de 10.10.20.30",
+ "equivalente_total": false,
+ "uso": "solo sensibilidad",
+ "episodios": {
+  "e3-r1": {
+   "ventanas_comunes": 4,
+   "identicas_28_variables": 0,
+   "variables_distintas": {
+    "unique_dst_ip_ratio_30s": 4.615384614423124e-09,
+    "unique_dst_port_ratio_30s": 4.615384614423124e-09,
+    "protocol_diversity_30s": 3.188405797195648e-09,
+    "flow_duration_mean_30s": 4.419555664145203e-09,
+    "tx_rx_byte_ratio_30s": 2.0318725035828322e-09,
+    "dns_query_rate_60s": 3.33333360913457e-09
+   },
+   "misma_senal": {
+    "IF_0.05": 4,
+    "IF_0.03": 4,
+    "HEUR": 4,
+    "HIB_0.05": 4,
+    "HIB_0.03": 4
+   }
+  },
+  "e3-r2": {
+   "ventanas_comunes": 6,
+   "identicas_28_variables": 0,
+   "variables_distintas": {
+    "unique_dst_ip_ratio_30s": 0.00043261637681159433,
+    "flow_attempt_rate_10s": 0.19999999999999973,
+    "unique_dst_port_ratio_30s": 0.00043261637681159433,
+    "protocol_diversity_30s": 3.188405797195648e-09,
+    "flow_duration_mean_30s": 204.21483683096923,
+    "tx_rx_byte_ratio_30s": 2.0318725035828322e-09,
+    "dns_query_rate_60s": 3.33333360913457e-09
+   },
+   "misma_senal": {
+    "IF_0.05": 3,
+    "IF_0.03": 6,
+    "HEUR": 6,
+    "HIB_0.05": 6,
+    "HIB_0.03": 6
+   }
+  },
+  "e3-r3": {
+   "ventanas_comunes": 7,
+   "identicas_28_variables": 0,
+   "variables_distintas": {
+    "unique_dst_ip_ratio_30s": 0.0006747643589743585,
+    "flow_attempt_rate_10s": 0.10000000000000009,
+    "unique_dst_port_ratio_30s": 0.0006747643589743585,
+    "protocol_diversity_30s": 3.870967742528042e-09,
+    "flow_duration_mean_30s": 249.12185096840636,
+    "tx_rx_byte_ratio_30s": 2.0318725035828322e-09,
+    "dns_query_rate_60s": 3.33333360913457e-09
+   },
+   "misma_senal": {
+    "IF_0.05": 3,
+    "IF_0.03": 7,
+    "HEUR": 7,
+    "HIB_0.05": 7,
+    "HIB_0.03": 7
+   }
+  },
+  "e4-r1": {
+   "ventanas_comunes": 6,
+   "identicas_28_variables": 0,
+   "variables_distintas": {
+    "mean_ip_len_10s": 4.34971525464789e-09,
+    "unique_dst_ip_ratio_30s": 3.5680751173756617e-09,
+    "unique_dst_port_ratio_30s": 3.5680751173756617e-09,
+    "protocol_diversity_30s": 3.070669168230304e-09,
+    "flow_duration_mean_30s": 4.155886301759892e-09,
+    "tx_rx_byte_ratio_30s": 3.993947172986623e-09,
+    "http_request_rate_60s": 3.333354925416643e-09,
+    "http_method_entropy_60s": 4.80864658855551e-09
+   },
+   "misma_senal": {
+    "IF_0.05": 6,
+    "IF_0.03": 6,
+    "HEUR": 6,
+    "HIB_0.05": 6,
+    "HIB_0.03": 6
+   }
+  },
+  "e4-r2": {
+   "ventanas_comunes": 5,
+   "identicas_28_variables": 0,
+   "variables_distintas": {
+    "mean_ip_len_10s": 3.846153617814707e-09,
+    "unique_dst_ip_ratio_30s": 0.009596208823529411,
+    "flow_attempt_rate_10s": 2.2,
+    "unique_dst_port_ratio_30s": 0.009596208823529411,
+    "protocol_diversity_30s": 3.798536859838872e-09,
+    "flow_duration_mean_30s": 259.5906891833972,
+    "tx_rx_byte_ratio_30s": 4.212195037212041e-09,
+    "http_request_rate_60s": 3.33333360913457e-09
+   },
+   "misma_senal": {
+    "IF_0.05": 5,
+    "IF_0.03": 5,
+    "HEUR": 5,
+    "HIB_0.05": 5,
+    "HIB_0.03": 5
+   }
+  },
+  "e4-r3": {
+   "ventanas_comunes": 5,
+   "identicas_28_variables": 0,
+   "variables_distintas": {
+    "mean_ip_len_10s": 3.846153617814707e-09,
+    "unique_dst_ip_ratio_30s": 0.004357302592592592,
+    "flow_attempt_rate_10s": 2.4,
+    "unique_dst_port_ratio_30s": 0.004357302592592592,
+    "protocol_diversity_30s": 2.3133071308132844e-09,
+    "tcp_retransmission_ratio_10s": 3.4883720911871308e-09,
+    "flow_duration_mean_30s": 430.27958297384765,
+    "tx_rx_byte_ratio_30s": 2.8829686415932088e-09,
+    "http_request_rate_60s": 3.33333360913457e-09
+   },
+   "misma_senal": {
+    "IF_0.05": 5,
+    "IF_0.03": 4,
+    "HEUR": 5,
+    "HIB_0.05": 5,
+    "HIB_0.03": 5
+   }
+  },
+  "e1-r1": {
+   "ventanas_comunes": 0,
+   "identicas_28_variables": 0,
+   "variables_distintas": {},
+   "misma_senal": {
+    "IF_0.05": 0,
+    "IF_0.03": 0,
+    "HEUR": 0,
+    "HIB_0.05": 0,
+    "HIB_0.03": 0
+   }
+  },
+  "e1-r2": {
+   "ventanas_comunes": 2,
+   "identicas_28_variables": 0,
+   "variables_distintas": {
+    "unique_dst_ip_ratio_30s": 4.604316546953646e-09,
+    "unique_dst_port_ratio_30s": 1.0460250998711729e-09,
+    "protocol_diversity_30s": 4.604316546953646e-09,
+    "http_request_rate_60s": 3.333333331578814e-09,
+    "http_method_entropy_60s": 4.454668633968595e-09,
+    "dns_query_rate_60s": 3.333333331578814e-09
+   },
+   "misma_senal": {
+    "IF_0.05": 2,
+    "IF_0.03": 2,
+    "HEUR": 2,
+    "HIB_0.05": 2,
+    "HIB_0.03": 2
+   }
+  },
+  "e1-r3": {
+   "ventanas_comunes": 0,
+   "identicas_28_variables": 0,
+   "variables_distintas": {},
+   "misma_senal": {
+    "IF_0.05": 0,
+    "IF_0.03": 0,
+    "HEUR": 0,
+    "HIB_0.05": 0,
+    "HIB_0.03": 0
+   }
+  }
+ }
+}

@@ -1,0 +1,156 @@
+{
+ "fuente": "ventanas-predicciones.csv.gz (recalculado aqui) contra ../aporte-componentes-2026-10-26/resultados/ventanas-metricas.json",
+ "metricas": {
+  "principal/IF_0.05": {
+   "TP": 54,
+   "FP": 2955,
+   "TN": 62466,
+   "FN": 30,
+   "precision": 0.01794616151545364,
+   "recall": 0.6428571428571429,
+   "F1": 0.03491755577109603,
+   "FPR": 0.04516898243683221,
+   "n": 65505,
+   "igual_a_version_anterior": true
+  },
+  "operativa_motor/IF_0.05": {
+   "TP": 54,
+   "FP": 2831,
+   "TN": 62590,
+   "FN": 30,
+   "precision": 0.01871750433275563,
+   "recall": 0.6428571428571429,
+   "F1": 0.03637588413607275,
+   "FPR": 0.04327356659176717,
+   "n": 65505,
+   "igual_a_version_anterior": true
+  },
+  "principal/IF_0.03": {
+   "TP": 54,
+   "FP": 1723,
+   "TN": 63698,
+   "FN": 30,
+   "precision": 0.030388294879009566,
+   "recall": 0.6428571428571429,
+   "F1": 0.05803331542181624,
+   "FPR": 0.02633710887941181,
+   "n": 65505,
+   "igual_a_version_anterior": true
+  },
+  "operativa_motor/IF_0.03": {
+   "TP": 54,
+   "FP": 1689,
+   "TN": 63732,
+   "FN": 30,
+   "precision": 0.03098106712564544,
+   "recall": 0.6428571428571429,
+   "F1": 0.05911330049261084,
+   "FPR": 0.025817398083184298,
+   "n": 65505,
+   "igual_a_version_anterior": true
+  },
+  "principal/HEUR": {
+   "TP": 47,
+   "FP": 472,
+   "TN": 64949,
+   "FN": 37,
+   "precision": 0.0905587668593449,
+   "recall": 0.5595238095238095,
+   "F1": 0.15588723051409617,
+   "FPR": 0.007214808700570154,
+   "n": 65505,
+   "igual_a_version_anterior": true
+  },
+  "operativa_motor/HEUR": {
+   "TP": 47,
+   "FP": 472,
+   "TN": 64949,
+   "FN": 37,
+   "precision": 0.0905587668593449,
+   "recall": 0.5595238095238095,
+   "F1": 0.15588723051409617,
+   "FPR": 0.007214808700570154,
+   "n": 65505,
+   "igual_a_version_anterior": true
+  },
+  "principal/HIB_0.05": {
+   "TP": 54,
+   "FP": 3417,
+   "TN": 62004,
+   "FN": 30,
+   "precision": 0.015557476231633534,
+   "recall": 0.6428571428571429,
+   "F1": 0.030379746835443037,
+   "FPR": 0.05223093502086486,
+   "n": 65505,
+   "igual_a_version_anterior": true
+  },
+  "operativa_motor/HIB_0.05": {
+   "TP": 54,
+   "FP": 3294,
+   "TN": 62127,
+   "FN": 30,
+   "precision": 0.016129032258064516,
+   "recall": 0.6428571428571429,
+   "F1": 0.031468531468531465,
+   "FPR": 0.05035080478745357,
+   "n": 65505,
+   "igual_a_version_anterior": true
+  },
+  "principal/HIB_0.03": {
+   "TP": 54,
+   "FP": 2192,
+   "TN": 63229,
+   "FN": 30,
+   "precision": 0.02404274265360641,
+   "recall": 0.6428571428571429,
+   "F1": 0.0463519313304721,
+   "FPR": 0.03350606074502071,
+   "n": 65505,
+   "igual_a_version_anterior": true
+  },
+  "operativa_motor/HIB_0.03": {
+   "TP": 54,
+   "FP": 2158,
+   "TN": 63263,
+   "FN": 30,
+   "precision": 0.024412296564195298,
+   "recall": 0.6428571428571429,
+   "F1": 0.047038327526132406,
+   "FPR": 0.0329863499487932,
+   "n": 65505,
+   "igual_a_version_anterior": true
+  }
+ },
+ "falsas_alarmas_por_tipo_de_entidad": {
+  "IF_0.05": {
+   "medida aplicable (LIMIT/BLOCK posible)": 2945,
+   "NUNCA_BLOQUEAR (senal sin medida)": 10
+  },
+  "IF_0.03": {
+   "medida aplicable (LIMIT/BLOCK posible)": 1722,
+   "NUNCA_BLOQUEAR (senal sin medida)": 1
+  },
+  "HEUR": {
+   "NUNCA_BLOQUEAR (senal sin medida)": 470,
+   "medida aplicable (LIMIT/BLOCK posible)": 2
+  },
+  "HIB_0.05": {
+   "medida aplicable (LIMIT/BLOCK posible)": 2945,
+   "NUNCA_BLOQUEAR (senal sin medida)": 472
+  },
+  "HIB_0.03": {
+   "medida aplicable (LIMIT/BLOCK posible)": 1722,
+   "NUNCA_BLOQUEAR (senal sin medida)": 470
+  }
+ },
+ "nunca_bloquear_vigente": [
+  "10.10.10.20",
+  "10.10.10.30",
+  "10.10.20.1",
+  "10.10.30.1",
+  "10.10.40.1",
+  "10.10.60.1",
+  "10.10.60.11"
+ ]
+}
