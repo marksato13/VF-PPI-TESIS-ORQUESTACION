@@ -1,0 +1,451 @@
+{
+  "source_commit": "03055893722a941449624fef19036fd08929a51f",
+  "calibration_origin_commit": "028de214fb2ddc809f6eb4876574ada647b3dafb",
+  "input_sha256": {
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-2026-10-26/MANIFIESTO-APORTE.json": "35f571abcdf5fb8dbe28c81e36303a90984ebc7a3006b4b209bec21e0bb44fc5",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-2026-10-26/antecedente/brute_tiempos.txt": "22fb6e92aadaed253c91849dbb5d81a86fa8ea5bafbb878dbc1ae7ad5cede8f6",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-2026-10-26/antecedente/dedup_merge.py": "86a1baf321f76c694ece08667af1d1ca0fe061afdfc798714ab5cb3d84a2ea9b",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-2026-10-26/antecedente/heuristicos_2026-09-30.1_a6d287a.py": "f2cd23e576e14a245a748f4c8d07fe13ad4d9d06c8314bac507f22bc4cec5d3a",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-2026-10-26/antecedente/orq.log": "91c5e723f2a00edfb7249d3f2b369a694f82af67fab7a88a41e3d6adb6630e16",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-2026-10-26/antecedente/orq.sh": "4485905ccf75a194bfadac5eba20932fab229682063606ec849408a4f00c46a7",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-2026-10-26/antecedente/orq_results.csv": "97cc01112cb560543af4f4bf00ad732ca2bbd274335c798dff639a8c4181f7aa",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-2026-10-26/antecedente/proc.sh": "cafadb973302e0a149da912f4b4a2d68c3f0ca3ab8f456d018afee88f4624606",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-2026-10-26/antecedente/score.py": "09d8d28c26882a10be9d267854101b325f89e14e8a76ea00207ee0ca36cc2fcb",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-2026-10-26/config-aporte.json": "d5cafc204bfe7d4bb9cd2303b043ee1a47daaaca899872047029e45b4914cb4b",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-2026-10-26/evaluar_componentes.py": "dfc31b4059b852d173f61001ac1d2449fd15fbcfe5a9158f5fe3d44170c53a68",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-2026-10-26/NOTA-APORTE-COMPONENTES.md": "b3bf02e6354647b585c5b297176d882da0a687d4971602b2e8d5005fafb7ef4f",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-2026-10-26/README.md": "887334c1d2ba69205469b9665f1f05fef1db6fe1b39a9f5b5b4a17913e93d9be",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-2026-10-26/resultados/complementariedad-episodios.csv": "6394babfac7bcb65870aee12dbff5e0e426bd561e4bbf702d1234e585e195e58",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-2026-10-26/resultados/contraste-acumulador-vivo.json": "4ce98bcd2e600941cb4ccc98ca47f919e87d9dd893cfab1cf1a512b41766d2e8",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-2026-10-26/resultados/control-base-05oct.json": "585d1603235c384ca782cfc48905ffb22d53aece769d4fdc81e452f1176661f3",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-2026-10-26/resultados/episodios-metadatos.json": "f9864cf12afb97d4ff326919a7efdb751b8cdd76ef537aea26efd8d047b8d596",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-2026-10-26/resultados/episodios-registro.csv": "8e8ff58bf3ffcb022cc95c84630e62077fd57c2e89cc4498b211754b9eef7666",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-2026-10-26/resultados/episodios-senales-no-atribuibles.csv": "868be7097912b5135751386635ab179c0bfffedf894ffa2e4e9c0f9838880ba1",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-2026-10-26/resultados/episodios-ventanas.csv.gz": "c78df2dcf02725abaeb5ec999287b1e8daa7f1ffbefbf791daeac03b677481bf",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-2026-10-26/resultados/reproduccion-original.csv": "68827ce41b38790dfbe9595526c6a673eb100fab29faf2545bda549fcac09b47",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-2026-10-26/resultados/reproduccion-original.json": "3b4f46c273345b96875e763bf26d78057bddef4634cafa839d5fde8cd92edc9c",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-2026-10-26/resultados/resultados-aporte.json": "665d2c5b2c18611dbdc1110acde4b820a3b848015a1edfc6dbab26e059802f8e",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-2026-10-26/resultados/TABLA8-componentes.csv": "59ae30f5ca91b7d96b4635aefb76e55917551f22747e0bf6df02c82c3185b664",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-2026-10-26/resultados/TABLA8-componentes.md": "b70aec15dc4675ea24affc6e0c039b37d492f0571607ecca9788a2744558b9a0",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-2026-10-26/resultados/umbrales-verificados.json": "eeb0649136adf8b01164c1becb4a232e05de8b6e3c1706c3b9f0f43523989cf9",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-2026-10-26/resultados/VENTANAS-metricas.csv": "065141dac6401908b2d1132f0d2df30a60087f15e49d1d461944ca8601175520",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-2026-10-26/resultados/ventanas-metricas.json": "24b6355599873ccc8e3f68d274349034ae74eef1dc73454efadbceb71125753e",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-2026-10-26/resultados/VENTANAS-metricas.md": "98762b32fda64f947435816a5c6a533d77f246cd7ef6f0d9fc8378183408bae9",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.2-ablacion/aporte-componentes-2026-10-26/resultados/ventanas-predicciones.csv.gz": "0e2d63e7bf90052d36367dce64839b160c665099133eeddcb8ccec8895a337ef",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/MANIFIESTO-COMPARACION.json": "f936f9a55e6dd79aa25e04bd10018a0b124c57db30d316b543dda6791b4c07e0",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/salidas/puntuaciones-IF.csv.gz": "536638f47145a8c86d17ba63f7ebf4a2cc3aca2a8294f9ff6d57d8d4ee795fd4"
+  },
+  "historical": {
+    "model": "if_recalibrado_2026_09",
+    "rules": "2026-09-30.1 con DNS 0,45",
+    "counts": {
+      "IF": 6,
+      "Heurísticos": 7,
+      "Híbrido": 9
+    },
+    "shown_in_current_figure": false
+  },
+  "counts_windows": {
+    "normal": 65421,
+    "attack": 84,
+    "all": 65505,
+    "kali_normal_retained": 74,
+    "zero_packet_normal_retained": 45558
+  },
+  "validation_count": 65553,
+  "thresholds_score_samples": {
+    "0.05": -0.5694578968203693,
+    "0.03": -0.5898535710336615
+  },
+  "score_comparison_max_delta": 1.1102230246251565e-16,
+  "window_metrics": {
+    "IF_0.05": {
+      "TP": 54,
+      "FP": 2955,
+      "TN": 62466,
+      "FN": 30,
+      "precision": 0.01794616151545364,
+      "recall": 0.6428571428571429,
+      "F1": 0.03491755577109603,
+      "FPR": 0.04516898243683221,
+      "n": 65505
+    },
+    "IF_0.03": {
+      "TP": 54,
+      "FP": 1723,
+      "TN": 63698,
+      "FN": 30,
+      "precision": 0.030388294879009566,
+      "recall": 0.6428571428571429,
+      "F1": 0.05803331542181624,
+      "FPR": 0.02633710887941181,
+      "n": 65505
+    },
+    "HEUR": {
+      "TP": 47,
+      "FP": 472,
+      "TN": 64949,
+      "FN": 37,
+      "precision": 0.0905587668593449,
+      "recall": 0.5595238095238095,
+      "F1": 0.15588723051409617,
+      "FPR": 0.007214808700570154,
+      "n": 65505
+    },
+    "HIB_0.05": {
+      "TP": 54,
+      "FP": 3417,
+      "TN": 62004,
+      "FN": 30,
+      "precision": 0.015557476231633534,
+      "recall": 0.6428571428571429,
+      "F1": 0.030379746835443037,
+      "FPR": 0.05223093502086486,
+      "n": 65505
+    },
+    "HIB_0.03": {
+      "TP": 54,
+      "FP": 2192,
+      "TN": 63229,
+      "FN": 30,
+      "precision": 0.02404274265360641,
+      "recall": 0.6428571428571429,
+      "F1": 0.0463519313304721,
+      "FPR": 0.03350606074502071,
+      "n": 65505
+    }
+  },
+  "window_attack_overlap": {
+    "0.05": {
+      "ambos": 47,
+      "solo_IF": 7,
+      "solo_heur": 0,
+      "ninguno": 30
+    },
+    "0.03": {
+      "ambos": 47,
+      "solo_IF": 7,
+      "solo_heur": 0,
+      "ninguno": 30
+    }
+  },
+  "episode_matrix": [
+    [
+      0,
+      0,
+      1,
+      1,
+      1
+    ],
+    [
+      0,
+      0,
+      1,
+      1,
+      1
+    ],
+    [
+      0,
+      0,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  ],
+  "episode_overlap": {
+    "0.05": {
+      "ambos": 6,
+      "solo IF": 0,
+      "solo heuristicos": 3,
+      "ninguno": 0
+    },
+    "0.03": {
+      "ambos": 6,
+      "solo IF": 0,
+      "solo heuristicos": 3,
+      "ninguno": 0
+    }
+  },
+  "sensitivity_counts": [
+    [
+      6,
+      6,
+      9,
+      9,
+      9
+    ],
+    [
+      4,
+      4,
+      7,
+      7,
+      7
+    ],
+    [
+      3,
+      3,
+      7,
+      7,
+      7
+    ],
+    [
+      8,
+      6,
+      9,
+      9,
+      9
+    ]
+  ],
+  "late_detections_vs_last_packet": [
+    {
+      "episodio": "e1-r1",
+      "configuracion": "IF_0.05",
+      "primera_senal": "2026-10-05T20:44:10+00:00",
+      "fin_ataque": "2026-10-05T20:44:05.766473+00:00"
+    },
+    {
+      "episodio": "e1-r1",
+      "configuracion": "IF_0.03",
+      "primera_senal": "2026-10-05T20:44:10+00:00",
+      "fin_ataque": "2026-10-05T20:44:05.766473+00:00"
+    },
+    {
+      "episodio": "e1-r1",
+      "configuracion": "HEUR",
+      "primera_senal": "2026-10-05T20:44:10+00:00",
+      "fin_ataque": "2026-10-05T20:44:05.766473+00:00"
+    },
+    {
+      "episodio": "e1-r1",
+      "configuracion": "HIB_0.05",
+      "primera_senal": "2026-10-05T20:44:10+00:00",
+      "fin_ataque": "2026-10-05T20:44:05.766473+00:00"
+    },
+    {
+      "episodio": "e1-r1",
+      "configuracion": "HIB_0.03",
+      "primera_senal": "2026-10-05T20:44:10+00:00",
+      "fin_ataque": "2026-10-05T20:44:05.766473+00:00"
+    },
+    {
+      "episodio": "e1-r3",
+      "configuracion": "IF_0.05",
+      "primera_senal": "2026-10-05T20:47:40+00:00",
+      "fin_ataque": "2026-10-05T20:47:36.006328+00:00"
+    },
+    {
+      "episodio": "e1-r3",
+      "configuracion": "IF_0.03",
+      "primera_senal": "2026-10-05T20:47:40+00:00",
+      "fin_ataque": "2026-10-05T20:47:36.006328+00:00"
+    },
+    {
+      "episodio": "e1-r3",
+      "configuracion": "HEUR",
+      "primera_senal": "2026-10-05T20:47:40+00:00",
+      "fin_ataque": "2026-10-05T20:47:36.006328+00:00"
+    },
+    {
+      "episodio": "e1-r3",
+      "configuracion": "HIB_0.05",
+      "primera_senal": "2026-10-05T20:47:40+00:00",
+      "fin_ataque": "2026-10-05T20:47:36.006328+00:00"
+    },
+    {
+      "episodio": "e1-r3",
+      "configuracion": "HIB_0.03",
+      "primera_senal": "2026-10-05T20:47:40+00:00",
+      "fin_ataque": "2026-10-05T20:47:36.006328+00:00"
+    }
+  ],
+  "extra_FP_hybrid_vs_IF": {
+    "0.05": 462,
+    "0.03": 469
+  },
+  "source_manifest_newline_discrepancies": [
+    {
+      "archivo": "resultados/complementariedad-episodios.csv",
+      "hash_git_LF": "6394babfac7bcb65870aee12dbff5e0e426bd561e4bbf702d1234e585e195e58",
+      "hash_manifiesto_CRLF": "f76f4463edbe8b93707fa4ac1dc4219b94ddb4b2d767d01e0830e90da0eb2eda",
+      "causa_verificada": "Normalización CRLF a LF al publicar en Git; reconstruir CRLF reproduce exactamente el hash declarado"
+    },
+    {
+      "archivo": "resultados/contraste-acumulador-vivo.json",
+      "hash_git_LF": "4ce98bcd2e600941cb4ccc98ca47f919e87d9dd893cfab1cf1a512b41766d2e8",
+      "hash_manifiesto_CRLF": "869a3876d4868aa6b18d3d32756db74455d1a55e7d24869385e836ee06be255f",
+      "causa_verificada": "Normalización CRLF a LF al publicar en Git; reconstruir CRLF reproduce exactamente el hash declarado"
+    },
+    {
+      "archivo": "resultados/control-base-05oct.json",
+      "hash_git_LF": "585d1603235c384ca782cfc48905ffb22d53aece769d4fdc81e452f1176661f3",
+      "hash_manifiesto_CRLF": "04aa62cefe3fb527eff8da0084cb58a1812527107a7a92262eb51cafa89f74b3",
+      "causa_verificada": "Normalización CRLF a LF al publicar en Git; reconstruir CRLF reproduce exactamente el hash declarado"
+    },
+    {
+      "archivo": "resultados/episodios-metadatos.json",
+      "hash_git_LF": "f9864cf12afb97d4ff326919a7efdb751b8cdd76ef537aea26efd8d047b8d596",
+      "hash_manifiesto_CRLF": "0e1e7165ae9841836172cf04441469587fcb10f2d26ce9bce7207918a7a5fcc5",
+      "causa_verificada": "Normalización CRLF a LF al publicar en Git; reconstruir CRLF reproduce exactamente el hash declarado"
+    },
+    {
+      "archivo": "resultados/episodios-registro.csv",
+      "hash_git_LF": "8e8ff58bf3ffcb022cc95c84630e62077fd57c2e89cc4498b211754b9eef7666",
+      "hash_manifiesto_CRLF": "7bfb5b59f0f0aa2b09cd93e46a132bfbf755e517f7ed5aed864c44eb72dd38f2",
+      "causa_verificada": "Normalización CRLF a LF al publicar en Git; reconstruir CRLF reproduce exactamente el hash declarado"
+    },
+    {
+      "archivo": "resultados/episodios-senales-no-atribuibles.csv",
+      "hash_git_LF": "868be7097912b5135751386635ab179c0bfffedf894ffa2e4e9c0f9838880ba1",
+      "hash_manifiesto_CRLF": "4037f035bf36e5c4ac3575cc6bba4bdc38037dd0298acaddad97247057e2f2a4",
+      "causa_verificada": "Normalización CRLF a LF al publicar en Git; reconstruir CRLF reproduce exactamente el hash declarado"
+    },
+    {
+      "archivo": "resultados/reproduccion-original.csv",
+      "hash_git_LF": "68827ce41b38790dfbe9595526c6a673eb100fab29faf2545bda549fcac09b47",
+      "hash_manifiesto_CRLF": "d9b0fa00ebffa0cedf5283f1b9f159d527f3b89017349f8780650e875442328d",
+      "causa_verificada": "Normalización CRLF a LF al publicar en Git; reconstruir CRLF reproduce exactamente el hash declarado"
+    },
+    {
+      "archivo": "resultados/reproduccion-original.json",
+      "hash_git_LF": "3b4f46c273345b96875e763bf26d78057bddef4634cafa839d5fde8cd92edc9c",
+      "hash_manifiesto_CRLF": "e359a852e72d1958801d2df29c3f36842e8e1db7402cfe521ea827e2a5a9cb9e",
+      "causa_verificada": "Normalización CRLF a LF al publicar en Git; reconstruir CRLF reproduce exactamente el hash declarado"
+    },
+    {
+      "archivo": "resultados/resultados-aporte.json",
+      "hash_git_LF": "665d2c5b2c18611dbdc1110acde4b820a3b848015a1edfc6dbab26e059802f8e",
+      "hash_manifiesto_CRLF": "ae70257e985f33e4c72b3e10b32dbbcf7a33ac71a03c93560834b2e6577feea5",
+      "causa_verificada": "Normalización CRLF a LF al publicar en Git; reconstruir CRLF reproduce exactamente el hash declarado"
+    },
+    {
+      "archivo": "resultados/TABLA8-componentes.csv",
+      "hash_git_LF": "59ae30f5ca91b7d96b4635aefb76e55917551f22747e0bf6df02c82c3185b664",
+      "hash_manifiesto_CRLF": "55c7774d2ec0a0f3710fbe1b33a3c1bec53db9935d61638fb13c7d60e98691cd",
+      "causa_verificada": "Normalización CRLF a LF al publicar en Git; reconstruir CRLF reproduce exactamente el hash declarado"
+    },
+    {
+      "archivo": "resultados/TABLA8-componentes.md",
+      "hash_git_LF": "b70aec15dc4675ea24affc6e0c039b37d492f0571607ecca9788a2744558b9a0",
+      "hash_manifiesto_CRLF": "29df20e9bea834075bfc1f393d335e4e9bfc31126b8678c40f04b55b6bfa56ee",
+      "causa_verificada": "Normalización CRLF a LF al publicar en Git; reconstruir CRLF reproduce exactamente el hash declarado"
+    },
+    {
+      "archivo": "resultados/umbrales-verificados.json",
+      "hash_git_LF": "eeb0649136adf8b01164c1becb4a232e05de8b6e3c1706c3b9f0f43523989cf9",
+      "hash_manifiesto_CRLF": "6877ee1697a5800962e07c55f62664f08b38fde738ade0c8edad1708b7f704e1",
+      "causa_verificada": "Normalización CRLF a LF al publicar en Git; reconstruir CRLF reproduce exactamente el hash declarado"
+    },
+    {
+      "archivo": "resultados/VENTANAS-metricas.csv",
+      "hash_git_LF": "065141dac6401908b2d1132f0d2df30a60087f15e49d1d461944ca8601175520",
+      "hash_manifiesto_CRLF": "399d3759e0a8892ff64ef4fb3859860064475cff3daabfcef0d7de4cec3acaf4",
+      "causa_verificada": "Normalización CRLF a LF al publicar en Git; reconstruir CRLF reproduce exactamente el hash declarado"
+    },
+    {
+      "archivo": "resultados/ventanas-metricas.json",
+      "hash_git_LF": "24b6355599873ccc8e3f68d274349034ae74eef1dc73454efadbceb71125753e",
+      "hash_manifiesto_CRLF": "9eb43e1cef7d4464f4d4c9e086c07aff8b649e1de3d18dfd6a939c5459049175",
+      "causa_verificada": "Normalización CRLF a LF al publicar en Git; reconstruir CRLF reproduce exactamente el hash declarado"
+    },
+    {
+      "archivo": "resultados/VENTANAS-metricas.md",
+      "hash_git_LF": "98762b32fda64f947435816a5c6a533d77f246cd7ef6f0d9fc8378183408bae9",
+      "hash_manifiesto_CRLF": "12b8d9b03c3f3bcc84e3a0e7297be3105fc86aa0be0cdeeabaebe2969e73f159",
+      "causa_verificada": "Normalización CRLF a LF al publicar en Git; reconstruir CRLF reproduce exactamente el hash declarado"
+    }
+  ],
+  "unexplained_discrepancies": [],
+  "scope": "Auditoría de los registros publicados; no reprocesa los PCAP externos ni vuelve a ejecutar los heurísticos sobre características crudas.",
+  "source_cautions": [
+    "Tabla 8 usa T0–último paquete +60 s, no exclusivamente durante el ataque",
+    "capture_start se fija artificialmente 60 s antes de la primera observación; esto no recupera historia ausente",
+    "Los heurísticos actuales se ajustaron a la vista de estos episodios",
+    "Acumulador en vivo repuntuado no equivale a un nuevo ensayo en vivo con IF limpio",
+    "FPR de señales, no de bloqueos; muchas alarmas DNS afectan una entidad nunca-bloquear"
+  ],
+  "raw_capture_replay_repeated": false,
+  "word_modified": false,
+  "deployment_modified": false,
+  "exports": [
+    {
+      "name": "componentes",
+      "size_cm": [
+        18,
+        11.2
+      ],
+      "axes": [
+        [
+          0.15,
+          0.37,
+          0.33999999999999997,
+          0.52
+        ],
+        [
+          0.7,
+          0.37,
+          0.275,
+          0.52
+        ]
+      ],
+      "text_bounds_and_adjacent_xlabels_checked": true,
+      "png_pixels": [
+        4251,
+        2645
+      ]
+    },
+    {
+      "name": "sensibilidad",
+      "size_cm": [
+        18,
+        9
+      ],
+      "text_bounds_and_adjacent_xlabels_checked": true,
+      "png_pixels": [
+        4251,
+        2125
+      ]
+    }
+  ]
+}
