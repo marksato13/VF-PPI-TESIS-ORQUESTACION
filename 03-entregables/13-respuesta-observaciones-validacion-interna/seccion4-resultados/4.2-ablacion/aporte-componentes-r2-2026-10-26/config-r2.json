@@ -1,0 +1,85 @@
+{
+  "registrado": "2026-10-26, antes de calcular cualquier resultado de esta revision. Las marcas temporales y el inventario de fuentes (evidencia/) se obtuvieron antes, sin puntuar ninguna ventana.",
+  "revision_de": "aporte-componentes-2026-10-26 (commits 0305589, efc01a7). Se conserva intacta; esta revision no la sobrescribe.",
+  "problemas_que_atiende": [
+    "La version anterior fijaba capture_start = primera observacion - 60 s: simulaba historia que no existe en el PCAP (empieza entre T0-20 y T0-6). Aqui no se adelanta ninguna fecha.",
+    "El criterio [T0, ultimo paquete + 60 s] mezclaba deteccion durante el ataque con deteccion posterior. Aqui se separan cuatro categorias.",
+    "La Tabla 8 anterior contaba como evaluados episodios sin contexto suficiente. Aqui el denominador son solo los episodios evaluables."
+  ],
+  "no_se_toca": "sistema desplegado, modelo, escalador, umbrales, heuristicos, servicios; el documento Word. No se reentrena ni se recalibra nada.",
+
+  "modelo": {
+    "detector": "if_limpio_2026_10 (Pipeline escalador + IsolationForest, congelado)",
+    "sha256_esperado": "df547da098e51171aa267c8466edc6624bc1bd5c6b602639cc00bd4711a2fd60",
+    "regla": "senal IF si score_samples < umbral (estricta), como motor_decision.py; sin paquetes en 10 s el IF no se puntua (guarda del motor)"
+  },
+  "umbrales": {
+    "origen": "cuantil lineal 1-alfa de -score_samples sobre las 65 553 ventanas de validacion (4.1-modelos/calibracion-alfa-2026-10-24); se recalculan y deben coincidir",
+    "esperados": {"0.05": -0.5694578968203694, "0.03": -0.5898535710336618},
+    "desplegado_solo_referencia": -0.5693969936322356
+  },
+  "heuristicos": {
+    "version": "2026-10-06.2 (heuristicos.py vigente, sin cambios) + regla heredada auth_failure_heuristic de motor_decision.py",
+    "declaracion_obligatoria": "Los umbrales 2026-10-06.1 y 2026-10-06.2 se ajustaron a la vista de esta misma bateria (commits a7fc7ea y 9e7513f de producto-main). Su resultado en estos episodios no es una evaluacion independiente."
+  },
+  "configuraciones": ["IF_0.05", "IF_0.03", "HEUR", "HIB_0.05", "HIB_0.03"],
+  "combinacion_real": {
+    "senal_hibrida": "IF o heuristico en la misma ventana (lo que publicar_feed.py convierte en candidato)",
+    "accion_propuesta": "max(LIMIT por IF, accion del heuristico), BLOCK > LIMIT (publicar_feed._verdicto_de)",
+    "accion_aplicada": "no se reproduce offline; para el 05-oct solo existe el recuento por minuto de publicar.log (motor de entonces, no el IF limpio)",
+    "efecto": "solo lo observable en el PCAP (respuestas del destino); no se atribuye a la respuesta activa sin evidencia del agente"
+  },
+
+  "fuentes_y_contexto": {
+    "principal": {
+      "nombre": "replay con historia real",
+      "datos": "PCAP del anillo (live-*.pcap) + eve.json recortado de cada episodio, sin concatenar episodios",
+      "procesamiento": "el del motor vigente: parse_con_contexto -> descartar protocolos 112/240 -> deduplicar_espejo -> attribute_packets(10.10.0.0/16) -> load_app_observations -> build_rows(paso 10 s)",
+      "capture_start": "inicio REAL de los datos = max(primera trama del PCAP, inicio del recorte de eve.json = Tsf - 25 s). No se adelanta.",
+      "ventana_evaluable": "window_end - 60 >= capture_start y window_end <= ultima trama del PCAP. 60 s = horizonte de la variable mas larga; asi ninguna variable de la ventana depende de datos que faltan ni de datos posteriores a window_end (in_window usa (window_end - w, window_end]).",
+      "limite_declarado": "La atribucion de flujos (flow_attempt) depende del primer paquete visto del flujo, que puede ser anterior a 60 s. Una ventana evaluable puede diferir de la operacion si un flujo empezo antes de capture_start. Se cuantifica contra el acumulador."
+    },
+    "acumulador": {
+      "datos": "filas que acumular_v3.py escribio en vivo el 05-oct (artifacts/linea-base/multilayer-v3.csv, extracto acum-20261005.csv)",
+      "version_extraccion": "acumular_v3.py + extract_multilayer_v2.py tal como estaban el 05-oct. El primer registro en git es el snapshot a6d287a (06-oct 05:27 UTC, posterior a la bateria); extract_multilayer_v2.py blob 51fb157. No hay registro git anterior: es una inferencia, no una prueba.",
+      "diferencia_con_vigente": "2d854a9 solo acota a 1.0 dns_nxdomain_ratio_60s y unique_dns_name_ratio_60s. Se aplica esa misma transformacion a las filas (exacta, porque la formula no cambia por debajo de 1.0).",
+      "contexto": "inicio = primer paquete del anillo (15 min); solo escribe ventanas con window_end >= inicio + 60 s; descarta observaciones de aplicacion anteriores a inicio. Contexto >= 60 s por construccion.",
+      "uso": "Se comparan las 28 variables con el replay en las ventanas comunes evaluables de 10.10.20.30. Si TODAS coinciden (|dif| <= 1e-9) se publica ademas una tabla complementaria replay+acumulador; si no, el acumulador es solo analisis de sensibilidad. En ningun caso sustituye a la tabla principal.",
+      "advertencia": "repuntuar filas del acumulador no equivale a reconstruirlas con el extractor vigente; solo lo es en las variables que se demuestren iguales."
+    },
+    "no_usado": {
+      "concatenar_episodios_contiguos": "entre episodios hay huecos de 20-60 s sin PCAP ni EVE; unirlos fabricaria continuidad",
+      "eve_completo": "las copias de /var/log/suricata empiezan el 07-oct; el EVE de la bateria solo existe recortado",
+      "motor_decision.log del 05-oct": "rotado y perdido (los .gz mas antiguos son del 12-oct)",
+      "variante_capture_start_adelantado": "la de la version anterior; no es resultado principal ni se recalcula como tal"
+    }
+  },
+
+  "marcas_temporales": {
+    "reloj": "todas en el reloj del sensor (PCAP, auth.log, syslog del sensor). Hoy el sensor va ~47 s por detras del bastion; el 05-oct todas las marcas de 4.2 son del mismo reloj, asi que no se mezclan relojes.",
+    "inicio_generador": "SYN de la sesion SSH bastion(10.10.10.30) -> Kali(10.10.20.30):22 que lanza el comando (orq.sh), vista en el PCAP",
+    "fin_generador": "FIN del bastion en esa sesion: el comando ssh $SK ... termina cuando acaba el bucle de 90 s o el nmap",
+    "corroboracion": "Tsf/Tef: sesiones 'date' del bastion en auth.log del sensor; T0 = capture_start de features.csv + 25 s",
+    "paquetes": "primer y ultimo paquete de ataque (Kali -> destino) en el PCAP deduplicado. El ultimo paquete no prueba que el generador parara: se contrasta con el FIN de la sesion de control",
+    "window_end": "es el ancla de la ventana, no el instante de emision. En operacion la decision sale despues (ficheros de 15 s cerrados + proceso); el 05-oct no hay registro del motor para medirlo"
+  },
+  "categorias_por_episodio_y_configuracion": {
+    "D_durante": "alguna ventana evaluable de 10.10.20.30 con senal y inicio_generador <= window_end <= fin_generador",
+    "P_posterior": "no hay D, todas las ventanas de 10.10.20.30 con window_end en [inicio, fin] son evaluables, y la primera senal cae en (fin, fin + 60 s]. Margen: 60 s = horizonte maximo; una ventana que termina mas tarde ya no contiene paquetes del ataque",
+    "N_sin_deteccion": "ni D ni P, y todas las ventanas de 10.10.20.30 con window_end en [inicio, fin + 60 s] existen en la fuente y son evaluables",
+    "NE_no_evaluable": "cualquier otro caso (falta contexto para afirmar ausencia de deteccion)",
+    "episodio_evaluable_para_tabla8": "todas las ventanas de 10.10.20.30 con window_end en [inicio, fin] son evaluables en la fuente"
+  },
+  "tabla8": {
+    "columnas": ["Familia", "Episodios evaluables", "IF 0,05", "IF 0,03", "Heuristicos", "Hibrido 0,05", "Hibrido 0,03"],
+    "celda": "episodios con D / episodios evaluables",
+    "aparte": "episodios no evaluables (con lo que se observa en sus ventanas evaluables), detecciones posteriores, senales compartidas y exclusivas, primeras marcas",
+    "prohibido": "reutilizar 6/9, 7/9 o 9/9 como resultado vigente"
+  },
+  "ventanas_tabla7": {
+    "poblacion": "65 421 normales (oro.csv) + 84 ataques (ataques-nota-M.csv)",
+    "verificacion": "TP/FP/TN/FN, precision, recall, F1 y FPR recalculados desde el fichero de predicciones; deben coincidir con la version anterior y, en el IF, con la Tabla 7",
+    "senal_vs_medida": "cada falsa alarma se clasifica segun si la entidad esta en NUNCA_BLOQUEAR (publicar_feed vigente) o en --excluir del motor: hay senal falsa aunque no haya medida aplicable",
+    "sin_ROC_AUC_AP_del_hibrido": true
+  }
+}
