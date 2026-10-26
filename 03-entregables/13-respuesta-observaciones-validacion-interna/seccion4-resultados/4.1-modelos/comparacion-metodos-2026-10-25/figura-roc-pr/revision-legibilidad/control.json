@@ -1,0 +1,701 @@
+{
+  "source_commit": "028de214fb2ddc809f6eb4876574ada647b3dafb",
+  "repository": "https://github.com/marksato13/VF-PPI-TESIS-ORQUESTACION",
+  "source_selection": "Datos 028de21; figura y auditoría previa 9ac4fbe. Al iniciar, HEAD y origin/main eran 9ac4fbe, sin commits posteriores.",
+  "counts_expected": {
+    "validacion": 65553,
+    "prueba_normal": 65421,
+    "ataque": 84
+  },
+  "evaluation_n": 65505,
+  "positive_label": 1,
+  "negative_label": 0,
+  "prevalence": 0.0012823448591710556,
+  "validation_rows_used_in_curves": 0,
+  "direction": "Mayor puntuación_anomalia = mayor anomalía; verificado en configuración y código fuente fijados.",
+  "input_sha256": {
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/MANIFIESTO-COMPARACION.json": "f936f9a55e6dd79aa25e04bd10018a0b124c57db30d316b543dda6791b4c07e0",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/TABLA7-comparacion-completa.csv": "1232d87d7c5184ce60f20837fe176f89e02ac004da254da8660d46d539fe1b16",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/comparar_metodos.py": "212c28c2639acf465058db2e254db2db0b0e6b243d4b078e4664adb0b558447b",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/config-comparacion.json": "d4291b951b0c26378e4bd58a6ff105211289c9d45104a0431bf5ab705ce2044f",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/resultados-comparacion.json": "be5ff4c6fc58308f4496f45bbe93b67ba356ba5c96eb08d3ccefedc63a610a84",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/salidas/meta-EllipticEnvelope.json": "c7737760b65b251b71001222c948d839ed83510593131954849af5569e9c2103",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/salidas/meta-IF.json": "b208e42d021209d30f50b9b7934c383cc2394510a6cd1b9fd0c2944dbe6fcfab",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/salidas/meta-LOF.json": "4e1fbe92b0e7dd9302d56bff9358c59cbb5887c69aae3d7f28ae1ec11f637a4d",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/salidas/meta-OCSVM.json": "5e49651399327cb1e3e6793255557bedf77a65abda937a25bec8a97f8d7fb249",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/salidas/meta-PCA.json": "2b7438de3b246c42f93b7f0d28885a5d77586da8198c8f18c6cebb640bc1fb58",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/salidas/puntuaciones-EllipticEnvelope.csv.gz": "3de4f17c61b0f47d6b3b6d45fb9a53e2e95a6375031f334d78b2a366c290f0e9",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/salidas/puntuaciones-IF.csv.gz": "536638f47145a8c86d17ba63f7ebf4a2cc3aca2a8294f9ff6d57d8d4ee795fd4",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/salidas/puntuaciones-LOF.csv.gz": "b33a6875247828f30185046c01558ae436889509b1b92ee3180c3f047b7e7465",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/salidas/puntuaciones-OCSVM.csv.gz": "f8a3c19c32141182ed3920f9553a7539017490362491513ed40d8195d889da41",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/salidas/puntuaciones-PCA.csv.gz": "132b5b1c494967efb8df7ee30d3c4d9cf8469ce9ac926ca41252654742aa133c"
+  },
+  "methods": {
+    "IF": {
+      "counts": {
+        "validacion": 65553,
+        "prueba_normal": 65421,
+        "ataque": 84
+      },
+      "duplicate_keys": 0,
+      "nonfinite_scores": 0,
+      "same_keys_labels_partitions": true,
+      "normal_kali_conserved": 74,
+      "validation_evaluation_overlap": 0,
+      "roc_auc": 0.9247265513258084,
+      "ap": 0.18580688397625872,
+      "independent_auc": 0.9247265513258085,
+      "independent_ap": 0.1858068839762587,
+      "ap_step_area": 0.18580688397625872,
+      "delta_auc_rounded_reference": 2.580835545273885e-11,
+      "delta_ap_rounded_reference": -2.3741286714340504e-11,
+      "delta_auc_json": 0.0,
+      "delta_ap_json": 0.0,
+      "roc_coordinates": 20897,
+      "pr_coordinates": 20897,
+      "direction_source": "-score_samples del pipeline desplegado"
+    },
+    "OCSVM": {
+      "counts": {
+        "validacion": 65553,
+        "prueba_normal": 65421,
+        "ataque": 84
+      },
+      "duplicate_keys": 0,
+      "nonfinite_scores": 0,
+      "same_keys_labels_partitions": true,
+      "normal_kali_conserved": 74,
+      "validation_evaluation_overlap": 0,
+      "roc_auc": 0.869071457322936,
+      "ap": 0.6356616971916291,
+      "independent_auc": 0.8690714573229362,
+      "independent_ap": 0.6356616971916289,
+      "ap_step_area": 0.6356616971916291,
+      "delta_auc_rounded_reference": 2.2935986443428646e-11,
+      "delta_ap_rounded_reference": -8.370859561068755e-12,
+      "delta_auc_json": 0.0,
+      "delta_ap_json": 0.0,
+      "roc_coordinates": 27175,
+      "pr_coordinates": 27175,
+      "direction_source": "-score_samples"
+    },
+    "LOF": {
+      "counts": {
+        "validacion": 65553,
+        "prueba_normal": 65421,
+        "ataque": 84
+      },
+      "duplicate_keys": 0,
+      "nonfinite_scores": 0,
+      "same_keys_labels_partitions": true,
+      "normal_kali_conserved": 74,
+      "validation_evaluation_overlap": 0,
+      "roc_auc": 0.9762796422584565,
+      "ap": 0.029066072188399145,
+      "independent_auc": 0.9762796422584564,
+      "independent_ap": 0.029066072188399135,
+      "ap_step_area": 0.029066072188399145,
+      "delta_auc_rounded_reference": -4.154343535844873e-11,
+      "delta_ap_rounded_reference": -1.1600855692739387e-11,
+      "delta_auc_json": 0.0,
+      "delta_ap_json": 0.0,
+      "roc_coordinates": 26019,
+      "pr_coordinates": 26019,
+      "direction_source": "-score_samples (LOF)"
+    },
+    "EllipticEnvelope": {
+      "counts": {
+        "validacion": 65553,
+        "prueba_normal": 65421,
+        "ataque": 84
+      },
+      "duplicate_keys": 0,
+      "nonfinite_scores": 0,
+      "same_keys_labels_partitions": true,
+      "normal_kali_conserved": 74,
+      "validation_evaluation_overlap": 0,
+      "roc_auc": 0.9179326428604184,
+      "ap": 0.3811037448703374,
+      "independent_auc": 0.9179326428604183,
+      "independent_ap": 0.3811037448703373,
+      "ap_step_area": 0.3811037448703374,
+      "delta_auc_rounded_reference": -3.958156025163362e-11,
+      "delta_ap_rounded_reference": -2.9662605705027545e-11,
+      "delta_auc_json": 0.0,
+      "delta_ap_json": 0.0,
+      "roc_coordinates": 27222,
+      "pr_coordinates": 27222,
+      "direction_source": "-score_samples = distancia de Mahalanobis al cuadrado respecto de la MCD"
+    },
+    "PCA": {
+      "counts": {
+        "validacion": 65553,
+        "prueba_normal": 65421,
+        "ataque": 84
+      },
+      "duplicate_keys": 0,
+      "nonfinite_scores": 0,
+      "same_keys_labels_partitions": true,
+      "normal_kali_conserved": 74,
+      "validation_evaluation_overlap": 0,
+      "roc_auc": 0.9486616355167738,
+      "ap": 0.5944055724226315,
+      "independent_auc": 0.9486616355167737,
+      "independent_ap": 0.5944055724226314,
+      "ap_step_area": 0.5944055724226315,
+      "delta_auc_rounded_reference": 1.6773804567549178e-11,
+      "delta_ap_rounded_reference": 2.2631452267773966e-11,
+      "delta_auc_json": 0.0,
+      "delta_ap_json": 0.0,
+      "roc_coordinates": 27226,
+      "pr_coordinates": 27226,
+      "direction_source": "error de reconstruccion ||z - (mu + (z-mu) V_k V_k^T)||^2 en el espacio escalado z"
+    }
+  },
+  "points": [
+    {
+      "metodo": "IF",
+      "alfa": 0.05,
+      "umbral_anomalia": 0.5694578968203693,
+      "TP": 54,
+      "FP": 2955,
+      "TN": 62466,
+      "FN": 30,
+      "FPR_prueba": 0.04516898243683221,
+      "recall": 0.6428571428571429,
+      "precision": 0.01794616151545364,
+      "FPR_validacion": 0.05000533919118881,
+      "empates_validacion": 0,
+      "empates_evaluacion": 0,
+      "diferencias_tabla": {
+        "alfa": 0.0,
+        "umbral_anomalia": 0.0,
+        "TP": 0.0,
+        "FP": 0.0,
+        "TN": 0.0,
+        "FN": 0.0,
+        "FPR_prueba": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "FPR_validacion": 0.0,
+        "empates_validacion": 0.0,
+        "empates_evaluacion": 0.0
+      },
+      "verificado_en_curvas_sin_aproximacion": true
+    },
+    {
+      "metodo": "IF",
+      "alfa": 0.03,
+      "umbral_anomalia": 0.5898535710336615,
+      "TP": 54,
+      "FP": 1723,
+      "TN": 63698,
+      "FN": 30,
+      "FPR_prueba": 0.02633710887941181,
+      "recall": 0.6428571428571429,
+      "precision": 0.030388294879009566,
+      "FPR_validacion": 0.03000625448110689,
+      "empates_validacion": 0,
+      "empates_evaluacion": 0,
+      "diferencias_tabla": {
+        "alfa": 0.0,
+        "umbral_anomalia": 0.0,
+        "TP": 0.0,
+        "FP": 0.0,
+        "TN": 0.0,
+        "FN": 0.0,
+        "FPR_prueba": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "FPR_validacion": 0.0,
+        "empates_validacion": 0.0,
+        "empates_evaluacion": 0.0
+      },
+      "verificado_en_curvas_sin_aproximacion": true
+    },
+    {
+      "metodo": "OCSVM",
+      "alfa": 0.05,
+      "umbral_anomalia": -297.17116473859403,
+      "TP": 71,
+      "FP": 3319,
+      "TN": 62102,
+      "FN": 13,
+      "FPR_prueba": 0.05073294507879733,
+      "recall": 0.8452380952380952,
+      "precision": 0.02094395280235988,
+      "FPR_validacion": 0.05000533919118881,
+      "empates_validacion": 0,
+      "empates_evaluacion": 0,
+      "diferencias_tabla": {
+        "alfa": 0.0,
+        "umbral_anomalia": 0.0,
+        "TP": 0.0,
+        "FP": 0.0,
+        "TN": 0.0,
+        "FN": 0.0,
+        "FPR_prueba": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "FPR_validacion": 0.0,
+        "empates_validacion": 0.0,
+        "empates_evaluacion": 0.0
+      },
+      "verificado_en_curvas_sin_aproximacion": true
+    },
+    {
+      "metodo": "OCSVM",
+      "alfa": 0.03,
+      "umbral_anomalia": -263.3060306010344,
+      "TP": 59,
+      "FP": 1958,
+      "TN": 63463,
+      "FN": 25,
+      "FPR_prueba": 0.029929227618043137,
+      "recall": 0.7023809523809523,
+      "precision": 0.029251363411006447,
+      "FPR_validacion": 0.03000625448110689,
+      "empates_validacion": 0,
+      "empates_evaluacion": 0,
+      "diferencias_tabla": {
+        "alfa": 0.0,
+        "umbral_anomalia": 0.0,
+        "TP": 0.0,
+        "FP": 0.0,
+        "TN": 0.0,
+        "FN": 0.0,
+        "FPR_prueba": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "FPR_validacion": 0.0,
+        "empates_validacion": 0.0,
+        "empates_evaluacion": 0.0
+      },
+      "verificado_en_curvas_sin_aproximacion": true
+    },
+    {
+      "metodo": "LOF",
+      "alfa": 0.05,
+      "umbral_anomalia": 1.5094663238037738,
+      "TP": 79,
+      "FP": 3766,
+      "TN": 61655,
+      "FN": 5,
+      "FPR_prueba": 0.05756561348802372,
+      "recall": 0.9404761904761905,
+      "precision": 0.020546163849154746,
+      "FPR_validacion": 0.05000533919118881,
+      "empates_validacion": 0,
+      "empates_evaluacion": 0,
+      "diferencias_tabla": {
+        "alfa": 0.0,
+        "umbral_anomalia": 0.0,
+        "TP": 0.0,
+        "FP": 0.0,
+        "TN": 0.0,
+        "FN": 0.0,
+        "FPR_prueba": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "FPR_validacion": 0.0,
+        "empates_validacion": 0.0,
+        "empates_evaluacion": 0.0
+      },
+      "verificado_en_curvas_sin_aproximacion": true
+    },
+    {
+      "metodo": "LOF",
+      "alfa": 0.03,
+      "umbral_anomalia": 2.189323719487029,
+      "TP": 77,
+      "FP": 2314,
+      "TN": 63107,
+      "FN": 7,
+      "FPR_prueba": 0.035370905366778255,
+      "recall": 0.9166666666666666,
+      "precision": 0.03220409870347135,
+      "FPR_validacion": 0.03000625448110689,
+      "empates_validacion": 0,
+      "empates_evaluacion": 0,
+      "diferencias_tabla": {
+        "alfa": 0.0,
+        "umbral_anomalia": 0.0,
+        "TP": 0.0,
+        "FP": 0.0,
+        "TN": 0.0,
+        "FN": 0.0,
+        "FPR_prueba": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "FPR_validacion": 0.0,
+        "empates_validacion": 0.0,
+        "empates_evaluacion": 0.0
+      },
+      "verificado_en_curvas_sin_aproximacion": true
+    },
+    {
+      "metodo": "EllipticEnvelope",
+      "alfa": 0.05,
+      "umbral_anomalia": 247480102.42436323,
+      "TP": 48,
+      "FP": 3039,
+      "TN": 62382,
+      "FN": 36,
+      "FPR_prueba": 0.046452973815747235,
+      "recall": 0.5714285714285714,
+      "precision": 0.015549076773566569,
+      "FPR_validacion": 0.05000533919118881,
+      "empates_validacion": 0,
+      "empates_evaluacion": 0,
+      "diferencias_tabla": {
+        "alfa": 0.0,
+        "umbral_anomalia": 0.0,
+        "TP": 0.0,
+        "FP": 0.0,
+        "TN": 0.0,
+        "FN": 0.0,
+        "FPR_prueba": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "FPR_validacion": 0.0,
+        "empates_validacion": 0.0,
+        "empates_evaluacion": 0.0
+      },
+      "verificado_en_curvas_sin_aproximacion": true
+    },
+    {
+      "metodo": "EllipticEnvelope",
+      "alfa": 0.03,
+      "umbral_anomalia": 989355962.2513443,
+      "TP": 44,
+      "FP": 1785,
+      "TN": 63636,
+      "FN": 40,
+      "FPR_prueba": 0.02728481680194433,
+      "recall": 0.5238095238095238,
+      "precision": 0.02405686167304538,
+      "FPR_validacion": 0.03000625448110689,
+      "empates_validacion": 0,
+      "empates_evaluacion": 0,
+      "diferencias_tabla": {
+        "alfa": 0.0,
+        "umbral_anomalia": 0.0,
+        "TP": 0.0,
+        "FP": 0.0,
+        "TN": 0.0,
+        "FN": 0.0,
+        "FPR_prueba": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "FPR_validacion": 0.0,
+        "empates_validacion": 0.0,
+        "empates_evaluacion": 0.0
+      },
+      "verificado_en_curvas_sin_aproximacion": true
+    },
+    {
+      "metodo": "PCA",
+      "alfa": 0.05,
+      "umbral_anomalia": 4.233583332682266,
+      "TP": 71,
+      "FP": 3539,
+      "TN": 61882,
+      "FN": 13,
+      "FPR_prueba": 0.054095779642622396,
+      "recall": 0.8452380952380952,
+      "precision": 0.01966759002770083,
+      "FPR_validacion": 0.05000533919118881,
+      "empates_validacion": 0,
+      "empates_evaluacion": 0,
+      "diferencias_tabla": {
+        "alfa": 0.0,
+        "umbral_anomalia": 0.0,
+        "TP": 0.0,
+        "FP": 0.0,
+        "TN": 0.0,
+        "FN": 0.0,
+        "FPR_prueba": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "FPR_validacion": 0.0,
+        "empates_validacion": 0.0,
+        "empates_evaluacion": 0.0
+      },
+      "verificado_en_curvas_sin_aproximacion": true
+    },
+    {
+      "metodo": "PCA",
+      "alfa": 0.03,
+      "umbral_anomalia": 5.745082955563664,
+      "TP": 71,
+      "FP": 2116,
+      "TN": 63305,
+      "FN": 13,
+      "FPR_prueba": 0.03234435425933569,
+      "recall": 0.8452380952380952,
+      "precision": 0.03246456332876086,
+      "FPR_validacion": 0.03000625448110689,
+      "empates_validacion": 0,
+      "empates_evaluacion": 0,
+      "diferencias_tabla": {
+        "alfa": 0.0,
+        "umbral_anomalia": 0.0,
+        "TP": 0.0,
+        "FP": 0.0,
+        "TN": 0.0,
+        "FN": 0.0,
+        "FPR_prueba": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "FPR_validacion": 0.0,
+        "empates_validacion": 0.0,
+        "empates_evaluacion": 0.0
+      },
+      "verificado_en_curvas_sin_aproximacion": true
+    }
+  ],
+  "discrepancies": [],
+  "tolerances": {
+    "metrics_vs_table_atol": 1e-13,
+    "metrics_rtol": 2e-14,
+    "rounded_reference_atol": 5.1e-11,
+    "counts": "igualdad exacta"
+  },
+  "no_packet_windows": {
+    "reference_normal": 45558,
+    "source": "metadato de resultados-comparacion.json; las puntuaciones no contienen packet_count_10s",
+    "filter_applied": false
+  },
+  "training": false,
+  "estimator_loading": false,
+  "deployment_changes": false,
+  "unique_keys_per_file": 131058,
+  "evaluation_keyset_sha256": "28418505f3e9bef351c7fb0f2e565d5db93bb1502189c3a08d3dbf2fe1aa61b9",
+  "validation_keyset_sha256": "2ddb73eb7213b4aaeb15226e093cc0734f161f042eefc054f515c8a98e938c5b",
+  "previous_figure_commit": "9ac4fbe04b51b012f363f42752589ed7b6dc2042",
+  "coordinate_reference": {
+    "curvas-roc.csv": {
+      "rows": 128539,
+      "float64_roundtrip_exact": true
+    },
+    "curvas-pr.csv": {
+      "rows": 128539,
+      "float64_roundtrip_exact": true
+    },
+    "puntos-operativos.csv": {
+      "rows": 10,
+      "float64_roundtrip_exact": true
+    }
+  },
+  "previous_inputs_sha256": {
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/figura-roc-pr/MANIFIESTO-FIGURA.json": "0391b837bbe52c161f53d600e511de3e065deca827f2de6677373a348696b7fa",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/figura-roc-pr/generar_figura.py": "1672540b320fcb9999f24edc3551c56c89b80d2e7d082059472facc37b5ed9aa",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/figura-roc-pr/VERIFICACION-FIGURA.json": "59a54c4f9823aa70a8bd6c5bd419f693f612183b4efee645cc9afcfded4a6405",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/figura-roc-pr/puntos-operativos.csv": "0d26e881fec105bc071f5ffb9e474f77e004c604f1e32ac200877f7e24e98220",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/figura-roc-pr/curvas-roc.csv": "08ebcd74e084efc6348e6c56e7b336a40a2edbbeedfa89898589ff2c76ecb4a8",
+    "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/figura-roc-pr/curvas-pr.csv": "e760a2a1249d54b6776df5ae2daebc0d73e0407ff4490fdb9146b5b592b9ef2f"
+  },
+  "previous_data_metrics_points_identical": true,
+  "design_changes": [
+    "Figura principal sin marcadores ni leyenda alfa",
+    "Referencias en leyendas fuera de los paneles",
+    "Títulos cortos de ampliación",
+    "Marcadores reducidos, sin desplazamiento",
+    "Mismas curvas completas, mismos colores y estilos, mismo grosor entre métodos"
+  ],
+  "design_exports": [
+    {
+      "name": "principal",
+      "size_cm": [
+        18,
+        10.0
+      ],
+      "axes_positions": [
+        [
+          0.085,
+          0.365,
+          0.385,
+          0.565
+        ],
+        [
+          0.595,
+          0.365,
+          0.385,
+          0.565
+        ]
+      ],
+      "roc_limits": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "pr_limits": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "font_sizes_pt": [
+        8,
+        9
+      ],
+      "method_line_width_pt": 1.05,
+      "operating_markers": 0,
+      "alpha_legend": false,
+      "texts_outside_canvas": [],
+      "legends_overlap": false,
+      "path_simplification": false,
+      "pr_drawstyle": "steps-post; recall decreciente",
+      "method_order": [
+        "IF",
+        "OCSVM",
+        "LOF",
+        "EllipticEnvelope",
+        "PCA"
+      ],
+      "colors": [
+        "#0072B2",
+        "#D55E00",
+        "#009E73",
+        "#CC79A7",
+        "#E69F00"
+      ],
+      "svg_curve_checks": {
+        "ROC-IF": {
+          "vertices": 20897,
+          "max_serialization_delta_pt": 4.99995124414454e-07
+        },
+        "PR-IF": {
+          "vertices": 41793,
+          "max_serialization_delta_pt": 4.999860152565816e-07
+        },
+        "ROC-OCSVM": {
+          "vertices": 27175,
+          "max_serialization_delta_pt": 4.999983502784744e-07
+        },
+        "PR-OCSVM": {
+          "vertices": 54349,
+          "max_serialization_delta_pt": 4.999892837531661e-07
+        },
+        "ROC-LOF": {
+          "vertices": 26019,
+          "max_serialization_delta_pt": 4.999756413326395e-07
+        },
+        "PR-LOF": {
+          "vertices": 52037,
+          "max_serialization_delta_pt": 4.999847647013667e-07
+        },
+        "ROC-EllipticEnvelope": {
+          "vertices": 27222,
+          "max_serialization_delta_pt": 4.99995124414454e-07
+        },
+        "PR-EllipticEnvelope": {
+          "vertices": 54443,
+          "max_serialization_delta_pt": 4.999780287562317e-07
+        },
+        "ROC-PCA": {
+          "vertices": 27226,
+          "max_serialization_delta_pt": 4.99995124414454e-07
+        },
+        "PR-PCA": {
+          "vertices": 54451,
+          "max_serialization_delta_pt": 4.999780287562317e-07
+        }
+      },
+      "png_pixels": [
+        4251,
+        2362
+      ],
+      "png_dpi": [
+        599.9988,
+        599.9988
+      ],
+      "pdf_vectorial_fonts_embedded_no_clipped_text": true
+    },
+    {
+      "name": "ampliacion",
+      "size_cm": [
+        18,
+        11.2
+      ],
+      "axes_positions": [
+        [
+          0.085,
+          0.375,
+          0.385,
+          0.565
+        ],
+        [
+          0.595,
+          0.375,
+          0.385,
+          0.565
+        ]
+      ],
+      "roc_limits": [
+        [
+          0.0,
+          0.065
+        ],
+        [
+          0.45,
+          1.0
+        ]
+      ],
+      "pr_limits": [
+        [
+          0.5,
+          0.98
+        ],
+        [
+          0.0,
+          0.045
+        ]
+      ],
+      "font_sizes_pt": [
+        8,
+        9
+      ],
+      "method_line_width_pt": 1.05,
+      "operating_markers": 20,
+      "alpha_legend": true,
+      "texts_outside_canvas": [],
+      "legends_overlap": false,
+      "path_simplification": false,
+      "pr_drawstyle": "steps-post; recall decreciente",
+      "method_order": [
+        "IF",
+        "OCSVM",
+        "LOF",
+        "EllipticEnvelope",
+        "PCA"
+      ],
+      "colors": [
+        "#0072B2",
+        "#D55E00",
+        "#009E73",
+        "#CC79A7",
+        "#E69F00"
+      ],
+      "svg_curve_checks": {},
+      "png_pixels": [
+        4251,
+        2645
+      ],
+      "png_dpi": [
+        599.9988,
+        599.9988
+      ],
+      "pdf_vectorial_fonts_embedded_no_clipped_text": true
+    }
+  ]
+}

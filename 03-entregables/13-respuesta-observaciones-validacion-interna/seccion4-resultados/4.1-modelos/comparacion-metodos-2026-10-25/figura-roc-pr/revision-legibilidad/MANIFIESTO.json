@@ -1,0 +1,67 @@
+{
+  "data_commit": "028de214fb2ddc809f6eb4876574ada647b3dafb",
+  "previous_figure_commit": "9ac4fbe04b51b012f363f42752589ed7b6dc2042",
+  "repository": "https://github.com/marksato13/VF-PPI-TESIS-ORQUESTACION",
+  "starting_head_and_remote_main": "9ac4fbe04b51b012f363f42752589ed7b6dc2042",
+  "later_updates_at_start": [],
+  "generated_utc": "2026-10-26T02:06:29.761432+00:00",
+  "versions": {
+    "python": "3.14.3",
+    "numpy": "2.4.6",
+    "sklearn": "1.9.1",
+    "matplotlib": "3.11.2",
+    "Pillow": "12.2.0",
+    "PyMuPDF": "1.28.2"
+  },
+  "platform": "Windows-11-10.0.26300-SP0",
+  "inputs_sha256_by_commit": {
+    "028de214fb2ddc809f6eb4876574ada647b3dafb": {
+      "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/MANIFIESTO-COMPARACION.json": "f936f9a55e6dd79aa25e04bd10018a0b124c57db30d316b543dda6791b4c07e0",
+      "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/TABLA7-comparacion-completa.csv": "1232d87d7c5184ce60f20837fe176f89e02ac004da254da8660d46d539fe1b16",
+      "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/comparar_metodos.py": "212c28c2639acf465058db2e254db2db0b0e6b243d4b078e4664adb0b558447b",
+      "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/config-comparacion.json": "d4291b951b0c26378e4bd58a6ff105211289c9d45104a0431bf5ab705ce2044f",
+      "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/resultados-comparacion.json": "be5ff4c6fc58308f4496f45bbe93b67ba356ba5c96eb08d3ccefedc63a610a84",
+      "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/salidas/meta-EllipticEnvelope.json": "c7737760b65b251b71001222c948d839ed83510593131954849af5569e9c2103",
+      "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/salidas/meta-IF.json": "b208e42d021209d30f50b9b7934c383cc2394510a6cd1b9fd0c2944dbe6fcfab",
+      "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/salidas/meta-LOF.json": "4e1fbe92b0e7dd9302d56bff9358c59cbb5887c69aae3d7f28ae1ec11f637a4d",
+      "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/salidas/meta-OCSVM.json": "5e49651399327cb1e3e6793255557bedf77a65abda937a25bec8a97f8d7fb249",
+      "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/salidas/meta-PCA.json": "2b7438de3b246c42f93b7f0d28885a5d77586da8198c8f18c6cebb640bc1fb58",
+      "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/salidas/puntuaciones-EllipticEnvelope.csv.gz": "3de4f17c61b0f47d6b3b6d45fb9a53e2e95a6375031f334d78b2a366c290f0e9",
+      "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/salidas/puntuaciones-IF.csv.gz": "536638f47145a8c86d17ba63f7ebf4a2cc3aca2a8294f9ff6d57d8d4ee795fd4",
+      "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/salidas/puntuaciones-LOF.csv.gz": "b33a6875247828f30185046c01558ae436889509b1b92ee3180c3f047b7e7465",
+      "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/salidas/puntuaciones-OCSVM.csv.gz": "f8a3c19c32141182ed3920f9553a7539017490362491513ed40d8195d889da41",
+      "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/salidas/puntuaciones-PCA.csv.gz": "132b5b1c494967efb8df7ee30d3c4d9cf8469ce9ac926ca41252654742aa133c"
+    },
+    "9ac4fbe04b51b012f363f42752589ed7b6dc2042": {
+      "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/figura-roc-pr/MANIFIESTO-FIGURA.json": "0391b837bbe52c161f53d600e511de3e065deca827f2de6677373a348696b7fa",
+      "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/figura-roc-pr/generar_figura.py": "1672540b320fcb9999f24edc3551c56c89b80d2e7d082059472facc37b5ed9aa",
+      "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/figura-roc-pr/VERIFICACION-FIGURA.json": "59a54c4f9823aa70a8bd6c5bd419f693f612183b4efee645cc9afcfded4a6405",
+      "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/figura-roc-pr/puntos-operativos.csv": "0d26e881fec105bc071f5ffb9e474f77e004c604f1e32ac200877f7e24e98220",
+      "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/figura-roc-pr/curvas-roc.csv": "08ebcd74e084efc6348e6c56e7b336a40a2edbbeedfa89898589ff2c76ecb4a8",
+      "03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/comparacion-metodos-2026-10-25/figura-roc-pr/curvas-pr.csv": "e760a2a1249d54b6776df5ae2daebc0d73e0407ff4490fdb9146b5b592b9ef2f"
+    }
+  },
+  "outputs_sha256": {
+    "ampliacion.pdf": "4df845a626be5bdf6157be2956adce616f8d5c0f2c4ab9475d5aac8a88327cd1",
+    "ampliacion.png": "41f56cbf22b52d4b734e98fe05180d810adbf60196ce6da7d5488a72ef0159de",
+    "ampliacion.svg": "d05fd6cb4c61d2e0641f9b71d1763c57544e12f12fd6cc71deca9c928cc3bc3f",
+    "control.json": "e5afda9cfee0d91e4831ddcf0b0b3240a074f2bf661d8bdbb3c03a132a3ba7de",
+    "control.md": "994aeedf916dfd996ed27788e70141b213234de91631298f015291768b618fea",
+    "generar.py": "fc17607f9f8af53a8465165d337a598b5b1e6dbabbe29fc2414f83c91ae81265",
+    "gris.png": "c964e24aa97eda0cbcd243962af7c6b8a6c6cc37f8567b4f1545ade6f9c0ba6d",
+    "previa.png": "fb29e9c3b63c613539fc934a21dff2e938438aebcdc6b2c8d7c5c0380897ea6d",
+    "principal.pdf": "be110d0b10e4ec622dcb49be9298b42ae0210c792a614db6f82368c84891b2a9",
+    "principal.png": "602f31a436d6981c20e89c5a2f5736e80e37bb03a8d491861e4ee0e83d10930c",
+    "principal.svg": "151e3080b71065a857aeb4edbc47855608c42d9210290d3ba287543f2532c9e5",
+    "puntos.csv": "0d26e881fec105bc071f5ffb9e474f77e004c604f1e32ac200877f7e24e98220",
+    "README.md": "b6978470cb75e2fdcad91b195a2337c1374e63983c3e78ac08370517e2d77660",
+    "zoom-gris.png": "3eef7aac74bd69cf76d3dec014af1a7fc1aaab316ac4362489ca969a145e7ebb",
+    "zoom-previa.png": "2740dc5af12c3da852e97f742c2a67ad5613616812d6a6ef95c3bce0fd243aea"
+  },
+  "self_hash": "Excluido para evitar autorreferencia; identificado por el commit de publicación.",
+  "data_metrics_thresholds_points_unchanged": true,
+  "previous_files_modified": false,
+  "word_modified": false,
+  "models_retrained": false,
+  "deployment_modified": false
+}
