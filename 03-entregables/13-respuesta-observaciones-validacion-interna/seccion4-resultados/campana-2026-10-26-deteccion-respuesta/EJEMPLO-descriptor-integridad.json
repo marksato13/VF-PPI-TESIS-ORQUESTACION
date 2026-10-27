@@ -1,47 +1,49 @@
 {
-  "_nota": "Ejemplo de descriptor para verificar_integridad.py. Muestra un episodio APTO (verificado por informe externo trazable + mediciones de reloj válidas), uno NO APTO (hash declarado sin respaldo + error de captura) y uno DESCONOCIDO (sin evidencia).",
+  "_nota": "Ejemplo para verificar_integridad.py. Ejecútalo DESDE la carpeta de la campaña (rutas relativas a EJEMPLO-fixtures/): python3 scripts/verificar_integridad.py --descriptor EJEMPLO-descriptor-integridad.json --salida EJEMPLO-integridad-salida.json. Los ficheros de EJEMPLO-fixtures/ son FIXTURES de la herramienta: NO son capturas de una campaña ni resultados de CyberFlow.",
   "_como_se_obtienen_los_datos": {
-    "rutas": "ruta local a PCAP/EVE/decisiones/caracteristicas si se analizan en esta máquina (se calcula el sha256 real)",
-    "informe_externo": "si se verifican en otro host: {maquina, herramienta, resultado:'ok', referencia:<ruta/ticket de evidencia>, sha256}; debe ser trazable",
-    "cobertura_s": "previa/posterior en segundos y 'durante': true si todas las ventanas del ataque tienen datos; se obtiene del PCAP continuo y del motor",
-    "captura": "paquetes_descartados de las estadísticas de tcpdump; errores con 'afecta_fuentes' si comprometen una fuente necesaria",
-    "reinicios": "por componente (captura/suricata/motor): momento, recuperado, historia_tras_s, calentamiento_s",
-    "relojes": "requeridos=hosts a comparar; mediciones por host {referencia, momento (epoch), desfase_s, incertidumbre_s}; correccion_desfase opcional {procedimiento, verificado}"
+    "rutas": "ruta local a PCAP/EVE/decisiones/caracteristicas si se analizan aquí (se calcula el sha256 REAL)",
+    "hashes_esperados": "sha256 esperado (64 hex); un marcador como <sha256 real> o un hash inválido => ausente",
+    "informe_externo": "para verificación en otro host: {maquina, herramienta, resultado:'ok', referencia:<RUTA a un JSON de evidencia abrible>, sha256}; la referencia debe abrirse y corresponder (campaña/episodio/fuente/periodo) y traer el sha256 del archivo",
+    "respaldos": "cobertura/continuidad/faltantes/captura/reinicios/relojes NO se declaran con un booleano: cada uno apunta a un fichero JSON (respaldo) accesible que identifica campaña/episodio/periodo y contiene los VALORES de los que se deriva el resultado",
+    "declaraciones": "marca qué requisitos se AFIRMAN sin respaldo (para que queden 'declarado_sin_verificar', nunca 'apto')"
   },
   "episodios": [
     {
-      "episodio_id": "inundacion_http-r1", "campana": "deteccion-respuesta",
-      "intervalo": {"inicio": 1793000000, "fin": 1793000090},
-      "informe_externo": {
-        "pcap": {"maquina": "sensor-10.10.60.11", "herramienta": "sha256sum", "resultado": "ok", "referencia": "evidencia/hashes-20261030.txt", "sha256": "<sha256 real del pcap>"},
-        "eve": {"maquina": "sensor-10.10.60.11", "herramienta": "sha256sum", "resultado": "ok", "referencia": "evidencia/hashes-20261030.txt", "sha256": "<sha256 real del eve>"},
-        "decisiones": {"maquina": "sensor-10.10.60.11", "herramienta": "sha256sum", "resultado": "ok", "referencia": "evidencia/hashes-20261030.txt", "sha256": "<sha256 real>"},
-        "caracteristicas": {"maquina": "sensor-10.10.60.11", "herramienta": "sha256sum", "resultado": "ok", "referencia": "evidencia/hashes-20261030.txt", "sha256": "<sha256 real>"}
-      },
-      "cobertura_s": {"previa": 130, "durante": true, "posterior": 95},
-      "continuidad_sin_huecos": true, "faltantes": [],
-      "captura": {"paquetes_descartados": 0, "errores": []},
-      "reinicios": {},
-      "relojes": {"requeridos": ["sensor", "bastion"], "tolerancia_s": 1,
-                  "mediciones": [
-                    {"host": "sensor", "referencia": "bastion/NTP", "momento": 1793000050, "desfase_s": 0.02, "incertidumbre_s": 0.05},
-                    {"host": "bastion", "referencia": "NTP evlbi", "momento": 1793000050, "desfase_s": 0.001, "incertidumbre_s": 0.02}
-                  ]}
+      "_caso": "DECLARADO SIN VERIFICAR (ilustrativo): afirma valores y trae marcador de hash, sin respaldo ni ruta",
+      "episodio_id": "inundacion_http-r3", "campana": "ejemplo",
+      "intervalo": {"inicio": 1793000600, "fin": 1793000690},
+      "hashes_esperados": {"pcap": "<sha256 real>"},
+      "declaraciones": {"cobertura": true, "continuidad": true, "captura": true, "reinicios": true, "relojes": true}
     },
     {
-      "episodio_id": "inundacion_http-r2", "campana": "deteccion-respuesta",
+      "_caso": "NO APTO: evidencia comprobada que incumple un requisito (error de captura que afecta a las fuentes)",
+      "episodio_id": "inundacion_http-r2", "campana": "ejemplo",
       "intervalo": {"inicio": 1793000300, "fin": 1793000390},
-      "hashes_esperados": {"pcap": "aaaa", "eve": "bbbb", "decisiones": "cccc", "caracteristicas": "dddd"},
-      "cobertura_s": {"previa": 130, "durante": true, "posterior": 95},
-      "continuidad_sin_huecos": true, "faltantes": [],
-      "captura": {"paquetes_descartados": 0, "errores": [{"afecta_fuentes": true, "desc": "tcpdump reportó paquetes truncados en el tramo del ataque"}]},
-      "reinicios": {},
-      "relojes": {"requeridos": ["sensor"], "tolerancia_s": 1,
-                  "mediciones": [{"host": "sensor", "referencia": "bastion/NTP", "momento": 1793000350, "desfase_s": 0.1, "incertidumbre_s": 0.05}]}
+      "informe_externo": {
+        "pcap": {"maquina": "sensor", "herramienta": "sha256sum", "resultado": "ok", "referencia": "EJEMPLO-fixtures/ev-pcap-r2.json", "sha256": "6c6564c08d5845e1b6cfd694dc82396f76bb2cd14c9e8a4593da0cd92bdfcd99"}
+      },
+      "respaldos": {"captura": {"ruta": "EJEMPLO-fixtures/captura-r2-error.json"}}
     },
     {
-      "episodio_id": "escaneo_breve-r1", "campana": "deteccion-respuesta",
-      "intervalo": {"inicio": 1793000600, "fin": 1793000618}
+      "_caso": "APTO: ficheros reales con hash + respaldos accesibles y correspondientes (fixtures de la herramienta)",
+      "episodio_id": "inundacion_http-r1", "campana": "ejemplo",
+      "intervalo": {"inicio": 1793000000, "fin": 1793000090},
+      "rutas": {
+        "pcap": "EJEMPLO-fixtures/pcap.bin", "eve": "EJEMPLO-fixtures/eve.bin",
+        "decisiones": "EJEMPLO-fixtures/decisiones.bin", "caracteristicas": "EJEMPLO-fixtures/caracteristicas.bin"
+      },
+      "hashes_esperados": {
+        "pcap": "6c6564c08d5845e1b6cfd694dc82396f76bb2cd14c9e8a4593da0cd92bdfcd99",
+        "eve": "b200c9d6b33aecbbe7360ae58600c462f17abe1d37ace1c828a2e597cab2738c",
+        "decisiones": "8429f7bf98d10a1ef0efddb5e8553e624887eab68439e57db3ac7ad3eeb2c4d2",
+        "caracteristicas": "346e827104d5f7e2b596aeff7dfd4dcfbc6561c354dc58be097353f8478562e0"
+      },
+      "respaldos": {
+        "cobertura": {"ruta": "EJEMPLO-fixtures/cobertura.json"},
+        "captura": {"ruta": "EJEMPLO-fixtures/captura.json"},
+        "reinicios": {"ruta": "EJEMPLO-fixtures/reinicios.json"},
+        "relojes": {"ruta": "EJEMPLO-fixtures/relojes.json"}
+      }
     }
   ]
 }

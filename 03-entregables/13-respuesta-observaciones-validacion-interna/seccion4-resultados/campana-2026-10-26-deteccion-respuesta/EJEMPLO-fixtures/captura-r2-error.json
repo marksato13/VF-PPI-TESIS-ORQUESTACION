@@ -1,0 +1,1 @@
+{"_nota": "FIXTURE: respaldo de captura con un error que afecta a las fuentes (demuestra NO apto)", "campana": "ejemplo", "episodio": "inundacion_http-r2", "periodo": {"inicio": 1793000290, "fin": 1793000490}, "origen": "local", "paquetes_descartados": 0, "errores": [{"afecta_fuentes": true, "desc": "tcpdump reportó paquetes truncados en el tramo del ataque"}]}

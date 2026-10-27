@@ -1,108 +1,299 @@
 {
  "generado_por": "verificar_integridad.py",
- "nota": "Distingue verificado / declarado_sin_verificar / ausente / desconocido. Solo 'verificado' => apto.",
+ "nota": "verificado / declarado_sin_verificar / ausente / desconocido. Solo 'verificado' => apto. Un booleano del descriptor no es verificación; requiere respaldo accesible y correspondiente.",
  "episodios": [
   {
-   "episodio_id": "inundacion_http-r1",
-   "campana": "deteccion-respuesta",
+   "episodio_id": "inundacion_http-r3",
+   "campana": "ejemplo",
+   "requisitos": {
+    "pcap": {
+     "estado": "ausente",
+     "metodo": "automatico",
+     "razon": "hash esperado inválido o marcador: '<sha256 real>'",
+     "evidencia": null
+    },
+    "eve": {
+     "estado": "desconocido",
+     "metodo": "pendiente",
+     "razon": "no se aportó ni ruta ni informe externo",
+     "evidencia": null
+    },
+    "decisiones": {
+     "estado": "desconocido",
+     "metodo": "pendiente",
+     "razon": "no se aportó ni ruta ni informe externo",
+     "evidencia": null
+    },
+    "caracteristicas": {
+     "estado": "desconocido",
+     "metodo": "pendiente",
+     "razon": "no se aportó ni ruta ni informe externo",
+     "evidencia": null
+    },
+    "cobertura_previa": {
+     "estado": "declarado_sin_verificar",
+     "metodo": "pendiente",
+     "razon": "valor declarado sin respaldo accesible",
+     "evidencia": null
+    },
+    "cobertura_durante": {
+     "estado": "declarado_sin_verificar",
+     "metodo": "pendiente",
+     "razon": "valor declarado sin respaldo accesible",
+     "evidencia": null
+    },
+    "cobertura_posterior": {
+     "estado": "declarado_sin_verificar",
+     "metodo": "pendiente",
+     "razon": "valor declarado sin respaldo accesible",
+     "evidencia": null
+    },
+    "continuidad": {
+     "estado": "declarado_sin_verificar",
+     "metodo": "pendiente",
+     "razon": "continuidad declarada sin respaldo accesible",
+     "evidencia": null
+    },
+    "sin_faltantes": {
+     "estado": "declarado_sin_verificar",
+     "metodo": "pendiente",
+     "razon": "valor declarado sin respaldo accesible",
+     "evidencia": null
+    },
+    "captura_sin_errores_relevantes": {
+     "estado": "declarado_sin_verificar",
+     "metodo": "pendiente",
+     "razon": "valor declarado sin respaldo accesible",
+     "evidencia": null
+    },
+    "reinicios": {
+     "estado": "declarado_sin_verificar",
+     "metodo": "pendiente",
+     "razon": "valor declarado sin respaldo accesible",
+     "evidencia": null
+    },
+    "relojes": {
+     "estado": "declarado_sin_verificar",
+     "metodo": "pendiente",
+     "razon": "valor declarado sin respaldo accesible",
+     "evidencia": null
+    }
+   },
+   "resumen": {
+    "verificado": [],
+    "declarado_sin_verificar": [
+     "cobertura_previa",
+     "cobertura_durante",
+     "cobertura_posterior",
+     "continuidad",
+     "sin_faltantes",
+     "captura_sin_errores_relevantes",
+     "reinicios",
+     "relojes"
+    ],
+    "ausente": [
+     "pcap"
+    ],
+    "desconocido": [
+     "eve",
+     "decisiones",
+     "caracteristicas"
+    ]
+   },
+   "apto": false,
+   "criterio": "apto solo si los 12 requisitos están 'verificado' (hash real, respaldo correspondiente o informe externo accesible). Declarado/ausente/desconocido NO cuentan."
+  },
+  {
+   "episodio_id": "inundacion_http-r2",
+   "campana": "ejemplo",
    "requisitos": {
     "pcap": {
      "estado": "verificado",
      "metodo": "evidencia_externa",
-     "razon": "verificado en sensor-10.10.60.11 con sha256sum",
+     "razon": "referencia abierta y correspondiente en sensor",
      "evidencia": {
-      "maquina": "sensor-10.10.60.11",
-      "herramienta": "sha256sum",
-      "resultado": "ok",
-      "referencia": "evidencia/hashes-20261030.txt",
-      "sha256": "<sha256 real del pcap>"
+      "sha256": "6c6564c08d5845e1b6cfd694dc82396f76bb2cd14c9e8a4593da0cd92bdfcd99",
+      "referencia": "EJEMPLO-fixtures/ev-pcap-r2.json"
+     }
+    },
+    "eve": {
+     "estado": "desconocido",
+     "metodo": "pendiente",
+     "razon": "no se aportó ni ruta ni informe externo",
+     "evidencia": null
+    },
+    "decisiones": {
+     "estado": "desconocido",
+     "metodo": "pendiente",
+     "razon": "no se aportó ni ruta ni informe externo",
+     "evidencia": null
+    },
+    "caracteristicas": {
+     "estado": "desconocido",
+     "metodo": "pendiente",
+     "razon": "no se aportó ni ruta ni informe externo",
+     "evidencia": null
+    },
+    "cobertura_previa": {
+     "estado": "desconocido",
+     "metodo": "pendiente",
+     "razon": "ni declaración ni respaldo",
+     "evidencia": null
+    },
+    "cobertura_durante": {
+     "estado": "desconocido",
+     "metodo": "pendiente",
+     "razon": "ni declaración ni respaldo",
+     "evidencia": null
+    },
+    "cobertura_posterior": {
+     "estado": "desconocido",
+     "metodo": "pendiente",
+     "razon": "ni declaración ni respaldo",
+     "evidencia": null
+    },
+    "continuidad": {
+     "estado": "desconocido",
+     "metodo": "pendiente",
+     "razon": "ni declaración ni respaldo de continuidad",
+     "evidencia": null
+    },
+    "sin_faltantes": {
+     "estado": "desconocido",
+     "metodo": "pendiente",
+     "razon": "ni declaración ni respaldo",
+     "evidencia": null
+    },
+    "captura_sin_errores_relevantes": {
+     "estado": "ausente",
+     "metodo": "local",
+     "razon": "errores que afectan a las fuentes: tcpdump reportó paquetes truncados en el tramo del ataque",
+     "evidencia": null
+    },
+    "reinicios": {
+     "estado": "desconocido",
+     "metodo": "pendiente",
+     "razon": "ni declaración ni respaldo",
+     "evidencia": null
+    },
+    "relojes": {
+     "estado": "desconocido",
+     "metodo": "pendiente",
+     "razon": "ni declaración ni respaldo",
+     "evidencia": null
+    }
+   },
+   "resumen": {
+    "verificado": [
+     "pcap"
+    ],
+    "declarado_sin_verificar": [],
+    "ausente": [
+     "captura_sin_errores_relevantes"
+    ],
+    "desconocido": [
+     "eve",
+     "decisiones",
+     "caracteristicas",
+     "cobertura_previa",
+     "cobertura_durante",
+     "cobertura_posterior",
+     "continuidad",
+     "sin_faltantes",
+     "reinicios",
+     "relojes"
+    ]
+   },
+   "apto": false,
+   "criterio": "apto solo si los 12 requisitos están 'verificado' (hash real, respaldo correspondiente o informe externo accesible). Declarado/ausente/desconocido NO cuentan."
+  },
+  {
+   "episodio_id": "inundacion_http-r1",
+   "campana": "ejemplo",
+   "requisitos": {
+    "pcap": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "6c6564c08d5845e1b6cfd694dc82396f76bb2cd14c9e8a4593da0cd92bdfcd99"
      }
     },
     "eve": {
      "estado": "verificado",
-     "metodo": "evidencia_externa",
-     "razon": "verificado en sensor-10.10.60.11 con sha256sum",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
      "evidencia": {
-      "maquina": "sensor-10.10.60.11",
-      "herramienta": "sha256sum",
-      "resultado": "ok",
-      "referencia": "evidencia/hashes-20261030.txt",
-      "sha256": "<sha256 real del eve>"
+      "sha256": "b200c9d6b33aecbbe7360ae58600c462f17abe1d37ace1c828a2e597cab2738c"
      }
     },
     "decisiones": {
      "estado": "verificado",
-     "metodo": "evidencia_externa",
-     "razon": "verificado en sensor-10.10.60.11 con sha256sum",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
      "evidencia": {
-      "maquina": "sensor-10.10.60.11",
-      "herramienta": "sha256sum",
-      "resultado": "ok",
-      "referencia": "evidencia/hashes-20261030.txt",
-      "sha256": "<sha256 real>"
+      "sha256": "8429f7bf98d10a1ef0efddb5e8553e624887eab68439e57db3ac7ad3eeb2c4d2"
      }
     },
     "caracteristicas": {
      "estado": "verificado",
-     "metodo": "evidencia_externa",
-     "razon": "verificado en sensor-10.10.60.11 con sha256sum",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
      "evidencia": {
-      "maquina": "sensor-10.10.60.11",
-      "herramienta": "sha256sum",
-      "resultado": "ok",
-      "referencia": "evidencia/hashes-20261030.txt",
-      "sha256": "<sha256 real>"
+      "sha256": "346e827104d5f7e2b596aeff7dfd4dcfbc6561c354dc58be097353f8478562e0"
      }
     },
     "cobertura_previa": {
      "estado": "verificado",
-     "metodo": "automatico",
-     "razon": "130 s (min 120)",
+     "metodo": "local",
+     "razon": "130 s (min 120) [respaldo]",
      "evidencia": {
       "segundos": 130
      }
     },
     "cobertura_durante": {
      "estado": "verificado",
-     "metodo": "automatico",
-     "razon": "durante completa",
-     "evidencia": null
+     "metodo": "local",
+     "razon": "durante completa (respaldo)",
+     "evidencia": {
+      "ruta": "EJEMPLO-fixtures/cobertura.json"
+     }
     },
     "cobertura_posterior": {
      "estado": "verificado",
-     "metodo": "automatico",
-     "razon": "95 s (min 90)",
+     "metodo": "local",
+     "razon": "95 s (min 90) [respaldo]",
      "evidencia": {
       "segundos": 95
      }
     },
     "continuidad": {
      "estado": "verificado",
-     "metodo": "automatico",
-     "razon": "continua",
+     "metodo": "local",
+     "razon": "continua (respaldo)",
      "evidencia": null
     },
     "sin_faltantes": {
      "estado": "verificado",
-     "metodo": "automatico",
-     "razon": "sin faltantes",
+     "metodo": "local",
+     "razon": "sin faltantes (respaldo)",
      "evidencia": null
     },
     "captura_sin_errores_relevantes": {
      "estado": "verificado",
-     "metodo": "automatico",
-     "razon": "sin errores relevantes ni descartes",
+     "metodo": "local",
+     "razon": "sin errores relevantes ni descartes (respaldo)",
      "evidencia": null
     },
     "reinicios": {
      "estado": "verificado",
-     "metodo": "automatico",
-     "razon": "sin reinicios en el intervalo",
+     "metodo": "local",
+     "razon": "sin reinicios",
      "evidencia": null
     },
     "relojes": {
      "estado": "verificado",
-     "metodo": "automatico",
+     "metodo": "local",
      "razon": "mediciones válidas para ['sensor', 'bastion']",
      "evidencia": {
       "hosts": [
@@ -132,215 +323,7 @@
     "desconocido": []
    },
    "apto": true,
-   "criterio": "apto solo si los 12 requisitos están 'verificado' (automático o informe externo trazable). declarado_sin_verificar / ausente / desconocido NO cuentan como correcto."
-  },
-  {
-   "episodio_id": "inundacion_http-r2",
-   "campana": "deteccion-respuesta",
-   "requisitos": {
-    "pcap": {
-     "estado": "declarado_sin_verificar",
-     "metodo": "pendiente",
-     "razon": "hash/afirmación en el descriptor SIN ruta accesible ni informe externo trazable",
-     "evidencia": null
-    },
-    "eve": {
-     "estado": "declarado_sin_verificar",
-     "metodo": "pendiente",
-     "razon": "hash/afirmación en el descriptor SIN ruta accesible ni informe externo trazable",
-     "evidencia": null
-    },
-    "decisiones": {
-     "estado": "declarado_sin_verificar",
-     "metodo": "pendiente",
-     "razon": "hash/afirmación en el descriptor SIN ruta accesible ni informe externo trazable",
-     "evidencia": null
-    },
-    "caracteristicas": {
-     "estado": "declarado_sin_verificar",
-     "metodo": "pendiente",
-     "razon": "hash/afirmación en el descriptor SIN ruta accesible ni informe externo trazable",
-     "evidencia": null
-    },
-    "cobertura_previa": {
-     "estado": "verificado",
-     "metodo": "automatico",
-     "razon": "130 s (min 120)",
-     "evidencia": {
-      "segundos": 130
-     }
-    },
-    "cobertura_durante": {
-     "estado": "verificado",
-     "metodo": "automatico",
-     "razon": "durante completa",
-     "evidencia": null
-    },
-    "cobertura_posterior": {
-     "estado": "verificado",
-     "metodo": "automatico",
-     "razon": "95 s (min 90)",
-     "evidencia": {
-      "segundos": 95
-     }
-    },
-    "continuidad": {
-     "estado": "verificado",
-     "metodo": "automatico",
-     "razon": "continua",
-     "evidencia": null
-    },
-    "sin_faltantes": {
-     "estado": "verificado",
-     "metodo": "automatico",
-     "razon": "sin faltantes",
-     "evidencia": null
-    },
-    "captura_sin_errores_relevantes": {
-     "estado": "ausente",
-     "metodo": "automatico",
-     "razon": "errores de captura que afectan a las fuentes: tcpdump reportó paquetes truncados en el tramo del ataque",
-     "evidencia": null
-    },
-    "reinicios": {
-     "estado": "verificado",
-     "metodo": "automatico",
-     "razon": "sin reinicios en el intervalo",
-     "evidencia": null
-    },
-    "relojes": {
-     "estado": "verificado",
-     "metodo": "automatico",
-     "razon": "mediciones válidas para ['sensor']",
-     "evidencia": {
-      "hosts": [
-       "sensor"
-      ]
-     }
-    }
-   },
-   "resumen": {
-    "verificado": [
-     "cobertura_previa",
-     "cobertura_durante",
-     "cobertura_posterior",
-     "continuidad",
-     "sin_faltantes",
-     "reinicios",
-     "relojes"
-    ],
-    "declarado_sin_verificar": [
-     "pcap",
-     "eve",
-     "decisiones",
-     "caracteristicas"
-    ],
-    "ausente": [
-     "captura_sin_errores_relevantes"
-    ],
-    "desconocido": []
-   },
-   "apto": false,
-   "criterio": "apto solo si los 12 requisitos están 'verificado' (automático o informe externo trazable). declarado_sin_verificar / ausente / desconocido NO cuentan como correcto."
-  },
-  {
-   "episodio_id": "escaneo_breve-r1",
-   "campana": "deteccion-respuesta",
-   "requisitos": {
-    "pcap": {
-     "estado": "desconocido",
-     "metodo": "pendiente",
-     "razon": "no se aportó ni ruta ni informe externo",
-     "evidencia": null
-    },
-    "eve": {
-     "estado": "desconocido",
-     "metodo": "pendiente",
-     "razon": "no se aportó ni ruta ni informe externo",
-     "evidencia": null
-    },
-    "decisiones": {
-     "estado": "desconocido",
-     "metodo": "pendiente",
-     "razon": "no se aportó ni ruta ni informe externo",
-     "evidencia": null
-    },
-    "caracteristicas": {
-     "estado": "desconocido",
-     "metodo": "pendiente",
-     "razon": "no se aportó ni ruta ni informe externo",
-     "evidencia": null
-    },
-    "cobertura_previa": {
-     "estado": "desconocido",
-     "metodo": "pendiente",
-     "razon": "falta cobertura_s.previa",
-     "evidencia": null
-    },
-    "cobertura_durante": {
-     "estado": "desconocido",
-     "metodo": "pendiente",
-     "razon": "falta cobertura_s.durante",
-     "evidencia": null
-    },
-    "cobertura_posterior": {
-     "estado": "desconocido",
-     "metodo": "pendiente",
-     "razon": "falta cobertura_s.posterior",
-     "evidencia": null
-    },
-    "continuidad": {
-     "estado": "desconocido",
-     "metodo": "pendiente",
-     "razon": "no se informó de continuidad de captura",
-     "evidencia": null
-    },
-    "sin_faltantes": {
-     "estado": "desconocido",
-     "metodo": "pendiente",
-     "razon": "no se informó de ficheros faltantes",
-     "evidencia": null
-    },
-    "captura_sin_errores_relevantes": {
-     "estado": "desconocido",
-     "metodo": "pendiente",
-     "razon": "no se informó de estadísticas de captura",
-     "evidencia": null
-    },
-    "reinicios": {
-     "estado": "desconocido",
-     "metodo": "pendiente",
-     "razon": "no se informó sobre reinicios",
-     "evidencia": null
-    },
-    "relojes": {
-     "estado": "desconocido",
-     "metodo": "pendiente",
-     "razon": "no se indicaron hosts requeridos",
-     "evidencia": null
-    }
-   },
-   "resumen": {
-    "verificado": [],
-    "declarado_sin_verificar": [],
-    "ausente": [],
-    "desconocido": [
-     "pcap",
-     "eve",
-     "decisiones",
-     "caracteristicas",
-     "cobertura_previa",
-     "cobertura_durante",
-     "cobertura_posterior",
-     "continuidad",
-     "sin_faltantes",
-     "captura_sin_errores_relevantes",
-     "reinicios",
-     "relojes"
-    ]
-   },
-   "apto": false,
-   "criterio": "apto solo si los 12 requisitos están 'verificado' (automático o informe externo trazable). declarado_sin_verificar / ausente / desconocido NO cuentan como correcto."
+   "criterio": "apto solo si los 12 requisitos están 'verificado' (hash real, respaldo correspondiente o informe externo accesible). Declarado/ausente/desconocido NO cuentan."
   }
  ],
  "resumen": {
@@ -348,8 +331,8 @@
    "inundacion_http-r1"
   ],
   "no_aptos": [
-   "inundacion_http-r2",
-   "escaneo_breve-r1"
+   "inundacion_http-r3",
+   "inundacion_http-r2"
   ]
  }
 }

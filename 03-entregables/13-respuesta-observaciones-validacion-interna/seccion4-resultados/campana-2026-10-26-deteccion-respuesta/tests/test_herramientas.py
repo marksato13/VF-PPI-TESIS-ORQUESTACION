@@ -281,79 +281,176 @@ def test_tabla8_evidencia_y_denominador():
                 check(epi["IF_0.05"]["senal_observada"] is False, "señal a otro destino: excluida (no es este ataque)")
 
 
-def _ep_integro(d, **over):
-    """Descriptor de episodio con todo verificable (archivos reales); 'over' pisa campos para cada caso."""
-    import hashlib
+import hashlib
+INI, FIN = 1793000000, 1793000090
+EID = "inundacion_http-r1"
+
+
+def _doc(d, nombre, **campos):
+    """Escribe un respaldo/informe JSON (fixture de herramienta, NO captura de campaña) y devuelve su ruta."""
+    base = {"campana": "c", "episodio": EID, "periodo": {"inicio": INI - 10, "fin": FIN + 100}, "origen": "local"}
+    base.update(campos)
+    p = Path(d) / nombre
+    p.write_text(json.dumps(base), encoding="utf-8")
+    return str(p)
+
+
+def _fix_apto(d):
+    """Descriptor APTO: 4 ficheros reales con hash + respaldos accesibles y correspondientes. Fixtures de herramienta."""
     archivos = {}
     for campo in ("pcap", "eve", "decisiones", "caracteristicas"):
-        p = Path(d) / f"{campo}.bin"
-        p.write_bytes(campo.encode())
+        p = Path(d) / f"{campo}.bin"; p.write_bytes(campo.encode())
         archivos[campo] = {"ruta": str(p), "sha256": hashlib.sha256(campo.encode()).hexdigest()}
-    e = {"episodio_id": "inundacion_http-r1", "campana": "c",
-         "intervalo": {"inicio": 1793000000, "fin": 1793000090},
-         "rutas": {k: v["ruta"] for k, v in archivos.items()},
-         "hashes_esperados": {k: v["sha256"] for k, v in archivos.items()},
-         "cobertura_s": {"previa": 130, "durante": True, "posterior": 95},
-         "continuidad_sin_huecos": True, "faltantes": [],
-         "captura": {"paquetes_descartados": 0, "errores": []},
-         "reinicios": {},
-         "relojes": {"requeridos": ["sensor"], "tolerancia_s": 1,
-                     "mediciones": [{"host": "sensor", "referencia": "bastion/NTP", "momento": 1793000050,
-                                     "desfase_s": 0.1, "incertidumbre_s": 0.05}]}}
-    e.update(over)
-    return e
+    cob = _doc(d, "cobertura.json", previa_s=130, durante_completa=True, posterior_s=95,
+               continuidad_sin_huecos=True, faltantes=[])
+    cap = _doc(d, "captura.json", paquetes_descartados=0, errores=[])
+    rei = _doc(d, "reinicios.json", reinicios={})
+    rel = _doc(d, "relojes.json", requeridos=["sensor"], tolerancia_s=1,
+               mediciones=[{"host": "sensor", "referencia": "bastion/NTP", "momento": INI + 50,
+                            "desfase_s": 0.1, "incertidumbre_s": 0.05}])
+    return {"episodio_id": EID, "campana": "c", "intervalo": {"inicio": INI, "fin": FIN},
+            "rutas": {k: v["ruta"] for k, v in archivos.items()},
+            "hashes_esperados": {k: v["sha256"] for k, v in archivos.items()},
+            "respaldos": {"cobertura": {"ruta": cob}, "captura": {"ruta": cap},
+                          "reinicios": {"ruta": rei}, "relojes": {"ruta": rel}}}
 
 
-def test_integridad_11_casos():
+def test_integridad_backing():
     vi = cargar("verificar_integridad")
     with tempfile.TemporaryDirectory() as d:
-        # 4) archivos válidos y hashes coincidentes -> apto
-        ap = vi.evaluar_episodio(_ep_integro(d))
-        check(ap["apto"] is True, "4) archivos válidos + hashes coincidentes => apto")
-        # 1) ruta inexistente con hash declarado -> ausente (no apto)
-        e = _ep_integro(d); e["rutas"]["pcap"] = str(Path(d) / "no_existe.bin")
+        # Evidencia local válida -> apto (todos verificado)
+        ap = vi.evaluar_episodio(_fix_apto(d))
+        check(ap["apto"] is True and len(ap["resumen"]["verificado"]) == 12, "evidencia local válida => apto (12 verificado)")
+        # Cobertura declarada sin respaldo -> declarado_sin_verificar, no apto
+        e = _fix_apto(d); del e["respaldos"]["cobertura"]; e["declaraciones"] = {"cobertura": True}
         r = vi.evaluar_episodio(e)
-        check(r["requisitos"]["pcap"]["estado"] == "ausente" and not r["apto"],
-              "1) ruta inexistente con hash declarado => ausente, no apto")
-        # 2) archivo ilegible (una carpeta como ruta) -> ausente
-        e = _ep_integro(d); e["rutas"]["eve"] = d
-        check(vi.evaluar_episodio(e)["requisitos"]["eve"]["estado"] == "ausente", "2) archivo ilegible => ausente")
-        # 3) hash diferente -> ausente
-        e = _ep_integro(d); e["hashes_esperados"]["decisiones"] = "0" * 64
-        check(vi.evaluar_episodio(e)["requisitos"]["decisiones"]["estado"] == "ausente", "3) hash distinto => ausente")
-        # 11) informe externo trazable (verificado) vs declaración sin respaldo (declarado_sin_verificar)
-        e = _ep_integro(d); del e["rutas"]["pcap"]
-        e["informe_externo"] = {"pcap": {"maquina": "sensor", "herramienta": "sha256sum", "resultado": "ok",
-                                         "referencia": "evidencia/hashes.txt", "sha256": "a" * 64}}
-        check(vi.evaluar_episodio(e)["requisitos"]["pcap"]["estado"] == "verificado",
-              "11a) informe externo trazable => verificado")
-        e = _ep_integro(d); del e["rutas"]["eve"]   # queda solo el hash declarado
-        check(vi.evaluar_episodio(e)["requisitos"]["eve"]["estado"] == "declarado_sin_verificar",
-              "11b) solo hash declarado, sin ruta ni informe => declarado_sin_verificar (no apto)")
-        # 5) relojes con solo tolerancia, sin mediciones -> desconocido
-        e = _ep_integro(d); e["relojes"] = {"requeridos": ["sensor"], "tolerancia_s": 1}
-        check(vi.evaluar_episodio(e)["requisitos"]["relojes"]["estado"] == "desconocido",
-              "5) tolerancia sin mediciones => desconocido")
-        # 6) host requerido sin medición -> desconocido
-        e = _ep_integro(d); e["relojes"]["requeridos"] = ["sensor", "bastion"]
-        check(vi.evaluar_episodio(e)["requisitos"]["relojes"]["estado"] == "desconocido",
-              "6) host requerido sin medición => desconocido")
-        # 7) medición fuera del periodo aplicable -> ausente
-        e = _ep_integro(d); e["relojes"]["mediciones"][0]["momento"] = 1700000000
+        check(r["requisitos"]["cobertura_previa"]["estado"] == "declarado_sin_verificar" and not r["apto"],
+              "cobertura declarada sin respaldo => no apto")
+        # Continuidad declarada sin respaldo -> no apto
+        e = _fix_apto(d); del e["respaldos"]["cobertura"]; e["declaraciones"] = {"continuidad": True}
+        check(vi.evaluar_episodio(e)["requisitos"]["continuidad"]["estado"] == "declarado_sin_verificar",
+              "continuidad declarada sin respaldo => declarado_sin_verificar")
+        # Respaldo cuyo contenido NO corresponde (otro episodio) -> ausente
+        e = _fix_apto(d); e["respaldos"]["cobertura"]["ruta"] = _doc(d, "cob-otro.json", episodio="otro-r9",
+                                                                     previa_s=130, durante_completa=True, posterior_s=95,
+                                                                     continuidad_sin_huecos=True, faltantes=[])
+        check(vi.evaluar_episodio(e)["requisitos"]["cobertura_previa"]["estado"] == "ausente",
+              "respaldo de otro episodio => ausente (no corresponde)")
+        # Respaldo de periodo que NO cubre el intervalo -> ausente
+        e = _fix_apto(d); e["respaldos"]["relojes"]["ruta"] = _doc(d, "rel-perido.json",
+                           periodo={"inicio": INI + 1000, "fin": FIN + 2000}, requeridos=["sensor"], tolerancia_s=1,
+                           mediciones=[{"host": "sensor", "referencia": "b", "momento": INI + 50, "desfase_s": 0.1, "incertidumbre_s": 0.05}])
         check(vi.evaluar_episodio(e)["requisitos"]["relojes"]["estado"] == "ausente",
-              "7) medición fuera de periodo => ausente")
-        # 8) reinicio sin historia suficiente -> ausente
-        e = _ep_integro(d); e["reinicios"] = {"captura": [{"recuperado": True, "historia_tras_s": 30, "calentamiento_s": 5}]}
-        check(vi.evaluar_episodio(e)["requisitos"]["reinicios"]["estado"] == "ausente",
-              "8) reinicio sin historia suficiente => ausente")
-        # 9) reinicio documentado con recuperación y calentamiento suficientes -> verificado
-        e = _ep_integro(d); e["reinicios"] = {"captura": [{"recuperado": True, "historia_tras_s": 150, "calentamiento_s": 30}]}
-        check(vi.evaluar_episodio(e)["requisitos"]["reinicios"]["estado"] == "verificado",
-              "9) reinicio con recuperación e historia/calentamiento suficientes => verificado")
-        # 10) error de captura relevante -> ausente
-        e = _ep_integro(d); e["captura"]["errores"] = [{"afecta_fuentes": True, "desc": "truncado el PCAP"}]
+              "respaldo con periodo que no cubre => ausente")
+        # Ficheros: hash inválido / marcador / no coincide -> ausente
+        e = _fix_apto(d); e["hashes_esperados"]["pcap"] = "<sha256 real>"
+        check(vi.evaluar_episodio(e)["requisitos"]["pcap"]["estado"] == "ausente", "marcador de hash => ausente")
+        e = _fix_apto(d); e["hashes_esperados"]["eve"] = "0" * 64
+        check(vi.evaluar_episodio(e)["requisitos"]["eve"]["estado"] == "ausente", "hash que no coincide => ausente")
+        # Relojes sin mediciones en el respaldo -> desconocido
+        e = _fix_apto(d); e["respaldos"]["relojes"]["ruta"] = _doc(d, "rel-sinmed.json", requeridos=["sensor"], tolerancia_s=1)
+        check(vi.evaluar_episodio(e)["requisitos"]["relojes"]["estado"] == "desconocido",
+              "respaldo de relojes con solo tolerancia => desconocido")
+        # Reinicio sin historia suficiente -> ausente ; con recuperación+calentamiento -> verificado
+        e = _fix_apto(d); e["respaldos"]["reinicios"]["ruta"] = _doc(d, "rei-malo.json",
+                           reinicios={"captura": [{"recuperado": True, "historia_tras_s": 30, "calentamiento_s": 5}]})
+        check(vi.evaluar_episodio(e)["requisitos"]["reinicios"]["estado"] == "ausente", "reinicio sin historia => ausente")
+        e = _fix_apto(d); e["respaldos"]["reinicios"]["ruta"] = _doc(d, "rei-ok.json",
+                           reinicios={"captura": [{"recuperado": True, "historia_tras_s": 150, "calentamiento_s": 30}]})
+        check(vi.evaluar_episodio(e)["requisitos"]["reinicios"]["estado"] == "verificado", "reinicio recuperado => verificado")
+        # Error de captura relevante -> ausente
+        e = _fix_apto(d); e["respaldos"]["captura"]["ruta"] = _doc(d, "cap-err.json", paquetes_descartados=0,
+                           errores=[{"afecta_fuentes": True, "desc": "PCAP truncado en el ataque"}])
         check(vi.evaluar_episodio(e)["requisitos"]["captura_sin_errores_relevantes"]["estado"] == "ausente",
-              "10) error de captura relevante => ausente")
+              "error de captura relevante => ausente")
+
+
+def test_integridad_informe_externo():
+    vi = cargar("verificar_integridad")
+    with tempfile.TemporaryDirectory() as d:
+        base = _fix_apto(d)
+        real = hashlib.sha256(b"pcap").hexdigest()
+        # Informe externo ACCESIBLE y CORRESPONDIENTE con sha256 que coincide -> verificado
+        ref_ok = _doc(d, "ev-ok.json", fuente="pcap", archivos={"pcap": {"sha256": real}})
+        e = dict(base); e["rutas"] = {k: v for k, v in base["rutas"].items() if k != "pcap"}
+        e["informe_externo"] = {"pcap": {"maquina": "sensor", "herramienta": "sha256sum", "resultado": "ok",
+                                         "referencia": ref_ok, "sha256": real}}
+        check(vi.evaluar_episodio(e)["requisitos"]["pcap"]["estado"] == "verificado",
+              "informe externo accesible y correspondiente => verificado")
+        # Referencia inexistente -> declarado_sin_verificar (pendiente)
+        e2 = dict(e); e2["informe_externo"] = {"pcap": dict(e["informe_externo"]["pcap"], referencia=str(Path(d) / "no.json"))}
+        check(vi.evaluar_episodio(e2)["requisitos"]["pcap"]["estado"] == "declarado_sin_verificar",
+              "referencia externa inexistente => pendiente, no apto")
+        # Referencia accesible cuyo contenido NO respalda (sin sha del archivo) -> ausente
+        ref_mal = _doc(d, "ev-mal.json", fuente="pcap", archivos={})
+        e3 = dict(e); e3["informe_externo"] = {"pcap": dict(e["informe_externo"]["pcap"], referencia=ref_mal)}
+        check(vi.evaluar_episodio(e3)["requisitos"]["pcap"]["estado"] == "ausente",
+              "referencia que no respalda el resultado => ausente")
+        # Informe de OTRO episodio -> ausente
+        ref_otro = _doc(d, "ev-otro.json", episodio="otro-r9", fuente="pcap", archivos={"pcap": {"sha256": real}})
+        e4 = dict(e); e4["informe_externo"] = {"pcap": dict(e["informe_externo"]["pcap"], referencia=ref_otro)}
+        check(vi.evaluar_episodio(e4)["requisitos"]["pcap"]["estado"] == "ausente",
+              "informe de otro episodio => ausente")
+
+
+def test_integridad_descriptor_ilustrativo():
+    vi = cargar("verificar_integridad")
+    # Descriptor sin ficheros ni respaldos (solo identificación) -> todo desconocido/declarado -> NO apto
+    e = {"episodio_id": EID, "campana": "c", "intervalo": {"inicio": INI, "fin": FIN}}
+    r = vi.evaluar_episodio(e)
+    check(r["apto"] is False and not r["resumen"]["verificado"],
+          "descriptor ilustrativo sin archivos => no apto (nada verificado)")
+
+
+def test_integridad_gate_analizador():
+    an = cargar("analizar")
+    T = 1793000000
+    mot = [rec(w + 1, w, -0.70 if w == T + 40 else -0.50, "ALERT" if w == T + 40 else "PERMIT")
+           for w in range(T, T + 150, 10)]
+    dok = {("inundacion_http-r1", iso(w)): ["10.10.30.10"] for w in range(T + 10, T + 91, 10)}
+    c, _, _ = clasif(an, marca("inundacion_http-r1", "inundacion_http", "10.10.30.10", T, T + 90), mot,
+                     "inundacion_http-r1", destinos=dok, integridad_apto=False)
+    check(c["evaluable"] is False and c["IF_0.05"]["categoria"] == "no_evaluable",
+          "motor continuo + atribución confirmable pero integridad NO apta => no evaluable")
+    c2, _, _ = clasif(an, marca("inundacion_http-r1", "inundacion_http", "10.10.30.10", T, T + 90), mot,
+                      "inundacion_http-r1", destinos=dok, integridad_apto=None)
+    check(c2["evaluable"] is False, "integridad DESCONOCIDA (None) => no evaluable (desconocido != apto)")
+
+
+def test_integridad_e2e_no_habilita_denominador():
+    """verificar_integridad.py (no apto) -> integridad.json -> analizar.py: el episodio NO entra en el denominador."""
+    vi = cargar("verificar_integridad"); an = cargar("analizar")
+    T = 1793000000
+    with tempfile.TemporaryDirectory() as d:
+        # descriptor NO apto (cobertura declarada sin respaldo)
+        e = _fix_apto(d); del e["respaldos"]["cobertura"]; e["declaraciones"] = {"cobertura": True}
+        (Path(d) / "desc.json").write_text(json.dumps({"episodios": [e]}), encoding="utf-8")
+        old = sys.argv; sys.argv = ["x", "--descriptor", str(Path(d) / "desc.json"), "--salida", str(Path(d) / "integ.json")]
+        try:
+            vi.main()
+        finally:
+            sys.argv = old
+        rep = json.loads((Path(d) / "integ.json").read_text(encoding="utf-8"))
+        check(rep["resumen"]["no_aptos"] == [EID], "integridad.json marca el episodio como NO apto")
+        # analizar consume ese integridad.json
+        (Path(d) / "marcas.jsonl").write_text("\n".join(marca(EID, "inundacion_http", "10.10.30.10", T, T + 90)), encoding="utf-8")
+        mot = [rec(w + 1, w, -0.70 if w == T + 40 else -0.50, "ALERT" if w == T + 40 else "PERMIT") for w in range(T, T + 150, 10)]
+        (Path(d) / "motor.log").write_text("\n".join(mot), encoding="utf-8")
+        (Path(d) / "cfg.json").write_text(json.dumps({"umbrales": {"0.05": U05, "0.03": U03, "desplegado_referencia": -0.5693969936322356},
+                                                      "origen": K, "combinacion_real": {"exclusiones": {"NUNCA_BLOQUEAR": []}}}), encoding="utf-8")
+        (Path(d) / "dest.csv").write_text("episodio_id,window_end_utc,destino\n"
+                                          + "".join(f"{EID},{iso(w)},10.10.30.10\n" for w in range(T + 10, T + 91, 10)), encoding="utf-8")
+        sys.argv = ["x", "--marcas", str(Path(d) / "marcas.jsonl"), "--motor", str(Path(d) / "motor.log"),
+                    "--config", str(Path(d) / "cfg.json"), "--destinos", str(Path(d) / "dest.csv"),
+                    "--integridad", str(Path(d) / "integ.json"), "--salida", str(Path(d) / "out")]
+        try:
+            an.main()
+        finally:
+            sys.argv = old
+        j = json.loads((Path(d) / "out" / "analisis.json").read_text(encoding="utf-8"))
+        t8 = j["tabla8"]["Inundación HTTP"]
+        check(EID in t8["no_evaluables"] and EID not in t8["evaluables"] and t8["IF_0.05"] == 0,
+              "integridad no apta => episodio fuera del denominador y numerador 0")
 
 
 def test_integridad_gate_analizador():
@@ -410,7 +507,8 @@ def main():
     for fn in (test_validacion, test_generador_simulacion, test_generador_timeout_mata_hijos,
                test_analizador_basico, test_cobertura_una_ventana_insuficiente, test_score_nulo_con_heuristico,
                test_tabla8_evidencia_y_denominador, test_ventana_previa, test_emitido_vs_derivado,
-               test_integridad_11_casos, test_integridad_gate_analizador):
+               test_integridad_backing, test_integridad_informe_externo, test_integridad_descriptor_ilustrativo,
+               test_integridad_gate_analizador, test_integridad_e2e_no_habilita_denominador):
         fn()
         print(f"OK  {fn.__name__}")
     print(f"\n{ok['n']} comprobaciones pasaron.")
