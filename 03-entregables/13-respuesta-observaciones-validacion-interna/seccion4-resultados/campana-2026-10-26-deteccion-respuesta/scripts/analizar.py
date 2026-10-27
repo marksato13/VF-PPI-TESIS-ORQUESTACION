@@ -184,6 +184,32 @@ def cobertura(ep: dict, regs_global: list, regs_kali: list) -> dict:
             "hueco_motor_max_s": round(hueco, 1), "cubre_inicio": cubre_ini, "cubre_fin_mas_60": cubre_fin}
 
 
+# ------------------------------------------------------------------- evidencia de destino
+def _evidencia_destino_cubre(destinos, eid, kali, ini, fin):
+    """¿La evidencia de destino cubre TODAS las ventanas de la Kali durante el ataque (window_end en (ini,fin])?
+
+    No basta con que el mapa exista: un mapa vacío o con claves ausentes no permite confirmar NI descartar la
+    atribución de cada ventana, así que el episodio no es evaluable para esta comparación. Cubrir el intervalo
+    (aunque ninguna ventana sea del ataque) sí permite confirmar una AUSENCIA con observación completa.
+    """
+    if destinos is None:
+        return {"cubre": False, "motivo": "ausente (no se aportó --destinos)"}
+    if fin is None:
+        return {"cubre": False, "motivo": "sin fin de episodio"}
+    atk = [r for r in kali if ini < r["_wend"] <= fin]            # ventanas de la Kali durante el ataque
+    sin_dest = [iso(r["_wend"]) for r in atk if (eid, r["window_end_utc"]) not in destinos]
+    tiene_episodio = any(k[0] == eid for k in destinos)
+    if not atk:
+        # no hay ventanas de la Kali durante el ataque -> la cobertura temporal ya lo marca; aquí informamos
+        return {"cubre": bool(tiene_episodio), "motivo": "" if tiene_episodio else
+                "sin entradas para este episodio", "ventanas_ataque": 0}
+    if sin_dest:
+        return {"cubre": False, "ventanas_ataque": len(atk), "ventanas_sin_destino": len(sin_dest),
+                "motivo": ("vacía o sin entradas de este episodio" if not tiene_episodio else
+                           f"incompleta: {len(sin_dest)}/{len(atk)} ventanas del ataque sin destino")}
+    return {"cubre": True, "ventanas_ataque": len(atk), "motivo": ""}
+
+
 # ------------------------------------------------------------------- atribución
 def atribuir(destinos, eid, wend_utc, ep_destino):
     """Devuelve (incluir, atribucion, confirmada)."""
@@ -204,14 +230,17 @@ def clasificar(ep, regs_global, origen, u05, u03, destinos, integridad_apto=None
     eid = f"{ep['escenario']}-r{ep['repeticion']}"
     kali = [r for r in regs_global if r["entity_ip"] == origen]
     cob = cobertura(ep, regs_global, kali)
-    destino_evidencia = destinos is not None          # sin evidencia de destino no se confirma atribución
-    # evaluable = cobertura temporal + evidencia de destino + integridad verificada apta (desconocida != apta)
-    evaluable = bool(cob["suficiente"] and destino_evidencia and integridad_apto is True)
+    # Evidencia de destino VÁLIDA que CUBRE el intervalo: no basta con que exista el mapa; cada ventana de la Kali
+    # durante el ataque (window_end en (inicio, fin]) debe tener entrada de destino, para poder confirmar O descartar
+    # la atribución de cada una. Un mapa vacío o con claves ausentes NO cubre el intervalo.
+    cov = _evidencia_destino_cubre(destinos, eid, kali, ini, fin)
+    destino_cubre = cov["cubre"]
+    evaluable = bool(cob["suficiente"] and destino_cubre and integridad_apto is True)
     res = {"evaluable": evaluable, "cobertura": cob, "estado_generador": ep["estado"],
-           "evidencia_destino": destino_evidencia, "integridad_apto": integridad_apto,
+           "evidencia_destino": cov, "integridad_apto": integridad_apto,
            "motivo_no_evaluable": None if evaluable else
            ("; ".join(x for x in [None if cob["suficiente"] else "cobertura:" + cob["motivo"],
-                                  None if destino_evidencia else "sin evidencia de destino (atribución no confirmable)",
+                                  None if destino_cubre else "evidencia de destino " + cov["motivo"],
                                   None if integridad_apto is True else
                                   ("integridad desconocida" if integridad_apto is None else "integridad no apta")]
                       if x))}
@@ -274,9 +303,9 @@ def clasificar(ep, regs_global, origen, u05, u03, destinos, integridad_apto=None
     res["senales_observadas_sin_confirmar"] = observadas
     # compartidas/exclusivas durante el ataque, SOLO sobre ventanas con atribución CONFIRMADA
     comp = {"ambos_0.05": 0, "solo_IF_0.05": 0, "solo_HEUR": 0, "ninguno_0.05": 0,
-            "nota": "solo ventanas con atribución confirmada" if destino_evidencia else
-            "sin evidencia de destino: no se computa (atribución no confirmable)"}
-    if destino_evidencia:
+            "nota": "solo ventanas con atribución confirmada" if destino_cubre else
+            "evidencia de destino no cubre el intervalo: no se computa (atribución no confirmable)"}
+    if destino_cubre:
         for r in dentro:
             if not (r["_wend"] > ini and r["_wend"] - HORIZONTE_S < fin and r["_logged"] <= fin):
                 continue

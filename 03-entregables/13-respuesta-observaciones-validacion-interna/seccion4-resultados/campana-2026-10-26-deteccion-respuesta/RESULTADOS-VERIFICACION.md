@@ -4,7 +4,7 @@ Verifican las **herramientas** de evaluación, no el desempeño de CyberFlow. No
 
 ## Suite de herramientas — `tests/test_herramientas.py`
 
-**Windows (laptop):** `51 comprobaciones pasaron.`
+**Windows (laptop):** `81 comprobaciones pasaron.`
 
 ```
 OK  test_validacion
@@ -13,31 +13,50 @@ OK  test_generador_timeout_mata_hijos
 OK  test_analizador_basico
 OK  test_cobertura_una_ventana_insuficiente
 OK  test_score_nulo_con_heuristico
-OK  test_tabla8_excluye_no_confirmadas
+OK  test_tabla8_evidencia_y_denominador
 OK  test_ventana_previa
 OK  test_emitido_vs_derivado
-OK  test_integridad_gate
-51 comprobaciones pasaron.
+OK  test_integridad_11_casos
+OK  test_integridad_gate_analizador
+81 comprobaciones pasaron.
 ```
 
-### La Tabla 8 excluye señales no confirmadas (`test_tabla8_excluye_no_confirmadas`, recorrido hasta el fichero)
+### Evidencia de destino y denominador de la Tabla 8 (`test_tabla8_evidencia_y_denominador`, e2e hasta `analisis.json`/`TABLA8.md`)
 
-Mismo episodio con una señal IF durante el ataque; solo cambia la evidencia de destino. Numerador IF 0,05 en la
-Tabla 8 generada por `analizar.py`:
+La evidencia de destino debe **cubrir el intervalo** (todas las ventanas del ataque). Numerador/denominador/categoría:
 
-| Evidencia de destino | IF 0,05 en Tabla 8 |
-|---|---|
-| sin `--destinos` | 0 (no evaluable) |
-| mapa vacío | 0 |
-| clave de ventana ausente | 0 |
-| destino incorrecto | 0 |
-| **destino correcto** | **1** (evaluable, confirmada) |
+| Caso | ¿evaluable (denominador)? | IF 0,05 (numerador) | categoría |
+|---|---|---|---|
+| sin `--destinos` | no | 0 | no_evaluable |
+| archivo vacío | no | 0 | no_evaluable |
+| evidencia de otro episodio | no | 0 | no_evaluable |
+| evidencia incompleta del episodio | no | 0 | no_evaluable |
+| **completa con señal atribuible** | **sí** | **1** | durante |
+| completa **sin** señal atribuible | **sí** | 0 | sin_deteccion |
+| señal hacia otro destino | sí | 0 | sin_deteccion |
 
-### Integridad de fuentes (`test_integridad_gate`)
+Evidencia ausente/incompleta → **no evaluable** (no se presenta como «sin detección»). Una ausencia solo se afirma
+con evidencia **completa**. Una señal hacia otro destino no cuenta como detección y no prueba que la evidencia esté
+completa.
 
-`verificar_integridad.py`: un episodio con motor continuo pero **PCAP ausente + historia <120 s** → **no apto**;
-EVE=0 con Suricata activo y tráfico → **fallo de telemetría**; campos sin evidencia → **desconocido** (no apto).
-`analizar.py` con integridad no apta → episodio **no evaluable** (aunque el motor sea continuo).
+### Integridad de fuentes — declaraciones vs verificaciones (`test_integridad_11_casos`)
+
+`verificar_integridad.py` distingue **verificado / declarado_sin_verificar / ausente / desconocido**; solo
+«verificado» cuenta. 11 casos: ruta inexistente con hash declarado (ausente), archivo ilegible (ausente), hash
+distinto (ausente), válidos + hashes coincidentes (verificado), relojes con solo tolerancia (desconocido), host
+requerido sin medición (desconocido), medición fuera de periodo (ausente), reinicio sin historia (ausente), reinicio
+con recuperación+calentamiento (verificado), error de captura relevante (ausente), informe externo trazable
+(verificado) vs declaración sin respaldo (declarado_sin_verificar). `analizar.py` con integridad no apta **o
+desconocida** → episodio **no evaluable**.
+
+### Ejemplo de salida de integridad (`EJEMPLO-integridad-salida.json`) — apto / no apto / desconocido
+
+```
+{"aptos": ["inundacion_http-r1"], "no_aptos": ["inundacion_http-r2", "escaneo_breve-r1"]}
+inundacion_http-r1: apto=True  | verificado=12
+inundacion_http-r2: apto=False | verificado=7  declarado_sin_verificar=4  ausente=1   (error de captura)
+escaneo_breve-r1:  apto=False | desconocido=12 (sin evidencia aportada)
+```
 
 ### Terminación del grupo de procesos — `tests/test_matar_grupo.py` (función publicada)
 
