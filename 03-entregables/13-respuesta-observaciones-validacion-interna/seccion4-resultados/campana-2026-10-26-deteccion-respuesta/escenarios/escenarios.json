@@ -15,7 +15,7 @@
     {
       "id": "dns_inusual",
       "habilitado": true,
-      "verificado_27oct": "zona local 'lab-ppi' creada en el DC1 (comodin * -> 10.10.30.10); dig @10.10.10.20 probe-*.lab-ppi resuelve local y egress 0 en la WAN de pfSense-A (infra-2026-10-27/). No reenvia a terceros.",
+      "verificado_27oct": "zona local 'lab-ppi' (DC1, comodin * -> 10.10.30.10); resuelve local, egress 0 (infra-2026-10-27/). Telemetria confirmada: eve event_type:dns de 10.10.20.30->10.10.10.20 con nombres *.lab-ppi y, en el acumulador, ventana 07:36:50 con dns_query_count_60s=22 y unique_dns_name_ratio=0.50 (>=0.45 -> dispara dns_entropy). Con comodin nxdomain_ratio=0; la deteccion va por unicidad de nombres.",
       "destino": "10.10.10.20",
       "servicio": "UDP/53",
       "herramienta": "dig",
