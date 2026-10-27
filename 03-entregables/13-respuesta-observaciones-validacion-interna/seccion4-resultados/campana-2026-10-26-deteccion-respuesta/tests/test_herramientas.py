@@ -132,101 +132,146 @@ def test_generador_timeout_mata_hijos():
             esq.comando_de = orig; gen_esq.comando_de = orig
 
 
-# --------------------------------------------------------------- 3. analizador: fixtures con resultado conocido
-def motor_linea(logged, ip, wend_ep, score, decision, heur=None, pk10=5):
-    return json.dumps({"event": "decision", "logged_at": logged, "entity_ip": ip,
-                       "window_end_utc": iso(wend_ep), "score": score, "threshold": U05,
-                       "decision": decision, "packet_count_10s": pk10,
-                       "history_coverage_s": 60, "detector_name": "if_limpio_2026_10", "heuristico": heur})
+# --------------------------------------------------------------- 3. analizador
+K = "10.10.20.30"
 
 
-def test_analizador():
+def rec(logged, wend_ep, score, decision="PERMIT", heur=None, pk10=5, det="if_limpio_2026_10", ip=K):
+    return json.dumps({"event": "decision", "logged_at": logged, "entity_ip": ip, "window_end_utc": iso(wend_ep),
+                       "score": score, "threshold": U05, "decision": decision, "packet_count_10s": pk10,
+                       "history_coverage_s": 60, "detector_name": det, "heuristico": heur})
+
+
+def marca(eid, esc, dst, ini, fin, estado="completo"):
+    return [json.dumps({"evento": "inicio", "episodio_id": eid, "escenario": esc, "repeticion": 1,
+                        "destino": dst, "reloj": {"pared_utc": iso(ini)}}),
+            json.dumps({"evento": "fin", "episodio_id": eid, "estado": estado, "reloj": {"pared_utc": iso(fin)}})]
+
+
+def clasif(an, lineas_marca, lineas_motor, eid, destinos=None):
+    with tempfile.TemporaryDirectory() as d:
+        (Path(d) / "m").write_text("\n".join(lineas_marca), encoding="utf-8")
+        (Path(d) / "x").write_text("\n".join(lineas_motor), encoding="utf-8")
+        eps, _ = an.leer_marcas(Path(d) / "m")
+        regs, inc, dups = an.leer_motor(Path(d) / "x")
+        return an.clasificar(eps[eid], regs, K, U05, U03, destinos), regs, dups
+
+
+def test_analizador_basico():
+    an = cargar("analizar")
+    T = 1793000000
+    # episodio con cobertura CONTINUA (ventanas cada 10 s en [T, T+150]); IF+ALERT durante en T+40
+    mot = []
+    for w in range(T, T + 150, 10):
+        mot.append(rec(w + 1, w, -0.70 if w == T + 40 else -0.50, "ALERT" if w == T + 40 else "PERMIT",
+                       {"heuristico": "http_abuse", "accion": "LIMIT"} if w == T + 40 else None))
+    mot.append(rec(T + 41, T + 40, -0.70, "ALERT", {"heuristico": "http_abuse", "accion": "LIMIT"}))  # duplicado
+    c, regs, dups = clasif(an, marca("inundacion_http-r1", "inundacion_http", "10.10.30.10", T, T + 90), mot,
+                           "inundacion_http-r1")
+    check(len(dups) == 1, f"detecta 1 ventana duplicada (hay {len(dups)})")
+    check(c["evaluable"] and c["IF_0.05"]["categoria"] == "durante", "http-r1: evaluable y IF durante")
+    check(c["IF_0.05"]["desde_inicio_generador_s"] == 41.0, "clasifica por logged_at (41 s), no window_end")
+    check(c["IF_0.05"]["base"].startswith("emitido_por_modelo"), "IF 0,05 por el modelo => emitido en vivo")
+    check(c["IF_0.03"]["base"].startswith("derivado"), "IF 0,03 => derivado (umbral no desplegado)")
+    # métricas por ventana solo con etiquetas; dedup evita doble conteo
+    check(an.metricas_por_ventana(regs, {}, U05, U03)["calculadas"] is False, "sin etiquetas: no métricas")
+    m2 = an.metricas_por_ventana(regs, {(K, iso(T + 40)): "1", (K, iso(T + 50)): "0"}, U05, U03)
+    check(m2["IF_0.05"]["TP"] == 1 and m2["IF_0.05"]["FP"] == 0, "etiquetas conocidas: TP=1, FP=0")
+    f = an.fpr_control(regs, T, T + 150, U05, U03, set())
+    check(f["denominador"] == f["ventanas"] and f["IF_0.05"]["falsas_alarmas"] >= 1, "control FPR con denominador")
+
+
+def test_cobertura_una_ventana_insuficiente():
+    an = cargar("analizar")
+    T = 1793000000
+    # motor CONTINUO gracias a otra entidad, pero la Kali solo tiene UNA ventana durante el ataque (90 s)
+    mot = [rec(w + 1, w, -0.50, ip="10.10.40.10") for w in range(T, T + 150, 10)]
+    mot.append(rec(T + 41, T + 40, -0.70, "ALERT"))   # única ventana de la Kali
+    c, _, _ = clasif(an, marca("inundacion_http-r9", "inundacion_http", "10.10.30.10", T, T + 90), mot,
+                     "inundacion_http-r9")
+    check(c["evaluable"] is False, "una sola ventana de la Kali NO es cobertura suficiente")
+    check("anclas" in c["cobertura"]["motivo"], "el motivo indica anclas de la Kali faltantes (pérdida)")
+    check(c["IF_0.05"]["senal_existe"] is True and c["IF_0.05"]["categoria"] in ("durante", "no_evaluable"),
+          "la señal existe aunque el episodio no sea íntegramente evaluable")
+    check(c["IF_0.05"].get("primera_fiable") is False, "la primera detección NO es fiable sin cobertura")
+
+
+def test_score_nulo_con_heuristico():
     an = cargar("analizar")
     T = 1793000000
     with tempfile.TemporaryDirectory() as d:
-        # marcas: 4 episodios
-        M = [
-            {"evento": "inicio", "episodio_id": "inundacion_http-r1", "escenario": "inundacion_http",
-             "repeticion": 1, "destino": "10.10.30.10", "reloj": {"pared_utc": iso(T)}},
-            {"evento": "fin", "episodio_id": "inundacion_http-r1", "estado": "completo", "reloj": {"pared_utc": iso(T + 90)}},
-            {"evento": "inicio", "episodio_id": "dns_inusual-r1", "escenario": "dns_inusual",
-             "repeticion": 1, "destino": "10.10.10.20", "reloj": {"pared_utc": iso(T + 1000)}},
-            {"evento": "fin", "episodio_id": "dns_inusual-r1", "estado": "completo", "reloj": {"pared_utc": iso(T + 1090)}},
-            {"evento": "inicio", "episodio_id": "escaneo_breve-r1", "escenario": "escaneo_breve",
-             "repeticion": 1, "destino": "10.10.30.10", "reloj": {"pared_utc": iso(T + 2000)}},
-            {"evento": "fin", "episodio_id": "escaneo_breve-r1", "estado": "incompleto_timeout", "reloj": {"pared_utc": iso(T + 2090)}},
-            {"evento": "inicio", "episodio_id": "inundacion_http-r2", "escenario": "inundacion_http",
-             "repeticion": 2, "destino": "10.10.30.10", "reloj": {"pared_utc": iso(T + 3000)}},
-            {"evento": "fin", "episodio_id": "inundacion_http-r2", "estado": "completo", "reloj": {"pared_utc": iso(T + 3090)}},
-        ]
-        (Path(d) / "marcas.jsonl").write_text("\n".join(json.dumps(x) for x in M), encoding="utf-8")
+        mot = [rec(w + 1, w, -0.50) for w in range(T, T + 150, 10)]
+        # ventana sin paquetes, score null y señal heurística (window_end distinto, sin choque de dedup)
+        mot.append(rec(T + 501, T + 500, None, "PERMIT", {"heuristico": "dns_entropy", "accion": "LIMIT"}, pk10=0))
+        (Path(d) / "x").write_text("\n".join(mot), encoding="utf-8")
+        regs, inc, _ = an.leer_motor(Path(d) / "x")
+        fila = [r for r in regs if r["window_end_utc"] == iso(T + 500)]
+        check(len(fila) == 1, "la fila con score null NO se descarta")
+        check(fila[0]["_score_estado"] == "no_aplicable", "score null = IF no aplicable (no error)")
+        g = an.senales(fila[0], U05, U03)
+        check(g["HEUR"] and not g["IF_0.05"], "score null: HEUR dispara, IF no")
 
-        K = "10.10.20.30"
-        L = []
-        # inundacion_http-r1: ventanas contiguas; una DURANTE con IF+HEUR y ALERT (emitido)
-        for i, w in enumerate(range(T, T + 150, 10)):
-            score = -0.70 if w == T + 40 else -0.50
-            heur = {"heuristico": "http_abuse", "accion": "LIMIT"} if w == T + 40 else None
-            dec = "ALERT" if w == T + 40 else "PERMIT"
-            L.append(motor_linea(w + 1, K, w, score, dec, heur))
-        # dns_inusual-r1: contiguas; DURANTE solo HEUR (dns_entropy, LIMIT) con decision PERMIT (derivado, no emitido)
-        for w in range(T + 1000, T + 1150, 10):
-            heur = {"heuristico": "dns_entropy", "accion": "LIMIT"} if w == T + 1030 else None
-            L.append(motor_linea(w + 1, K, w, -0.50, "PERMIT", heur))
-        # escaneo_breve-r1: SIN ventanas de la Kali en el intervalo -> no_evaluable
-        # inundacion_http-r2: señal SOLO posterior (logged_at > fin)
-        for w in range(T + 3000, T + 3150, 10):
-            score = -0.70 if w == T + 3100 else -0.50     # T+3100 > fin(T+3090) -> posterior
-            L.append(motor_linea(w + 1, K, w, score, "ALERT" if w == T + 3100 else "PERMIT"))
-        # duplicado + discontinuidad artificiales (otra entidad, no afecta a la Kali)
-        L.append(motor_linea(T + 41, K, T + 40, -0.70, "ALERT", {"heuristico": "http_abuse", "accion": "LIMIT"}))  # dup
-        (Path(d) / "motor.log").write_text("\n".join(L), encoding="utf-8")
 
-        cfg = {"umbrales": {"0.05": U05, "0.03": U03}, "origen": K,
-               "combinacion_real": {"exclusiones": {"NUNCA_BLOQUEAR": []}}}
-        (Path(d) / "cfg.json").write_text(json.dumps(cfg), encoding="utf-8")
+def test_atribucion():
+    an = cargar("analizar")
+    T = 1793000000
+    mot = [rec(w + 1, w, -0.70 if w == T + 40 else -0.50, "ALERT" if w == T + 40 else "PERMIT")
+           for w in range(T, T + 150, 10)]
+    mk = marca("inundacion_http-r1", "inundacion_http", "10.10.30.10", T, T + 90)
+    # mapa vacío -> clave ausente -> atribución incompleta, no confirmada, pero se cuenta (criterio por origen)
+    c_vacio, _, _ = clasif(an, mk, mot, "inundacion_http-r1", destinos={})
+    check(c_vacio["IF_0.05"]["atribucion"].startswith("incompleta") and
+          c_vacio["IF_0.05"]["atribucion_confirmada"] is False, "mapa vacío -> atribución incompleta, no confirmada")
+    check(c_vacio["IF_0.05"]["categoria"] == "durante", "con criterio por origen, se cuenta aunque incompleta")
+    # clave presente con el destino del escenario -> confirmada
+    dok = {("inundacion_http-r1", iso(T + 40)): ["10.10.30.10"]}
+    c_ok, _, _ = clasif(an, mk, mot, "inundacion_http-r1", destinos=dok)
+    check(c_ok["IF_0.05"]["atribucion_confirmada"] is True, "destino coincide -> atribución confirmada")
+    # clave con OTRO destino -> no es este ataque -> no se cuenta
+    dotro = {("inundacion_http-r1", iso(T + 40)): ["10.10.99.99"]}
+    c_otro, _, _ = clasif(an, mk, mot, "inundacion_http-r1", destinos=dotro)
+    check(c_otro["IF_0.05"]["categoria"] != "durante", "destino distinto -> no se atribuye al ataque")
 
-        eps, inc_m = an.leer_marcas(Path(d) / "marcas.jsonl")
-        regs, inc_r, dups = an.leer_motor(Path(d) / "motor.log")
-        check(len(dups) == 1, f"detecta 1 ventana duplicada (hay {len(dups)})")
 
-        c1 = an.clasificar(eps["inundacion_http-r1"], regs, K, U05, U03, None)
-        check(c1["IF_0.05"]["categoria"] == "durante", "http-r1: IF durante")
-        check(c1["IF_0.05"]["emitido_en_vivo"] is True, "http-r1: IF durante fue emitido en vivo (ALERT)")
-        check(c1["IF_0.05"]["desde_inicio_generador_s"] == 41.0, "http-r1: logged_at 41 s tras inicio (no window_end)")
+def test_ventana_previa():
+    an = cargar("analizar")
+    T = 1793000000
+    mot = [rec(w + 1, w, -0.50) for w in range(T, T + 150, 10)]
+    # ventana PREVIA (window_end antes del inicio) pero emitida (logged_at) tras el inicio, con IF disparado
+    mot.append(rec(T + 5, T - 10, -0.70, "ALERT"))
+    c, _, _ = clasif(an, marca("inundacion_http-r1", "inundacion_http", "10.10.30.10", T, T + 90), mot,
+                     "inundacion_http-r1")
+    check(c["IF_0.05"]["categoria"] != "durante", "ventana previa emitida tras el inicio NO cuenta como 'durante'")
+    previas = [p for p in c["senales_previas_o_ambiguas"] if p["relacion_temporal"] == "previa"]
+    check(len(previas) >= 1, "la señal previa se informa aparte, sin forzar su clasificación")
 
-        cd = an.clasificar(eps["dns_inusual-r1"], regs, K, U05, U03, None)
-        check(cd["HEUR"]["categoria"] == "durante", "dns-r1: HEUR durante")
-        check(cd["HEUR"]["emitido_en_vivo"] is False, "dns-r1: HEUR LIMIT NO fue emitido como ALERT (derivado)")
-        check(cd["IF_0.05"]["categoria"] == "sin_deteccion", "dns-r1: IF sin detección (cobertura continua)")
 
-        ce = an.clasificar(eps["escaneo_breve-r1"], regs, K, U05, U03, None)
-        check(ce["IF_0.05"]["categoria"] == "no_evaluable", "escaneo-r1: no_evaluable (sin cobertura / incompleto)")
-
-        cp = an.clasificar(eps["inundacion_http-r2"], regs, K, U05, U03, None)
-        check(cp["IF_0.05"]["categoria"] == "posterior", "http-r2: IF posterior")
-        check(cp["IF_0.05"]["tras_fin_generador_s"] == 11.0, "http-r2: 11 s tras el fin")
-
-        # IF_0.03 vs 0.05 sobre un score intermedio
-        s_int = an.senales({"_pk10": 5, "_score": -0.58, "heuristico": None, "decision": "PERMIT"}, U05, U03)
-        check(s_int["IF_0.05"] and not s_int["IF_0.03"], "score -0.58 dispara IF 0,05 pero no 0,03")
-
-        # métricas por ventana: sin etiquetas no se fabrican
-        m = an.metricas_por_ventana(regs, {}, U05, U03)
-        check(m["calculadas"] is False, "sin etiquetas no se calculan métricas por ventana")
-        et = {(K, iso(T + 40)): "1", (K, iso(T + 50)): "0"}
-        m2 = an.metricas_por_ventana(regs, et, U05, U03)
-        check(m2["calculadas"] and m2["IF_0.05"]["TP"] == 1 and m2["IF_0.05"]["FP"] == 0,
-              "con etiquetas conocidas: TP=1, FP=0 para IF 0,05")
-
-        # control FPR con denominador explícito (todas las ventanas de la Kali como 'normal' de prueba)
-        f = an.fpr_control(regs, T, T + 3150, K, U05, U03, set())
-        check(f["denominador"] == f["ventanas"] and f["IF_0.05"]["falsas_alarmas"] >= 1,
-              "control FPR expone denominador y cuenta falsas alarmas")
+def test_emitido_vs_derivado():
+    an = cargar("analizar")
+    # ALERT solo por IF (modelo): base emitido; HEUR no
+    g = an.senales({"_score": -0.70, "_pk10": 5, "decision": "ALERT", "detector_name": "if_limpio_2026_10",
+                    "heuristico": None}, U05, U03)
+    check(g["IF_0.05"] and not g["HEUR"] and g["base"]["IF_0.05"].startswith("emitido_por_modelo"),
+          "ALERT solo por IF: IF emitido, HEUR no")
+    # señal solo heurística (PERMIT): registrada en vivo, no ALERT
+    g = an.senales({"_score": -0.50, "_pk10": 5, "decision": "PERMIT", "detector_name": "if_limpio_2026_10",
+                    "heuristico": {"heuristico": "http_abuse", "accion": "LIMIT"}}, U05, U03)
+    check(g["HEUR"] and not g["IF_0.05"] and g["base"]["HEUR"] == "registrada_en_vivo",
+          "heurístico LIMIT en PERMIT: registrada en vivo, no ALERT")
+    # compartida
+    g = an.senales({"_score": -0.70, "_pk10": 5, "decision": "ALERT", "detector_name": "if_limpio_2026_10",
+                    "heuristico": {"heuristico": "http_abuse", "accion": "LIMIT"}}, U05, U03)
+    check(g["IF_0.05"] and g["HEUR"] and g["HIB_0.05"], "señal compartida IF+HEUR")
+    # alternativa no desplegada: IF_0.03 derivado; score intermedio dispara 0,05 y no 0,03
+    g = an.senales({"_score": -0.58, "_pk10": 5, "decision": "PERMIT", "heuristico": None}, U05, U03)
+    check(g["IF_0.05"] and not g["IF_0.03"] and g["base"]["IF_0.03"].startswith("derivado"),
+          "IF 0,03 es derivado (umbral no desplegado); -0.58 no lo dispara")
 
 
 def main():
-    for fn in (test_validacion, test_generador_simulacion, test_generador_timeout_mata_hijos, test_analizador):
+    for fn in (test_validacion, test_generador_simulacion, test_generador_timeout_mata_hijos,
+               test_analizador_basico, test_cobertura_una_ventana_insuficiente, test_score_nulo_con_heuristico,
+               test_atribucion, test_ventana_previa, test_emitido_vs_derivado):
         fn()
         print(f"OK  {fn.__name__}")
     print(f"\n{ok['n']} comprobaciones pasaron.")
