@@ -19,7 +19,8 @@ Carpeta independiente: no modifica `../4.2-ablacion/aporte-componentes-r2-2026-1
 | `scripts/comprobar_relojes.sh` | Desfase por host, antes y después |
 | `scripts/modo_sombra.sh` · `restaurar_enforcement.sh` | Sombra para A y restauración exacta (ejecutables con `--ejecutar`; no aplicados aún) |
 | `scripts/endpoint_brute/` | Endpoint 401 correcto (`app.py`, unidad systemd, README con nginx y Suricata) |
-| `tests/test_herramientas.py` · `tests/fixtures.py` | Verificación sin ataques (33 comprobaciones) |
+| `tests/test_herramientas.py` · `tests/fixtures.py` | Verificación sin ataques (44 comprobaciones) |
+| `tests/test_sombra.sh` | Fallo seguro de sombra/restauración con comandos simulados (7/7) |
 | `RELOJES-DNS.md` | Relojes y DNS medidos + pasos administrativos |
 | `MATRIZ-OBSERVACIONES.md` | Observación → corrección → archivo → comprobación → estado |
 | `RESULTADOS-VERIFICACION.md` | Resultados de las verificaciones sin ataques |
@@ -28,11 +29,12 @@ Carpeta independiente: no modifica `../4.2-ablacion/aporte-componentes-r2-2026-1
 
 ## Estado por pieza (documentado / implementado / probado aislado / verificado en entorno)
 
-- Generador, esquema, analizador, endpoint: **implementados y probados de forma aislada** (33 comprobaciones + CLI + loopback).
-- Muerte del grupo de procesos: **probada** en Windows y **verificada en el entorno** (sonda `killpg` en el sensor).
+- Generador, esquema, analizador, endpoint: **implementados y probados de forma aislada** (44 comprobaciones + CLI + loopback).
+- Analizador (cobertura, score null, atribución, ventana previa, emitido/derivado): **probado de forma aislada** con fixtures de resultado conocido.
+- Sombra/restauración con fallo seguro: **implementadas y probadas de forma aislada** (`test_sombra.sh` 7/7); **no aplicadas** al entorno.
+- Muerte del grupo de procesos (incl. hijo que ignora SIGTERM y padre que termina antes): **probada** en Windows y **verificada en el entorno** (sondas `killpg`/SIGKILL en el sensor).
 - `logged_at` como hora de emisión, desfase del sensor (−47,55 s), egress del DNS, interfaz de captura (ens37): **verificados en el entorno**.
-- Scripts de sombra/restauración y captura: **implementados**; **no aplicados** al entorno (por indicación).
-- Endpoint en srv-dmz, zona DNS local, sincronización del sensor: **documentados**, pendientes de ejecución.
+- Captura continua y endpoint en srv-dmz, zona DNS local, sincronización del sensor, parseo HTTP de Suricata en el puerto: **documentados**, pendientes de ejecución/verificación en el entorno.
 
 ## Pendientes reales (máquina · acción · permisos · quién)
 

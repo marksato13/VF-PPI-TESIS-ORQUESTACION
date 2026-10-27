@@ -4,32 +4,52 @@ Verifican las **herramientas** de evaluación, no el desempeño de CyberFlow. No
 
 ## Suite de herramientas — `tests/test_herramientas.py`
 
-**Windows (laptop):** `33 comprobaciones pasaron.`
+**Windows (laptop):** `44 comprobaciones pasaron.`
 
 ```
 OK  test_validacion
 OK  test_generador_simulacion
 OK  test_generador_timeout_mata_hijos
-OK  test_analizador
-33 comprobaciones pasaron.
+OK  test_analizador_basico
+OK  test_cobertura_una_ventana_insuficiente
+OK  test_score_nulo_con_heuristico
+OK  test_atribucion
+OK  test_ventana_previa
+OK  test_emitido_vs_derivado
+44 comprobaciones pasaron.
 ```
 
-Cubre: validación de config (válida/ inválida, `timeout_s` de texto, marcador `<ZONA_LAB>`, destino fuera de la
-lista blanca, `brute_puerto` nulo, `contexto_antes<120`); comandos de los 5 escenarios sin marcadores; simulación por
-defecto (no crea salidas de procesos) y orden reproducible por semilla; **timeout que mata al grupo de procesos
-(hijo incluido)** y registra inicio/fin por separado; clasificación temporal por `logged_at` (durante/posterior/
-sin_deteccion/no_evaluable); separación emitido/derivado (HEUR LIMIT en DNS no se emite como ALERT; IF sí);
-IF 0,05 vs 0,03 sobre un score intermedio; detección de duplicados; métricas por ventana solo con etiquetas
-(TP=1/FP=0 con etiquetas conocidas); control FPR con denominador explícito.
+Cubre, además de la ronda 1 (validación, comandos sin marcadores, simulación por defecto, orden reproducible,
+timeout que mata al grupo, inicio/fin separados, duplicados, control FPR): **cobertura insuficiente con una sola
+ventana** (90 s → no evaluable, separando «existe señal» de «primera fiable»); **score null conservado** con señal
+heurística (IF no aplicable, HEUR dispara); **atribución** con mapa vacío / clave ausente (incompleta, no confirmada) /
+destino distinto (excluida) / destino correcto (confirmada); **ventana previa** emitida tras el inicio (no cuenta como
+«durante», se informa aparte); **emitido vs derivado por componente** (IF por el modelo desplegado; IF 0,03 e híbridos
+derivados; heurístico LIMIT registrado en vivo, no ALERT).
 
-## Ruta POSIX en el entorno real — sonda en el sensor (Linux)
+## Fallo seguro de sombra — `tests/test_sombra.sh` (comandos simulados)
 
-El árbol de procesos del generador se termina con `killpg` en POSIX. Verificado en el Sensor1:
+`7 ok, 0 fallos`. Ningún caso de fallo anuncia éxito ni sale con 0:
 
 ```
-estado_padre_terminado: True
-hijo_sobrevivio(testigo): False
+OK  sombra feliz
+OK  sudo denegado
+OK  servicio no se detiene
+OK  consulta nft falla
+OK  falta --motor-verificado
+OK  restaurar sin respaldo
+OK  restaurar respaldo incompleto
+```
+
+## Ruta POSIX en el entorno real — sondas en el sensor (Linux)
+
+El generador termina el **grupo** de procesos con `killpg` (SIGTERM→SIGKILL). Verificado en el Sensor1:
+
+```
+# hijo normal
 RESULTADO: OK killpg mato el grupo (hijo incluido)
+# hijo que IGNORA SIGTERM y padre que termina antes
+RESULTADO: OK SIGKILL al grupo mato al hijo que ignora SIGTERM
 ```
 
 ## Analizador — corrida CLI sobre fixtures con resultado conocido (`tests/fixtures/`)

@@ -27,12 +27,17 @@ reinicia o se registra el estado de la escalera entre bloques.
 ### Modo sombra de A — procedimiento (requiere intervención, §9)
 
 Estado en vivo al 26-oct: el agente de srv-dmz corre `--aplicar` y el publicador cada 10 s (enforcement activo).
-Para A, **antes** de generar tráfico:
+Procedimiento real (el mismo en `scripts/modo_sombra.sh`, README y matriz), con **fallo seguro**:
 
-1. Poner el agente en dry-run: quitar `--aplicar` del `ppi-enforce-agent.service` en srv-dmz (lo documenta su propia
-   cabecera) **o** detener `ppi-publicar-feed.timer` en el sensor.
-2. Verificar que `cyberflow_bloqueados` y `cyberflow_limitados` quedan **sin elements**.
-3. Registrar el cambio y su hora. **Revertir al terminar A.**
+1. `modo_sombra.sh --ejecutar --motor-verificado` en srv-dmz: guarda el estado real, **detiene** el agente
+   (`ppi-enforce-agent.timer` y `.service`), lo **enmascara** (que ningún timer lo reactive), **vacía** los sets
+   `cyberflow_bloqueados` y `cyberflow_limitados`, y **verifica** (agente inactivo+enmascarado, nft consultable y sin
+   elements). Aborta con código ≠0 si algo falla; una consulta nft fallida **no** se interpreta como set vacío.
+2. `--motor-verificado` exige confirmar antes en el **sensor** que `ppi-motor` no corre con `--enforce` (vía directa).
+   Se detiene el **agente** (lo que aplica), no el publicador: parar el publicador no invalida un feed ya publicado.
+3. Al terminar A: `restaurar_enforcement.sh --ejecutar` restaura el estado **exacto** guardado (sin defaults que
+   arranquen servicios), tras **vaciar** los sets y avisar de revisar la escalada (`estado.json`) para no aplicar
+   decisiones residuales de A. No anuncia restauración completa si es parcial.
 
 El motor y el panel siguen corriendo: A necesita que el motor **decida y registre**, solo que la acción no se aplique.
 
