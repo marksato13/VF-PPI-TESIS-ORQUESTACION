@@ -114,7 +114,10 @@ criterio de etiquetado previo si se calculan métricas por ventana, **separadas*
 
 | Script | Dónde corre | Qué hace |
 |---|---|---|
-| `generar_campana.sh` | Kali | Lanza los escenarios desde `escenarios.json`, en orden aleatorizado por semilla, con ≥ 120 s de espera entre episodios; escribe `marcas.jsonl` (pared + monotónico, comando, código de salida, actividad). **Exige lista blanca de destinos del laboratorio; aborta si falta.** |
+| `generar_campana.py` | Kali | Valida la config, lanza los escenarios habilitados en orden aleatorizado por semilla, con calentamiento + contexto previo (≥120 s) y observación (≥90 s); escribe `marcas.jsonl` (inicio/fin separados, pared + monotónico, comando, código, salida completa en `salidas/`). **Simula sin `--autorizado`; aborta ante marcadores o destino fuera de la lista blanca; mata el grupo de procesos en timeout.** |
+| `esquema_campana.py` | — | Esquema + validación (tipos, destinos, puertos, rutas, deps, placeholders) y construcción de comandos. |
+| `tests/test_herramientas.py` + `tests/fixtures.py` | Laptop/Linux | Verificación sin ataques (33 comprobaciones) y fixtures con resultado conocido. |
+| `scripts/endpoint_brute/` | srv-dmz | Endpoint 401 correcto (Python o nginx), unidad systemd, README con Suricata/extractor. |
 | `capturar.sh` | Sensor | Captura PCAP continua sin huecos a disco archivado, con rotación por tamaño; marca inicio/fin. |
 | `modo_sombra.sh` / `restaurar_enforcement.sh` | Bastión→srv-dmz | Pone el agente en dry-run para A y lo restaura para B; verifica sets vacíos. |
 | `analizar.py` | Laptop/sensor | Lee `marcas.jsonl` + `motor_decision.log` + features/scores; produce categorías D/P/N/NE, emitidas vs derivadas y la Tabla 8. Reutiliza la lógica de `../4.2-ablacion/aporte-componentes-r2-2026-10-26/evaluar_r2.py`. |
@@ -123,6 +126,40 @@ criterio de etiquetado previo si se calculan métricas por ventana, **separadas*
 Los scripts de generación son **generadores de carga de laboratorio** (nmap, bucles de `curl`/`dig`, intentos de auth
 contra un endpoint de prueba), equivalentes a los ya versionados en `_campana/orquestar_campana.sh` y al `orq.sh` del
 5-oct. No se ejecutan en esta fase.
+
+## 8.bis Secuencia exacta: preparación → ejecución → restauración
+
+**Preparación (requiere intervención, §9; una vez):**
+1. Sensor: sincronizar `timesyncd` y medir desfase (`RELOJES-DNS.md`). `comprobar_relojes.sh` en los 4 hosts.
+2. DNS/AD: crear la zona local reservada; comprobar no-egress. Fijar `params.zona_dns` y `habilitado:true` del DNS.
+3. srv-dmz: desplegar `endpoint_brute/` (401); comprobar que Suricata lo parsea. Fijar `brute_puerto/brute_ruta` y `habilitado:true`.
+4. Sensor: `estimar_espacio.sh` y preparar ruta de archivado con holgura.
+
+**Ejecución de la campaña A (cuando se autorice):**
+1. Sensor: `capturar.sh ens37 <dir>` (captura continua) — dejar corriendo.
+2. srv-dmz: `modo_sombra.sh --ejecutar` (detiene el agente, vacía sets, verifica). Sensor: comprobar `ppi-motor` sin `--enforce`.
+3. Control normal ≥ 30 min (tráfico legítimo) y arranque/calentamiento del motor registrados.
+4. Kali: `generar_campana.py --config ../escenarios/escenarios.json --salida-dir ./corrida --autorizado`.
+5. Al terminar: parar `capturar.sh`; recoger `marcas.jsonl`, `salidas/`, PCAP, EVE, `motor_decision.log`.
+
+**Restauración (obligatoria tras A, antes de B):**
+1. srv-dmz: `restaurar_enforcement.sh --ejecutar` (reactiva el agente al estado previo exacto).
+2. Verificar enforcement activo (`journalctl -u ppi-enforce-agent`).
+
+**Análisis (sin tráfico):** `analizar.py --marcas … --motor … --control "desde,hasta"` → Tabla 8, categorías,
+emitido/derivado, control FPR y calidad de datos.
+
+**Campaña B (4.4), separada:** repetir con el agente en `--aplicar`, una familia por bloque, registrando cada eslabón.
+
+## Estados de madurez (usados en `MATRIZ-OBSERVACIONES.md` y `README.md`)
+
+- **Documentado (D):** descrito y con procedimiento, sin ejecutar.
+- **Implementado (I):** código/escrito y revisado.
+- **Probado de forma aislada (PA):** verificado con fixtures/loopback fuera del entorno real.
+- **Verificado en el entorno (VE):** comprobado en sensor/bastión/srv-dmz.
+
+**La campaña NO está lista** mientras sigan abiertos los requisitos críticos de §9 (NTP, zona DNS, endpoint,
+captura/espacio) y la campaña A no esté autorizada.
 
 ## 9. Lo que requiere intervención humana antes de A
 
