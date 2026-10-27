@@ -14,15 +14,15 @@
   "escenarios": [
     {
       "id": "dns_inusual",
-      "habilitado": false,
-      "motivo_deshabilitado": "el resolutor 10.10.10.20 reenvia a Internet (verificado 27-oct: example.com -> IP publica). Falta crear una zona local reservada en el DNS/AD (paso del usuario).",
+      "habilitado": true,
+      "verificado_27oct": "zona local 'lab-ppi' creada en el DC1 (comodin * -> 10.10.30.10); dig @10.10.10.20 probe-*.lab-ppi resuelve local y egress 0 en la WAN de pfSense-A (infra-2026-10-27/). No reenvia a terceros.",
       "destino": "10.10.10.20",
       "servicio": "UDP/53",
       "herramienta": "dig",
       "duracion_objetivo_s": 90,
       "duracion_descripcion": "90 s de consultas a ritmo controlado",
       "timeout_s": 150,
-      "params": {"sleep_entre_consultas_s": 0.4, "ritmo_aprox_por_s": 2.3, "zona_dns": null},
+      "params": {"sleep_entre_consultas_s": 0.4, "ritmo_aprox_por_s": 2.3, "zona_dns": "lab-ppi"},
       "accion_prevista": "LIMIT (dns_entropy); 10.10.10.20 en NUNCA_BLOQUEAR -> solo deteccion",
       "evidencia_actividad": "consultas en marcas y eventos dns en eve.json"
     },
@@ -68,7 +68,7 @@
     {
       "id": "fuerza_bruta_http",
       "habilitado": false,
-      "motivo_deshabilitado": "endpoint 401 DESPLEGADO y verificado en srv-dmz:18081 (27-oct), pero la Kali NO lo alcanza: pfSense filtra 10.10.20.30 -> 10.10.30.10:18081. Falta la regla de cortafuegos (paso del usuario).",
+      "motivo_deshabilitado": "endpoint 401 DESPLEGADO y verificado en srv-dmz:18081 (escucha 0.0.0.0, da 401/401/200). La regla pfSense se creo con easyrule pero quedo POR DEBAJO de CODEX_BASE_DENY_VLAN20_TO_VLAN30_OTHER (opt4/VLAN20), asi que no se evalua: la Kali sigue en 000. Falta REORDENAR la regla por ENCIMA del deny (paso del infra en pfSense).",
       "destino": "10.10.30.10",
       "servicio": "TCP/HTTP endpoint de prueba :18081",
       "herramienta": "curl",
