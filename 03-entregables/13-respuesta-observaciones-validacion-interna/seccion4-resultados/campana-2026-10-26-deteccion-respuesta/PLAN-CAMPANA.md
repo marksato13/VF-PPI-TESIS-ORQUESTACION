@@ -124,7 +124,8 @@ criterio de etiquetado previo si se calculan métricas por ventana, **separadas*
 | `tests/test_herramientas.py` + `tests/fixtures.py` | Laptop/Linux | Verificación sin ataques (33 comprobaciones) y fixtures con resultado conocido. |
 | `scripts/endpoint_brute/` | srv-dmz | Endpoint 401 correcto (Python o nginx), unidad systemd, README con Suricata/extractor. |
 | `capturar.sh` | Sensor | Captura PCAP continua sin huecos a disco archivado, con rotación por tamaño; marca inicio/fin. |
-| `modo_sombra.sh` / `restaurar_enforcement.sh` | Bastión→srv-dmz | Pone el agente en dry-run para A y lo restaura para B; verifica sets vacíos. |
+| `modo_sombra.sh` / `restaurar_enforcement.sh` | srv-dmz | **Detiene y enmascara** el agente para A (impedir que aplique; NO es ejecutarlo en dry-run) y lo restaura para B según el estado guardado; fallo seguro. `restaurar` exige `--escalada-revisada`. |
+| `verificar_integridad.py` | Laptop/sensor | Informe de integridad por episodio (PCAP/EVE/decisiones/historia/relojes); `analizar.py --integridad` lo exige para declarar evaluable. |
 | `analizar.py` | Laptop/sensor | Lee `marcas.jsonl` + `motor_decision.log` + features/scores; produce categorías D/P/N/NE, emitidas vs derivadas y la Tabla 8. Reutiliza la lógica de `../4.2-ablacion/aporte-componentes-r2-2026-10-26/evaluar_r2.py`. |
 | `comprobar_relojes.sh` | cada host | Guarda el desfase NTP antes y después. |
 
@@ -151,8 +152,13 @@ contra un endpoint de prueba), equivalentes a los ya versionados en `_campana/or
 1. srv-dmz: `restaurar_enforcement.sh --ejecutar` (reactiva el agente al estado previo exacto).
 2. Verificar enforcement activo (`journalctl -u ppi-enforce-agent`).
 
-**Análisis (sin tráfico):** `analizar.py --marcas … --motor … --control "desde,hasta"` → Tabla 8, categorías,
-emitido/derivado, control FPR y calidad de datos.
+**Análisis (sin tráfico):** primero `verificar_integridad.py --descriptor … --salida integridad.json`; luego
+`analizar.py --marcas … --motor … --destinos … --integridad integridad.json --control "desde,hasta"`. Un episodio
+**solo es evaluable** con cobertura temporal continua, **evidencia de destino** (atribución confirmada) e **integridad
+apta**; la Tabla 8 cuenta en el numerador **solo detecciones durante con atribución confirmada**. Las señales
+observadas sin confirmar, previas, tardías o ambiguas van a registros complementarios, no al numerador. Sin
+`--integridad` o sin `--destinos`, ningún episodio se declara evaluable. Los contadores del generador son **intentos**
+del bucle, no peticiones enviadas ni respuestas (eso se mide con PCAP/EVE/servidor).
 
 **Campaña B (4.4), separada:** repetir con el agente en `--aplicar`, una familia por bloque, registrando cada eslabón.
 
@@ -171,7 +177,8 @@ captura/espacio) y la campaña A no esté autorizada.
 Detalle y comandos en `COMPROBACIONES-PREVIAS.md`. Resumen:
 
 1. **NTP del sensor** sin disciplinar → sincronizar y medir el desfase.
-2. **Modo sombra**: poner el agente de srv-dmz en dry-run (o parar el publicador) y verificar sets vacíos. Revertir tras A.
+2. **Modo sombra**: **detener y enmascarar** el agente de srv-dmz (impedir que aplique — esto **no** es ejecutar el
+   agente en dry-run) y verificar sets vacíos. Revertir tras A con `restaurar_enforcement.sh --ejecutar --escalada-revisada`.
 3. **Zona DNS de laboratorio**: el resolutor 10.10.10.20 reenvía a Internet; hace falta una zona/dominio reservado que
    resuelva localmente y no consulte a terceros.
 4. **Endpoint de fuerza bruta**: no existe (`/login` → 404, 8081 cerrado); preparar un servicio aislado que devuelva 401.

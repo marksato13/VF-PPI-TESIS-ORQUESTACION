@@ -38,7 +38,12 @@ $SUDO mkdir -p "$EST" || die "no se pudo crear $EST"
 $SUDO $SYSTEMCTL is-active ppi-enforce-agent.timer   | $SUDO tee "$EST/agent-timer.active"  >/dev/null || die "no se pudo guardar estado (active)"
 $SUDO $SYSTEMCTL is-enabled ppi-enforce-agent.timer  | $SUDO tee "$EST/agent-timer.enabled" >/dev/null || die "no se pudo guardar estado (enabled)"
 $SUDO $NFT list table inet cyberflow                 | $SUDO tee "$EST/nft-antes.txt"        >/dev/null || die "no se pudo volcar nft (no se asume nada)"
+$SUDO $SYSTEMCTL is-enabled ppi-enforce-agent.service | $SUDO tee "$EST/agent-service.enabled" >/dev/null || die "no se pudo guardar estado (service enabled/masked)"
 $SUDO cp /etc/systemd/system/ppi-enforce-agent.service "$EST/" 2>/dev/null || echo "  (aviso: no se copió la unidad; no es crítico porque no se edita)"
+# estado del feed y de la escalada (para tratarlos en la restauración; NO se editan los históricos)
+FEED="${FEED_DIR-/home/m4rk/feed}"
+$SUDO cp "$FEED/estado.json" "$EST/escalada-estado.json" 2>/dev/null && echo "  escalada guardada" || echo "  (aviso: no se halló $FEED/estado.json; escalada DESCONOCIDA)"
+$SUDO ls -la "$FEED" 2>/dev/null | $SUDO tee "$EST/feed-ls.txt" >/dev/null || true
 
 echo "--- 2) detener el agente (lo que aplica medidas)"
 $SUDO $SYSTEMCTL stop ppi-enforce-agent.timer ppi-enforce-agent.service || die "no se pudo detener el agente"

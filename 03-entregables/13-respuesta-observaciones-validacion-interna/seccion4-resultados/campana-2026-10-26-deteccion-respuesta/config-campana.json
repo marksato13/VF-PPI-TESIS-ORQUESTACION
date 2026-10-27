@@ -115,8 +115,19 @@
     "comprobacion_no_egress": "antes de la campana, capturar en el borde y confirmar cero paquetes 53/udp al exterior para la consulta de prueba"
   },
 
+  "evaluabilidad_episodio": {
+    "requisitos": ["cobertura temporal continua del motor en [inicio, fin+60] y todas las anclas de la Kali durante el ataque",
+                   "evidencia de destino (atribucion confirmada) via PCAP/EVE (analizar.py --destinos)",
+                   "integridad de fuentes APTA (verificar_integridad.py; analizar.py --integridad)"],
+    "desconocido_no_es_apto": "si la integridad o el destino no se pueden verificar, el episodio es NO EVALUABLE (no 'sin deteccion')",
+    "tabla8_numerador": "solo detecciones DURANTE con atribucion CONFIRMADA; observadas-sin-confirmar / previas / tardias / ambiguas van a registros complementarios"
+  },
+  "contadores_generador": {
+    "intentos": "iteraciones del bucle (intentos de consulta/peticion). NO son peticiones enviadas ni respuestas.",
+    "peticiones_respuestas_errores_timeouts": "se miden con PCAP / EVE / log del servidor, no con el contador del bucle"
+  },
   "criterios_evaluacion": {
-    "durante": "senal atribuible emitida entre el inicio y el final del ataque",
+    "durante": "senal atribuible CONFIRMADA emitida entre el inicio y el final del ataque",
     "posterior": "primera senal atribuible despues del final y hasta +60 s",
     "sin_deteccion": "observacion completa (contexto suficiente) sin senal atribuible",
     "no_evaluable": "evidencia insuficiente (p.ej. ventana sin >=60 s de historia real o sin datos hasta +60 s)",
