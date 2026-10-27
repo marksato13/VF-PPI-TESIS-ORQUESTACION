@@ -17,7 +17,7 @@ los hashes de todos los entregables versionados en `MANIFIESTO-CAMPANA.json`.
 | 04 | Multi-entidad (no solo-Kali) | SENSOR · 07:58 | conteo `entity_ip` en acumulador + `grep -c src_ip` en eve | **30 entidades** distintas; decenas de miles de eventos no-Kali; Kali = 1 de 30 |
 | 05 | Modo sombra (estado + procedimiento) | SENSOR + srv-dmz · 08:00 ; arnés en LAPTOP | solo-lectura `systemctl`/`nft` + `tests/test_sombra.sh` | motor **sin `--enforce`**; agente active+enabled; sets **vacíos**; arnés **11/11** |
 | 06 | Config Suricata efectiva | SENSOR · 08:05 | `sha256sum suricata.yaml` + `grep 18081` | `8e084b7d…efa04`; `detection-ports dp "80, 18081"`; Suricata 7.0.3 activo |
-| 07 | **Archivado full-span (toda la población)** | SENSOR · 16:16–16:18 | `archivar_captura.sh` (preserva full-span del motor) + lectura `tcpdump -nr` | 138 ficheros/15 s **sin huecos** (1024 s); **ambos** tráficos leídos del PCAP (Kali 232, bastión 7074); 68/68 copias byte-exactas; sin root |
+| 07 | **Archivado full-span (toda la población)** | SENSOR · 16:48–16:53 | `archivar_captura.sh` barrido/inventario/estado-motor + `tcpdump -nr` + tests | **75 ficheros, 0 dup/solape/hueco** (inventario por marca de paquete, 1126 s); ambos tráficos (Kali 74, bastión 7688); 75/75 copias sha-verificadas; descartes del proceso **no medidos** (NRestarts=0); tests 5/5; sin root |
 
 ## 2. Archivado con tráfico benigno real
 
@@ -26,18 +26,27 @@ contiene tráfico de la Kali y **no** conserva el control normal de otras entida
 **no** sustituyen esos paquetes (son telemetría derivada). Por tanto `cf-capturar` **no** es el archivo de
 la campaña; solo sirvió para validar el mecanismo de captura (226 pkts / 0 drops).
 
-**Procedimiento habilitado (ejecutable con mis permisos reales, SIN cambios administrativos).** El servicio
-`ppi-motor-capture` ya captura **todo el espejo** (`tcpdump -i ens37`, **sin filtro de host**, ficheros de
-15 s). Esos ficheros son del grupo `m4rk`, así que los **leo y copio sin sudo**. `scripts/archivar_captura.sh`
-los copia a un directorio propio antes de que la poda (`cyberflow-limpieza`, `-mmin +15`) los borre →
-archivo **durable, completo y sin huecos**, sin tocar sudoers ni ficheros root.
+**Procedimiento habilitado y ENDURECIDO (ejecutable con mis permisos reales, SIN cambios administrativos).**
+`ppi-motor-capture` ya captura **todo el espejo** (`tcpdump -i ens37`, **sin filtro de host**, ficheros de 15 s,
+grupo `m4rk`). `scripts/archivar_captura.sh` los copia a un directorio propio antes de la poda
+(`cyberflow-limpieza`, `-mmin +15`). El archivador: **no oculta fallos** (registra fichero/hora/motivo en
+`archivar.log`, marca `ESTADO.txt` OK/PENDIENTE/FALLO y sale con código ≠ 0); copia **solo ficheros cerrados**
+y **verifica integridad** (sha256 copia==origen, temporal + `mv` atómico); **reintenta** las copias fallidas
+(nunca las marca archivadas ni las salta); **detecta pérdida** (fichero visto que desaparece sin archivarse →
+FALLO); hace **prechequeos** (herramientas, lectura origen, escritura destino, espacio mínimo) y un **barrido
+final** persistido. Verificado con `tests/test_archivador.sh` (5/5: copia correcta, permiso denegado, error de
+copia, copia incompleta, pérdida; los fallos son visibles y no terminan en éxito).
 
-**Prueba (2026-10-27 16:16, tráfico benigno identificable).** Kali 10.10.20.30 y bastión 10.10.10.30 (cliente
-legítimo de la evaluación) hacia srv-dmz. Leyendo el PCAP (no EVE): **138 ficheros de 15 s sin huecos** (1024 s
-continuos); **ambos tráficos presentes** (Kali 232 pkts, bastión 7074 pkts) junto al resto de la red (117 837
-pkts, 30+ entidades); **integridad 68/68** ficheros cerrados byte-idénticos copia-vs-origen (el único distinto
-era el fichero activo en escritura → el archivador lo excluye y lo copia ya cerrado). Pérdidas: 0 huecos, 0
-descartes de kernel observados. Detalle en `evidencia-entorno-2026-10-27/07-archivado-full-span.txt`.
+**Prueba real (2026-10-27 16:48–16:53, tráfico benigno identificable).** Kali 10.10.20.30 y bastión 10.10.10.30
+(cliente legítimo) hacia srv-dmz. `barrido`: **vistos=75, archivados=75, 0 fallos (RC=0)**, cada copia con sha
+verificado. `inventario` (por marca de **paquete**, no por nombre): **75 ficheros, 0 duplicados, 0 solapes, 0
+huecos/reinicios**, 1126 s continuos. Leído del PCAP (no EVE): **ambos tráficos** (Kali 74 pkts, bastión 7688
+pkts) + resto de la red (133 476 pkts, ≥30 entidades). Pérdidas: 0 huecos/solapes; integridad 75/75 sha-ok;
+**descartes de kernel del proceso real `ppi-motor-capture` (PID 1393, NRestarts=0): NO MEDIDOS** (corre con `-G`
+sin `--print-statistics`; las líneas "0 dropped" del journal son de PIDs antiguos, no del actual → no se usan
+como sustituto ni se afirma 0 pérdidas). El "138 en 1024 s" del cierre anterior era un **artefacto de la copia
+naíf repetida** (duplicados); con el barrido verificado el inventario real da 75 ficheros limpios. Detalle en
+`evidencia-entorno-2026-10-27/07-archivado-full-span.txt` (incluye cómo comprobar el archivador antes y durante A).
 
 **Cobertura por capa (no se confunden).**
 
@@ -104,4 +113,9 @@ scripts/archivar_captura.sh ~/cf-campana-archivo/campana-A-$(date -u +%Y%m%d) 60
 # (toda la población) sin huecos ni sobrescritura. Vigilar espacio con df (21 GiB libres).
 ```
 
-Reversión del único estado creado (no hay cambio administrativo): `rm -rf ~/cf-campana-archivo` en el sensor.
+**Cómo comprobar que el archivador funciona** — ANTES de A: `archivar_captura.sh barrido <DIR>` → RC=0 y
+`ESTADO.txt` empieza por "OK"; `archivar_captura.sh estado-motor` → `is-active=active`, `NRestarts=0`. DURANTE
+A (sin parar): `cat <DIR>/ESTADO.txt` debe seguir en "OK", `grep FALLO <DIR>/archivar.log` vacío, `df -h <DIR>`
+con espacio; al terminar, Ctrl-C → barrido final y `archivar_captura.sh inventario <DIR>` → 0 solapes/huecos/duplicados.
+
+Reversión del único estado creado (no hay cambio administrativo): `rm -rf ~/cf-campana-archivo ~/bin/archivar_captura.sh` en el sensor.
