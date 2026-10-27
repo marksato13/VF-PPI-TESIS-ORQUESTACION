@@ -72,7 +72,7 @@
     "A_deteccion_4.2": {
       "objetivo": "comparar IF 0,05, IF 0,03, heuristicos, hibrido 0,05 e hibrido 0,03 sobre las mismas ventanas",
       "modo": "SOMBRA: sin aplicar ninguna restriccion que altere el trafico",
-      "precondicion_critica": "el agente de srv-dmz esta en --aplicar y el publicador corre cada 10 s. Antes de A: poner el agente en dry-run (quitar --aplicar) O detener el publicador, y verificar cyberflow_bloqueados/cyberflow_limitados SIN elements. Revertir al terminar.",
+      "precondicion_critica": "el agente de enforcement de srv-dmz (ppi-enforce-agent.timer) esta ACTIVE+ENABLED y el motor emite al feed cada 10 s; el motor NO lleva --enforce (solo emite al feed), verificado 27-oct en evidencia-entorno-2026-10-27/05-modo-sombra.txt. Antes de A, modo SOMBRA por el procedimiento revisado: [srv-dmz] scripts/modo_sombra.sh --ejecutar --motor-verificado (guarda estado, detiene+enmascara el agente, vacia cyberflow_bloqueados/cyberflow_limitados y verifica que quedan SIN elements; fallo-seguro: una consulta nft fallida NO se interpreta como set vacio). Restaurar tras A: scripts/restaurar_enforcement.sh --ejecutar --escalada-revisada (comprobando antes el feed/escalada residual).",
       "fuentes": "motor_decision.log en vivo (emitidas) + PCAP continuo + EVE + features/scores por ventana (derivadas)"
     },
     "B_respuesta_4.4": {

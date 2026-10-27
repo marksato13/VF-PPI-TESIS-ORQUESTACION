@@ -76,8 +76,8 @@ filtrado del cortafuegos (limitación conocida, no bloqueante).
   - **Verificación end-to-end (27-oct 07:29, pasada benigna):** Kali→:18081 devolvió **401/401/200**; eve.json emite
     `event_type:http` con `GET /auth` y estados **401 y 200** para 10.10.20.30→10.10.30.10:18081; y el **extractor**
     lo recibe: en el acumulador la ventana 07:29:20 de 10.10.20.30 tiene **`http_request_count_60s=18`** y
-    `http_auth_failure_ratio_60s=0,667` (la verificación mezcló 200s; la fuerza bruta real —solo 401— dará ratio
-    ~1,0 ≥0,8 y disparará `brute_force`). **T3 CERRADO.**
+    `http_auth_failure_ratio_60s=0,667` (la verificación mezcló 401 y 200; la campaña A medirá los valores reales).
+    La **detección se mide en la campaña**, no se anticipa aquí. **T3 CERRADO (cadena de telemetría extremo a extremo).**
   - Nota: `motor_decision.log` **no serializa** `http_request_count_60s` (solo un subconjunto de campos); el valor se
     comprueba en el acumulador/replay. El extractor toma `http_*` de los `event_type:http` de eve.json
     (`load_app_observations`); esto es telemetría, no un cambio de modelo/umbrales.
@@ -91,7 +91,10 @@ endpoint de fuerza bruta de extremo a extremo (red + Suricata HTTP + extractor).
 
 **Pasos operativos al iniciar A (no son bloqueos; se ejecutan al arrancar la campaña):**
 1. `modo_sombra.sh --ejecutar --motor-verificado` en srv-dmz (detener+enmascarar el agente, vaciar sets); hoy el
-   enforcement sigue VIVO (`cyberflow_limitados` tenía 1 elemento). Restaurar tras A con `restaurar_enforcement.sh`.
+   enforcement sigue VIVO (agente `ppi-enforce-agent.timer` active+enabled; el motor NO lleva `--enforce`, solo emite
+   al feed). Estado real solo-lectura y procedimiento verificado (11/11) en `evidencia-entorno-2026-10-27/05-modo-sombra.txt`:
+   al 27-oct 08:00 ambos sets (`cyberflow_bloqueados`, `cyberflow_limitados`) están **vacíos**. Restaurar tras A con
+   `restaurar_enforcement.sh --ejecutar --escalada-revisada`.
 2. Arrancar captura continua (`cf-capturar` por episodio / archivado) y confirmar reloj de la Kali.
 3. Lanzar el generador con `--autorizado` (eso ya es el prompt 2; **no** se hace ahora).
 
@@ -101,8 +104,8 @@ Lo desplegado para la campaña (endpoint `ppi-brute-lab`, regla pfSense 18081, `
 ### Telemetría app-layer verificada de extremo a extremo (27-oct, pasadas benignas)
 - **HTTP (endpoint):** eve `event_type:http` 401/200 en :18081 y acumulador ventana 07:29:20 → `http_request_count_60s=18`.
 - **DNS (`lab-ppi`):** eve `event_type:dns` de la Kali→10.10.10.20 y acumulador ventana 07:36:50 → `dns_query_count_60s=22`,
-  `unique_dns_name_ratio=0,50` (≥0,45 → `dns_entropy`). El acumulador se disparó a mano (NOPASSWD) solo para leer; no
-  cambia el modelo.
+  `unique_dns_name_ratio=0,50` (telemetría; la detección `dns_entropy` se mide en la campaña, no se anticipa). El
+  acumulador se disparó a mano (NOPASSWD) solo para leer; no cambia el modelo.
 
 ### Salvedad (no bloqueante) — escaneo de puertos
 La Kali solo alcanza `:80` y `:443` en srv-dmz (pfSense filtra el resto). Como en el hallazgo del 1-oct, los SYN a

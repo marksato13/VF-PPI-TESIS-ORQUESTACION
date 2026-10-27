@@ -1,0 +1,37 @@
+EVIDENCIA DE PREPARACION — TELEMETRIA: ENDPOINT, DNS y EXTRACTOR (no es un episodio experimental)
+=================================================================================================
+Maquina        : lectura en SENSOR 10.10.60.11 (m4rk); eventos generados desde KALI 10.10.20.30
+Fecha (UTC)    : 2026-10-27T07:56Z (eventos de 07:52:50-07:53:00)
+Comandos       :
+  [SENSOR] sudo -n grep '10.10.20.30' /var/log/suricata/eve.json | grep '"event_type":"http"' | tail
+  [SENSOR] sudo -n grep '10.10.20.30' /var/log/suricata/eve.json | grep '"event_type":"dns"' | grep lab-ppi | tail
+  [SENSOR] sudo -n systemctl start cyberflow-acumular.service ; luego leer artifacts/linea-base/multilayer-v3.csv
+Proposito      : mostrar las filas de telemetria que respaldan los conteos de HTTP y DNS del extractor.
+
+=== ENDPOINT — eve event_type:http de 10.10.20.30 -> 10.10.30.10:18081 ===
+  2026-10-27T07:52:50 10.10.20.30 -> 10.10.30.10:18081 GET /auth status=200
+  2026-10-27T07:52:50 10.10.20.30 -> 10.10.30.10:18081 GET /auth status=401
+  2026-10-27T07:52:50 10.10.20.30 -> 10.10.30.10:18081 GET /auth status=401
+  2026-10-27T07:52:50 10.10.20.30 -> 10.10.30.10:18081 GET /auth status=200
+  2026-10-27T07:52:50 10.10.20.30 -> 10.10.30.10:18081 GET /auth status=200
+  (401 = credencial ficticia; 200 = control:control123 legitimo. Suricata parsea app-layer
+   http en :18081 gracias a detection-ports dp "80, 18081".)
+
+=== DNS — eve event_type:dns de 10.10.20.30 -> 10.10.10.20 (zona lab-ppi) ===
+  2026-10-27T07:52:50 10.10.20.30 -> 10.10.10.20 answer 18cf651ef2d4.lab-ppi rcode=NOERROR
+  2026-10-27T07:52:51 10.10.20.30 -> 10.10.10.20 query  2e752a374b8b.lab-ppi rcode=None
+  2026-10-27T07:52:51 10.10.20.30 -> 10.10.10.20 query  2e752a374b8b.lab-ppi rcode=None
+  2026-10-27T07:52:51 10.10.20.30 -> 10.10.10.20 answer 2e752a374b8b.lab-ppi rcode=NOERROR
+  2026-10-27T07:52:51 10.10.20.30 -> 10.10.10.20 answer 2e752a374b8b.lab-ppi rcode=NOERROR
+  (nombres aleatorios *.lab-ppi; comodin -> NOERROR, por eso nxdomain_ratio=0 y la senal va por
+   unicidad de nombres.)
+
+=== EXTRACTOR — filas del acumulador (multilayer-v3.csv) para 10.10.20.30 ===
+csv mtime: 2026-10-27 07:57:11
+  window_end_utc            | dns_q60 uniq    nx   | http_req60 authfail
+  2026-10-27T07:52:50+00:00 |   0     0.0000 0.00  |    0       0.0000
+  2026-10-27T07:53:00+00:00 |   6     0.5000 0.00  |   12       0.5000
+  (La ventana 07:53:00 recoge AMBAS senales: dns_query_count_60s=6 con unique_dns_name_ratio=0.50
+   y http_request_count_60s=12 con http_auth_failure_ratio=0.50. Confirma que el extractor
+   convierte los eventos de eve en las caracteristicas que consume el motor. Los ratios de esta
+   PREPARACION mezclan 401 y 200; en la campana A la medicion real determinara los valores.)

@@ -1,0 +1,28 @@
+EVIDENCIA DE PREPARACION — ARCHIVADO CON TRAFICO BENIGNO REAL (no es un episodio experimental)
+===============================================================================================
+Maquina        : captura en SENSOR 10.10.60.11 (m4rk, NOPASSWD /usr/local/sbin/cf-capturar)
+                 trafico generado desde KALI 10.10.20.30 (adminatacante) y desde BASTION 10.10.10.30
+Fecha (UTC)    : 2026-10-27T07:52:47Z -> 07:53:17Z
+Comandos       :
+  [SENSOR]  sudo -n /usr/local/sbin/cf-capturar /tmp/arch-20261027075247.pcap 25
+            (= timeout 25 tcpdump -i ens37 -w <pcap> host 10.10.20.30)
+  [KALI]    curl -u fake:fake123 / -u control:control123 http://10.10.30.10:18081/auth  (x3)
+            dig +short @10.10.10.20 <rand>.lab-ppi                                        (x3)
+  [BASTION] curl http://10.10.30.10/   (x4)  <- control-normal NO-Kali
+Proposito      : sustituir la prueba anterior de 24 bytes (0 paquetes) por una con PAQUETES REALES
+                 y comprobar que el archivado NO queda limitado solo a la Kali.
+
+--- RESULTADO cf-capturar (SENSOR) ---
+tcpdump: listening on ens37, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+226 packets captured
+226 packets received by filter
+0 packets dropped by kernel
+  pcap: /tmp/arch-20261027075247.pcap  35176 bytes, owner tcpdump (root)
+
+--- LECTURA ---
+226 paquetes / 35.176 bytes frente a los 24 bytes (cabecera sola, 0 paquetes) del ensayo
+anterior: el pipeline de captura preserva trafico real y legible. El fichero queda bajo
+uid tcpdump (root); el conteo y el tamano se leen por la salida de cf-capturar (no requiere
+que yo lea el pcap como root). El filtro de cf-capturar es 'host 10.10.20.30' (Kali) por
+diseno del wrapper; la cobertura NO-solo-Kali del ARCHIVO COMPLETO (eve + acumulador) se
+evidencia en 04-multientidad.txt. 0 paquetes perdidos por el kernel.
