@@ -24,8 +24,8 @@ prevista · evidencia de actividad · cliente legítimo y control · interrupci�
 
 - **Objetivo:** peticiones repetidas a un recurso de prueba; detección por `http_abuse` o anomalía del modelo.
 - **Origen → destino / servicio:** 10.10.20.30 → 10.10.30.10, TCP/80.
-- **Comando (curl):** bucle de 90 s de `curl -s -o /dev/null --max-time 2 http://10.10.30.10/`, con concurrencia acotada (p.ej. 10 procesos).
-- **Tasa/concurrencia/duración:** concurrencia fija documentada, 90 s.
+- **Comando (curl):** bucle de 90 s de `curl -s -o /dev/null --max-time 2 http://10.10.30.10/`, con **concurrencia fija 8** (8 bucles en paralelo; `timeout_s` 150).
+- **Tasa/concurrencia/duración:** concurrencia 8, `max_time` 2 s, 90 s. Valor fijado de antemano, no ajustado al detector.
 - **Acción prevista:** LIMIT (rate 100/s, reversible).
 - **Evidencia de actividad:** conteo de peticiones en `marcas.jsonl`; eventos `http` en `eve.json`. El `/` devolvió 200 el 26-oct.
 - **Control:** cliente legítimo navegando el recurso a ritmo normal.

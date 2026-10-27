@@ -67,7 +67,7 @@ huecos y prever espacio.
 ### 6. Kali
 
 - `[Kali 10.10.20.30] → lo enciendes tú`: ahora está encendida (22 abierto); confirmar en el momento de la campaña. El
-  generador corre desde la Kali (`scripts/generar_campana.sh`), **no** en esta fase.
+  generador corre desde la Kali (`scripts/generar_campana.py`), **no** en esta fase.
 
 ## Comprobaciones benignas que sí puedo repetir sin intervención
 

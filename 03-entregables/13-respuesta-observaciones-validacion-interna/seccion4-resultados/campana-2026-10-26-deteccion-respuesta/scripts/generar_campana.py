@@ -1,97 +1,148 @@
 #!/usr/bin/env python3
 """Generador de la campaña (corre en la Kali del laboratorio autorizado).
 
-Lee escenarios.json, ordena los episodios de forma aleatoria con la semilla fija, espera >=120 s entre
-episodios y escribe marcas.jsonl con reloj de pared y monotónico, comando, código de salida y actividad.
+Valida la configuración congelada, ordena los episodios con la semilla fija, respeta calentamiento,
+contexto previo y observación posterior, y registra inicio y fin por separado (reloj de pared + monotónico),
+con la salida COMPLETA de cada episodio.
 
-SEGURO POR DEFECTO:
-  - Sin --autorizado hace una simulación (imprime el plan, NO lanza tráfico).
-  - Aborta si algún destino no está en la lista blanca de escenarios.json.
-  - No se ejecuta en la fase de preparación.
+SEGURO POR DEFECTO: sin --autorizado solo simula (no lanza tráfico). Aborta si la config no valida o quedan
+marcadores/valores sin resolver en un escenario habilitado. Las variables de entorno NO cambian parámetros.
 
 Uso (cuando se autorice la campaña A):
-    ZONA_LAB=lab-ppi BRUTE_PUERTO=8081 BRUTE_RUTA=/auth \\
-      python3 generar_campana.py --escenarios ../escenarios/escenarios.json --salida marcas.jsonl --autorizado
+    python3 generar_campana.py --config ../escenarios/escenarios.json --salida-dir ./corrida --autorizado
 """
 from __future__ import annotations
-import argparse, json, os, random, subprocess, sys, time
+import argparse, json, os, random, signal, subprocess, sys, time
 from datetime import datetime, timezone
+from pathlib import Path
 
-HERRAMIENTAS = {"dig", "curl", "nmap", "openssl"}
-
-
-def ahora():
-    return {"pared_utc": datetime.now(timezone.utc).isoformat(), "monotonico": time.monotonic()}
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import esquema_campana as esq  # noqa: E402
 
 
-def comando_de(e: dict) -> list[str]:
-    """Construye el comando real del escenario. Un episodio = un proceso de generación."""
-    dst, sid = e["destino"], e["id"]
-    if sid == "dns_inusual":
-        zona = os.environ.get("ZONA_LAB", "<ZONA_LAB>")
-        return ["bash", "-c", f'fin=$((SECONDS+{e["duracion_s"]})); '
-                f'while [ $SECONDS -lt $fin ]; do dig +time=1 +tries=1 @{dst} "$(openssl rand -hex 8).{zona}" +short >/dev/null 2>&1; sleep 0.4; done']
-    if sid == "inundacion_http":
-        return ["bash", "-c", f'fin=$((SECONDS+{e["duracion_s"]})); '
-                f'while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null --max-time 2 http://{dst}/ ; done']
-    if sid == "escaneo_breve":
-        return ["nmap", "-sT", "-T4", "--max-retries", "1", "-p", "1-1000", dst]
-    if sid == "escaneo_sostenido":
-        r = os.environ.get("SCAN_RATE", "1500")
-        return ["nmap", "-sT", "-T4", "--max-retries", "0", "--max-rate", r, "-p-", dst]
-    if sid == "fuerza_bruta_http":
-        pt, ruta = os.environ.get("BRUTE_PUERTO", "<PUERTO>"), os.environ.get("BRUTE_RUTA", "/<auth>")
-        return ["bash", "-c", f'fin=$((SECONDS+{e["duracion_s"]})); '
-                f'while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null -w "%{{http_code}}\\n" --max-time 2 '
-                f'-u fake:fake$RANDOM http://{dst}:{pt}{ruta} ; done']
-    raise ValueError(f"escenario desconocido: {sid}")
+def reloj() -> dict:
+    return {"pared_utc": datetime.now(timezone.utc).isoformat(), "monotonico": round(time.monotonic(), 6)}
+
+
+def jsonl(fh, obj):
+    fh.write(json.dumps(obj, ensure_ascii=False) + "\n")
+    fh.flush()
+    os.fsync(fh.fileno())
+
+
+def plan_orden(cfg: dict) -> list[tuple[dict, int]]:
+    plan = [(s, r) for r in range(1, cfg["repeticiones"] + 1) for s in cfg["escenarios"]]
+    random.Random(cfg["semilla"]).shuffle(plan)
+    return plan
+
+
+def correr_episodio(cfg, s, rep, salida_dir: Path, marcas, autorizado: bool) -> str:
+    sid = s["id"]
+    ep_id = f"{sid}-r{rep}"
+    cmd = esq.comando_de(cfg, s)
+    (salida_dir / "salidas").mkdir(exist_ok=True)
+    out_p = salida_dir / "salidas" / f"{ep_id}.out"
+    err_p = salida_dir / "salidas" / f"{ep_id}.err"
+    # inicio: se escribe INMEDIATAMENTE y por separado del fin
+    jsonl(marcas, {"evento": "inicio", "campana": cfg.get("_campana", "deteccion-respuesta-2026-10-26"),
+                   "episodio_id": ep_id, "escenario": sid, "repeticion": rep,
+                   "destino": s["destino"], "servicio": s["servicio"], "comando": cmd,
+                   "timeout_s": s["timeout_s"], "reloj": reloj()})
+    if not autorizado:
+        return "simulado"
+    estado = "completo"
+    # el proceso y sus hijos quedan en su propio grupo/sesión -> poder terminarlos a todos
+    kw = {"creationflags": subprocess.CREATE_NEW_PROCESS_GROUP} if os.name == "nt" else {"start_new_session": True}
+    with open(out_p, "wb") as fo, open(err_p, "wb") as fe:
+        proc = subprocess.Popen(cmd, stdout=fo, stderr=fe, **kw)
+        try:
+            proc.wait(timeout=s["timeout_s"])
+        except subprocess.TimeoutExpired:
+            estado = "incompleto_timeout"
+        except KeyboardInterrupt:
+            estado = "incompleto_interrumpido"
+        finally:
+            if proc.poll() is None:
+                _matar_grupo(proc)
+    cod = proc.poll()
+    jsonl(marcas, {"evento": "fin", "episodio_id": ep_id, "estado": estado,
+                   "codigo_salida": cod, "reloj": reloj(),
+                   "bytes_stdout": out_p.stat().st_size, "bytes_stderr": err_p.stat().st_size,
+                   "salida_stdout": str(out_p), "salida_stderr": str(err_p)})
+    return estado
+
+
+def _matar_grupo(proc):
+    if os.name == "nt":                       # Windows: termina el árbol de procesos
+        subprocess.run(["taskkill", "/F", "/T", "/PID", str(proc.pid)],
+                       stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        return
+    try:                                      # POSIX (Kali): termina el grupo entero
+        os.killpg(os.getpgid(proc.pid), signal.SIGTERM)
+        time.sleep(3)
+        if proc.poll() is None:
+            os.killpg(os.getpgid(proc.pid), signal.SIGKILL)
+    except (ProcessLookupError, PermissionError):
+        proc.kill()
 
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--escenarios", required=True)
-    ap.add_argument("--salida", default="marcas.jsonl")
-    ap.add_argument("--autorizado", action="store_true", help="lanza el tráfico real; sin esto, solo simula")
+    ap.add_argument("--config", required=True)
+    ap.add_argument("--salida-dir", default="corrida")
+    ap.add_argument("--autorizado", action="store_true", help="lanza tráfico real; sin esto, simula")
+    ap.add_argument("--solo-habilitados", action="store_true",
+                    help="omite (sin abortar) los escenarios con habilitado:false; sin esto, un escenario "
+                         "deshabilitado o no resuelto aborta")
     a = ap.parse_args()
-    cfg = json.load(open(a.escenarios, encoding="utf-8"))
-    blanca = set(cfg["lista_blanca_destinos"])
-    for e in cfg["escenarios"]:
-        if e["destino"] not in blanca:
-            print(f"ABORTA: destino {e['destino']} ({e['id']}) fuera de la lista blanca {sorted(blanca)}", file=sys.stderr)
-            return 2
+    cfg = json.load(open(a.config, encoding="utf-8"))
 
-    plan = []
-    for rep in range(1, cfg["repeticiones"] + 1):
-        for e in cfg["escenarios"]:
-            plan.append((e, rep))
-    random.Random(cfg["semilla"]).shuffle(plan)
+    problemas = esq.validar(cfg, exigir_herramientas=a.autorizado)
+    activos = [s for s in cfg["escenarios"] if s.get("habilitado")]
+    pendientes = [s for s in cfg["escenarios"] if not s.get("habilitado")]
+    if pendientes and not a.solo_habilitados:
+        problemas += [f"escenario {s['id']} deshabilitado: {s.get('motivo_deshabilitado','?')} "
+                      f"(usa --solo-habilitados para omitirlo)" for s in pendientes]
+    if problemas:
+        print("CONFIG INVÁLIDA — abortando. Problemas:", file=sys.stderr)
+        for p in problemas:
+            print("  -", p, file=sys.stderr)
+        return 2
 
-    print(f"{'MODO SIMULACIÓN (no lanza tráfico)' if not a.autorizado else 'MODO AUTORIZADO'} · "
-          f"{len(plan)} episodios · espera {cfg['espera_entre_episodios_s']} s entre ellos")
-    out = open(a.salida, "a", encoding="utf-8") if a.autorizado else None
-    for n, (e, rep) in enumerate(plan, 1):
-        ep_id = f"{e['id']}-r{rep}"
-        cmd = comando_de(e)
-        print(f"[{n}/{len(plan)}] {ep_id}: {' '.join(cmd[:3])}…")
-        if not a.autorizado:
-            continue
-        marca = {"episodio_id": ep_id, "escenario": e["id"], "repeticion": rep,
-                 "comando": cmd, "inicio": ahora()}
-        try:
-            cp = subprocess.run(cmd, capture_output=True, text=True, timeout=e.get("duracion_s", 300) + 120)
-            marca["codigo_salida"] = cp.returncode
-            marca["stdout_cola"] = cp.stdout[-2000:]
-        except subprocess.TimeoutExpired:
-            marca["codigo_salida"] = "timeout"
-        marca["fin"] = ahora()
-        out.write(json.dumps(marca, ensure_ascii=False) + "\n")
-        out.flush()
-        if n < len(plan):
-            time.sleep(cfg["espera_entre_episodios_s"])
-    if out:
-        out.close()
+    sd = Path(a.salida_dir)
+    sd.mkdir(parents=True, exist_ok=True)
+    # registra la config EFECTIVA tal como se usó (solo los habilitados que se correrán)
+    efectiva = dict(cfg)
+    efectiva["escenarios"] = activos
+    efectiva["_efectiva_utc"] = datetime.now(timezone.utc).isoformat()
+    efectiva["_autorizado"] = a.autorizado
+    (sd / "config-efectiva.json").write_text(json.dumps(efectiva, ensure_ascii=False, indent=1), encoding="utf-8")
+
+    plan = [(s, r) for (s, r) in plan_orden(cfg) if s.get("habilitado")]
+    modo = "AUTORIZADO (lanza tráfico)" if a.autorizado else "SIMULACIÓN (no lanza tráfico)"
+    t = cfg["tiempos_s"]
+    print(f"{modo} · {len(plan)} episodios · calentamiento {t['calentamiento_inicial']} s · "
+          f"contexto previo {t['contexto_antes']} s · observación {t['observacion_despues']} s")
+    marcas = open(sd / "marcas.jsonl", "a", encoding="utf-8")
+    jsonl(marcas, {"evento": "campana_inicio", "modo": modo, "orden": [f"{s['id']}-r{r}" for s, r in plan],
+                   "reloj": reloj()})
+    if a.autorizado:
+        time.sleep(t["calentamiento_inicial"] + t["contexto_antes"])
+    for n, (s, rep) in enumerate(plan, 1):
+        print(f"[{n}/{len(plan)}] {s['id']}-r{rep}: {' '.join(esq.comando_de(cfg, s)[:3])}…")
+        estado = correr_episodio(cfg, s, rep, sd, marcas, a.autorizado)
+        print(f"        -> {estado}")
+        if a.autorizado and n < len(plan):
+            time.sleep(t["observacion_despues"])   # cola del episodio actual
+            time.sleep(t["contexto_antes"])        # historia previa del siguiente
+    jsonl(marcas, {"evento": "campana_fin", "reloj": reloj()})
+    marcas.close()
     return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    try:
+        raise SystemExit(main())
+    except KeyboardInterrupt:
+        print("interrumpido", file=sys.stderr)
+        raise SystemExit(130)

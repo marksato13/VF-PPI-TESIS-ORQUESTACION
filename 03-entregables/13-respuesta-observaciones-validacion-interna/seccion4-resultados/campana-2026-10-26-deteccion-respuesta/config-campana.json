@@ -4,6 +4,7 @@
   "proposito": "Completar 4.2 (aporte de componentes, campana A de deteccion) y despues 4.4 (respuesta y tiempos, campana B). No sustituye ni modifica aporte-componentes-r2-2026-10-26; es una campana nueva e independiente.",
   "no_se_toca": "modelo, escalador, umbrales, heuristicos, servicios desplegados y documento Word. No se reentrena ni se recalibra. No se ajusta ningun escenario a la vista de los resultados del detector.",
   "autorizacion": "laboratorio propio y autorizado. Esta configuracion se versiona ANTES de ejecutar. La campana A se autoriza en una instruccion posterior.",
+  "origen": "10.10.20.30",
 
   "modelo": {
     "detector": "if_limpio_2026_10",
@@ -82,18 +83,18 @@
   },
 
   "escenarios": {
-    "repeticiones_por_escenario": 5,
+    "definicion": "fuente unica: escenarios/escenarios.json (esquema v2, congelado y validado por esquema_campana.py)",
+    "repeticiones": 5,
     "orden": "aleatorizado con semilla fija",
     "semilla": 20261026,
-    "duracion_dns_http_sostenido_s": 90,
-    "nota_duracion": "90 s para DNS y HTTP sostenido salvo razon tecnica documentada antes de ejecutar. En escaneos se registra la duracion del comando y la actividad efectiva enviada; no se prolonga para asegurar deteccion.",
-    "lista": {
-      "dns_inusual":   {"origen": "10.10.20.30", "destino": "10.10.10.20", "servicio": "UDP/53", "accion_prevista": "LIMIT (dns_entropy); 10.10.10.20 en NUNCA_BLOQUEAR -> sin contencion en ese destino"},
-      "inundacion_http": {"origen": "10.10.20.30", "destino": "10.10.30.10", "servicio": "TCP/80", "accion_prevista": "LIMIT (http_abuse) o anomalia modelo"},
-      "escaneo_breve": {"origen": "10.10.20.30", "destino": "10.10.30.10", "servicio": "TCP rango fijo", "accion_prevista": "BLOCK (port_scan) si la actividad cruza el espejo"},
-      "escaneo_sostenido": {"origen": "10.10.20.30", "destino": "10.10.30.10", "servicio": "TCP rango amplio, ritmo definido", "accion_prevista": "BLOCK (port_scan rama rafaga)"},
-      "fuerza_bruta_http": {"origen": "10.10.20.30", "destino": "10.10.30.10 endpoint de prueba (pendiente)", "servicio": "TCP/HTTP con 401", "accion_prevista": "BLOCK (brute_force)"}
-    }
+    "generador": "scripts/generar_campana.py (seguro por defecto: simula sin --autorizado)",
+    "analizador": "scripts/analizar.py",
+    "nota_duracion": "90 s para DNS e inundacion HTTP; en escaneos se registra la duracion del comando y la actividad efectiva, no se prolonga para asegurar deteccion.",
+    "escenarios_pendientes": {"dns_inusual": "falta zona_dns local", "fuerza_bruta_http": "falta endpoint 401 (brute_puerto/brute_ruta)"}
+  },
+  "emision_vs_window_end": {
+    "logged_at": "motor_decision.py escribe logged_at = time.time() del ciclo (motor_decision.py:601) = instante REAL de emision; el analizador clasifica por logged_at.",
+    "window_end_utc": "cierre de la ventana; NO es la hora de emision y NO se usa para la deteccion operativa."
   },
 
   "historia_y_registros": {
@@ -105,8 +106,13 @@
   },
   "relojes": {
     "verificar_en": ["sensor 10.10.60.11","bastion 10.10.10.30","Kali 10.10.20.30","srv-dmz 10.10.30.10"],
-    "estado_26oct": "bastion sincronizado por NTP (chrony, offset ~1 ms); sensor SIN chrony. Corregir el sensor y medir el desfase (antes y despues) ANTES de la campana. Toda correccion se documenta.",
-    "marca_de_referencia": "reloj de pared + monotonico en Kali; el inicio/fin de sesion SSH es solo una aproximacion al comando remoto"
+    "estado_medido_26oct": "bastion sincronizado (chrony, ~1 ms). srv-dmz sincronizado (timesyncd). Sensor: timesyncd ACTIVO apuntando al bastion pero NTPSynchronized=no, desfase -47,55 s (+-0,18). Kali sin medir. Detalle y pasos en RELOJES-DNS.md.",
+    "correccion_pendiente": "forzar el paso de timesyncd en el sensor (restart o set-ntp false/true), no instalar nada; medir desfase antes y despues.",
+    "marca_de_referencia": "reloj de pared + monotonico en Kali (marcas.jsonl); el inicio/fin de sesion SSH es solo una aproximacion al comando remoto"
+  },
+  "dns": {
+    "estado_medido_26oct": "el resolutor 10.10.10.20 reenvia/recursa a Internet (consulta unica no cacheable devolvio SOA externo). El escenario DNS necesita una zona local reservada; ver RELOJES-DNS.md.",
+    "comprobacion_no_egress": "antes de la campana, capturar en el borde y confirmar cero paquetes 53/udp al exterior para la consulta de prueba"
   },
 
   "criterios_evaluacion": {
