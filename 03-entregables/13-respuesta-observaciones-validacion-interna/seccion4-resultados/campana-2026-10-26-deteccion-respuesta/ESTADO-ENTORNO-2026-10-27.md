@@ -29,7 +29,7 @@ experimentales. Todo lo medido va en el reloj indicado.
 | Kali→srv-dmz | Alcance al endpoint | `curl`/connect a :18081 → **000 / cerrado-filtrado** | **No alcanzable** | **CRÍTICO:** regla pfSense `Kali 10.10.20.30 → srv-dmz 10.10.30.10 tcp/18081` |
 | Kali→srv-dmz | Alcance HTTP/escaneo | connect :80 **abierto**, :443 **abierto**, resto filtrado | HTTP flood y escaneo alcanzan :80/:443 | escaneo verá sobre todo filtrado (limitación conocida 1-oct) |
 | Sensor | Suricata/extractor ven el endpoint | **no comprobable aún**: sin tráfico Kali→18081 (pfSense) | **Bloqueado** | tras la regla pfSense: repetir y confirmar `event_type:http status:401` en eve + `http_*` en el motor |
-| Sensor | Archivado (cf-capturar) | `cf-capturar /tmp/..pcap 5` → fichero creado, **0 paquetes descartados** | **Mecanismo OK** (captura host 10.10.20.30) | para captura continua full se necesita sudo o `cf-capturar` por episodio |
+| Sensor | Archivado full-span | `archivar_captura.sh` preserva el full-span del motor (`ens37`, sin filtro); prueba 27-oct: 138 ficheros/15 s sin huecos, ambos tráficos, 68/68 copias byte-exactas | **OK, sin root** (07-archivado-full-span.txt) | `cf-capturar` = solo-Kali (mecanismo); el archivo de la campaña es `archivar_captura.sh` |
 | Sensor | Rotación de fuentes | eve: logrotate **daily, maxsize 500M, rotate 7**; motor log diario; anillo recicla ~19 min; disco **21 GB** libres | No se pierden logs en una campaña de horas | archivar pcap continuo aparte (anillo recicla) |
 | Sensor | Motor sin enforcement directo | `systemctl cat ppi-motor` **sin `--enforce`** | **OK** | — |
 | srv-dmz | Enforcement actual | agente `ppi-enforce-agent.timer` **activo** (`--aplicar`); `cyberflow_limitados` tiene **1 elemento vivo** (10.10.50.52, LIMIT 4m) | **Enforcement VIVO** | poner en **sombra** justo antes de A (`modo_sombra.sh --ejecutar --motor-verificado`) y restaurar después |
@@ -95,7 +95,7 @@ endpoint de fuerza bruta de extremo a extremo (red + Suricata HTTP + extractor).
    al feed). Estado real solo-lectura y procedimiento verificado (11/11) en `evidencia-entorno-2026-10-27/05-modo-sombra.txt`:
    al 27-oct 08:00 ambos sets (`cyberflow_bloqueados`, `cyberflow_limitados`) están **vacíos**. Restaurar tras A con
    `restaurar_enforcement.sh --ejecutar --escalada-revisada`.
-2. Arrancar captura continua (`cf-capturar` por episodio / archivado) y confirmar reloj de la Kali.
+2. Arrancar el archivado full-span `scripts/archivar_captura.sh ~/cf-campana-archivo/campana-A-<fecha> 60` (full-span `ens37`, sin huecos, sin root) y confirmar reloj de la Kali.
 3. Lanzar el generador con `--autorizado` (eso ya es el prompt 2; **no** se hace ahora).
 
 Lo desplegado para la campaña (endpoint `ppi-brute-lab`, regla pfSense 18081, `detection-ports` de Suricata, zona

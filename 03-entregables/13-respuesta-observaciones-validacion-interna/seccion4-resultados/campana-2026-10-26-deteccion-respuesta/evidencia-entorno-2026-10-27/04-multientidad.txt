@@ -37,6 +37,10 @@ Proposito      : demostrar que el archivo completo (acumulador + eve) recoge el 
 --- LECTURA ---
 El acumulador mantiene 30 entidades distintas con ~590 ventanas cada una y marcas de tiempo
 recientes; la Kali (10.10.20.30) es solo una de ellas. eve.json registra decenas de miles de
-eventos de orígenes no-Kali. El archivado abarca por tanto el control normal de toda la red
-mas el trafico de ensayo, y NO queda inadvertidamente limitado a la Kali. (El filtro solo-Kali
-afecta UNICAMENTE al pcap de cf-capturar; eve y el acumulador son de red completa.)
+eventos de orígenes no-Kali.
+
+MATIZ (sin confundir capas): esto demuestra que las capas DERIVADAS (EVE, acumulador) son de red
+completa, PERO NO convierten un PCAP solo-Kali en captura de red completa. La poblacion completa
+a nivel de PAQUETES se conserva con el archivado full-span del motor (07-archivado-full-span.txt),
+no con cf-capturar (host 10.10.20.30) ni deduciendola de EVE. EVE y el acumulador complementan los
+paquetes; no los sustituyen.

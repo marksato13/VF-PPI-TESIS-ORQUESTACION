@@ -21,8 +21,13 @@ tcpdump: listening on ens37, link-type EN10MB (Ethernet), snapshot length 262144
 
 --- LECTURA ---
 226 paquetes / 35.176 bytes frente a los 24 bytes (cabecera sola, 0 paquetes) del ensayo
-anterior: el pipeline de captura preserva trafico real y legible. El fichero queda bajo
-uid tcpdump (root); el conteo y el tamano se leen por la salida de cf-capturar (no requiere
-que yo lea el pcap como root). El filtro de cf-capturar es 'host 10.10.20.30' (Kali) por
-diseno del wrapper; la cobertura NO-solo-Kali del ARCHIVO COMPLETO (eve + acumulador) se
-evidencia en 04-multientidad.txt. 0 paquetes perdidos por el kernel.
+anterior: el mecanismo de captura preserva trafico real y legible. El fichero queda bajo
+uid tcpdump (root); el conteo y el tamano se leen por la salida de cf-capturar. 0 paquetes
+perdidos por el kernel.
+
+IMPORTANTE (limitacion de cf-capturar): el filtro de cf-capturar es 'host 10.10.20.30' (Kali),
+asi que este PCAP SOLO contiene trafico de la Kali y NO conserva el control normal de otras
+entidades. cf-capturar NO es el archivo de la campana. El archivo que conserva TODA la poblacion
+(incluido el control normal), a nivel de PAQUETES, es el full-span del motor preservado por
+scripts/archivar_captura.sh -> ver 07-archivado-full-span.txt. EVE y el acumulador son telemetria
+DERIVADA y NO sustituyen estos paquetes.

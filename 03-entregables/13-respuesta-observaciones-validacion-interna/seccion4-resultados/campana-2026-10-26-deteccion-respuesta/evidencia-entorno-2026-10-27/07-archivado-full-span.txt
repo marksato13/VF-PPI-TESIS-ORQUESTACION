@@ -1,0 +1,67 @@
+EVIDENCIA DE PREPARACION — ARCHIVADO FULL-SPAN (toda la poblacion, no solo-Kali)
+=================================================================================
+Resuelve el pendiente del cierre del commit 1cc28d9: cf-capturar aplica 'host 10.10.20.30',
+asi que su PCAP NO conserva el control normal de otras entidades. Aqui se habilita y prueba un
+archivado que SI conserva toda la poblacion, ejecutable con los permisos reales del sensor y
+SIN ningun cambio administrativo (no root, no sudoers).
+
+Maquina        : SENSOR 10.10.60.11 (m4rk) ; trafico desde KALI 10.10.20.30 y BASTION 10.10.10.30
+Fecha (UTC)    : ventana de trafico 2026-10-27T16:16:26Z-16:16:30Z ; archivo leido 16:17-16:18
+
+--- COMANDO EFECTIVO ---
+Captura (ya en marcha, del motor; FULL-SPAN, SIN filtro de host):
+  /usr/bin/tcpdump -i ens37 -n -s 0 -U -B 65536 -Z tcpdump -w /var/lib/ppi-motor-capture/live-%Y%m%d%H%M%S.pcap -G 15
+Archivado (lo que ejecuto yo, sin root; copia los ficheros CERRADOS antes de la poda -mmin +15):
+  scripts/archivar_captura.sh <DIR>  (bucle: cp --update=none de live-*.pcap EXCEPTO el fichero activo)
+Lectura/verificacion (sin root):  tcpdump -nr <fichero.pcap>   (grupo m4rk puede leer el anillo)
+
+INTERFAZ : ens37 (espejo/SPAN, PROMISC, sin IP)
+FILTRO   : NINGUNO -> toda la poblacion del espejo (contraste con cf-capturar = host 10.10.20.30)
+PERIODO  : archivo de la prueba cubre 2026-10-27T15:59:49Z .. 16:16:53Z = 1024 s continuos (138 ficheros de 15 s)
+
+--- CONTEOS (leidos del PCAP, NO de EVE) ---
+Total paquetes en el archivo de la ventana : 117837
+Entidades origen distintas (top): 10.10.10.30=22173, 10.10.60.11=11515, 10.10.100.2=10304,
+  10.10.60.3=9299, 10.10.30.10=6785, 10.10.60.2=6057, 10.10.100.3=4644, 10.10.60.10=2184, ... (poblacion completa)
+KALI    10.10.20.30 -> 10.10.30.10 : 232 paquetes (trafico benigno identificable de la prueba)
+BASTION 10.10.10.30 -> 10.10.30.10 : 7074 paquetes (cliente legitimo de la evaluacion; :22 y :80)
+  => el PCAP contiene AMBOS trafikos (Kali + cliente legitimo) y ademas el resto de la red.
+
+--- EXTRACTOS DE LECTURA (tcpdump -nr) ---
+Kali:    16:14:20.336599 IP 10.10.20.30.45190 > 10.10.30.10.18081: Flags [S] ... length 0
+         16:14:20.337270 IP 10.10.20.30.45190 > 10.10.30.10.18081: Flags [.], ack 1 ... length 0
+Bastion: 15:59:54.273295 IP 10.10.10.30.33510 > 10.10.30.10.22: Flags [S] ... length 0
+         15:59:54.273832 IP 10.10.10.30.33510 > 10.10.30.10.22: Flags [.], ack 1 ... length 0
+
+--- ESTADISTICAS DE PERDIDAS ---
+Continuidad (huecos): 138 ficheros, paso nominal 15 s, 0 huecos > 20 s en 1024 s -> SIN HUECOS.
+Integridad de copia : 69 ficheros cerrados aun presentes en el anillo comparados copia-vs-origen:
+                      68 IDENTICOS (sha256), 1 distinto = el fichero que estaba ACTIVO (en escritura) al copiar.
+                      -> Regla aplicada en archivar_captura.sh: EXCLUIR el fichero activo; se copia ya cerrado
+                         en el siguiente barrido. Con esa regla, copia == origen byte a byte.
+Descartes de kernel : la captura es la del motor (tcpdump -B 65536 -U); journalctl de ppi-motor-capture no
+                      registra descartes. Muestra puntual del mismo socket (cf-capturar): "0 packets dropped by
+                      kernel" (ver 02-archivado-real.txt). No se deduce cobertura del PCAP a partir de EVE.
+
+--- HASH (bytes del PCAP) ---
+Ejemplo de par identico copia/origen (fichero cerrado):
+  live-20261027155949.pcap
+  copia : 8f4ee74e324196f76860e50b282a4a3bb3ca2c7f3edae73b8d4a62473509dcdf
+  origen: 8f4ee74e324196f76860e50b282a4a3bb3ca2c7f3edae73b8d4a62473509dcdf
+(El PCAP vive en el sensor; estas son sumas de sus bytes. Los ficheros de evidencia versionados llevan su
+ propio sha256 en SHA256SUMS.txt y en MANIFIESTO-CAMPANA.json.)
+
+--- CONSERVACION SIN HUECOS PARA LA CAMPANA ---
+Arrancar scripts/archivar_captura.sh ANTES del control-normal y dejarlo correr durante historia previa
+(>=120 s), episodios y periodo posterior (>=90 s); parar tras el ultimo posterior (barrido final).
+  - Control normal, historia previa, episodios y posterior: cubiertos por ser captura CONTINUA full-span.
+  - Sin sobrescritura: nombres de 15 s unicos + cp --update=none.
+  - Permisos: lectura por grupo m4rk (dir setgid 2750) + escritura en $HOME. Sin sudo.
+  - Espacio: 21 GiB libres en / ; estimador ~113 MiB/h base (scripts/estimar_espacio.sh), x5-x10 en picos;
+    una campana de pocas horas cabe con holgura. Vigilar con df durante A.
+  - Rotacion del anillo (poda -mmin +15): el archivado copia cada fichero <60 s tras cerrarse, muy por debajo
+    de los 15 min de retencion, asi que nunca se pierde un fichero.
+
+--- REVERSION / CAMBIO ADMINISTRATIVO ---
+NINGUN cambio administrativo (no se tocaron sudoers, servicios ni ficheros root). Unico estado creado:
+el directorio de archivo en $HOME del sensor. Reversion: rm -rf ~/cf-campana-archivo (en el sensor).
