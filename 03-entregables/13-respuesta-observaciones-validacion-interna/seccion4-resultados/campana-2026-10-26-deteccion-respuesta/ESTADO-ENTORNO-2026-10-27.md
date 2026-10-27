@@ -56,10 +56,25 @@ experimentales. Todo lo medido va en el reloj indicado.
 (1) y (3) además desbloquean la verificación de telemetría del endpoint. El escaneo tendrá cobertura parcial por el
 filtrado del cortafuegos (limitación conocida, no bloqueante).
 
+## Actualización 27-oct (tras el Claude de infra; evidencia en `infra-2026-10-27/`)
+
+- **T1 NTP del sensor — CERRADO.** Antes: −47,80/−47,80/−47,80 s (sync=no). Después: **+0,172/+0,181/+0,177 s** (sync=yes,
+  Server 10.10.60.1). Causa real: el bastión no sirve NTP y faltaba la regla FW VLAN60→10.10.60.1:123; fix:
+  NTP=10.10.60.1 + regla. Relojes ya **comparables** (sensor +0,18, srv-dmz +0,18, Kali +0,07, bastión ref).
+- **T2 zona DNS `lab-ppi` — CERRADO.** Creada en DC1, `*`→10.10.30.10; `dig @10.10.10.20 probe-*.lab-ppi`=10.10.30.10
+  (local); egress en WAN de pfSense-A = **0** líneas con `lab-ppi`. No se tocó el forwarder global. `dns_inusual`
+  habilitado con `zona_dns=lab-ppi`.
+- **T3 endpoint — PARCIAL.** Endpoint confirmado escuchando en `0.0.0.0:18081` y respondiendo 401/401/200 en la IP de
+  la VLAN. La regla pfSense se creó con `easyrule` pero quedó **por debajo** de `CODEX_BASE_DENY_VLAN20_TO_VLAN30_OTHER`
+  (VLAN20/opt4) → no se evalúa; la Kali sigue en **000** a :18081 (sí llega a :80/:443). **Pendiente (infra, pfSense):
+  reordenar esa regla pass POR ENCIMA del deny** (o usar la plantilla `lab_b4_vlan20_8081.php`→18081). Tras eso: una
+  pasada benigna confirma 401/200 en eve (HTTP_PORTS ya incluye 18081) y `http_request_count_60s>0` en el motor.
+
 ## Veredicto
 
-**NO LISTO PARA CAMPAÑA A.** Quedan 3 requisitos críticos pendientes (NTP del sensor, zona DNS local, regla pfSense
-del endpoint), todos de intervención del usuario. Lo que permite mi acceso está hecho y verificado (endpoint
-desplegado, archivado probado, enforcement y relojes medidos). La sombra se activa justo antes de A.
+**NO LISTO PARA CAMPAÑA A (1 requisito pendiente).** Cerrados: relojes (sensor sincronizado), zona DNS local y
+endpoint desplegado; **4 de 5 escenarios listos** (DNS inusual, inundación HTTP, escaneo breve, escaneo sostenido).
+**Falta solo** que la regla pfSense del endpoint quede por encima del deny para habilitar la **fuerza bruta HTTP**
+(scenario `fuerza_bruta_http`). La sombra del enforcement se activa justo antes de A.
 
 Commit base de procedimientos: `96e1a0d` · repo VF-PPI-TESIS-ORQUESTACION.
