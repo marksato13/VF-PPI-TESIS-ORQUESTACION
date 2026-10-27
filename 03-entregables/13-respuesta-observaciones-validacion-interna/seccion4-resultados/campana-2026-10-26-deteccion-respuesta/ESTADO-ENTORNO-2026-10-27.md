@@ -98,4 +98,16 @@ endpoint de fuerza bruta de extremo a extremo (red + Suricata HTTP + extractor).
 Lo desplegado para la campaña (endpoint `ppi-brute-lab`, regla pfSense 18081, `detection-ports` de Suricata, zona
 `lab-ppi`) queda en pie hasta la campaña B; cada uno con su reversión documentada arriba y en `infra-2026-10-27/`.
 
+### Telemetría app-layer verificada de extremo a extremo (27-oct, pasadas benignas)
+- **HTTP (endpoint):** eve `event_type:http` 401/200 en :18081 y acumulador ventana 07:29:20 → `http_request_count_60s=18`.
+- **DNS (`lab-ppi`):** eve `event_type:dns` de la Kali→10.10.10.20 y acumulador ventana 07:36:50 → `dns_query_count_60s=22`,
+  `unique_dns_name_ratio=0,50` (≥0,45 → `dns_entropy`). El acumulador se disparó a mano (NOPASSWD) solo para leer; no
+  cambia el modelo.
+
+### Salvedad (no bloqueante) — escaneo de puertos
+La Kali solo alcanza `:80` y `:443` en srv-dmz (pfSense filtra el resto). Como en el hallazgo del 1-oct, los SYN a
+puertos filtrados pueden morir en el cortafuegos y **no cruzar el espejo**, así que `port_scan` puede **registrar poco**
+(flow-attempts a pocos puertos). Los escenarios de escaneo se ejecutan igual y se documenta lo que llega; si se quisiera
+forzar la detección habría que abrir más puertos a la Kali en pfSense, lo que **cambiaría** el ensayo (no se hace).
+
 Commit base de procedimientos: `96e1a0d` · repo VF-PPI-TESIS-ORQUESTACION.
