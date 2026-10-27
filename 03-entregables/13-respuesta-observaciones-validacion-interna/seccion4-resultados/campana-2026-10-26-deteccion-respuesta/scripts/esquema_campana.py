@@ -137,19 +137,20 @@ def comando_de(cfg: dict, s: dict) -> list[str]:
     """Construye el comando real de un escenario a partir de la config congelada (sin variables de entorno)."""
     dst, p, sid = s["destino"], s["params"], s["id"]
     dur = s.get("duracion_objetivo_s")
-    # Los bucles imprimen al final 'enviadas=<N>': contador REAL producido por el propio comando
-    # (fuente verificable de la actividad enviada). nmap no lo lleva: su evidencia es su stdout + el PCAP.
+    # Los bucles imprimen al final 'intentos=<N>': número de ITERACIONES del bucle (intentos de consulta/petición)
+    # producido por el propio comando. NO es "peticiones enviadas" ni "respuestas": eso se mide con PCAP/EVE/servidor.
+    # nmap no lleva contador: su evidencia es su stdout + el PCAP.
     if sid == "dns_inusual":
         zona = p["zona_dns"]
         return ["bash", "-c", f'c=0; fin=$((SECONDS+{int(dur)})); '
                 f'while [ $SECONDS -lt $fin ]; do dig +time=1 +tries=1 @{dst} "$(openssl rand -hex 8).{zona}" +short '
-                f'>/dev/null 2>&1; c=$((c+1)); sleep {p["sleep_entre_consultas_s"]}; done; echo "enviadas=$c"']
+                f'>/dev/null 2>&1; c=$((c+1)); sleep {p["sleep_entre_consultas_s"]}; done; echo "intentos=$c"']
     if sid == "inundacion_http":
         rec = p["recurso"]
         return ["bash", "-c", f'fin=$((SECONDS+{int(dur)})); n={int(p["concurrencia"])}; d=$(mktemp -d); '
                 f'for i in $(seq $n); do ( c=0; while [ $SECONDS -lt $fin ]; do '
                 f'curl -s -o /dev/null --max-time {p["max_time_s"]} {rec} ; c=$((c+1)); done; echo $c > "$d/$i" ) & done; '
-                f'wait; echo "enviadas=$(cat "$d"/* | awk \'{{s+=$1}} END{{print s+0}}\')"; rm -rf "$d"']
+                f'wait; echo "intentos=$(cat "$d"/* | awk \'{{s+=$1}} END{{print s+0}}\')"; rm -rf "$d"']
     if sid == "escaneo_breve":
         return ["nmap", "-sT", p["timing"], "--max-retries", str(p["max_retries"]), "-p", p["rango"], dst]
     if sid == "escaneo_sostenido":
@@ -160,5 +161,5 @@ def comando_de(cfg: dict, s: dict) -> list[str]:
         u = p["usuario_ficticio"]
         return ["bash", "-c", f'c=0; fin=$((SECONDS+{int(dur)})); '
                 f'while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null -w "%{{http_code}}\\n" '
-                f'--max-time {p["max_time_s"]} -u {u}:{u}$RANDOM http://{dst}:{pt}{ruta} ; c=$((c+1)); done; echo "enviadas=$c"']
+                f'--max-time {p["max_time_s"]} -u {u}:{u}$RANDOM http://{dst}:{pt}{ruta} ; c=$((c+1)); done; echo "intentos=$c"']
     raise ErrorConfig(f"escenario desconocido: {sid}")

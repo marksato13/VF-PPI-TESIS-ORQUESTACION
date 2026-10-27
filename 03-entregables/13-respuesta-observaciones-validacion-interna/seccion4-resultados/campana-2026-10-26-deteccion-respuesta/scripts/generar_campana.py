@@ -51,7 +51,6 @@ def correr_episodio(cfg, s, rep, salida_dir: Path, marcas, autorizado: bool) -> 
     if not autorizado:
         return "simulado"
     estado, cod = "completo", None
-    # el proceso y sus hijos quedan en su propio grupo/sesión -> poder terminarlos a todos
     kw = {"creationflags": subprocess.CREATE_NEW_PROCESS_GROUP} if os.name == "nt" else {"start_new_session": True}
     try:
         with open(out_p, "wb") as fo, open(err_p, "wb") as fe:
@@ -61,6 +60,7 @@ def correr_episodio(cfg, s, rep, salida_dir: Path, marcas, autorizado: bool) -> 
                 jsonl(marcas, {"evento": "fin", "episodio_id": ep_id, "estado": "error_inicio",
                                "error": str(ex), "reloj": reloj()})
                 return "error_inicio"
+            pgid = None if os.name == "nt" else os.getpgid(proc.pid)   # se captura AL CREAR, no al matar
             try:
                 proc.wait(timeout=s["timeout_s"])
             except subprocess.TimeoutExpired:
@@ -68,54 +68,73 @@ def correr_episodio(cfg, s, rep, salida_dir: Path, marcas, autorizado: bool) -> 
             except KeyboardInterrupt:
                 estado = "incompleto_interrumpido"
             finally:
-                if proc.poll() is None:
-                    _matar_grupo(proc)
-                    try:
-                        proc.wait(timeout=10)
-                    except subprocess.TimeoutExpired:
-                        estado = (estado + "+no_termino") if estado != "completo" else "incompleto_no_termino"
+                _terminar(proc, pgid)
+                if not _grupo_terminado(proc, pgid):
+                    estado = (estado if estado != "completo" else "incompleto") + "+grupo_no_terminado"
         cod = proc.poll()
     except KeyboardInterrupt:
         estado = "incompleto_interrumpido"
-        if proc.poll() is None:
-            _matar_grupo(proc)
+        _terminar(proc, pgid)
+        if not _grupo_terminado(proc, pgid):
+            estado += "+grupo_no_terminado"
         cod = proc.poll()
-    # un comando con código != 0 NO es 'completo'
-    if estado == "completo" and cod not in (0, None):
+    if estado == "completo" and cod not in (0, None):   # un comando con código != 0 NO es 'completo'
         estado = f"incompleto_error_rc_{cod}"
-    enviadas = _leer_enviadas(out_p)
+    intentos = _leer_intentos(out_p)
     jsonl(marcas, {"evento": "fin", "episodio_id": ep_id, "estado": estado, "codigo_salida": cod,
                    "reloj": reloj(), "bytes_stdout": out_p.stat().st_size, "bytes_stderr": err_p.stat().st_size,
-                   "actividad_enviada": enviadas,
-                   "actividad_fuente": ("contador del generador ('enviadas=')" if enviadas is not None
-                                        else "nmap: su stdout; en todos los casos, correlación con PCAP/EVE"),
+                   "intentos_generador": intentos,
+                   "intentos_fuente": ("contador de iteraciones del bucle (INTENTOS, no peticiones enviadas ni "
+                                       "respuestas)" if intentos is not None else "nmap: su stdout"),
+                   "medida_real_en": "peticiones/respuestas/errores/timeouts se miden con PCAP/EVE/servidor",
                    "salida_stdout": str(out_p), "salida_stderr": str(err_p)})
     return estado
 
 
-def _leer_enviadas(out_p: Path):
-    """Lee el contador 'enviadas=<N>' que imprime el propio comando (fuente verificable). None si no lo produce."""
+def _leer_intentos(out_p: Path):
+    """Lee 'intentos=<N>' (iteraciones del bucle) que imprime el comando. None si no lo produce (p.ej. nmap)."""
     try:
         for linea in reversed(out_p.read_text(encoding="utf-8", errors="replace").splitlines()):
-            if linea.startswith("enviadas="):
+            if linea.startswith("intentos="):
                 return int(linea.split("=", 1)[1])
     except (OSError, ValueError):
         pass
     return None
 
 
-def _matar_grupo(proc):
-    if os.name == "nt":                       # Windows: termina el árbol de procesos
+def _terminar(proc, pgid):
+    """Termina el proceso y TODO su grupo, aunque el padre ya haya terminado (usa el pgid capturado al crear)."""
+    if os.name == "nt":
         subprocess.run(["taskkill", "/F", "/T", "/PID", str(proc.pid)],
                        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        try:
+            proc.wait(timeout=10)
+        except subprocess.TimeoutExpired:
+            pass
         return
-    try:                                      # POSIX (Kali): termina el grupo entero
-        os.killpg(os.getpgid(proc.pid), signal.SIGTERM)
-        time.sleep(3)
-        if proc.poll() is None:
-            os.killpg(os.getpgid(proc.pid), signal.SIGKILL)
-    except (ProcessLookupError, PermissionError):
-        proc.kill()
+    for sig in (signal.SIGTERM, signal.SIGKILL):        # SIGKILL no se puede ignorar
+        try:
+            os.killpg(pgid, sig)
+        except ProcessLookupError:
+            break
+        time.sleep(0.5 if sig == signal.SIGTERM else 1.5)
+    try:
+        proc.wait(timeout=10)                            # recoge al padre (evita zombie)
+    except subprocess.TimeoutExpired:
+        pass
+
+
+def _grupo_terminado(proc, pgid) -> bool:
+    """True si no queda ningún proceso vivo en el grupo. En Windows, aproxima con el padre."""
+    if os.name == "nt":
+        return proc.poll() is not None
+    try:
+        os.killpg(pgid, 0)        # señal 0: solo comprueba existencia de procesos en el grupo
+        return False
+    except ProcessLookupError:
+        return True
+    except PermissionError:
+        return False
 
 
 def main() -> int:
@@ -166,6 +185,11 @@ def main() -> int:
             print(f"[{n}/{len(plan)}] {s['id']}-r{rep}: {' '.join(esq.comando_de(cfg, s)[:3])}…")
             estado = correr_episodio(cfg, s, rep, sd, marcas, a.autorizado)
             print(f"        -> {estado}")
+            if "grupo_no_terminado" in estado:
+                # no se pudo asegurar la terminación: NO iniciar otro episodio con un generador quizá vivo
+                fin_estado = "abortada_grupo_no_terminado"
+                print("ABORTA: no se aseguró la terminación del grupo; no se inicia el siguiente episodio", flush=True)
+                break
             if estado == "incompleto_interrumpido":
                 # tras una interrupción: detener la campaña y recoger registros; NO seguir con el siguiente
                 fin_estado = "interrumpida"

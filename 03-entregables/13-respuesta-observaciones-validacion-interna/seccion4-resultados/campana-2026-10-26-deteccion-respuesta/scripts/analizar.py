@@ -198,74 +198,95 @@ def atribuir(destinos, eid, wend_utc, ep_destino):
 
 
 # ------------------------------------------------------------------- clasificación por episodio
-def clasificar(ep, regs_global, origen, u05, u03, destinos):
+def clasificar(ep, regs_global, origen, u05, u03, destinos, integridad_apto=None):
+    """integridad_apto: True/False/None. None = integridad DESCONOCIDA (no verificada) => NO evaluable."""
     ini, fin = ep["inicio_ep"], ep["fin_ep"]
     eid = f"{ep['escenario']}-r{ep['repeticion']}"
     kali = [r for r in regs_global if r["entity_ip"] == origen]
     cob = cobertura(ep, regs_global, kali)
-    res = {"evaluable": cob["suficiente"], "cobertura": cob, "estado_generador": ep["estado"]}
+    destino_evidencia = destinos is not None          # sin evidencia de destino no se confirma atribución
+    # evaluable = cobertura temporal + evidencia de destino + integridad verificada apta (desconocida != apta)
+    evaluable = bool(cob["suficiente"] and destino_evidencia and integridad_apto is True)
+    res = {"evaluable": evaluable, "cobertura": cob, "estado_generador": ep["estado"],
+           "evidencia_destino": destino_evidencia, "integridad_apto": integridad_apto,
+           "motivo_no_evaluable": None if evaluable else
+           ("; ".join(x for x in [None if cob["suficiente"] else "cobertura:" + cob["motivo"],
+                                  None if destino_evidencia else "sin evidencia de destino (atribución no confirmable)",
+                                  None if integridad_apto is True else
+                                  ("integridad desconocida" if integridad_apto is None else "integridad no apta")]
+                      if x))}
     if fin is None:
         for c in CONFIGS:
             res[c] = {"categoria": "no_evaluable", "motivo": "sin fin de episodio"}
-        res["senales_previas_o_ambiguas"] = []
+        res["senales_previas_o_ambiguas"] = []; res["senales_observadas_sin_confirmar"] = []
         return res
     lim = fin + HORIZONTE_S
     dentro = [r for r in kali if ini <= r["_logged"] <= lim]
-    previas = []
+    previas, observadas = [], []
     for c in CONFIGS:
-        firmas = []
+        d_conf = d_obs = p_conf = p_obs = None
         for r in dentro:
             g = senales(r, u05, u03)
             if not g[c]:
                 continue
             incluir, atrib, conf = atribuir(destinos, eid, r["window_end_utc"], ep.get("destino"))
             if not incluir:
-                continue
+                continue                                 # otro destino: no es este ataque
             w0, w1 = r["_wend"] - HORIZONTE_S, r["_wend"]
-            solapa_ataque = w1 > ini and w0 < fin            # (window_end-60, window_end] ∩ [inicio, fin]
-            rel = ("durante_actividad" if (solapa_ataque and r["_logged"] <= fin)
-                   else "posterior" if (solapa_ataque and r["_logged"] > fin)
-                   else "previa" if r["_wend"] <= ini
-                   else "ambigua")
-            reg = {"window_end_utc": r["window_end_utc"], "logged_at_utc": iso(r["_logged"]),
+            solapa = w1 > ini and w0 < fin               # (window_end-60, window_end] ∩ [inicio, fin]
+            rel = ("durante_actividad" if (solapa and r["_logged"] <= fin)
+                   else "posterior" if (solapa and r["_logged"] > fin)
+                   else "previa" if r["_wend"] <= ini else "ambigua")
+            reg = {"configuracion": c, "window_end_utc": r["window_end_utc"], "logged_at_utc": iso(r["_logged"]),
                    "desde_inicio_generador_s": round(r["_logged"] - ini, 1),
-                   "tras_fin_generador_s": round(r["_logged"] - fin, 1),
-                   "relacion_temporal": rel, "atribucion": atrib, "atribucion_confirmada": conf,
-                   "base": g["base"][c], "score": r.get("_score"), "score_estado": r.get("_score_estado"),
+                   "tras_fin_generador_s": round(r["_logged"] - fin, 1), "relacion_temporal": rel,
+                   "atribucion": atrib, "atribucion_confirmada": conf, "base": g["base"][c],
+                   "score": r.get("_score"), "score_estado": r.get("_score_estado"),
                    "detector_name": r.get("detector_name")}
             if rel in ("previa", "ambigua"):
-                previas.append({"configuracion": c, **reg})
-            else:
-                firmas.append((r, g, rel, reg))
-        durante = [(r, g, reg) for r, g, rel, reg in firmas if rel == "durante_actividad"]
-        posterior = [(r, g, reg) for r, g, rel, reg in firmas if rel == "posterior"]
-        if durante:
-            _, _, reg = durante[0]
-            cat = "durante"
-        elif posterior:
-            _, _, reg = posterior[0]
-            cat = "posterior"
-        elif not cob["suficiente"]:
-            cat, reg = "no_evaluable", {"motivo": cob["motivo"]}
+                previas.append(reg)
+            elif rel == "durante_actividad":
+                if conf and d_conf is None:
+                    d_conf = reg
+                elif not conf:
+                    d_obs = d_obs or reg; observadas.append(reg)
+            else:  # posterior
+                if conf and p_conf is None:
+                    p_conf = reg
+                elif not conf:
+                    p_obs = p_obs or reg; observadas.append(reg)
+        senal_observada = bool(d_conf or d_obs or p_conf or p_obs)
+        deteccion_confirmada = bool(d_conf)
+        if not evaluable:
+            cat, reg = "no_evaluable", (d_conf or d_obs or p_conf or p_obs or {"motivo": res["motivo_no_evaluable"]})
+        elif d_conf:
+            cat, reg = "durante", d_conf
+        elif d_obs or p_obs:
+            cat, reg = "observada_sin_confirmar", (d_obs or p_obs)
+        elif p_conf:
+            cat, reg = "posterior", p_conf
         else:
             cat, reg = "sin_deteccion", {}
-        res[c] = {"categoria": cat, "senal_existe": bool(durante or posterior),
-                  "primera_fiable": bool((durante or posterior) and cob["suficiente"]), **reg}
+        res[c] = {"categoria": cat, "senal_observada": senal_observada,
+                  "deteccion_confirmada": deteccion_confirmada,
+                  "primera_fiable": bool(deteccion_confirmada and evaluable), **reg}
     res["senales_previas_o_ambiguas"] = previas
-    # compartidas/exclusivas durante el ataque (solo ventanas que solapan el ataque y con fila)
-    comp = {"ambos_0.05": 0, "solo_IF_0.05": 0, "solo_HEUR": 0, "ninguno_0.05": 0}
-    for r in dentro:
-        if not (r["_wend"] > ini and r["_wend"] - HORIZONTE_S < fin and r["_logged"] <= fin):
-            continue
-        g = senales(r, u05, u03)
-        if g["IF_0.05"] and g["HEUR"]:
-            comp["ambos_0.05"] += 1
-        elif g["IF_0.05"]:
-            comp["solo_IF_0.05"] += 1
-        elif g["HEUR"]:
-            comp["solo_HEUR"] += 1
-        else:
-            comp["ninguno_0.05"] += 1
+    res["senales_observadas_sin_confirmar"] = observadas
+    # compartidas/exclusivas durante el ataque, SOLO sobre ventanas con atribución CONFIRMADA
+    comp = {"ambos_0.05": 0, "solo_IF_0.05": 0, "solo_HEUR": 0, "ninguno_0.05": 0,
+            "nota": "solo ventanas con atribución confirmada" if destino_evidencia else
+            "sin evidencia de destino: no se computa (atribución no confirmable)"}
+    if destino_evidencia:
+        for r in dentro:
+            if not (r["_wend"] > ini and r["_wend"] - HORIZONTE_S < fin and r["_logged"] <= fin):
+                continue
+            inc, _, conf = atribuir(destinos, eid, r["window_end_utc"], ep.get("destino"))
+            if not inc or not conf:
+                continue
+            g = senales(r, u05, u03)
+            k = ("ambos_0.05" if g["IF_0.05"] and g["HEUR"] else "solo_IF_0.05" if g["IF_0.05"]
+                 else "solo_HEUR" if g["HEUR"] else "ninguno_0.05")
+            comp[k] += 1
     res["compartidas_durante_0.05"] = comp
     return res
 
@@ -312,6 +333,7 @@ def main() -> int:
     ap.add_argument("--control")
     ap.add_argument("--etiquetas")
     ap.add_argument("--destinos")
+    ap.add_argument("--integridad", help="integridad.json de verificar_integridad.py; sin él, integridad DESCONOCIDA")
     ap.add_argument("--salida", default="analisis")
     a = ap.parse_args()
 
@@ -329,10 +351,16 @@ def main() -> int:
         for row in csv.DictReader(open(a.destinos, encoding="utf-8")):
             destinos[(row["episodio_id"], row["window_end_utc"])].append(row["destino"])
         destinos = dict(destinos)
+    # integridad por episodio: apto True/False; sin fichero o episodio ausente => None (DESCONOCIDA)
+    integridad = {}
+    if a.integridad:
+        rep = json.load(open(a.integridad, encoding="utf-8"))
+        for e in rep.get("episodios", []):
+            integridad[e["episodio_id"]] = bool(e.get("apto"))
 
     por_ep, tabla = {}, {}
     for eid, ep in eps.items():
-        c = clasificar(ep, regs, origen, u05, u03, destinos)
+        c = clasificar(ep, regs, origen, u05, u03, destinos, integridad.get(eid))
         por_ep[eid] = c
         fam = familia(ep["escenario"])
         t = tabla.setdefault(fam, {"evaluables": [], "no_evaluables": [], **{cf: 0 for cf in CONFIGS}})
@@ -350,6 +378,8 @@ def main() -> int:
         "nota_umbral": "el motor emitió en vivo con el umbral DESPLEGADO; IF_0.05/0.03 recalculados son derivados.",
         "clasificacion_por": "logged_at (emisión real) + solape de la ventana con el ataque; window_end ≠ emisión",
         "atribucion_destino": "con --destinos" if destinos is not None else "sin evidencia de destino (incompleta)",
+        "integridad_fuentes": ("de " + a.integridad) if a.integridad else "DESCONOCIDA (no se pasó --integridad); "
+                               "ningún episodio se declara evaluable sin verificación de integridad",
         "calidad_datos": {"incidencias_marcas": inc_m, "incidencias_motor": inc_r, "ventanas_duplicadas": len(dups),
                           "episodios_incompletos": [e for e, v in eps.items() if v["estado"] != "completo"]},
         "tabla8": tabla, "episodios": por_ep}

@@ -148,13 +148,13 @@ def marca(eid, esc, dst, ini, fin, estado="completo"):
             json.dumps({"evento": "fin", "episodio_id": eid, "estado": estado, "reloj": {"pared_utc": iso(fin)}})]
 
 
-def clasif(an, lineas_marca, lineas_motor, eid, destinos=None):
+def clasif(an, lineas_marca, lineas_motor, eid, destinos=None, integridad_apto=None):
     with tempfile.TemporaryDirectory() as d:
         (Path(d) / "m").write_text("\n".join(lineas_marca), encoding="utf-8")
         (Path(d) / "x").write_text("\n".join(lineas_motor), encoding="utf-8")
         eps, _ = an.leer_marcas(Path(d) / "m")
         regs, inc, dups = an.leer_motor(Path(d) / "x")
-        return an.clasificar(eps[eid], regs, K, U05, U03, destinos), regs, dups
+        return an.clasificar(eps[eid], regs, K, U05, U03, destinos, integridad_apto), regs, dups
 
 
 def test_analizador_basico():
@@ -166,10 +166,12 @@ def test_analizador_basico():
         mot.append(rec(w + 1, w, -0.70 if w == T + 40 else -0.50, "ALERT" if w == T + 40 else "PERMIT",
                        {"heuristico": "http_abuse", "accion": "LIMIT"} if w == T + 40 else None))
     mot.append(rec(T + 41, T + 40, -0.70, "ALERT", {"heuristico": "http_abuse", "accion": "LIMIT"}))  # duplicado
+    dok = {("inundacion_http-r1", iso(T + 40)): ["10.10.30.10"]}   # evidencia de destino (confirma atribución)
     c, regs, dups = clasif(an, marca("inundacion_http-r1", "inundacion_http", "10.10.30.10", T, T + 90), mot,
-                           "inundacion_http-r1")
+                           "inundacion_http-r1", destinos=dok, integridad_apto=True)
     check(len(dups) == 1, f"detecta 1 ventana duplicada (hay {len(dups)})")
     check(c["evaluable"] and c["IF_0.05"]["categoria"] == "durante", "http-r1: evaluable y IF durante")
+    check(c["IF_0.05"]["deteccion_confirmada"] is True, "detección con atribución confirmada")
     check(c["IF_0.05"]["desde_inicio_generador_s"] == 41.0, "clasifica por logged_at (41 s), no window_end")
     check(c["IF_0.05"]["base"].startswith("emitido_por_modelo"), "IF 0,05 por el modelo => emitido en vivo")
     check(c["IF_0.03"]["base"].startswith("derivado"), "IF 0,03 => derivado (umbral no desplegado)")
@@ -187,11 +189,14 @@ def test_cobertura_una_ventana_insuficiente():
     # motor CONTINUO gracias a otra entidad, pero la Kali solo tiene UNA ventana durante el ataque (90 s)
     mot = [rec(w + 1, w, -0.50, ip="10.10.40.10") for w in range(T, T + 150, 10)]
     mot.append(rec(T + 41, T + 40, -0.70, "ALERT"))   # única ventana de la Kali
+    # destino e integridad OK para aislar que la ÚNICA causa de no-evaluable es la cobertura
+    dok = {("inundacion_http-r9", iso(T + 40)): ["10.10.30.10"]}
     c, _, _ = clasif(an, marca("inundacion_http-r9", "inundacion_http", "10.10.30.10", T, T + 90), mot,
-                     "inundacion_http-r9")
+                     "inundacion_http-r9", destinos=dok, integridad_apto=True)
     check(c["evaluable"] is False, "una sola ventana de la Kali NO es cobertura suficiente")
-    check("anclas" in c["cobertura"]["motivo"], "el motivo indica anclas de la Kali faltantes (pérdida)")
-    check(c["IF_0.05"]["senal_existe"] is True and c["IF_0.05"]["categoria"] in ("durante", "no_evaluable"),
+    check(c["cobertura"]["suficiente"] is False and "anclas" in c["cobertura"]["motivo"],
+          "el motivo indica anclas de la Kali faltantes (pérdida)")
+    check(c["IF_0.05"]["senal_observada"] is True and c["IF_0.05"]["categoria"] == "no_evaluable",
           "la señal existe aunque el episodio no sea íntegramente evaluable")
     check(c["IF_0.05"].get("primera_fiable") is False, "la primera detección NO es fiable sin cobertura")
 
@@ -212,25 +217,85 @@ def test_score_nulo_con_heuristico():
         check(g["HEUR"] and not g["IF_0.05"], "score null: HEUR dispara, IF no")
 
 
-def test_atribucion():
+def _tabla8_e2e(an, tmp, destinos_csv, integ_apto=True):
+    """Recorre main() hasta el fichero de la Tabla 8 y devuelve el dict tabla8. destinos_csv=None => sin --destinos."""
+    T = 1793000000
+    d = Path(tmp)
+    (d / "marcas.jsonl").write_text("\n".join(
+        marca("inundacion_http-r1", "inundacion_http", "10.10.30.10", T, T + 90)), encoding="utf-8")
+    mot = [rec(w + 1, w, -0.70 if w == T + 40 else -0.50, "ALERT" if w == T + 40 else "PERMIT")
+           for w in range(T, T + 150, 10)]
+    (d / "motor.log").write_text("\n".join(mot), encoding="utf-8")
+    (d / "cfg.json").write_text(json.dumps({"umbrales": {"0.05": U05, "0.03": U03, "desplegado_referencia": -0.5693969936322356},
+                                            "origen": K, "combinacion_real": {"exclusiones": {"NUNCA_BLOQUEAR": []}}}),
+                                encoding="utf-8")
+    (d / "integ.json").write_text(json.dumps({"episodios": [{"episodio_id": "inundacion_http-r1", "apto": integ_apto}]}),
+                                  encoding="utf-8")
+    argv = ["x", "--marcas", str(d / "marcas.jsonl"), "--motor", str(d / "motor.log"),
+            "--config", str(d / "cfg.json"), "--integridad", str(d / "integ.json"), "--salida", str(d / "out")]
+    if destinos_csv is not None:
+        (d / "dest.csv").write_text(destinos_csv, encoding="utf-8")
+        argv += ["--destinos", str(d / "dest.csv")]
+    old = sys.argv
+    sys.argv = argv
+    try:
+        an.main()
+    finally:
+        sys.argv = old
+    return json.loads((d / "out" / "analisis.json").read_text(encoding="utf-8"))["tabla8"]["Inundación HTTP"]
+
+
+def test_tabla8_excluye_no_confirmadas():
     an = cargar("analizar")
+    T = 1793000000
+    wk = iso(T + 40)
+    casos = {
+        "sin --destinos": (None, False),
+        "mapa vacío": ("episodio_id,window_end_utc,destino\n", False),
+        "clave ausente": (f"episodio_id,window_end_utc,destino\ninundacion_http-r1,{iso(T + 20)},10.10.30.10\n", False),
+        "destino incorrecto": (f"episodio_id,window_end_utc,destino\ninundacion_http-r1,{wk},10.10.99.99\n", False),
+        "destino correcto": (f"episodio_id,window_end_utc,destino\ninundacion_http-r1,{wk},10.10.30.10\n", True),
+    }
+    for nombre, (csvdata, debe_contar) in casos.items():
+        with tempfile.TemporaryDirectory() as tmp:
+            t8 = _tabla8_e2e(an, tmp, csvdata)
+            cnt = t8["IF_0.05"]
+            if debe_contar:
+                check(cnt == 1 and "inundacion_http-r1" in t8["evaluables"],
+                      f"Tabla 8 cuenta 1 con atribución confirmada ({nombre})")
+            else:
+                check(cnt == 0, f"Tabla 8 NO cuenta señal no confirmada ({nombre}) — contó {cnt}")
+
+
+def test_integridad_gate():
+    an = cargar("analizar")
+    vi = cargar("verificar_integridad")
+    # episodio con motor continuo pero PCAP incompleto / historia insuficiente / telemetría no verificable
+    e = {"episodio_id": "inundacion_http-r1", "campana": "x",
+         "pcap_presente": False,                         # PCAP incompleto/ausente
+         "eve_presente": True, "decisiones_presentes": True, "caracteristicas_presentes": True,
+         "cobertura_s": {"previa": 30, "posterior": 95}, # historia insuficiente (<120)
+         "cobertura_durante_completa": True, "continuidad_sin_huecos": True, "faltantes": [],
+         "captura": {"paquetes_descartados": 0}, "eve_eventos": 0,
+         "salud": {"suricata_activo": True, "trafico_presente": True},  # EVE 0 con salud OK => fallo telemetría
+         "relojes": {"sensor": 0.1, "tolerancia_s": 1}}
+    rep = vi.evaluar_episodio(e)
+    check(rep["apto"] is False, "integridad: PCAP ausente + historia corta => NO apto")
+    check(rep["requisitos"]["historia_requerida_disponible"] is False, "historia <120 s => False")
+    check(rep["requisitos"]["telemetria_eve_verificable"] is False, "EVE 0 con suricata activo y tráfico => fallo")
+    # desconocido no es apto
+    e2 = {"episodio_id": "y", "cobertura_s": {}, "eve_eventos": 5}
+    rep2 = vi.evaluar_episodio(e2)
+    check(rep2["apto"] is False and rep2["desconocidos"], "campos sin evidencia => 'desconocido' y NO apto")
+    # un episodio con motor continuo pero integridad no apta NO se declara evaluable en el analizador
     T = 1793000000
     mot = [rec(w + 1, w, -0.70 if w == T + 40 else -0.50, "ALERT" if w == T + 40 else "PERMIT")
            for w in range(T, T + 150, 10)]
-    mk = marca("inundacion_http-r1", "inundacion_http", "10.10.30.10", T, T + 90)
-    # mapa vacío -> clave ausente -> atribución incompleta, no confirmada, pero se cuenta (criterio por origen)
-    c_vacio, _, _ = clasif(an, mk, mot, "inundacion_http-r1", destinos={})
-    check(c_vacio["IF_0.05"]["atribucion"].startswith("incompleta") and
-          c_vacio["IF_0.05"]["atribucion_confirmada"] is False, "mapa vacío -> atribución incompleta, no confirmada")
-    check(c_vacio["IF_0.05"]["categoria"] == "durante", "con criterio por origen, se cuenta aunque incompleta")
-    # clave presente con el destino del escenario -> confirmada
-    dok = {("inundacion_http-r1", iso(T + 40)): ["10.10.30.10"]}
-    c_ok, _, _ = clasif(an, mk, mot, "inundacion_http-r1", destinos=dok)
-    check(c_ok["IF_0.05"]["atribucion_confirmada"] is True, "destino coincide -> atribución confirmada")
-    # clave con OTRO destino -> no es este ataque -> no se cuenta
-    dotro = {("inundacion_http-r1", iso(T + 40)): ["10.10.99.99"]}
-    c_otro, _, _ = clasif(an, mk, mot, "inundacion_http-r1", destinos=dotro)
-    check(c_otro["IF_0.05"]["categoria"] != "durante", "destino distinto -> no se atribuye al ataque")
+    c, _, _ = clasif(an, marca("inundacion_http-r1", "inundacion_http", "10.10.30.10", T, T + 90), mot,
+                     "inundacion_http-r1", destinos={("inundacion_http-r1", iso(T + 40)): ["10.10.30.10"]},
+                     integridad_apto=False)
+    check(c["evaluable"] is False and c["IF_0.05"]["categoria"] == "no_evaluable",
+          "motor continuo pero integridad no apta => no evaluable")
 
 
 def test_ventana_previa():
@@ -240,7 +305,7 @@ def test_ventana_previa():
     # ventana PREVIA (window_end antes del inicio) pero emitida (logged_at) tras el inicio, con IF disparado
     mot.append(rec(T + 5, T - 10, -0.70, "ALERT"))
     c, _, _ = clasif(an, marca("inundacion_http-r1", "inundacion_http", "10.10.30.10", T, T + 90), mot,
-                     "inundacion_http-r1")
+                     "inundacion_http-r1", destinos={}, integridad_apto=True)
     check(c["IF_0.05"]["categoria"] != "durante", "ventana previa emitida tras el inicio NO cuenta como 'durante'")
     previas = [p for p in c["senales_previas_o_ambiguas"] if p["relacion_temporal"] == "previa"]
     check(len(previas) >= 1, "la señal previa se informa aparte, sin forzar su clasificación")
@@ -271,7 +336,8 @@ def test_emitido_vs_derivado():
 def main():
     for fn in (test_validacion, test_generador_simulacion, test_generador_timeout_mata_hijos,
                test_analizador_basico, test_cobertura_una_ventana_insuficiente, test_score_nulo_con_heuristico,
-               test_atribucion, test_ventana_previa, test_emitido_vs_derivado):
+               test_tabla8_excluye_no_confirmadas, test_ventana_previa, test_emitido_vs_derivado,
+               test_integridad_gate):
         fn()
         print(f"OK  {fn.__name__}")
     print(f"\n{ok['n']} comprobaciones pasaron.")
