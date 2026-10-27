@@ -56,17 +56,31 @@ dns forwarder = 10.10.10.1
 Aplicación en `T2-dns-lab-ppi-dc1.sh`; captura "después" (debe dar 0) en `T2-captura-egress-pfsense.sh`.
 **No se toca el forwarder global**: la zona local ya gana sobre el reenvío para `*.lab-ppi`.
 
-## T3 — Regla pfSense + telemetría
-🟡 **Estado previo medido; regla preparada (la aplicas en pfSense-A, MASTER); telemetría en el sensor.**
-```
-pfSense-A: carp MASTER (vmx3.10) · reglas 18081 = 0 · VLAN20 = vmx3.20
-pfSense-B: reglas 18081 = 0
-```
-Detalle y reversión en `T3-regla-pfsense-18081.md`.
+## T3 — Regla pfSense + telemetría (2026-10-27)
+**Firewall y camino ✅ / telemetría HTTP ⬜ (hallazgo para el lado CyberFlow).**
 
-## Qué queda para cerrar "LISTO PARA CAMPAÑA A"
-1. T1 en el sensor (offset ≤ 1 s).
-2. T2: crear la zona en DC1 y volver a correr `T2-captura-egress-pfsense.sh` → 0 líneas `lab-ppi`.
-3. T3: aplicar la regla en pfSense-A, `curl` desde la Kali (codigos), y la telemetría en el sensor.
+- Regla `pass tcp 10.10.20.30 → 10.10.30.10:18081` **por encima** del deny base en **A (MASTER, pos 241/242)
+  y B (pos 230/231)**. `easyrule` la había dejado por DEBAJO del deny (no se evaluaba → Kali 000); se rehízo con
+  `lab_b4_vlan20_18081.php` (clon del script del repo, punto de inserción calculado sobre el deny) en A y B.
+  La sync XMLRPC A→B **no propagó** esta regla (se añadió por `write_config` directo); se aplicó en B a mano.
+- **Camino verificado**: la Kali atraviesa el deny y `srv-dmz:18081` responde. En `eve.json` los flujos a
+  18081 cierran con `bytes_toserver:288` / `bytes_toclient:218` y `366` → los **401 y 200 son visibles a
+  nivel de flujo**. El motor decide sobre `10.10.20.30` (`PERMIT`, `packet_count_10s` sube).
+- **Telemetría HTTP NO se produce**: 0 `event_type:http` para 18081 (598 en :80) y los flujos a 18081 **sin
+  `app_proto`**. Suricata arrancó 06:15:20 con `HTTP_PORTS="[80,18081]"` (recarga confirmada) y `http:` sin
+  `detection-ports` fijadas — aun así no clasifica 18081 como HTTP, así que el motor no tiene
+  `http_request_count_60s`. **Añadir `HTTP_PORTS` no bastó (informado, como pedía la orden).** La causa está
+  en la detección app-layer / pipeline de features de CyberFlow → lado tesis (no se toca: es modelo).
 
-Ofrecido: en cuanto exista la zona, infra puede relanzar la captura de egress (read-only) y devolver el "después".
+Detalle y reversión en `T3-regla-pfsense-18081.md` y en el script `lab_b4_vlan20_18081.php`.
+
+## Estado para "LISTO PARA CAMPAÑA A"
+- **T1 ✅** NTP sincronizado (offset 0,18 s).
+- **T2 ✅** zona `lab-ppi` local, 0 egress.
+- **T3**: firewall y camino **✅** (Kali↔srv-dmz:18081, 401/200 a nivel de flujo, en A y B). Telemetría HTTP
+  **⬜ pendiente del lado CyberFlow**: Suricata no clasifica 18081 como HTTP pese a `HTTP_PORTS` → sin
+  eventos http ni `http_request_count_60s`. No es firewall ni infra; es detección app-layer / features (modelo).
+
+**Límite de infra:** el firewall, el NTP y el DNS quedan listos y verificados. Lo único abierto (parseo HTTP de
+18081 en Suricata) es configuración del propio CyberFlow y se deja para la sesión de tesis, por la regla de la
+orden de no tocar modelo/heurísticos/política.

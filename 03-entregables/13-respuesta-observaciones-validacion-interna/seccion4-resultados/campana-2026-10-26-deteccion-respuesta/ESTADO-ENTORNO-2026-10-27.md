@@ -64,17 +64,28 @@ filtrado del cortafuegos (limitación conocida, no bloqueante).
 - **T2 zona DNS `lab-ppi` — CERRADO.** Creada en DC1, `*`→10.10.30.10; `dig @10.10.10.20 probe-*.lab-ppi`=10.10.30.10
   (local); egress en WAN de pfSense-A = **0** líneas con `lab-ppi`. No se tocó el forwarder global. `dns_inusual`
   habilitado con `zona_dns=lab-ppi`.
-- **T3 endpoint — PARCIAL.** Endpoint confirmado escuchando en `0.0.0.0:18081` y respondiendo 401/401/200 en la IP de
-  la VLAN. La regla pfSense se creó con `easyrule` pero quedó **por debajo** de `CODEX_BASE_DENY_VLAN20_TO_VLAN30_OTHER`
-  (VLAN20/opt4) → no se evalúa; la Kali sigue en **000** a :18081 (sí llega a :80/:443). **Pendiente (infra, pfSense):
-  reordenar esa regla pass POR ENCIMA del deny** (o usar la plantilla `lab_b4_vlan20_8081.php`→18081). Tras eso: una
-  pasada benigna confirma 401/200 en eve (HTTP_PORTS ya incluye 18081) y `http_request_count_60s>0` en el motor.
+- **T3 endpoint — red OK, parseo HTTP PENDIENTE.**
+  - Endpoint confirmado en `0.0.0.0:18081` (401/401/200 en la IP de la VLAN).
+  - **Firewall RESUELTO** (infra): la regla pass quedó **por encima** del deny en pfSense-A (MASTER) y B; la Kali
+    atraviesa y srv-dmz:18081 responde (401/200 **a nivel de flujo**: bytes_toserver 288 / toclient 218 y 366). El
+    motor decide sobre 10.10.20.30 (PERMIT, sube `packet_count_10s`). (`easyrule` la había dejado bajo el deny; se
+    rehízo con el clon del script y se aplicó en B a mano porque XMLRPC no propagó un cambio por `write_config`.)
+  - **Pendiente (único):** Suricata **no clasifica 18081 como HTTP** (0 `event_type:http` en :18081; 598 en :80), así
+    que **no hay `http_request_count_60s`**. Causa: el bloque `app-layer.protocols.http` de `suricata.yaml` no tiene
+    `detection-ports` (tls sí dp 443, dns dp 53); el `HTTP_PORTS` que se añadió es la variable de **reglas**, no el
+    app-layer. **Fix (edit root en el sensor, lo aplica el infra):** añadir `detection-ports: { dp: "80, 18081" }` al
+    bloque `http:` y `systemctl restart suricata`. Reversión: quitar esas 2 líneas y reiniciar. Tras eso yo relanzo la
+    pasada benigna y confirmo `event_type:http` (401/200) + `http_request_count_60s>0`.
+  - El extractor toma `http_*` de los `event_type:http` de eve.json (`load_app_observations`), por eso depende de ese
+    parseo; no es un cambio de modelo/umbrales.
 
 ## Veredicto
 
-**NO LISTO PARA CAMPAÑA A (1 requisito pendiente).** Cerrados: relojes (sensor sincronizado), zona DNS local y
-endpoint desplegado; **4 de 5 escenarios listos** (DNS inusual, inundación HTTP, escaneo breve, escaneo sostenido).
-**Falta solo** que la regla pfSense del endpoint quede por encima del deny para habilitar la **fuerza bruta HTTP**
-(scenario `fuerza_bruta_http`). La sombra del enforcement se activa justo antes de A.
+**NO LISTO PARA CAMPAÑA A (1 requisito pendiente).** Cerrados: relojes (sensor sincronizado), zona DNS local,
+endpoint desplegado y **camino de red del endpoint** (firewall reordenado en pfSense-A/B; la Kali llega a :18081).
+**4 de 5 escenarios listos** (DNS inusual, inundación HTTP, escaneo breve, escaneo sostenido). **Falta solo** que
+Suricata parsee 18081 como HTTP (añadir `detection-ports` al bloque `http:` y reiniciar — edit root en el sensor, lo
+aplica el infra) para que el extractor produzca `http_request_count_60s` y habilitar la **fuerza bruta HTTP**
+(`fuerza_bruta_http`). La sombra del enforcement se activa justo antes de A.
 
 Commit base de procedimientos: `96e1a0d` · repo VF-PPI-TESIS-ORQUESTACION.
