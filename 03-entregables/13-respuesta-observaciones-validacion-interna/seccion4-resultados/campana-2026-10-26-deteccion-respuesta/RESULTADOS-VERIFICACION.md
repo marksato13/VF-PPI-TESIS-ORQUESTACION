@@ -4,7 +4,7 @@ Verifican las **herramientas** de evaluación, no el desempeño de CyberFlow. No
 
 ## Suite de herramientas — `tests/test_herramientas.py`
 
-**Windows (laptop):** `81 comprobaciones pasaron.`
+**Windows (laptop):** `87 comprobaciones pasaron.`
 
 ```
 OK  test_validacion
@@ -16,9 +16,12 @@ OK  test_score_nulo_con_heuristico
 OK  test_tabla8_evidencia_y_denominador
 OK  test_ventana_previa
 OK  test_emitido_vs_derivado
-OK  test_integridad_11_casos
+OK  test_integridad_backing
+OK  test_integridad_informe_externo
+OK  test_integridad_descriptor_ilustrativo
 OK  test_integridad_gate_analizador
-81 comprobaciones pasaron.
+OK  test_integridad_e2e_no_habilita_denominador
+87 comprobaciones pasaron.
 ```
 
 ### Evidencia de destino y denominador de la Tabla 8 (`test_tabla8_evidencia_y_denominador`, e2e hasta `analisis.json`/`TABLA8.md`)
@@ -39,24 +42,37 @@ Evidencia ausente/incompleta → **no evaluable** (no se presenta como «sin det
 con evidencia **completa**. Una señal hacia otro destino no cuenta como detección y no prueba que la evidencia esté
 completa.
 
-### Integridad de fuentes — declaraciones vs verificaciones (`test_integridad_11_casos`)
+### Integridad de fuentes — declaraciones vs verificaciones (`test_integridad_backing`, `test_integridad_informe_externo`, `test_integridad_descriptor_ilustrativo`)
 
 `verificar_integridad.py` distingue **verificado / declarado_sin_verificar / ausente / desconocido**; solo
-«verificado» cuenta. 11 casos: ruta inexistente con hash declarado (ausente), archivo ilegible (ausente), hash
-distinto (ausente), válidos + hashes coincidentes (verificado), relojes con solo tolerancia (desconocido), host
-requerido sin medición (desconocido), medición fuera de periodo (ausente), reinicio sin historia (ausente), reinicio
-con recuperación+calentamiento (verificado), error de captura relevante (ausente), informe externo trazable
-(verificado) vs declaración sin respaldo (declarado_sin_verificar). `analizar.py` con integridad no apta **o
-desconocida** → episodio **no evaluable**.
+«verificado» cuenta, y el valor lo aporta un **respaldo accesible y correspondiente** (no un booleano del descriptor).
+Casos: cobertura/continuidad declaradas sin respaldo → declarado_sin_verificar; respaldo de otro episodio o con
+periodo que no cubre → ausente; hash marcador/inválido/que no coincide → ausente; relojes sin mediciones →
+desconocido; reinicio sin historia → ausente / con recuperación+calentamiento → verificado; error de captura
+relevante → ausente; informe externo **accesible y correspondiente** → verificado, mientras que referencia
+inexistente → pendiente y referencia que no respalda / de otro episodio → ausente; descriptor sin ficheros → no apto.
 
-### Ejemplo de salida de integridad (`EJEMPLO-integridad-salida.json`) — apto / no apto / desconocido
+**Recorrido e2e** (`test_integridad_e2e_no_habilita_denominador`): `verificar_integridad.py` (no apto) →
+`integridad.json` → `analizar.py`: el episodio queda en `no_evaluables`, **fuera del denominador** y numerador 0.
+
+### Ejemplo de salida de integridad (`EJEMPLO-integridad-salida.json`) — declarado / no apto / apto
+
+Generado con `verificar_integridad.py --descriptor EJEMPLO-descriptor-integridad.json` desde la carpeta de la
+campaña (los `EJEMPLO-fixtures/` son fixtures de la herramienta, no capturas de campaña):
 
 ```
-{"aptos": ["inundacion_http-r1"], "no_aptos": ["inundacion_http-r2", "escaneo_breve-r1"]}
-inundacion_http-r1: apto=True  | verificado=12
-inundacion_http-r2: apto=False | verificado=7  declarado_sin_verificar=4  ausente=1   (error de captura)
-escaneo_breve-r1:  apto=False | desconocido=12 (sin evidencia aportada)
+{"aptos": ["inundacion_http-r1"], "no_aptos": ["inundacion_http-r3", "inundacion_http-r2"]}
+inundacion_http-r3: apto=False | declarado_sin_verificar=8  ausente=1 (marcador de hash)   -> DECLARADO
+inundacion_http-r2: apto=False | verificado=1  ausente=1 (error de captura)  desconocido=10 -> NO APTO
+inundacion_http-r1: apto=True  | verificado=12                                              -> APTO
 ```
+
+### Manifiesto sobre los bytes publicados (punto de hashes)
+
+`MANIFIESTO-CAMPANA.json` se genera con `scripts/generar_manifiesto.py`, que hashea `git show :<ruta>` (los bytes
+**en stage = los que se publican**, con saltos **LF**), no el fichero local (que en Windows puede tener CRLF). Tras
+el commit se verifica que el sha256 de `git show HEAD:<ruta>` coincide con el manifiesto. No se declara coincidencia
+«exacta» con el árbol de trabajo si solo coincide tras normalizar los saltos; la referencia son los bytes del commit.
 
 ### Terminación del grupo de procesos — `tests/test_matar_grupo.py` (función publicada)
 
