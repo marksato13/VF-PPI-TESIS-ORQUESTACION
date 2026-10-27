@@ -15,7 +15,7 @@
     {
       "id": "dns_inusual",
       "habilitado": true,
-      "verificado_27oct": "zona local 'lab-ppi' (DC1, comodin * -> 10.10.30.10); resuelve local, egress 0 (infra-2026-10-27/). Telemetria confirmada: eve event_type:dns de 10.10.20.30->10.10.10.20 con nombres *.lab-ppi y, en el acumulador, ventana 07:36:50 con dns_query_count_60s=22 y unique_dns_name_ratio=0.50 (>=0.45 -> dispara dns_entropy). Con comodin nxdomain_ratio=0; la deteccion va por unicidad de nombres.",
+      "verificado_27oct": "zona local 'lab-ppi' (DC1, comodin * -> 10.10.30.10); resuelve local, egress 0 (infra-2026-10-27/). Telemetria de PREPARACION confirmada: eve event_type:dns de 10.10.20.30->10.10.10.20 con nombres *.lab-ppi y, en el acumulador, dns_query_count_60s y unique_dns_name_ratio>0 (p. ej. ventana 07:36:50 =22/0.50 y 2026-10-27T07:53:00 =6/0.50; evidencia-entorno-2026-10-27/03-telemetria.txt). Con comodin nxdomain_ratio=0; la senal va por unicidad de nombres. La DETECCION se mide en la campana, no se anticipa aqui.",
       "destino": "10.10.10.20",
       "servicio": "UDP/53",
       "herramienta": "dig",
@@ -68,7 +68,7 @@
     {
       "id": "fuerza_bruta_http",
       "habilitado": true,
-      "verificado_27oct": "cadena completa confirmada: regla pfSense por encima del deny (A/B) -> Kali alcanza srv-dmz:18081 -> endpoint 401/401/200 -> Suricata con detection-ports dp '80,18081' emite event_type:http (401/200) -> extractor: acumulador muestra http_request_count_60s=18, http_auth_failure_ratio_60s=0.667 en la ventana 07:29:20 de 10.10.20.30 (la verificacion mezclo 200s; la fuerza bruta real, solo 401, dara ratio ~1.0 >=0.8 y disparara brute_force).",
+      "verificado_27oct": "cadena completa confirmada (PREPARACION): regla pfSense por encima del deny (A/B) -> Kali alcanza srv-dmz:18081 -> endpoint 401/401/200 -> Suricata con detection-ports dp '80,18081' emite event_type:http (401/200) -> extractor: acumulador muestra http_request_count_60s y http_auth_failure_ratio_60s>0 (p. ej. ventana 07:29:20 =18/0.667 y 2026-10-27T07:53:00 =12/0.50; evidencia-entorno-2026-10-27/03-telemetria.txt). La verificacion mezclo 401 y 200; la campana A medira los valores reales. La DETECCION se mide en la campana, no se anticipa aqui.",
       "destino": "10.10.30.10",
       "servicio": "TCP/HTTP endpoint de prueba :18081",
       "herramienta": "curl",

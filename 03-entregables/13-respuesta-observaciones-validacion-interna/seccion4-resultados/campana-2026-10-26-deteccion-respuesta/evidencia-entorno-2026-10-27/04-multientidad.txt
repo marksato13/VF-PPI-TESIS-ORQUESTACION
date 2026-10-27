@@ -1,0 +1,42 @@
+EVIDENCIA DE PREPARACION — COBERTURA MULTI-ENTIDAD: el archivado NO es solo-Kali
+=================================================================================
+Maquina        : lectura en SENSOR 10.10.60.11 (m4rk)
+Fecha (UTC)    : 2026-10-27T07:58:10Z
+Comandos       :
+  [SENSOR] python3 (cuenta entity_ip distintas en los ~3 MB finales de multilayer-v3.csv)
+  [SENSOR] sudo -n grep -c '"src_ip":"<IP>"' /var/log/suricata/eve.json  (por cada IP no-Kali)
+Proposito      : demostrar que el archivo completo (acumulador + eve) recoge el trafico de control
+                 normal de TODA la red, no solo el de la Kali (10.10.20.30).
+
+=== Acumulador: entidades distintas (ventanas recientes) ===
+  10.10.50.52 -> 590 ventanas, ultima 2026-10-27T07:55:30
+  10.10.60.1  -> 590 ventanas, ultima 2026-10-27T07:55:30
+  10.10.60.12 -> 590 ventanas, ultima 2026-10-27T07:55:30
+  10.10.10.2  -> 589 ventanas, ultima 2026-10-27T07:55:30
+  10.10.10.20 -> 589 ventanas, ultima 2026-10-27T07:55:30
+  10.10.10.21 -> 589 ventanas, ultima 2026-10-27T07:55:30
+  10.10.30.10 -> 589 ventanas, ultima 2026-10-27T07:55:30
+  10.10.40.10 -> 589 ventanas, ultima 2026-10-27T07:55:30
+  10.10.50.51 -> 589 ventanas, ultima 2026-10-27T07:55:30
+  10.10.10.1  -> 585 ventanas, ultima 2026-10-27T07:54:50
+  10.10.20.30 -> 185 ventanas, ultima 2026-10-27T07:53:00   <- KALI: 1 de 30
+  10.10.50.1  -> 165 ventanas
+  10.10.20.1  -> 159 ventanas
+  10.10.40.1  -> 125 ventanas
+  10.10.20.2  -> 101 ventanas
+  ## total entidades distintas: 30
+
+=== eve: eventos por IP de origen NO-Kali ===
+  src_ip 10.10.10.20 ->  1756 eventos
+  src_ip 10.10.10.30 -> 45500 eventos
+  src_ip 10.10.30.10 ->    87 eventos
+  src_ip 10.10.60.11 ->   110 eventos
+  src_ip 10.10.60.12 ->  9652 eventos
+  src_ip 10.10.40.10 ->  1239 eventos
+
+--- LECTURA ---
+El acumulador mantiene 30 entidades distintas con ~590 ventanas cada una y marcas de tiempo
+recientes; la Kali (10.10.20.30) es solo una de ellas. eve.json registra decenas de miles de
+eventos de orígenes no-Kali. El archivado abarca por tanto el control normal de toda la red
+mas el trafico de ensayo, y NO queda inadvertidamente limitado a la Kali. (El filtro solo-Kali
+afecta UNICAMENTE al pcap de cf-capturar; eve y el acumulador son de red completa.)

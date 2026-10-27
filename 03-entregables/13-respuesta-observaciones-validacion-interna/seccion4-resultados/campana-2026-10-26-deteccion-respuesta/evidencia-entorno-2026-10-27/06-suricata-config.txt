@@ -1,0 +1,40 @@
+EVIDENCIA DE PREPARACION — CONFIG EFECTIVA DE SURICATA (tras anadir 18081)
+===========================================================================
+Maquina        : SENSOR 10.10.60.11 (cyberflow-sensor)
+Fecha (UTC)    : 2026-10-27T08:05:04Z
+Comando        : [SENSOR m4rk] sha256sum /etc/suricata/suricata.yaml ; grep -n 18081 ; systemctl is-active suricata ; suricata -V
+Proposito      : dejar registro verificable de la UNICA edicion de Suricata hecha para la campana
+                 (habilitar parseo HTTP en 18081) con su hash, su comprobacion y su reversion.
+
+--- FICHERO EFECTIVO ---
+ruta   : /etc/suricata/suricata.yaml
+sha256 : 8e084b7dd9dbc9a1873ba479ce3861047a534742e0daf75c607d018c555efa04
+mtime  : 2026-10-27 07:23:29
+suricata: 7.0.3 RELEASE ; systemctl is-active suricata = active
+
+--- CAMBIO APLICADO (lo unico que se toco) ---
+En app-layer.protocols.http (linea ~1006):
+    http:
+      enabled: yes
+      detection-ports:
+        dp: "80, 18081"
+Tambien HTTP_PORTS (linea 42): "[80,18081]"  <- variable de REGLAS; NO controla el parseo app-layer
+(se dejo por coherencia, pero lo que habilita el parseo HTTP de 18081 es detection-ports.dp).
+
+--- COMPROBACION ---
+Con dp "80, 18081", Suricata emite event_type:http para los flujos a srv-dmz:18081 (401/200), y el
+extractor produce http_request_count_60s / http_auth_failure_ratio_60s (ver 03-telemetria.txt).
+Antes del cambio: 0 event_type:http para 18081 pese a HTTP_PORTS (diagnostico en
+infra-2026-10-27/README-EVIDENCIA-INFRA.md, seccion T3).
+
+--- REVERSION ---
+Para dejar Suricata como antes de la campana:
+  [SENSOR m4rk] editar /etc/suricata/suricata.yaml:
+     app-layer.protocols.http.detection-ports.dp : "80, 18081"  ->  "80"
+     HTTP_PORTS                                   : "[80,18081]"  ->  "[80]"
+  [SENSOR m4rk] sudo -n systemctl restart suricata   (unidad en el NOPASSWD del sensor)
+No se toco ninguna regla de deteccion ni ninguna otra seccion del yaml: solo los puertos de 18081.
+
+--- CLASIFICACION ---
+Config de ENTORNO (preparacion). Se mantiene durante A y B. No afecta a modelo, umbrales,
+escalador, heuristicos ni politica (solo habilita que Suricata vea HTTP en 18081).

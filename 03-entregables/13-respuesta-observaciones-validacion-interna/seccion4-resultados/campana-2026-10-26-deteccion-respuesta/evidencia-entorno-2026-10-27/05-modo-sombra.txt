@@ -1,0 +1,48 @@
+EVIDENCIA DE PREPARACION — MODO SOMBRA: estado real + verificacion del procedimiento
+======================================================================================
+Fecha (UTC)    : 2026-10-27T08:00Z
+Alcance        : NO se aplica el modo sombra en produccion durante la preparacion. Se captura el
+                 estado REAL (solo-lectura) y se verifica el PROCEDIMIENTO con inyectables. La
+                 sombra definitiva se activa al INICIO de A (stop+mask del agente, sets vacios).
+
+--- A) ESTADO REAL (solo-lectura) ---
+[SENSOR 10.10.60.11 (m4rk)] systemctl is-active ppi-motor ; systemctl cat ppi-motor | grep ExecStart
+  ppi-motor is-active: active
+  ExecStart=/home/m4rk/cyberflow/.venv/bin/python \   (continua; NO contiene --enforce)
+  >>> El motor NO aplica enforcement directo: solo emite decisiones al feed. (confirmacion para
+      --motor-verificado del script modo_sombra.sh)
+
+[srv-dmz 10.10.30.10 (adminsrvdmz)] systemctl is-active/is-enabled ppi-enforce-agent.* ; sudo nft list table inet cyberflow
+  ppi-enforce-agent.timer   is-active : active
+  ppi-enforce-agent.timer   is-enabled: enabled
+  ppi-enforce-agent.service is-enabled: static
+  nft table inet cyberflow:
+    set cyberflow_bloqueados { type ipv4_addr }   <- SIN linea 'elements' => VACIO
+    set cyberflow_limitados  { type ipv4_addr }   <- SIN linea 'elements' => VACIO
+    chain ... hook input priority filter - 10; policy accept;
+  >>> Enforcement VIVO (agente active+enabled) y sets VACIOS ahora (no hay bloqueos residuales).
+
+--- B) VERIFICACION DEL PROCEDIMIENTO (arnes con inyectables SUDO/SYSTEMCTL/NFT) ---
+[LAPTOP] bash tests/test_sombra.sh
+  OK  sombra feliz
+  OK  sudo denegado
+  OK  servicio no se detiene
+  OK  consulta nft falla
+  OK  falta --motor-verificado
+  OK  restaurar correcta
+  OK  restaurar a enmascarado
+  OK  escalada pendiente (sin confirmar)
+  OK  error de verificacion
+  OK  restaurar sin respaldo
+  OK  restaurar respaldo incompleto
+  ----- sombra: 11 ok, 0 fallos
+  >>> El procedimiento aplica (detener+enmascarar agente, vaciar sets, verificar que quedan vacios),
+      falla-seguro ante cada error (consulta nft fallida != set vacio) y restaura al estado previo
+      exigiendo --escalada-revisada. No se ejecuto contra produccion.
+
+--- ESTADO FINAL ---
+Enforcement QUEDA VIVO (agente active+enabled, sets vacios), exactamente como estaba. No se dejo
+nada deshabilitado. La aplicacion definitiva del modo sombra se hace al iniciar la campana A con:
+  [srv-dmz] scripts/modo_sombra.sh --ejecutar --motor-verificado
+y se restaura tras A con:
+  [srv-dmz] scripts/restaurar_enforcement.sh --ejecutar --escalada-revisada

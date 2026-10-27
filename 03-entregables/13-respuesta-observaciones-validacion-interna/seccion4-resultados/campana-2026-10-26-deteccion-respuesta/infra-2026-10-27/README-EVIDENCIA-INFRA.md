@@ -57,7 +57,15 @@ Aplicación en `T2-dns-lab-ppi-dc1.sh`; captura "después" (debe dar 0) en `T2-c
 **No se toca el forwarder global**: la zona local ya gana sobre el reenvío para `*.lab-ppi`.
 
 ## T3 — Regla pfSense + telemetría (2026-10-27)
-**Firewall y camino ✅ / telemetría HTTP ⬜ (hallazgo para el lado CyberFlow).**
+**Firewall y camino ✅ / telemetría HTTP ✅ (RESUELTO el mismo 27-oct en el lado CyberFlow).**
+
+> **Actualización 2026-10-27 (lado tesis/CyberFlow):** el parseo HTTP de 18081 quedó **resuelto**. La causa no
+> era `HTTP_PORTS` (variable de *reglas*), sino que `app-layer.protocols.http` no tenía `detection-ports`
+> apuntando a 18081. Al fijar **`detection-ports: { dp: "80, 18081" }`** en `app-layer.protocols.http` del
+> `suricata.yaml` del sensor y recargar Suricata, se emiten `event_type:http` para 18081 (401/200) y el extractor
+> produce `http_request_count_60s` y `http_auth_failure_ratio_60s>0` (p. ej. 18/0.667). Evidencia y hash efectivo
+> en `../evidencia-entorno-2026-10-27/` y `../ESTADO-ENTORNO-2026-10-27.md`. El texto "⬜ pendiente" de abajo
+> queda **superado**; se conserva como registro del hallazgo.
 
 - Regla `pass tcp 10.10.20.30 → 10.10.30.10:18081` **por encima** del deny base en **A (MASTER, pos 241/242)
   y B (pos 230/231)**. `easyrule` la había dejado por DEBAJO del deny (no se evaluaba → Kali 000); se rehízo con
@@ -78,9 +86,9 @@ Detalle y reversión en `T3-regla-pfsense-18081.md` y en el script `lab_b4_vlan2
 - **T1 ✅** NTP sincronizado (offset 0,18 s).
 - **T2 ✅** zona `lab-ppi` local, 0 egress.
 - **T3**: firewall y camino **✅** (Kali↔srv-dmz:18081, 401/200 a nivel de flujo, en A y B). Telemetría HTTP
-  **⬜ pendiente del lado CyberFlow**: Suricata no clasifica 18081 como HTTP pese a `HTTP_PORTS` → sin
-  eventos http ni `http_request_count_60s`. No es firewall ni infra; es detección app-layer / features (modelo).
+  **✅ RESUELTA** el 27-oct: `detection-ports: dp "80, 18081"` en `app-layer.protocols.http` del sensor →
+  `event_type:http` para 18081 y `http_request_count_60s`/`http_auth_failure_ratio_60s` en el extractor.
 
-**Límite de infra:** el firewall, el NTP y el DNS quedan listos y verificados. Lo único abierto (parseo HTTP de
-18081 en Suricata) es configuración del propio CyberFlow y se deja para la sesión de tesis, por la regla de la
-orden de no tocar modelo/heurísticos/política.
+**Límite de infra:** el firewall, el NTP y el DNS quedan listos y verificados. El parseo HTTP de 18081 en Suricata
+—lo único que quedaba abierto— se resolvió del lado CyberFlow ajustando `detection-ports` de la capa de aplicación
+(no se tocó modelo, heurísticos ni política). Entorno **LISTO** para la campaña A.
