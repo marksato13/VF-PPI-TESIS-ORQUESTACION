@@ -68,7 +68,7 @@
     {
       "id": "fuerza_bruta_http",
       "habilitado": false,
-      "motivo_deshabilitado": "endpoint 401 DESPLEGADO y verificado en srv-dmz:18081 (escucha 0.0.0.0, da 401/401/200). La regla pfSense se creo con easyrule pero quedo POR DEBAJO de CODEX_BASE_DENY_VLAN20_TO_VLAN30_OTHER (opt4/VLAN20), asi que no se evalua: la Kali sigue en 000. Falta REORDENAR la regla por ENCIMA del deny (paso del infra en pfSense).",
+      "motivo_deshabilitado": "27-oct: endpoint 401 OK (srv-dmz:18081) y regla pfSense ya por ENCIMA del deny en A y B (la Kali atraviesa; 401/200 a nivel de flujo). FALTA SOLO el parseo HTTP app-layer: Suricata no clasifica 18081 como HTTP (0 event_type:http) porque el bloque app-layer.protocols.http no tiene detection-ports; hay que anadir dp '80, 18081' y reiniciar suricata (edit root en el sensor, lo aplica el infra). Sin eso no hay http_request_count_60s para brute_force.",
       "destino": "10.10.30.10",
       "servicio": "TCP/HTTP endpoint de prueba :18081",
       "herramienta": "curl",
