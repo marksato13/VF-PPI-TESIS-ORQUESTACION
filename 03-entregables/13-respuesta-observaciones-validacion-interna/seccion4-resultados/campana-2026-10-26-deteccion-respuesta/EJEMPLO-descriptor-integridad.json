@@ -1,0 +1,47 @@
+{
+  "_nota": "Ejemplo de descriptor para verificar_integridad.py. Muestra un episodio APTO (verificado por informe externo trazable + mediciones de reloj válidas), uno NO APTO (hash declarado sin respaldo + error de captura) y uno DESCONOCIDO (sin evidencia).",
+  "_como_se_obtienen_los_datos": {
+    "rutas": "ruta local a PCAP/EVE/decisiones/caracteristicas si se analizan en esta máquina (se calcula el sha256 real)",
+    "informe_externo": "si se verifican en otro host: {maquina, herramienta, resultado:'ok', referencia:<ruta/ticket de evidencia>, sha256}; debe ser trazable",
+    "cobertura_s": "previa/posterior en segundos y 'durante': true si todas las ventanas del ataque tienen datos; se obtiene del PCAP continuo y del motor",
+    "captura": "paquetes_descartados de las estadísticas de tcpdump; errores con 'afecta_fuentes' si comprometen una fuente necesaria",
+    "reinicios": "por componente (captura/suricata/motor): momento, recuperado, historia_tras_s, calentamiento_s",
+    "relojes": "requeridos=hosts a comparar; mediciones por host {referencia, momento (epoch), desfase_s, incertidumbre_s}; correccion_desfase opcional {procedimiento, verificado}"
+  },
+  "episodios": [
+    {
+      "episodio_id": "inundacion_http-r1", "campana": "deteccion-respuesta",
+      "intervalo": {"inicio": 1793000000, "fin": 1793000090},
+      "informe_externo": {
+        "pcap": {"maquina": "sensor-10.10.60.11", "herramienta": "sha256sum", "resultado": "ok", "referencia": "evidencia/hashes-20261030.txt", "sha256": "<sha256 real del pcap>"},
+        "eve": {"maquina": "sensor-10.10.60.11", "herramienta": "sha256sum", "resultado": "ok", "referencia": "evidencia/hashes-20261030.txt", "sha256": "<sha256 real del eve>"},
+        "decisiones": {"maquina": "sensor-10.10.60.11", "herramienta": "sha256sum", "resultado": "ok", "referencia": "evidencia/hashes-20261030.txt", "sha256": "<sha256 real>"},
+        "caracteristicas": {"maquina": "sensor-10.10.60.11", "herramienta": "sha256sum", "resultado": "ok", "referencia": "evidencia/hashes-20261030.txt", "sha256": "<sha256 real>"}
+      },
+      "cobertura_s": {"previa": 130, "durante": true, "posterior": 95},
+      "continuidad_sin_huecos": true, "faltantes": [],
+      "captura": {"paquetes_descartados": 0, "errores": []},
+      "reinicios": {},
+      "relojes": {"requeridos": ["sensor", "bastion"], "tolerancia_s": 1,
+                  "mediciones": [
+                    {"host": "sensor", "referencia": "bastion/NTP", "momento": 1793000050, "desfase_s": 0.02, "incertidumbre_s": 0.05},
+                    {"host": "bastion", "referencia": "NTP evlbi", "momento": 1793000050, "desfase_s": 0.001, "incertidumbre_s": 0.02}
+                  ]}
+    },
+    {
+      "episodio_id": "inundacion_http-r2", "campana": "deteccion-respuesta",
+      "intervalo": {"inicio": 1793000300, "fin": 1793000390},
+      "hashes_esperados": {"pcap": "aaaa", "eve": "bbbb", "decisiones": "cccc", "caracteristicas": "dddd"},
+      "cobertura_s": {"previa": 130, "durante": true, "posterior": 95},
+      "continuidad_sin_huecos": true, "faltantes": [],
+      "captura": {"paquetes_descartados": 0, "errores": [{"afecta_fuentes": true, "desc": "tcpdump reportó paquetes truncados en el tramo del ataque"}]},
+      "reinicios": {},
+      "relojes": {"requeridos": ["sensor"], "tolerancia_s": 1,
+                  "mediciones": [{"host": "sensor", "referencia": "bastion/NTP", "momento": 1793000350, "desfase_s": 0.1, "incertidumbre_s": 0.05}]}
+    },
+    {
+      "episodio_id": "escaneo_breve-r1", "campana": "deteccion-respuesta",
+      "intervalo": {"inicio": 1793000600, "fin": 1793000618}
+    }
+  ]
+}

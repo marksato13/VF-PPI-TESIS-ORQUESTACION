@@ -166,7 +166,8 @@ def test_analizador_basico():
         mot.append(rec(w + 1, w, -0.70 if w == T + 40 else -0.50, "ALERT" if w == T + 40 else "PERMIT",
                        {"heuristico": "http_abuse", "accion": "LIMIT"} if w == T + 40 else None))
     mot.append(rec(T + 41, T + 40, -0.70, "ALERT", {"heuristico": "http_abuse", "accion": "LIMIT"}))  # duplicado
-    dok = {("inundacion_http-r1", iso(T + 40)): ["10.10.30.10"]}   # evidencia de destino (confirma atribución)
+    # evidencia de destino COMPLETA: todas las ventanas del ataque (T+10..T+90) hacia el destino del escenario
+    dok = {("inundacion_http-r1", iso(w)): ["10.10.30.10"] for w in range(T + 10, T + 91, 10)}
     c, regs, dups = clasif(an, marca("inundacion_http-r1", "inundacion_http", "10.10.30.10", T, T + 90), mot,
                            "inundacion_http-r1", destinos=dok, integridad_apto=True)
     check(len(dups) == 1, f"detecta 1 ventana duplicada (hay {len(dups)})")
@@ -217,85 +218,157 @@ def test_score_nulo_con_heuristico():
         check(g["HEUR"] and not g["IF_0.05"], "score null: HEUR dispara, IF no")
 
 
-def _tabla8_e2e(an, tmp, destinos_csv, integ_apto=True):
-    """Recorre main() hasta el fichero de la Tabla 8 y devuelve el dict tabla8. destinos_csv=None => sin --destinos."""
+def _tabla8_e2e(an, tmp, destinos_csv, con_senal=True):
+    """Recorre main() hasta analisis.json/TABLA8.md. destinos_csv=None => sin --destinos. Devuelve (tabla8, episodio)."""
     T = 1793000000
     d = Path(tmp)
     (d / "marcas.jsonl").write_text("\n".join(
         marca("inundacion_http-r1", "inundacion_http", "10.10.30.10", T, T + 90)), encoding="utf-8")
-    mot = [rec(w + 1, w, -0.70 if w == T + 40 else -0.50, "ALERT" if w == T + 40 else "PERMIT")
-           for w in range(T, T + 150, 10)]
+    mot = [rec(w + 1, w, (-0.70 if (con_senal and w == T + 40) else -0.50),
+               ("ALERT" if (con_senal and w == T + 40) else "PERMIT")) for w in range(T, T + 150, 10)]
     (d / "motor.log").write_text("\n".join(mot), encoding="utf-8")
     (d / "cfg.json").write_text(json.dumps({"umbrales": {"0.05": U05, "0.03": U03, "desplegado_referencia": -0.5693969936322356},
                                             "origen": K, "combinacion_real": {"exclusiones": {"NUNCA_BLOQUEAR": []}}}),
                                 encoding="utf-8")
-    (d / "integ.json").write_text(json.dumps({"episodios": [{"episodio_id": "inundacion_http-r1", "apto": integ_apto}]}),
+    (d / "integ.json").write_text(json.dumps({"episodios": [{"episodio_id": "inundacion_http-r1", "apto": True}]}),
                                   encoding="utf-8")
     argv = ["x", "--marcas", str(d / "marcas.jsonl"), "--motor", str(d / "motor.log"),
             "--config", str(d / "cfg.json"), "--integridad", str(d / "integ.json"), "--salida", str(d / "out")]
     if destinos_csv is not None:
         (d / "dest.csv").write_text(destinos_csv, encoding="utf-8")
         argv += ["--destinos", str(d / "dest.csv")]
-    old = sys.argv
-    sys.argv = argv
+    old = sys.argv; sys.argv = argv
     try:
         an.main()
     finally:
         sys.argv = old
-    return json.loads((d / "out" / "analisis.json").read_text(encoding="utf-8"))["tabla8"]["Inundación HTTP"]
+    j = json.loads((d / "out" / "analisis.json").read_text(encoding="utf-8"))
+    return j["tabla8"]["Inundación HTTP"], j["episodios"]["inundacion_http-r1"]
 
 
-def test_tabla8_excluye_no_confirmadas():
+def _csv_cubre(T, destino, eid="inundacion_http-r1"):
+    filas = "".join(f"{eid},{iso(w)},{destino}\n" for w in range(T + 10, T + 91, 10))  # todas las ventanas del ataque
+    return "episodio_id,window_end_utc,destino\n" + filas
+
+
+def test_tabla8_evidencia_y_denominador():
     an = cargar("analizar")
     T = 1793000000
-    wk = iso(T + 40)
-    casos = {
-        "sin --destinos": (None, False),
-        "mapa vacío": ("episodio_id,window_end_utc,destino\n", False),
-        "clave ausente": (f"episodio_id,window_end_utc,destino\ninundacion_http-r1,{iso(T + 20)},10.10.30.10\n", False),
-        "destino incorrecto": (f"episodio_id,window_end_utc,destino\ninundacion_http-r1,{wk},10.10.99.99\n", False),
-        "destino correcto": (f"episodio_id,window_end_utc,destino\ninundacion_http-r1,{wk},10.10.30.10\n", True),
-    }
-    for nombre, (csvdata, debe_contar) in casos.items():
+    # (caso, csv, con_senal) -> (num_esperado, evaluable_esperado, categoria_IF)
+    casos = [
+        ("sin --destinos", None, True, 0, False, "no_evaluable"),
+        ("archivo vacío", "episodio_id,window_end_utc,destino\n", True, 0, False, "no_evaluable"),
+        ("evidencia de otro episodio", "episodio_id,window_end_utc,destino\notro-r1," + iso(T + 40) + ",10.10.30.10\n",
+         True, 0, False, "no_evaluable"),
+        ("evidencia incompleta", "episodio_id,window_end_utc,destino\ninundacion_http-r1," + iso(T + 40) + ",10.10.30.10\n",
+         True, 0, False, "no_evaluable"),
+        ("completa con señal atribuible", _csv_cubre(T, "10.10.30.10"), True, 1, True, "durante"),
+        ("completa sin señal atribuible", _csv_cubre(T, "10.10.30.10"), False, 0, True, "sin_deteccion"),
+        ("señal hacia otro destino", _csv_cubre(T, "10.10.99.99"), True, 0, True, "sin_deteccion"),
+    ]
+    for nombre, csvd, con_senal, num, evaluable, cat_if in casos:
         with tempfile.TemporaryDirectory() as tmp:
-            t8 = _tabla8_e2e(an, tmp, csvdata)
-            cnt = t8["IF_0.05"]
-            if debe_contar:
-                check(cnt == 1 and "inundacion_http-r1" in t8["evaluables"],
-                      f"Tabla 8 cuenta 1 con atribución confirmada ({nombre})")
-            else:
-                check(cnt == 0, f"Tabla 8 NO cuenta señal no confirmada ({nombre}) — contó {cnt}")
+            t8, epi = _tabla8_e2e(an, tmp, csvd, con_senal=con_senal)
+            den = "inundacion_http-r1" in t8["evaluables"]
+            check(t8["IF_0.05"] == num, f"{nombre}: numerador IF 0,05 = {num} (fue {t8['IF_0.05']})")
+            check(den == evaluable, f"{nombre}: denominador/evaluable = {evaluable} (fue {den})")
+            check(epi["IF_0.05"]["categoria"] == cat_if, f"{nombre}: categoría IF = {cat_if} (fue {epi['IF_0.05']['categoria']})")
+            if not evaluable:
+                check(epi["IF_0.05"]["categoria"] != "sin_deteccion",
+                      f"{nombre}: evidencia ausente/incompleta NO se presenta como 'sin detección'")
+            if nombre == "señal hacia otro destino":
+                # la señal hacia otro destino se observa pero no cuenta como detección del ataque
+                check(epi["IF_0.05"]["senal_observada"] is False, "señal a otro destino: excluida (no es este ataque)")
 
 
-def test_integridad_gate():
-    an = cargar("analizar")
+def _ep_integro(d, **over):
+    """Descriptor de episodio con todo verificable (archivos reales); 'over' pisa campos para cada caso."""
+    import hashlib
+    archivos = {}
+    for campo in ("pcap", "eve", "decisiones", "caracteristicas"):
+        p = Path(d) / f"{campo}.bin"
+        p.write_bytes(campo.encode())
+        archivos[campo] = {"ruta": str(p), "sha256": hashlib.sha256(campo.encode()).hexdigest()}
+    e = {"episodio_id": "inundacion_http-r1", "campana": "c",
+         "intervalo": {"inicio": 1793000000, "fin": 1793000090},
+         "rutas": {k: v["ruta"] for k, v in archivos.items()},
+         "hashes_esperados": {k: v["sha256"] for k, v in archivos.items()},
+         "cobertura_s": {"previa": 130, "durante": True, "posterior": 95},
+         "continuidad_sin_huecos": True, "faltantes": [],
+         "captura": {"paquetes_descartados": 0, "errores": []},
+         "reinicios": {},
+         "relojes": {"requeridos": ["sensor"], "tolerancia_s": 1,
+                     "mediciones": [{"host": "sensor", "referencia": "bastion/NTP", "momento": 1793000050,
+                                     "desfase_s": 0.1, "incertidumbre_s": 0.05}]}}
+    e.update(over)
+    return e
+
+
+def test_integridad_11_casos():
     vi = cargar("verificar_integridad")
-    # episodio con motor continuo pero PCAP incompleto / historia insuficiente / telemetría no verificable
-    e = {"episodio_id": "inundacion_http-r1", "campana": "x",
-         "pcap_presente": False,                         # PCAP incompleto/ausente
-         "eve_presente": True, "decisiones_presentes": True, "caracteristicas_presentes": True,
-         "cobertura_s": {"previa": 30, "posterior": 95}, # historia insuficiente (<120)
-         "cobertura_durante_completa": True, "continuidad_sin_huecos": True, "faltantes": [],
-         "captura": {"paquetes_descartados": 0}, "eve_eventos": 0,
-         "salud": {"suricata_activo": True, "trafico_presente": True},  # EVE 0 con salud OK => fallo telemetría
-         "relojes": {"sensor": 0.1, "tolerancia_s": 1}}
-    rep = vi.evaluar_episodio(e)
-    check(rep["apto"] is False, "integridad: PCAP ausente + historia corta => NO apto")
-    check(rep["requisitos"]["historia_requerida_disponible"] is False, "historia <120 s => False")
-    check(rep["requisitos"]["telemetria_eve_verificable"] is False, "EVE 0 con suricata activo y tráfico => fallo")
-    # desconocido no es apto
-    e2 = {"episodio_id": "y", "cobertura_s": {}, "eve_eventos": 5}
-    rep2 = vi.evaluar_episodio(e2)
-    check(rep2["apto"] is False and rep2["desconocidos"], "campos sin evidencia => 'desconocido' y NO apto")
-    # un episodio con motor continuo pero integridad no apta NO se declara evaluable en el analizador
+    with tempfile.TemporaryDirectory() as d:
+        # 4) archivos válidos y hashes coincidentes -> apto
+        ap = vi.evaluar_episodio(_ep_integro(d))
+        check(ap["apto"] is True, "4) archivos válidos + hashes coincidentes => apto")
+        # 1) ruta inexistente con hash declarado -> ausente (no apto)
+        e = _ep_integro(d); e["rutas"]["pcap"] = str(Path(d) / "no_existe.bin")
+        r = vi.evaluar_episodio(e)
+        check(r["requisitos"]["pcap"]["estado"] == "ausente" and not r["apto"],
+              "1) ruta inexistente con hash declarado => ausente, no apto")
+        # 2) archivo ilegible (una carpeta como ruta) -> ausente
+        e = _ep_integro(d); e["rutas"]["eve"] = d
+        check(vi.evaluar_episodio(e)["requisitos"]["eve"]["estado"] == "ausente", "2) archivo ilegible => ausente")
+        # 3) hash diferente -> ausente
+        e = _ep_integro(d); e["hashes_esperados"]["decisiones"] = "0" * 64
+        check(vi.evaluar_episodio(e)["requisitos"]["decisiones"]["estado"] == "ausente", "3) hash distinto => ausente")
+        # 11) informe externo trazable (verificado) vs declaración sin respaldo (declarado_sin_verificar)
+        e = _ep_integro(d); del e["rutas"]["pcap"]
+        e["informe_externo"] = {"pcap": {"maquina": "sensor", "herramienta": "sha256sum", "resultado": "ok",
+                                         "referencia": "evidencia/hashes.txt", "sha256": "a" * 64}}
+        check(vi.evaluar_episodio(e)["requisitos"]["pcap"]["estado"] == "verificado",
+              "11a) informe externo trazable => verificado")
+        e = _ep_integro(d); del e["rutas"]["eve"]   # queda solo el hash declarado
+        check(vi.evaluar_episodio(e)["requisitos"]["eve"]["estado"] == "declarado_sin_verificar",
+              "11b) solo hash declarado, sin ruta ni informe => declarado_sin_verificar (no apto)")
+        # 5) relojes con solo tolerancia, sin mediciones -> desconocido
+        e = _ep_integro(d); e["relojes"] = {"requeridos": ["sensor"], "tolerancia_s": 1}
+        check(vi.evaluar_episodio(e)["requisitos"]["relojes"]["estado"] == "desconocido",
+              "5) tolerancia sin mediciones => desconocido")
+        # 6) host requerido sin medición -> desconocido
+        e = _ep_integro(d); e["relojes"]["requeridos"] = ["sensor", "bastion"]
+        check(vi.evaluar_episodio(e)["requisitos"]["relojes"]["estado"] == "desconocido",
+              "6) host requerido sin medición => desconocido")
+        # 7) medición fuera del periodo aplicable -> ausente
+        e = _ep_integro(d); e["relojes"]["mediciones"][0]["momento"] = 1700000000
+        check(vi.evaluar_episodio(e)["requisitos"]["relojes"]["estado"] == "ausente",
+              "7) medición fuera de periodo => ausente")
+        # 8) reinicio sin historia suficiente -> ausente
+        e = _ep_integro(d); e["reinicios"] = {"captura": [{"recuperado": True, "historia_tras_s": 30, "calentamiento_s": 5}]}
+        check(vi.evaluar_episodio(e)["requisitos"]["reinicios"]["estado"] == "ausente",
+              "8) reinicio sin historia suficiente => ausente")
+        # 9) reinicio documentado con recuperación y calentamiento suficientes -> verificado
+        e = _ep_integro(d); e["reinicios"] = {"captura": [{"recuperado": True, "historia_tras_s": 150, "calentamiento_s": 30}]}
+        check(vi.evaluar_episodio(e)["requisitos"]["reinicios"]["estado"] == "verificado",
+              "9) reinicio con recuperación e historia/calentamiento suficientes => verificado")
+        # 10) error de captura relevante -> ausente
+        e = _ep_integro(d); e["captura"]["errores"] = [{"afecta_fuentes": True, "desc": "truncado el PCAP"}]
+        check(vi.evaluar_episodio(e)["requisitos"]["captura_sin_errores_relevantes"]["estado"] == "ausente",
+              "10) error de captura relevante => ausente")
+
+
+def test_integridad_gate_analizador():
+    an = cargar("analizar")
     T = 1793000000
     mot = [rec(w + 1, w, -0.70 if w == T + 40 else -0.50, "ALERT" if w == T + 40 else "PERMIT")
            for w in range(T, T + 150, 10)]
+    dok = {("inundacion_http-r1", iso(w)): ["10.10.30.10"] for w in range(T + 10, T + 91, 10)}
     c, _, _ = clasif(an, marca("inundacion_http-r1", "inundacion_http", "10.10.30.10", T, T + 90), mot,
-                     "inundacion_http-r1", destinos={("inundacion_http-r1", iso(T + 40)): ["10.10.30.10"]},
-                     integridad_apto=False)
+                     "inundacion_http-r1", destinos=dok, integridad_apto=False)
     check(c["evaluable"] is False and c["IF_0.05"]["categoria"] == "no_evaluable",
-          "motor continuo pero integridad no apta => no evaluable")
+          "motor continuo + atribución confirmable pero integridad NO apta => no evaluable")
+    c2, _, _ = clasif(an, marca("inundacion_http-r1", "inundacion_http", "10.10.30.10", T, T + 90), mot,
+                      "inundacion_http-r1", destinos=dok, integridad_apto=None)
+    check(c2["evaluable"] is False, "integridad DESCONOCIDA (None) => no evaluable (desconocido != apto)")
 
 
 def test_ventana_previa():
@@ -336,8 +409,8 @@ def test_emitido_vs_derivado():
 def main():
     for fn in (test_validacion, test_generador_simulacion, test_generador_timeout_mata_hijos,
                test_analizador_basico, test_cobertura_una_ventana_insuficiente, test_score_nulo_con_heuristico,
-               test_tabla8_excluye_no_confirmadas, test_ventana_previa, test_emitido_vs_derivado,
-               test_integridad_gate):
+               test_tabla8_evidencia_y_denominador, test_ventana_previa, test_emitido_vs_derivado,
+               test_integridad_11_casos, test_integridad_gate_analizador):
         fn()
         print(f"OK  {fn.__name__}")
     print(f"\n{ok['n']} comprobaciones pasaron.")

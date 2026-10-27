@@ -1,0 +1,9 @@
+episodio_id,window_end_utc,destino
+# Evidencia de destino para analizar.py --destinos. Una fila por (episodio, ventana, destino observado).
+# Debe CUBRIR todas las ventanas de la Kila durante el ataque (window_end en (inicio, fin]); si una ventana tiene
+# varios destinos, se repite la fila. Se obtiene del PCAP/EVE: a qué destino fue el tráfico de 10.10.20.30 en cada
+# ventana de 10 s. Sin cobertura completa, el episodio es NO evaluable para esa comparación.
+inundacion_http-r1,2026-10-05T20:35:10+00:00,10.10.30.10
+inundacion_http-r1,2026-10-05T20:35:20+00:00,10.10.30.10
+inundacion_http-r1,2026-10-05T20:35:30+00:00,10.10.30.10
+# ... una fila por cada ventana de 10 s del intervalo del ataque ...

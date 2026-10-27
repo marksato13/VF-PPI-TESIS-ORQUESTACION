@@ -35,9 +35,13 @@ Procedimiento real (el mismo en `scripts/modo_sombra.sh`, README y matriz), con 
    elements). Aborta con código ≠0 si algo falla; una consulta nft fallida **no** se interpreta como set vacío.
 2. `--motor-verificado` exige confirmar antes en el **sensor** que `ppi-motor` no corre con `--enforce` (vía directa).
    Se detiene el **agente** (lo que aplica), no el publicador: parar el publicador no invalida un feed ya publicado.
-3. Al terminar A: `restaurar_enforcement.sh --ejecutar` restaura el estado **exacto** guardado (sin defaults que
-   arranquen servicios), tras **vaciar** los sets y avisar de revisar la escalada (`estado.json`) para no aplicar
-   decisiones residuales de A. No anuncia restauración completa si es parcial.
+3. Al terminar A: `restaurar_enforcement.sh --ejecutar --escalada-revisada` restaura el agente al estado guardado
+   (sin defaults que arranquen servicios), tras **vaciar** los sets. **No** anuncia «restauración exacta» (los sets
+   vaciados son limpieza experimental no recuperable) y aborta si el respaldo o la verificación fallan.
+
+> **Los flags confirman comprobaciones ya hechas, no las sustituyen.** `--motor-verificado` declara que **ya**
+> comprobaste en el sensor que `ppi-motor` no corre con `--enforce`; `--escalada-revisada` declara que **ya** revisaste
+> el feed y el contador de escalada. Sin ellos, los scripts abortan.
 
 El motor y el panel siguen corriendo: A necesita que el motor **decida y registre**, solo que la acción no se aplique.
 
@@ -126,7 +130,7 @@ criterio de etiquetado previo si se calculan métricas por ventana, **separadas*
 | `capturar.sh` | Sensor | Captura PCAP continua sin huecos a disco archivado, con rotación por tamaño; marca inicio/fin. |
 | `modo_sombra.sh` / `restaurar_enforcement.sh` | srv-dmz | **Detiene y enmascara** el agente para A (impedir que aplique; NO es ejecutarlo en dry-run) y lo restaura para B según el estado guardado; fallo seguro. `restaurar` exige `--escalada-revisada`. |
 | `verificar_integridad.py` | Laptop/sensor | Informe de integridad por episodio (PCAP/EVE/decisiones/historia/relojes); `analizar.py --integridad` lo exige para declarar evaluable. |
-| `analizar.py` | Laptop/sensor | Lee `marcas.jsonl` + `motor_decision.log` + features/scores; produce categorías D/P/N/NE, emitidas vs derivadas y la Tabla 8. Reutiliza la lógica de `../4.2-ablacion/aporte-componentes-r2-2026-10-26/evaluar_r2.py`. |
+| `analizar.py` | Laptop/sensor | Lee `marcas.jsonl` + `motor_decision.log` (+ `--destinos`, `--integridad`); clasifica por `logged_at` D/P/N/NE, emitido vs derivado; la Tabla 8 cuenta **solo** detecciones durante con **atribución confirmada** y episodio **evaluable** (cobertura + evidencia de destino que cubre el intervalo + integridad apta). |
 | `comprobar_relojes.sh` | cada host | Guarda el desfase NTP antes y después. |
 
 Los scripts de generación son **generadores de carga de laboratorio** (nmap, bucles de `curl`/`dig`, intentos de auth
@@ -143,13 +147,13 @@ contra un endpoint de prueba), equivalentes a los ya versionados en `_campana/or
 
 **Ejecución de la campaña A (cuando se autorice):**
 1. Sensor: `capturar.sh ens37 <dir>` (captura continua) — dejar corriendo.
-2. srv-dmz: `modo_sombra.sh --ejecutar` (detiene el agente, vacía sets, verifica). Sensor: comprobar `ppi-motor` sin `--enforce`.
+2. Sensor: comprobar `ppi-motor` sin `--enforce`. srv-dmz: `modo_sombra.sh --ejecutar --motor-verificado` (detiene y enmascara el agente, vacía sets, verifica).
 3. Control normal ≥ 30 min (tráfico legítimo) y arranque/calentamiento del motor registrados.
 4. Kali: `generar_campana.py --config ../escenarios/escenarios.json --salida-dir ./corrida --autorizado`.
 5. Al terminar: parar `capturar.sh`; recoger `marcas.jsonl`, `salidas/`, PCAP, EVE, `motor_decision.log`.
 
 **Restauración (obligatoria tras A, antes de B):**
-1. srv-dmz: `restaurar_enforcement.sh --ejecutar` (reactiva el agente al estado previo exacto).
+1. srv-dmz: `restaurar_enforcement.sh --ejecutar --escalada-revisada` (reactiva el agente al estado previo guardado; los sets vaciados no se recuperan).
 2. Verificar enforcement activo (`journalctl -u ppi-enforce-agent`).
 
 **Análisis (sin tráfico):** primero `verificar_integridad.py --descriptor … --salida integridad.json`; luego
