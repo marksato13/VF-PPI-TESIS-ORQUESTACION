@@ -111,8 +111,16 @@ init_dst(){ DST="$1"; mkdir -p "$DST" || { echo "no se pudo crear $DST" >&2; exi
   : >> "$ARCHF"; : >> "$SEENF"; }
 
 fin(){ log "parando: espero ${CLOSE_AGE}s a que cierre el ultimo fichero y hago barrido final"
-  sleep "$CLOSE_AGE"; local r f l; r=$(sweep "$DST"); f=${r% *}; l=${r#* }; write_status "$DST" "$f" "$l"
-  log "FIN $(cat "$STATUSF")"; [ "${l:-0}" -gt 0 ] && exit 4; exit 0; }
+  sleep "$CLOSE_AGE"; local r f l
+  if ! r=$(sweep "$DST"); then log "FALLO: el barrido final no pudo ejecutarse"; echo "FALLO: barrido final no ejecutado ($(now))" > "$STATUSF" 2>/dev/null || true; exit 6; fi
+  f=${r% *}; l=${r#* }
+  if ! [ "$f" -ge 0 ] 2>/dev/null || ! [ "$l" -ge 0 ] 2>/dev/null; then log "FALLO: resultado de barrido final invalido ('$r')"; echo "FALLO: barrido final invalido ($(now))" > "$STATUSF" 2>/dev/null || true; exit 6; fi
+  write_status "$DST" "$f" "$l"
+  log "FIN $(cat "$STATUSF" 2>/dev/null)"
+  # Codigo de salida = resultado del cierre: 0 SOLO si completo y verificado (sin pendientes ni perdidos).
+  [ "$l" -gt 0 ] && exit 4      # archivos perdidos
+  [ "$f" -gt 0 ] && exit 5      # copias pendientes/fallidas en el barrido final
+  exit 0; }
 
 cmd_archivar(){ init_dst "${1:-$HOME/cf-campana-archivo/campana-$(date -u +%Y%m%d%H%M%S)}"; local INT="${2:-$INT_DEFAULT}"
   log "INICIO archivador DST=$DST RING=$RING intervalo=${INT}s CLOSE_AGE=${CLOSE_AGE}s MIN_KB=${MIN_KB}"
