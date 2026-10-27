@@ -90,7 +90,7 @@
     "generador": "scripts/generar_campana.py (seguro por defecto: simula sin --autorizado)",
     "analizador": "scripts/analizar.py",
     "nota_duracion": "90 s para DNS e inundacion HTTP; en escaneos se registra la duracion del comando y la actividad efectiva, no se prolonga para asegurar deteccion.",
-    "escenarios_pendientes": {"dns_inusual": "falta zona_dns local", "fuerza_bruta_http": "falta endpoint 401 (brute_puerto/brute_ruta)"}
+    "escenarios_pendientes": "ninguno al 27-oct: los 5 habilitados y verificados en entorno (ver ESTADO-ENTORNO-2026-10-27.md). DNS usa zona local lab-ppi; fuerza bruta usa endpoint 18081/auth (cadena red+Suricata+extractor confirmada)."
   },
   "emision_vs_window_end": {
     "logged_at": "motor_decision.py escribe logged_at = time.time() del ciclo (motor_decision.py:601) = instante REAL de emision; el analizador clasifica por logged_at.",

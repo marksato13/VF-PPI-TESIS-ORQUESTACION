@@ -70,22 +70,32 @@ filtrado del cortafuegos (limitación conocida, no bloqueante).
     atraviesa y srv-dmz:18081 responde (401/200 **a nivel de flujo**: bytes_toserver 288 / toclient 218 y 366). El
     motor decide sobre 10.10.20.30 (PERMIT, sube `packet_count_10s`). (`easyrule` la había dejado bajo el deny; se
     rehízo con el clon del script y se aplicó en B a mano porque XMLRPC no propagó un cambio por `write_config`.)
-  - **Pendiente (único):** Suricata **no clasifica 18081 como HTTP** (0 `event_type:http` en :18081; 598 en :80), así
-    que **no hay `http_request_count_60s`**. Causa: el bloque `app-layer.protocols.http` de `suricata.yaml` no tiene
-    `detection-ports` (tls sí dp 443, dns dp 53); el `HTTP_PORTS` que se añadió es la variable de **reglas**, no el
-    app-layer. **Fix (edit root en el sensor, lo aplica el infra):** añadir `detection-ports: { dp: "80, 18081" }` al
-    bloque `http:` y `systemctl restart suricata`. Reversión: quitar esas 2 líneas y reiniciar. Tras eso yo relanzo la
-    pasada benigna y confirmo `event_type:http` (401/200) + `http_request_count_60s>0`.
-  - El extractor toma `http_*` de los `event_type:http` de eve.json (`load_app_observations`), por eso depende de ese
-    parseo; no es un cambio de modelo/umbrales.
+  - **Parseo HTTP — RESUELTO (infra).** Se añadió `detection-ports: { dp: "80, 18081" }` al bloque
+    `app-layer.protocols.http` de `suricata.yaml` y se reinició Suricata (PID 1110887, 07:23:30, pasó `suricata -T`).
+    Reversión: `cp suricata.yaml.bak-detports suricata.yaml && systemctl restart suricata`.
+  - **Verificación end-to-end (27-oct 07:29, pasada benigna):** Kali→:18081 devolvió **401/401/200**; eve.json emite
+    `event_type:http` con `GET /auth` y estados **401 y 200** para 10.10.20.30→10.10.30.10:18081; y el **extractor**
+    lo recibe: en el acumulador la ventana 07:29:20 de 10.10.20.30 tiene **`http_request_count_60s=18`** y
+    `http_auth_failure_ratio_60s=0,667` (la verificación mezcló 200s; la fuerza bruta real —solo 401— dará ratio
+    ~1,0 ≥0,8 y disparará `brute_force`). **T3 CERRADO.**
+  - Nota: `motor_decision.log` **no serializa** `http_request_count_60s` (solo un subconjunto de campos); el valor se
+    comprueba en el acumulador/replay. El extractor toma `http_*` de los `event_type:http` de eve.json
+    (`load_app_observations`); esto es telemetría, no un cambio de modelo/umbrales.
 
 ## Veredicto
 
-**NO LISTO PARA CAMPAÑA A (1 requisito pendiente).** Cerrados: relojes (sensor sincronizado), zona DNS local,
-endpoint desplegado y **camino de red del endpoint** (firewall reordenado en pfSense-A/B; la Kali llega a :18081).
-**4 de 5 escenarios listos** (DNS inusual, inundación HTTP, escaneo breve, escaneo sostenido). **Falta solo** que
-Suricata parsee 18081 como HTTP (añadir `detection-ports` al bloque `http:` y reiniciar — edit root en el sensor, lo
-aplica el infra) para que el extractor produzca `http_request_count_60s` y habilitar la **fuerza bruta HTTP**
-(`fuerza_bruta_http`). La sombra del enforcement se activa justo antes de A.
+**LISTO PARA CAMPAÑA A** (sin iniciarla; a la espera de la instrucción del prompt 2). Los 3 requisitos críticos están
+**cerrados y verificados**: relojes (sensor sincronizado, 4 hosts comparables), zona DNS local `lab-ppi` (egress 0) y
+endpoint de fuerza bruta de extremo a extremo (red + Suricata HTTP + extractor). **Los 5 escenarios habilitados**
+(DNS inusual, inundación HTTP, escaneo breve, escaneo sostenido, fuerza bruta HTTP).
+
+**Pasos operativos al iniciar A (no son bloqueos; se ejecutan al arrancar la campaña):**
+1. `modo_sombra.sh --ejecutar --motor-verificado` en srv-dmz (detener+enmascarar el agente, vaciar sets); hoy el
+   enforcement sigue VIVO (`cyberflow_limitados` tenía 1 elemento). Restaurar tras A con `restaurar_enforcement.sh`.
+2. Arrancar captura continua (`cf-capturar` por episodio / archivado) y confirmar reloj de la Kali.
+3. Lanzar el generador con `--autorizado` (eso ya es el prompt 2; **no** se hace ahora).
+
+Lo desplegado para la campaña (endpoint `ppi-brute-lab`, regla pfSense 18081, `detection-ports` de Suricata, zona
+`lab-ppi`) queda en pie hasta la campaña B; cada uno con su reversión documentada arriba y en `infra-2026-10-27/`.
 
 Commit base de procedimientos: `96e1a0d` · repo VF-PPI-TESIS-ORQUESTACION.
