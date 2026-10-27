@@ -82,5 +82,38 @@ if [ "$RC2" -eq 4 ] && echo "$EST2" | grep -q '^FALLO' && echo "$LOG2" | grep -q
   pass "perdida DETECTADA (RC=4, ESTADO FALLO, PERDIDO en log; no se salto en silencio)"
 else bad "perdida: deberia marcarse PERDIDO/FALLO (RC2=$RC2 ESTADO='$EST2')"; fi
 
+# ---- modo CONTINUO detenido por SIGTERM: el codigo de salida de fin() debe reflejar el cierre ----
+RC_C=0; EST_C=""; LOG_C=""; D_C=""
+run_cont(){ # $1=cp  $2=hook-antes-de-parar (opcional, se ejecuta tras 1 barrido)
+  local R="$WORK/ringc"; D_C="$WORK/dstc_$RANDOM"; mk_ring "$R"
+  CP="$1" RING="$R" MIN_KB=1 CLOSE_AGE=0 INT_DEFAULT=1 bash "$SCRIPT" archivar "$D_C" >/dev/null 2>&1 &
+  local pid=$!
+  sleep 2                                  # deja que haga >=1 barrido (marca 'visto')
+  [ -n "${2:-}" ] && eval "$2"
+  kill -TERM "$pid" 2>/dev/null
+  wait "$pid"; RC_C=$?
+  EST_C="$(cat "$D_C/ESTADO.txt" 2>/dev/null)"; LOG_C="$(cat "$D_C/archivar.log" 2>/dev/null)"
+}
+
+echo "== caso 6: continuo SIGTERM, cierre correcto =="
+run_cont "cp"
+if [ "$RC_C" -eq 0 ] && echo "$EST_C" | grep -q '^OK' \
+   && [ -f "$D_C/live-20000101000000.pcap" ] && [ -f "$D_C/live-20000101000015.pcap" ]; then
+  pass "cierre correcto (RC=0, ESTADO OK, objetivos archivados)"
+else bad "cierre correcto: RC=$RC_C ESTADO='$EST_C'"; fi
+
+echo "== caso 7: continuo SIGTERM, copia pendiente =="
+run_cont "$WORK/bin/cp_error"
+if [ "$RC_C" -eq 5 ] && echo "$EST_C" | grep -q '^PENDIENTE' && echo "$LOG_C" | grep -q 'FALLO' \
+   && [ ! -f "$D_C/live-20000101000000.pcap" ]; then
+  pass "copia pendiente al cerrar (RC=5, ESTADO PENDIENTE, sin copia) -> NO sale 0"
+else bad "copia pendiente: deberia salir !=0 con PENDIENTE (RC=$RC_C ESTADO='$EST_C')"; fi
+
+echo "== caso 8: continuo SIGTERM, archivo perdido =="
+run_cont "$WORK/bin/cp_error" 'rm -f "$WORK/ringc/live-2000"*'
+if [ "$RC_C" -eq 4 ] && echo "$EST_C" | grep -q '^FALLO' && echo "$LOG_C" | grep -q 'PERDIDO'; then
+  pass "archivo perdido al cerrar (RC=4, ESTADO FALLO, PERDIDO en log)"
+else bad "archivo perdido: deberia salir 4 con FALLO (RC=$RC_C ESTADO='$EST_C')"; fi
+
 echo "----- archivador: $okc ok, $badc fallos"
 [ "$badc" -eq 0 ]
