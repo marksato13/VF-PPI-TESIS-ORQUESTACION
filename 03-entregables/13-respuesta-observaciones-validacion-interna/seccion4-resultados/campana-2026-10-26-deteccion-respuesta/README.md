@@ -21,6 +21,7 @@ Carpeta independiente: no modifica `../4.2-ablacion/aporte-componentes-r2-2026-1
 | `scripts/comprobar_relojes.sh` | Desfase por host, antes y después |
 | `scripts/modo_sombra.sh` · `restaurar_enforcement.sh` | Sombra para A (`--ejecutar --motor-verificado`) y restauración (`--ejecutar --escalada-revisada`); los flags confirman comprobaciones previas; no aplicados aún |
 | `EJEMPLO-descriptor-integridad.json` · `EJEMPLO-integridad-salida.json` · `EJEMPLO-fixtures/` · `EJEMPLO-evidencia-destino.csv` | Ejemplos de integridad (declarado / no apto / apto) con **fixtures de herramienta** (no capturas de campaña) y formato de evidencia de destino |
+| `ESTADO-ENTORNO-2026-10-27.md` | Preparación del entorno real antes de A: accesos, relojes, DNS, endpoint, archivado, enforcement; cambios/reversión; **veredicto NO LISTO** con 3 pendientes críticos del usuario |
 | `scripts/endpoint_brute/` | Endpoint 401 correcto (`app.py`, unidad systemd, README con nginx y Suricata) |
 | `tests/test_herramientas.py` · `tests/fixtures.py` | Verificación sin ataques (87 comprobaciones) |
 | `tests/test_matar_grupo.py` | Terminación del grupo de procesos (4 casos) contra la función publicada |

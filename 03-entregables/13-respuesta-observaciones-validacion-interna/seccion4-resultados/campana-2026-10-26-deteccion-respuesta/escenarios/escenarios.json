@@ -15,7 +15,7 @@
     {
       "id": "dns_inusual",
       "habilitado": false,
-      "motivo_deshabilitado": "falta zona_dns de laboratorio reservada (el resolutor reenvia a Internet)",
+      "motivo_deshabilitado": "el resolutor 10.10.10.20 reenvia a Internet (verificado 27-oct: example.com -> IP publica). Falta crear una zona local reservada en el DNS/AD (paso del usuario).",
       "destino": "10.10.10.20",
       "servicio": "UDP/53",
       "herramienta": "dig",
@@ -68,16 +68,17 @@
     {
       "id": "fuerza_bruta_http",
       "habilitado": false,
-      "motivo_deshabilitado": "falta endpoint de autenticacion 401 (brute_puerto/brute_ruta)",
+      "motivo_deshabilitado": "endpoint 401 DESPLEGADO y verificado en srv-dmz:18081 (27-oct), pero la Kali NO lo alcanza: pfSense filtra 10.10.20.30 -> 10.10.30.10:18081. Falta la regla de cortafuegos (paso del usuario).",
       "destino": "10.10.30.10",
-      "servicio": "TCP/HTTP endpoint de prueba",
+      "servicio": "TCP/HTTP endpoint de prueba :18081",
       "herramienta": "curl",
       "duracion_objetivo_s": 90,
       "duracion_descripcion": "90 s de intentos con credenciales ficticias",
       "timeout_s": 150,
-      "params": {"brute_puerto": null, "brute_ruta": null, "usuario_ficticio": "fake", "max_time_s": 2},
+      "params": {"brute_puerto": 18081, "brute_ruta": "/auth", "usuario_ficticio": "fake", "max_time_s": 2,
+                 "credencial_control_valida": "control:control123 (para el cliente legitimo, da 200)"},
       "accion_prevista": "BLOCK (brute_force: >=5 req/60s y >=80% 401/403)",
-      "evidencia_actividad": "conteo de 401 en marcas y en eve.json / access log del endpoint"
+      "evidencia_actividad": "conteo de 401 en marcas y en eve.json / access log del endpoint (/opt/brute-lab/brute.log)"
     }
   ]
 }
