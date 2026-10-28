@@ -1,0 +1,85 @@
+## p32  2026-10-28T08:01:03.723Z  host=kali  python=Python 3.13.9
+c586d813472d5853ae43fe512b5a53d22654699ace10894e43f57b3ddc4b171b  scripts/generar_campana.py
+e762e60421b4721b1e8ce32549049ae10c7e86596b0fbd37f9a35517ab904144  scripts/esquema_campana.py
+67798012cbd306e9c06ebccf5ec293c7d9db12951d93119f739c3f86a83c64ec  escenarios/escenarios.json
+validar(exigir_herramientas=True): OK sin problemas
+claves de config: ['_nota', '_tiempos_nota', 'lista_blanca_destinos', 'origen', 'repeticiones', 'semilla', 'tiempos_s', 'version_esquema']
+  _nota = Config congelada de la campana. Parametros numericos y de texto SEPARADOS. Los campos pendientes (zona_dns, brute_puerto, brute_ruta) valen null y su escenario queda 'habilitado': false hasta resolverlos. generar_campana.py valida y ABORTA si un escenario habilitado tiene valores sin resolver o marcadores (<...>). Las variables de entorno NO pueden cambiar estos valores. No se ejecuta nada en preparacion.
+  _tiempos_nota = Entre episodios: al terminar uno se espera 'observacion_despues' (cola del ataque) y luego 'contexto_antes' (historia previa del siguiente) antes de iniciar el siguiente. El primero ademas lleva 'calentamiento_inicial'. No se inicia un episodio hasta cumplir la observacion del anterior.
+  origen = 10.10.20.30
+  repeticiones = 5
+  semilla = 20261026
+  version_esquema = 2
+  tiempos_s = {"calentamiento_inicial": 60, "contexto_antes": 120, "observacion_despues": 90}
+escenarios: 5 habilitados: 5
+  dns_inusual                  hab=True  dest=10.10.10.20 serv=UDP/53 t=150 herr=bash (/usr/bin/bash)
+      bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do dig +time=1 +tries=1 @10.10.10.20 "$(openssl rand -hex 8).lab-ppi" +short >/dev/null 2>&1; c=$((c+1)); sleep 0.4; done; echo "intentos=$c"
+  inundacion_http              hab=True  dest=10.10.30.10 serv=TCP/80 t=150 herr=bash (/usr/bin/bash)
+      bash -c fin=$((SECONDS+90)); n=8; d=$(mktemp -d); for i in $(seq $n); do ( c=0; while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null --max-time 2 http://10.10.30.10/ ; c=$((c+1)); done; echo $c > "$d/$i" ) & done; wait; echo "intentos=$(cat "$d"/* | awk '{s+=$1} END{print s+0}')"; rm -rf "$d"
+  escaneo_breve                hab=True  dest=10.10.30.10 serv=TCP 1-1000 t=180 herr=nmap (/usr/bin/nmap)
+      nmap -sT -T4 --max-retries 1 -p 1-1000 10.10.30.10
+  escaneo_sostenido            hab=True  dest=10.10.30.10 serv=TCP 1-65535 t=900 herr=nmap (/usr/bin/nmap)
+      nmap -sT -T4 --max-retries 0 --max-rate 1500 -p 1-65535 10.10.30.10
+  fuerza_bruta_http            hab=True  dest=10.10.30.10 serv=TCP/HTTP endpoint de prueba :18081 t=150 herr=bash (/usr/bin/bash)
+      bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null -w "%{http_code}\n" --max-time 2 -u fake:fake$RANDOM http://10.10.30.10:18081/auth ; c=$((c+1)); done; echo "intentos=$c"
+## simulacion sin --autorizado -> /tmp/cf-sim-jph3
+SIMULACIÓN (no lanza tráfico) · 25 episodios · calentamiento 60 s · contexto previo 120 s · observación 90 s
+[1/25] escaneo_sostenido-r2: nmap -sT -T4…
+        -> simulado
+[2/25] inundacion_http-r1: bash -c fin=$((SECONDS+90)); n=8; d=$(mktemp -d); for i in $(seq $n); do ( c=0; while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null --max-time 2 http://10.10.30.10/ ; c=$((c+1)); done; echo $c > "$d/$i" ) & done; wait; echo "intentos=$(cat "$d"/* | awk '{s+=$1} END{print s+0}')"; rm -rf "$d"…
+        -> simulado
+[3/25] dns_inusual-r3: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do dig +time=1 +tries=1 @10.10.10.20 "$(openssl rand -hex 8).lab-ppi" +short >/dev/null 2>&1; c=$((c+1)); sleep 0.4; done; echo "intentos=$c"…
+        -> simulado
+[4/25] inundacion_http-r4: bash -c fin=$((SECONDS+90)); n=8; d=$(mktemp -d); for i in $(seq $n); do ( c=0; while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null --max-time 2 http://10.10.30.10/ ; c=$((c+1)); done; echo $c > "$d/$i" ) & done; wait; echo "intentos=$(cat "$d"/* | awk '{s+=$1} END{print s+0}')"; rm -rf "$d"…
+        -> simulado
+[5/25] inundacion_http-r2: bash -c fin=$((SECONDS+90)); n=8; d=$(mktemp -d); for i in $(seq $n); do ( c=0; while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null --max-time 2 http://10.10.30.10/ ; c=$((c+1)); done; echo $c > "$d/$i" ) & done; wait; echo "intentos=$(cat "$d"/* | awk '{s+=$1} END{print s+0}')"; rm -rf "$d"…
+        -> simulado
+[6/25] inundacion_http-r3: bash -c fin=$((SECONDS+90)); n=8; d=$(mktemp -d); for i in $(seq $n); do ( c=0; while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null --max-time 2 http://10.10.30.10/ ; c=$((c+1)); done; echo $c > "$d/$i" ) & done; wait; echo "intentos=$(cat "$d"/* | awk '{s+=$1} END{print s+0}')"; rm -rf "$d"…
+        -> simulado
+[7/25] escaneo_sostenido-r4: nmap -sT -T4…
+        -> simulado
+[8/25] escaneo_sostenido-r5: nmap -sT -T4…
+        -> simulado
+[9/25] escaneo_breve-r5: nmap -sT -T4…
+        -> simulado
+[10/25] fuerza_bruta_http-r3: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null -w "%{http_code}\n" --max-time 2 -u fake:fake$RANDOM http://10.10.30.10:18081/auth ; c=$((c+1)); done; echo "intentos=$c"…
+        -> simulado
+[11/25] fuerza_bruta_http-r5: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null -w "%{http_code}\n" --max-time 2 -u fake:fake$RANDOM http://10.10.30.10:18081/auth ; c=$((c+1)); done; echo "intentos=$c"…
+        -> simulado
+[12/25] dns_inusual-r5: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do dig +time=1 +tries=1 @10.10.10.20 "$(openssl rand -hex 8).lab-ppi" +short >/dev/null 2>&1; c=$((c+1)); sleep 0.4; done; echo "intentos=$c"…
+        -> simulado
+[13/25] escaneo_sostenido-r3: nmap -sT -T4…
+        -> simulado
+[14/25] dns_inusual-r2: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do dig +time=1 +tries=1 @10.10.10.20 "$(openssl rand -hex 8).lab-ppi" +short >/dev/null 2>&1; c=$((c+1)); sleep 0.4; done; echo "intentos=$c"…
+        -> simulado
+[15/25] fuerza_bruta_http-r2: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null -w "%{http_code}\n" --max-time 2 -u fake:fake$RANDOM http://10.10.30.10:18081/auth ; c=$((c+1)); done; echo "intentos=$c"…
+        -> simulado
+[16/25] fuerza_bruta_http-r4: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null -w "%{http_code}\n" --max-time 2 -u fake:fake$RANDOM http://10.10.30.10:18081/auth ; c=$((c+1)); done; echo "intentos=$c"…
+        -> simulado
+[17/25] dns_inusual-r1: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do dig +time=1 +tries=1 @10.10.10.20 "$(openssl rand -hex 8).lab-ppi" +short >/dev/null 2>&1; c=$((c+1)); sleep 0.4; done; echo "intentos=$c"…
+        -> simulado
+[18/25] escaneo_breve-r1: nmap -sT -T4…
+        -> simulado
+[19/25] escaneo_breve-r4: nmap -sT -T4…
+        -> simulado
+[20/25] escaneo_breve-r3: nmap -sT -T4…
+        -> simulado
+[21/25] dns_inusual-r4: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do dig +time=1 +tries=1 @10.10.10.20 "$(openssl rand -hex 8).lab-ppi" +short >/dev/null 2>&1; c=$((c+1)); sleep 0.4; done; echo "intentos=$c"…
+        -> simulado
+[22/25] fuerza_bruta_http-r1: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null -w "%{http_code}\n" --max-time 2 -u fake:fake$RANDOM http://10.10.30.10:18081/auth ; c=$((c+1)); done; echo "intentos=$c"…
+        -> simulado
+[23/25] inundacion_http-r5: bash -c fin=$((SECONDS+90)); n=8; d=$(mktemp -d); for i in $(seq $n); do ( c=0; while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null --max-time 2 http://10.10.30.10/ ; c=$((c+1)); done; echo $c > "$d/$i" ) & done; wait; echo "intentos=$(cat "$d"/* | awk '{s+=$1} END{print s+0}')"; rm -rf "$d"…
+        -> simulado
+[24/25] escaneo_breve-r2: nmap -sT -T4…
+        -> simulado
+[25/25] escaneo_sostenido-r1: nmap -sT -T4…
+        -> simulado
+rc=0
+  ficheros: config-efectiva.json
+marcas.jsonl
+salidas
+  marcas: 27 lineas; salidas/: 0 ficheros
+{"evento": "campana_inicio", "modo": "SIMULACIÓN (no lanza tráfico)", "orden": ["escaneo_sostenido-r2", "inundacion_http-r1", "dns_inusual-r3", "inundacion_http-r4", "inundacion_http-r2", "inundacion_http-r3", "escaneo_sostenido-r4", "escaneo_sostenido-r5", "escaneo_breve-r5", "fuerza_bruta_http-r3", "fuerza_bruta_http-r5", "dns_inusual-r5", "escaneo_sostenido-r3", "dns_inusual-r2", "fuerza_bruta_http-r2", "fuerza_bruta_http-r4", "dns_inusual-r1", "escaneo_breve-r1", "escaneo_breve-r4", "escaneo_breve-r3", "dns_inusual-r4", "fuerza_bruta_http-r1", "inundacion_http-r5", "escaneo_breve-r2", "e
+  /tmp/cf-sim-jph3 borrado
+## procesos de herramientas de ataque vivos: 0
+## fin 2026-10-28T08:01:03.949Z

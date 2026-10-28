@@ -1,0 +1,21 @@
+## p40  2026-10-28T09:06:55.170Z
+  ejecuciones (lineas con resumen): 559
+         79    {"block": 0, "entradas": 0, "limit": 0, "revisar_humano": []}
+         77    {"block": 0, "entradas": 1, "limit": 1, "revisar_humano": []}
+        118    {"block": 0, "entradas": 2, "limit": 2, "revisar_humano": []}
+        161    {"block": 0, "entradas": 3, "limit": 3, "revisar_humano": []}
+         72    {"block": 0, "entradas": 4, "limit": 4, "revisar_humano": []}
+         47    {"block": 0, "entradas": 5, "limit": 5, "revisar_humano": []}
+          5    {"block": 0, "entradas": 6, "limit": 6, "revisar_humano": []}
+  ejecuciones con limit>0 o block>0 (primeras/ultimas):
+    2026-10-28T07:33:50+00:00 cyberflow-sensor python[2098916]: {"block": 0, "entradas": 2, "limit": 2, "revisar_humano": []}
+    2026-10-28T07:34:00+00:00 cyberflow-sensor python[2099025]: {"block": 0, "entradas": 2, "limit": 2, "revisar_humano": []}
+    2026-10-28T07:34:10+00:00 cyberflow-sensor python[2099149]: {"block": 0, "entradas": 2, "limit": 2, "revisar_humano": []}
+    2026-10-28T09:06:50+00:00 cyberflow-sensor python[2341795]: {"block": 0, "entradas": 4, "limit": 4, "revisar_humano": []}
+  feed vigente /home/m4rk/feed/feed.json: 2026-10-28 09:06:50.760218420 +0000 sha=c349a84b34fb0b16
+   entradas: 4
+     {"accion": "LIMIT", "alcance": "all", "detector": "if_limpio_2026_10", "hasta": 1793178710, "ip": "10.10.20.21", "motivo": "modelo:if_limpio_2026_10", "nivel": 0, "revisar_humano": false}
+     {"accion": "LIMIT", "alcance": "all", "detector": "if_limpio_2026_10", "hasta": 1793178710, "ip": "10.10.20.22", "motivo": "modelo:if_limpio_2026_10", "nivel": 0, "revisar_humano": false}
+     {"accion": "LIMIT", "alcance": "all", "detector": "if_limpio_2026_10", "hasta": 1793178710, "ip": "10.10.20.24", "motivo": "modelo:if_limpio_2026_10", "nivel": 0, "revisar_humano": false}
+     {"accion": "LIMIT", "alcance": "all", "detector": "if_limpio_2026_10", "hasta": 1793178710, "ip": "10.10.20.26", "motivo": "modelo:if_limpio_2026_10", "nivel": 0, "revisar_humano": false}
+## fin 2026-10-28T09:06:56.031Z

@@ -1,0 +1,18 @@
+## p40  2026-10-28T08:06:31.015Z
+  ejecuciones (lineas con resumen): 197
+         66    {"block": 0, "entradas": 0, "limit": 0, "revisar_humano": []}
+         57    {"block": 0, "entradas": 1, "limit": 1, "revisar_humano": []}
+         55    {"block": 0, "entradas": 2, "limit": 2, "revisar_humano": []}
+         13    {"block": 0, "entradas": 3, "limit": 3, "revisar_humano": []}
+          6    {"block": 0, "entradas": 4, "limit": 4, "revisar_humano": []}
+  ejecuciones con limit>0 o block>0 (primeras/ultimas):
+    2026-10-28T07:33:50+00:00 cyberflow-sensor python[2098916]: {"block": 0, "entradas": 2, "limit": 2, "revisar_humano": []}
+    2026-10-28T07:34:00+00:00 cyberflow-sensor python[2099025]: {"block": 0, "entradas": 2, "limit": 2, "revisar_humano": []}
+    2026-10-28T07:34:10+00:00 cyberflow-sensor python[2099149]: {"block": 0, "entradas": 2, "limit": 2, "revisar_humano": []}
+    2026-10-28T08:06:30+00:00 cyberflow-sensor python[2174374]: {"block": 0, "entradas": 3, "limit": 3, "revisar_humano": []}
+  feed vigente /home/m4rk/feed/feed.json: 2026-10-28 08:06:30.702297950 +0000 sha=c33d4e31396b6063
+   entradas: 3
+     {"accion": "LIMIT", "alcance": "all", "detector": "if_limpio_2026_10", "hasta": 1793175090, "ip": "10.10.20.22", "motivo": "modelo:if_limpio_2026_10", "nivel": 0, "revisar_humano": false}
+     {"accion": "LIMIT", "alcance": "all", "detector": "if_limpio_2026_10", "hasta": 1793175090, "ip": "10.10.20.24", "motivo": "modelo:if_limpio_2026_10", "nivel": 0, "revisar_humano": false}
+     {"accion": "LIMIT", "alcance": "all", "detector": "if_limpio_2026_10", "hasta": 1793175090, "ip": "10.10.20.26", "motivo": "modelo:if_limpio_2026_10", "nivel": 0, "revisar_humano": false}
+## fin 2026-10-28T08:06:31.247Z

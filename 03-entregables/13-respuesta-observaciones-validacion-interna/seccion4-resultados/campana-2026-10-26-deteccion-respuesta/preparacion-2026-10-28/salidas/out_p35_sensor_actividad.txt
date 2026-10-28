@@ -1,0 +1,23 @@
+## p35  2026-10-28T08:02:29.961Z
+## EVE ultimos 10 min por IP de perfil (event_type: n)
+   10.10.20.21: {'flow': 88, 'http': 82, 'fileinfo': 76, 'dns': 52, 'tls': 26}
+   10.10.20.22: {'flow': 114, 'http': 86, 'fileinfo': 71, 'dns': 52, 'tls': 42}
+   10.10.20.23: {'http': 28, 'fileinfo': 20, 'flow': 18, 'tls': 4}
+   10.10.20.24: {'fileinfo': 241, 'http': 188, 'flow': 157, 'tls': 12, 'dns': 12}
+   10.10.20.25: {'dns': 16, 'http': 12, 'fileinfo': 12, 'flow': 9}
+   10.10.20.26: {'http': 38, 'flow': 34, 'fileinfo': 30, 'dns': 20}
+## motor produccion ultimos 10 min: decisiones / suma pk10 por IP
+   10.10.20.21: decisiones 63  pk10 total 388
+   10.10.20.22: decisiones 60  pk10 total 1651
+   10.10.20.23: decisiones 60  pk10 total 5138
+   10.10.20.24: decisiones 64  pk10 total 166
+   10.10.20.25: decisiones 45  pk10 total 10
+   10.10.20.26: decisiones 64  pk10 total 502
+## archivador: 169 ficheros, 168M; proceso vivo: SI
+## espacio
+   /dev/mapper/ubuntu--vg-ubuntu--lv   37G   15G   20G  43% /
+   Filesystem                         Size  Used Avail Use% Mounted on
+## servicios: ppi-motor active NR=0 | ppi-motor-capture active NR=0 | suricata active | ppi-dashboard active
+## eve.json: 74872268 bytes mtime 2026-10-28 08:02:30.097137719 +0000
+## candidato: vivo=SI lineas=924 errores=0
+## fin 2026-10-28T08:02:30.560Z

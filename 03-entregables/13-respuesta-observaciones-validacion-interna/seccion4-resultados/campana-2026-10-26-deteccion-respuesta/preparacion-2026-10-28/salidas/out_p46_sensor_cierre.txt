@@ -1,0 +1,21 @@
+## p46 inicio=2026-10-28T09:06:41.313Z
+  candidato PID=2138342 cmd=/home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cf-prep-20261028/candidato/scripts/engine/motor_decision.py -
+  [2026-10-28T09:06:44.322Z] candidato vivo tras SIGTERM: NO; lineas finales 5825
+  archivador PID=2100386 bash -c A="$1"; D="$2"; "$A" "$D" 20 > "$D.salida" 2>&1 & p=$!; echo "$p" > "$D.pid"; wait "$p"; echo "$?" > "$D.rc" _ /
+  archivador PID=2100389 bash /home/m4rk/bin/archivar_captura.sh /home/m4rk/cf-prep-20261028/archivo-diagnostico-073542 20 
+  [2026-10-28T09:06:46.362Z] archivador vivo: SI; ficheros 424, 612M
+## estado final
+  ppi-motor active/enabled NR=0
+  ppi-motor-capture active/enabled NR=0
+  suricata active/enabled NR=0
+  ppi-dashboard active/enabled NR=0
+  ppi-publicar-feed.timer active/enabled NR=
+  cyberflow-acumular.timer active/enabled NR=
+  ppi-motor PID=2277062 desde=Wed 2026-10-28 08:44:50 UTC enforce_en_argv=0
+  e2b2eb535091ea0fb7aa08054aa8cc4eff295a4e678269cba5d4a5ee5d95bc73  /home/m4rk/cyberflow/scripts/engine/motor_decision.py
+  4c41ec44be0fa0dbfbba14b73a4288a37da5d1b2a1ebcf681e58465c14ac17c6  /home/m4rk/cf-prep-20261028/respaldo-motor/motor_decision.py.4c41ec44
+  ultimas 60 s del motor: 76 registros, 20 con pk10=0, 0 no-decision
+  ultimo PCAP del anillo: /var/lib/ppi-motor-capture/live-20261028090639.pcap
+  disco: /dev/mapper/ubuntu--vg-ubuntu--lv   37G   16G   20G  44% /
+  du diagnostico: 619M
+## fin=2026-10-28T09:06:46.695Z

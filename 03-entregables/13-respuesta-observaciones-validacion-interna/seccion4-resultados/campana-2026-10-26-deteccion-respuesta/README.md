@@ -22,20 +22,21 @@ Carpeta independiente: no modifica `../4.2-ablacion/aporte-componentes-r2-2026-1
 | `scripts/generar_manifiesto.py` | Manifiesto con sha256 de los **bytes publicados por git** (LF), reproducible y verificable contra el commit |
 | `scripts/capturar.sh` · `estimar_espacio.sh` | Captura continua (ens37) y estimación de espacio |
 | `scripts/comprobar_relojes.sh` | Desfase por host, antes y después |
-| `scripts/modo_sombra.sh` · `restaurar_enforcement.sh` | Sombra para A (`--ejecutar --motor-verificado`) y restauración (`--ejecutar --escalada-revisada`); los flags confirman comprobaciones previas; no aplicados aún |
+| `scripts/modo_sombra.sh` · `restaurar_enforcement.sh` | Sombra para A (`--ejecutar --motor-verificado`) y restauración (`--ejecutar --escalada-revisada`); los flags confirman comprobaciones previas. Sombra **aplicada el 28-oct 07:33:40** (ver `preparacion-2026-10-28/`); si la unidad del agente no se puede enmascarar (fichero en `/etc/systemd/system`), queda con el timer deshabilitado y lo registra en `mecanismo` |
 | `EJEMPLO-descriptor-integridad.json` · `EJEMPLO-integridad-salida.json` · `EJEMPLO-fixtures/` · `EJEMPLO-evidencia-destino.csv` | Ejemplos de integridad (declarado / no apto / apto) con **fixtures de herramienta** (no capturas de campaña) y formato de evidencia de destino |
 | `ESTADO-ENTORNO-2026-10-27.md` | Preparación del entorno real antes de A: accesos, relojes, DNS, endpoint, archivado, enforcement; cambios/reversión; **veredicto NO LISTO** con 3 pendientes críticos del usuario |
 | `scripts/endpoint_brute/` | Endpoint 401 correcto (`app.py`, unidad systemd, README con nginx y Suricata) |
 | `tests/test_herramientas.py` · `tests/fixtures.py` | Verificación sin ataques (188 comprobaciones; datos sintéticos/fixtures = comprobaciones del código) |
 | `tests/regresion_alfa.py` · `tests/golden-5config-fixtures.json` · `tests/golden-7config-fixtures.json` | No-regresión de detección y cobertura frente a los analizadores de `0d40bdb` (5 configs) y `a6dc5ab` (7 configs); solo se excluyen, y se listan aparte, las claves de procedencia/etiquetado temporal |
 | `tests/test_matar_grupo.py` | Terminación del grupo de procesos (4 casos) contra la función publicada |
-| `tests/test_sombra.sh` | Fallo seguro de sombra/restauración con comandos simulados (11/11) |
+| `tests/test_sombra.sh` | Fallo seguro de sombra/restauración con comandos simulados (18/18; códigos de salida reales de `systemctl`, máscara imposible, timer inactivo) |
 | `RELOJES-DNS.md` | Relojes y DNS medidos + pasos administrativos |
 | `MATRIZ-OBSERVACIONES.md` | Observación → corrección → archivo → comprobación → estado |
 | `RESULTADOS-VERIFICACION.md` | Resultados de las verificaciones sin ataques |
 | `COMPROBACIONES-PREVIAS.md` | Comprobaciones benignas y bloqueos |
 | `evidencia-precheck/` · `MANIFIESTO-CAMPANA.json` | Evidencia cruda y hashes |
 | `preflight-2026-10-28/` | Preflight operativo actual sobre `a072fea` (sondas, salidas crudas, `SHA256SUMS.txt`, informe): **Preflight bloqueado** — perfiles legítimos detenidos y decisión pendiente sobre la cobertura del motor en vivo |
+| `preparacion-2026-10-28/` | Resolución de los pendientes del preflight (informe `PREPARACION-2026-10-28.md`, sondas, salidas, diagnóstico, `SHA256SUMS.txt`): sombra activa, motor corregido (producto `7b275b8`) verificado en paralelo 30 min y desplegado en sombra, seis perfiles activos. Preparación, **no** resultados de A |
 
 ## Estado por pieza (documentado / implementado / probado aislado / verificado en entorno)
 
@@ -44,7 +45,7 @@ Carpeta independiente: no modifica `../4.2-ablacion/aporte-componentes-r2-2026-1
 - Procedencia temporal (28-oct, `2026-10-28.2`): clasificaciones derivadas separadas de las emisiones observadas; detección y cobertura sin cambios: **probado de forma aislada**.
 - α 0,01 (28-oct): umbral completo con procedencia verificada, comparación estricta, escala de anomalía, 7 configuraciones, no-regresión de 0,05/0,03 y anidamiento: **probado de forma aislada** (fixtures/sintéticos, no resultados experimentales).
 - Analizador (cobertura, score null, atribución confirmada→Tabla 8, ventana previa, emitido/derivado, integridad): **probado de forma aislada** con fixtures de resultado conocido, incluido el recorrido hasta el fichero de la Tabla 8.
-- Sombra/restauración con fallo seguro (detener+enmascarar el agente, no dry-run; `--escalada-revisada`): **implementadas y probadas de forma aislada** (`test_sombra.sh` 11/11); **no aplicadas** al entorno.
+- Sombra/restauración con fallo seguro (detener el agente, deshabilitar el timer y enmascarar si se puede; `--escalada-revisada`): **probadas de forma aislada** (`test_sombra.sh` 18/18) y **sombra aplicada y verificada en el entorno** el 28-oct (srv-dmz, `/opt/cf-sombra-estado/20261028-073340`); la restauración **no** se ha aplicado.
 - Terminación del grupo de procesos (incl. hijo que ignora SIGTERM y padre que termina antes): **probada contra la función publicada**, en Windows (casos 1–2) y **verificada en el entorno** (sensor Linux, 4/4).
 - Contadores del generador = **intentos** del bucle (no peticiones enviadas ni respuestas; eso se mide con PCAP/EVE/servidor).
 - `logged_at` como hora de emisión, desfase del sensor (−47,55 s), egress del DNS, interfaz de captura (ens37): **verificados en el entorno**.

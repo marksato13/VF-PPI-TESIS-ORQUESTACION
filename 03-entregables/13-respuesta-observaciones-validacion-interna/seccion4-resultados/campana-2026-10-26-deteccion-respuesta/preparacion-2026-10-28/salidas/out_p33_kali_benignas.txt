@@ -1,0 +1,10 @@
+## p33 kali  inicio=2026-10-28T08:01:41.900Z  host=kali
+  [2026-10-28T08:01:41.904Z] dig @10.10.10.20 preparacion-1793174501.lab-ppi A:
+    ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 53754
+    preparacion-1793174501.lab-ppi.	900 IN	A	10.10.30.10
+  [2026-10-28T08:01:41.932Z] dig @10.10.10.20 lab-ppi SOA: VM-AD-DC.ad.francos-sac.com. hostmaster.ad.francos-sac.com. 2 900 600 86400 3600
+  [2026-10-28T08:01:41.963Z] GET http://10.10.30.10/ -> 200 t=0.003279s
+  [2026-10-28T08:01:41.983Z] GET :18081/auth sin credencial -> 401
+  [2026-10-28T08:01:42.010Z] GET :18081/auth fake:incorrecta -> 401
+  [2026-10-28T08:01:42.032Z] GET :18081/auth control:*** -> 200
+## fin=2026-10-28T08:01:42.048Z

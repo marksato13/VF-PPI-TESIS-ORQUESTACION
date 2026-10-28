@@ -1,0 +1,5 @@
+## p45 2026-10-28T09:06:12.490Z
+   eventos en el log de produccion para ventanas 08:40-08:53: {'decision': 1020}
+   motor anterior: {'decisiones': 384, 'pk10_igual_completo': 209, 'cero_con_trafico': 126, 'conteo_distinto': 49}  logged_at-we mediana 13.5 p95 114.6 max 234.6 s
+   motor corregido: {'decisiones': 636, 'pk10_igual_completo': 633, 'sin_referencia': 3}  logged_at-we mediana 25.4 p95 36.3 max 247.2 s
+## candidato: parada tras esta verificacion
