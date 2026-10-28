@@ -15,6 +15,7 @@ Carpeta independiente: no modifica `../4.2-ablacion/aporte-componentes-r2-2026-1
 | `CAMBIOS-2026-10-28-procedencia.md` | Corrección de procedencia temporal: clasificaciones derivadas vs emisiones observadas (config `2026-10-28.2`) |
 | `CAMBIOS-2026-10-28-umbral-ausente.md` | Registro de decisión sin la clave `threshold`: se conserva como evidencia incompleta (umbral y configuración desconocidos), con incidencia |
 | `CAMBIOS-2026-10-28-no-evaluadas.md` · `EJEMPLO-no-evaluadas/` | #59: eventos `ventana_no_evaluada` del motor corregido como **calidad y cobertura** (no decisiones, no TN/FN, no alertas). Efecto por intervalo de ventana, detección confirmada visible, cobertura en control y métricas. Ejemplo de salida con fixture de código |
+| `CAMBIOS-2026-10-28-cobertura.md` · `EJEMPLO-cobertura/` | #60/#61: cobertura total del conjunto etiquetado (claves con decisión / claves esperadas, categorías excluyentes) y población única del control por `window_end` en `[desde, hasta]`. Ejemplos 50 %, 1/3 y decisión registrada tarde (fixtures de código) |
 | `escenarios/escenarios.json` · `FICHAS-ESCENARIOS.md` | Escenarios v2 (tipos separados, tasas fijas, pendientes explícitos) |
 | `scripts/esquema_campana.py` | Esquema + validación + construcción de comandos |
 | `scripts/generar_campana.py` | Generador (Kali): valida, simula por defecto, inicio/fin separados, mata el grupo en timeout |
@@ -27,7 +28,7 @@ Carpeta independiente: no modifica `../4.2-ablacion/aporte-componentes-r2-2026-1
 | `EJEMPLO-descriptor-integridad.json` · `EJEMPLO-integridad-salida.json` · `EJEMPLO-fixtures/` · `EJEMPLO-evidencia-destino.csv` | Ejemplos de integridad (declarado / no apto / apto) con **fixtures de herramienta** (no capturas de campaña) y formato de evidencia de destino |
 | `ESTADO-ENTORNO-2026-10-27.md` | Preparación del entorno real antes de A: accesos, relojes, DNS, endpoint, archivado, enforcement; cambios/reversión; **veredicto NO LISTO** con 3 pendientes críticos del usuario |
 | `scripts/endpoint_brute/` | Endpoint 401 correcto (`app.py`, unidad systemd, README con nginx y Suricata) |
-| `tests/test_herramientas.py` · `tests/fixtures.py` | Verificación sin ataques (212 comprobaciones, 213 con el analizador previo; datos sintéticos/fixtures = comprobaciones del código) |
+| `tests/test_herramientas.py` · `tests/fixtures.py` | Verificación sin ataques (222 comprobaciones, 223 con el analizador previo; datos sintéticos/fixtures = comprobaciones del código) |
 | `tests/regresion_alfa.py` · `tests/golden-5config-fixtures.json` · `tests/golden-7config-fixtures.json` | No-regresión de detección y cobertura frente a los analizadores de `0d40bdb` (5 configs) y `a6dc5ab` (7 configs); solo se excluyen, y se listan aparte, las claves de procedencia/etiquetado temporal |
 | `tests/test_matar_grupo.py` | Terminación del grupo de procesos (4 casos) contra la función publicada |
 | `tests/test_sombra.sh` | Fallo seguro de sombra/restauración con comandos simulados (18/18; códigos de salida reales de `systemctl`, máscara imposible, timer inactivo) |
@@ -41,12 +42,15 @@ Carpeta independiente: no modifica `../4.2-ablacion/aporte-componentes-r2-2026-1
 
 ## Estado por pieza (documentado / implementado / probado aislado / verificado en entorno)
 
-- Generador, esquema, analizador, verificador de integridad, endpoint: **implementados y probados de forma aislada** (212 comprobaciones + CLI + loopback).
+- Generador, esquema, analizador, verificador de integridad, endpoint: **implementados y probados de forma aislada** (222 comprobaciones + CLI + loopback).
 - `ventana_no_evaluada` (28-oct, #59, sobre `2612e3f`). Los eventos del motor corregido se conservan como
   calidad/cobertura con motivo y respaldo. Una ventana no evaluada del ataque deja el episodio no evaluable con
   motivo explícito (la Tabla 8 no cambia frente a la pérdida); la detección confirmada queda visible; el control y
   las métricas informan la cobertura. Sin eventos, los resultados no cambian (regresión 0 diferencias): **probado
   de forma aislada**. El evento real de la preparación se usó solo como prueba de compatibilidad de lectura.
+- Cobertura (28-oct, #60/#61, sobre `719bf3a`). La cobertura total del conjunto etiquetado incluye las claves sin
+  registro en el denominador. El control selecciona decisiones y no evaluadas por `window_end` en `[desde, hasta]`.
+  Detección y cobertura por episodio sin cambios: **probado de forma aislada**.
 - Umbral registrado ausente (28-oct, sobre `a69224c`): un registro sin la clave `threshold` se conserva con incidencia y umbral/configuración desconocidos (no da latencia confirmada): **probado de forma aislada**.
 - Procedencia temporal (28-oct, `2026-10-28.2`): clasificaciones derivadas separadas de las emisiones observadas; detección y cobertura sin cambios: **probado de forma aislada**.
 - α 0,01 (28-oct): umbral completo con procedencia verificada, comparación estricta, escala de anomalía, 7 configuraciones, no-regresión de 0,05/0,03 y anidamiento: **probado de forma aislada** (fixtures/sintéticos, no resultados experimentales).

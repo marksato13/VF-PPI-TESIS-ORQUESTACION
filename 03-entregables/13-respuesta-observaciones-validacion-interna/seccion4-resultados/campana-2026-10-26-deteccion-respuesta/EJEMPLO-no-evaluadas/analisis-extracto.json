@@ -249,13 +249,16 @@
   "denominador": 8,
   "desde": "2026-10-26T07:34:55+00:00",
   "hasta": "2026-10-26T07:36:40+00:00",
+  "seleccion": "población por ventana: window_end_utc en [desde, hasta] con AMBOS extremos incluidos, el mismo campo e intervalo para decisiones y eventos ventana_no_evaluada, y las mismas exclusiones (NUNCA_BLOQUEAR). Claves entity_ip|window_end únicas: decisiones deduplicadas (leer_motor), no evaluadas duplicadas contadas una vez y, en conflicto, prevalece la decisión. Una decisión escrita después de 'hasta' cuenta si su ventana pertenece al control; logged_at no se altera.",
+  "decisiones_escritas_tras_hasta": 0,
   "ventanas_no_evaluadas": 2,
   "ventanas_no_evaluadas_por_motivo": {
    "pcap_incompleto": 1,
    "ventana_no_regenerada": 1
   },
-  "ventanas_no_evaluadas_criterio": "window_end en [desde, hasta] (las decisiones se seleccionan por logged_at); excluidas las entidades NUNCA_BLOQUEAR",
-  "cobertura_evaluada": 0.8,
+  "cobertura_entre_registradas": 0.8,
+  "cobertura_entre_registradas_significado": "evaluadas / (evaluadas + no evaluadas explícitas): solo sobre las ventanas que dejaron algún registro; sin inventario independiente de ventanas esperadas NO garantiza que no falten registros",
+  "inventario_esperado": "no disponible: no se informan claves esperadas sin registro ni cobertura total del control",
   "denominador_significado": "ventanas con decisión registrada (evaluadas); las ventanas no evaluadas no son TN, FP ni FN y una decisión ausente no es PERMIT: las tasas se leen junto a la cobertura",
   "IF_0.05": {
    "falsas_alarmas": 0,
@@ -290,10 +293,23 @@
   "calculadas": true,
   "n_etiquetadas": 2,
   "denominador": 2,
-  "etiquetadas_no_evaluadas": 1,
-  "etiquetadas_sin_registro": 0,
-  "cobertura_etiquetadas": 0.666667,
-  "denominador_significado": "etiquetadas con decisión registrada (evaluadas); las etiquetadas no evaluadas no son TP, FP, TN ni FN: las métricas se leen junto a cobertura_etiquetadas",
+  "conjunto_etiquetado": {
+   "claves_esperadas": 3,
+   "con_decision": 2,
+   "no_evaluadas": 1,
+   "sin_registro": 0,
+   "cobertura_total": 0.666667,
+   "cobertura_entre_registradas": 0.666667,
+   "definiciones": {
+    "claves_esperadas": "claves únicas entity_ip|window_end del fichero de etiquetas (denominador total)",
+    "con_decision": "claves con decisión registrada (si también hay ventana_no_evaluada, prevalece la decisión); son las únicas que entran en TP/FP/TN/FN",
+    "no_evaluadas": "claves sin decisión con evento ventana_no_evaluada",
+    "sin_registro": "claves sin decisión ni evento",
+    "cobertura_total": "con_decision / claves_esperadas",
+    "cobertura_entre_registradas": "con_decision / (con_decision + no_evaluadas); población limitada a las claves que dejaron algún registro, no es la cobertura total"
+   }
+  },
+  "denominador_significado": "etiquetadas con decisión registrada (evaluadas); las no evaluadas y las sin registro no son TP, FP, TN ni FN: las métricas se leen junto a conjunto_etiquetado.cobertura_total",
   "IF_0.05": {
    "TP": 1,
    "FP": 0,

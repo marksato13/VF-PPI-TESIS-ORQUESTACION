@@ -45,8 +45,12 @@ Reglas (ver config-campana.json y PLAN):
     final (window_end en (fin, fin+60)) -> solo deja incompleta la relación «posterior»; fuera -> sin efecto. Sin score
     el IF no es evaluable en esa ventana para ningún α; el heurístico queda desconocido; el híbrido solo prueba
     detección con un positivo confirmado. Una detección confirmada se mantiene visible; la ausencia no se afirma.
-    En el control y las métricas por ventana se informan aparte (cobertura = evaluadas / (evaluadas + no evaluadas));
-    las tasas son sobre ventanas evaluadas. Duplicados: se cuentan una vez. Conflicto con una decisión de la misma
+    En el control y las métricas por ventana se informan aparte; las tasas son sobre ventanas evaluadas.
+  - Control: decisiones y no evaluadas se seleccionan por window_end_utc en [desde, hasta] (ambos extremos), con las
+    mismas exclusiones y claves únicas; cobertura_entre_registradas = evaluadas / (evaluadas + no evaluadas
+    explícitas), sin garantía de que no falten registros (no hay inventario de esperadas).
+  - Conjunto etiquetado: claves únicas en categorías excluyentes (con decisión / no evaluada / sin registro) que suman
+    el total; cobertura_total = con decisión / claves esperadas (indefinida sin etiquetas). Duplicados: se cuentan una vez. Conflicto con una decisión de la misma
     clave: prevalece la decisión y el evento queda en 'conflictos'. Nada se descarta en silencio.
 """
 from __future__ import annotations
@@ -727,18 +731,33 @@ DENOMINADOR_EVALUADAS = ("ventanas con decisión registrada (evaluadas); las ven
                          "FN y una decisión ausente no es PERMIT: las tasas se leen junto a la cobertura")
 
 
+SELECCION_CONTROL = ("población por ventana: window_end_utc en [desde, hasta] con AMBOS extremos incluidos, el mismo "
+                     "campo e intervalo para decisiones y eventos ventana_no_evaluada, y las mismas exclusiones "
+                     "(NUNCA_BLOQUEAR). Claves entity_ip|window_end únicas: decisiones deduplicadas (leer_motor), "
+                     "no evaluadas duplicadas contadas una vez y, en conflicto, prevalece la decisión. Una decisión "
+                     "escrita después de 'hasta' cuenta si su ventana pertenece al control; logged_at no se altera.")
+COBERTURA_REGISTRADAS = ("evaluadas / (evaluadas + no evaluadas explícitas): solo sobre las ventanas que dejaron algún "
+                         "registro; sin inventario independiente de ventanas esperadas NO garantiza que no falten "
+                         "registros")
+
+
 def fpr_control(regs, desde, hasta, U, excluidas, no_eval=()):
-    v = [r for r in regs if desde <= r["_logged"] <= hasta and r["entity_ip"] not in excluidas]
+    """Falsas alarmas por ventana sobre una población única seleccionada por window_end (ver SELECCION_CONTROL).
+    Antes de 2026-10-28 (sobre 719bf3a) las decisiones se seleccionaban por logged_at y las no evaluadas por
+    window_end: poblaciones distintas cerca de los límites."""
+    v = [r for r in regs if desde <= r["_wend"] <= hasta and r["entity_ip"] not in excluidas]
     n = len(v)
-    out = {"ventanas": n, "denominador": n, "desde": iso(desde), "hasta": iso(hasta)}
-    # no evaluadas: por el intervalo de la ventana (window_end en el control), no por el instante de escritura
+    out = {"ventanas": n, "denominador": n, "desde": iso(desde), "hasta": iso(hasta),
+           "seleccion": SELECCION_CONTROL,
+           "decisiones_escritas_tras_hasta": sum(1 for r in v if r["_logged"] > hasta)}
     ne = [e for e in no_eval if desde <= e["_wend"] <= hasta and e["entity_ip"] not in excluidas]
     out["ventanas_no_evaluadas"] = len(ne)
     out["ventanas_no_evaluadas_por_motivo"] = {m: sum(1 for e in ne if str(e["motivo"]) == m)
                                                for m in sorted({str(e["motivo"]) for e in ne})}
-    out["ventanas_no_evaluadas_criterio"] = ("window_end en [desde, hasta] (las decisiones se seleccionan por "
-                                             "logged_at); excluidas las entidades NUNCA_BLOQUEAR")
-    out["cobertura_evaluada"] = round(n / (n + len(ne)), 6) if n + len(ne) else None
+    out["cobertura_entre_registradas"] = round(n / (n + len(ne)), 6) if n + len(ne) else None
+    out["cobertura_entre_registradas_significado"] = COBERTURA_REGISTRADAS
+    out["inventario_esperado"] = ("no disponible: no se informan claves esperadas sin registro ni cobertura total "
+                                  "del control")
     out["denominador_significado"] = DENOMINADOR_EVALUADAS
     if n == 0:
         out["aviso"] = "sin ventanas en el control"; return out
@@ -749,17 +768,44 @@ def fpr_control(regs, desde, hasta, U, excluidas, no_eval=()):
 
 
 # ------------------------------------------------------------------- métricas por ventana (solo con etiquetas)
+def conjunto_etiquetado(regs, etiquetas, no_eval=()) -> dict:
+    """Cobertura del conjunto etiquetado por claves únicas entity_ip|window_end, en categorías excluyentes que suman
+    el total: con decisión (prevalece en conflicto) · no evaluada explícita · sin registro.
+    cobertura_total = con_decision / claves_esperadas; indefinida (None, con motivo) si no hay etiquetas."""
+    esperadas = set(etiquetas)
+    con_dec = esperadas & {(r["entity_ip"], r["window_end_utc"]) for r in regs}
+    no_ev = (esperadas & {e["_clave"] for e in no_eval}) - con_dec
+    sin_reg = esperadas - con_dec - no_ev
+    N = len(esperadas)
+    out = {"claves_esperadas": N, "con_decision": len(con_dec), "no_evaluadas": len(no_ev),
+           "sin_registro": len(sin_reg),
+           "cobertura_total": round(len(con_dec) / N, 6) if N else None,
+           "cobertura_entre_registradas": (round(len(con_dec) / (len(con_dec) + len(no_ev)), 6)
+                                           if con_dec or no_ev else None),
+           "definiciones": {
+               "claves_esperadas": "claves únicas entity_ip|window_end del fichero de etiquetas (denominador total)",
+               "con_decision": "claves con decisión registrada (si también hay ventana_no_evaluada, prevalece la "
+                               "decisión); son las únicas que entran en TP/FP/TN/FN",
+               "no_evaluadas": "claves sin decisión con evento ventana_no_evaluada",
+               "sin_registro": "claves sin decisión ni evento",
+               "cobertura_total": "con_decision / claves_esperadas",
+               "cobertura_entre_registradas": "con_decision / (con_decision + no_evaluadas); población limitada a "
+                                              "las claves que dejaron algún registro, no es la cobertura total"}}
+    if not N:
+        out["cobertura_total_motivo"] = "indefinida: no hay etiquetas esperadas"
+    return out
+
+
 def metricas_por_ventana(regs, etiquetas, U, no_eval=()):
     pares = [(r, etiquetas[(r["entity_ip"], r["window_end_utc"])]) for r in regs
              if (r["entity_ip"], r["window_end_utc"]) in etiquetas]
-    ne = {e["_clave"] for e in no_eval} & set(etiquetas)
-    cob = {"etiquetadas_no_evaluadas": len(ne),
-           "etiquetadas_sin_registro": len(set(etiquetas) - ne - {(r["entity_ip"], r["window_end_utc"]) for r, _ in pares}),
-           "cobertura_etiquetadas": round(len(pares) / (len(pares) + len(ne)), 6) if pares or ne else None,
-           "denominador_significado": "etiquetadas con decisión registrada (evaluadas); las etiquetadas no evaluadas "
-                                      "no son TP, FP, TN ni FN: las métricas se leen junto a cobertura_etiquetadas"}
+    cob = {"conjunto_etiquetado": conjunto_etiquetado(regs, etiquetas, no_eval),
+           "denominador_significado": "etiquetadas con decisión registrada (evaluadas); las no evaluadas y las sin "
+                                      "registro no son TP, FP, TN ni FN: las métricas se leen junto a "
+                                      "conjunto_etiquetado.cobertura_total"}
     if not pares:
-        return {"calculadas": False, "motivo": "ninguna ventana coincide con el fichero de etiquetas", **cob}
+        return {"calculadas": False, "motivo": ("no hay etiquetas esperadas" if not etiquetas else
+                                                "ninguna ventana coincide con el fichero de etiquetas"), **cob}
     out = {"calculadas": True, "n_etiquetadas": len(pares), "denominador": len(pares), **cob}
     for c in CONFIGS:
         tp = fp = tn = fn = 0
@@ -984,11 +1030,17 @@ def _tabla_md(path, tabla, salida):
     for d in ne["detecciones_confirmadas_en_episodios_no_evaluables"]:
         L.append(f"- Detección confirmada fuera de la comparación: {d['episodio_id']} "
                  f"({', '.join(d['configuraciones_con_deteccion_confirmada'])}).")
-    for nombre, blq, k in (("Control", salida["control_normal_fpr"], "cobertura_evaluada"),
-                           ("Métricas por ventana", salida["metricas_por_ventana"], "cobertura_etiquetadas")):
-        if k in blq:
-            n_ne = blq.get("ventanas_no_evaluadas", blq.get("etiquetadas_no_evaluadas"))
-            L.append(f"- {nombre}: cobertura {blq[k]} ({n_ne} no evaluadas); tasas sobre ventanas evaluadas.")
+    ctl = salida["control_normal_fpr"]
+    if "cobertura_entre_registradas" in ctl:
+        L.append(f"- Control (window_end en [desde, hasta]): {ctl['ventanas']} evaluadas + {ctl['ventanas_no_evaluadas']}"
+                 f" no evaluadas explícitas; cobertura entre registradas {ctl['cobertura_entre_registradas']} (sin "
+                 "inventario de ventanas esperadas: no garantiza que no falten registros); tasas sobre las evaluadas.")
+    ce = salida["metricas_por_ventana"].get("conjunto_etiquetado")
+    if ce:
+        L.append(f"- Conjunto etiquetado: {ce['claves_esperadas']} claves esperadas = {ce['con_decision']} con decisión"
+                 f" + {ce['no_evaluadas']} no evaluadas + {ce['sin_registro']} sin registro; cobertura total "
+                 f"{ce['cobertura_total'] if ce['cobertura_total'] is not None else 'indefinida'}; métricas solo "
+                 "sobre las claves con decisión.")
     path.write_text("\n".join(L) + "\n", encoding="utf-8")
 
 

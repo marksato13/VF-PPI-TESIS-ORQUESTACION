@@ -1,0 +1,117 @@
+{
+ "nota": "FIXTURE DE CODIGO (tests/test_herramientas.py, _e2e_ne): datos sinteticos, no resultados de la campana A",
+ "caso_50": {
+  "etiquetas": "T+40 (decision), T+150 (sin decision ni evento)",
+  "metricas_por_ventana": {
+   "denominador": 1,
+   "conjunto_etiquetado": {
+    "claves_esperadas": 2,
+    "con_decision": 1,
+    "no_evaluadas": 0,
+    "sin_registro": 1,
+    "cobertura_total": 0.5,
+    "cobertura_entre_registradas": 1.0,
+    "definiciones": {
+     "claves_esperadas": "claves únicas entity_ip|window_end del fichero de etiquetas (denominador total)",
+     "con_decision": "claves con decisión registrada (si también hay ventana_no_evaluada, prevalece la decisión); son las únicas que entran en TP/FP/TN/FN",
+     "no_evaluadas": "claves sin decisión con evento ventana_no_evaluada",
+     "sin_registro": "claves sin decisión ni evento",
+     "cobertura_total": "con_decision / claves_esperadas",
+     "cobertura_entre_registradas": "con_decision / (con_decision + no_evaluadas); población limitada a las claves que dejaron algún registro, no es la cobertura total"
+    }
+   },
+   "IF_0.05": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 0,
+    "FN": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "FPR": null
+   },
+   "HEUR": {
+    "TP": 0,
+    "FP": 0,
+    "TN": 0,
+    "FN": 1,
+    "precision": null,
+    "recall": 0.0,
+    "FPR": null
+   }
+  }
+ },
+ "caso_1_3": {
+  "etiquetas": "T+40 (decision), T+50 (ventana_no_evaluada), T+150 (sin registro)",
+  "metricas_por_ventana": {
+   "denominador": 1,
+   "conjunto_etiquetado": {
+    "claves_esperadas": 3,
+    "con_decision": 1,
+    "no_evaluadas": 1,
+    "sin_registro": 1,
+    "cobertura_total": 0.333333,
+    "cobertura_entre_registradas": 0.5,
+    "definiciones": {
+     "claves_esperadas": "claves únicas entity_ip|window_end del fichero de etiquetas (denominador total)",
+     "con_decision": "claves con decisión registrada (si también hay ventana_no_evaluada, prevalece la decisión); son las únicas que entran en TP/FP/TN/FN",
+     "no_evaluadas": "claves sin decisión con evento ventana_no_evaluada",
+     "sin_registro": "claves sin decisión ni evento",
+     "cobertura_total": "con_decision / claves_esperadas",
+     "cobertura_entre_registradas": "con_decision / (con_decision + no_evaluadas); población limitada a las claves que dejaron algún registro, no es la cobertura total"
+    }
+   },
+   "IF_0.05": {
+    "TP": 1,
+    "FP": 0,
+    "TN": 0,
+    "FN": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "FPR": null
+   },
+   "HEUR": {
+    "TP": 0,
+    "FP": 0,
+    "TN": 0,
+    "FN": 1,
+    "precision": null,
+    "recall": 0.0,
+    "FPR": null
+   }
+  }
+ },
+ "control_por_window_end": {
+  "intervalo": "[T+100, T+200], ambos extremos incluidos",
+  "decision_registrada_tarde": {
+   "window_end_utc": "2026-10-26T07:36:40+00:00",
+   "logged_at": 1793000230,
+   "logged_at_utc": "2026-10-26T07:37:10+00:00",
+   "efecto": "cuenta en el control (su ventana pertenece a el) aunque se escribio 30 s despues de 'hasta'; logged_at sin cambios"
+  },
+  "decision_fuera": {
+   "window_end_utc": "2026-10-26T07:34:50+00:00",
+   "logged_at_utc": "2026-10-26T07:35:01+00:00",
+   "efecto": "no cuenta: su ventana cierra antes de 'desde' aunque se escribio dentro"
+  },
+  "control_normal_fpr": {
+   "ventanas": 8,
+   "denominador": 8,
+   "desde": "2026-10-26T07:35:00+00:00",
+   "hasta": "2026-10-26T07:36:40+00:00",
+   "seleccion": "población por ventana: window_end_utc en [desde, hasta] con AMBOS extremos incluidos, el mismo campo e intervalo para decisiones y eventos ventana_no_evaluada, y las mismas exclusiones (NUNCA_BLOQUEAR). Claves entity_ip|window_end únicas: decisiones deduplicadas (leer_motor), no evaluadas duplicadas contadas una vez y, en conflicto, prevalece la decisión. Una decisión escrita después de 'hasta' cuenta si su ventana pertenece al control; logged_at no se altera.",
+   "decisiones_escritas_tras_hasta": 1,
+   "ventanas_no_evaluadas": 1,
+   "cobertura_entre_registradas": 0.888889,
+   "cobertura_entre_registradas_significado": "evaluadas / (evaluadas + no evaluadas explícitas): solo sobre las ventanas que dejaron algún registro; sin inventario independiente de ventanas esperadas NO garantiza que no falten registros",
+   "inventario_esperado": "no disponible: no se informan claves esperadas sin registro ni cobertura total del control",
+   "IF_0.05": {
+    "falsas_alarmas": 1,
+    "tasa": 0.125
+   },
+   "HEUR": {
+    "falsas_alarmas": 0,
+    "tasa": 0.0
+   }
+  }
+ }
+}
