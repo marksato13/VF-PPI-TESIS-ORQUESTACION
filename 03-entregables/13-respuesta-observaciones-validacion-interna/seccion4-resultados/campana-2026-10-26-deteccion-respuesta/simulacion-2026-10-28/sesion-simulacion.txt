@@ -1,0 +1,101 @@
+### hora UTC: 2026-10-28T23:44:52  host: kali  python: Python 3.13.9
+### directorio de simulacion: /home/adminatacante/cf-simulacion-A-20261028T234452Z
+c586d813472d5853ae43fe512b5a53d22654699ace10894e43f57b3ddc4b171b  scripts/generar_campana.py
+e762e60421b4721b1e8ce32549049ae10c7e86596b0fbd37f9a35517ab904144  scripts/esquema_campana.py
+67798012cbd306e9c06ebccf5ec293c7d9db12951d93119f739c3f86a83c64ec  escenarios/escenarios.json
+### procesos de ataque/generador ANTES:
+(ninguno)
+(sin corridas ni marcas previas)
+### trazador execve: no disponible
+### rc=0  duracion=0.107 s
+### stdout:
+SIMULACIÓN (no lanza tráfico) · 25 episodios · calentamiento 60 s · contexto previo 120 s · observación 90 s
+[1/25] escaneo_sostenido-r2: nmap -sT -T4…
+        -> simulado
+[2/25] inundacion_http-r1: bash -c fin=$((SECONDS+90)); n=8; d=$(mktemp -d); for i in $(seq $n); do ( c=0; while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null --max-time 2 http://10.10.30.10/ ; c=$((c+1)); done; echo $c > "$d/$i" ) & done; wait; echo "intentos=$(cat "$d"/* | awk '{s+=$1} END{print s+0}')"; rm -rf "$d"…
+        -> simulado
+[3/25] dns_inusual-r3: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do dig +time=1 +tries=1 @10.10.10.20 "$(openssl rand -hex 8).lab-ppi" +short >/dev/null 2>&1; c=$((c+1)); sleep 0.4; done; echo "intentos=$c"…
+        -> simulado
+[4/25] inundacion_http-r4: bash -c fin=$((SECONDS+90)); n=8; d=$(mktemp -d); for i in $(seq $n); do ( c=0; while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null --max-time 2 http://10.10.30.10/ ; c=$((c+1)); done; echo $c > "$d/$i" ) & done; wait; echo "intentos=$(cat "$d"/* | awk '{s+=$1} END{print s+0}')"; rm -rf "$d"…
+        -> simulado
+[5/25] inundacion_http-r2: bash -c fin=$((SECONDS+90)); n=8; d=$(mktemp -d); for i in $(seq $n); do ( c=0; while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null --max-time 2 http://10.10.30.10/ ; c=$((c+1)); done; echo $c > "$d/$i" ) & done; wait; echo "intentos=$(cat "$d"/* | awk '{s+=$1} END{print s+0}')"; rm -rf "$d"…
+        -> simulado
+[6/25] inundacion_http-r3: bash -c fin=$((SECONDS+90)); n=8; d=$(mktemp -d); for i in $(seq $n); do ( c=0; while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null --max-time 2 http://10.10.30.10/ ; c=$((c+1)); done; echo $c > "$d/$i" ) & done; wait; echo "intentos=$(cat "$d"/* | awk '{s+=$1} END{print s+0}')"; rm -rf "$d"…
+        -> simulado
+[7/25] escaneo_sostenido-r4: nmap -sT -T4…
+        -> simulado
+[8/25] escaneo_sostenido-r5: nmap -sT -T4…
+        -> simulado
+[9/25] escaneo_breve-r5: nmap -sT -T4…
+        -> simulado
+[10/25] fuerza_bruta_http-r3: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null -w "%{http_code}\n" --max-time 2 -u fake:fake$RANDOM http://10.10.30.10:18081/auth ; c=$((c+1)); done; echo "intentos=$c"…
+        -> simulado
+[11/25] fuerza_bruta_http-r5: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null -w "%{http_code}\n" --max-time 2 -u fake:fake$RANDOM http://10.10.30.10:18081/auth ; c=$((c+1)); done; echo "intentos=$c"…
+        -> simulado
+[12/25] dns_inusual-r5: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do dig +time=1 +tries=1 @10.10.10.20 "$(openssl rand -hex 8).lab-ppi" +short >/dev/null 2>&1; c=$((c+1)); sleep 0.4; done; echo "intentos=$c"…
+        -> simulado
+[13/25] escaneo_sostenido-r3: nmap -sT -T4…
+        -> simulado
+[14/25] dns_inusual-r2: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do dig +time=1 +tries=1 @10.10.10.20 "$(openssl rand -hex 8).lab-ppi" +short >/dev/null 2>&1; c=$((c+1)); sleep 0.4; done; echo "intentos=$c"…
+        -> simulado
+[15/25] fuerza_bruta_http-r2: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null -w "%{http_code}\n" --max-time 2 -u fake:fake$RANDOM http://10.10.30.10:18081/auth ; c=$((c+1)); done; echo "intentos=$c"…
+        -> simulado
+[16/25] fuerza_bruta_http-r4: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null -w "%{http_code}\n" --max-time 2 -u fake:fake$RANDOM http://10.10.30.10:18081/auth ; c=$((c+1)); done; echo "intentos=$c"…
+        -> simulado
+[17/25] dns_inusual-r1: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do dig +time=1 +tries=1 @10.10.10.20 "$(openssl rand -hex 8).lab-ppi" +short >/dev/null 2>&1; c=$((c+1)); sleep 0.4; done; echo "intentos=$c"…
+        -> simulado
+[18/25] escaneo_breve-r1: nmap -sT -T4…
+        -> simulado
+[19/25] escaneo_breve-r4: nmap -sT -T4…
+        -> simulado
+[20/25] escaneo_breve-r3: nmap -sT -T4…
+        -> simulado
+[21/25] dns_inusual-r4: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do dig +time=1 +tries=1 @10.10.10.20 "$(openssl rand -hex 8).lab-ppi" +short >/dev/null 2>&1; c=$((c+1)); sleep 0.4; done; echo "intentos=$c"…
+        -> simulado
+[22/25] fuerza_bruta_http-r1: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null -w "%{http_code}\n" --max-time 2 -u fake:fake$RANDOM http://10.10.30.10:18081/auth ; c=$((c+1)); done; echo "intentos=$c"…
+        -> simulado
+[23/25] inundacion_http-r5: bash -c fin=$((SECONDS+90)); n=8; d=$(mktemp -d); for i in $(seq $n); do ( c=0; while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null --max-time 2 http://10.10.30.10/ ; c=$((c+1)); done; echo $c > "$d/$i" ) & done; wait; echo "intentos=$(cat "$d"/* | awk '{s+=$1} END{print s+0}')"; rm -rf "$d"…
+        -> simulado
+[24/25] escaneo_breve-r2: nmap -sT -T4…
+        -> simulado
+[25/25] escaneo_sostenido-r1: nmap -sT -T4…
+        -> simulado
+### stderr:
+### procesos de ataque/generador DESPUES:
+(ninguno)
+### contenido del directorio:
+d 4096 
+f 5058 config-efectiva.json
+f 13638 marcas.jsonl
+d 4096 salidas
+f 0 stderr.txt
+f 5042 stdout.txt
+### marcas.jsonl:
+{"evento": "campana_inicio", "modo": "SIMULACIÓN (no lanza tráfico)", "orden": ["escaneo_sostenido-r2", "inundacion_http-r1", "dns_inusual-r3", "inundacion_http-r4", "inundacion_http-r2", "inundacion_http-r3", "escaneo_sostenido-r4", "escaneo_sostenido-r5", "escaneo_breve-r5", "fuerza_bruta_http-r3", "fuerza_bruta_http-r5", "dns_inusual-r5", "escaneo_sostenido-r3", "dns_inusual-r2", "fuerza_bruta_http-r2", "fuerza_bruta_http-r4", "dns_inusual-r1", "escaneo_breve-r1", "escaneo_breve-r4", "escaneo_breve-r3", "dns_inusual-r4", "fuerza_bruta_http-r1", "inundacion_http-r5", "escaneo_breve-r2", "escaneo_sostenido-r1"], "reloj": {"pared_utc": "2026-10-28T23:44:53.080302+00:00", "monotonico": 621323.960814}}
+{"evento": "inicio", "campana": "deteccion-respuesta-2026-10-26", "episodio_id": "escaneo_sostenido-r2", "escenario": "escaneo_sostenido", "repeticion": 2, "destino": "10.10.30.10", "servicio": "TCP 1-65535", "comando": ["nmap", "-sT", "-T4", "--max-retries", "0", "--max-rate", "1500", "-p", "1-65535", "10.10.30.10"], "timeout_s": 900, "reloj": {"pared_utc": "2026-10-28T23:44:53.081234+00:00", "monotonico": 621323.961746}}
+{"evento": "inicio", "campana": "deteccion-respuesta-2026-10-26", "episodio_id": "inundacion_http-r1", "escenario": "inundacion_http", "repeticion": 1, "destino": "10.10.30.10", "servicio": "TCP/80", "comando": ["bash", "-c", "fin=$((SECONDS+90)); n=8; d=$(mktemp -d); for i in $(seq $n); do ( c=0; while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null --max-time 2 http://10.10.30.10/ ; c=$((c+1)); done; echo $c > \"$d/$i\" ) & done; wait; echo \"intentos=$(cat \"$d\"/* | awk '{s+=$1} END{print s+0}')\"; rm -rf \"$d\""], "timeout_s": 150, "reloj": {"pared_utc": "2026-10-28T23:44:53.081695+00:00", "monotonico": 621323.962205}}
+{"evento": "inicio", "campana": "deteccion-respuesta-2026-10-26", "episodio_id": "dns_inusual-r3", "escenario": "dns_inusual", "repeticion": 3, "destino": "10.10.10.20", "servicio": "UDP/53", "comando": ["bash", "-c", "c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do dig +time=1 +tries=1 @10.10.10.20 \"$(openssl rand -hex 8).lab-ppi\" +short >/dev/null 2>&1; c=$((c+1)); sleep 0.4; done; echo \"intentos=$c\""], "timeout_s": 150, "reloj": {"pared_utc": "2026-10-28T23:44:53.082089+00:00", "monotonico": 621323.962599}}
+{"evento": "inicio", "campana": "deteccion-respuesta-2026-10-26", "episodio_id": "inundacion_http-r4", "escenario": "inundacion_http", "repeticion": 4, "destino": "10.10.30.10", "servicio": "TCP/80", "comando": ["bash", "-c", "fin=$((SECONDS+90)); n=8; d=$(mktemp -d); for i in $(seq $n); do ( c=0; while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null --max-time 2 http://10.10.30.10/ ; c=$((c+1)); done; echo $c > \"$d/$i\" ) & done; wait; echo \"intentos=$(cat \"$d\"/* | awk '{s+=$1} END{print s+0}')\"; rm -rf \"$d\""], "timeout_s": 150, "reloj": {"pared_utc": "2026-10-28T23:44:53.082452+00:00", "monotonico": 621323.962961}}
+{"evento": "inicio", "campana": "deteccion-respuesta-2026-10-26", "episodio_id": "inundacion_http-r2", "escenario": "inundacion_http", "repeticion": 2, "destino": "10.10.30.10", "servicio": "TCP/80", "comando": ["bash", "-c", "fin=$((SECONDS+90)); n=8; d=$(mktemp -d); for i in $(seq $n); do ( c=0; while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null --max-time 2 http://10.10.30.10/ ; c=$((c+1)); done; echo $c > \"$d/$i\" ) & done; wait; echo \"intentos=$(cat \"$d\"/* | awk '{s+=$1} END{print s+0}')\"; rm -rf \"$d\""], "timeout_s": 150, "reloj": {"pared_utc": "2026-10-28T23:44:53.082811+00:00", "monotonico": 621323.963321}}
+{"evento": "inicio", "campana": "deteccion-respuesta-2026-10-26", "episodio_id": "inundacion_http-r3", "escenario": "inundacion_http", "repeticion": 3, "destino": "10.10.30.10", "servicio": "TCP/80", "comando": ["bash", "-c", "fin=$((SECONDS+90)); n=8; d=$(mktemp -d); for i in $(seq $n); do ( c=0; while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null --max-time 2 http://10.10.30.10/ ; c=$((c+1)); done; echo $c > \"$d/$i\" ) & done; wait; echo \"intentos=$(cat \"$d\"/* | awk '{s+=$1} END{print s+0}')\"; rm -rf \"$d\""], "timeout_s": 150, "reloj": {"pared_utc": "2026-10-28T23:44:53.083170+00:00", "monotonico": 621323.963679}}
+{"evento": "inicio", "campana": "deteccion-respuesta-2026-10-26", "episodio_id": "escaneo_sostenido-r4", "escenario": "escaneo_sostenido", "repeticion": 4, "destino": "10.10.30.10", "servicio": "TCP 1-65535", "comando": ["nmap", "-sT", "-T4", "--max-retries", "0", "--max-rate", "1500", "-p", "1-65535", "10.10.30.10"], "timeout_s": 900, "reloj": {"pared_utc": "2026-10-28T23:44:53.083604+00:00", "monotonico": 621323.964114}}
+{"evento": "inicio", "campana": "deteccion-respuesta-2026-10-26", "episodio_id": "escaneo_sostenido-r5", "escenario": "escaneo_sostenido", "repeticion": 5, "destino": "10.10.30.10", "servicio": "TCP 1-65535", "comando": ["nmap", "-sT", "-T4", "--max-retries", "0", "--max-rate", "1500", "-p", "1-65535", "10.10.30.10"], "timeout_s": 900, "reloj": {"pared_utc": "2026-10-28T23:44:53.083941+00:00", "monotonico": 621323.96445}}
+{"evento": "inicio", "campana": "deteccion-respuesta-2026-10-26", "episodio_id": "escaneo_breve-r5", "escenario": "escaneo_breve", "repeticion": 5, "destino": "10.10.30.10", "servicio": "TCP 1-1000", "comando": ["nmap", "-sT", "-T4", "--max-retries", "1", "-p", "1-1000", "10.10.30.10"], "timeout_s": 180, "reloj": {"pared_utc": "2026-10-28T23:44:53.084276+00:00", "monotonico": 621323.964785}}
+{"evento": "inicio", "campana": "deteccion-respuesta-2026-10-26", "episodio_id": "fuerza_bruta_http-r3", "escenario": "fuerza_bruta_http", "repeticion": 3, "destino": "10.10.30.10", "servicio": "TCP/HTTP endpoint de prueba :18081", "comando": ["bash", "-c", "c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null -w \"%{http_code}\\n\" --max-time 2 -u fake:fake$RANDOM http://10.10.30.10:18081/auth ; c=$((c+1)); done; echo \"intentos=$c\""], "timeout_s": 150, "reloj": {"pared_utc": "2026-10-28T23:44:53.084620+00:00", "monotonico": 621323.965129}}
+{"evento": "inicio", "campana": "deteccion-respuesta-2026-10-26", "episodio_id": "fuerza_bruta_http-r5", "escenario": "fuerza_bruta_http", "repeticion": 5, "destino": "10.10.30.10", "servicio": "TCP/HTTP endpoint de prueba :18081", "comando": ["bash", "-c", "c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null -w \"%{http_code}\\n\" --max-time 2 -u fake:fake$RANDOM http://10.10.30.10:18081/auth ; c=$((c+1)); done; echo \"intentos=$c\""], "timeout_s": 150, "reloj": {"pared_utc": "2026-10-28T23:44:53.084959+00:00", "monotonico": 621323.965468}}
+{"evento": "inicio", "campana": "deteccion-respuesta-2026-10-26", "episodio_id": "dns_inusual-r5", "escenario": "dns_inusual", "repeticion": 5, "destino": "10.10.10.20", "servicio": "UDP/53", "comando": ["bash", "-c", "c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do dig +time=1 +tries=1 @10.10.10.20 \"$(openssl rand -hex 8).lab-ppi\" +short >/dev/null 2>&1; c=$((c+1)); sleep 0.4; done; echo \"intentos=$c\""], "timeout_s": 150, "reloj": {"pared_utc": "2026-10-28T23:44:53.085293+00:00", "monotonico": 621323.965801}}
+{"evento": "inicio", "campana": "deteccion-respuesta-2026-10-26", "episodio_id": "escaneo_sostenido-r3", "escenario": "escaneo_sostenido", "repeticion": 3, "destino": "10.10.30.10", "servicio": "TCP 1-65535", "comando": ["nmap", "-sT", "-T4", "--max-retries", "0", "--max-rate", "1500", "-p", "1-65535", "10.10.30.10"], "timeout_s": 900, "reloj": {"pared_utc": "2026-10-28T23:44:53.085619+00:00", "monotonico": 621323.966128}}
+{"evento": "inicio", "campana": "deteccion-respuesta-2026-10-26", "episodio_id": "dns_inusual-r2", "escenario": "dns_inusual", "repeticion": 2, "destino": "10.10.10.20", "servicio": "UDP/53", "comando": ["bash", "-c", "c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do dig +time=1 +tries=1 @10.10.10.20 \"$(openssl rand -hex 8).lab-ppi\" +short >/dev/null 2>&1; c=$((c+1)); sleep 0.4; done; echo \"intentos=$c\""], "timeout_s": 150, "reloj": {"pared_utc": "2026-10-28T23:44:53.085975+00:00", "monotonico": 621323.966484}}
+{"evento": "inicio", "campana": "deteccion-respuesta-2026-10-26", "episodio_id": "fuerza_bruta_http-r2", "escenario": "fuerza_bruta_http", "repeticion": 2, "destino": "10.10.30.10", "servicio": "TCP/HTTP endpoint de prueba :18081", "comando": ["bash", "-c", "c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null -w \"%{http_code}\\n\" --max-time 2 -u fake:fake$RANDOM http://10.10.30.10:18081/auth ; c=$((c+1)); done; echo \"intentos=$c\""], "timeout_s": 150, "reloj": {"pared_utc": "2026-10-28T23:44:53.086326+00:00", "monotonico": 621323.966835}}
+{"evento": "inicio", "campana": "deteccion-respuesta-2026-10-26", "episodio_id": "fuerza_bruta_http-r4", "escenario": "fuerza_bruta_http", "repeticion": 4, "destino": "10.10.30.10", "servicio": "TCP/HTTP endpoint de prueba :18081", "comando": ["bash", "-c", "c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null -w \"%{http_code}\\n\" --max-time 2 -u fake:fake$RANDOM http://10.10.30.10:18081/auth ; c=$((c+1)); done; echo \"intentos=$c\""], "timeout_s": 150, "reloj": {"pared_utc": "2026-10-28T23:44:53.086723+00:00", "monotonico": 621323.967232}}
+{"evento": "inicio", "campana": "deteccion-respuesta-2026-10-26", "episodio_id": "dns_inusual-r1", "escenario": "dns_inusual", "repeticion": 1, "destino": "10.10.10.20", "servicio": "UDP/53", "comando": ["bash", "-c", "c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do dig +time=1 +tries=1 @10.10.10.20 \"$(openssl rand -hex 8).lab-ppi\" +short >/dev/null 2>&1; c=$((c+1)); sleep 0.4; done; echo \"intentos=$c\""], "timeout_s": 150, "reloj": {"pared_utc": "2026-10-28T23:44:53.087058+00:00", "monotonico": 621323.967567}}
+{"evento": "inicio", "campana": "deteccion-respuesta-2026-10-26", "episodio_id": "escaneo_breve-r1", "escenario": "escaneo_breve", "repeticion": 1, "destino": "10.10.30.10", "servicio": "TCP 1-1000", "comando": ["nmap", "-sT", "-T4", "--max-retries", "1", "-p", "1-1000", "10.10.30.10"], "timeout_s": 180, "reloj": {"pared_utc": "2026-10-28T23:44:53.087391+00:00", "monotonico": 621323.967899}}
+{"evento": "inicio", "campana": "deteccion-respuesta-2026-10-26", "episodio_id": "escaneo_breve-r4", "escenario": "escaneo_breve", "repeticion": 4, "destino": "10.10.30.10", "servicio": "TCP 1-1000", "comando": ["nmap", "-sT", "-T4", "--max-retries", "1", "-p", "1-1000", "10.10.30.10"], "timeout_s": 180, "reloj": {"pared_utc": "2026-10-28T23:44:53.087745+00:00", "monotonico": 621323.968253}}
+{"evento": "inicio", "campana": "deteccion-respuesta-2026-10-26", "episodio_id": "escaneo_breve-r3", "escenario": "escaneo_breve", "repeticion": 3, "destino": "10.10.30.10", "servicio": "TCP 1-1000", "comando": ["nmap", "-sT", "-T4", "--max-retries", "1", "-p", "1-1000", "10.10.30.10"], "timeout_s": 180, "reloj": {"pared_utc": "2026-10-28T23:44:53.088058+00:00", "monotonico": 621323.968567}}
+{"evento": "inicio", "campana": "deteccion-respuesta-2026-10-26", "episodio_id": "dns_inusual-r4", "escenario": "dns_inusual", "repeticion": 4, "destino": "10.10.10.20", "servicio": "UDP/53", "comando": ["bash", "-c", "c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do dig +time=1 +tries=1 @10.10.10.20 \"$(openssl rand -hex 8).lab-ppi\" +short >/dev/null 2>&1; c=$((c+1)); sleep 0.4; done; echo \"intentos=$c\""], "timeout_s": 150, "reloj": {"pared_utc": "2026-10-28T23:44:53.088386+00:00", "monotonico": 621323.968895}}
+{"evento": "inicio", "campana": "deteccion-respuesta-2026-10-26", "episodio_id": "fuerza_bruta_http-r1", "escenario": "fuerza_bruta_http", "repeticion": 1, "destino": "10.10.30.10", "servicio": "TCP/HTTP endpoint de prueba :18081", "comando": ["bash", "-c", "c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null -w \"%{http_code}\\n\" --max-time 2 -u fake:fake$RANDOM http://10.10.30.10:18081/auth ; c=$((c+1)); done; echo \"intentos=$c\""], "timeout_s": 150, "reloj": {"pared_utc": "2026-10-28T23:44:53.088715+00:00", "monotonico": 621323.969224}}
+{"evento": "inicio", "campana": "deteccion-respuesta-2026-10-26", "episodio_id": "inundacion_http-r5", "escenario": "inundacion_http", "repeticion": 5, "destino": "10.10.30.10", "servicio": "TCP/80", "comando": ["bash", "-c", "fin=$((SECONDS+90)); n=8; d=$(mktemp -d); for i in $(seq $n); do ( c=0; while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null --max-time 2 http://10.10.30.10/ ; c=$((c+1)); done; echo $c > \"$d/$i\" ) & done; wait; echo \"intentos=$(cat \"$d\"/* | awk '{s+=$1} END{print s+0}')\"; rm -rf \"$d\""], "timeout_s": 150, "reloj": {"pared_utc": "2026-10-28T23:44:53.089044+00:00", "monotonico": 621323.969553}}
+{"evento": "inicio", "campana": "deteccion-respuesta-2026-10-26", "episodio_id": "escaneo_breve-r2", "escenario": "escaneo_breve", "repeticion": 2, "destino": "10.10.30.10", "servicio": "TCP 1-1000", "comando": ["nmap", "-sT", "-T4", "--max-retries", "1", "-p", "1-1000", "10.10.30.10"], "timeout_s": 180, "reloj": {"pared_utc": "2026-10-28T23:44:53.089433+00:00", "monotonico": 621323.969942}}
+{"evento": "inicio", "campana": "deteccion-respuesta-2026-10-26", "episodio_id": "escaneo_sostenido-r1", "escenario": "escaneo_sostenido", "repeticion": 1, "destino": "10.10.30.10", "servicio": "TCP 1-65535", "comando": ["nmap", "-sT", "-T4", "--max-retries", "0", "--max-rate", "1500", "-p", "1-65535", "10.10.30.10"], "timeout_s": 900, "reloj": {"pared_utc": "2026-10-28T23:44:53.089760+00:00", "monotonico": 621323.970269}}
+{"evento": "campana_fin", "estado": "completa", "reloj": {"pared_utc": "2026-10-28T23:44:53.090039+00:00", "monotonico": 621323.970548}}
+### TAR /home/adminatacante/cf-simulacion-A-20261028T234452Z.tar
