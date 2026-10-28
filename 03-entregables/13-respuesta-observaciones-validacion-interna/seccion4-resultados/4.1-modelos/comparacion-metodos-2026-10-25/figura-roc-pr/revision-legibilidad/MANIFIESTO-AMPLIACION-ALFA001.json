@@ -1,0 +1,85 @@
+{
+  "generado_utc": "2026-10-28T05:01:45.980013+00:00",
+  "proposito": "Figura 5 (ampliacion) actualizada con alfa=0,01 (triangulos) conservando 0,05 (circulo) y 0,03 (rombo). Curvas y datos sin cambios; no toca principal.* (Figura 4), tablas, Word, modelos ni config.",
+  "entradas_verificadas_sha256": {
+    "curvas-roc.csv": "08ebcd74e084efc6348e6c56e7b336a40a2edbbeedfa89898589ff2c76ecb4a8",
+    "curvas-pr.csv": "e760a2a1249d54b6776df5ae2daebc0d73e0407ff4490fdb9146b5b592b9ef2f",
+    "puntos.csv": "0d26e881fec105bc071f5ffb9e474f77e004c604f1e32ac200877f7e24e98220",
+    "salidas/puntuaciones-IF.csv.gz": "536638f47145a8c86d17ba63f7ebf4a2cc3aca2a8294f9ff6d57d8d4ee795fd4",
+    "salidas/puntuaciones-OCSVM.csv.gz": "f8a3c19c32141182ed3920f9553a7539017490362491513ed40d8195d889da41",
+    "salidas/puntuaciones-LOF.csv.gz": "b33a6875247828f30185046c01558ae436889509b1b92ee3180c3f047b7e7465",
+    "salidas/puntuaciones-EllipticEnvelope.csv.gz": "3de4f17c61b0f47d6b3b6d45fb9a53e2e95a6375031f334d78b2a366c290f0e9",
+    "salidas/puntuaciones-PCA.csv.gz": "132b5b1c494967efb8df7ee30d3c4d9cf8469ce9ac926ca41252654742aa133c"
+  },
+  "alfa_0.01_conteos_reproducidos": {
+    "IF": {
+      "TP": 50,
+      "FP": 567,
+      "TN": 64854,
+      "FN": 34
+    },
+    "OCSVM": {
+      "TP": 57,
+      "FP": 708,
+      "TN": 64713,
+      "FN": 27
+    },
+    "LOF": {
+      "TP": 36,
+      "FP": 975,
+      "TN": 64446,
+      "FN": 48
+    },
+    "EllipticEnvelope": {
+      "TP": 40,
+      "FP": 570,
+      "TN": 64851,
+      "FN": 44
+    },
+    "PCA": {
+      "TP": 67,
+      "FP": 825,
+      "TN": 64596,
+      "FN": 17
+    }
+  },
+  "roc_auc_ap_curvas_sin_cambios": {
+    "IF": {
+      "roc_auc": 0.9247265513258084,
+      "ap": 0.18580688397625872
+    },
+    "OCSVM": {
+      "roc_auc": 0.869071457322936,
+      "ap": 0.6356616971916291
+    },
+    "LOF": {
+      "roc_auc": 0.9762796422584565,
+      "ap": 0.029066072188399145
+    },
+    "EllipticEnvelope": {
+      "roc_auc": 0.9179326428604184,
+      "ap": 0.3811037448703374
+    },
+    "PCA": {
+      "roc_auc": 0.9486616355167738,
+      "ap": 0.5944055724226315
+    }
+  },
+  "render": {
+    "png_dpi": 599.9988,
+    "png_size": [
+      4251,
+      3047
+    ]
+  },
+  "supersede": "Reemplaza los bytes de ampliacion.{png,svg,pdf} y zoom-previa/zoom-gris de la revision de 2 alfas (MANIFIESTO.json / control.* historicos). principal.* intactos.",
+  "salidas_sha256_lf": {
+    "ampliacion.png": "d2f461c2620c77947ef027eb816712911ec4be2c996d3082425025ab9a65cf1b",
+    "ampliacion.svg": "db54c11e5bfe5ff5917e4203b1f907c3fbb632df8d5dcef48ac8a9949e7ac391",
+    "ampliacion.pdf": "14d0428a7110556229d87663e2a7096894b71dd9009e2a7e14f4f2223dc90c3e",
+    "zoom-previa.png": "ef03ee80c086c9a1440fc1b2e781ad6146c154842ea3ded81d8d0cd795a940f8",
+    "zoom-gris.png": "2f653345fa8ecb3121a30da69ace0abe8ffd63b1a5d49637444839cb59b2a5ac",
+    "puntos-15-operativos.csv": "2a7df3ae2b60ff6bd04fbfcccaeb625e904835eed9b3ff11f5cf5eb4ff178c33",
+    "ampliacion_alfa001.py": "22cc58048c772c21fc983ceff519f68cc6bfcf5e461656733de71b20f0eef469"
+  }
+}
