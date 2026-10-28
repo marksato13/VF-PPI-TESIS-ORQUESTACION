@@ -1,0 +1,39 @@
+{
+  "procedimiento": {
+    "modelo": "if_limpio_2026_10 (congelado); sha256 joblib desplegado df547da098e51171aa267c8466edc6624bc1bd5c6b602639cc00bd4711a2fd60",
+    "score": "score_samples del pipeline (scaler+IsolationForest); mayor = mas normal",
+    "umbral": "numpy.quantile(score_samples_validacion, alfa, method='linear')",
+    "regla_clasificacion": "alerta si score_samples < umbral (estricto)",
+    "validacion_original": 65633,
+    "validacion_sin_kali": 65553,
+    "evaluacion_normales": 65421,
+    "evaluacion_ataques": 84,
+    "no_reentrena": true,
+    "no_usa_prueba_ni_ataques_para_umbral": true,
+    "umbral_desplegado_sin_cambios": -0.5693969936322356
+  },
+  "umbrales_full_precision": {
+    "validacion_original_65633": {
+      "0.005": "-0.6378394420989123",
+      "0.008": "-0.6275420088820873",
+      "0.010": "-0.6223738394125686",
+      "0.020": "-0.6028234334119111",
+      "0.025": "-0.5952528323894616",
+      "0.030": "-0.5898052872761252",
+      "0.040": "-0.5800582408391518",
+      "0.050": "-0.5693969936322356",
+      "0.100": "-0.5369318991910549"
+    },
+    "validacion_sin_kali_65553": {
+      "0.005": "-0.6378693863136206",
+      "0.008": "-0.6276028053845866",
+      "0.010": "-0.6223889502095352",
+      "0.020": "-0.6028434329073754",
+      "0.025": "-0.595282405679162",
+      "0.030": "-0.5898535710336618",
+      "0.040": "-0.5800997271748063",
+      "0.050": "-0.5694578968203694",
+      "0.100": "-0.5370224764877942"
+    }
+  }
+}
