@@ -1,0 +1,48 @@
+## p28  inicio=2026-10-28T07:45:06.851Z  emular sha=538429ecc23a07c3
+--- (1) ciclos con alguna ventana a cero
+## emulacion de ciclos [2026-10-28T06:49:00+00:00, 2026-10-28T07:03:40+00:00] solo_con_cero=True
+   ciclos                                        40
+   cota_elegida_sup                              27
+   cotas_misma_marca                             12
+   decisiones                                    286
+   reproducidas_exactas                          276
+   reproducidas_pk10                             277
+   vivo_cero                                     106
+   vivo_cero_reproducido                         97
+   vivo_cero_con_ventana_posterior_a_marca       18
+   cota_elegida_inf                              13
+## ejemplos (no reproducidos y ceros)
+   {"tipo": "cero", "ciclo": 28, "cota": "sup", "clave": ["10.10.50.51", "2026-10-28T06:49:00+00:00"], "logged_at": 1793170151.2819972, "marca_pcap": 1793170147.753841, "ventana_posterior_a_marca": false, "vivo": [0, null], "emulado": [0, null]}
+   {"tipo": "cero", "ciclo": 29, "cota": "sup", "clave": ["10.10.10.21", "2026-10-28T06:49:10+00:00"], "logged_at": 1793170169.7507546, "marca_pcap": 1793170162.163284, "ventana_posterior_a_marca": false, "vivo": [0, null], "emulado": [0, null]}
+   {"tipo": "cero", "ciclo": 30, "cota": "sup", "clave": ["10.10.10.20", "2026-10-28T06:49:20+00:00"], "logged_at": 1793170179.6119788, "marca_pcap": 1793170177.353332, "ventana_posterior_a_marca": false, "vivo": [0, null], "emulado": [0, null]}
+   {"ciclo": 30, "cota": "sup", "clave": ["10.10.10.20", "2026-10-28T06:49:30+00:00"], "logged_at": 1793170179.6123455, "marca_pcap": 1793170177.353332, "vivo": [0, null], "emulado": [3, -0.4861608223775807]}
+   {"tipo": "cero", "ciclo": 30, "cota": "sup", "clave": ["10.10.10.20", "2026-10-28T06:49:30+00:00"], "logged_at": 1793170179.6123455, "marca_pcap": 1793170177.353332, "ventana_posterior_a_marca": false, "vivo": [0, null], "emulado": [3, -0.4861608223775807]}
+   {"ciclo": 30, "cota": "sup", "clave": ["10.10.10.20", "2026-10-28T06:49:40+00:00"], "logged_at": 1793170179.6124868, "marca_pcap": 1793170177.353332, "vivo": [0, null], "emulado": [4, -0.47620131341951916]}
+   {"tipo": "cero", "ciclo": 30, "cota": "sup", "clave": ["10.10.10.20", "2026-10-28T06:49:40+00:00"], "logged_at": 1793170179.6124868, "marca_pcap": 1793170177.353332, "ventana_posterior_a_marca": true, "vivo": [0, null], "emulado": [4, -0.47620131341951916]}
+   {"ciclo": 30, "cota": "sup", "clave": ["10.10.60.12", "2026-10-28T06:49:40+00:00"], "logged_at": 1793170179.6127956, "marca_pcap": 1793170177.353332, "vivo": [0, null], "emulado": [2, -0.44655097350211703]}
+   {"tipo": "cero", "ciclo": 30, "cota": "sup", "clave": ["10.10.60.12", "2026-10-28T06:49:40+00:00"], "logged_at": 1793170179.6127956, "marca_pcap": 1793170177.353332, "ventana_posterior_a_marca": true, "vivo": [0, null], "emulado": [2, -0.44655097350211703]}
+   {"ciclo": 36, "cota": "sup", "clave": ["10.10.60.12", "2026-10-28T06:50:40+00:00"], "logged_at": 1793170241.797463, "marca_pcap": 1793170236.875356, "vivo": [2, -0.44655097350211703], "emulado": [2, -0.44817306605656937]}
+   {"ciclo": 40, "cota": "sup", "clave": ["10.10.10.21", "2026-10-28T06:51:40+00:00"], "logged_at": 1793170299.6497264, "marca_pcap": 1793170297.299546, "vivo": [0, null], "emulado": [11, -0.4775023007377895]}
+   {"ciclo": 40, "cota": "sup", "clave": ["10.10.60.12", "2026-10-28T06:51:40+00:00"], "logged_at": 1793170299.650042, "marca_pcap": 1793170297.299546, "vivo": [0, null], "emulado": [2, -0.44608266111868283]}
+--- (2) todos los ciclos de 06:50:00 a 06:56:00
+## emulacion de ciclos [2026-10-28T06:50:00+00:00, 2026-10-28T06:56:00+00:00] solo_con_cero=False
+   ciclos                                        34
+   cota_elegida_sup                              24
+   cotas_misma_marca                             9
+   decisiones                                    223
+   reproducidas_exactas                          216
+   reproducidas_pk10                             217
+   vivo_cero                                     86
+   vivo_cero_reproducido                         80
+   vivo_cero_con_ventana_posterior_a_marca       14
+   cota_elegida_inf                              10
+## ejemplos (no reproducidos y ceros)
+   {"tipo": "cero", "ciclo": 29, "cota": "sup", "clave": ["10.10.10.20", "2026-10-28T06:50:00+00:00"], "logged_at": 1793170211.2271755, "marca_pcap": 1793170207.749073, "ventana_posterior_a_marca": false, "vivo": [0, null], "emulado": [0, null]}
+   {"tipo": "cero", "ciclo": 29, "cota": "sup", "clave": ["10.10.50.51", "2026-10-28T06:50:00+00:00"], "logged_at": 1793170211.2931454, "marca_pcap": 1793170207.749073, "ventana_posterior_a_marca": false, "vivo": [0, null], "emulado": [0, null]}
+   {"tipo": "cero", "ciclo": 30, "cota": "sup", "clave": ["10.10.10.20", "2026-10-28T06:50:20+00:00"], "logged_at": 1793170221.1564736, "marca_pcap": 1793170207.749073, "ventana_posterior_a_marca": true, "vivo": [0, null], "emulado": [0, null]}
+   {"tipo": "cero", "ciclo": 31, "cota": "sup", "clave": ["10.10.10.21", "2026-10-28T06:50:10+00:00"], "logged_at": 1793170229.7798202, "marca_pcap": 1793170222.904735, "ventana_posterior_a_marca": false, "vivo": [0, null], "emulado": [0, null]}
+   {"tipo": "cero", "ciclo": 31, "cota": "sup", "clave": ["10.10.40.10", "2026-10-28T06:50:00+00:00"], "logged_at": 1793170229.8458567, "marca_pcap": 1793170222.904735, "ventana_posterior_a_marca": false, "vivo": [0, null], "emulado": [0, null]}
+   {"tipo": "cero", "ciclo": 31, "cota": "sup", "clave": ["10.10.50.52", "2026-10-28T06:50:10+00:00"], "logged_at": 1793170229.9778183, "marca_pcap": 1793170222.904735, "ventana_posterior_a_marca": false, "vivo": [0, null], "emulado": [0, null]}
+   {"ciclo": 32, "cota": "sup", "clave": ["10.10.60.12", "2026-10-28T06:50:40+00:00"], "logged_at": 1793170241.797463, "marca_pcap": 1793170236.875356, "vivo": [2, -0.44655097350211703], "emulado": [2, -0.44817306605656937]}
+   {"ciclo": 36, "cota": "sup", "clave": ["10.10.10.21", "2026-10-28T06:51:40+00:00"], "logged_at": 1793170299.6497264, "marca_pcap": 1793170297.299546, "vivo": [0, null], "emulado": [11, -0.4775023007377895]}
+## fin=2026-10-28T07:48:04.199Z

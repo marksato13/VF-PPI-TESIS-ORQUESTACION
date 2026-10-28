@@ -1,0 +1,9 @@
+## p38 2026-10-28T08:04:53.266Z  no evaluadas: 1
+  {"entity_ip": "10.10.20.23", "event": "ventana_no_evaluada", "inicio_ciclo": 1793174423.2058725, "logged_at": 1793174425.8346047, "marca_eve": 1793174423.192989, "marca_pcap": 1793174413.298237, "motivo": "pcap_incompleto", "pcaps_ilegibles": 0, "pendiente_desde": 1793174253.2031674, "window_end_utc": "2026-10-28T07:57:30+00:00"}
+## 10.10.20.23 2026-10-28T07:57:30+00:00  pendiente_desde-we=+3.2s  inicio_ciclo-we=+173.2s  marca_pcap-we=+163.3s
+   prod: pk10=0 det=empty_window_heuristic logged_at-we=+10.0s
+   eve t-we=+3.04 http 10.10.20.23->10.10.30.10:80 flow_start=
+   eve t-we=+3.04 http 10.10.20.23->10.10.30.10:80 flow_start=
+   eve t-we=+3.04 fileinfo 10.10.30.10->10.10.20.23:59007 flow_start=
+   eve t-we=+3.04 fileinfo 10.10.30.10->10.10.20.23:59007 flow_start=
+   eventos EVE de la entidad en [we-15, we+5]: 4

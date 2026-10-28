@@ -1,0 +1,51 @@
+## p44 2026-10-28T08:44:00.578Z
+  ficheros 68; paquetes con ts anterior al maximo de ficheros previos: 0 (retraso max 0.000 s); desorden dentro de fichero: 2871
+## 10.10.40.10 2026-10-28T08:16:30+00:00: cand pk10=0 inicio_ciclo-we=+21.33 marca_pcap-we=+14.96 pendiente=True
+   t-we=-0.196 10.10.40.10->10.10.60.10 proto=6 vlan=40 fichero=20261028081615. [-15.60,-0.09] cerrado_antes_de_decidir=True
+   t-we=-0.196 10.10.40.10->10.10.60.10 proto=6 vlan=60 fichero=20261028081615. [-15.60,-0.09] cerrado_antes_de_decidir=True
+   t-we=-0.194 10.10.60.10->10.10.40.10 proto=6 vlan=60 fichero=20261028081615. [-15.60,-0.09] cerrado_antes_de_decidir=True
+   t-we=-0.194 10.10.60.10->10.10.40.10 proto=6 vlan=40 fichero=20261028081615. [-15.60,-0.09] cerrado_antes_de_decidir=True
+   t-we=-0.194 10.10.40.10->10.10.60.10 proto=6 vlan=40 fichero=20261028081615. [-15.60,-0.09] cerrado_antes_de_decidir=True
+   t-we=-0.194 10.10.40.10->10.10.60.10 proto=6 vlan=60 fichero=20261028081615. [-15.60,-0.09] cerrado_antes_de_decidir=True
+   paquetes de la entidad (src o dst) en la ventana, sin deduplicar: 6
+## 10.10.40.10 2026-10-28T08:09:10+00:00: cand pk10=4 inicio_ciclo-we=+14.06 marca_pcap-we=+3.31 pendiente=False
+   t-we=-7.007 10.10.40.10->192.168.13.150 proto=17 vlan=40 fichero=20261028080859. [-11.51,+3.31] cerrado_antes_de_decidir=True
+   t-we=-3.941 10.10.10.20->10.10.40.10 proto=6 vlan=10 fichero=20261028080859. [-11.51,+3.31] cerrado_antes_de_decidir=True
+   t-we=-3.941 10.10.10.20->10.10.40.10 proto=6 vlan=40 fichero=20261028080859. [-11.51,+3.31] cerrado_antes_de_decidir=True
+   t-we=-3.898 10.10.40.10->10.10.10.20 proto=6 vlan=40 fichero=20261028080859. [-11.51,+3.31] cerrado_antes_de_decidir=True
+   t-we=-3.898 10.10.40.10->10.10.10.20 proto=6 vlan=10 fichero=20261028080859. [-11.51,+3.31] cerrado_antes_de_decidir=True
+   t-we=-0.422 10.10.40.10->10.10.60.10 proto=6 vlan=40 fichero=20261028080859. [-11.51,+3.31] cerrado_antes_de_decidir=True
+   t-we=-0.422 10.10.40.10->10.10.60.10 proto=6 vlan=60 fichero=20261028080859. [-11.51,+3.31] cerrado_antes_de_decidir=True
+   t-we=-0.421 10.10.60.10->10.10.40.10 proto=6 vlan=60 fichero=20261028080859. [-11.51,+3.31] cerrado_antes_de_decidir=True
+   t-we=-0.421 10.10.60.10->10.10.40.10 proto=6 vlan=40 fichero=20261028080859. [-11.51,+3.31] cerrado_antes_de_decidir=True
+   t-we=-0.420 10.10.40.10->10.10.60.10 proto=6 vlan=40 fichero=20261028080859. [-11.51,+3.31] cerrado_antes_de_decidir=True
+   t-we=-0.420 10.10.40.10->10.10.60.10 proto=6 vlan=60 fichero=20261028080859. [-11.51,+3.31] cerrado_antes_de_decidir=True
+   paquetes de la entidad (src o dst) en la ventana, sin deduplicar: 11
+## 10.10.10.57 2026-10-28T08:22:40+00:00: cand pk10=2 inicio_ciclo-we=+15.10 marca_pcap-we=+5.74 pendiente=False
+   t-we=-5.994 10.10.10.20->10.10.10.57 proto=6 vlan=10 fichero=20261028082231. [-9.77,+5.74] cerrado_antes_de_decidir=True
+   t-we=-5.994 10.10.10.20->10.10.10.57 proto=6 vlan=10 fichero=20261028082231. [-9.77,+5.74] cerrado_antes_de_decidir=True
+   t-we=-0.621 10.10.10.57->10.10.10.2 proto=17 vlan=10 fichero=20261028082231. [-9.77,+5.74] cerrado_antes_de_decidir=True
+   t-we=-0.620 10.10.10.2->10.10.10.57 proto=17 vlan=10 fichero=20261028082231. [-9.77,+5.74] cerrado_antes_de_decidir=True
+   paquetes de la entidad (src o dst) en la ventana, sin deduplicar: 4
+## 10.10.10.20 2026-10-28T08:09:10+00:00: cand pk10=14 inicio_ciclo-we=+14.06 marca_pcap-we=+3.31 pendiente=True
+   t-we=-8.961 10.10.20.22->10.10.10.20 proto=17 vlan=20 fichero=20261028080859. [-11.51,+3.31] cerrado_antes_de_decidir=True
+   t-we=-8.961 10.10.20.22->10.10.10.20 proto=17 vlan=10 fichero=20261028080859. [-11.51,+3.31] cerrado_antes_de_decidir=True
+   t-we=-8.960 10.10.10.20->10.10.10.1 proto=17 vlan=10 fichero=20261028080859. [-11.51,+3.31] cerrado_antes_de_decidir=True
+   t-we=-8.960 10.10.10.1->10.10.10.20 proto=17 vlan=10 fichero=20261028080859. [-11.51,+3.31] cerrado_antes_de_decidir=True
+   t-we=-8.959 10.10.10.20->10.10.20.22 proto=17 vlan=10 fichero=20261028080859. [-11.51,+3.31] cerrado_antes_de_decidir=True
+   t-we=-8.959 10.10.10.20->10.10.20.22 proto=17 vlan=20 fichero=20261028080859. [-11.51,+3.31] cerrado_antes_de_decidir=True
+   t-we=-8.755 10.10.20.22->10.10.10.20 proto=17 vlan=20 fichero=20261028080859. [-11.51,+3.31] cerrado_antes_de_decidir=True
+   t-we=-8.755 10.10.20.22->10.10.10.20 proto=17 vlan=10 fichero=20261028080859. [-11.51,+3.31] cerrado_antes_de_decidir=True
+   t-we=-8.754 10.10.10.20->10.10.10.1 proto=17 vlan=10 fichero=20261028080859. [-11.51,+3.31] cerrado_antes_de_decidir=True
+   t-we=-8.754 10.10.10.1->10.10.10.20 proto=17 vlan=10 fichero=20261028080859. [-11.51,+3.31] cerrado_antes_de_decidir=True
+   t-we=-8.754 10.10.10.20->10.10.20.22 proto=17 vlan=10 fichero=20261028080859. [-11.51,+3.31] cerrado_antes_de_decidir=True
+   t-we=-8.754 10.10.10.20->10.10.20.22 proto=17 vlan=20 fichero=20261028080859. [-11.51,+3.31] cerrado_antes_de_decidir=True
+   paquetes de la entidad (src o dst) en la ventana, sin deduplicar: 36
+## 10.10.10.20 2026-10-28T08:22:40+00:00: cand pk10=1 inicio_ciclo-we=+15.10 marca_pcap-we=+5.74 pendiente=True
+   t-we=-5.994 10.10.10.20->10.10.10.57 proto=6 vlan=10 fichero=20261028082231. [-9.77,+5.74] cerrado_antes_de_decidir=True
+   t-we=-5.994 10.10.10.20->10.10.10.57 proto=6 vlan=10 fichero=20261028082231. [-9.77,+5.74] cerrado_antes_de_decidir=True
+   t-we=-3.512 10.10.60.21->10.10.10.20 proto=17 vlan=60 fichero=20261028082231. [-9.77,+5.74] cerrado_antes_de_decidir=True
+   t-we=-3.511 10.10.60.21->10.10.10.20 proto=17 vlan=10 fichero=20261028082231. [-9.77,+5.74] cerrado_antes_de_decidir=True
+   t-we=-3.511 10.10.10.20->10.10.60.21 proto=17 vlan=10 fichero=20261028082231. [-9.77,+5.74] cerrado_antes_de_decidir=True
+   t-we=-3.511 10.10.10.20->10.10.60.21 proto=17 vlan=60 fichero=20261028082231. [-9.77,+5.74] cerrado_antes_de_decidir=True
+   paquetes de la entidad (src o dst) en la ventana, sin deduplicar: 6

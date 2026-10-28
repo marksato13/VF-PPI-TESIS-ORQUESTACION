@@ -1,0 +1,50 @@
+## p22  inicio=2026-10-28T07:29:20.894Z
+--- (a) feed y escalada desde el sensor (2026-10-28T07:29:20.896Z)
+  ed91c48abf18b0660851e920272d9467a8b5a2cdac2d799fdca8d3b7b9446bd0  feed.json
+  97376ad45a430755dbe740b03fe2e1fab5dfdcaea6f92e90baf637c4f26fec5e  feed.sig
+  73310d14a0f1cb5ff5e9645103340d2617e7a086b63aaf5670df6be258be19a6  estado.json
+  feed entradas=0 generado=1793172560.467842 | escalada={'10.10.10.2': 0, '10.10.10.21': 0, '10.10.10.3': 0, '10.10.20.30': 0, '10.10.40.10': 0, '10.10.50.51': 0, '10.10.50.52': 0}
+--- (b) srv-dmz antes (2026-10-28T07:29:22.715Z)
+  ppi-enforce-agent.timer active=active enabled=enabled
+  ppi-enforce-agent.service active=inactive enabled=static
+  cyberflow_bloqueados rc=0 (sin elements)
+  cyberflow_limitados rc=0 elements = { 10.10.50.52 timeout 4m52s expires 1m45s977ms }
+  tabla inet cyberflow: 18 lineas
+--- (c) ACTIVAR SOMBRA (2026-10-28T07:29:23.123Z)
+a7d352953b6a7645310f3afba01263e4bb4c319a06867e00858b7392686954ad  modo_sombra.sh
+=== MODO SOMBRA (EJECUTAR) estado->/opt/cf-sombra-estado/20261028-072923
+--- 1) guardar estado original (si falla, abortar: no seguir a ciegas)
+  escalada guardada
+--- 2) detener el agente (lo que aplica medidas)
+--- 3) enmascarar el servicio (que ningún timer lo reactive)
+Failed to mask unit: File /etc/systemd/system/ppi-enforce-agent.service already exists.
+  rc modo_sombra=1
+FALLO SEGURO: no se pudo enmascarar el agente
+--- (d) verificacion independiente (2026-10-28T07:29:23.703Z)
+  ppi-enforce-agent.timer active=inactive enabled=enabled
+  ppi-enforce-agent.service active=inactive enabled=static
+  cyberflow_bloqueados rc=0 (sin elements)
+      table inet cyberflow {
+      	set cyberflow_bloqueados {
+      		type ipv4_addr
+      		flags timeout
+      	}
+      }
+  cyberflow_limitados rc=0 elements = { 10.10.50.52 timeout 4m52s expires 1m44s981ms }
+      table inet cyberflow {
+      	set cyberflow_limitados {
+      		type ipv4_addr
+      		flags timeout
+      		elements = { 10.10.50.52 timeout 4m52s expires 1m44s981ms }
+      	}
+      }
+cat: /opt/cf-sombra-estado/ultimo: No such file or directory
+  estado guardado: /opt/cf-sombra-estado/
+    total 12
+    drwxr-xr-x 3 root root 4096 oct 28 07:29 .
+    drwxr-xr-x 4 root root 4096 oct 28 07:29 ..
+    drwxr-xr-x 2 root root 4096 oct 28 07:29 20261028-072923
+sha256sum: /opt/cf-sombra-estado//escalada-estado.json: No such file or directory
+  timers listados:
+    - - Wed 2026-10-28 07:29:16 UTC 7s ago ppi-enforce-agent.timer ppi-enforce-agent.service
+## fin=2026-10-28T07:29:24.143Z

@@ -23,9 +23,11 @@ if [ $EJECUTAR -eq 0 ]; then
   cat <<PLAN
 Plan (se aplica con --ejecutar --motor-verificado):
   1. guardar estado real (timer/servicio del agente, unidad, volcado de nft) en $EST
-  2. detener ppi-enforce-agent.timer y .service ; 3. enmascarar el servicio
+  2. detener ppi-enforce-agent.timer y .service
+  3. deshabilitar el timer y enmascarar el servicio (si su unidad está en /etc no se puede: basta el timer)
   4. vaciar los sets cyberflow_bloqueados y cyberflow_limitados
-  5. verificar: agente inactivo+enmascarado, nft consultable y SIN elements, motor sin --enforce
+  5. verificar: agente y timer inactivos, timer deshabilitado (y servicio enmascarado si se pudo),
+     nft consultable y SIN elements, motor sin --enforce
 Nada se aplica en modo simulación.
 PLAN
   exit 0
@@ -35,10 +37,14 @@ fi
 
 echo "--- 1) guardar estado original (si falla, abortar: no seguir a ciegas)"
 $SUDO mkdir -p "$EST" || die "no se pudo crear $EST"
-$SUDO $SYSTEMCTL is-active ppi-enforce-agent.timer   | $SUDO tee "$EST/agent-timer.active"  >/dev/null || die "no se pudo guardar estado (active)"
-$SUDO $SYSTEMCTL is-enabled ppi-enforce-agent.timer  | $SUDO tee "$EST/agent-timer.enabled" >/dev/null || die "no se pudo guardar estado (enabled)"
+# is-active/is-enabled salen !=0 para inactive/disabled/masked: es un ESTADO válido, no un fallo (con pipefail
+# abortaba si el timer ya estaba inactivo). Fallo = no obtener ningún valor.
+guardar(){ v=$($SUDO $SYSTEMCTL "$1" "$2" 2>/dev/null || true); [ -n "$v" ] || die "no se pudo leer $1 de $2"
+           echo "$v" | $SUDO tee "$EST/$3" >/dev/null || die "no se pudo guardar $3"; }
+guardar is-active  ppi-enforce-agent.timer   agent-timer.active
+guardar is-enabled ppi-enforce-agent.timer   agent-timer.enabled
 $SUDO $NFT list table inet cyberflow                 | $SUDO tee "$EST/nft-antes.txt"        >/dev/null || die "no se pudo volcar nft (no se asume nada)"
-$SUDO $SYSTEMCTL is-enabled ppi-enforce-agent.service | $SUDO tee "$EST/agent-service.enabled" >/dev/null || die "no se pudo guardar estado (service enabled/masked)"
+guardar is-enabled ppi-enforce-agent.service agent-service.enabled
 $SUDO cp /etc/systemd/system/ppi-enforce-agent.service "$EST/" 2>/dev/null || echo "  (aviso: no se copió la unidad; no es crítico porque no se edita)"
 # estado del feed y de la escalada (para tratarlos en la restauración; NO se editan los históricos)
 FEED="${FEED_DIR-/home/m4rk/feed}"
@@ -47,8 +53,13 @@ $SUDO ls -la "$FEED" 2>/dev/null | $SUDO tee "$EST/feed-ls.txt" >/dev/null || tr
 
 echo "--- 2) detener el agente (lo que aplica medidas)"
 $SUDO $SYSTEMCTL stop ppi-enforce-agent.timer ppi-enforce-agent.service || die "no se pudo detener el agente"
-echo "--- 3) enmascarar el servicio (que ningún timer lo reactive)"
-$SUDO $SYSTEMCTL mask ppi-enforce-agent.service || die "no se pudo enmascarar el agente"
+echo "--- 3) impedir la reactivación: deshabilitar el timer (siempre) y enmascarar el servicio si se puede"
+$SUDO $SYSTEMCTL disable ppi-enforce-agent.timer || die "no se pudo deshabilitar el timer"
+# 'mask' falla si la unidad del servicio es un fichero en /etc/systemd/system (no puede crear allí el enlace a
+# /dev/null). Entonces la garantía es el timer detenido+deshabilitado (el servicio es static: solo lo lanza el timer).
+if $SUDO $SYSTEMCTL mask ppi-enforce-agent.service; then MEC="servicio-enmascarado+timer-deshabilitado"
+else MEC="timer-deshabilitado"; echo "  aviso: no se pudo enmascarar el servicio; la sombra se garantiza con el timer detenido y deshabilitado"; fi
+echo "$MEC" | $SUDO tee "$EST/mecanismo" >/dev/null || die "no se pudo registrar el mecanismo"
 echo "--- 4) vaciar restricciones residuales"
 $SUDO $NFT flush set inet cyberflow cyberflow_bloqueados || die "no se pudo vaciar bloqueados"
 $SUDO $NFT flush set inet cyberflow cyberflow_limitados  || die "no se pudo vaciar limitados"
@@ -56,13 +67,19 @@ $SUDO $NFT flush set inet cyberflow cyberflow_limitados  || die "no se pudo vaci
 echo "--- 5) verificar (consulta fallida != set vacío)"
 act=$($SUDO $SYSTEMCTL is-active ppi-enforce-agent.service 2>/dev/null || true)
 [ "$act" = "active" ] && die "el agente sigue activo"
+tac=$($SUDO $SYSTEMCTL is-active ppi-enforce-agent.timer 2>/dev/null || true)
+[ "$tac" = "active" ] && die "el timer del agente sigue activo"
+ten=$($SUDO $SYSTEMCTL is-enabled ppi-enforce-agent.timer 2>/dev/null || true)
+[ "$ten" = "disabled" ] || die "el timer no quedó deshabilitado (is-enabled=$ten)"
 msk=$($SUDO $SYSTEMCTL is-enabled ppi-enforce-agent.service 2>/dev/null || true)
-[ "$msk" = "masked" ] || die "el agente no quedó enmascarado (is-enabled=$msk)"
+if [ "$MEC" = "servicio-enmascarado+timer-deshabilitado" ]; then
+  [ "$msk" = "masked" ] || die "el agente no quedó enmascarado (is-enabled=$msk)"
+fi
 for set in cyberflow_bloqueados cyberflow_limitados; do
   out=$($SUDO $NFT list set inet cyberflow $set 2>/dev/null); rc=$?
   [ $rc -ne 0 ] && die "no se pudo consultar $set (NO se asume vacío)"
   echo "$out" | grep -q 'elements' && die "quedan elementos en $set"
 done
-echo "OK sombra verificada (agente detenido+enmascarado, sets vacíos, motor sin --enforce confirmado)."
+echo "OK sombra verificada (agente y timer detenidos, mecanismo=$MEC, sets vacíos, motor sin --enforce confirmado)."
 echo "$TS" | $SUDO tee "$BASE/ultimo" >/dev/null || die "no se pudo registrar el último estado"
 echo "Restaurar tras A: restaurar_enforcement.sh --ejecutar"

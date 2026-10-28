@@ -1,0 +1,27 @@
+## p21  inicio=2026-10-28T07:28:47.570Z
+  srv antes: total 8
+  srv antes: drwxrwxr-x 2 adminsrvdmz adminsrvdmz 4096 oct 28 07:28 .
+  srv antes: drwxr-x--- 7 adminsrvdmz adminsrvdmz 4096 oct 28 07:28 ..
+  srv: a7d352953b6a7645310f3afba01263e4bb4c319a06867e00858b7392686954ad  modo_sombra.sh
+  srv: b27a0f3eb6f8e3c347190a2e13a8e2a9ca43bcada9c49845c1181b2b73534625  restaurar_enforcement.sh
+  srv: total 24
+  srv: drwxrwxr-x 2 adminsrvdmz adminsrvdmz 4096 oct 28 07:28 .
+  srv: drwxr-x--- 7 adminsrvdmz adminsrvdmz 4096 oct 28 07:28 ..
+  srv: -rwxr-x--- 1 adminsrvdmz adminsrvdmz 4606 oct 28 07:28 modo_sombra.sh
+  srv: -rwxr-x--- 1 adminsrvdmz adminsrvdmz 4406 oct 28 07:28 restaurar_enforcement.sh
+  kali antes: /home/adminatacante/cf-campana-A:
+  kali antes: total 16
+  kali antes: drwxrwxr-x  4 adminatacante adminatacante 4096 oct 28 02:28 .
+  kali antes: drwx------ 18 adminatacante adminatacante 4096 oct 28 02:28 ..
+  kali antes: drwxrwxr-x  2 adminatacante adminatacante 4096 oct 28 02:28 escenarios
+  kali antes: drwxrwxr-x  2 adminatacante adminatacante 4096 oct 28 02:28 scripts
+  kali antes: 
+  kali antes: /home/adminatacante/cf-campana-A/escenarios:
+  kali antes: total 8
+  kali antes: drwxrwxr-x 2 adminatacante adminatacante 4096 oct 28 02:28 .
+  kali antes: drwxrwxr-x 4 adminatacante adminatacante 4096 oct 28 02:28 ..
+  kali antes: 
+  kali: c586d813472d5853ae43fe512b5a53d22654699ace10894e43f57b3ddc4b171b  scripts/generar_campana.py
+  kali: e762e60421b4721b1e8ce32549049ae10c7e86596b0fbd37f9a35517ab904144  scripts/esquema_campana.py
+  kali: 67798012cbd306e9c06ebccf5ec293c7d9db12951d93119f739c3f86a83c64ec  escenarios/escenarios.json
+## fin=2026-10-28T07:28:49.654Z

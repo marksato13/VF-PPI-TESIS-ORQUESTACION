@@ -1,0 +1,7 @@
+## p42 2026-10-28T08:37:28.484Z load=3.41 3.43 2.84 mem_libre=5062 MB
+      PID %CPU   RSS     ELAPSED COMMAND
+  2227942 98.5 987660      10:17 /home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cf-prep-20261028/herramientas/comparar_motores.py --archivo /home/m4rk
+  2138342 75.5 339740      45:47 /home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cf-prep-20261028/candidato/scripts/engine/motor_decision.py --eve-path
+  2558538 10.0 349140 3-21:47:10 /home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow/scripts/engine/motor_decision.py --eve-path /var/log/suricat
+  1110887  1.1 81960  1-01:13:57 /usr/bin/suricata -D --af-packet -c /etc/suricata/suricata.yaml --pidfile /run/suricata.pid
+  prod: ultima linea hace 4.4 s

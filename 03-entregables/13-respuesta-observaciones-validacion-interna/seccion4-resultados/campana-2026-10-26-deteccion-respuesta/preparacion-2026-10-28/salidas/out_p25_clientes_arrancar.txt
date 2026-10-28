@@ -1,0 +1,27 @@
+## p25  inicio=2026-10-28T07:36:11.400Z
+  antes: target=inactive/disabled
+  unidad cyberflow-lab-ofimatica sha16=7c83476cf420a5b6
+  unidad cyberflow-lab-navegacion sha16=6df509106d3c602b
+  unidad cyberflow-lab-descargas sha16=288ebcf1c7deddfa
+  unidad cyberflow-lab-aplicacion sha16=d65c51ee35dd4330
+  unidad cyberflow-lab-ligero sha16=f7873a10724e9418
+  unidad cyberflow-lab-erratico sha16=7d5dcfedd3e4bda0
+  [2026-10-28T07:36:11.655Z] start rc=0
+  despues: target=active/disabled
+  -- cyberflow-lab-ofimatica: MainPID=27798 NRestarts=0 ActiveState=active SubState=running ActiveEnterTimestamp=Wed 2026-10-28 07:36:11 UTC 
+     ExecStart: argv[]=/usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil ofimatica --origen 10.10.20.21 --servidor 10.10.30.10 --dns 10.10.10.20 
+  -- cyberflow-lab-navegacion: MainPID=27797 NRestarts=0 ActiveState=active SubState=running ActiveEnterTimestamp=Wed 2026-10-28 07:36:11 UTC 
+     ExecStart: argv[]=/usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil navegacion --origen 10.10.20.22 --servidor 10.10.30.10 --dns 10.10.10.20 
+  -- cyberflow-lab-descargas: MainPID=27794 NRestarts=0 ActiveState=active SubState=running ActiveEnterTimestamp=Wed 2026-10-28 07:36:11 UTC 
+     ExecStart: argv[]=/usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil descargas --origen 10.10.20.23 --servidor 10.10.30.10 --dns 10.10.10.20 
+  -- cyberflow-lab-aplicacion: MainPID=27793 NRestarts=0 ActiveState=active SubState=running ActiveEnterTimestamp=Wed 2026-10-28 07:36:11 UTC 
+     ExecStart: argv[]=/usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil aplicacion --origen 10.10.20.24 --servidor 10.10.30.10 --dns 10.10.10.20 
+  -- cyberflow-lab-ligero: MainPID=27796 NRestarts=0 ActiveState=active SubState=running ActiveEnterTimestamp=Wed 2026-10-28 07:36:11 UTC 
+     ExecStart: argv[]=/usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil ligero --origen 10.10.20.25 --servidor 10.10.30.10 --dns 10.10.10.20 
+  -- cyberflow-lab-erratico: MainPID=27795 NRestarts=0 ActiveState=active SubState=running ActiveEnterTimestamp=Wed 2026-10-28 07:36:11 UTC 
+     ExecStart: argv[]=/usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil erratico --origen 10.10.20.26 --servidor 10.10.30.10 --dns 10.10.10.20 
+## conexiones por IP de origen (ss)
+        1 10.10.20.20
+## journal de los perfiles desde el arranque (errores)
+  (lineas de error: 0)
+## fin=2026-10-28T07:36:31.877Z

@@ -1,0 +1,32 @@
+## p20  inicio=2026-10-28T07:27:31.884Z  destino=/home/m4rk/cf-prep-20261028/estado-previo-072731
+  ppi-motor: MainPID=2558538 NRestarts=0 ActiveState=active SubState=running UnitFileState=enabled ActiveEnterTimestamp=Sat 2026-10-24 10:49:30 UTC 
+  ppi-motor-capture: MainPID=1393 NRestarts=0 ActiveState=active SubState=running UnitFileState=enabled ActiveEnterTimestamp=Wed 2026-10-21 19:09:39 UTC 
+  ppi-publicar-feed: MainPID=0 NRestarts=0 ActiveState=inactive SubState=dead UnitFileState=static ActiveEnterTimestamp= 
+  suricata: MainPID=1110887 NRestarts=0 ActiveState=active SubState=running UnitFileState=enabled ActiveEnterTimestamp=Tue 2026-10-27 07:23:31 UTC 
+  cyberflow-acumular: MainPID=0 NRestarts=0 ActiveState=inactive SubState=dead UnitFileState=static ActiveEnterTimestamp= 
+  cyberflow-limpieza: MainPID=0 NRestarts=0 ActiveState=inactive SubState=dead UnitFileState=static ActiveEnterTimestamp= 
+  argv motor: /home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow/scripts/engine/motor_decision.py --eve-path /var/log/suricata/eve.json --capture-dir /var/lib/ppi-motor-capture --model-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib --manifest-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json --detector-name if_limpio_2026_10 --schema /home/m4rk/cyberflow/configs/features/multilayer-v2.json --entity-network 10.10.0.0/16 --excluir 10.10.60.11/32,10.10.10.30/32,10.10.60.2/32,10.10.60.3/32,10.10.60.10/32,10.10.60.20/32,10.10.60.21/32,10.10.60.30/32,10.10.60.40/32,10.10.60.41/32,10.10.60.50/32 --excluir-protocolos 112,240 --log-path /home/m4rk/cyberflow/logs/motor_decision.log --step-seconds 10 --history-seconds 230 
+  argv captura: /usr/bin/tcpdump -i ens37 -n -s 0 -U -B 65536 -Z tcpdump -w /var/lib/ppi-motor-capture/live-%Y%m%d%H%M%S.pcap -G 15 
+  --enforce en unidad del motor: '' | en argv real: ''
+## hashes de implementacion
+  10deb05d22fa0215e5f5f37bc6f05225cda31b806c67051a6584d878e25ed6a2  scripts/engine/heuristicos.py
+  4c41ec44be0fa0dbfbba14b73a4288a37da5d1b2a1ebcf681e58465c14ac17c6  scripts/engine/motor_decision.py
+  f7bc4c7d8e7ac0cd958f3936d55a5782285e59509919d82bf2998fbb70acc03d  scripts/engine/publicar_feed.py
+  df547da098e51171aa267c8466edc6624bc1bd5c6b602639cc00bd4711a2fd60  artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib
+  fb6b8ed2b677056f0c23d267a1d38a988d7d1d993f980b050f0a63665543bbf4  artifacts/preliminar/limpio-2026-10/if_limpio_2026_10.joblib
+  9a4e02645df9484037ba9386c488cc431cba4b8564c3b4892de3c5ed210c579d  artifacts/preliminar/limpio-2026-10/verif_vigente.joblib
+  b3ad680595128189574527208e53058f613822f56f542f914faef6495aa2a9e7  artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json
+## feed y escalada (copias desde el sensor)
+  copiados feed.json feed.sig estado.json
+  c0ca50a44782bcdc83ddd00977ec7a39a3a413b9acae22f8682496a5c14f2dd4  feed.json
+  63fc9e832d63f5f5fc55e39c385c4d0a6ed35772d38fd48833b64391acb17466  feed.sig
+  73310d14a0f1cb5ff5e9645103340d2617e7a086b63aaf5670df6be258be19a6  estado.json
+  feed: generado=1793172450.46615 (hace 2 s) umbrales=2026-10-06.2 entradas=0 []
+  escalada (estado.json): {'10.10.10.2': 0, '10.10.10.21': 0, '10.10.10.3': 0, '10.10.20.30': 0, '10.10.40.10': 0, '10.10.50.51': 0, '10.10.50.52': 0}
+## nftables del sensor (consulta real)
+  rc=0 tablas: table inet cyberflow_panel { 
+## motor: ¿puede aplicar restricciones directamente?
+  55:import subprocess
+  156:        result = subprocess.run(
+  163:    except (subprocess.TimeoutExpired, OSError) as exc:
+## fin=2026-10-28T07:27:32.203Z

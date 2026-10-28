@@ -1,0 +1,53 @@
+## ventanas [2026-10-28T08:40:00+00:00, 2026-10-28T08:53:00+00:00] | ficheros PCAP con datos en rango 101 | tramas 1018409 (802.1Q 97.9 %)
+   arranque candidato registrado 1793173902.7127926 | claves totales 1049 | filas completas 1045
+   ambos_mismo_pk10                           846
+   ambos_mismo_pk10_mismo_score               776
+   cand_conteo_distinto                       1
+   cand_decisiones                            1021
+   cand_duplicadas                            0
+   cand_features_iguales_completo             566
+   cand_pendientes_recuperadas                605
+   cand_pk10_igual_completo                   1016
+   cand_reproducida_exacta                    1021
+   cand_sin_referencia                        4
+   completo_con_trafico                       764
+   decision_distinta_prod_cand                43
+   prod_cero_con_trafico                      126
+   prod_conteo_distinto                       49
+   prod_decisiones                            1020
+   prod_duplicadas                            0
+   prod_pk10_igual_completo                   842
+   prod_sin_referencia                        3
+## logged_at - window_end  produccion: n=1020 min 1.48 p5 5.05 mediana 22.40 p95 45.61 max 247.19 s
+## logged_at - window_end  candidato : n=1021 min 12.41 p5 16.40 mediana 26.18 p95 47.14 max 245.46 s
+## marca_pcap - window_end candidato : n=1021 min 0.07 p5 1.07 mediana 7.48 p95 27.89 max 227.95 s
+## espera de pendientes (logged_at - pendiente_desde): n=605 min 17.59 p5 19.36 mediana 25.31 p95 37.66 max 40.35 s
+## features EMULADO(candidato) distintas de COMPLETO, por feature (claves)
+   flow_duration_mean_30s                     451
+   unique_dst_ip_ratio_30s                    72
+   unique_dst_port_ratio_30s                  72
+   flow_attempt_rate_10s                      24
+   protocol_diversity_30s                     3
+   tx_rx_byte_ratio_30s                       3
+   packet_rate_10s                            1
+   byte_rate_10s                              1
+   mean_ip_len_10s                            1
+   ttl_mean_10s                               1
+## ejemplos
+   [prod_cero_con_trafico] {"clave": ["10.10.10.20", "2026-10-28T08:40:00+00:00"], "completo_pk10": 6, "prod": [0, null], "cand": [6, -0.5254146398867428, true], "features_emulado_vs_completo": {"unique_dst_ip_ratio_30s": [0.111111, 0.125], "unique_dst_port_ratio_30s": [0.111111, 0.125], "flow_duration_mean_30s": [99.945764, 425.30158]}, "score_completo": -0.5483749126459704}
+   [prod_cero_con_trafico] {"clave": ["10.10.20.21", "2026-10-28T08:40:00+00:00"], "completo_pk10": 174, "prod": [0, null], "cand": [174, -0.569755040700432, true]}
+   [prod_cero_con_trafico] {"clave": ["10.10.20.22", "2026-10-28T08:40:00+00:00"], "completo_pk10": 115, "prod": [0, null], "cand": [115, -0.6142988832643589, true]}
+   [prod_cero_con_trafico] {"clave": ["10.10.20.24", "2026-10-28T08:40:00+00:00"], "completo_pk10": 50, "prod": [0, null], "cand": [50, -0.586966639830739, true]}
+   [prod_cero_con_trafico] {"clave": ["10.10.20.25", "2026-10-28T08:40:00+00:00"], "completo_pk10": 14, "prod": [0, null], "cand": [14, -0.5330148110734798, true]}
+   [decision_distinta] {"clave": ["10.10.20.21", "2026-10-28T08:40:00+00:00"], "completo_pk10": 174, "prod": [0, null], "cand": [174, -0.569755040700432, true], "dec": ["PERMIT", "ALERT"], "det": ["no_live_packets_heuristic", "if_limpio_2026_10"]}
+   [decision_distinta] {"clave": ["10.10.20.22", "2026-10-28T08:40:00+00:00"], "completo_pk10": 115, "prod": [0, null], "cand": [115, -0.6142988832643589, true], "dec": ["PERMIT", "ALERT"], "det": ["no_live_packets_heuristic", "if_limpio_2026_10"]}
+   [decision_distinta] {"clave": ["10.10.20.24", "2026-10-28T08:40:00+00:00"], "completo_pk10": 50, "prod": [0, null], "cand": [50, -0.586966639830739, true], "dec": ["PERMIT", "ALERT"], "det": ["no_live_packets_heuristic", "if_limpio_2026_10"]}
+   [decision_distinta] {"clave": ["10.10.20.22", "2026-10-28T08:40:20+00:00"], "completo_pk10": 2116, "prod": [0, null], "cand": [2116, -0.6138851699921313, true], "dec": ["PERMIT", "ALERT"], "det": ["no_live_packets_heuristic", "if_limpio_2026_10"]}
+   [decision_distinta] {"clave": ["10.10.20.24", "2026-10-28T08:40:20+00:00"], "completo_pk10": 96, "prod": [0, null], "cand": [96, -0.6236382260786522, true], "dec": ["PERMIT", "ALERT"], "det": ["no_live_packets_heuristic", "if_limpio_2026_10"]}
+   [prod_conteo_distinto] {"clave": ["10.10.10.20", "2026-10-28T08:40:10+00:00"], "completo_pk10": 9, "prod": [7, -0.5282476034594195], "cand": [9, -0.5319696354968523, true], "features_emulado_vs_completo": {"flow_duration_mean_30s": [99.653152, 299.735584]}, "score_completo": -0.5475393968561381}
+   [prod_conteo_distinto] {"clave": ["10.10.20.21", "2026-10-28T08:40:10+00:00"], "completo_pk10": 54, "prod": [23, -0.5718379208763078], "cand": [54, -0.5779208429776982, true]}
+   [prod_conteo_distinto] {"clave": ["10.10.20.22", "2026-10-28T08:40:10+00:00"], "completo_pk10": 2094, "prod": [1640, -0.582411117435073], "cand": [2094, -0.6229938093368739, true]}
+   [prod_conteo_distinto] {"clave": ["10.10.20.24", "2026-10-28T08:40:10+00:00"], "completo_pk10": 78, "prod": [31, -0.5845126400960717], "cand": [78, -0.5922365576197628, true]}
+   [prod_conteo_distinto] {"clave": ["10.10.30.10", "2026-10-28T08:40:10+00:00"], "completo_pk10": 0, "prod": [5, -0.46305132181121655], "cand": [5, -0.46305132181121655, false], "features_emulado_vs_completo": {"packet_rate_10s": [0.5, 0.0], "byte_rate_10s": [44.9, 0.0], "mean_ip_len_10s": [89.8, 0.0], "unique_dst_ip_ratio_30s": [1.0, 0.0], "flow_attempt_rate_10s": [0.1, 0.0], "unique_dst_port_ratio_30s": [1.0, 0.0], "ttl_mean_10s": [64.0, 0.0], "protocol_diversity_30s": [0.2, 0.0], "flow_duration_mean_30s": [0.00094, 0.0], "tx_rx_byte_ratio_30s": [0.768374, 0.0]}, "score_completo": null}
+   [cand_conteo_distinto] {"clave": ["10.10.30.10", "2026-10-28T08:40:10+00:00"], "completo_pk10": 0, "prod": [5, -0.46305132181121655], "cand": [5, -0.46305132181121655, false], "features_emulado_vs_completo": {"packet_rate_10s": [0.5, 0.0], "byte_rate_10s": [44.9, 0.0], "mean_ip_len_10s": [89.8, 0.0], "unique_dst_ip_ratio_30s": [1.0, 0.0], "flow_attempt_rate_10s": [0.1, 0.0], "unique_dst_port_ratio_30s": [1.0, 0.0], "ttl_mean_10s": [64.0, 0.0], "protocol_diversity_30s": [0.2, 0.0], "flow_duration_mean_30s": [0.00094, 0.0], "tx_rx_byte_ratio_30s": [0.768374, 0.0]}, "score_completo": null}
+## por clave -> /home/m4rk/cf-prep-20261028/diagnostico/comparacion-motores-postdespliegue-0840-0853.jsonl

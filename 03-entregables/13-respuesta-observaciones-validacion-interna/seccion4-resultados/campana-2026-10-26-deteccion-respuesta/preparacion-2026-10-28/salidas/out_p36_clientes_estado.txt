@@ -1,0 +1,22 @@
+## p36 clientes 2026-10-28T08:02:32.980Z | TZ Etc/UTC | hora local 08:02
+   target: active/disabled
+   cyberflow-lab-aplicacion.service active NR=0 PID=27793 desde=2026-10-28 07:36:11
+      /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil aplicacion --origen 10.10.20.24 --servidor 10.10.30.10 --dns 10.10.10.20 
+      errores journal desde inicio: 0
+   cyberflow-lab-descargas.service active NR=0 PID=27794 desde=2026-10-28 07:36:11
+      /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil descargas --origen 10.10.20.23 --servidor 10.10.30.10 --dns 10.10.10.20 
+      errores journal desde inicio: 0
+   cyberflow-lab-erratico.service active NR=0 PID=27795 desde=2026-10-28 07:36:11
+      /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil erratico --origen 10.10.20.26 --servidor 10.10.30.10 --dns 10.10.10.20 
+      errores journal desde inicio: 0
+   cyberflow-lab-ligero.service active NR=0 PID=27796 desde=2026-10-28 07:36:11
+      /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil ligero --origen 10.10.20.25 --servidor 10.10.30.10 --dns 10.10.10.20 
+      errores journal desde inicio: 0
+   cyberflow-lab-navegacion.service active NR=0 PID=27797 desde=2026-10-28 07:36:11
+      /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil navegacion --origen 10.10.20.22 --servidor 10.10.30.10 --dns 10.10.10.20 
+      errores journal desde inicio: 0
+   cyberflow-lab-ofimatica.service active NR=0 PID=27798 desde=2026-10-28 07:36:11
+      /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil ofimatica --origen 10.10.20.21 --servidor 10.10.30.10 --dns 10.10.10.20 
+      errores journal desde inicio: 0
+   alias: 10.10.20.20 10.10.20.21 10.10.20.22 10.10.20.23 10.10.20.24 10.10.20.25 10.10.20.26 
+## fin 2026-10-28T08:02:33.329Z

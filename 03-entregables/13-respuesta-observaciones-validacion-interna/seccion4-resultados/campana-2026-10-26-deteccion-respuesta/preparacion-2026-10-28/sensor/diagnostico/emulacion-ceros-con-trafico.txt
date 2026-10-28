@@ -1,0 +1,31 @@
+## emulacion de ciclos [2026-10-28T06:49:00+00:00, 2026-10-28T07:04:20+00:00] solo_con_cero=True
+   ciclos                                        82
+   cota_elegida_sup                              53
+   cotas_misma_marca                             30
+   decisiones                                    646
+   reproducidas_exactas                          618
+   reproducidas_pk10                             626
+   vivo_cero                                     289
+   vivo_cero_reproducido                         270
+   vivo_cero_con_ventana_posterior_a_marca       57
+   cota_elegida_inf                              29
+## ceros en vivo con trafico real (pk10 completo > 0)
+   reproducido__ventana_posterior_a_marca_pcap                  37
+   NO_reproducido                                               14
+   {"clave": ["10.10.10.20", "2026-10-28T06:49:30+00:00"], "completo_pk10": 3, "logged_at": 1793170179.6123455, "inicio_ciclo_entre": [1793170170.708, 1793170179.612], "marca_pcap": {"inf": 1793170162.163284, "sup": 1793170177.353332}, "reproduce": [], "clase": "NO_reproducido"}
+   {"clave": ["10.10.10.20", "2026-10-28T06:49:40+00:00"], "completo_pk10": 4, "logged_at": 1793170179.6124868, "inicio_ciclo_entre": [1793170170.708, 1793170179.612], "marca_pcap": {"inf": 1793170162.163284, "sup": 1793170177.353332}, "reproduce": [], "clase": "NO_reproducido"}
+   {"clave": ["10.10.60.12", "2026-10-28T06:49:40+00:00"], "completo_pk10": 4, "logged_at": 1793170179.6127956, "inicio_ciclo_entre": [1793170170.708, 1793170179.612], "marca_pcap": {"inf": 1793170162.163284, "sup": 1793170177.353332}, "reproduce": [], "clase": "NO_reproducido"}
+   {"clave": ["10.10.10.20", "2026-10-28T06:50:20+00:00"], "completo_pk10": 4, "logged_at": 1793170221.1564736, "inicio_ciclo_entre": [1793170211.987, 1793170221.156], "marca_pcap": {"inf": 1793170207.749073, "sup": 1793170207.749073}, "reproduce": ["sup"], "clase": "reproducido__ventana_posterior_a_marca_pcap"}
+   {"clave": ["10.10.10.20", "2026-10-28T06:51:00+00:00"], "completo_pk10": 4, "logged_at": 1793170259.8093815, "inicio_ciclo_entre": [1793170242.297, 1793170259.744], "marca_pcap": {"inf": 1793170236.875356, "sup": 1793170252.905582}, "reproduce": ["sup"], "clase": "reproducido__ventana_posterior_a_marca_pcap"}
+   {"clave": ["10.10.10.21", "2026-10-28T06:51:40+00:00"], "completo_pk10": 11, "logged_at": 1793170299.6497264, "inicio_ciclo_entre": [1793170290.684, 1793170299.649], "marca_pcap": {"inf": 1793170281.940997, "sup": 1793170297.299546}, "reproduce": [], "clase": "NO_reproducido"}
+   {"clave": ["10.10.60.12", "2026-10-28T06:51:40+00:00"], "completo_pk10": 4, "logged_at": 1793170299.650042, "inicio_ciclo_entre": [1793170290.684, 1793170299.649], "marca_pcap": {"inf": 1793170281.940997, "sup": 1793170297.299546}, "reproduce": [], "clase": "NO_reproducido"}
+   {"clave": ["10.10.60.12", "2026-10-28T06:52:40+00:00"], "completo_pk10": 2, "logged_at": 1793170359.6150165, "inicio_ciclo_entre": [1793170350.65, 1793170359.615], "marca_pcap": {"inf": 1793170342.903961, "sup": 1793170357.024142}, "reproduce": [], "clase": "NO_reproducido"}
+   {"clave": ["10.10.10.20", "2026-10-28T06:54:30+00:00"], "completo_pk10": 3, "logged_at": 1793170479.788166, "inicio_ciclo_entre": [1793170470.8, 1793170479.788], "marca_pcap": {"inf": 1793170462.1922, "sup": 1793170477.838285}, "reproduce": [], "clase": "NO_reproducido"}
+   {"clave": ["10.10.10.20", "2026-10-28T06:54:40+00:00"], "completo_pk10": 4, "logged_at": 1793170479.7883134, "inicio_ciclo_entre": [1793170470.8, 1793170479.788], "marca_pcap": {"inf": 1793170462.1922, "sup": 1793170477.838285}, "reproduce": [], "clase": "NO_reproducido"}
+   {"clave": ["10.10.10.20", "2026-10-28T06:57:30+00:00"], "completo_pk10": 4, "logged_at": 1793170659.8469255, "inicio_ciclo_entre": [1793170650.917, 1793170659.847], "marca_pcap": {"inf": 1793170641.946902, "sup": 1793170657.091358}, "reproduce": [], "clase": "NO_reproducido"}
+   {"clave": ["10.10.10.20", "2026-10-28T06:57:40+00:00"], "completo_pk10": 10, "logged_at": 1793170659.8470457, "inicio_ciclo_entre": [1793170650.917, 1793170659.847], "marca_pcap": {"inf": 1793170641.946902, "sup": 1793170657.091358}, "reproduce": [], "clase": "NO_reproducido"}
+   {"clave": ["10.10.20.20", "2026-10-28T06:57:40+00:00"], "completo_pk10": 703, "logged_at": 1793170659.8472712, "inicio_ciclo_entre": [1793170650.917, 1793170659.847], "marca_pcap": {"inf": 1793170641.946902, "sup": 1793170657.091358}, "reproduce": [], "clase": "NO_reproducido"}
+   {"clave": ["10.10.20.30", "2026-10-28T06:59:50+00:00"], "completo_pk10": 52, "logged_at": 1793170793.0574322, "inicio_ciclo_entre": [1793170781.028, 1793170792.926], "marca_pcap": {"inf": 1793170777.326238, "sup": 1793170792.880655}, "reproduce": [], "clase": "NO_reproducido"}
+   {"clave": ["10.10.50.52", "2026-10-28T07:02:00+00:00"], "completo_pk10": 6, "logged_at": 1793170930.2954109, "inicio_ciclo_entre": [1793170921.32, 1793170930.295], "marca_pcap": {"inf": 1793170912.139665, "sup": 1793170927.929272}, "reproduce": [], "clase": "NO_reproducido"}
+   {"clave": ["10.10.50.52", "2026-10-28T07:02:10+00:00"], "completo_pk10": 59, "logged_at": 1793170930.2955353, "inicio_ciclo_entre": [1793170921.32, 1793170930.295], "marca_pcap": {"inf": 1793170912.139665, "sup": 1793170927.929272}, "reproduce": [], "clase": "NO_reproducido"}
+## ejemplos (no reproducidos y ceros)

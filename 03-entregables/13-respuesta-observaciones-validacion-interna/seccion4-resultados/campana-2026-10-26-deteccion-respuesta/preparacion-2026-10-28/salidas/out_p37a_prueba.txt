@@ -1,0 +1,48 @@
+## p37 prueba-0754-0758  inicio=2026-10-28T08:03:14.986Z  comparar sha=a003fa177327cc65
+## ventanas [2026-10-28T07:54:00+00:00, 2026-10-28T07:58:00+00:00] | ficheros PCAP con datos en rango 65 | tramas 195915 (802.1Q 92.9 %)
+   arranque candidato registrado 1793173902.7127926 | claves totales 303 | filas completas 301
+   ambos_mismo_pk10                           230
+   ambos_mismo_pk10_mismo_score               208
+   cand_decisiones                            296
+   cand_duplicadas                            0
+   cand_features_iguales_completo             164
+   cand_no_evaluadas                          1
+   cand_pendientes_recuperadas                119
+   cand_pk10_igual_completo                   294
+   cand_reproducida_exacta                    296
+   cand_sin_referencia                        2
+   completo_con_trafico                       155
+   decision_distinta_prod_cand                4
+   prod_cero_con_trafico                      43
+   prod_conteo_distinto                       23
+   prod_decisiones                            297
+   prod_duplicadas                            0
+   prod_pk10_igual_completo                   229
+   prod_sin_referencia                        2
+## logged_at - window_end  produccion: n=297 min -0.30 p5 0.09 mediana 10.89 p95 149.42 max 239.46 s
+## logged_at - window_end  candidato : n=296 min 5.44 p5 6.39 mediana 16.36 p95 144.75 max 235.26 s
+## marca_pcap - window_end candidato : n=296 min 1.94 p5 2.08 mediana 11.97 p95 134.23 max 228.61 s
+## espera de pendientes (logged_at - pendiente_desde): n=119 min 11.28 p5 11.51 mediana 12.93 p95 23.26 max 33.19 s
+## features EMULADO(candidato) distintas de COMPLETO, por feature (claves)
+   flow_duration_mean_30s                     125
+   http_request_rate_60s                      5
+   tls_session_rate_60s                       1
+   tls_version_ratio_60s                      1
+## ejemplos
+   [prod_conteo_distinto] {"clave": ["10.10.10.21", "2026-10-28T07:54:00+00:00"], "completo_pk10": 14, "prod": [4, -0.45734133810902317], "cand": [14, -0.5084268540999242, true], "features_emulado_vs_completo": {"flow_duration_mean_30s": [207.086137, 586.533513]}, "score_completo": -0.5388052303744264}
+   [prod_conteo_distinto] {"clave": ["10.10.20.24", "2026-10-28T07:54:00+00:00"], "completo_pk10": 34, "prod": [20, -0.559457647012593], "cand": [34, -0.5831533664428923, true]}
+   [prod_conteo_distinto] {"clave": ["10.10.60.12", "2026-10-28T07:54:00+00:00"], "completo_pk10": 7, "prod": [5, -0.4948357967333387], "cand": [7, -0.47365317429013365, true]}
+   [prod_conteo_distinto] {"clave": ["10.10.10.21", "2026-10-28T07:54:20+00:00"], "completo_pk10": 6, "prod": [4, -0.45887334976722305], "cand": [6, -0.4924331764716997, true], "features_emulado_vs_completo": {"flow_duration_mean_30s": [99.991652, 299.726815]}, "score_completo": -0.5104249357385742}
+   [prod_conteo_distinto] {"clave": ["10.10.40.10", "2026-10-28T07:54:20+00:00"], "completo_pk10": 2, "prod": [1, -0.49578321942835835], "cand": [2, -0.4964808349625271, true], "features_emulado_vs_completo": {"flow_duration_mean_30s": [50.568118, 148.467465]}, "score_completo": -0.5098332999027455}
+   [decision_distinta] {"clave": ["10.10.20.24", "2026-10-28T07:54:00+00:00"], "completo_pk10": 34, "prod": [20, -0.559457647012593], "cand": [34, -0.5831533664428923, true], "dec": ["PERMIT", "ALERT"], "det": ["if_limpio_2026_10", "if_limpio_2026_10"]}
+   [decision_distinta] {"clave": ["10.10.40.10", "2026-10-28T07:54:10+00:00"], "completo_pk10": 631, "prod": [0, null], "cand": [631, -0.6087214171340852, false], "features_emulado_vs_completo": {"flow_duration_mean_30s": [51.827257, 147.223433]}, "score_completo": -0.618941215441083, "dec": ["PERMIT", "ALERT"], "det": ["no_live_packets_heuristic", "if_limpio_2026_10"]}
+   [decision_distinta] {"clave": ["10.10.20.24", "2026-10-28T07:54:20+00:00"], "completo_pk10": 24, "prod": [0, null], "cand": [24, -0.5710235912069264, true], "dec": ["PERMIT", "ALERT"], "det": ["no_live_packets_heuristic", "if_limpio_2026_10"]}
+   [decision_distinta] {"clave": ["10.10.10.20", "2026-10-28T07:55:50+00:00"], "completo_pk10": 5, "prod": [2, -0.558079337254701], "cand": [5, -0.570556818801311, true], "features_emulado_vs_completo": {"flow_duration_mean_30s": [100.285304, 350.033942]}, "score_completo": -0.5868007198342425, "dec": ["PERMIT", "ALERT"], "det": ["if_limpio_2026_10", "if_limpio_2026_10"]}
+   [prod_cero_con_trafico] {"clave": ["10.10.40.10", "2026-10-28T07:54:00+00:00"], "completo_pk10": 28, "prod": [0, null], "cand": [28, -0.5171307256553554, false], "features_emulado_vs_completo": {"flow_duration_mean_30s": [105.037803, 295.219599]}, "score_completo": -0.5333689261441521}
+   [prod_cero_con_trafico] {"clave": ["10.10.20.24", "2026-10-28T07:54:10+00:00"], "completo_pk10": 10, "prod": [0, null], "cand": [10, -0.5518760189929492, false]}
+   [prod_cero_con_trafico] {"clave": ["10.10.40.10", "2026-10-28T07:54:10+00:00"], "completo_pk10": 631, "prod": [0, null], "cand": [631, -0.6087214171340852, false], "features_emulado_vs_completo": {"flow_duration_mean_30s": [51.827257, 147.223433]}, "score_completo": -0.618941215441083}
+   [prod_cero_con_trafico] {"clave": ["10.10.60.12", "2026-10-28T07:54:10+00:00"], "completo_pk10": 3, "prod": [0, null], "cand": [3, -0.4511050318255266, false]}
+   [prod_cero_con_trafico] {"clave": ["10.10.20.24", "2026-10-28T07:54:20+00:00"], "completo_pk10": 24, "prod": [0, null], "cand": [24, -0.5710235912069264, true]}
+   [cand_no_evaluada] {"clave": ["10.10.20.23", "2026-10-28T07:57:30+00:00"], "completo_pk10": 0, "prod": [0, null], "no_evaluada": "pcap_incompleto"}
+## por clave -> /home/m4rk/cf-prep-20261028/diagnostico/comparacion-motores-prueba-0754-0758.jsonl
+## fin=2026-10-28T08:04:20.431Z

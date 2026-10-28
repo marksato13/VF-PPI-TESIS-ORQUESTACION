@@ -1,0 +1,11 @@
+## p39 srv  2026-10-28T09:06:48.935Z
+  ppi-enforce-agent.timer active=inactive enabled=disabled
+  ppi-enforce-agent.service active=inactive enabled=static
+  cyberflow_bloqueados rc=0 sin elementos
+  cyberflow_limitados rc=0 sin elementos
+  ejecuciones del agente desde 07:33:42: 0
+  ultimo=20261028-073340  mecanismo=timer-deshabilitado
+  escalada actual sha= (respaldo 73310d14)
+  bc2742f8e8797a8c00629bd38262be19db204a4db7ff596ae0a3268bf0ff04e5  /home/adminsrvdmz/cf-campana/modo_sombra.sh
+  b27a0f3eb6f8e3c347190a2e13a8e2a9ca43bcada9c49845c1181b2b73534625  /home/adminsrvdmz/cf-campana/restaurar_enforcement.sh
+## fin 2026-10-28T09:06:49.097Z

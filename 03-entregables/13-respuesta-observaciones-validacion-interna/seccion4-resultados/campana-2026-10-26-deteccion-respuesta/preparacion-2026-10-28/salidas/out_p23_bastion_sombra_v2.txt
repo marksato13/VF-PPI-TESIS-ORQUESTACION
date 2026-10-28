@@ -1,0 +1,45 @@
+## p23  inicio=2026-10-28T07:33:39.151Z
+  bc2742f8e8797a8c00629bd38262be19db204a4db7ff596ae0a3268bf0ff04e5  modo_sombra.sh
+  a7d352953b6a7645310f3afba01263e4bb4c319a06867e00858b7392686954ad  modo_sombra.sh.e6a676a
+  b27a0f3eb6f8e3c347190a2e13a8e2a9ca43bcada9c49845c1181b2b73534625  restaurar_enforcement.sh
+  respaldo del intento fallido (estado ORIGINAL):
+    agent-timer.active=active
+    agent-timer.enabled=enabled
+    agent-service.enabled=static
+--- (b) timer a su estado original (07:33:40)
+  antes: timer active=inactive enabled=enabled
+  start rc=0
+  ahora: timer active=active enabled=enabled service=static
+--- (c) ACTIVAR SOMBRA con el script corregido (07:33:40)
+  FEED_DIR=/home/adminsrvdmz/cf-campana/feed-sensor-20261028-072920
+=== MODO SOMBRA (EJECUTAR) estado->/opt/cf-sombra-estado/20261028-073340
+--- 1) guardar estado original (si falla, abortar: no seguir a ciegas)
+  escalada guardada
+--- 2) detener el agente (lo que aplica medidas)
+--- 3) impedir la reactivación: deshabilitar el timer (siempre) y enmascarar el servicio si se puede
+Removed "/etc/systemd/system/timers.target.wants/ppi-enforce-agent.timer".
+Failed to mask unit: File /etc/systemd/system/ppi-enforce-agent.service already exists.
+  aviso: no se pudo enmascarar el servicio; la sombra se garantiza con el timer detenido y deshabilitado
+--- 4) vaciar restricciones residuales
+--- 5) verificar (consulta fallida != set vacío)
+OK sombra verificada (agente y timer detenidos, mecanismo=timer-deshabilitado, sets vacíos, motor sin --enforce confirmado).
+Restaurar tras A: restaurar_enforcement.sh --ejecutar
+  rc modo_sombra=0
+--- (d) verificacion independiente (07:33:41)
+  ppi-enforce-agent.timer active=inactive enabled=disabled
+  ppi-enforce-agent.service active=inactive enabled=static
+  cyberflow_bloqueados rc=0 sin elements
+  cyberflow_limitados rc=0 sin elements
+  ultimo=20261028-073340
+    agent-service.enabled: static 
+    agent-timer.active: active 
+    agent-timer.enabled: enabled 
+    escalada-estado.json: {"10.10.10.2": {"bloqueos": 0, "ultimo_visto": 1793114800.4671268}, "10.10.10.21": {"bloqueos": 0, "ultimo_visto": 17931
+    feed-ls.txt: total 20 drwxrwxr-x 2 adminsrvdmz adminsrvdmz 4096 oct 28 07:29 . drwxrwxr-x 3 adminsrvdmz adminsrvdmz 4096 oct 28 07:33
+    mecanismo: timer-deshabilitado 
+    nft-antes.txt: table inet cyberflow { 	set cyberflow_bloqueados { 		type ipv4_addr 		flags timeout 	}  	set cyberflow_limitados { 		typ
+    ppi-enforce-agent.service: [Unit] Description=CyberFlow - agente de enforcement en el host protegido (verifica feed, aplica nftables) Documentation
+    73310d14a0f1cb5ff5e9645103340d2617e7a086b63aaf5670df6be258be19a6  /opt/cf-sombra-estado/20261028-073340/escalada-estado.json
+    c104c485aaf92f02627f6f4363494d41890b2b16a5ccb73d365bfe39338d2721  /opt/cf-sombra-estado/20261028-073340/nft-antes.txt
+  timers:
+## fin=2026-10-28T07:33:42.247Z
