@@ -14,8 +14,9 @@ iso = lambda ep: datetime.fromtimestamp(ep, timezone.utc).isoformat()
 
 
 def linea(logged, ip, wend, score, decision, heur=None, pk=5):
+    # threshold = el que registra el motor en vivo (desplegado), no el recalibrado; no interviene en la detección
     return json.dumps({"event": "decision", "logged_at": logged, "entity_ip": ip, "window_end_utc": iso(wend),
-                       "score": score, "threshold": U05, "decision": decision, "packet_count_10s": pk,
+                       "score": score, "threshold": UDESP, "decision": decision, "packet_count_10s": pk,
                        "history_coverage_s": 60, "detector_name": "if_limpio_2026_10", "heuristico": heur})
 
 
@@ -60,6 +61,7 @@ def escribir(d: Path):
     (d / "motor.log").write_text("\n".join(L), encoding="utf-8")
     (d / "cfg.json").write_text(json.dumps(
         {"umbrales": {"0.05": U05, "0.03": U03, "0.01": U01, "desplegado_referencia": UDESP}, "origen": K,
+         "modelo": {"detector": "if_limpio_2026_10"},
          "combinacion_real": {"exclusiones": {"NUNCA_BLOQUEAR": []}}}), encoding="utf-8")
     (d / "etiquetas.csv").write_text(
         "entity_ip,window_end_utc,etiqueta\n%s,%s,1\n%s,%s,0\n" % (K, iso(T + 40), K, iso(T + 50)), encoding="utf-8")

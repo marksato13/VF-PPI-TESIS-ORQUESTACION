@@ -66,11 +66,22 @@ son tres cortes del mismo vector de scores, no tres modelos, ni tres pasadas, ni
 dependen de α y se calculan una vez; híbrido α = IF α **o** heurísticos. Con los mismos scores, IF 0,01 ⊆ IF 0,03 ⊆
 IF 0,05 (el analizador comprueba el orden de los umbrales y avisa si no se cumple).
 
-**Emitidas vs derivadas:** las decisiones del motor en `motor_decision.log` son las **emitidas en vivo** (el motor usa
-α 0,05). IF 0,03, IF 0,01, heurísticos solos e híbridos se recomputan **offline** sobre las ventanas observadas y se
-presentan como **análisis de umbrales**, no como alertas emitidas. Para una configuración derivada, `logged_at` indica
-cuándo quedó registrada la puntuación, **no** una latencia de emisión de ese umbral (`tiempo_es_emision_real=false`), y
-una clasificación alternativa no equivale a una acción aplicada.
+**Emitidas vs derivadas (corregido 28-oct, config `2026-10-28.2`):**
+
+- **Señal realmente emitida:** lo que el motor escribió en `motor_decision.log` como decisión `ALERT` (o como señal
+  heurística registrada), con su emisor, umbral y hora **registrados**. `analizar.py` la lista aparte en
+  `emisiones_observadas` (registro, componente emisor, decisión, `logged_at` y `window_end_utc`, modelo/score/umbral
+  registrados, relación con el episodio, atribución y referencia a la línea del log). No es una columna de la Tabla 8.
+  Si falta el emisor o el umbral, o el umbral registrado no es el desplegado, la configuración queda **desconocida**:
+  no se rellena con el valor esperado ni se deduce una emisión de que el score cruce un umbral.
+- **Clasificación comparativa derivada:** las **siete** configuraciones de la Tabla 8, **incluida IF 0,05**, se
+  recomputan sobre los registros como **análisis de componentes y umbrales**. IF 0,05 usa el umbral recalibrado
+  (−0,5694578968), no el desplegado (−0,5693969936): que un ALERT real coincida con su clasificación no demuestra que
+  esa configuración emitiera. Una clasificación alternativa tampoco equivale a una acción aplicada.
+- **Tiempos:** la **latencia real de emisión** solo se mide con una alerta del IF desplegado con configuración
+  confirmada, durante el ataque y con atribución confirmada (`primera_alerta_IF_desplegado_confirmada_durante`:
+  `logged_at − inicio`). En las configuraciones derivadas, `logged_at` es la **disponibilidad del registro** usado
+  (`tiempo_significado`), no una latencia de emisión.
 
 ## 3. Escenarios
 
@@ -136,12 +147,12 @@ criterio de etiquetado previo si se calculan métricas por ventana, **separadas*
 |---|---|---|
 | `generar_campana.py` | Kali | Valida la config, lanza los escenarios habilitados en orden aleatorizado por semilla, con calentamiento + contexto previo (≥120 s) y observación (≥90 s); escribe `marcas.jsonl` (inicio/fin separados, pared + monotónico, comando, código, salida completa en `salidas/`). **Simula sin `--autorizado`; aborta ante marcadores o destino fuera de la lista blanca; mata el grupo de procesos en timeout.** |
 | `esquema_campana.py` | — | Esquema + validación (tipos, destinos, puertos, rutas, deps, placeholders) y construcción de comandos. |
-| `tests/test_herramientas.py` + `tests/fixtures.py` + `tests/regresion_alfa.py` | Laptop/Linux | Verificación sin ataques (130 comprobaciones), fixtures con resultado conocido y no-regresión de α 0,05/0,03 frente al analizador anterior (`tests/golden-5config-fixtures.json`). |
+| `tests/test_herramientas.py` + `tests/fixtures.py` + `tests/regresion_alfa.py` | Laptop/Linux | Verificación sin ataques (172 comprobaciones), fixtures con resultado conocido y no-regresión de detección/cobertura frente a los analizadores anteriores (`tests/golden-5config-fixtures.json`, `tests/golden-7config-fixtures.json`). |
 | `scripts/endpoint_brute/` | srv-dmz | Endpoint 401 correcto (Python o nginx), unidad systemd, README con Suricata/extractor. |
 | `capturar.sh` | Sensor | Captura PCAP continua sin huecos a disco archivado, con rotación por tamaño; marca inicio/fin. |
 | `modo_sombra.sh` / `restaurar_enforcement.sh` | srv-dmz | **Detiene y enmascara** el agente para A (impedir que aplique; NO es ejecutarlo en dry-run) y lo restaura para B según el estado guardado; fallo seguro. `restaurar` exige `--escalada-revisada`. |
 | `verificar_integridad.py` | Laptop/sensor | Informe de integridad por episodio (PCAP/EVE/decisiones/historia/relojes); `analizar.py --integridad` lo exige para declarar evaluable. |
-| `analizar.py` | Laptop/sensor | Lee `marcas.jsonl` + `motor_decision.log` (+ `--destinos`, `--integridad`); clasifica por `logged_at` D/P/N/NE, emitido vs derivado, en **7 configuraciones** (IF 0,05/0,03/0,01, heurísticos, híbrido 0,05/0,03/0,01); la Tabla 8 cuenta **solo** detecciones durante con **atribución confirmada** y episodio **evaluable** (cobertura + evidencia de destino que cubre el intervalo + integridad apta). |
+| `analizar.py` | Laptop/sensor | Lee `marcas.jsonl` + `motor_decision.log` (+ `--destinos`, `--integridad`); clasifica por `logged_at` D/P/N/NE en **7 configuraciones comparativas derivadas** (IF 0,05/0,03/0,01, heurísticos, híbrido 0,05/0,03/0,01) y lista aparte las **emisiones observadas** (alertas reales, con emisor y umbral registrados); la Tabla 8 cuenta **solo** detecciones durante con **atribución confirmada** y episodio **evaluable** (cobertura + evidencia de destino que cubre el intervalo + integridad apta). |
 | `comprobar_relojes.sh` | cada host | Guarda el desfase NTP antes y después. |
 
 Los scripts de generación son **generadores de carga de laboratorio** (nmap, bucles de `curl`/`dig`, intentos de auth

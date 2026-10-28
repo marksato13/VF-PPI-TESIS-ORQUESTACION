@@ -140,9 +140,10 @@ def test_generador_timeout_mata_hijos():
 K = "10.10.20.30"
 
 
-def rec(logged, wend_ep, score, decision="PERMIT", heur=None, pk10=5, det="if_limpio_2026_10", ip=K):
+def rec(logged, wend_ep, score, decision="PERMIT", heur=None, pk10=5, det="if_limpio_2026_10", ip=K, thr=UDESP):
+    # thr = umbral que REGISTRA el motor (el desplegado); no interviene en la detección comparativa
     return json.dumps({"event": "decision", "logged_at": logged, "entity_ip": ip, "window_end_utc": iso(wend_ep),
-                       "score": score, "threshold": U05, "decision": decision, "packet_count_10s": pk10,
+                       "score": score, "threshold": thr, "decision": decision, "packet_count_10s": pk10,
                        "history_coverage_s": 60, "detector_name": det, "heuristico": heur})
 
 
@@ -178,7 +179,10 @@ def test_analizador_basico():
     check(c["evaluable"] and c["IF_0.05"]["categoria"] == "durante", "http-r1: evaluable y IF durante")
     check(c["IF_0.05"]["deteccion_confirmada"] is True, "detección con atribución confirmada")
     check(c["IF_0.05"]["desde_inicio_generador_s"] == 41.0, "clasifica por logged_at (41 s), no window_end")
-    check(c["IF_0.05"]["base"].startswith("emitido_por_modelo"), "IF 0,05 por el modelo => emitido en vivo")
+    check(c["IF_0.05"]["base"].startswith("derivado"),
+          "IF 0,05 recalibrado => derivado aunque el registro sea un ALERT del modelo (corregido 2026-10-28.2)")
+    check(c["IF_0.05"]["evidencia_registrada"]["decision_registrada"] == "ALERT",
+          "el ALERT registrado se conserva como evidencia de la ventana, no como procedencia de la configuración")
     check(c["IF_0.03"]["base"].startswith("derivado"), "IF 0,03 => derivado (umbral no desplegado)")
     # métricas por ventana solo con etiquetas; dedup evita doble conteo
     check(an.metricas_por_ventana(regs, {}, UM)["calculadas"] is False, "sin etiquetas: no métricas")
@@ -487,17 +491,22 @@ def test_ventana_previa():
 
 
 def test_emitido_vs_derivado():
+    """Expectativa corregida (2026-10-28.2): ninguna configuración comparativa es «emitida»; lo observado en el
+    registro va en evidencia_registrada (y, en main, en emisiones_observadas)."""
     an = cargar("analizar")
-    # ALERT solo por IF (modelo): base emitido; HEUR no
+    # ALERT solo por IF (modelo): la configuración IF_0.05 sigue siendo derivada; HEUR no
     g = an.senales({"_score": -0.70, "_pk10": 5, "decision": "ALERT", "detector_name": "if_limpio_2026_10",
                     "heuristico": None}, UM)
-    check(g["IF_0.05"] and not g["HEUR"] and g["base"]["IF_0.05"].startswith("emitido_por_modelo"),
-          "ALERT solo por IF: IF emitido, HEUR no")
-    # señal solo heurística (PERMIT): registrada en vivo, no ALERT
+    check(g["IF_0.05"] and not g["HEUR"] and g["base"]["IF_0.05"].startswith("derivado")
+          and g["evidencia_registrada"]["decision_registrada"] == "ALERT",
+          "ALERT solo por IF: IF_0.05 derivado, el ALERT queda como evidencia registrada; HEUR no")
+    # señal solo heurística (PERMIT): la evidencia dice que se registró en vivo; la configuración HEUR es derivada
     g = an.senales({"_score": -0.50, "_pk10": 5, "decision": "PERMIT", "detector_name": "if_limpio_2026_10",
                     "heuristico": {"heuristico": "http_abuse", "accion": "LIMIT"}}, UM)
-    check(g["HEUR"] and not g["IF_0.05"] and g["base"]["HEUR"] == "registrada_en_vivo",
-          "heurístico LIMIT en PERMIT: registrada en vivo, no ALERT")
+    check(g["HEUR"] and not g["IF_0.05"] and g["base"]["HEUR"].startswith("derivado")
+          and g["evidencia_registrada"]["heuristico_registrado"] == "http_abuse"
+          and g["evidencia_registrada"]["decision_registrada"] == "PERMIT",
+          "heurístico LIMIT en PERMIT: registrado en vivo (evidencia), sin ALERT; HEUR comparativo derivado")
     # compartida
     g = an.senales({"_score": -0.70, "_pk10": 5, "decision": "ALERT", "detector_name": "if_limpio_2026_10",
                     "heuristico": {"heuristico": "http_abuse", "accion": "LIMIT"}}, UM)
@@ -588,6 +597,7 @@ def _e2e_siete(an, tmp):
                {"heuristico": "http_abuse", "accion": "LIMIT"} if w == T + 70 else None) for w in range(T, T + 150, 10)]
     (d / "motor.log").write_text("\n".join(mot), encoding="utf-8")
     (d / "cfg.json").write_text(json.dumps({"umbrales": {**UM, "desplegado_referencia": UDESP}, "origen": K,
+                                            "modelo": {"detector": "if_limpio_2026_10"},
                                             "combinacion_real": {"exclusiones": {"NUNCA_BLOQUEAR": []}}}), encoding="utf-8")
     (d / "integ.json").write_text(json.dumps({"episodios": [{"episodio_id": EID, "apto": True}]}), encoding="utf-8")
     (d / "dest.csv").write_text(_csv_cubre(T, "10.10.30.10"), encoding="utf-8")
@@ -626,8 +636,12 @@ def test_siete_configuraciones():
     check(t8["IF_0.05"] == t8["IF_0.03"] == t8["IF_0.01"] == 1 and t8["HEUR"] == 1, "fixture: 0,05/0,03/0,01 y HEUR durante")
     check(epi["IF_0.05"]["window_end_utc"] == iso(T0 + 30) and epi["IF_0.01"]["window_end_utc"] == iso(T0 + 50),
           "primera señal atribuible por α: 0,05 en T+30, 0,01 en T+50 (score -0.60 no dispara 0,01)")
-    check(epi["IF_0.05"]["tiempo_es_emision_real"] is True and epi["IF_0.01"]["tiempo_es_emision_real"] is False,
-          "IF 0,05 emitido por el modelo: tiempo real; IF 0,01 derivado: no es latencia de emisión")
+    check(all(epi[c]["tiempo_significado"].startswith("disponibilidad_del_registro") for c in ORDEN
+              if epi[c]["categoria"] == "durante") and all("tiempo_es_emision_real" not in epi[c] for c in ORDEN),
+          "las 7 configuraciones: tiempo = disponibilidad del registro (ninguna se presenta como emisión real)")
+    p = epi["emisiones_observadas"]["primera_alerta_IF_desplegado_confirmada_durante"]
+    check(p is not None and p["window_end_utc"] == iso(T0 + 30) and p["desde_inicio_generador_s"] == 31.0,
+          "la latencia real sale aparte: primera alerta del IF desplegado en T+30 (logged_at T+31)")
     comp = epi["compartidas_durante_0.01"]
     check(comp["solo_IF_0.01"] == 1 and comp["solo_HEUR"] == 1 and comp["ambos_0.01"] == 0,
           "solapamiento/exclusivas 0,01 sobre ventanas confirmadas (solo_IF=1, solo_HEUR=1)")
@@ -642,13 +656,20 @@ T0 = 1793000000
 
 
 def test_no_regresion_005_003():
+    """Detección y cobertura idénticas a los analizadores anteriores (0d40bdb: 5 configs; a6dc5ab: 7 configs).
+    Solo se excluyen las claves de procedencia/etiquetado temporal documentadas en regresion_alfa.CLAVES_PROCEDENCIA."""
     import regresion_alfa as rg
     an = cargar("analizar")
-    ref = json.loads(rg.GOLDEN.read_text(encoding="utf-8"))
-    dif = rg.diferencias(ref, rg.proyeccion_5(rg.correr(an)))
-    check(not dif, "0,05/0,03/HEUR/híbridos idénticos al analizador anterior (golden): " + "; ".join(dif[:3]))
-    check(len(ref["episodios"]) == 5 and any(e["evaluable"] for e in ref["episodios"].values()),
-          "el golden cubre 5 episodios, con evaluables (no es una comparación vacía)")
+    j = rg.correr(an)
+    for n in (5, 7):
+        ref = rg.sin_procedencia(json.loads(rg.GOLDEN[n].read_text(encoding="utf-8")))
+        dif = rg.diferencias(ref, rg.proyeccion(j, n))
+        check(not dif, f"{n} configs: detección/cobertura idénticas al golden anterior: " + "; ".join(dif[:3]))
+        check(len(ref["episodios"]) == 5 and any(e["evaluable"] for e in ref["episodios"].values()),
+              f"golden {n}: 5 episodios con evaluables (no es una comparación vacía)")
+    check(set(rg.CLAVES_PROCEDENCIA) == {"base", "tiempo_es_emision_real", "tiempo_significado",
+                                         "evidencia_registrada"},
+          "las exclusiones de la comparación son solo las de procedencia/etiquetado temporal")
 
 
 def test_anidamiento_por_alfa():
@@ -666,6 +687,144 @@ def test_anidamiento_por_alfa():
     check(not an.orden_umbrales(malo), "umbrales en orden invertido: se detecta (no se afirma el anidamiento)")
 
 
+# --------------------------------------------------------------- 5. procedencia: derivadas vs emisiones observadas
+# Comprobaciones del CÓDIGO con registros sintéticos (no son resultados experimentales).
+def _e2e_mot(an, mot, modelo=True):
+    """Episodio inundacion_http-r1 [T, T+90] con evidencia de destino completa e integridad apta; devuelve analisis."""
+    T = T0
+    with tempfile.TemporaryDirectory() as tmp:
+        d = Path(tmp)
+        (d / "marcas.jsonl").write_text("\n".join(marca(EID, "inundacion_http", "10.10.30.10", T, T + 90)),
+                                        encoding="utf-8")
+        (d / "motor.log").write_text("\n".join(mot), encoding="utf-8")
+        cfg = {"umbrales": {**UM, "desplegado_referencia": UDESP}, "origen": K,
+               "combinacion_real": {"exclusiones": {"NUNCA_BLOQUEAR": []}}}
+        if modelo:
+            cfg["modelo"] = {"detector": "if_limpio_2026_10"}
+        (d / "cfg.json").write_text(json.dumps(cfg), encoding="utf-8")
+        (d / "integ.json").write_text(json.dumps({"episodios": [{"episodio_id": EID, "apto": True}]}), encoding="utf-8")
+        (d / "dest.csv").write_text(_csv_cubre(T, "10.10.30.10"), encoding="utf-8")
+        old = sys.argv
+        sys.argv = ["x", "--marcas", str(d / "marcas.jsonl"), "--motor", str(d / "motor.log"),
+                    "--config", str(d / "cfg.json"), "--destinos", str(d / "dest.csv"),
+                    "--integridad", str(d / "integ.json"), "--salida", str(d / "out")]
+        try:
+            import contextlib, io
+            with contextlib.redirect_stdout(io.StringIO()):
+                an.main()
+        finally:
+            sys.argv = old
+        return json.loads((d / "out" / "analisis.json").read_text(encoding="utf-8"))
+
+
+def _mot(especial):
+    """Ventanas cada 10 s en [T, T+150] con score -0.50 PERMIT, salvo {window_end: kwargs de rec}."""
+    return [rec(w + 1, w, **especial.get(w, {"score": -0.50})) for w in range(T0, T0 + 150, 10)]
+
+
+def test_procedencia_emisiones():
+    an = cargar("analizar")
+    T = T0
+    # 1) ALERT real del IF desplegado que cruza los tres umbrales: las 7 configuraciones siguen siendo derivadas y la
+    #    emisión real se registra aparte, con sus campos
+    j = _e2e_mot(an, _mot({T + 40: {"score": -0.70, "decision": "ALERT"}}))
+    e = j["episodios"][EID]
+    check(all(e[c]["categoria"] == "durante" for c in ("IF_0.05", "IF_0.03", "IF_0.01")),
+          "caso 1: -0.70 cruza los tres umbrales (clasificación comparativa durante)")
+    check(all(e[c]["base"].startswith("derivado") and e[c]["tiempo_significado"].startswith("disponibilidad")
+              for c in ("IF_0.05", "IF_0.03", "IF_0.01", "HIB_0.05")),
+          "caso 1: las clasificaciones siguen siendo derivadas (base y tiempo)")
+    em = j["emisiones_observadas"]["registros"]
+    check(len(em) == 1 and em[0]["componente_emisor"] == "IF_desplegado" and em[0]["tipo"] == "alerta_emitida"
+          and em[0]["decision_emitida"] == "ALERT", "caso 1: una emisión real, del IF desplegado, ALERT")
+    x = em[0]
+    check(x["logged_at_utc"] == iso(T + 41) and x["window_end_utc"] == iso(T + 40),
+          "caso 1: logged_at y window_end diferenciados")
+    check(x["modelo_registrado"] == "if_limpio_2026_10" and x["score_registrado"] == -0.70
+          and x["configuracion_emisora"]["umbral_registrado"] == UDESP
+          and x["configuracion_emisora"]["estado"] == "confirmada", "caso 1: modelo, score y umbral REGISTRADOS")
+    check(x["episodio_id"] == EID and x["relacion_temporal"] == "durante_actividad" and x["atribucion_confirmada"]
+          and x["atribucion"] == "origen+destino", "caso 1: relación con el episodio y atribución origen+destino")
+    check(x["registro_id"].startswith("motor:") and x["respaldo"]["linea"] == 5 and len(x["respaldo"]["sha256"]) == 64,
+          "caso 1: referencia al registro de respaldo (línea + sha256 del log)")
+    check("emisiones_observadas" not in j["tabla8"]["Inundación HTTP"] and j["configuraciones"] == list(an.CONFIGS),
+          "caso 1: la emisión NO es una octava configuración de la Tabla 8")
+    check(e["emisiones_observadas"]["primera_alerta_IF_desplegado_confirmada_durante"]["desde_inicio_generador_s"]
+          == 41.0, "caso 1: latencia real = logged_at de la emisión - inicio (41 s)")
+    # 2) score entre el 0,05 desplegado y el 0,05 recalibrado: alerta real SIN señal en IF_0.05 recalibrado
+    s = -0.56942
+    check(U05 < s < UDESP, "caso 2: el score está entre el recalibrado (-0.569458) y el desplegado (-0.569397)")
+    j = _e2e_mot(an, _mot({T + 40: {"score": s, "decision": "ALERT"}}))
+    e = j["episodios"][EID]
+    check(e["IF_0.05"]["categoria"] == "sin_deteccion" and j["tabla8"]["Inundación HTTP"]["IF_0.05"] == 0,
+          "caso 2: IF_0.05 recalibrado sin señal (Tabla 8 = 0)")
+    p = e["emisiones_observadas"]["primera_alerta_IF_desplegado_confirmada_durante"]
+    check(p is not None and p["window_end_utc"] == iso(T + 40),
+          "caso 2: la alerta real del desplegado existe y se registra aparte")
+    # 3) clasificación alternativa positiva SIN emisión: no se inventa alerta ni latencia real
+    j = _e2e_mot(an, _mot({T + 40: {"score": -0.63, "decision": "PERMIT"}}))
+    e = j["episodios"][EID]
+    check(e["IF_0.01"]["categoria"] == "durante" and j["emisiones_observadas"]["registros"] == []
+          and e["emisiones_observadas"]["primera_alerta_IF_desplegado_confirmada_durante"] is None,
+          "caso 3: IF_0.01 positivo derivado, sin emisión ni latencia real inventadas")
+    # 4) heurístico registrado en vivo (PERMIT): procedencia heurística, no emisión del IF
+    j = _e2e_mot(an, _mot({T + 40: {"score": -0.50, "heur": {"heuristico": "dns_entropy", "accion": "LIMIT"}}}))
+    e = j["episodios"][EID]
+    x = j["emisiones_observadas"]["registros"]
+    check(e["HEUR"]["categoria"] == "durante" and e["HEUR"]["evidencia_registrada"]["heuristico_registrado"]
+          == "dns_entropy" and e["HEUR"]["base"].startswith("derivado"),
+          "caso 4: HEUR comparativo derivado; la evidencia conserva el heurístico registrado en vivo")
+    check(len(x) == 1 and x[0]["componente_emisor"] == "heuristico:dns_entropy"
+          and x[0]["tipo"].startswith("senal_heuristica_registrada") and x[0]["decision_emitida"] == "PERMIT"
+          and x[0]["accion_heuristica_registrada"] == "LIMIT", "caso 4: evento heurístico observado, sin ALERT")
+    check(e["emisiones_observadas"]["primera_alerta_IF_desplegado_confirmada_durante"] is None,
+          "caso 4: no se atribuye una emisión del IF a un heurístico")
+    # 5) identificación insuficiente: se declara desconocido, no se rellena con el valor esperado
+    casos = [("ALERT sin detector_name", {"score": -0.70, "decision": "ALERT", "det": None}, True),
+             ("umbral no registrado", {"score": -0.70, "decision": "ALERT", "thr": None}, True),
+             ("umbral registrado != desplegado", {"score": -0.70, "decision": "ALERT", "thr": U05}, True),
+             ("config sin modelo.detector", {"score": -0.70, "decision": "ALERT"}, False)]
+    for nombre, kw, modelo in casos:
+        j = _e2e_mot(an, _mot({T + 40: kw}), modelo=modelo)
+        x = j["emisiones_observadas"]["registros"][0]
+        ce = x["configuracion_emisora"]
+        e = j["episodios"][EID]
+        check(ce["estado"] == "desconocida" and "configuracion" not in ce,
+              f"caso 5 ({nombre}): configuración DESCONOCIDA, sin rellenar")
+        check(e["emisiones_observadas"]["primera_alerta_IF_desplegado_confirmada_durante"] is None
+              and e["emisiones_observadas"]["eventos_con_emisor_o_configuracion_desconocida"] == 1,
+              f"caso 5 ({nombre}): no hay latencia real; la incertidumbre se cuenta")
+        check(e["IF_0.05"]["categoria"] == "durante", f"caso 5 ({nombre}): la clasificación comparativa no cambia")
+        if nombre in ("umbral no registrado",):
+            check(ce["umbral_registrado"].startswith("desconocido"), "caso 5: umbral ausente => 'desconocido'")
+        if nombre == "umbral registrado != desplegado":
+            check(ce["umbral_registrado"] == U05, "caso 5: se informa el umbral REGISTRADO, no el esperado")
+        if nombre in ("ALERT sin detector_name", "config sin modelo.detector"):
+            check(x["componente_emisor"] == "desconocido" and x.get("motivo_emisor_desconocido"),
+                  f"caso 5 ({nombre}): emisor desconocido con motivo (no se atribuye al IF)")
+
+
+def test_conteos_cobertura_7_sin_cambios():
+    """Comparación directa con el analizador de a6dc5ab si está disponible (CF_ANALIZADOR_PREVIO); siempre con el
+    golden de 7 configuraciones."""
+    import regresion_alfa as rg
+    an = cargar("analizar")
+    j = rg.correr(an)
+    ref = rg.sin_procedencia(json.loads(rg.GOLDEN[7].read_text(encoding="utf-8")))
+    act = rg.proyeccion(j, 7)
+    check(not rg.diferencias(ref["tabla8"], act["tabla8"]), "Tabla 8 (7 configs) igual que en a6dc5ab")
+    check(all(ref["episodios"][e][k] == act["episodios"][e][k] for e in ref["episodios"]
+              for k in ("evaluable", "cobertura", "evidencia_destino")), "evaluabilidad y cobertura iguales")
+    check(all(ref["episodios"][e][c]["categoria"] == act["episodios"][e][c]["categoria"]
+              for e in ref["episodios"] for c in rg.CONFIGS[7]), "categorías por episodio y configuración iguales")
+    check(ref["control_normal_fpr"] == act["control_normal_fpr"] and
+          ref["metricas_por_ventana"] == act["metricas_por_ventana"], "control FPR y métricas por ventana iguales")
+    prev = os.environ.get("CF_ANALIZADOR_PREVIO")
+    if prev and Path(prev).is_file():
+        jp = rg.correr(rg.cargar_analizador(Path(prev)))
+        check(not rg.diferencias(rg.proyeccion(jp, 7), act), "comparación directa con el analizador previo: 0 dif.")
+
+
 def main():
     for fn in (test_validacion, test_generador_simulacion, test_generador_timeout_mata_hijos,
                test_analizador_basico, test_cobertura_una_ventana_insuficiente, test_score_nulo_con_heuristico,
@@ -673,7 +832,8 @@ def main():
                test_integridad_backing, test_integridad_informe_externo, test_integridad_descriptor_ilustrativo,
                test_integridad_gate_analizador, test_integridad_e2e_no_habilita_denominador,
                test_umbral_001_procedencia, test_comparacion_estricta, test_escala_anomalia,
-               test_siete_configuraciones, test_no_regresion_005_003, test_anidamiento_por_alfa):
+               test_siete_configuraciones, test_no_regresion_005_003, test_anidamiento_por_alfa,
+               test_procedencia_emisiones, test_conteos_cobertura_7_sin_cambios):
         fn()
         print(f"OK  {fn.__name__}")
     print(f"\n{ok['n']} comprobaciones pasaron.")

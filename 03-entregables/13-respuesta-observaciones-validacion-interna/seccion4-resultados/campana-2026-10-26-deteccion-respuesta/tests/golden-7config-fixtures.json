@@ -1,0 +1,896 @@
+{
+ "calidad_datos": {
+  "episodios_incompletos": [
+   "escaneo_breve-r1"
+  ],
+  "incidencias_marcas": [],
+  "incidencias_motor": [
+   "ventanas duplicadas (entity_ip|window_end): 1 — se deduplican"
+  ],
+  "ventanas_duplicadas": 1
+ },
+ "control_normal_fpr": {
+  "HEUR": {
+   "falsas_alarmas": 2,
+   "tasa": 0.033333
+  },
+  "HIB_0.01": {
+   "falsas_alarmas": 4,
+   "tasa": 0.066667
+  },
+  "HIB_0.03": {
+   "falsas_alarmas": 6,
+   "tasa": 0.1
+  },
+  "HIB_0.05": {
+   "falsas_alarmas": 6,
+   "tasa": 0.1
+  },
+  "IF_0.01": {
+   "falsas_alarmas": 3,
+   "tasa": 0.05
+  },
+  "IF_0.03": {
+   "falsas_alarmas": 5,
+   "tasa": 0.083333
+  },
+  "IF_0.05": {
+   "falsas_alarmas": 5,
+   "tasa": 0.083333
+  },
+  "denominador": 60,
+  "desde": "2026-10-26T07:33:20+00:00",
+  "hasta": "2026-10-26T08:43:20+00:00",
+  "ventanas": 60
+ },
+ "episodios": {
+  "dns_inusual-r1": {
+   "HEUR": {
+    "atribucion": "origen+destino",
+    "atribucion_confirmada": true,
+    "categoria": "durante",
+    "configuracion": "HEUR",
+    "desde_inicio_generador_s": 31.0,
+    "deteccion_confirmada": true,
+    "detector_name": "if_limpio_2026_10",
+    "logged_at_utc": "2026-10-26T07:50:31+00:00",
+    "primera_fiable": true,
+    "relacion_temporal": "durante_actividad",
+    "score": -0.5,
+    "score_estado": "ok",
+    "senal_observada": true,
+    "tras_fin_generador_s": -59.0,
+    "window_end_utc": "2026-10-26T07:50:30+00:00"
+   },
+   "HIB_0.01": {
+    "atribucion": "origen+destino",
+    "atribucion_confirmada": true,
+    "categoria": "durante",
+    "configuracion": "HIB_0.01",
+    "desde_inicio_generador_s": 31.0,
+    "deteccion_confirmada": true,
+    "detector_name": "if_limpio_2026_10",
+    "logged_at_utc": "2026-10-26T07:50:31+00:00",
+    "primera_fiable": true,
+    "relacion_temporal": "durante_actividad",
+    "score": -0.5,
+    "score_estado": "ok",
+    "senal_observada": true,
+    "tras_fin_generador_s": -59.0,
+    "window_end_utc": "2026-10-26T07:50:30+00:00"
+   },
+   "HIB_0.03": {
+    "atribucion": "origen+destino",
+    "atribucion_confirmada": true,
+    "categoria": "durante",
+    "configuracion": "HIB_0.03",
+    "desde_inicio_generador_s": 31.0,
+    "deteccion_confirmada": true,
+    "detector_name": "if_limpio_2026_10",
+    "logged_at_utc": "2026-10-26T07:50:31+00:00",
+    "primera_fiable": true,
+    "relacion_temporal": "durante_actividad",
+    "score": -0.5,
+    "score_estado": "ok",
+    "senal_observada": true,
+    "tras_fin_generador_s": -59.0,
+    "window_end_utc": "2026-10-26T07:50:30+00:00"
+   },
+   "HIB_0.05": {
+    "atribucion": "origen+destino",
+    "atribucion_confirmada": true,
+    "categoria": "durante",
+    "configuracion": "HIB_0.05",
+    "desde_inicio_generador_s": 31.0,
+    "deteccion_confirmada": true,
+    "detector_name": "if_limpio_2026_10",
+    "logged_at_utc": "2026-10-26T07:50:31+00:00",
+    "primera_fiable": true,
+    "relacion_temporal": "durante_actividad",
+    "score": -0.5,
+    "score_estado": "ok",
+    "senal_observada": true,
+    "tras_fin_generador_s": -59.0,
+    "window_end_utc": "2026-10-26T07:50:30+00:00"
+   },
+   "IF_0.01": {
+    "categoria": "sin_deteccion",
+    "deteccion_confirmada": false,
+    "primera_fiable": false,
+    "senal_observada": false
+   },
+   "IF_0.03": {
+    "categoria": "sin_deteccion",
+    "deteccion_confirmada": false,
+    "primera_fiable": false,
+    "senal_observada": false
+   },
+   "IF_0.05": {
+    "categoria": "sin_deteccion",
+    "deteccion_confirmada": false,
+    "primera_fiable": false,
+    "senal_observada": false
+   },
+   "cobertura": {
+    "anclas_ataque_esperadas": 9,
+    "anclas_ataque_observadas": 9,
+    "cubre_fin_mas_60": true,
+    "cubre_inicio": true,
+    "hueco_motor_max_s": 10.0,
+    "motivo": "ok",
+    "motor_continuo": true,
+    "suficiente": true
+   },
+   "compartidas_durante_0.01": {
+    "ambos_0.01": 0,
+    "ninguno_0.01": 7,
+    "nota": "solo ventanas con atribución confirmada",
+    "solo_HEUR": 1,
+    "solo_IF_0.01": 0
+   },
+   "compartidas_durante_0.05": {
+    "ambos_0.05": 0,
+    "ninguno_0.05": 7,
+    "nota": "solo ventanas con atribución confirmada",
+    "solo_HEUR": 1,
+    "solo_IF_0.05": 0
+   },
+   "evaluable": true,
+   "evidencia_destino": {
+    "cubre": true,
+    "motivo": "",
+    "ventanas_ataque": 9
+   },
+   "motivo_no_evaluable": null,
+   "senales_observadas_sin_confirmar": [],
+   "senales_previas_o_ambiguas": []
+  },
+  "escaneo_breve-r1": {
+   "HEUR": {
+    "categoria": "no_evaluable",
+    "deteccion_confirmada": false,
+    "motivo": "cobertura:episodio incompleto/sin fin",
+    "primera_fiable": false,
+    "senal_observada": false
+   },
+   "HIB_0.01": {
+    "categoria": "no_evaluable",
+    "deteccion_confirmada": false,
+    "motivo": "cobertura:episodio incompleto/sin fin",
+    "primera_fiable": false,
+    "senal_observada": false
+   },
+   "HIB_0.03": {
+    "categoria": "no_evaluable",
+    "deteccion_confirmada": false,
+    "motivo": "cobertura:episodio incompleto/sin fin",
+    "primera_fiable": false,
+    "senal_observada": false
+   },
+   "HIB_0.05": {
+    "categoria": "no_evaluable",
+    "deteccion_confirmada": false,
+    "motivo": "cobertura:episodio incompleto/sin fin",
+    "primera_fiable": false,
+    "senal_observada": false
+   },
+   "IF_0.01": {
+    "categoria": "no_evaluable",
+    "deteccion_confirmada": false,
+    "motivo": "cobertura:episodio incompleto/sin fin",
+    "primera_fiable": false,
+    "senal_observada": false
+   },
+   "IF_0.03": {
+    "categoria": "no_evaluable",
+    "deteccion_confirmada": false,
+    "motivo": "cobertura:episodio incompleto/sin fin",
+    "primera_fiable": false,
+    "senal_observada": false
+   },
+   "IF_0.05": {
+    "categoria": "no_evaluable",
+    "deteccion_confirmada": false,
+    "motivo": "cobertura:episodio incompleto/sin fin",
+    "primera_fiable": false,
+    "senal_observada": false
+   },
+   "cobertura": {
+    "motivo": "episodio incompleto/sin fin",
+    "motor_continuo": false,
+    "suficiente": false
+   },
+   "compartidas_durante_0.01": {
+    "ambos_0.01": 0,
+    "ninguno_0.01": 0,
+    "nota": "solo ventanas con atribución confirmada",
+    "solo_HEUR": 0,
+    "solo_IF_0.01": 0
+   },
+   "compartidas_durante_0.05": {
+    "ambos_0.05": 0,
+    "ninguno_0.05": 0,
+    "nota": "solo ventanas con atribución confirmada",
+    "solo_HEUR": 0,
+    "solo_IF_0.05": 0
+   },
+   "evaluable": false,
+   "evidencia_destino": {
+    "cubre": true,
+    "motivo": "",
+    "ventanas_ataque": 0
+   },
+   "motivo_no_evaluable": "cobertura:episodio incompleto/sin fin",
+   "senales_observadas_sin_confirmar": [],
+   "senales_previas_o_ambiguas": []
+  },
+  "fuerza_bruta_http-r1": {
+   "HEUR": {
+    "categoria": "sin_deteccion",
+    "deteccion_confirmada": false,
+    "primera_fiable": false,
+    "senal_observada": false
+   },
+   "HIB_0.01": {
+    "atribucion": "origen+destino",
+    "atribucion_confirmada": true,
+    "categoria": "durante",
+    "configuracion": "HIB_0.01",
+    "desde_inicio_generador_s": 71.0,
+    "deteccion_confirmada": true,
+    "detector_name": "if_limpio_2026_10",
+    "logged_at_utc": "2026-10-26T08:41:11+00:00",
+    "primera_fiable": true,
+    "relacion_temporal": "durante_actividad",
+    "score": -0.63,
+    "score_estado": "ok",
+    "senal_observada": true,
+    "tras_fin_generador_s": -19.0,
+    "window_end_utc": "2026-10-26T08:41:10+00:00"
+   },
+   "HIB_0.03": {
+    "atribucion": "origen+destino",
+    "atribucion_confirmada": true,
+    "categoria": "durante",
+    "configuracion": "HIB_0.03",
+    "desde_inicio_generador_s": 31.0,
+    "deteccion_confirmada": true,
+    "detector_name": "if_limpio_2026_10",
+    "logged_at_utc": "2026-10-26T08:40:31+00:00",
+    "primera_fiable": true,
+    "relacion_temporal": "durante_actividad",
+    "score": -0.6,
+    "score_estado": "ok",
+    "senal_observada": true,
+    "tras_fin_generador_s": -59.0,
+    "window_end_utc": "2026-10-26T08:40:30+00:00"
+   },
+   "HIB_0.05": {
+    "atribucion": "origen+destino",
+    "atribucion_confirmada": true,
+    "categoria": "durante",
+    "configuracion": "HIB_0.05",
+    "desde_inicio_generador_s": 31.0,
+    "deteccion_confirmada": true,
+    "detector_name": "if_limpio_2026_10",
+    "logged_at_utc": "2026-10-26T08:40:31+00:00",
+    "primera_fiable": true,
+    "relacion_temporal": "durante_actividad",
+    "score": -0.6,
+    "score_estado": "ok",
+    "senal_observada": true,
+    "tras_fin_generador_s": -59.0,
+    "window_end_utc": "2026-10-26T08:40:30+00:00"
+   },
+   "IF_0.01": {
+    "atribucion": "origen+destino",
+    "atribucion_confirmada": true,
+    "categoria": "durante",
+    "configuracion": "IF_0.01",
+    "desde_inicio_generador_s": 71.0,
+    "deteccion_confirmada": true,
+    "detector_name": "if_limpio_2026_10",
+    "logged_at_utc": "2026-10-26T08:41:11+00:00",
+    "primera_fiable": true,
+    "relacion_temporal": "durante_actividad",
+    "score": -0.63,
+    "score_estado": "ok",
+    "senal_observada": true,
+    "tras_fin_generador_s": -19.0,
+    "window_end_utc": "2026-10-26T08:41:10+00:00"
+   },
+   "IF_0.03": {
+    "atribucion": "origen+destino",
+    "atribucion_confirmada": true,
+    "categoria": "durante",
+    "configuracion": "IF_0.03",
+    "desde_inicio_generador_s": 31.0,
+    "deteccion_confirmada": true,
+    "detector_name": "if_limpio_2026_10",
+    "logged_at_utc": "2026-10-26T08:40:31+00:00",
+    "primera_fiable": true,
+    "relacion_temporal": "durante_actividad",
+    "score": -0.6,
+    "score_estado": "ok",
+    "senal_observada": true,
+    "tras_fin_generador_s": -59.0,
+    "window_end_utc": "2026-10-26T08:40:30+00:00"
+   },
+   "IF_0.05": {
+    "atribucion": "origen+destino",
+    "atribucion_confirmada": true,
+    "categoria": "durante",
+    "configuracion": "IF_0.05",
+    "desde_inicio_generador_s": 31.0,
+    "deteccion_confirmada": true,
+    "detector_name": "if_limpio_2026_10",
+    "logged_at_utc": "2026-10-26T08:40:31+00:00",
+    "primera_fiable": true,
+    "relacion_temporal": "durante_actividad",
+    "score": -0.6,
+    "score_estado": "ok",
+    "senal_observada": true,
+    "tras_fin_generador_s": -59.0,
+    "window_end_utc": "2026-10-26T08:40:30+00:00"
+   },
+   "cobertura": {
+    "anclas_ataque_esperadas": 9,
+    "anclas_ataque_observadas": 9,
+    "cubre_fin_mas_60": true,
+    "cubre_inicio": true,
+    "hueco_motor_max_s": 10.0,
+    "motivo": "ok",
+    "motor_continuo": true,
+    "suficiente": true
+   },
+   "compartidas_durante_0.01": {
+    "ambos_0.01": 0,
+    "ninguno_0.01": 7,
+    "nota": "solo ventanas con atribución confirmada",
+    "solo_HEUR": 0,
+    "solo_IF_0.01": 1
+   },
+   "compartidas_durante_0.05": {
+    "ambos_0.05": 0,
+    "ninguno_0.05": 5,
+    "nota": "solo ventanas con atribución confirmada",
+    "solo_HEUR": 0,
+    "solo_IF_0.05": 3
+   },
+   "evaluable": true,
+   "evidencia_destino": {
+    "cubre": true,
+    "motivo": "",
+    "ventanas_ataque": 9
+   },
+   "motivo_no_evaluable": null,
+   "senales_observadas_sin_confirmar": [],
+   "senales_previas_o_ambiguas": []
+  },
+  "inundacion_http-r1": {
+   "HEUR": {
+    "atribucion": "origen+destino",
+    "atribucion_confirmada": true,
+    "categoria": "durante",
+    "configuracion": "HEUR",
+    "desde_inicio_generador_s": 41.0,
+    "deteccion_confirmada": true,
+    "detector_name": "if_limpio_2026_10",
+    "logged_at_utc": "2026-10-26T07:34:01+00:00",
+    "primera_fiable": true,
+    "relacion_temporal": "durante_actividad",
+    "score": -0.7,
+    "score_estado": "ok",
+    "senal_observada": true,
+    "tras_fin_generador_s": -49.0,
+    "window_end_utc": "2026-10-26T07:34:00+00:00"
+   },
+   "HIB_0.01": {
+    "atribucion": "origen+destino",
+    "atribucion_confirmada": true,
+    "categoria": "durante",
+    "configuracion": "HIB_0.01",
+    "desde_inicio_generador_s": 41.0,
+    "deteccion_confirmada": true,
+    "detector_name": "if_limpio_2026_10",
+    "logged_at_utc": "2026-10-26T07:34:01+00:00",
+    "primera_fiable": true,
+    "relacion_temporal": "durante_actividad",
+    "score": -0.7,
+    "score_estado": "ok",
+    "senal_observada": true,
+    "tras_fin_generador_s": -49.0,
+    "window_end_utc": "2026-10-26T07:34:00+00:00"
+   },
+   "HIB_0.03": {
+    "atribucion": "origen+destino",
+    "atribucion_confirmada": true,
+    "categoria": "durante",
+    "configuracion": "HIB_0.03",
+    "desde_inicio_generador_s": 41.0,
+    "deteccion_confirmada": true,
+    "detector_name": "if_limpio_2026_10",
+    "logged_at_utc": "2026-10-26T07:34:01+00:00",
+    "primera_fiable": true,
+    "relacion_temporal": "durante_actividad",
+    "score": -0.7,
+    "score_estado": "ok",
+    "senal_observada": true,
+    "tras_fin_generador_s": -49.0,
+    "window_end_utc": "2026-10-26T07:34:00+00:00"
+   },
+   "HIB_0.05": {
+    "atribucion": "origen+destino",
+    "atribucion_confirmada": true,
+    "categoria": "durante",
+    "configuracion": "HIB_0.05",
+    "desde_inicio_generador_s": 41.0,
+    "deteccion_confirmada": true,
+    "detector_name": "if_limpio_2026_10",
+    "logged_at_utc": "2026-10-26T07:34:01+00:00",
+    "primera_fiable": true,
+    "relacion_temporal": "durante_actividad",
+    "score": -0.7,
+    "score_estado": "ok",
+    "senal_observada": true,
+    "tras_fin_generador_s": -49.0,
+    "window_end_utc": "2026-10-26T07:34:00+00:00"
+   },
+   "IF_0.01": {
+    "atribucion": "origen+destino",
+    "atribucion_confirmada": true,
+    "categoria": "durante",
+    "configuracion": "IF_0.01",
+    "desde_inicio_generador_s": 41.0,
+    "deteccion_confirmada": true,
+    "detector_name": "if_limpio_2026_10",
+    "logged_at_utc": "2026-10-26T07:34:01+00:00",
+    "primera_fiable": true,
+    "relacion_temporal": "durante_actividad",
+    "score": -0.7,
+    "score_estado": "ok",
+    "senal_observada": true,
+    "tras_fin_generador_s": -49.0,
+    "window_end_utc": "2026-10-26T07:34:00+00:00"
+   },
+   "IF_0.03": {
+    "atribucion": "origen+destino",
+    "atribucion_confirmada": true,
+    "categoria": "durante",
+    "configuracion": "IF_0.03",
+    "desde_inicio_generador_s": 41.0,
+    "deteccion_confirmada": true,
+    "detector_name": "if_limpio_2026_10",
+    "logged_at_utc": "2026-10-26T07:34:01+00:00",
+    "primera_fiable": true,
+    "relacion_temporal": "durante_actividad",
+    "score": -0.7,
+    "score_estado": "ok",
+    "senal_observada": true,
+    "tras_fin_generador_s": -49.0,
+    "window_end_utc": "2026-10-26T07:34:00+00:00"
+   },
+   "IF_0.05": {
+    "atribucion": "origen+destino",
+    "atribucion_confirmada": true,
+    "categoria": "durante",
+    "configuracion": "IF_0.05",
+    "desde_inicio_generador_s": 41.0,
+    "deteccion_confirmada": true,
+    "detector_name": "if_limpio_2026_10",
+    "logged_at_utc": "2026-10-26T07:34:01+00:00",
+    "primera_fiable": true,
+    "relacion_temporal": "durante_actividad",
+    "score": -0.7,
+    "score_estado": "ok",
+    "senal_observada": true,
+    "tras_fin_generador_s": -49.0,
+    "window_end_utc": "2026-10-26T07:34:00+00:00"
+   },
+   "cobertura": {
+    "anclas_ataque_esperadas": 9,
+    "anclas_ataque_observadas": 9,
+    "cubre_fin_mas_60": true,
+    "cubre_inicio": true,
+    "hueco_motor_max_s": 10.0,
+    "motivo": "ok",
+    "motor_continuo": true,
+    "suficiente": true
+   },
+   "compartidas_durante_0.01": {
+    "ambos_0.01": 1,
+    "ninguno_0.01": 7,
+    "nota": "solo ventanas con atribución confirmada",
+    "solo_HEUR": 0,
+    "solo_IF_0.01": 0
+   },
+   "compartidas_durante_0.05": {
+    "ambos_0.05": 1,
+    "ninguno_0.05": 7,
+    "nota": "solo ventanas con atribución confirmada",
+    "solo_HEUR": 0,
+    "solo_IF_0.05": 0
+   },
+   "evaluable": true,
+   "evidencia_destino": {
+    "cubre": true,
+    "motivo": "",
+    "ventanas_ataque": 9
+   },
+   "motivo_no_evaluable": null,
+   "senales_observadas_sin_confirmar": [],
+   "senales_previas_o_ambiguas": []
+  },
+  "inundacion_http-r2": {
+   "HEUR": {
+    "categoria": "sin_deteccion",
+    "deteccion_confirmada": false,
+    "primera_fiable": false,
+    "senal_observada": false
+   },
+   "HIB_0.01": {
+    "atribucion": "incompleta(sin_destino_en_evidencia)",
+    "atribucion_confirmada": false,
+    "categoria": "observada_sin_confirmar",
+    "configuracion": "HIB_0.01",
+    "desde_inicio_generador_s": 101.0,
+    "deteccion_confirmada": false,
+    "detector_name": "if_limpio_2026_10",
+    "logged_at_utc": "2026-10-26T08:25:01+00:00",
+    "primera_fiable": false,
+    "relacion_temporal": "posterior",
+    "score": -0.7,
+    "score_estado": "ok",
+    "senal_observada": true,
+    "tras_fin_generador_s": 11.0,
+    "window_end_utc": "2026-10-26T08:25:00+00:00"
+   },
+   "HIB_0.03": {
+    "atribucion": "incompleta(sin_destino_en_evidencia)",
+    "atribucion_confirmada": false,
+    "categoria": "observada_sin_confirmar",
+    "configuracion": "HIB_0.03",
+    "desde_inicio_generador_s": 101.0,
+    "deteccion_confirmada": false,
+    "detector_name": "if_limpio_2026_10",
+    "logged_at_utc": "2026-10-26T08:25:01+00:00",
+    "primera_fiable": false,
+    "relacion_temporal": "posterior",
+    "score": -0.7,
+    "score_estado": "ok",
+    "senal_observada": true,
+    "tras_fin_generador_s": 11.0,
+    "window_end_utc": "2026-10-26T08:25:00+00:00"
+   },
+   "HIB_0.05": {
+    "atribucion": "incompleta(sin_destino_en_evidencia)",
+    "atribucion_confirmada": false,
+    "categoria": "observada_sin_confirmar",
+    "configuracion": "HIB_0.05",
+    "desde_inicio_generador_s": 101.0,
+    "deteccion_confirmada": false,
+    "detector_name": "if_limpio_2026_10",
+    "logged_at_utc": "2026-10-26T08:25:01+00:00",
+    "primera_fiable": false,
+    "relacion_temporal": "posterior",
+    "score": -0.7,
+    "score_estado": "ok",
+    "senal_observada": true,
+    "tras_fin_generador_s": 11.0,
+    "window_end_utc": "2026-10-26T08:25:00+00:00"
+   },
+   "IF_0.01": {
+    "atribucion": "incompleta(sin_destino_en_evidencia)",
+    "atribucion_confirmada": false,
+    "categoria": "observada_sin_confirmar",
+    "configuracion": "IF_0.01",
+    "desde_inicio_generador_s": 101.0,
+    "deteccion_confirmada": false,
+    "detector_name": "if_limpio_2026_10",
+    "logged_at_utc": "2026-10-26T08:25:01+00:00",
+    "primera_fiable": false,
+    "relacion_temporal": "posterior",
+    "score": -0.7,
+    "score_estado": "ok",
+    "senal_observada": true,
+    "tras_fin_generador_s": 11.0,
+    "window_end_utc": "2026-10-26T08:25:00+00:00"
+   },
+   "IF_0.03": {
+    "atribucion": "incompleta(sin_destino_en_evidencia)",
+    "atribucion_confirmada": false,
+    "categoria": "observada_sin_confirmar",
+    "configuracion": "IF_0.03",
+    "desde_inicio_generador_s": 101.0,
+    "deteccion_confirmada": false,
+    "detector_name": "if_limpio_2026_10",
+    "logged_at_utc": "2026-10-26T08:25:01+00:00",
+    "primera_fiable": false,
+    "relacion_temporal": "posterior",
+    "score": -0.7,
+    "score_estado": "ok",
+    "senal_observada": true,
+    "tras_fin_generador_s": 11.0,
+    "window_end_utc": "2026-10-26T08:25:00+00:00"
+   },
+   "IF_0.05": {
+    "atribucion": "incompleta(sin_destino_en_evidencia)",
+    "atribucion_confirmada": false,
+    "categoria": "observada_sin_confirmar",
+    "configuracion": "IF_0.05",
+    "desde_inicio_generador_s": 101.0,
+    "deteccion_confirmada": false,
+    "detector_name": "if_limpio_2026_10",
+    "logged_at_utc": "2026-10-26T08:25:01+00:00",
+    "primera_fiable": false,
+    "relacion_temporal": "posterior",
+    "score": -0.7,
+    "score_estado": "ok",
+    "senal_observada": true,
+    "tras_fin_generador_s": 11.0,
+    "window_end_utc": "2026-10-26T08:25:00+00:00"
+   },
+   "cobertura": {
+    "anclas_ataque_esperadas": 9,
+    "anclas_ataque_observadas": 9,
+    "cubre_fin_mas_60": true,
+    "cubre_inicio": true,
+    "hueco_motor_max_s": 10.0,
+    "motivo": "ok",
+    "motor_continuo": true,
+    "suficiente": true
+   },
+   "compartidas_durante_0.01": {
+    "ambos_0.01": 0,
+    "ninguno_0.01": 8,
+    "nota": "solo ventanas con atribución confirmada",
+    "solo_HEUR": 0,
+    "solo_IF_0.01": 0
+   },
+   "compartidas_durante_0.05": {
+    "ambos_0.05": 0,
+    "ninguno_0.05": 8,
+    "nota": "solo ventanas con atribución confirmada",
+    "solo_HEUR": 0,
+    "solo_IF_0.05": 0
+   },
+   "evaluable": true,
+   "evidencia_destino": {
+    "cubre": true,
+    "motivo": "",
+    "ventanas_ataque": 9
+   },
+   "motivo_no_evaluable": null,
+   "senales_observadas_sin_confirmar": [
+    {
+     "atribucion": "incompleta(sin_destino_en_evidencia)",
+     "atribucion_confirmada": false,
+     "configuracion": "IF_0.05",
+     "desde_inicio_generador_s": 101.0,
+     "detector_name": "if_limpio_2026_10",
+     "logged_at_utc": "2026-10-26T08:25:01+00:00",
+     "relacion_temporal": "posterior",
+     "score": -0.7,
+     "score_estado": "ok",
+     "tras_fin_generador_s": 11.0,
+     "window_end_utc": "2026-10-26T08:25:00+00:00"
+    },
+    {
+     "atribucion": "incompleta(sin_destino_en_evidencia)",
+     "atribucion_confirmada": false,
+     "configuracion": "IF_0.03",
+     "desde_inicio_generador_s": 101.0,
+     "detector_name": "if_limpio_2026_10",
+     "logged_at_utc": "2026-10-26T08:25:01+00:00",
+     "relacion_temporal": "posterior",
+     "score": -0.7,
+     "score_estado": "ok",
+     "tras_fin_generador_s": 11.0,
+     "window_end_utc": "2026-10-26T08:25:00+00:00"
+    },
+    {
+     "atribucion": "incompleta(sin_destino_en_evidencia)",
+     "atribucion_confirmada": false,
+     "configuracion": "IF_0.01",
+     "desde_inicio_generador_s": 101.0,
+     "detector_name": "if_limpio_2026_10",
+     "logged_at_utc": "2026-10-26T08:25:01+00:00",
+     "relacion_temporal": "posterior",
+     "score": -0.7,
+     "score_estado": "ok",
+     "tras_fin_generador_s": 11.0,
+     "window_end_utc": "2026-10-26T08:25:00+00:00"
+    },
+    {
+     "atribucion": "incompleta(sin_destino_en_evidencia)",
+     "atribucion_confirmada": false,
+     "configuracion": "HIB_0.05",
+     "desde_inicio_generador_s": 101.0,
+     "detector_name": "if_limpio_2026_10",
+     "logged_at_utc": "2026-10-26T08:25:01+00:00",
+     "relacion_temporal": "posterior",
+     "score": -0.7,
+     "score_estado": "ok",
+     "tras_fin_generador_s": 11.0,
+     "window_end_utc": "2026-10-26T08:25:00+00:00"
+    },
+    {
+     "atribucion": "incompleta(sin_destino_en_evidencia)",
+     "atribucion_confirmada": false,
+     "configuracion": "HIB_0.03",
+     "desde_inicio_generador_s": 101.0,
+     "detector_name": "if_limpio_2026_10",
+     "logged_at_utc": "2026-10-26T08:25:01+00:00",
+     "relacion_temporal": "posterior",
+     "score": -0.7,
+     "score_estado": "ok",
+     "tras_fin_generador_s": 11.0,
+     "window_end_utc": "2026-10-26T08:25:00+00:00"
+    },
+    {
+     "atribucion": "incompleta(sin_destino_en_evidencia)",
+     "atribucion_confirmada": false,
+     "configuracion": "HIB_0.01",
+     "desde_inicio_generador_s": 101.0,
+     "detector_name": "if_limpio_2026_10",
+     "logged_at_utc": "2026-10-26T08:25:01+00:00",
+     "relacion_temporal": "posterior",
+     "score": -0.7,
+     "score_estado": "ok",
+     "tras_fin_generador_s": 11.0,
+     "window_end_utc": "2026-10-26T08:25:00+00:00"
+    }
+   ],
+   "senales_previas_o_ambiguas": []
+  }
+ },
+ "metricas_por_ventana": {
+  "HEUR": {
+   "FN": 0,
+   "FP": 0,
+   "FPR": 0.0,
+   "TN": 1,
+   "TP": 1,
+   "precision": 1.0,
+   "recall": 1.0
+  },
+  "HIB_0.01": {
+   "FN": 0,
+   "FP": 0,
+   "FPR": 0.0,
+   "TN": 1,
+   "TP": 1,
+   "precision": 1.0,
+   "recall": 1.0
+  },
+  "HIB_0.03": {
+   "FN": 0,
+   "FP": 0,
+   "FPR": 0.0,
+   "TN": 1,
+   "TP": 1,
+   "precision": 1.0,
+   "recall": 1.0
+  },
+  "HIB_0.05": {
+   "FN": 0,
+   "FP": 0,
+   "FPR": 0.0,
+   "TN": 1,
+   "TP": 1,
+   "precision": 1.0,
+   "recall": 1.0
+  },
+  "IF_0.01": {
+   "FN": 0,
+   "FP": 0,
+   "FPR": 0.0,
+   "TN": 1,
+   "TP": 1,
+   "precision": 1.0,
+   "recall": 1.0
+  },
+  "IF_0.03": {
+   "FN": 0,
+   "FP": 0,
+   "FPR": 0.0,
+   "TN": 1,
+   "TP": 1,
+   "precision": 1.0,
+   "recall": 1.0
+  },
+  "IF_0.05": {
+   "FN": 0,
+   "FP": 0,
+   "FPR": 0.0,
+   "TN": 1,
+   "TP": 1,
+   "precision": 1.0,
+   "recall": 1.0
+  },
+  "calculadas": true,
+  "denominador": 2,
+  "n_etiquetadas": 2
+ },
+ "tabla8": {
+  "DNS inusual": {
+   "HEUR": 1,
+   "HIB_0.01": 1,
+   "HIB_0.03": 1,
+   "HIB_0.05": 1,
+   "IF_0.01": 0,
+   "IF_0.03": 0,
+   "IF_0.05": 0,
+   "evaluables": [
+    "dns_inusual-r1"
+   ],
+   "no_evaluables": []
+  },
+  "Escaneo breve": {
+   "HEUR": 0,
+   "HIB_0.01": 0,
+   "HIB_0.03": 0,
+   "HIB_0.05": 0,
+   "IF_0.01": 0,
+   "IF_0.03": 0,
+   "IF_0.05": 0,
+   "evaluables": [],
+   "no_evaluables": [
+    "escaneo_breve-r1"
+   ]
+  },
+  "Fuerza bruta HTTP": {
+   "HEUR": 0,
+   "HIB_0.01": 1,
+   "HIB_0.03": 1,
+   "HIB_0.05": 1,
+   "IF_0.01": 1,
+   "IF_0.03": 1,
+   "IF_0.05": 1,
+   "evaluables": [
+    "fuerza_bruta_http-r1"
+   ],
+   "no_evaluables": []
+  },
+  "Inundación HTTP": {
+   "HEUR": 1,
+   "HIB_0.01": 1,
+   "HIB_0.03": 1,
+   "HIB_0.05": 1,
+   "IF_0.01": 1,
+   "IF_0.03": 1,
+   "IF_0.05": 1,
+   "evaluables": [
+    "inundacion_http-r1",
+    "inundacion_http-r2"
+   ],
+   "no_evaluables": []
+  }
+ },
+ "umbrales": {
+  "0.01_recalibrado": -0.6223889502095352,
+  "0.03_recalibrado": -0.5898535710336618,
+  "0.05_desplegado_en_vivo": -0.5693969936322356,
+  "0.05_recalibrado": -0.5694578968203694
+ }
+}
