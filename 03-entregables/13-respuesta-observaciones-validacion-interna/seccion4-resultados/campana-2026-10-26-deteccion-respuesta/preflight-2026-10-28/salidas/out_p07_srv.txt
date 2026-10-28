@@ -1,0 +1,86 @@
+## p07 srv-dmz  inicio=2026-10-28T07:00:17.463Z  host=srv-dmz  user=adminsrvdmz  uptime=up 4 days, 14 hours, 24 minutes
+## reloj
+             Universal time: mié 2026-10-28 07:00:17 UTC
+  System clock synchronized: yes
+                NTP service: active
+  ServerName=ntp.ubuntu.com
+  ServerAddress=185.125.190.56
+## escuchas TCP (80/443/18081/22)
+  State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess                              
+  LISTEN 0      5            0.0.0.0:18081      0.0.0.0:*    users:(("python3",pid=2008263,fd=3))
+  LISTEN 0      4096         0.0.0.0:22         0.0.0.0:*                                        
+  LISTEN 0      5        10.10.30.10:80         0.0.0.0:*                                        
+  LISTEN 0      5        10.10.30.10:443        0.0.0.0:*                                        
+  LISTEN 0      4096            [::]:22            [::]:*                                        
+  [root] LISTEN 0      5            0.0.0.0:18081      0.0.0.0:*    users:(("python3",pid=2008263,fd=3))                   
+  [root] LISTEN 0      5        10.10.30.10:80         0.0.0.0:*    users:(("python3",pid=1061,fd=3))                      
+  [root] LISTEN 0      5        10.10.30.10:443        0.0.0.0:*    users:(("python3",pid=1069,fd=3))                      
+## unidades relevantes
+  dev-disk-by\x2dlabel-Ubuntu\x2dServer\x5cx2024.04.2\x5cx20LTS\x5cx20amd64.device loaded    active    plugged
+  blk-availability.service                 loaded    active    exited
+  getty-static.service                     loaded    inactive  dead
+  lab-web-http.service                     loaded    active    running
+  lab-web-https.service                    loaded    active    running
+  ppi-brute-lab.service                    loaded    active    running
+  ppi-enforce-agent.service                loaded    inactive  dead
+  update-notifier-motd.service             loaded    inactive  dead
+  ppi-enforce-agent.timer                  loaded    active    waiting
+  update-notifier-motd.timer               loaded    active    waiting
+  -- ppi-brute-lab.service: 0 active running disabled Tue 2026-10-27 05:02:24 UTC 
+  -- ppi-enforce-agent.timer: Wed 2026-10-28 07:00:16 UTC active waiting enabled Fri 2026-10-23 16:36:06 UTC 
+  -- ppi-enforce-agent.service: 0 inactive dead static  
+  ExecStart agente: /usr/bin/python3 /home/adminsrvdmz/enforce/agente_enforce.py --feed /home/adminsrvdmz/enforce/feed.json --firma /home/adminsrvdmz/enforce/feed.sig --clave-publica /home/adminsrvdmz/enforce/pub.pem --aplicar --sudo 
+  ExecStart endpoint: /usr/bin/python3 /opt/brute-lab/app.py 
+## log del endpoint (ultimas 6 lineas; incluye las 3 peticiones del preflight)
+  2026-10-27T16:48:34.205001+00:00 10.10.20.30 GET /auth user=ver -> 401
+  2026-10-27T16:48:35.236617+00:00 10.10.20.30 GET /auth user=ver -> 401
+  2026-10-27T17:26:46.168439+00:00 10.10.20.30 GET /auth user=fake -> 401
+  2026-10-28T06:59:47.123201+00:00 10.10.20.30 GET /auth user=- -> 401
+  2026-10-28T06:59:47.140672+00:00 10.10.20.30 GET /auth user=fake -> 401
+  2026-10-28T06:59:47.162594+00:00 10.10.20.30 GET /auth user=control -> 200
+  lineas totales: 36
+## journal del agente (ultimas 8)
+  oct 28 07:00:17 srv-dmz sudo[2625685]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+  oct 28 07:00:17 srv-dmz sudo[2625685]: pam_unix(sudo:session): session closed for user root
+  oct 28 07:00:17 srv-dmz sudo[2625687]: adminsrvdmz : PWD=/ ; USER=root ; COMMAND=/usr/sbin/nft -f -
+  oct 28 07:00:17 srv-dmz sudo[2625687]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
+  oct 28 07:00:17 srv-dmz sudo[2625687]: pam_unix(sudo:session): session closed for user root
+  oct 28 07:00:17 srv-dmz python3[2625681]: {"block": [], "comandos": 9, "errores": 0, "estado": "aplicado", "limit": ["10.10.50.52"]}
+  oct 28 07:00:17 srv-dmz systemd[1]: ppi-enforce-agent.service: Deactivated successfully.
+  oct 28 07:00:17 srv-dmz systemd[1]: Finished ppi-enforce-agent.service - CyberFlow - agente de enforcement en el host protegido (verifica feed, aplica nftables).
+## nftables (consulta real; si falla NO equivale a vacio)
+  consulta OK (rc=0):
+    table inet cyberflow {
+    	set cyberflow_bloqueados {
+    		type ipv4_addr
+    		flags timeout
+    	}
+    
+    	set cyberflow_limitados {
+    		type ipv4_addr
+    		flags timeout
+    		elements = { 10.10.50.52 timeout 4m52s expires 4m51s329ms }
+    	}
+    
+    	chain entrada {
+    		type filter hook input priority filter - 10; policy accept;
+    		ip saddr @cyberflow_bloqueados drop
+    		ip saddr @cyberflow_limitados limit rate over 100/second burst 5 packets drop
+    	}
+    }
+  set cyberflow_bloqueados: consulta OK, elementos=0
+  set cyberflow_limitados: consulta OK, elementos=1
+## otras tablas nft (nombres)
+  table inet cyberflow
+## feed / estado del agente
+## scripts de sombra/restauracion presentes
+  (fin)
+## respaldos de sombra previos
+## sudo -n -l (resumen)
+      (ALL : ALL) ALL
+      (ALL) NOPASSWD: ALL
+      (root) NOPASSWD: /usr/local/sbin/cf-nft-mostrar
+## disco
+  Filesystem                         Size  Used Avail Use% Mounted on
+  /dev/mapper/ubuntu--vg-ubuntu--lv   17G  6,6G  9,6G  41% /
+## fin=2026-10-28T07:00:17.902Z

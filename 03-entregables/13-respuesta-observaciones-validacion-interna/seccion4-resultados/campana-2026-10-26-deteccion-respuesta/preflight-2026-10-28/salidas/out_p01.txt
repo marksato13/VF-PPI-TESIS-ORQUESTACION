@@ -1,0 +1,168 @@
+## p01 bastion  inicio=2026-10-28T06:54:32.065Z  host=VM-GESTION  user=gadmin  kernel=6.12.96+deb13-amd64
+## chrony
+Reference ID    : A860FBC3 (evlbi.aggo-conicet.gob.ar)
+System time     : 0.001237824 seconds slow of NTP time
+Last offset     : +0.000157711 seconds
+RMS offset      : 0.000482165 seconds
+Leap status     : Normal
+## llaves ssh (nombres, sin contenido)
+cyberflow-to-atacante
+cyberflow-to-clientes
+cyberflow-to-sensor
+cyberflow-to-srv
+id_ed25519
+## ~/.ssh/config (Host/HostName/User/IdentityFile)
+(sin config)
+## herramientas
+ping=/usr/bin/ping nc=/usr/bin/nc nmap=NO dig=/usr/bin/dig curl=/usr/bin/curl tcpdump=NO 
+## vecinos ARP antes
+10.10.10.10 dev ens224 FAILED 
+10.10.10.11 dev ens224 FAILED 
+10.10.10.12 dev ens224 FAILED 
+10.10.10.13 dev ens224 FAILED 
+10.10.10.14 dev ens224 FAILED 
+10.10.10.15 dev ens224 FAILED 
+10.10.10.16 dev ens224 FAILED 
+10.10.10.17 dev ens224 FAILED 
+10.10.10.18 dev ens224 FAILED 
+10.10.10.19 dev ens224 FAILED 
+10.10.10.1 dev ens224 lladdr 00:00:5e:00:01:78 REACHABLE 
+10.10.10.20 dev ens224 lladdr 00:0c:29:29:e2:2b DELAY 
+10.10.10.21 dev ens224 lladdr 00:0c:29:ab:02:19 STALE 
+10.10.10.22 dev ens224 FAILED 
+10.10.10.23 dev ens224 FAILED 
+10.10.10.24 dev ens224 FAILED 
+10.10.10.25 dev ens224 FAILED 
+10.10.10.26 dev ens224 FAILED 
+10.10.10.27 dev ens224 FAILED 
+10.10.10.28 dev ens224 FAILED 
+10.10.10.29 dev ens224 FAILED 
+10.10.10.2 dev ens224 lladdr 00:0c:29:4d:54:bf STALE 
+10.10.10.31 dev ens224 FAILED 
+10.10.10.32 dev ens224 FAILED 
+10.10.10.33 dev ens224 FAILED 
+10.10.10.34 dev ens224 FAILED 
+10.10.10.35 dev ens224 FAILED 
+10.10.10.36 dev ens224 FAILED 
+10.10.10.37 dev ens224 FAILED 
+10.10.10.38 dev ens224 FAILED 
+10.10.10.39 dev ens224 FAILED 
+10.10.10.3 dev ens224 lladdr 00:0c:29:b2:5f:32 STALE 
+10.10.10.40 dev ens224 FAILED 
+10.10.10.41 dev ens224 FAILED 
+10.10.10.42 dev ens224 FAILED 
+10.10.10.43 dev ens224 FAILED 
+10.10.10.44 dev ens224 FAILED 
+10.10.10.45 dev ens224 FAILED 
+10.10.10.46 dev ens224 FAILED 
+10.10.10.47 dev ens224 FAILED 
+10.10.10.48 dev ens224 FAILED 
+10.10.10.49 dev ens224 FAILED 
+10.10.10.4 dev ens224 FAILED 
+10.10.10.50 dev ens224 FAILED 
+10.10.10.51 dev ens224 FAILED 
+10.10.10.52 dev ens224 FAILED 
+10.10.10.53 dev ens224 FAILED 
+10.10.10.54 dev ens224 FAILED 
+10.10.10.55 dev ens224 FAILED 
+10.10.10.56 dev ens224 FAILED 
+10.10.10.57 dev ens224 lladdr 00:0c:29:e5:d5:08 STALE 
+10.10.10.58 dev ens224 FAILED 
+10.10.10.59 dev ens224 FAILED 
+10.10.10.5 dev ens224 FAILED 
+10.10.10.60 dev ens224 FAILED 
+10.10.10.61 dev ens224 FAILED 
+10.10.10.62 dev ens224 FAILED 
+10.10.10.63 dev ens224 FAILED 
+10.10.10.64 dev ens224 FAILED 
+10.10.10.65 dev ens224 FAILED 
+10.10.10.66 dev ens224 FAILED 
+10.10.10.67 dev ens224 FAILED 
+10.10.10.68 dev ens224 FAILED 
+10.10.10.69 dev ens224 FAILED 
+10.10.10.6 dev ens224 FAILED 
+10.10.10.70 dev ens224 FAILED 
+10.10.10.7 dev ens224 FAILED 
+10.10.10.8 dev ens224 FAILED 
+10.10.10.9 dev ens224 FAILED 
+[2026-10-28T06:54:33.677Z] 10.10.60.11 ping={2 packets transmitted} tcp={ 22:abierto 53:rechazado 80:rechazado 443:rechazado 18081:rechazado }
+[2026-10-28T06:54:34.709Z] 10.10.20.30 ping={2 packets transmitted} tcp={ 22:abierto 53:rechazado 80:rechazado 443:rechazado 18081:rechazado }
+[2026-10-28T06:54:35.738Z] 10.10.30.10 ping={2 packets transmitted} tcp={ 22:abierto 53:rechazado 80:abierto 443:abierto 18081:abierto }
+[2026-10-28T06:54:36.770Z] 10.10.10.20 ping={2 packets transmitted} tcp={ 22:abierto 53:abierto 80:rechazado 443:rechazado 18081:rechazado }
+[2026-10-28T06:54:37.830Z] 10.10.20.21 ping={2 packets transmitted} tcp={ 22:abierto 53:rechazado 80:rechazado 443:rechazado 18081:rechazado }
+[2026-10-28T06:54:38.862Z] 10.10.20.22 ping={2 packets transmitted} tcp={ 22:abierto 53:rechazado 80:rechazado 443:rechazado 18081:rechazado }
+[2026-10-28T06:54:39.908Z] 10.10.20.23 ping={2 packets transmitted} tcp={ 22:abierto 53:rechazado 80:rechazado 443:rechazado 18081:rechazado }
+[2026-10-28T06:54:40.963Z] 10.10.20.24 ping={2 packets transmitted} tcp={ 22:abierto 53:rechazado 80:rechazado 443:rechazado 18081:rechazado }
+[2026-10-28T06:54:42.020Z] 10.10.20.25 ping={2 packets transmitted} tcp={ 22:abierto 53:rechazado 80:rechazado 443:rechazado 18081:rechazado }
+[2026-10-28T06:54:43.076Z] 10.10.20.26 ping={2 packets transmitted} tcp={ 22:abierto 53:rechazado 80:rechazado 443:rechazado 18081:rechazado }
+## vecinos ARP despues (REACHABLE/STALE = hay host en L2; FAILED/INCOMPLETE = no responde a ARP)
+10.10.10.10 dev ens224 FAILED 
+10.10.10.11 dev ens224 FAILED 
+10.10.10.12 dev ens224 FAILED 
+10.10.10.13 dev ens224 FAILED 
+10.10.10.14 dev ens224 FAILED 
+10.10.10.15 dev ens224 FAILED 
+10.10.10.16 dev ens224 FAILED 
+10.10.10.17 dev ens224 FAILED 
+10.10.10.18 dev ens224 FAILED 
+10.10.10.19 dev ens224 FAILED 
+10.10.10.1 dev ens224 lladdr 00:00:5e:00:01:78 REACHABLE 
+10.10.10.20 dev ens224 lladdr 00:0c:29:29:e2:2b REACHABLE 
+10.10.10.21 dev ens224 lladdr 00:0c:29:ab:02:19 STALE 
+10.10.10.22 dev ens224 FAILED 
+10.10.10.23 dev ens224 FAILED 
+10.10.10.24 dev ens224 FAILED 
+10.10.10.25 dev ens224 FAILED 
+10.10.10.26 dev ens224 FAILED 
+10.10.10.27 dev ens224 FAILED 
+10.10.10.28 dev ens224 FAILED 
+10.10.10.29 dev ens224 FAILED 
+10.10.10.2 dev ens224 lladdr 00:0c:29:4d:54:bf STALE 
+10.10.10.31 dev ens224 FAILED 
+10.10.10.32 dev ens224 FAILED 
+10.10.10.33 dev ens224 FAILED 
+10.10.10.34 dev ens224 FAILED 
+10.10.10.35 dev ens224 FAILED 
+10.10.10.36 dev ens224 FAILED 
+10.10.10.37 dev ens224 FAILED 
+10.10.10.38 dev ens224 FAILED 
+10.10.10.39 dev ens224 FAILED 
+10.10.10.3 dev ens224 lladdr 00:0c:29:b2:5f:32 STALE 
+10.10.10.40 dev ens224 FAILED 
+10.10.10.41 dev ens224 FAILED 
+10.10.10.42 dev ens224 FAILED 
+10.10.10.43 dev ens224 FAILED 
+10.10.10.44 dev ens224 FAILED 
+10.10.10.45 dev ens224 FAILED 
+10.10.10.46 dev ens224 FAILED 
+10.10.10.47 dev ens224 FAILED 
+10.10.10.48 dev ens224 FAILED 
+10.10.10.49 dev ens224 FAILED 
+10.10.10.4 dev ens224 FAILED 
+10.10.10.50 dev ens224 FAILED 
+10.10.10.51 dev ens224 FAILED 
+10.10.10.52 dev ens224 FAILED 
+10.10.10.53 dev ens224 FAILED 
+10.10.10.54 dev ens224 FAILED 
+10.10.10.55 dev ens224 FAILED 
+10.10.10.56 dev ens224 FAILED 
+10.10.10.57 dev ens224 lladdr 00:0c:29:e5:d5:08 STALE 
+10.10.10.58 dev ens224 FAILED 
+10.10.10.59 dev ens224 FAILED 
+10.10.10.5 dev ens224 FAILED 
+10.10.10.60 dev ens224 FAILED 
+10.10.10.61 dev ens224 FAILED 
+10.10.10.62 dev ens224 FAILED 
+10.10.10.63 dev ens224 FAILED 
+10.10.10.64 dev ens224 FAILED 
+10.10.10.65 dev ens224 FAILED 
+10.10.10.66 dev ens224 FAILED 
+10.10.10.67 dev ens224 FAILED 
+10.10.10.68 dev ens224 FAILED 
+10.10.10.69 dev ens224 FAILED 
+10.10.10.6 dev ens224 FAILED 
+10.10.10.70 dev ens224 FAILED 
+10.10.10.7 dev ens224 FAILED 
+10.10.10.8 dev ens224 FAILED 
+10.10.10.9 dev ens224 FAILED 
+## fin=2026-10-28T06:54:44.145Z

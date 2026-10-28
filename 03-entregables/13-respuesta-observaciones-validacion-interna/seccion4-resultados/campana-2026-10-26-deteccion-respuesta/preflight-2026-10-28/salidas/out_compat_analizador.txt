@@ -1,0 +1,13 @@
+analizar.py HEAD sha256 f06849b56d10e777a96a7365da06ba5e6ae8fd351b8eaf4649f4ced5aec07a00
+CONFIGS ['IF_0.05', 'IF_0.03', 'IF_0.01', 'HEUR', 'HIB_0.05', 'HIB_0.03', 'HIB_0.01']
+umbrales de analisis {'0.05': '-0.5694578968203694', '0.03': '-0.5898535710336618', '0.01': '-0.6223889502095352'} | desplegado -0.5693969936322356
+orden respetado True
+REQ_MOTOR ('logged_at', 'entity_ip', 'window_end_utc', 'decision', 'packet_count_10s') | clave umbral threshold
+estado umbral: ausente=clave_ausente null=null num=numerico
+separacion: BASE_DERIVADA derivado(umbral_recalibrado_0.05; distinto del desplegado) | emisiones_observadas True
+muestra real: 3000 lineas -> 3000 registros leidos, 0 incidencias, 0 ventanas duplicadas
+incidencias (max 5): []
+estado del umbral registrado: {'numerico': 3000}
+ALERT en la muestra: 24 | emisor: {'IF_desplegado'}
+configuracion emisora de la primera ALERT: {'umbral_registrado': -0.5693969936322356, 'umbral_registrado_estado': 'numerico', 'estado': 'confirmada', 'configuracion': 'IF desplegado (umbral registrado == desplegado_referencia)', 'coherencia_score_umbral': 'coherente(score<umbral)'}
+senales derivadas por configuracion en la muestra (no son emisiones): {'IF_0.05': 24, 'IF_0.03': 2, 'IF_0.01': 0, 'HEUR': 0, 'HIB_0.05': 24, 'HIB_0.03': 2, 'HIB_0.01': 0}

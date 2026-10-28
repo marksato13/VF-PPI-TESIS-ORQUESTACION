@@ -1,0 +1,5 @@
+## p18  2026-10-28T07:15:08.116Z
+    2026-10-28T07:01:00+00:00 logged 07:01:22 10.10.10.20 ALERT if_limpio_2026_10 score -0.5865124834977642
+    2026-10-28T07:04:00+00:00 logged 07:04:10 10.10.20.30 ALERT if_limpio_2026_10 score -0.5822966013037755
+    2026-10-28T07:04:50+00:00 logged 07:05:00 10.10.20.30 ALERT if_limpio_2026_10 score -0.5766478334363104
+<stdin>:6: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).

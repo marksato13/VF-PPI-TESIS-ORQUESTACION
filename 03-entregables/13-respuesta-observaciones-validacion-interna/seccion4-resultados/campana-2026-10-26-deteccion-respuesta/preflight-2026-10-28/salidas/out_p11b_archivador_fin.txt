@@ -1,0 +1,56 @@
+## p11b  inicio=2026-10-28T07:04:50.120Z  epoch=1793171090.122463979  DST=/home/m4rk/cf-preflight-20261028/archivador-070336  PID=2065599
+  PID 2065599 es el archivador de la prueba: bash /home/m4rk/bin/archivar_captura.sh /home/m4rk/cf-preflight-20261028/archivador-070336 20 
+  activo al parar: live-20261028070438.pcap
+  [2026-10-28T07:04:50.135Z] SIGTERM enviado solo a 2065599
+  [2026-10-28T07:05:22.208Z] codigo de salida del archivador: 0
+  proceso vivo tras parar: NO
+  ESTADO.txt: OK: vistos=80 archivados=80, sin fallos  (2026-10-28T07:05:21Z)
+  lineas FALLO/PERDIDO en archivar.log: 0
+  ultimas lineas del log:
+    2026-10-28T07:05:04Z parando: espero 16s a que cierre el ultimo fichero y hago barrido final
+    2026-10-28T07:05:21Z OK live-20261028070423.pcap (1296759 bytes) sha=0533508086fb7261a0507edaa0bf4503f58a0d9000dc311b29d2fe8608edd2a6
+    2026-10-28T07:05:21Z OK live-20261028070438.pcap (1197621 bytes) sha=5264d835a93aba24a7c1343e19005d2a7d5ab93a9376d3fb54570145abce78a6
+    2026-10-28T07:05:21Z FIN OK: vistos=80 archivados=80, sin fallos  (2026-10-28T07:05:21Z)
+## inventario por marca de paquete
+  rc inventario=0
+    # INVENTARIO de /home/m4rk/cf-preflight-20261028/archivador-070336  (2026-10-28T07:05:22Z)
+    # la continuidad NO se deduce del numero de ficheros; se juzga por marcas de PAQUETE (solape/hueco/reinicio).
+    fichero                             bytes  primer_paquete       ultimo_paquete       sha256(16)
+    ...
+    live-20261028070408.pcap          1982559  1793171047.782234    1793171062.092334    e4cba26b5469b51b
+    live-20261028070423.pcap          1296759  1793171062.376027    1793171077.626817    0533508086fb7261
+    live-20261028070438.pcap          1197621  1793171077.869664    1793171092.207081    5264d835a93aba24
+    # ficheros=80 duplicados_sha=0 solapes=0 huecos/reinicios=0
+## hashes: cada copia == su registro OK en el log; y == origen si sigue en el anillo (fichero cerrado intacto)
+  copias=80 con_registro_OK=80 sin_registro=0 | iguales_al_origen=60 distintas=0 ya_podadas_del_anillo=20
+  ¿se copio el fichero activo al parar (live-20261028070438.pcap) antes de cerrarse? copiado en el barrido FINAL (tras CLOSE_AGE): 2026-10-28T07:05:21Z
+## cobertura del intervalo de la prueba
+  primer paquete archivado: 1793169891.073 (2026-10-28T06:44:51.072660)
+  ultimo paquete archivado: 1793171092.207 (2026-10-28T07:04:52.207081)
+  inicio archivador: 1793171016.000 | parada: 1793171090.134
+  cubre [inicio, parada]: True  (holgura antes 1124.9 s, despues 2.1 s)
+  mayor separacion entre ficheros consecutivos: 0.462 s (live-20261028070108.pcap -> live-20261028070123.pcap)
+  segundos cubiertos: 1201.1 en 80 ficheros
+<stdin>:5: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+<stdin>:6: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+## volumen observado (para estimar capacidad)
+  bytes archivados=130243545 en 80 ficheros de 15 s -> 6.51 MB/min (391 MB/h)
+  ens37 despues: rx_bytes=14347293739 rx_packets=68654422 rx_drop=6667060
+## estado del proceso real de captura
+  # ppi-motor-capture (proceso REAL) (2026-10-28T07:05:28Z)
+  is-active: active
+    MainPID=1393
+    NRestarts=0
+    MemoryCurrent=117960704
+    ActiveEnterTimestamp=Wed 2026-10-21 19:09:39 UTC
+  ficheros presentes en el anillo: 63
+  descartes de kernel del proceso ACTUAL (PID 1393):
+    (hay lineas de descarte en el journal, pero de PIDs ANTERIORES -no del 1393-; NO se usan como sustituto:)
+      [historico otro PID] sep 23 20:42:44 cyberflow-sensor tcpdump[4886]: 0 packets dropped by kernel
+      [historico otro PID] sep 23 20:46:46 cyberflow-sensor tcpdump[5145]: 0 packets dropped by kernel
+      [historico otro PID] sep 23 20:50:43 cyberflow-sensor tcpdump[5457]: 0 packets dropped by kernel
+    NO MEDIDOS para el proceso actual: corre con -G (rotacion) sin --print-statistics y no imprime stats en vivo.
+    NO se afirma 0 perdidas. Indicador de continuidad disponible: NRestarts=0 (sin reinicios de captura) +
+    inventario sin huecos/solapes por marca de paquete (ver 'inventario').
+  disco: 21G libres (42%) | tamano prueba: 125M
+## fin=2026-10-28T07:05:30.505Z

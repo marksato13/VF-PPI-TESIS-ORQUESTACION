@@ -1,0 +1,52 @@
+## p04 sensor hashes  inicio=2026-10-28T06:56:56.576Z
+## codigo desplegado (sha256)
+  7130edae65afefa2fd82a9314e20194adec684f4b2c3c35c2337880d8e636ccb  /home/m4rk/cyberflow/scripts/features/extract_multilayer_v2.py  mtime=2026-10-15 03:48:28
+  5adbfbf4845554430a3e8b5a4c00eb1e45c2216cae73532da73d9d3f4898fa7f  /home/m4rk/cyberflow/scripts/features/extract_multilayer_v3.py  mtime=2026-09-27 01:26:25
+  4c41ec44be0fa0dbfbba14b73a4288a37da5d1b2a1ebcf681e58465c14ac17c6  /home/m4rk/cyberflow/scripts/engine/motor_decision.py  mtime=2026-09-30 19:52:23
+  10deb05d22fa0215e5f5f37bc6f05225cda31b806c67051a6584d878e25ed6a2  /home/m4rk/cyberflow/scripts/engine/heuristicos.py  mtime=2026-10-15 03:48:28
+  f7bc4c7d8e7ac0cd958f3936d55a5782285e59509919d82bf2998fbb70acc03d  /home/m4rk/cyberflow/scripts/engine/publicar_feed.py  mtime=2026-10-15 12:52:21
+  7d80ab4a926457efb37f4c6c9778e53eda67a5840ca255ff4504f333ca638479  /home/m4rk/cyberflow/scripts/engine/escalada.py  mtime=2026-10-15 12:52:21
+  b4d36adb3f29b21693eb0cd964515aed42b3965910379616f1af27441793baba  /home/m4rk/cyberflow/scripts/engine/feed.py  mtime=2026-09-30 19:52:23
+  9c35b831453d2107769ca1fe610782b6821b2f164df1f369b3e6b3ef36c41dc8  /home/m4rk/cyberflow/scripts/features/acumular_v3.py  mtime=2026-09-27 01:26:25
+## heuristicos: VERSION_UMBRALES
+  /home/m4rk/cyberflow/scripts/engine/heuristicos.py.bak-20261006-2:28:VERSION_UMBRALES = "2026-10-06.1"
+  /home/m4rk/cyberflow/scripts/engine/heuristicos.py:28:VERSION_UMBRALES = "2026-10-06.2"
+## modelo / manifiesto / esquema
+  df547da098e51171aa267c8466edc6624bc1bd5c6b602639cc00bd4711a2fd60  /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib
+  b3ad680595128189574527208e53058f613822f56f542f914faef6495aa2a9e7  /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json
+  e032a1a28650d438ae707c93b3045801770b3a069b4395426077af3bbd2b0e33  /home/m4rk/cyberflow/configs/features/multilayer-v2.json
+    detectors.if_limpio_2026_10.model_sha256 = df547da098e51171aa267c8466edc6624bc1bd5c6b602639cc00bd4711a2fd60
+    detectors.if_limpio_2026_10.calibration.threshold = -0.5693969936322356
+    detectors.if_limpio_2026_10.calibration.threshold_decision_function = -0.06939699363223557
+    detectors.if_limpio_2026_10.calibration.alpha = 0.05
+    detectors.if_limpio_2026_10.origen.paquete_sha256 = fb6b8ed2b677056f0c23d267a1d38a988d7d1d993f980b050f0a63665543bbf4
+    detectors.if_limpio_2026_10.origen.informe_sha256 = 9211e041ec6d01508c3a6fe5cf99e221e897a0c24e5f9aa92e5c62365dcffd35
+    evaluation.if_limpio_2026_10.threshold_used = -0.5693969936322356
+## toml (motor/umbral/calibrado)
+  70:detector = "if_limpio_2026_10"
+  78:umbral = 1.8126087939765134
+  99:modelo = "artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib"
+  100:manifiesto = "artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json"
+## umbral registrado por el motor en vivo (ultimas 500 decisiones)
+      500 "threshold": -0.5693969936322356
+## copias de scripts de CAMPANA presentes en el sensor
+  2181af5f8406e3aa4f41a26e24d7ec83bfaf72eee06aa3ee564e2dbba5639eb6  /home/m4rk/bin/archivar_captura.sh  mtime=2026-10-27 17:05:38
+  /home/m4rk/cf-campana: no existe
+  /home/m4rk/cf-campana-archivo: no existe
+  /home/m4rk/campana: no existe
+  2181af5f8406e3aa4f41a26e24d7ec83bfaf72eee06aa3ee564e2dbba5639eb6  /home/m4rk/bin/archivar_captura.sh  mtime=2026-10-27 17:05:38
+## directorios de archivo previos (no se tocan)
+## logrotate del motor
+  /home/m4rk/cyberflow/logs/motor_decision.log {
+      daily
+      maxsize 200M
+      rotate 14
+      missingok
+      notifempty
+      compress
+      delaycompress
+      create 0640 m4rk m4rk
+  }
+## python del venv
+  python 3.14.4 sklearn 1.9.0 numpy 2.5.1 joblib 1.5.3
+## fin=2026-10-28T06:56:58.532Z

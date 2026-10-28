@@ -1,0 +1,63 @@
+## p05b clientes  inicio=2026-10-28T06:58:13.762Z  epoch=1793170693.763710838
+## cyberflow-lab-ofimatica.service
+  ExecStart: /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py \
+    perfil ofimatica desde por omision -> 10.10.30.10
+      web_pequena        ok
+      web_media          ok
+      dns                ok
+      api_ok             ok
+      api_auth           ok
+      api_404            ok
+      https              ok
+      ping               ok
+  rc=0  ventana=[2026-10-28T06:58:13.803Z, 2026-10-28T06:58:14.070Z]
+## cyberflow-lab-navegacion.service
+  ExecStart: /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py \
+    perfil navegacion desde por omision -> 10.10.30.10
+      web_pequena        ok
+      web_grande         ok
+      https              ok
+      dns                ok
+      dns_inexistente    ok
+      api_ok             ok
+      abandono           ok
+  rc=0  ventana=[2026-10-28T06:58:14.113Z, 2026-10-28T06:58:14.622Z]
+## cyberflow-lab-descargas.service
+  ExecStart: /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py \
+    perfil descargas desde por omision -> 10.10.30.10
+      web_grande         ok
+      web_media          ok
+      https              ok
+      dns                ok
+  rc=0  ventana=[2026-10-28T06:58:14.661Z, 2026-10-28T06:58:15.078Z]
+## cyberflow-lab-aplicacion.service
+  ExecStart: /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py \
+    perfil aplicacion desde por omision -> 10.10.30.10
+      api_ok             ok
+      api_post           ok
+      api_500            ok
+      api_lento          ok
+      https              ok
+      dns                ok
+  rc=0  ventana=[2026-10-28T06:58:15.117Z, 2026-10-28T06:58:18.812Z]
+## cyberflow-lab-ligero.service
+  ExecStart: /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py \
+    perfil ligero desde por omision -> 10.10.30.10
+      dns                ok
+      api_ok             ok
+      web_pequena        ok
+      ping               ok
+  rc=0  ventana=[2026-10-28T06:58:18.851Z, 2026-10-28T06:58:19.059Z]
+## cyberflow-lab-erratico.service
+  ExecStart: /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py \
+    perfil erratico desde por omision -> 10.10.30.10
+      web_pequena        ok
+      web_grande         ok
+      dns                ok
+      api_ok             ok
+      puerto_cerrado     ok
+      abandono           ok
+      ping               ok
+  rc=0  ventana=[2026-10-28T06:58:19.098Z, 2026-10-28T06:58:19.697Z]
+## target sigue como estaba: inactive / disabled
+## fin=2026-10-28T06:58:19.722Z  epoch=1793170699.724063749

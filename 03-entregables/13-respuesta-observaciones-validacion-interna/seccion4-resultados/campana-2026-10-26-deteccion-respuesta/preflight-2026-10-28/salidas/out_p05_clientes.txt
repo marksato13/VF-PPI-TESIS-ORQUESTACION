@@ -1,0 +1,86 @@
+## p05 clientes  inicio=2026-10-28T06:57:34.674Z  host=clientesadmin  user=adminclientes  grupos=adminclientes adm cdrom sudo dip plugdev lxd  uptime=up 6 days, 11 hours, 48 minutes
+## direcciones
+  lo               UNKNOWN        127.0.0.1/8 ::1/128 
+  ens34            UP             10.10.20.20/24 10.10.20.21/24 10.10.20.22/24 10.10.20.23/24 10.10.20.24/24 10.10.20.25/24 10.10.20.26/24 fe80::20c:29ff:feaf:3445/64 
+  ens35            DOWN           
+## unidades cyberflow-lab*
+  dev-disk-by\x2dlabel-Ubuntu\x2dServer\x5cx2024.04.2\x5cx20LTS\x5cx20amd64.device                                        loaded    active     plugged         VMware_Virtual_SATA_CDRW_Drive Ubuntu-Server_24.04.2_LTS_amd64
+  blk-availability.service                                                                                                loaded    active     exited          Availability of block devices
+  getty-static.service                                                                                                    loaded    inactive   dead            getty on tty2-tty6 if dbus and logind are not available
+  update-notifier-motd.service                                                                                            loaded    inactive   dead            Check to see whether there is a new version of Ubuntu available
+  update-notifier-motd.timer                                                                                              loaded    active     waiting         Check to see whether there is a new version of Ubuntu available
+  fichero: blk-availability.service                     enabled         enabled
+  fichero: cyberflow-lab-aplicacion.service             disabled        enabled
+  fichero: cyberflow-lab-descargas.service              disabled        enabled
+  fichero: cyberflow-lab-erratico.service               disabled        enabled
+  fichero: cyberflow-lab-ligero.service                 disabled        enabled
+  fichero: cyberflow-lab-navegacion.service             disabled        enabled
+  fichero: cyberflow-lab-ofimatica.service              disabled        enabled
+  fichero: cyberflow-lab.target                         disabled        enabled
+  target: ActiveState=inactive
+  target: UnitFileState=disabled
+  target: ActiveEnterTimestamp=
+  target: InactiveEnterTimestamp=
+## journal reciente de los perfiles (si es legible)
+  oct 15 11:11:50 clientesadmin systemd[1]: Stopped target cyberflow-lab.target - CyberFlow laboratorio - los seis perfiles de trafico.
+  oct 15 11:11:50 clientesadmin systemd[1]: Stopping cyberflow-lab-aplicacion.service - CyberFlow laboratorio - perfil aplicacion desde 10.10.20.24...
+  oct 15 11:11:50 clientesadmin systemd[1]: Stopping cyberflow-lab-descargas.service - CyberFlow laboratorio - perfil descargas desde 10.10.20.23...
+  oct 15 11:11:50 clientesadmin systemd[1]: Stopping cyberflow-lab-erratico.service - CyberFlow laboratorio - perfil erratico desde 10.10.20.26...
+  oct 15 11:11:50 clientesadmin systemd[1]: Stopping cyberflow-lab-ligero.service - CyberFlow laboratorio - perfil ligero desde 10.10.20.25...
+  oct 15 11:11:50 clientesadmin systemd[1]: Stopping cyberflow-lab-navegacion.service - CyberFlow laboratorio - perfil navegacion desde 10.10.20.22...
+  oct 15 11:11:50 clientesadmin systemd[1]: Stopping cyberflow-lab-ofimatica.service - CyberFlow laboratorio - perfil ofimatica desde 10.10.20.21...
+  oct 15 11:11:50 clientesadmin systemd[1]: cyberflow-lab-aplicacion.service: Deactivated successfully.
+  oct 15 11:11:50 clientesadmin systemd[1]: Stopped cyberflow-lab-aplicacion.service - CyberFlow laboratorio - perfil aplicacion desde 10.10.20.24.
+  oct 15 11:11:50 clientesadmin systemd[1]: cyberflow-lab-aplicacion.service: Consumed 18.536s CPU time, 10.0M memory peak, 0B memory swap peak.
+  oct 15 11:11:50 clientesadmin systemd[1]: cyberflow-lab-descargas.service: Deactivated successfully.
+  oct 15 11:11:50 clientesadmin systemd[1]: Stopped cyberflow-lab-descargas.service - CyberFlow laboratorio - perfil descargas desde 10.10.20.23.
+  oct 15 11:11:50 clientesadmin systemd[1]: cyberflow-lab-descargas.service: Consumed 1min 32.013s CPU time, 17.7M memory peak, 0B memory swap peak.
+  oct 15 11:11:50 clientesadmin systemd[1]: cyberflow-lab-erratico.service: Deactivated successfully.
+  oct 15 11:11:50 clientesadmin systemd[1]: Stopped cyberflow-lab-erratico.service - CyberFlow laboratorio - perfil erratico desde 10.10.20.26.
+  oct 15 11:11:50 clientesadmin systemd[1]: cyberflow-lab-erratico.service: Consumed 59.569s CPU time, 15.9M memory peak, 0B memory swap peak.
+  oct 15 11:11:50 clientesadmin systemd[1]: cyberflow-lab-ligero.service: Deactivated successfully.
+  oct 15 11:11:50 clientesadmin systemd[1]: Stopped cyberflow-lab-ligero.service - CyberFlow laboratorio - perfil ligero desde 10.10.20.25.
+  oct 15 11:11:50 clientesadmin systemd[1]: cyberflow-lab-ligero.service: Consumed 4.380s CPU time, 10.2M memory peak, 0B memory swap peak.
+  oct 15 11:11:50 clientesadmin systemd[1]: cyberflow-lab-navegacion.service: Deactivated successfully.
+  oct 15 11:11:50 clientesadmin systemd[1]: Stopped cyberflow-lab-navegacion.service - CyberFlow laboratorio - perfil navegacion desde 10.10.20.22.
+  oct 15 11:11:50 clientesadmin systemd[1]: cyberflow-lab-navegacion.service: Consumed 2min 23.579s CPU time, 15.9M memory peak, 0B memory swap peak.
+  oct 15 11:11:50 clientesadmin systemd[1]: cyberflow-lab-ofimatica.service: Deactivated successfully.
+  oct 15 11:11:50 clientesadmin systemd[1]: Stopped cyberflow-lab-ofimatica.service - CyberFlow laboratorio - perfil ofimatica desde 10.10.20.21.
+  oct 15 11:11:50 clientesadmin systemd[1]: cyberflow-lab-ofimatica.service: Consumed 20.203s CPU time, 10.8M memory peak, 0B memory swap peak.
+## procesos del generador
+  (procesos encontrados: 0)
+## ficheros del generador
+  total 32
+  drwxrwxr-x 2 adminclientes adminclientes  4096 sep 24 07:05 .
+  drwxr-x--- 6 adminclientes adminclientes  4096 sep 24 07:05 ..
+  -rw-rw-r-- 1 adminclientes adminclientes  8061 sep 27 02:41 clientes_config.py
+  -rw-rw-r-- 1 adminclientes adminclientes 15357 sep 27 02:41 clientes_lab.py
+  9aa2e2e02b87225f1513ddce4c377491eb3f170d342d7d8d961612c326224534  /home/adminclientes/laboratorio/clientes_config.py
+  ae5134a778e66d90f5c3fbcd47323e328f3422cf4ba8d5197649f402c1d4cdc3  /home/adminclientes/laboratorio/clientes_lab.py
+## sudo -n -l
+  Matching Defaults entries for adminclientes on clientesadmin:
+      env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin, use_pty
+  
+  User adminclientes may run the following commands on clientesadmin:
+      (ALL : ALL) ALL
+      (root) NOPASSWD: /usr/bin/systemctl daemon-reload
+      (root) NOPASSWD: /usr/bin/systemctl start cyberflow-lab.target
+      (root) NOPASSWD: /usr/bin/systemctl stop cyberflow-lab.target
+      (root) NOPASSWD: /usr/bin/systemctl restart cyberflow-lab.target
+      (root) NOPASSWD: /usr/bin/systemctl is-active *
+      (root) NOPASSWD: /usr/bin/systemctl is-enabled *
+      (root) NOPASSWD: /usr/bin/systemctl show *
+## reloj
+             Universal time: mié 2026-10-28 06:57:36 UTC
+  System clock synchronized: yes
+                NTP service: active
+  ServerName=ntp.ubuntu.com
+  ServerAddress=91.189.91.157
+## alcance benigno a srv-dmz:80 desde cada IP de perfil (connect TCP, sin carga)
+  10.10.20.21 -> 10.10.30.10:80 conectado
+  10.10.20.22 -> 10.10.30.10:80 conectado
+  10.10.20.23 -> 10.10.30.10:80 conectado
+  10.10.20.24 -> 10.10.30.10:80 conectado
+  10.10.20.25 -> 10.10.30.10:80 conectado
+  10.10.20.26 -> 10.10.30.10:80 conectado
+## fin=2026-10-28T06:57:36.481Z
