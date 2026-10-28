@@ -4,7 +4,33 @@ Verifican las **herramientas** de evaluación, no el desempeño de CyberFlow. No
 
 ## Suite de herramientas — `tests/test_herramientas.py`
 
-**Windows (laptop), 2026-10-28, tras corregir la procedencia temporal (config `2026-10-28.2`):**
+**Windows (laptop), 2026-10-28, tras conservar los registros sin la clave `threshold` (sobre `a69224c`):**
+`188 comprobaciones pasaron.` con `CF_ANALIZADOR_PREVIO` = `scripts/analizar.py` de `a6dc5ab` (**187** sin la
+variable). Las 22 pruebas anteriores siguen pasando sin cambiar ninguna expectativa (incluido el caso
+`threshold: null`); se añade `test_umbral_registrado_ausente` (16 comprobaciones).
+
+### Umbral registrado ausente — comprobaciones del código (registros sintéticos, NO resultados experimentales)
+
+| Comprobación | Resultado |
+|---|---|
+| La línea de la alerta no contiene `threshold` (clave eliminada, no null) | ✔ |
+| La alerta sigue en `emisiones_observadas`: ALERT, `IF_desplegado`, score −0,70, `logged_at` T+41, `window_end` T+40 | ✔ |
+| Referencia al original: `motor:5`, línea 5, sha256 del log | ✔ |
+| Incidencia `motor:5 (<archivo>): falta la clave 'threshold'…` y `incidencias_registro` en la emisión | ✔ |
+| `umbral_registrado` desconocido (`clave_ausente`), configuración desconocida, sin coherencia score/umbral | ✔ |
+| No es la primera alerta confirmada del IF desplegado; se cuenta como desconocida | ✔ |
+| Las 7 configuraciones siguen derivadas; clasificaciones, cobertura y Tabla 8 iguales al registro completo | ✔ |
+| Registro completo: confirmada, sin incidencia, latencia real 41 s | ✔ |
+| `threshold: null`: estado `null`, texto distinto de la ausencia, igual de desconocido; sin latencia confirmada | ✔ |
+| Sin `logged_at` / `window_end_utc` / `decision` / `entity_ip` / `packet_count_10s`: se descarta con incidencia | ✔ (5) |
+
+**Regresión de detección/cobertura:** 0 diferencias frente a `a69224c` (7, 0 excluidas), `a6dc5ab` (7, 86 excluidas de
+procedencia, como antes), `0d40bdb` (5) y los dos goldens. `analisis.json` completo frente a `a69224c` sobre los
+fixtures: solo el campo nuevo `umbral_registrado_estado` (6 emisiones). Diferencia esperada en la entrada con la clave
+ausente: el episodio pasa de no evaluable (8/9 anclas, registro descartado) a evaluable; sin latencia confirmada en
+ambos casos. Detalle en `CAMBIOS-2026-10-28-umbral-ausente.md`.
+
+**Ejecución anterior — tras corregir la procedencia temporal (config `2026-10-28.2`):**
 `172 comprobaciones pasaron.` Las 20 pruebas anteriores siguen pasando; en 3 se **corrigió la expectativa** que
 aceptaba IF 0,05 recalibrado como «emitido» (`test_analizador_basico`, `test_emitido_vs_derivado`,
 `test_siete_configuraciones`) y se añaden `test_procedencia_emisiones` y `test_conteos_cobertura_7_sin_cambios`.

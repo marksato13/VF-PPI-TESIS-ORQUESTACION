@@ -100,3 +100,11 @@ detecciones, conteos, categorías, cobertura, atribución, integridad, control n
 | 54 | La procedencia del heurístico se mezclaba con la configuración «heurísticos solos» | Lo observado va en `evidencia_registrada` (decisión, detector, heurístico) y en `emisiones_observadas`; HEUR comparativo = `derivado(componente_heuristico_registrado)` | `scripts/analizar.py` | `test_emitido_vs_derivado`, `test_procedencia_emisiones` (caso 4) | PA |
 | 55 | Demostrar que no cambian detecciones ni cobertura | Golden de 7 configuraciones con el analizador de `a6dc5ab`; proyección que excluye **solo** `base`, `tiempo_es_emision_real`, `tiempo_significado`, `evidencia_registrada`; con `--comparar` se listan aparte | `tests/regresion_alfa.py`, `tests/golden-7config-fixtures.json` | `test_no_regresion_005_003`, `test_conteos_cobertura_7_sin_cambios` (0 diferencias) | PA |
 | — | Fixtures registraban `threshold` = 0,05 recalibrado | Ahora registran el desplegado, como el motor real; la config del fixture declara `modelo.detector`. Ninguno de los dos campos interviene en la detección | `tests/fixtures.py`, `tests/test_herramientas.py` | 172 comprobaciones | PA |
+
+## Umbral registrado ausente (2026-10-28, sobre `a69224c`)
+
+Detalle en `CAMBIOS-2026-10-28-umbral-ausente.md`. Solo lector, pruebas y documentación; config sin cambios.
+
+| # | Pendiente | Solución | Archivo(s) | Comprobación | Estado |
+|---|---|---|---|---|---|
+| 56 | Un registro de decisión **sin la clave** `threshold` se descartaba en `leer_motor()` (REQ_MOTOR), mientras que `"threshold": null` se conservaba: se perdía una alerta registrada | `threshold` sale de REQ_MOTOR (siguen exigidos `logged_at`, `entity_ip`, `window_end_utc`, `decision`, `packet_count_10s`). El registro se conserva con incidencia `motor:<línea> (<archivo>)` y `incidencias_registro` en la emisión; `umbral_registrado_estado` distingue `clave_ausente` / `null` / `no_numerico` / `numerico`; umbral y configuración desconocidos, sin sustituir; no da latencia confirmada. Efecto esperado: un episodio que perdía esa ventana (no evaluable) recupera su cobertura | `scripts/analizar.py` | `test_umbral_registrado_ausente` (16 comprobaciones; clave eliminada del JSON, no null) | PA |
