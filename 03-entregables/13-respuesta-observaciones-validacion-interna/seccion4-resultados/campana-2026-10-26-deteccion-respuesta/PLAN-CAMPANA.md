@@ -16,7 +16,7 @@ configuración congelada, y **separa detección de respuesta**.
 
 | | **A — Detección (4.2)** | **B — Respuesta (4.4)** |
 |---|---|---|
-| Objetivo | Comparar IF 0,05 · IF 0,03 · heurísticos · híbrido 0,05 · híbrido 0,03 sobre las mismas ventanas | Cadena ataque → señal → feed firmado → agente → nftables → efecto → retirada/caducidad |
+| Objetivo | Comparar IF 0,05 · IF 0,03 · IF 0,01 · heurísticos · híbrido 0,05 · híbrido 0,03 · híbrido 0,01 sobre las mismas ventanas (una sola campaña) | Cadena ataque → señal → feed firmado → agente → nftables → efecto → retirada/caducidad |
 | Enforcement | **Sombra** (no altera el tráfico) | **Aplicar** |
 | Tráfico | Intacto en todos los episodios | La respuesta modifica el tráfico posterior |
 | Orden | Primero | Después, en ensayos separados |
@@ -49,17 +49,28 @@ El motor y el panel siguen corriendo: A necesita que el motor **decida y registr
 
 - IF limpio y escalador congelados, con sha256.
 - 28 características y su orden.
-- Umbrales ya verificados (no se recalibra): α 0,05 = −0,5694578968; α 0,03 = −0,5898535710.
+- Umbrales ya verificados (no se recalibra), escala `score_samples`, validación sin Kali (65 553 ventanas):
+  α 0,05 = −0,5694578968; α 0,03 = −0,5898535710; **α 0,01 = −0,6223889502** (valor completo
+  `-0.6223889502095352`, añadido el 28-oct, config `2026-10-28.1`). Procedencia: columna `validacion_sin_kali_65553`
+  de `4.1-modelos/calibracion-alfa-2026-10-24/umbrales-alfa-precision-completa.json`; `analizar.py` la contrasta por
+  igualdad exacta y aborta si difiere. Señal IF si `score_samples < umbral` (estricto); en escala de anomalía,
+  `−score > −umbral`.
+- **Umbral desplegado ≠ recalibrado:** el motor en vivo usa −0,5693969936 (α 0,05 sobre las 65 633 ventanas
+  originales) y no cambia; el «0,05» del análisis es el recalibrado sin Kali. Se informan por separado.
 - Commits, blobs git y sha256 desplegado del extractor, motor, heurísticos, feed, escalada y agente.
 - Lógica real de combinación, elegibilidad, exclusiones y política de respuesta.
 - Escenarios, repeticiones (≥ 5), orden aleatorizado y semilla (20261026).
 
-**Los dos α sobre puntuaciones comunes:** el modelo puntúa cada ventana una vez (`score_samples`); los dos umbrales
-son dos cortes del mismo vector de scores, no dos modelos ni dos pasadas.
+**Los tres α sobre puntuaciones comunes:** el modelo puntúa cada ventana una vez (`score_samples`); los tres umbrales
+son tres cortes del mismo vector de scores, no tres modelos, ni tres pasadas, ni tres campañas. Los heurísticos no
+dependen de α y se calculan una vez; híbrido α = IF α **o** heurísticos. Con los mismos scores, IF 0,01 ⊆ IF 0,03 ⊆
+IF 0,05 (el analizador comprueba el orden de los umbrales y avisa si no se cumple).
 
 **Emitidas vs derivadas:** las decisiones del motor en `motor_decision.log` son las **emitidas en vivo** (el motor usa
-α 0,05). IF 0,03, heurísticos solos e híbridos se recomputan **offline** sobre las ventanas observadas y se presentan
-como **análisis de umbrales**, no como alertas emitidas.
+α 0,05). IF 0,03, IF 0,01, heurísticos solos e híbridos se recomputan **offline** sobre las ventanas observadas y se
+presentan como **análisis de umbrales**, no como alertas emitidas. Para una configuración derivada, `logged_at` indica
+cuándo quedó registrada la puntuación, **no** una latencia de emisión de ese umbral (`tiempo_es_emision_real=false`), y
+una clasificación alternativa no equivale a una acción aplicada.
 
 ## 3. Escenarios
 
@@ -125,12 +136,12 @@ criterio de etiquetado previo si se calculan métricas por ventana, **separadas*
 |---|---|---|
 | `generar_campana.py` | Kali | Valida la config, lanza los escenarios habilitados en orden aleatorizado por semilla, con calentamiento + contexto previo (≥120 s) y observación (≥90 s); escribe `marcas.jsonl` (inicio/fin separados, pared + monotónico, comando, código, salida completa en `salidas/`). **Simula sin `--autorizado`; aborta ante marcadores o destino fuera de la lista blanca; mata el grupo de procesos en timeout.** |
 | `esquema_campana.py` | — | Esquema + validación (tipos, destinos, puertos, rutas, deps, placeholders) y construcción de comandos. |
-| `tests/test_herramientas.py` + `tests/fixtures.py` | Laptop/Linux | Verificación sin ataques (33 comprobaciones) y fixtures con resultado conocido. |
+| `tests/test_herramientas.py` + `tests/fixtures.py` + `tests/regresion_alfa.py` | Laptop/Linux | Verificación sin ataques (130 comprobaciones), fixtures con resultado conocido y no-regresión de α 0,05/0,03 frente al analizador anterior (`tests/golden-5config-fixtures.json`). |
 | `scripts/endpoint_brute/` | srv-dmz | Endpoint 401 correcto (Python o nginx), unidad systemd, README con Suricata/extractor. |
 | `capturar.sh` | Sensor | Captura PCAP continua sin huecos a disco archivado, con rotación por tamaño; marca inicio/fin. |
 | `modo_sombra.sh` / `restaurar_enforcement.sh` | srv-dmz | **Detiene y enmascara** el agente para A (impedir que aplique; NO es ejecutarlo en dry-run) y lo restaura para B según el estado guardado; fallo seguro. `restaurar` exige `--escalada-revisada`. |
 | `verificar_integridad.py` | Laptop/sensor | Informe de integridad por episodio (PCAP/EVE/decisiones/historia/relojes); `analizar.py --integridad` lo exige para declarar evaluable. |
-| `analizar.py` | Laptop/sensor | Lee `marcas.jsonl` + `motor_decision.log` (+ `--destinos`, `--integridad`); clasifica por `logged_at` D/P/N/NE, emitido vs derivado; la Tabla 8 cuenta **solo** detecciones durante con **atribución confirmada** y episodio **evaluable** (cobertura + evidencia de destino que cubre el intervalo + integridad apta). |
+| `analizar.py` | Laptop/sensor | Lee `marcas.jsonl` + `motor_decision.log` (+ `--destinos`, `--integridad`); clasifica por `logged_at` D/P/N/NE, emitido vs derivado, en **7 configuraciones** (IF 0,05/0,03/0,01, heurísticos, híbrido 0,05/0,03/0,01); la Tabla 8 cuenta **solo** detecciones durante con **atribución confirmada** y episodio **evaluable** (cobertura + evidencia de destino que cubre el intervalo + integridad apta). |
 | `comprobar_relojes.sh` | cada host | Guarda el desfase NTP antes y después. |
 
 Los scripts de generación son **generadores de carga de laboratorio** (nmap, bucles de `curl`/`dig`, intentos de auth
@@ -157,7 +168,9 @@ contra un endpoint de prueba), equivalentes a los ya versionados en `_campana/or
 2. Verificar enforcement activo (`journalctl -u ppi-enforce-agent`).
 
 **Análisis (sin tráfico):** primero `verificar_integridad.py --descriptor … --salida integridad.json`; luego
-`analizar.py --marcas … --motor … --destinos … --integridad integridad.json --control "desde,hasta"`. Un episodio
+`analizar.py --marcas … --motor … --destinos … --integridad integridad.json --control "desde,hasta"` (una sola
+pasada produce las 7 configuraciones; comprobar en `analisis.json` que `umbrales.procedencia.estado = verificada` y
+`umbrales.orden_respetado = true`; fuera del repositorio la procedencia queda `no_verificada` y se informa así). Un episodio
 **solo es evaluable** con cobertura temporal continua, **evidencia de destino** (atribución confirmada) e **integridad
 apta**; la Tabla 8 cuenta en el numerador **solo detecciones durante con atribución confirmada**. Las señales
 observadas sin confirmar, previas, tardías o ambiguas van a registros complementarios, no al numerador. Sin

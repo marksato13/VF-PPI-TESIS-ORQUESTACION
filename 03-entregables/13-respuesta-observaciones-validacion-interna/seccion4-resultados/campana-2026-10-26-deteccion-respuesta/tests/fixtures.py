@@ -7,7 +7,8 @@ import json, sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-U05, U03 = -0.5694578968203694, -0.5898535710336618
+U05, U03, U01 = -0.5694578968203694, -0.5898535710336618, -0.6223889502095352
+UDESP = -0.5693969936322356
 K = "10.10.20.30"
 iso = lambda ep: datetime.fromtimestamp(ep, timezone.utc).isoformat()
 
@@ -28,7 +29,9 @@ def escribir(d: Path):
          ("inicio", "escaneo_breve-r1", "escaneo_breve", 1, "10.10.30.10", T + 2000, None),
          ("fin", "escaneo_breve-r1", None, None, None, T + 2090, "incompleto_timeout"),
          ("inicio", "inundacion_http-r2", "inundacion_http", 2, "10.10.30.10", T + 3000, None),
-         ("fin", "inundacion_http-r2", None, None, None, T + 3090, "completo")]
+         ("fin", "inundacion_http-r2", None, None, None, T + 3090, "completo"),
+         ("inicio", "fuerza_bruta_http-r1", "fuerza_bruta_http", 1, "10.10.30.10", T + 4000, None),
+         ("fin", "fuerza_bruta_http-r1", None, None, None, T + 4090, "completo")]
     ms = []
     for ev, eid, esc, rep, dst, t, est in M:
         o = {"evento": ev, "episodio_id": eid, "reloj": {"pared_utc": iso(t)}}
@@ -49,10 +52,14 @@ def escribir(d: Path):
                        {"heuristico": "dns_entropy", "accion": "LIMIT"} if w == T + 1030 else None))
     for w in range(T + 3000, T + 3150, 10):
         L.append(linea(w + 1, K, w, -0.70 if w == T + 3100 else -0.50, "ALERT" if w == T + 3100 else "PERMIT"))
+    # α: -0.60 dispara 0,05 y 0,03 pero no 0,01; U01 exacto no dispara 0,01 (estricto); -0.63 dispara los tres
+    sc_bf = {T + 4030: -0.60, T + 4050: U01, T + 4070: -0.63}
+    for w in range(T + 4000, T + 4150, 10):
+        L.append(linea(w + 1, K, w, sc_bf.get(w, -0.50), "ALERT" if sc_bf.get(w, 0) < UDESP else "PERMIT"))
     L.append(linea(T + 41, K, T + 40, -0.70, "ALERT", {"heuristico": "http_abuse", "accion": "LIMIT"}))  # duplicado
     (d / "motor.log").write_text("\n".join(L), encoding="utf-8")
     (d / "cfg.json").write_text(json.dumps(
-        {"umbrales": {"0.05": U05, "0.03": U03}, "origen": K,
+        {"umbrales": {"0.05": U05, "0.03": U03, "0.01": U01, "desplegado_referencia": UDESP}, "origen": K,
          "combinacion_real": {"exclusiones": {"NUNCA_BLOQUEAR": []}}}), encoding="utf-8")
     (d / "etiquetas.csv").write_text(
         "entity_ip,window_end_utc,etiqueta\n%s,%s,1\n%s,%s,0\n" % (K, iso(T + 40), K, iso(T + 50)), encoding="utf-8")

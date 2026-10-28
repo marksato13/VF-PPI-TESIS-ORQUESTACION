@@ -19,9 +19,14 @@ Reglas (ver config-campana.json y PLAN):
   - Atribución: con evidencia de destino -> 'origen+destino'; sin ella -> 'incompleta' (no es detección confirmada).
   - Una ventana cuyo intervalo (window_end-60, window_end] no solapa el ataque no cuenta como detección del ataque.
   - Sin etiquetas suficientes NO se fabrican métricas por ventana.
+  - Siete configuraciones, en este orden: IF 0,05 · IF 0,03 · IF 0,01 · heurísticos · híbrido 0,05 · 0,03 · 0,01.
+    Los tres α son tres cortes del MISMO score_samples por ventana; los heurísticos se calculan una vez.
+  - Umbrales en escala score_samples, con precisión completa, leídos de la config (sin valores por defecto) y
+    contrastados con la calibración de 4.1 cuando el fichero está accesible. Señal IF: score < umbral (estricto).
+    Escala de anomalía equivalente: anomalia = -score, umbral_anomalia = -umbral, señal si anomalia > umbral_anomalia.
 """
 from __future__ import annotations
-import argparse, csv, json
+import argparse, csv, hashlib, json, math
 from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -29,7 +34,10 @@ from pathlib import Path
 PASO_S = 10
 HORIZONTE_S = 60                      # horizonte de la característica más larga
 TOL_CONTINUIDAD_S = 2 * PASO_S        # hueco máximo tolerado en el registro del motor
-CONFIGS = ("IF_0.05", "IF_0.03", "HEUR", "HIB_0.05", "HIB_0.03")
+ALFAS = ("0.05", "0.03", "0.01")      # orden de salida; claves de config["umbrales"]
+CONFIGS = ("IF_0.05", "IF_0.03", "IF_0.01", "HEUR", "HIB_0.05", "HIB_0.03", "HIB_0.01")
+ALFAS_COMPARTIDAS = ("0.05", "0.01")  # solapamiento IF/heurísticos: el existente (0,05) + el añadido (0,01)
+CLAVE_CALIBRACION = {"0.05": "0.050", "0.03": "0.030", "0.01": "0.010"}
 REQ_MOTOR = ("logged_at", "entity_ip", "window_end_utc", "threshold", "decision", "packet_count_10s")
 AUTH_DETECTOR = "auth_failure_heuristic"
 
@@ -130,27 +138,73 @@ def leer_motor(path: Path):
     return dedup, inc, dups
 
 
+# ------------------------------------------------------------------- umbrales
+def umbrales_de(cfg: dict) -> dict:
+    """Umbrales por α en escala score_samples, tal cual (float de precisión completa). Sin valores por defecto:
+    un α ausente, de texto o no finito aborta (no se clasifica con un valor redondeado ni inventado)."""
+    um = cfg.get("umbrales", {})
+    U = {}
+    for a in ALFAS:
+        v = um.get(a)
+        if isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v):
+            raise SystemExit(f"config: umbrales['{a}'] ausente o no numérico ({v!r}); no se usa valor por defecto")
+        U[a] = float(v)
+    return U
+
+
+def orden_umbrales(U: dict) -> bool:
+    """Con score < u estricto, IF_0.01 ⊆ IF_0.03 ⊆ IF_0.05 solo si u_0.01 <= u_0.03 <= u_0.05."""
+    return U["0.01"] <= U["0.03"] <= U["0.05"]
+
+
+def umbral_escala_anomalia(u: float) -> float:
+    """anomalia = -score_samples  =>  umbral_anomalia = -u; score < u  <=>  anomalia > -u (la negación es exacta).
+    Se transforma el umbral canónico; NO se recalcula un cuantil sobre la escala de anomalía (puede diferir 1 ULP)."""
+    return -u
+
+
+def verificar_procedencia(cfg: dict, cfg_path: Path, U: dict) -> dict:
+    """Contrasta los umbrales con el fichero de calibración de 4.1 si está accesible. Discrepancia => aborta."""
+    f = cfg.get("umbrales", {}).get("fuente") or {}
+    if not f.get("archivo"):
+        return {"estado": "no_verificada", "motivo": "la config no declara umbrales.fuente"}
+    p = (cfg_path.parent / f["archivo"]).resolve()
+    if not p.is_file():
+        return {"estado": "no_verificada", "motivo": f"fuente no accesible aquí: {f['archivo']}"}
+    datos = p.read_bytes()
+    sha_lf = hashlib.sha256(datos.replace(b"\r\n", b"\n")).hexdigest()
+    col = json.loads(datos.decode("utf-8"))["umbrales_full_precision"][f["columna"]]
+    distintos = {a: (U[a], col.get(CLAVE_CALIBRACION[a])) for a in ALFAS
+                 if col.get(CLAVE_CALIBRACION[a]) is None or float(col[CLAVE_CALIBRACION[a]]) != U[a]}
+    if distintos:
+        raise SystemExit(f"umbrales de la config != calibración {f['archivo']} [{f['columna']}]: {distintos}")
+    return {"estado": "verificada", "archivo": f["archivo"], "columna": f["columna"], "sha256_lf": sha_lf,
+            "sha256_coincide_con_config": sha_lf == f.get("sha256_lf"),
+            "comparacion": "igualdad exacta de float (sin redondeo) para " + ", ".join(ALFAS)}
+
+
 # ------------------------------------------------------------------- señales por ventana
-def senales(r: dict, u05: float, u03: float) -> dict:
-    """Señal por componente, con score null a salvo, y separación emitido/derivado por componente."""
+def senales(r: dict, U: dict) -> dict:
+    """Señal por componente, con score null a salvo, y separación emitido/derivado por componente.
+    U = {α: umbral score_samples}. Los tres α cortan la MISMA puntuación; HEUR no depende de α (se calcula una vez)."""
     sc, pk = r.get("_score"), r.get("_pk10", 0)
     if_valida = (sc is not None) and (pk > 0)
-    if05 = bool(if_valida and sc < u05)
-    if03 = bool(if_valida and sc < u03)
+    ifs = {a: bool(if_valida and sc < U[a]) for a in ALFAS}             # estricto: score == umbral NO es señal
     heur_field = r.get("heuristico") is not None
     det = r.get("decision") == "ALERT"
     auth_emitio = det and r.get("detector_name") == AUTH_DETECTOR        # regla heredada: SÍ emite ALERT
     modelo_emitio = det and r.get("detector_name") != AUTH_DETECTOR      # el modelo desplegado emitió ALERT
     heur_sig = bool(heur_field or auth_emitio)                           # componente 'heurísticos' (sin duplicar)
-    g = {"IF_0.05": if05, "IF_0.03": if03, "HEUR": heur_sig,
-         "HIB_0.05": bool(if05 or heur_sig), "HIB_0.03": bool(if03 or heur_sig),
+    g = {**{f"IF_{a}": ifs[a] for a in ALFAS}, "HEUR": heur_sig,
+         **{f"HIB_{a}": bool(ifs[a] or heur_sig) for a in ALFAS},
          "if_valida": if_valida, "modelo_emitio_alert": modelo_emitio, "auth_emitio_alert": auth_emitio,
          "heuristico_registrado_en_vivo": heur_field}
     g["base"] = {
         "IF_0.05": "emitido_por_modelo_desplegado" if modelo_emitio else "derivado(umbral_recalibrado)",
         "IF_0.03": "derivado(umbral_no_desplegado)",
+        "IF_0.01": "derivado(umbral_no_desplegado)",
         "HEUR": "emitido_ALERT(auth_heredada)" if auth_emitio else ("registrada_en_vivo" if heur_field else "-"),
-        "HIB_0.05": "derivado(feed)", "HIB_0.03": "derivado(feed)"}
+        "HIB_0.05": "derivado(feed)", "HIB_0.03": "derivado(feed)", "HIB_0.01": "derivado(feed)"}
     return g
 
 
@@ -224,8 +278,9 @@ def atribuir(destinos, eid, wend_utc, ep_destino):
 
 
 # ------------------------------------------------------------------- clasificación por episodio
-def clasificar(ep, regs_global, origen, u05, u03, destinos, integridad_apto=None):
-    """integridad_apto: True/False/None. None = integridad DESCONOCIDA (no verificada) => NO evaluable."""
+def clasificar(ep, regs_global, origen, U, destinos, integridad_apto=None):
+    """integridad_apto: True/False/None. None = integridad DESCONOCIDA (no verificada) => NO evaluable.
+    U = {α: umbral score_samples} (ver umbrales_de)."""
     ini, fin = ep["inicio_ep"], ep["fin_ep"]
     eid = f"{ep['escenario']}-r{ep['repeticion']}"
     kali = [r for r in regs_global if r["entity_ip"] == origen]
@@ -255,7 +310,7 @@ def clasificar(ep, regs_global, origen, u05, u03, destinos, integridad_apto=None
     for c in CONFIGS:
         d_conf = d_obs = p_conf = p_obs = None
         for r in dentro:
-            g = senales(r, u05, u03)
+            g = senales(r, U)
             if not g[c]:
                 continue
             incluir, atrib, conf = atribuir(destinos, eid, r["window_end_utc"], ep.get("destino"))
@@ -271,7 +326,10 @@ def clasificar(ep, regs_global, origen, u05, u03, destinos, integridad_apto=None
                    "tras_fin_generador_s": round(r["_logged"] - fin, 1), "relacion_temporal": rel,
                    "atribucion": atrib, "atribucion_confirmada": conf, "base": g["base"][c],
                    "score": r.get("_score"), "score_estado": r.get("_score_estado"),
-                   "detector_name": r.get("detector_name")}
+                   "detector_name": r.get("detector_name"),
+                   # logged_at es la emisión real solo si ESTA configuración emitió en vivo; en una derivada es
+                   # cuándo quedó registrada la puntuación, no una latencia de emisión de esa configuración
+                   "tiempo_es_emision_real": g["base"][c].startswith("emitido")}
             if rel in ("previa", "ambigua"):
                 previas.append(reg)
             elif rel == "durante_actividad":
@@ -302,39 +360,40 @@ def clasificar(ep, regs_global, origen, u05, u03, destinos, integridad_apto=None
     res["senales_previas_o_ambiguas"] = previas
     res["senales_observadas_sin_confirmar"] = observadas
     # compartidas/exclusivas durante el ataque, SOLO sobre ventanas con atribución CONFIRMADA
-    comp = {"ambos_0.05": 0, "solo_IF_0.05": 0, "solo_HEUR": 0, "ninguno_0.05": 0,
-            "nota": "solo ventanas con atribución confirmada" if destino_cubre else
-            "evidencia de destino no cubre el intervalo: no se computa (atribución no confirmable)"}
-    if destino_cubre:
-        for r in dentro:
-            if not (r["_wend"] > ini and r["_wend"] - HORIZONTE_S < fin and r["_logged"] <= fin):
-                continue
-            inc, _, conf = atribuir(destinos, eid, r["window_end_utc"], ep.get("destino"))
-            if not inc or not conf:
-                continue
-            g = senales(r, u05, u03)
-            k = ("ambos_0.05" if g["IF_0.05"] and g["HEUR"] else "solo_IF_0.05" if g["IF_0.05"]
-                 else "solo_HEUR" if g["HEUR"] else "ninguno_0.05")
-            comp[k] += 1
-    res["compartidas_durante_0.05"] = comp
+    for a in ALFAS_COMPARTIDAS:
+        comp = {f"ambos_{a}": 0, f"solo_IF_{a}": 0, "solo_HEUR": 0, f"ninguno_{a}": 0,
+                "nota": "solo ventanas con atribución confirmada" if destino_cubre else
+                "evidencia de destino no cubre el intervalo: no se computa (atribución no confirmable)"}
+        if destino_cubre:
+            for r in dentro:
+                if not (r["_wend"] > ini and r["_wend"] - HORIZONTE_S < fin and r["_logged"] <= fin):
+                    continue
+                inc, _, conf = atribuir(destinos, eid, r["window_end_utc"], ep.get("destino"))
+                if not inc or not conf:
+                    continue
+                g = senales(r, U)
+                k = (f"ambos_{a}" if g[f"IF_{a}"] and g["HEUR"] else f"solo_IF_{a}" if g[f"IF_{a}"]
+                     else "solo_HEUR" if g["HEUR"] else f"ninguno_{a}")
+                comp[k] += 1
+        res[f"compartidas_durante_{a}"] = comp
     return res
 
 
 # ------------------------------------------------------------------- control normal (FPR)
-def fpr_control(regs, desde, hasta, u05, u03, excluidas):
+def fpr_control(regs, desde, hasta, U, excluidas):
     v = [r for r in regs if desde <= r["_logged"] <= hasta and r["entity_ip"] not in excluidas]
     n = len(v)
     out = {"ventanas": n, "denominador": n, "desde": iso(desde), "hasta": iso(hasta)}
     if n == 0:
         out["aviso"] = "sin ventanas en el control"; return out
     for c in CONFIGS:
-        fa = sum(1 for r in v if senales(r, u05, u03)[c])
+        fa = sum(1 for r in v if senales(r, U)[c])
         out[c] = {"falsas_alarmas": fa, "tasa": round(fa / n, 6)}
     return out
 
 
 # ------------------------------------------------------------------- métricas por ventana (solo con etiquetas)
-def metricas_por_ventana(regs, etiquetas, u05, u03):
+def metricas_por_ventana(regs, etiquetas, U):
     pares = [(r, etiquetas[(r["entity_ip"], r["window_end_utc"])]) for r in regs
              if (r["entity_ip"], r["window_end_utc"]) in etiquetas]
     if not pares:
@@ -343,7 +402,7 @@ def metricas_por_ventana(regs, etiquetas, u05, u03):
     for c in CONFIGS:
         tp = fp = tn = fn = 0
         for r, y in pares:
-            p = 1 if senales(r, u05, u03)[c] else 0
+            p = 1 if senales(r, U)[c] else 0
             y = int(y)
             tp += p and y; fp += p and not y; tn += (not p) and (not y); fn += (not p) and y
         out[c] = {"TP": tp, "FP": fp, "TN": tn, "FN": fn,
@@ -367,7 +426,9 @@ def main() -> int:
     a = ap.parse_args()
 
     cfg = json.load(open(a.config, encoding="utf-8"))
-    u05, u03 = cfg["umbrales"]["0.05"], cfg["umbrales"]["0.03"]
+    U = umbrales_de(cfg)
+    procedencia = verificar_procedencia(cfg, Path(a.config), U)
+    orden_ok = orden_umbrales(U)
     desplegado = cfg["umbrales"].get("desplegado_referencia")
     origen = cfg.get("origen") or "10.10.20.30"
     excluidas = set(cfg.get("combinacion_real", {}).get("exclusiones", {}).get("NUNCA_BLOQUEAR", []))
@@ -389,7 +450,7 @@ def main() -> int:
 
     por_ep, tabla = {}, {}
     for eid, ep in eps.items():
-        c = clasificar(ep, regs, origen, u05, u03, destinos, integridad.get(eid))
+        c = clasificar(ep, regs, origen, U, destinos, integridad.get(eid))
         por_ep[eid] = c
         fam = familia(ep["escenario"])
         t = tabla.setdefault(fam, {"evaluables": [], "no_evaluables": [], **{cf: 0 for cf in CONFIGS}})
@@ -403,8 +464,15 @@ def main() -> int:
 
     salida = {
         "fuentes": {"marcas": a.marcas, "motor": a.motor, "config": a.config},
-        "umbrales": {"0.05_recalibrado": u05, "0.03_recalibrado": u03, "0.05_desplegado_en_vivo": desplegado},
-        "nota_umbral": "el motor emitió en vivo con el umbral DESPLEGADO; IF_0.05/0.03 recalculados son derivados.",
+        "umbrales": {"0.05_recalibrado": U["0.05"], "0.03_recalibrado": U["0.03"],
+                     "0.05_desplegado_en_vivo": desplegado, "0.01_recalibrado": U["0.01"],
+                     "escala": "score_samples; señal IF si score < umbral (estricto)",
+                     "escala_anomalia_equivalente": {a: umbral_escala_anomalia(U[a]) for a in ALFAS},
+                     "regla_escala_anomalia": "anomalia = -score; señal si anomalia > umbral_anomalia",
+                     "orden_respetado": orden_ok, "procedencia": procedencia},
+        "configuraciones": list(CONFIGS),
+        "nota_umbral": "el motor emitió en vivo con el umbral DESPLEGADO; IF_0.05/0.03/0.01 recalculados son "
+                       "derivados (análisis de umbrales sobre los scores registrados, no alertas emitidas).",
         "clasificacion_por": "logged_at (emisión real) + solape de la ventana con el ataque; window_end ≠ emisión",
         "atribucion_destino": "con --destinos" if destinos is not None else "sin evidencia de destino (incompleta)",
         "integridad_fuentes": ("de " + a.integridad) if a.integridad else "DESCONOCIDA (no se pasó --integridad); "
@@ -412,12 +480,15 @@ def main() -> int:
         "calidad_datos": {"incidencias_marcas": inc_m, "incidencias_motor": inc_r, "ventanas_duplicadas": len(dups),
                           "episodios_incompletos": [e for e, v in eps.items() if v["estado"] != "completo"]},
         "tabla8": tabla, "episodios": por_ep}
-    salida["control_normal_fpr"] = (fpr_control(regs, *map(como_epoch, a.control.split(",")), u05, u03, excluidas)
+    if not orden_ok:
+        salida["calidad_datos"]["aviso_orden_umbrales"] = (
+            "los umbrales no cumplen u_0.01 <= u_0.03 <= u_0.05: las señales IF no quedan anidadas por α")
+    salida["control_normal_fpr"] = (fpr_control(regs, *map(como_epoch, a.control.split(",")), U, excluidas)
                                     if a.control else {"calculado": False, "motivo": "no se pasó --control"})
     if a.etiquetas:
         et = {(r["entity_ip"], r["window_end_utc"]): r["etiqueta"]
               for r in csv.DictReader(open(a.etiquetas, encoding="utf-8"))}
-        salida["metricas_por_ventana"] = metricas_por_ventana(regs, et, u05, u03)
+        salida["metricas_por_ventana"] = metricas_por_ventana(regs, et, U)
     else:
         salida["metricas_por_ventana"] = {"calculadas": False, "motivo": "sin --etiquetas no se fabrican métricas"}
 
@@ -433,8 +504,12 @@ def _tabla_md(path, tabla, salida):
          "Celda: episodios con **detección durante** / episodios **evaluables** (cobertura suficiente).",
          "Clasificación por `logged_at` y solape de la ventana con el ataque. Las configuraciones derivadas",
          "offline no son alertas emitidas en vivo (el motor usó el umbral desplegado).", "",
-         "| Familia | Evaluables | IF 0,05 | IF 0,03 | Heurísticos | Híbrido 0,05 | Híbrido 0,03 |",
-         "|---|---|---|---|---|---|---|"]
+         "Umbrales (score_samples, señal si score < umbral): "
+         + "; ".join(f"α {a.replace('.', ',')} = {salida['umbrales'][a + '_recalibrado']!r}" for a in ALFAS)
+         + f"; desplegado en vivo = {salida['umbrales']['0.05_desplegado_en_vivo']!r}.", "",
+         "| Familia | Evaluables | IF 0,05 | IF 0,03 | IF 0,01 | Heurísticos | Híbrido 0,05 | Híbrido 0,03 "
+         "| Híbrido 0,01 |",
+         "|---|---|---|---|---|---|---|---|---|"]
     for fam, t in tabla.items():
         n = len(t["evaluables"])
         L.append(f"| {fam} | {n} | " + " | ".join(f"{t[c]}/{n}" if n else "—" for c in CONFIGS) + " |")

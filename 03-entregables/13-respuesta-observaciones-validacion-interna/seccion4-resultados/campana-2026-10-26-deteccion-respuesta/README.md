@@ -10,11 +10,12 @@ Carpeta independiente: no modifica `../4.2-ablacion/aporte-componentes-r2-2026-1
 | Archivo | Contenido |
 |---|---|
 | `PLAN-CAMPANA.md` | Plan A/B, historia/registros, marcas, criterios, **secuencia prep→ejecución→restauración**, estados de madurez |
-| `config-campana.json` | Configuración congelada: modelo+hashes, umbrales, 28 características, lógica de combinación, `logged_at` vs `window_end`, relojes/DNS medidos |
+| `config-campana.json` | Configuración congelada (versión `2026-10-28.1`): modelo+hashes, umbrales α 0,05/0,03/0,01 con su fuente verificable y el desplegado aparte, 7 configuraciones de análisis, 28 características, lógica de combinación, `logged_at` vs `window_end`, relojes/DNS medidos |
+| `CAMBIOS-2026-10-28-alfa001.md` | Registro de cambios de la ampliación a α 0,01 (qué cambia, qué no, comprobaciones) |
 | `escenarios/escenarios.json` · `FICHAS-ESCENARIOS.md` | Escenarios v2 (tipos separados, tasas fijas, pendientes explícitos) |
 | `scripts/esquema_campana.py` | Esquema + validación + construcción de comandos |
 | `scripts/generar_campana.py` | Generador (Kali): valida, simula por defecto, inicio/fin separados, mata el grupo en timeout |
-| `scripts/analizar.py` | Analizador: clasifica por `logged_at`, separa emitido/derivado, **Tabla 8 solo con atribución confirmada e integridad apta**, control FPR, calidad de datos |
+| `scripts/analizar.py` | Analizador: clasifica por `logged_at`, separa emitido/derivado, **7 configuraciones** (IF 0,05/0,03/0,01, heurísticos, híbrido 0,05/0,03/0,01), **Tabla 8 solo con atribución confirmada e integridad apta**, control FPR, calidad de datos, procedencia y orden de umbrales |
 | `scripts/verificar_integridad.py` | Informe de integridad por episodio: estados **verificado / declarado_sin_verificar / ausente / desconocido** (un booleano no es verificación; exige respaldo accesible o informe externo correspondiente); `analizar.py --integridad` lo exige para declarar evaluable |
 | `scripts/generar_manifiesto.py` | Manifiesto con sha256 de los **bytes publicados por git** (LF), reproducible y verificable contra el commit |
 | `scripts/capturar.sh` · `estimar_espacio.sh` | Captura continua (ens37) y estimación de espacio |
@@ -23,7 +24,8 @@ Carpeta independiente: no modifica `../4.2-ablacion/aporte-componentes-r2-2026-1
 | `EJEMPLO-descriptor-integridad.json` · `EJEMPLO-integridad-salida.json` · `EJEMPLO-fixtures/` · `EJEMPLO-evidencia-destino.csv` | Ejemplos de integridad (declarado / no apto / apto) con **fixtures de herramienta** (no capturas de campaña) y formato de evidencia de destino |
 | `ESTADO-ENTORNO-2026-10-27.md` | Preparación del entorno real antes de A: accesos, relojes, DNS, endpoint, archivado, enforcement; cambios/reversión; **veredicto NO LISTO** con 3 pendientes críticos del usuario |
 | `scripts/endpoint_brute/` | Endpoint 401 correcto (`app.py`, unidad systemd, README con nginx y Suricata) |
-| `tests/test_herramientas.py` · `tests/fixtures.py` | Verificación sin ataques (87 comprobaciones) |
+| `tests/test_herramientas.py` · `tests/fixtures.py` | Verificación sin ataques (130 comprobaciones; datos sintéticos/fixtures = comprobaciones del código) |
+| `tests/regresion_alfa.py` · `tests/golden-5config-fixtures.json` | No-regresión de α 0,05/0,03 al añadir 0,01: golden generado con el analizador anterior, mismas entradas |
 | `tests/test_matar_grupo.py` | Terminación del grupo de procesos (4 casos) contra la función publicada |
 | `tests/test_sombra.sh` | Fallo seguro de sombra/restauración con comandos simulados (11/11) |
 | `RELOJES-DNS.md` | Relojes y DNS medidos + pasos administrativos |
@@ -34,7 +36,8 @@ Carpeta independiente: no modifica `../4.2-ablacion/aporte-componentes-r2-2026-1
 
 ## Estado por pieza (documentado / implementado / probado aislado / verificado en entorno)
 
-- Generador, esquema, analizador, verificador de integridad, endpoint: **implementados y probados de forma aislada** (87 comprobaciones + CLI + loopback).
+- Generador, esquema, analizador, verificador de integridad, endpoint: **implementados y probados de forma aislada** (130 comprobaciones + CLI + loopback).
+- α 0,01 (28-oct): umbral completo con procedencia verificada, comparación estricta, escala de anomalía, 7 configuraciones, no-regresión de 0,05/0,03 y anidamiento: **probado de forma aislada** (fixtures/sintéticos, no resultados experimentales).
 - Analizador (cobertura, score null, atribución confirmada→Tabla 8, ventana previa, emitido/derivado, integridad): **probado de forma aislada** con fixtures de resultado conocido, incluido el recorrido hasta el fichero de la Tabla 8.
 - Sombra/restauración con fallo seguro (detener+enmascarar el agente, no dry-run; `--escalada-revisada`): **implementadas y probadas de forma aislada** (`test_sombra.sh` 11/11); **no aplicadas** al entorno.
 - Terminación del grupo de procesos (incl. hijo que ignora SIGTERM y padre que termina antes): **probada contra la función publicada**, en Windows (casos 1–2) y **verificada en el entorno** (sensor Linux, 4/4).

@@ -4,7 +4,65 @@ Verifican las **herramientas** de evaluación, no el desempeño de CyberFlow. No
 
 ## Suite de herramientas — `tests/test_herramientas.py`
 
-**Windows (laptop):** `87 comprobaciones pasaron.`
+**Windows (laptop), 2026-10-28, tras añadir α 0,01:** `130 comprobaciones pasaron.` (87 previas + 43 de α 0,01;
+las 14 pruebas previas siguen pasando con las mismas expectativas).
+
+```
+OK  test_validacion
+OK  test_generador_simulacion
+OK  test_generador_timeout_mata_hijos
+OK  test_analizador_basico
+OK  test_cobertura_una_ventana_insuficiente
+OK  test_score_nulo_con_heuristico
+OK  test_tabla8_evidencia_y_denominador
+OK  test_ventana_previa
+OK  test_emitido_vs_derivado
+OK  test_integridad_backing
+OK  test_integridad_informe_externo
+OK  test_integridad_descriptor_ilustrativo
+OK  test_integridad_gate_analizador
+OK  test_integridad_e2e_no_habilita_denominador
+OK  test_umbral_001_procedencia
+OK  test_comparacion_estricta
+OK  test_escala_anomalia
+OK  test_siete_configuraciones
+OK  test_no_regresion_005_003
+OK  test_anidamiento_por_alfa
+
+130 comprobaciones pasaron.
+```
+
+### α 0,01 — comprobaciones del código (fixtures y datos sintéticos, NO resultados experimentales)
+
+| Comprobación | Resultado |
+|---|---|
+| Lectura del umbral 0,01 de `config-campana.json` | `-0.6223889502095352` exacto (`repr`), sin redondeo |
+| Procedencia | igual (float exacto) a `validacion_sin_kali_65553["0.010"]` de la calibración de 4.1; 0,05 y 0,03 también; sha256 de la fuente = el declarado; un 0,01 redondeado (`-0.62238895`), ausente o de texto → el analizador **aborta** |
+| Umbral desplegado | `-0.5693969936322356` conservado y distinto del 0,05 recalibrado `-0.5694578968203694` |
+| Comparación estricta | `score == umbral` no da señal en ninguno de los tres α; 1 ULP por debajo, sí; un score entre el umbral completo y el redondeado a 8 decimales no da señal 0,01 |
+| Escala de anomalía | `score < u ⇔ −score > −u` en 5 009 scores (con fronteras ±1 ULP); `umbral_anomalia 0,01 = 0.6223889502095352`, no el cuantil recalculado `0.6223889502095351` |
+| 7 configuraciones | orden IF 0,05 · IF 0,03 · IF 0,01 · HEUR · HIB 0,05 · HIB 0,03 · HIB 0,01 en `CONFIGS`, `analisis.json`, Tabla 8 y `TABLA8.md`; HEUR una sola vez |
+| Tiempos | IF 0,05 emitido por el modelo → `tiempo_es_emision_real=true`; IF 0,01/0,03 e híbridos → `false` (disponibilidad derivada, no latencia de emisión) |
+| No-regresión 0,05/0,03 | `tests/regresion_alfa.py`: proyección de IF 0,05, IF 0,03, HEUR, HIB 0,05, HIB 0,03, compartidas 0,05, control FPR, métricas y calidad de datos sobre 5 episodios (4 evaluables) → **0 diferencias** frente al analizador anterior (golden y comparación directa con `analizar.py` de `0d40bdb`) |
+| Anidamiento | 5 003 ventanas sintéticas: IF 0,01 ⊆ 0,03 ⊆ 0,05 y HIB 0,01 ⊆ 0,03 ⊆ 0,05, no triviales; umbrales invertidos → detectado |
+
+Corrida CLI sobre `tests/fixtures.py` (con evidencia de destino completa e integridad apta, como en
+`regresion_alfa.py`). El episodio `fuerza_bruta_http-r1` tiene scores −0,60 (dispara 0,05 y 0,03, no 0,01), el
+umbral 0,01 exacto (no dispara: estricto) y −0,63 (dispara los tres):
+
+| Familia | Evaluables | IF 0,05 | IF 0,03 | IF 0,01 | Heurísticos | Híbrido 0,05 | Híbrido 0,03 | Híbrido 0,01 |
+|---|---|---|---|---|---|---|---|---|
+| Inundación HTTP | 2 | 1/2 | 1/2 | 1/2 | 1/2 | 1/2 | 1/2 | 1/2 |
+| DNS inusual | 1 | 0/1 | 0/1 | 0/1 | 1/1 | 1/1 | 1/1 | 1/1 |
+| Escaneo breve | 0 | — | — | — | — | — | — | — |
+| Fuerza bruta HTTP | 1 | 1/1 | 1/1 | 1/1 | 0/1 | 1/1 | 1/1 | 1/1 |
+
+Control (60 ventanas, denominador explícito): falsas alarmas IF 0,05 = 5, IF 0,03 = 5, IF 0,01 = 3, HEUR = 2,
+HIB 0,05 = 6, HIB 0,03 = 6, HIB 0,01 = 4. En `fuerza_bruta_http-r1`: primera señal IF 0,05/0,03 en la ventana con
+−0,60 y IF 0,01 en la de −0,63; `compartidas_durante_0.05` solo_IF = 3 y `compartidas_durante_0.01` solo_IF = 1
+(la ventana en el umbral exacto no cuenta). Son valores de fixtures, no de CyberFlow.
+
+### Ejecución anterior (87 comprobaciones, antes de α 0,01)
 
 ```
 OK  test_validacion

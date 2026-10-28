@@ -71,3 +71,18 @@ Correcciones sobre la preparación publicada en `b59c6c8`. Estado: **D** documen
 | 43 | Regresión e2e: un informe de integridad no apto no debe habilitar el episodio en el denominador | `verificar_integridad.py` → `integridad.json` → `analizar.py`: episodio en `no_evaluables`, fuera del denominador, numerador 0 | `scripts/*`, `tests/test_herramientas.py` | `test_integridad_e2e_no_habilita_denominador` | PA |
 | 44 | El hash de `EJEMPLO-integridad-salida.json` era de una versión CRLF; GitHub publica LF | Manifiesto calculado sobre los **bytes versionados por git** (`git show :<ruta>`, LF), reproducible; verificado contra `git show HEAD:<ruta>` tras el commit; normalización documentada en el propio manifiesto | `scripts/generar_manifiesto.py`, `MANIFIESTO-CAMPANA.json` | verificación post-commit (sha256 de los bytes del commit == manifiesto) | PA |
 | — | Expectativa corregida: `test_integridad_11_casos` (ronda 4) usaba el esquema antiguo (booleanos inline) | Sustituida por `test_integridad_backing` + `test_integridad_informe_externo` + `test_integridad_descriptor_ilustrativo`, que exigen respaldo accesible. Motivo: un booleano no es verificación. Se conserva la cobertura de los casos como regresión | `tests/test_herramientas.py` | 87 comprobaciones | PA |
+
+## Ampliación α 0,01 (2026-10-28, sobre `0d40bdb`) — config `2026-10-28.1`
+
+Sin campaña iniciada (comprobado en solo lectura en Kali y sensor): se actualiza la preparación en su sitio.
+Detalle en `CAMBIOS-2026-10-28-alfa001.md`.
+
+| # | Pendiente | Solución | Archivo(s) | Comprobación | Estado |
+|---|---|---|---|---|---|
+| 45 | Añadir α 0,01 conservando 0,05 y 0,03 | Umbral `-0.6223889502095352` (escala `score_samples`, validación sin Kali 65 553) con fuente declarada (archivo, columna, sha256, commit); el desplegado (65 633) se mantiene aparte | `config-campana.json` | `test_umbral_001_procedencia` (igualdad exacta con la calibración de 4.1; redondeado/ausente/texto → aborta) | PA |
+| 46 | Analizar 7 configuraciones en orden, sin duplicar heurísticos | `CONFIGS` = IF 0,05/0,03/0,01, HEUR, HIB 0,05/0,03/0,01; los tres α cortan el mismo score; HEUR una vez; Tabla 8 y FPR/métricas en 7 columnas | `scripts/analizar.py`, `scripts/esquema_campana.py` | `test_siete_configuraciones` | PA |
+| 47 | Comparación estricta y escala de anomalía | `score < umbral`; igualdad no es señal; `anomalia = −score`, `umbral_anomalia = −umbral` (no un cuantil recalculado, que difiere 1 ULP) | `scripts/analizar.py` | `test_comparacion_estricta`, `test_escala_anomalia` | PA |
+| 48 | Extender a 0,01 cobertura, posteriores, primera señal, solapamiento/exclusivas y FPR | Mecanismos existentes parametrizados por α; `compartidas_durante_0.01` además de la de 0,05; `tiempo_es_emision_real` separa emisión real de disponibilidad derivada | `scripts/analizar.py` | `test_siete_configuraciones`, `test_score_nulo_con_heuristico`, `test_emitido_vs_derivado` | PA |
+| 49 | 0,05 y 0,03 no deben cambiar | Golden con el analizador anterior sobre las mismas entradas; proyección de lo existente | `tests/regresion_alfa.py`, `tests/golden-5config-fixtures.json`, `tests/fixtures.py` | `test_no_regresion_005_003` (0 diferencias) | PA |
+| 50 | Anidamiento IF 0,01 ⊆ 0,03 ⊆ 0,05 | Se comprueba el orden de los umbrales y se avisa si no se cumple (`aviso_orden_umbrales`) | `scripts/analizar.py` | `test_anidamiento_por_alfa` | PA |
+| — | Las llamadas de las pruebas usaban `(u05, u03)` sueltos | Pasan el diccionario de umbrales `UM`; los casos y expectativas previos no cambian | `tests/test_herramientas.py` | 130 comprobaciones | PA |
