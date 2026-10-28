@@ -1,0 +1,143 @@
+## p02 sensor  inicio=2026-10-28T06:55:39.728Z  host=cyberflow-sensor  user=m4rk  grupos=m4rk adm cdrom sudo dip plugdev lxd
+## unidades ppi/cyberflow/suricata (estado)
+  cyberflow-acumular.service                   loaded    inactive  dead
+  cyberflow-aprendizaje.service                loaded    inactive  dead
+  cyberflow-capture-nic.service                loaded    active    exited
+  cyberflow-limpieza.service                   loaded    inactive  dead
+  cyberflow-panel-acceso.service               loaded    active    exited
+  ppi-dashboard.service                        loaded    active    running
+  ppi-motor-capture.service                    loaded    active    running
+  ppi-motor.service                            loaded    active    running
+  ppi-publicar-feed.service                    loaded    inactive  dead
+  suricata.service                             loaded    active    running
+  cyberflow-acumular.timer                     loaded    active    waiting
+  cyberflow-aprendizaje.timer                  loaded    active    waiting
+  cyberflow-limpieza.timer                     loaded    active    waiting
+  ppi-publicar-feed.timer                      loaded    active    waiting
+## timers
+  Wed 2026-10-28 06:55:40 UTC         224ms Wed 2026-10-28 06:55:30 UTC       9s ago ppi-publicar-feed.timer        ppi-publicar-feed.service
+  Wed 2026-10-28 07:00:00 UTC      4min 20s Wed 2026-10-28 06:50:00 UTC     5min ago cyberflow-acumular.timer       cyberflow-acumular.service
+  Wed 2026-10-28 07:00:00 UTC      4min 20s Wed 2026-10-28 06:55:00 UTC      39s ago cyberflow-limpieza.timer       cyberflow-limpieza.service
+  Thu 2026-10-29 00:30:00 UTC           17h Wed 2026-10-28 00:30:00 UTC       6h ago cyberflow-aprendizaje.timer    cyberflow-aprendizaje.service
+## ppi-motor
+  MainPID=2558538
+  NRestarts=0
+  User=m4rk
+  Group=m4rk
+  ActiveState=active
+  SubState=running
+  UnitFileState=enabled
+  ActiveEnterTimestamp=Sat 2026-10-24 10:49:30 UTC
+  ExecStart(unidad):
+    User=m4rk
+    Group=m4rk
+    WorkingDirectory=/home/m4rk/cyberflow
+    ExecStart=/home/m4rk/cyberflow/.venv/bin/python \
+    Restart=always
+    RestartSec=5
+  argv real (PID 2558538):
+    /home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow/scripts/engine/motor_decision.py --eve-path /var/log/suricata/eve.json --capture-dir /var/lib/ppi-motor-capture --model-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib --manifest-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json --detector-name if_limpio_2026_10 --schema /home/m4rk/cyberflow/configs/features/multilayer-v2.json --entity-network 10.10.0.0/16 --excluir 10.10.60.11/32,10.10.10.30/32,10.10.60.2/32,10.10.60.3/32,10.10.60.10/32,10.10.60.20/32,10.10.60.21/32,10.10.60.30/32,10.10.60.40/32,10.10.60.41/32,10.10.60.50/32 --excluir-protocolos 112,240 --log-path /home/m4rk/cyberflow/logs/motor_decision.log --step-seconds 10 --history-seconds 230 
+## ppi-motor-capture
+  MainPID=1393
+  NRestarts=0
+  User=
+  Group=
+  ActiveState=active
+  SubState=running
+  UnitFileState=enabled
+  ActiveEnterTimestamp=Wed 2026-10-21 19:09:39 UTC
+  ExecStart(unidad):
+    ExecStartPre=/usr/bin/install -d -o tcpdump -g m4rk -m 2750 /var/lib/ppi-motor-capture
+    ExecStart=/usr/bin/tcpdump -i ens37 -n -s 0 -U -B 65536 \
+    Restart=always
+    RestartSec=2
+  argv real (PID 1393):
+    /usr/bin/tcpdump -i ens37 -n -s 0 -U -B 65536 -Z tcpdump -w /var/lib/ppi-motor-capture/live-%Y%m%d%H%M%S.pcap -G 15 
+## suricata
+  MainPID=1110887
+  NRestarts=0
+  User=
+  Group=
+  ActiveState=active
+  SubState=running
+  UnitFileState=enabled
+  ActiveEnterTimestamp=Tue 2026-10-27 07:23:31 UTC
+  ExecStart(unidad):
+    ExecStart=/usr/bin/suricata -D --af-packet -c /etc/suricata/suricata.yaml --pidfile /run/suricata.pid
+    Restart=on-failure
+  argv real (PID 1110887):
+    /usr/bin/suricata -D --af-packet -c /etc/suricata/suricata.yaml --pidfile /run/suricata.pid 
+## ppi-dashboard
+  MainPID=1399
+  NRestarts=0
+  User=m4rk
+  Group=m4rk
+  ActiveState=active
+  SubState=running
+  UnitFileState=enabled
+  ActiveEnterTimestamp=Wed 2026-10-21 19:09:39 UTC
+  ExecStart(unidad):
+    User=m4rk
+    Group=m4rk
+    WorkingDirectory=/home/m4rk/cyberflow
+    ExecStart=/home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow/scripts/engine/dashboard.py \
+    Restart=always
+    RestartSec=5
+  argv real (PID 1399):
+    /home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow/scripts/engine/dashboard.py --log-path /home/m4rk/cyberflow/logs/motor_decision.log --manifest-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json --detector-name if_limpio_2026_10 --eve-path /var/log/suricata/eve.json --schema /home/m4rk/cyberflow/configs/features/multilayer-v2.json --schema-extra /home/m4rk/cyberflow/configs/features/multilayer-v3.json --descripciones /home/m4rk/cyberflow/configs/features/descripciones.json --dataset /home/m4rk/cyberflow/artifacts/linea-base/multilayer-v3.csv --escenarios /home/m4rk/cyberflow/configs/escenarios.json --config-toml /home/m4rk/cyberflow/configs/cyberflow.local.toml --services ppi-motor.service,ppi-motor-capture.service,suricata.service --calibrado-en-esta-red --usuarios /etc/cyberflow/usuarios.json --clave-sesion /etc/cyberflow/clave-sesion --tls-cert /etc/cyberflow/panel.crt --tls-key /etc/cyberflow/panel.key --auditoria /home/m4rk/cyberflow/logs/panel_auditoria.jsonl --sesion-minutos 480 --intentos-max 5 --bloqueo-minutos 15 --host 10.10.60.11 --port 8788 
+## procesos tcpdump / motor (argv)
+     1393 tcpdump  mié oct 21 19:10:26 2026 /usr/bin/tcpdump -i ens37 -n -s 0 -U -B 65536 -Z tcpdump -w /var/lib/ppi-motor-capture/live-%Y%m%d%H%M%S.pcap -G 15
+     1399 m4rk     mié oct 21 19:10:26 2026 /home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow/scripts/engine/dashboard.py --log-path /home/m4rk/cyberflow/logs/motor_decision.log --manifest-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json --detector-name if_limpio_2026_10 --eve-path /var/log/suricata/eve.json --schema /home/m4rk/cyberflow/configs/features/multilayer-v2.json --schema-extra /home/m4rk/cyberflow/configs/features/multilayer-v3.json --descripciones /home/m4rk/cyberflow/configs/features/descripciones.json --dataset /home/m4rk/cyberflow/artifacts/linea-base/multilayer-v3.csv --escenarios /home/m4rk/cyberflow/configs/escenarios.json --config-toml /home/m4rk/cyberflow/configs/cyberflow.local.toml --services ppi-motor.service,ppi-motor-capture.service,suricata.service --calibrado-en-esta-red --usuarios /etc/cyberflow/usuarios.json --clave-sesion /etc/cyberflow/clave-sesion --tls-cert /etc/cyberflow/panel.crt --tls-key /etc/cyberflow/panel.key --auditoria /home/m4rk/cyberflow/logs/panel_auditoria.jsonl --sesion-minutos 480 --intentos-max 5 --bloqueo-minutos 15 --host 10.10.60.11 --port 8788
+  1110887 root     mar oct 27 07:23:30 2026 /usr/bin/suricata -D --af-packet -c /etc/suricata/suricata.yaml --pidfile /run/suricata.pid
+  2558538 m4rk     sáb oct 24 10:50:17 2026 /home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow/scripts/engine/motor_decision.py --eve-path /var/log/suricata/eve.json --capture-dir /var/lib/ppi-motor-capture --model-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib --manifest-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json --detector-name if_limpio_2026_10 --schema /home/m4rk/cyberflow/configs/features/multilayer-v2.json --entity-network 10.10.0.0/16 --excluir 10.10.60.11/32,10.10.10.30/32,10.10.60.2/32,10.10.60.3/32,10.10.60.10/32,10.10.60.20/32,10.10.60.21/32,10.10.60.30/32,10.10.60.40/32,10.10.60.41/32,10.10.60.50/32 --excluir-protocolos 112,240 --log-path /home/m4rk/cyberflow/logs/motor_decision.log --step-seconds 10 --history-seconds 230
+## ¿--enforce en el motor?
+  NO: ningun proceso motor_decision lleva --enforce
+  ocurrencias de --enforce en la unidad: 0
+## sudo -n -l (NOPASSWD disponible)
+  Matching Defaults entries for m4rk on cyberflow-sensor:
+      env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin, use_pty
+  
+  User m4rk may run the following commands on cyberflow-sensor:
+      (ALL : ALL) ALL
+      (root) NOPASSWD: /usr/bin/systemctl is-active *, /usr/bin/systemctl is-enabled *, /usr/bin/systemctl is-failed *, /usr/bin/systemctl show *, /usr/bin/systemctl list-timers --no-pager *, /usr/bin/systemctl status --no-pager *, /usr/bin/journalctl --no-pager *, /usr/sbin/nft list *, /usr/bin/systemctl restart cyberflow-capture-nic ppi-motor-capture ppi-motor ppi-dashboard cyberflow-panel-acceso suricata, /usr/bin/systemctl restart ppi-motor, /usr/bin/systemctl restart ppi-motor-capture, /usr/bin/systemctl restart ppi-dashboard, /usr/bin/systemctl restart cyberflow-panel-acceso, /usr/bin/systemctl restart cyberflow-capture-nic, /usr/bin/systemctl restart suricata, /usr/bin/systemctl start cyberflow-limpieza.service, /usr/bin/systemctl reset-failed *, /usr/bin/wc -l /var/log/suricata/eve.json, /usr/bin/tail /var/log/suricata/eve.json, /usr/bin/tail -n [0-9]* /var/log/suricata/eve.json, /usr/bin/grep * /var/log/suricata/eve.json, /usr/bin/ls -la /var/lib/ppi-motor-capture/, /usr/bin/ls -l /var/lib/ppi-motor-capture/, /usr/bin/du -sh /var/lib/ppi-motor-capture/, /usr/bin/find /var/lib/ppi-motor-capture -maxdepth 1 -name live-*.pcap*
+      (root) NOPASSWD: /usr/local/sbin/cf-capturar
+      (root) NOPASSWD: /usr/bin/systemctl daemon-reload
+      (root) NOPASSWD: /usr/bin/systemctl enable ppi-motor ppi-motor-capture ppi-dashboard cyberflow-limpieza.timer cyberflow-capture-nic cyberflow-panel-acceso
+      (root) NOPASSWD: /usr/bin/systemctl disable ppi-motor ppi-motor-capture ppi-dashboard cyberflow-limpieza.timer cyberflow-capture-nic cyberflow-panel-acceso
+      (root) NOPASSWD: /usr/bin/systemctl start cyberflow-acumular.service, /usr/bin/systemctl enable cyberflow-acumular.timer, /usr/bin/systemctl disable cyberflow-acumular.timer, /usr/bin/systemctl start cyberflow-acumular.timer, /usr/bin/systemctl stop cyberflow-acumular.timer
+## interfaz ens37
+  3: ens37: <BROADCAST,MULTICAST,PROMISC,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
+      link/ether 00:0c:29:15:7c:02 brd ff:ff:ff:ff:ff:ff
+      RX:   bytes  packets errors dropped  missed    mcast           
+      14283868514 68445735      0 6658806       0 18084551 
+      RX errors:    length    crc   frame    fifo  overrun otherhost
+                         0      0       0       0        0  61262837 
+      TX:   bytes  packets errors dropped carrier  collsns           
+              796       10      0       0       0        0 
+      TX errors:   aborted   fifo  window heartbt  transns
+                         0      0       0       0        1 
+      altname enp2s5
+  promisc: 0x1103 (bit 0x100 = PROMISC)
+## disco
+  Filesystem                         Size  Used Avail Use% Mounted on
+  /dev/mapper/ubuntu--vg-ubuntu--lv   37G   15G   21G  42% /
+  /dev/mapper/ubuntu--vg-ubuntu--lv   37G   15G   21G  42% /
+  /dev/mapper/ubuntu--vg-ubuntu--lv   37G   15G   21G  42% /
+  /dev/mapper/ubuntu--vg-ubuntu--lv   37G   15G   21G  42% /
+  /dev/mapper/ubuntu--vg-ubuntu--lv   37G   15G   21G  42% /
+## timedatectl
+                 Local time: mié 2026-10-28 06:55:40 UTC
+             Universal time: mié 2026-10-28 06:55:40 UTC
+                   RTC time: mié 2026-10-28 06:55:40
+                  Time zone: Etc/UTC (UTC, +0000)
+  System clock synchronized: yes
+                NTP service: active
+            RTC in local TZ: no
+  ServerName=10.10.60.1
+  ServerAddress=10.10.60.1
+  PollIntervalMinUSec=32s
+  PollIntervalMaxUSec=34min 8s
+  PollIntervalUSec=34min 8s
+  NTPMessage={ Leap=0, Version=4, Mode=4, Stratum=2, Precision=-23, RootDelay=113.281ms, RootDispersion=35.537ms, Reference=C8194853, OriginateTimestamp=Wed 2026-10-28 06:28:53 UTC, ReceiveTimestamp=Wed 2026-10-28 06:28:53 UTC, TransmitTimestamp=Wed 2026-10-28 06:28:53 UTC, DestinationTimestamp=Wed 2026-10-28 06:28:53 UTC, Ignored=no, PacketCount=48, Jitter=610us }
+  Frequency=838331
+## fin=2026-10-28T06:55:40.048Z

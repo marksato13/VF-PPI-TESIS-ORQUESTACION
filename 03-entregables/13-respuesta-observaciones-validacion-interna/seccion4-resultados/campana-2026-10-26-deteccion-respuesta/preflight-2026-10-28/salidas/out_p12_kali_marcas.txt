@@ -1,0 +1,22 @@
+## p12 kali  inicio=2026-10-28T07:03:59.819Z  epoch=1793171039.820766829
+  [2026-10-28T07:03:59.823Z] dig pfmarca1-1793171039.lab-ppi -> 10.10.30.10
+  [2026-10-28T07:03:59.852Z] dig pfmarca2-1793171039.lab-ppi -> 10.10.30.10
+  [2026-10-28T07:03:59.873Z] GET :80/ -> 200
+  [2026-10-28T07:03:59.892Z] GET :18081/auth sin credencial -> 401
+  [2026-10-28T07:03:59.920Z] GET :18081/auth fake -> 401
+  [2026-10-28T07:03:59.937Z] GET :18081/auth control -> 200
+## dependencias extra del generador
+  openssl  /usr/bin/openssl
+  seq      /usr/bin/seq
+  mktemp   /usr/bin/mktemp
+  bash     /usr/bin/bash
+  openssl rand -hex 8 -> aeb72483fbe84d1e
+## persistencia de sesion en la Kali
+  tmux         /usr/bin/tmux
+  screen       /usr/bin/screen
+  nohup        /usr/bin/nohup
+  setsid       /usr/bin/setsid
+  systemd-run  /usr/bin/systemd-run
+  linger: no
+  espacio en ~: 21G libres (43%)
+## fin=2026-10-28T07:03:59.982Z  epoch=1793171039.983257766

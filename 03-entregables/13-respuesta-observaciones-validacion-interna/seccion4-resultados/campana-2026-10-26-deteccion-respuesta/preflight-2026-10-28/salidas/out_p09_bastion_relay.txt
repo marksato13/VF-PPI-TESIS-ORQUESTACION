@@ -1,0 +1,19 @@
+## p09 bastion  inicio=2026-10-28T07:01:38.129Z
+  sys-devices-virtual-net-tailscale0.device loaded    active    plugged
+  sys-subsystem-net-devices-tailscale0.device loaded    active    plugged
+  ppi-relay-feed.service               loaded    inactive  dead
+  tailscaled.service                   loaded    active    running
+  ppi-relay-feed.timer                 loaded    active    waiting
+  Wed 2026-10-28 02:01:43 -05       4s Wed 2026-10-28 02:01:33 -05       4s ago ppi-relay-feed.timer         ppi-relay-feed.service
+  ExecStart rele: /home/gadmin/relay-feed.sh 
+## herramientas de persistencia de sesion
+  tmux         NO
+  screen       NO
+  nohup        /usr/bin/nohup
+  setsid       /usr/bin/setsid
+  systemd-run  /usr/bin/systemd-run
+  linger gadmin: no
+## conectividad a Internet (solo para documentar dependencias; 1 consulta DNS + 1 HEAD)
+  dig ntp: 
+  https: 000
+## fin=2026-10-28T07:01:39.658Z

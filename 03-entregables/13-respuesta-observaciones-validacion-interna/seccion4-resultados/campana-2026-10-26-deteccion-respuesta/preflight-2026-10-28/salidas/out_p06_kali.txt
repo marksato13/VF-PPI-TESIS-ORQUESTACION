@@ -1,0 +1,44 @@
+## p06 kali  inicio=2026-10-28T06:59:46.677Z  host=kali  user=adminatacante  uptime=up 6 days, 11 hours, 50 minutes
+## direcciones
+  lo               UNKNOWN        127.0.0.1/8 ::1/128 
+  eth0             UP             10.10.20.30/24 
+## reloj
+             Universal time: mié 2026-10-28 06:59:46 UTC
+  System clock synchronized: yes
+                NTP service: active
+  ServerName=2.debian.pool.ntp.org
+  ServerAddress=143.107.229.210
+## herramientas
+  python3  /usr/bin/python3
+  dig      /usr/bin/dig
+  curl     /usr/bin/curl
+  nmap     /usr/bin/nmap
+  timeout  /usr/bin/timeout
+  setsid   /usr/bin/setsid
+  Python 3.13.9 | DiG 9.20.15-2-Debian | curl 8.17.0 (x86_64-pc-linux-gnu) libcur | Nmap version 7.95 ( https://nmap.org )
+## copias de campana presentes en la Kali (busqueda en ~ y /opt, profundidad 4)
+  (fin de busqueda)
+## procesos de campana en curso
+  (procesos: 0)
+## validacion de escenarios con herramientas reales (copia TEMPORAL de HEAD, se borra al terminar)
+  esquema sha256=e762e60421b4721b1e8ce32549049ae10c7e86596b0fbd37f9a35517ab904144 (esperado e762e60421b4721b1e8ce32549049ae10c7e86596b0fbd37f9a35517ab904144)
+  escenarios sha256=67798012cbd306e9c06ebccf5ec293c7d9db12951d93119f739c3f86a83c64ec (esperado 67798012cbd306e9c06ebccf5ec293c7d9db12951d93119f739c3f86a83c64ec)
+  validar(exigir_herramientas=True): SIN PROBLEMAS
+  dns_inusual        habilitado=True destino=10.10.10.20  comando(no se ejecuta): bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do dig +time=1 +tries=1 @10.10.10.20 "$(openssl rand -hex 8).lab-ppi" +short >/dev/null
+  inundacion_http    habilitado=True destino=10.10.30.10  comando(no se ejecuta): bash -c fin=$((SECONDS+90)); n=8; d=$(mktemp -d); for i in $(seq $n); do ( c=0; while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null --max-time 2 http
+  escaneo_breve      habilitado=True destino=10.10.30.10  comando(no se ejecuta): nmap -sT -T4 --max-retries 1 -p 1-1000 10.10.30.10
+  escaneo_sostenido  habilitado=True destino=10.10.30.10  comando(no se ejecuta): nmap -sT -T4 --max-retries 0 --max-rate 1500 -p 1-65535 10.10.30.10
+  fuerza_bruta_http  habilitado=True destino=10.10.30.10  comando(no se ejecuta): bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null -w "%{http_code}\n" --max-time 2 -u fake:fake$RANDOM http://10.
+  copia temporal borrada: SI
+## pruebas benignas minimas
+  [2026-10-28T06:59:47.016Z] dig @10.10.10.20 preflight-1793170787.lab-ppi A:
+    ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 21106
+    ;; flags: qr aa rd ra ad; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 0
+    preflight-1793170787.lab-ppi. 900 IN	A	10.10.30.10
+  [2026-10-28T06:59:47.039Z] dig @10.10.10.20 lab-ppi SOA:
+    VM-AD-DC.ad.francos-sac.com. hostmaster.ad.francos-sac.com. 2 900 600 86400 3600
+  [2026-10-28T06:59:47.062Z] GET http://10.10.30.10/ -> 200 t=0.003815s
+  [2026-10-28T06:59:47.083Z] GET :18081/auth sin credencial -> 401
+  [2026-10-28T06:59:47.101Z] GET :18081/auth fake:incorrecta -> 401
+  [2026-10-28T06:59:47.121Z] GET :18081/auth control:*** -> 200
+## fin=2026-10-28T06:59:47.140Z  epoch=1793170787.142247623

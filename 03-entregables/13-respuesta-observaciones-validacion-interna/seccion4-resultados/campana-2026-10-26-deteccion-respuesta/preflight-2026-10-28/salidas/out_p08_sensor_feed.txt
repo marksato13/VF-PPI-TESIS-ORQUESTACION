@@ -1,0 +1,37 @@
+## p08 sensor feed  inicio=2026-10-28T07:01:35.951Z
+  total 244
+  drwxrwxr-x  2 m4rk m4rk   4096 oct 15 04:45 .
+  drwxr-x--- 20 m4rk m4rk   4096 oct 27 16:56 ..
+  -rw-------  1 m4rk m4rk    470 oct 28 07:01 estado.json
+  -rw-rw-r--  1 m4rk m4rk    476 oct 15 03:49 estado.json.bak-20261015-034951
+  -rw-------  1 m4rk m4rk    473 oct 15 04:00 estado.json.bak-20261015-040004
+  -rw-------  1 m4rk m4rk    473 oct 15 04:03 estado.json.bak-20261015-040312
+  -rw-------  1 m4rk m4rk    474 oct 15 04:40 estado.json.bak-20261015-044054
+  -rw-rw-r--  1 m4rk m4rk     84 oct 28 07:01 feed.json
+  -rw-rw-r--  1 m4rk m4rk     64 oct 28 07:01 feed.sig
+  -rw-rw-r--  1 m4rk m4rk 205422 oct  6 06:14 publicar.log
+## feed.json (entradas)
+  claves: ['entradas', 'generado', 'umbrales', 'version']
+   generado = 1793170890.3560958
+   version = 1
+   umbrales = 2026-10-06.2
+  entradas: 0
+## estado.json (escalada)
+  claves: ['10.10.10.2', '10.10.10.21', '10.10.10.3', '10.10.20.30', '10.10.40.10', '10.10.50.51', '10.10.50.52']
+   {"10.10.10.2": {"bloqueos": 0, "ultimo_visto": 1793114800.4671268}, "10.10.10.21": {"bloqueos": 0, "ultimo_visto": 1793149900.467897}, "10.10.10.3": {"bloqueos": 0, "ultimo_visto": 1793114790.4644935}, "10.10.20.30": {"bloqueos": 0, "ultimo_visto": 1793117950.46479}, "10.10.40.10": {"bloqueos": 0, "ultimo_visto": 1793157650.4666648}, "10.10.50.51": {"bloqueos": 0, "ultimo_visto": 1793170340.477407}, "10.10.50.52": {"bloqueos": 0, "ultimo_visto": 1793170830.4676838}}
+## por que 10.10.50.52: ultimas decisiones del motor para esa IP
+  {"decision": "PERMIT", "detector_name": "if_limpio_2026_10", "duplicados_espejo": 184433367, "entity_ip": "10.10.50.52", "event": "decision", "excluidas_acumulado": 147919, "heuristico": null, "history_coverage_s": 60.0, "logged_at": 1793170882.8126593, "packet_count_10s": 3, "pcaps_ilegibles": 0, "
+  {"decision": "PERMIT", "detector_name": "empty_window_heuristic", "duplicados_espejo": 184457136, "entity_ip": "10.10.50.52", "event": "decision", "excluidas_acumulado": 147923, "heuristico": null, "history_coverage_s": 60.0, "logged_at": 1793170890.9261065, "packet_count_10s": 0, "pcaps_ilegibles":
+  {"decision": "PERMIT", "detector_name": "if_limpio_2026_10", "duplicados_espejo": 184457136, "entity_ip": "10.10.50.52", "event": "decision", "excluidas_acumulado": 147923, "heuristico": null, "history_coverage_s": 60.0, "logged_at": 1793170890.9911025, "packet_count_10s": 3, "pcaps_ilegibles": 0, "
+  ALERT de 10.10.50.52 hoy: 89
+## publicador
+  /home/m4rk/cyberflow/.venv/bin/python scripts/engine/publicar_feed.py --log logs/motor_decision.log --estado /home/m4rk/feed/estado.json --clave-privada artifacts/feed-keys/priv.pem --salida-feed /home/m4rk/feed/feed.json --salida-firma /home/m4rk/feed/feed.sig --ventana-segundos 120 --umbrales 2026-10-06.1 
+  oct 28 07:01:30 cyberflow-sensor python[2063723]: AVISO: --umbrales '2026-10-06.1' no coincide con la versión del código '2026-10-06.2'; el feed se etiqueta con la del código
+  oct 28 07:01:30 cyberflow-sensor python[2063723]: {"block": 0, "entradas": 0, "limit": 0, "revisar_humano": []}
+  oct 28 07:01:30 cyberflow-sensor systemd[1]: ppi-publicar-feed.service: Deactivated successfully.
+  oct 28 07:01:30 cyberflow-sensor systemd[1]: Finished ppi-publicar-feed.service - CyberFlow - publica el feed firmado de acciones (desde las decisiones del motor).
+## nftables del SENSOR (consulta real)
+  consulta OK; tablas:
+    table inet cyberflow_panel {
+  (sin 'elements' => sin elementos)
+## fin=2026-10-28T07:01:36.168Z

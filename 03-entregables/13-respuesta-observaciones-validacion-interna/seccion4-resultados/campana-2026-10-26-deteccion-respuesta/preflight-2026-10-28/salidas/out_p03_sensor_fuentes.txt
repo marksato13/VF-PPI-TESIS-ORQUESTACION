@@ -1,0 +1,98 @@
+## p03 sensor fuentes  inicio=2026-10-28T06:56:25.092Z  epoch=1793170585.093779223
+## anillo /var/lib/ppi-motor-capture
+  drwxr-s--- 2 tcpdump m4rk 278528 oct 28 06:56 /var/lib/ppi-motor-capture
+  ficheros=67  tamano_total=101M
+  mas antiguo: /var/lib/ppi-motor-capture/live-20261028063952.pcap 1464968 B mtime=2026-10-28 06:40:06.878640588 +0000
+  ultimos 4:
+    /var/lib/ppi-motor-capture/live-20261028065623.pcap 438113 B mtime=2026-10-28 06:56:24.931291989 +0000 owner=tcpdump:m4rk mode=640
+    /var/lib/ppi-motor-capture/live-20261028065608.pcap 3104745 B mtime=2026-10-28 06:56:22.201256932 +0000 owner=tcpdump:m4rk mode=640
+    /var/lib/ppi-motor-capture/live-20261028065553.pcap 1683769 B mtime=2026-10-28 06:56:07.827072327 +0000 owner=tcpdump:m4rk mode=640
+    /var/lib/ppi-motor-capture/live-20261028065538.pcap 1313750 B mtime=2026-10-28 06:55:52.056869773 +0000 owner=tcpdump:m4rk mode=640
+  activo (no se toca como cerrado): live-20261028065623.pcap
+## lectura de un PCAP CERRADO: live-20261028065553.pcap (edad 18 s)
+  paquetes=5176 primer=1793170552.135894 ultimo=1793170567.826522 dur=15.7s
+  origenes_IP_distintos=32
+    10.10.10.20: 4 pkts
+    10.10.10.30: 2218 pkts
+    10.10.30.10: 126 pkts
+  stderr tcpdump: reading from file /var/lib/ppi-motor-capture/live-20261028065553.pcap, link-type EN10MB (Ethernet), snapshot length 262144 
+  continuidad entre los 6 ultimos cerrados (por marca de paquete):
+    live-20261028065453.pcap primer=1793170492.880692 ultimo=1793170507.948537
+    live-20261028065508.pcap primer=1793170507.948637 ultimo=1793170522.034098
+    live-20261028065523.pcap primer=1793170522.201285 ultimo=1793170537.651168
+    live-20261028065538.pcap primer=1793170537.713387 ultimo=1793170551.830849
+    live-20261028065553.pcap primer=1793170552.135894 ultimo=1793170567.826522
+    live-20261028065608.pcap primer=1793170567.826635 ultimo=1793170582.167375
+## poda (cyberflow-limpieza)
+  ExecStart=/usr/bin/find /var/lib/ppi-motor-capture -maxdepth 1 -name 'live-*.pcap' -mmin +15 -delete
+## EVE /var/log/suricata/eve.json
+  total 727560
+  -rw-r--r--  1 root root    60855037 oct 28 06:56 eve.json
+  -rw-r--r--  1 root root    84086784 oct  5 18:50 eve.json.1-2026100600.backup
+  -rw-r--r--  1 root root   113516544 oct  9 13:53 eve.json.1-2026101000.backup
+  -rw-r--r--  1 root root   138301440 oct 21 19:07 eve.json.1-2026102200.backup
+  -rw-r--r--  1 root root    12749245 oct 28 00:00 eve.json.1.gz
+  -rw-r--r--  1 root root    13778846 oct 27 00:00 eve.json.2.gz
+  -rw-r--r--  1 root root    12622701 oct 26 00:00 eve.json.3.gz
+  -rw-r--r--  1 root root    11076371 oct 25 00:00 eve.json.4.gz
+  -rw-r--r--  1 root root    14041129 oct 24 00:00 eve.json.5.gz
+  -rw-r--r--  1 root root    11610175 oct 23 00:00 eve.json.6.gz
+  -rw-r--r--  1 root root     3872795 oct 22 00:00 eve.json.7.gz
+  legible directamente por m4rk: SI
+  ultimo evento: {"timestamp":"2026-10-28T06:56:25.211043+0000","flow_id":343
+  ultimas 20000 lineas: desde 2026-10-28T05:22:06.428447+0000 hasta 2026-10-28T06:56:25.211043+0000 | no-JSON: 0
+  event_type: {'flow': 11112, 'ssh': 3385, 'dns': 2706, 'tls': 1585, 'stats': 707, 'krb5': 414, 'http': 86, 'anomaly': 3, 'dhcp': 2}
+  src_ip de interes: {'10.10.10.20': 309, '10.10.10.30': 12669, '10.10.20.20': 3, '10.10.20.30': 3, '10.10.30.10': 18}
+  logrotate suricata:
+    /var/log/suricata/*.log
+    /var/log/suricata/*.json
+    {
+    	daily
+    	maxsize 500M
+    	rotate 7
+    	missingok
+    	compress
+    	copytruncate
+    	sharedscripts
+    	postrotate
+    		/bin/kill -HUP $(cat /var/run/suricata.pid)
+    	endscript
+    }
+## motor_decision.log
+  total 46944
+  -rw-r-----  1 m4rk m4rk  7440051 oct 28 06:56 motor_decision.log
+  -rw-r-----  1 m4rk m4rk 26462900 oct 27 23:59 motor_decision.log.1
+  -rw-r-----  1 m4rk m4rk   543639 oct 18 23:59 motor_decision.log.10.gz
+  -rw-r-----  1 m4rk m4rk   456759 oct 17 23:59 motor_decision.log.11.gz
+  -rw-r-----  1 m4rk m4rk   490304 oct 16 23:59 motor_decision.log.12.gz
+  -rw-r-----  1 m4rk m4rk   922071 oct 15 23:59 motor_decision.log.13.gz
+  -rw-r-----  1 m4rk m4rk  1170871 oct 14 23:59 motor_decision.log.14.gz
+  -rw-r-----  1 m4rk m4rk  1093521 oct 26 23:59 motor_decision.log.2.gz
+  -rw-r-----  1 m4rk m4rk  1136806 oct 25 23:59 motor_decision.log.3.gz
+  -rw-r-----  1 m4rk m4rk  1113640 oct 24 23:59 motor_decision.log.4.gz
+  -rw-r-----  1 m4rk m4rk  1547071 oct 23 23:59 motor_decision.log.5.gz
+  -rw-r-----  1 m4rk m4rk  1574997 oct 22 23:59 motor_decision.log.6.gz
+  -rw-r-----  1 m4rk m4rk   320164 oct 21 23:59 motor_decision.log.7.gz
+  -rw-r-----  1 m4rk m4rk  1104958 oct 20 19:44 motor_decision.log.8.gz
+  -rw-r-----  1 m4rk m4rk  1136336 oct 19 23:59 motor_decision.log.9.gz
+  lineas=15575
+  ultimas 3000 lineas: eventos {'decision': 3000} | decisiones {'PERMIT': 2977, 'ALERT': 23}
+  campos REQ_MOTOR ausentes: ninguno | threshold: {'-0.5693969936322356': 3000} | detector_name: {'if_limpio_2026_10': 1899, 'empty_window_heuristic': 870, 'no_live_packets_heuristic': 231}
+  heuristicos registrados: ninguno | entidades distintas: 12 | filas de 10.10.20.30: 2
+  logged_at - window_end (s): min -1.45 mediana 9.06 max 231.72
+  ultimo registro: logged_at 1793170581.6314585 (hace 4.4 s) window_end 2026-10-28T06:56:10+00:00
+  claves del registro: ['decision', 'detector_name', 'duplicados_espejo', 'entity_ip', 'event', 'excluidas_acumulado', 'heuristico', 'history_coverage_s', 'logged_at', 'packet_count_10s', 'pcaps_ilegibles', 'pcaps_ilegibles_motivo', 'plano_control_descartado', 'score', 'threshold', 'window_end_utc']
+  registros ALERT en todo el log: 153
+  ultima ALERT: {"decision": "ALERT", "detector_name": "if_limpio_2026_10", "duplicados_espejo": 183712182, "entity_ip": "10.10.10.20", "event": "decision", "excluidas_acumulado": 147747, "heuristico": null, "history_coverage_s": 60.0, "logged_at": 1793170521.409389, "packet_
+  ¿rotacion del log del motor?
+alternatives apport apt bootlog btmp cloud-init cyberflow cyberflow.anterior dpkg rsyslog suricata suricata.orig-cyberflow ubuntu-pro-client ufw unattended-upgrades wtmp 
+    config: /etc/logrotate.d/cyberflow
+    config: /etc/logrotate.d/cyberflow.anterior
+## caracteristicas (acumulador)
+  /home/m4rk/cyberflow/artifacts/linea-base/multilayer-v3.csv 1032881467 B mtime=2026-10-28 06:51:21.765393681 +0000
+  cabecera (n columnas): 46
+  ultimas 2000 filas: window_end desde 2026-10-28T06:16:50+00:00 hasta 2026-10-28T06:49:20+00:00
+  entidades distintas: 22
+  columnas clave presentes: ['campaign_id', 'entity_ip', 'window_end_utc', 'eligible_training', 'http_request_count_60s', 'http_auth_failure_ratio_60s', 'dns_query_count_60s']
+  acumular: ExecStart=/home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow/scripts/features/acumular_v3.py \
+## fin=2026-10-28T06:56:26.130Z

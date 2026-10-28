@@ -1,0 +1,9 @@
+## p11a  inicio=2026-10-28T07:03:36.534Z  epoch=1793171016.535578487
+  archivador: 2181af5f8406e3aa4f41a26e24d7ec83bfaf72eee06aa3ee564e2dbba5639eb6 (HEAD: 2181af5f8406e3aa4f41a26e24d7ec83bfaf72eee06aa3ee564e2dbba5639eb6)
+  destino nuevo: /home/m4rk/cf-preflight-20261028/archivador-070336
+  ens37 antes: rx_bytes=14335440532 rx_packets=68618517 rx_drop=6665488
+  anillo antes: 75 ficheros, activo=live-20261028070323.pcap
+  PID archivador=2065599  cmdline=bash /home/m4rk/bin/archivar_captura.sh /home/m4rk/cf-preflight-20261028/archivador-070336 20 
+  ESTADO.txt: (aun no)
+  salida: 2026-10-28T07:03:36Z INICIO archivador DST=/home/m4rk/cf-preflight-20261028/archivador-070336 RING=/var/lib/ppi-motor-capture intervalo=20s CLOSE_AGE=16s MIN_KB=1048576|espacio: 21G libres (42%) en /|2026-10-28T07:03:36Z precheck OK: 21192764 KiB libres (>= 1048576)|2026-10-28T07:03:36Z archivando... (Ctrl-C para terminar con barrido final)|2026-10-28T07:03:36Z OK live-20261028064452.pcap (1296202 bytes) sha=6c53b63feb4299dc87e10747280bb33784f1c9ccf00819fd1082709bad7b20dd|
+## fin=2026-10-28T07:03:40.072Z

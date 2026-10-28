@@ -1,0 +1,81 @@
+## p13  inicio=2026-10-28T07:06:53.478Z
+## (a) ens37 /proc/net/dev vs PCAP en la misma ventana
+  ventana [1793171213.483175816, 1793171303.490590171] (90.0 s)
+  ens37 rx_packets +14809  rx_dropped +1263  rx_bytes +4541632
+  paquetes en el PCAP con marca en la ventana: 14803
+  PCAP/rx_packets = 0.9996 ; PCAP/(rx_packets+rx_dropped) = 0.9210
+  (rx_dropped de la NIC incluye tramas que la pila descarta despues de la copia a los sockets de captura, p.ej.
+   protocolo desconocido; no es por si solo perdida de tcpdump. Los descartes del propio tcpdump siguen NO MEDIDOS.)
+## (b1) PCAP archivado (/home/m4rk/cf-preflight-20261028/archivador-070336): transacciones del preflight
+  Kali->DC udp/53:            0 paquetes
+  Kali<->srv tcp/80:          0 paquetes
+  Kali<->srv tcp/18081:       0 paquetes
+  respuestas HTTP en :18081 (cuerpo legible):
+  nombres pfmarca/preflight en DNS del PCAP:
+  perfiles legitimos (06:58:39-06:58:46) por origen:
+    10.10.20.21: 0 paquetes
+    10.10.20.22: 0 paquetes
+    10.10.20.23: 0 paquetes
+    10.10.20.24: 0 paquetes
+    10.10.20.25: 0 paquetes
+    10.10.20.26: 0 paquetes
+## (b2) EVE
+    2026-10-28T06:59:47.059486+0000 dns 10.10.20.30 -> 10.10.10.20 preflight-1793170787.lab-ppi query 
+    2026-10-28T06:59:47.059828+0000 dns 10.10.20.30 -> 10.10.10.20 preflight-1793170787.lab-ppi query 
+    2026-10-28T06:59:47.061185+0000 dns 10.10.20.30 -> 10.10.10.20 preflight-1793170787.lab-ppi answer NOERROR
+    2026-10-28T06:59:47.061411+0000 dns 10.10.20.30 -> 10.10.10.20 preflight-1793170787.lab-ppi answer NOERROR
+    2026-10-28T07:03:59.868648+0000 dns 10.10.20.30 -> 10.10.10.20 pfmarca1-1793171039.lab-ppi query 
+    2026-10-28T07:03:59.868856+0000 dns 10.10.20.30 -> 10.10.10.20 pfmarca1-1793171039.lab-ppi query 
+    2026-10-28T07:03:59.869923+0000 dns 10.10.20.30 -> 10.10.10.20 pfmarca1-1793171039.lab-ppi answer NOERROR
+    2026-10-28T07:03:59.870159+0000 dns 10.10.20.30 -> 10.10.10.20 pfmarca1-1793171039.lab-ppi answer NOERROR
+    2026-10-28T06:59:47.106079+0000 10.10.20.30 -> 10.10.30.10:80 GET / 200
+    2026-10-28T06:59:47.106177+0000 10.10.20.30 -> 10.10.30.10:80 GET / 200
+    2026-10-28T06:59:47.124520+0000 10.10.20.30 -> 10.10.30.10:18081 GET /auth 401
+    2026-10-28T06:59:47.124520+0000 10.10.20.30 -> 10.10.30.10:18081 GET /auth 401
+    2026-10-28T06:59:47.142088+0000 10.10.20.30 -> 10.10.30.10:18081 GET /auth 401
+    2026-10-28T06:59:47.142088+0000 10.10.20.30 -> 10.10.30.10:18081 GET /auth 401
+    2026-10-28T06:59:47.163758+0000 10.10.20.30 -> 10.10.30.10:18081 GET /auth 200
+    2026-10-28T06:59:47.163758+0000 10.10.20.30 -> 10.10.30.10:18081 GET /auth 200
+    2026-10-28T07:03:59.914544+0000 10.10.20.30 -> 10.10.30.10:80 GET / 200
+    2026-10-28T07:03:59.914569+0000 10.10.20.30 -> 10.10.30.10:80 GET / 200
+    2026-10-28T07:03:59.940790+0000 10.10.20.30 -> 10.10.30.10:18081 GET /auth 401
+    2026-10-28T07:03:59.940863+0000 10.10.20.30 -> 10.10.30.10:18081 GET /auth 401
+    2026-10-28T07:03:59.960579+0000 10.10.20.30 -> 10.10.30.10:18081 GET /auth 401
+    2026-10-28T07:03:59.960579+0000 10.10.20.30 -> 10.10.30.10:18081 GET /auth 401
+    2026-10-28T07:03:59.977616+0000 10.10.20.30 -> 10.10.30.10:18081 GET /auth 200
+    2026-10-28T07:03:59.977616+0000 10.10.20.30 -> 10.10.30.10:18081 GET /auth 200
+  eventos de los perfiles .21-.26 en EVE desde 06:58:
+
+    10.10.20.21 dns    4
+    10.10.20.21 flow   18
+    10.10.20.21 http   10
+    10.10.20.21 tls    2
+    10.10.20.22 dns    8
+    10.10.20.22 flow   16
+    10.10.20.22 http   8
+    10.10.20.22 tls    2
+    10.10.20.23 dns    4
+    10.10.20.23 flow   10
+    10.10.20.23 http   4
+    10.10.20.23 tls    2
+    10.10.20.24 dns    4
+    10.10.20.24 fileinfo 1
+    10.10.20.24 flow   14
+    10.10.20.24 http   7
+    10.10.20.24 tls    2
+    10.10.20.25 dns    4
+    10.10.20.25 flow   10
+    10.10.20.25 http   4
+    10.10.20.26 dns    4
+    10.10.20.26 flow   15
+    10.10.20.26 http   8
+## (b3) decisiones del motor (entidades del preflight, desde 06:58)
+    10.10.20.20 {('PERMIT', 'no_live_packets_heuristic'): 10}
+    10.10.20.21 {('PERMIT', 'empty_window_heuristic'): 4, ('PERMIT', 'no_live_packets_heuristic'): 2}
+    10.10.20.22 {('PERMIT', 'empty_window_heuristic'): 5, ('PERMIT', 'no_live_packets_heuristic'): 7}
+    10.10.20.23 {('PERMIT', 'empty_window_heuristic'): 5, ('PERMIT', 'no_live_packets_heuristic'): 1}
+    10.10.20.24 {('PERMIT', 'empty_window_heuristic'): 5, ('PERMIT', 'no_live_packets_heuristic'): 1}
+    10.10.20.25 {('PERMIT', 'empty_window_heuristic'): 5, ('PERMIT', 'no_live_packets_heuristic'): 1}
+    10.10.20.26 {('PERMIT', 'empty_window_heuristic'): 5, ('PERMIT', 'no_live_packets_heuristic'): 8}
+    10.10.20.30 {('PERMIT', 'no_live_packets_heuristic'): 5, ('ALERT', 'if_limpio_2026_10'): 2}
+## fin=2026-10-28T07:09:06.350Z

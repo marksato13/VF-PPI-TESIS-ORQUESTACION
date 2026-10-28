@@ -35,6 +35,7 @@ Carpeta independiente: no modifica `../4.2-ablacion/aporte-componentes-r2-2026-1
 | `RESULTADOS-VERIFICACION.md` | Resultados de las verificaciones sin ataques |
 | `COMPROBACIONES-PREVIAS.md` | Comprobaciones benignas y bloqueos |
 | `evidencia-precheck/` · `MANIFIESTO-CAMPANA.json` | Evidencia cruda y hashes |
+| `preflight-2026-10-28/` | Preflight operativo actual sobre `a072fea` (sondas, salidas crudas, `SHA256SUMS.txt`, informe): **Preflight bloqueado** — perfiles legítimos detenidos y decisión pendiente sobre la cobertura del motor en vivo |
 
 ## Estado por pieza (documentado / implementado / probado aislado / verificado en entorno)
 

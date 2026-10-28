@@ -1,0 +1,63 @@
+## p05c clientes  inicio=2026-10-28T06:58:39.760Z  epoch=1793170719.763114147
+## cyberflow-lab-ofimatica.service
+  argv unidad: /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil ofimatica --origen 10.10.20.21 --servidor 10.10.30.10 --dns 10.10.10.20 
+    perfil ofimatica desde 10.10.20.21 -> 10.10.30.10
+      web_pequena        ok
+      web_media          ok
+      dns                ok
+      api_ok             ok
+      api_auth           ok
+      api_404            ok
+      https              ok
+      ping               ok
+  rc=0  origen=10.10.20.21  ventana=[2026-10-28T06:58:39.793Z, 2026-10-28T06:58:40.062Z]
+## cyberflow-lab-navegacion.service
+  argv unidad: /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil navegacion --origen 10.10.20.22 --servidor 10.10.30.10 --dns 10.10.10.20 
+    perfil navegacion desde 10.10.20.22 -> 10.10.30.10
+      web_pequena        ok
+      web_grande         ok
+      https              ok
+      dns                ok
+      dns_inexistente    ok
+      api_ok             ok
+      abandono           ok
+  rc=0  origen=10.10.20.22  ventana=[2026-10-28T06:58:40.097Z, 2026-10-28T06:58:40.705Z]
+## cyberflow-lab-descargas.service
+  argv unidad: /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil descargas --origen 10.10.20.23 --servidor 10.10.30.10 --dns 10.10.10.20 
+    perfil descargas desde 10.10.20.23 -> 10.10.30.10
+      web_grande         ok
+      web_media          ok
+      https              ok
+      dns                ok
+  rc=0  origen=10.10.20.23  ventana=[2026-10-28T06:58:40.735Z, 2026-10-28T06:58:41.054Z]
+## cyberflow-lab-aplicacion.service
+  argv unidad: /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil aplicacion --origen 10.10.20.24 --servidor 10.10.30.10 --dns 10.10.10.20 
+    perfil aplicacion desde 10.10.20.24 -> 10.10.30.10
+      api_ok             ok
+      api_post           ok
+      api_500            ok
+      api_lento          ok
+      https              ok
+      dns                ok
+  rc=0  origen=10.10.20.24  ventana=[2026-10-28T06:58:41.084Z, 2026-10-28T06:58:44.927Z]
+## cyberflow-lab-ligero.service
+  argv unidad: /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil ligero --origen 10.10.20.25 --servidor 10.10.30.10 --dns 10.10.10.20 
+    perfil ligero desde 10.10.20.25 -> 10.10.30.10
+      dns                ok
+      api_ok             ok
+      web_pequena        ok
+      ping               ok
+  rc=0  origen=10.10.20.25  ventana=[2026-10-28T06:58:44.957Z, 2026-10-28T06:58:45.070Z]
+## cyberflow-lab-erratico.service
+  argv unidad: /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil erratico --origen 10.10.20.26 --servidor 10.10.30.10 --dns 10.10.10.20 
+    perfil erratico desde 10.10.20.26 -> 10.10.30.10
+      web_pequena        ok
+      web_grande         ok
+      dns                ok
+      api_ok             ok
+      puerto_cerrado     ok
+      abandono           ok
+      ping               ok
+  rc=0  origen=10.10.20.26  ventana=[2026-10-28T06:58:45.100Z, 2026-10-28T06:58:45.311Z]
+## target sigue como estaba: inactive / disabled
+## fin=2026-10-28T06:58:45.337Z  epoch=1793170725.338697708

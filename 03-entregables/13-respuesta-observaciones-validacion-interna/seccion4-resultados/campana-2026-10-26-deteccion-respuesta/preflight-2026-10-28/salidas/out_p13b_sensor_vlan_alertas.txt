@@ -1,0 +1,130 @@
+## p13b  inicio=2026-10-28T07:11:25.608Z
+## (1) tipo de enlace y encapsulado
+    reading from file /home/m4rk/cf-preflight-20261028/archivador-070336/live-20261028064452.pcap, link-type EN10MB (Ethernet), snapshot length 262144
+    06:44:51.072660 00:0c:29:4a:ec:e3 > 00:00:5e:00:01:78, ethertype 802.1Q (0x8100), length 64: vlan 10, p 0, ethertype IPv4 (0x0800), 10.10.10.30.54074 > 10.10.10.1.5351: UDP, length 2
+    06:44:51.072661 00:0c:29:4a:ec:e3 > 00:00:5e:00:01:78, ethertype 802.1Q (0x8100), length 64: vlan 10, p 0, ethertype IPv4 (0x0800), 10.10.10.30.54074 > 10.10.10.1.5351: UDP, length 12
+    06:44:51.072661 00:0c:29:4a:ec:e3 > 00:00:5e:00:01:78, ethertype 802.1Q (0x8100), length 64: vlan 10, p 0, ethertype IPv4 (0x0800), 10.10.10.30.50982 > 10.10.10.1.5351: UDP, length 2
+  tramas con 802.1Q en el primer fichero: 4847 de 4849
+  con filtro consciente de VLAN:
+    Kali->DC udp/53:      8
+    Kali<->srv tcp/80:    48
+    Kali<->srv tcp/18081: 136
+    respuestas HTTP :18081:
+            4 HTTP/1.0 200
+            8 HTTP/1.0 401
+    nombres DNS del preflight:
+      pfmarca1-1793171039.lab-ppi
+      pfmarca2-1793171039.lab-ppi
+      preflight-1793170787.lab-ppi
+    User-Agent cf-preflight en el PCAP: 16
+    10.10.20.21 origen: 361 paquetes
+    10.10.20.22 origen: 3383 paquetes
+    10.10.20.23 origen: 1775 paquetes
+    10.10.20.24 origen: 109 paquetes
+    10.10.20.25 origen: 51 paquetes
+    10.10.20.26 origen: 930 paquetes
+## (2) decisiones del motor para 10.10.20.30 desde 06:58
+    2026-10-28T06:59:50+00:00 logged 1793170793.0574322 PERMIT no_live_packets_heuristic score None thr -0.5693969936322356 pk10 0
+    2026-10-28T07:04:00+00:00 logged 1793171050.0492976 ALERT if_limpio_2026_10 score -0.5822966013037755 thr -0.5693969936322356 pk10 48
+    2026-10-28T07:04:10+00:00 logged 1793171100.1072764 PERMIT no_live_packets_heuristic score None thr -0.5693969936322356 pk10 0
+    2026-10-28T07:04:20+00:00 logged 1793171100.1074572 PERMIT no_live_packets_heuristic score None thr -0.5693969936322356 pk10 0
+    2026-10-28T07:04:30+00:00 logged 1793171100.1076007 PERMIT no_live_packets_heuristic score None thr -0.5693969936322356 pk10 0
+    2026-10-28T07:04:40+00:00 logged 1793171100.1077006 PERMIT no_live_packets_heuristic score None thr -0.5693969936322356 pk10 0
+    2026-10-28T07:04:50+00:00 logged 1793171100.1724524 ALERT if_limpio_2026_10 score -0.5766478334363104 thr -0.5693969936322356 pk10 2
+## (3) feed / estado para 10.10.20.30 ahora
+    feed.json entradas: 0 []
+    feed generado: 1793171490.4629161
+    estado 10.10.20.30: {"bloqueos": 0, "ultimo_visto": 1793171210.462645}
+## (4) features (multilayer-v3.csv) 10.10.20.30 y .21-.26 desde 06:58
+    csv=/home/m4rk/cyberflow/artifacts/linea-base/multilayer-v3.csv
+    columnas de tiempo/ip: ['window_end_utc'] ['entity_ip']
+    2026-10-28T06:58:00+00:00 10.10.20.21 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:00+00:00 10.10.20.22 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:00+00:00 10.10.20.23 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:00+00:00 10.10.20.24 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:00+00:00 10.10.20.25 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:00+00:00 10.10.20.26 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:00+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:10+00:00 10.10.20.21 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:10+00:00 10.10.20.22 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:10+00:00 10.10.20.23 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:10+00:00 10.10.20.24 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:10+00:00 10.10.20.25 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:10+00:00 10.10.20.26 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:10+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:20+00:00 10.10.20.21 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:20+00:00 10.10.20.22 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:20+00:00 10.10.20.23 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:20+00:00 10.10.20.24 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:20+00:00 10.10.20.25 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:20+00:00 10.10.20.26 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:20+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:30+00:00 10.10.20.21 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:30+00:00 10.10.20.22 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:30+00:00 10.10.20.23 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:30+00:00 10.10.20.24 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:30+00:00 10.10.20.25 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:30+00:00 10.10.20.26 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:30+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:40+00:00 10.10.20.21 {'packet_count_10s': '153', 'http_request_count_60s': '4', 'dns_query_count_60s': '2', 'http_request_rate_60s': '0.06666667', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:40+00:00 10.10.20.22 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:40+00:00 10.10.20.23 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:40+00:00 10.10.20.24 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:40+00:00 10.10.20.25 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:40+00:00 10.10.20.26 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:40+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:50+00:00 10.10.20.21 {'packet_count_10s': '48', 'http_request_count_60s': '10', 'dns_query_count_60s': '2', 'http_request_rate_60s': '0.16666667', 'http_auth_failure_ratio_60s': '0.20000000'}
+    2026-10-28T06:58:50+00:00 10.10.20.22 {'packet_count_10s': '1698', 'http_request_count_60s': '6', 'dns_query_count_60s': '4', 'http_request_rate_60s': '0.10000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:50+00:00 10.10.20.23 {'packet_count_10s': '892', 'http_request_count_60s': '4', 'dns_query_count_60s': '2', 'http_request_rate_60s': '0.06666667', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:50+00:00 10.10.20.24 {'packet_count_10s': '75', 'http_request_count_60s': '7', 'dns_query_count_60s': '2', 'http_request_rate_60s': '0.11666667', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:50+00:00 10.10.20.25 {'packet_count_10s': '24', 'http_request_count_60s': '4', 'dns_query_count_60s': '2', 'http_request_rate_60s': '0.06666667', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:50+00:00 10.10.20.26 {'packet_count_10s': '465', 'http_request_count_60s': '6', 'dns_query_count_60s': '2', 'http_request_rate_60s': '0.10000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:58:50+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:59:00+00:00 10.10.20.22 {'packet_count_10s': '0', 'http_request_count_60s': '6', 'dns_query_count_60s': '4', 'http_request_rate_60s': '0.10000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:59:00+00:00 10.10.20.26 {'packet_count_10s': '0', 'http_request_count_60s': '6', 'dns_query_count_60s': '2', 'http_request_rate_60s': '0.10000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:59:00+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:59:10+00:00 10.10.20.22 {'packet_count_10s': '0', 'http_request_count_60s': '6', 'dns_query_count_60s': '4', 'http_request_rate_60s': '0.10000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:59:10+00:00 10.10.20.26 {'packet_count_10s': '0', 'http_request_count_60s': '6', 'dns_query_count_60s': '2', 'http_request_rate_60s': '0.10000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:59:10+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:59:20+00:00 10.10.20.22 {'packet_count_10s': '0', 'http_request_count_60s': '6', 'dns_query_count_60s': '4', 'http_request_rate_60s': '0.10000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:59:20+00:00 10.10.20.26 {'packet_count_10s': '0', 'http_request_count_60s': '6', 'dns_query_count_60s': '2', 'http_request_rate_60s': '0.10000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:59:20+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:59:30+00:00 10.10.20.22 {'packet_count_10s': '0', 'http_request_count_60s': '6', 'dns_query_count_60s': '4', 'http_request_rate_60s': '0.10000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:59:30+00:00 10.10.20.26 {'packet_count_10s': '0', 'http_request_count_60s': '6', 'dns_query_count_60s': '2', 'http_request_rate_60s': '0.10000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:59:40+00:00 10.10.20.22 {'packet_count_10s': '0', 'http_request_count_60s': '6', 'dns_query_count_60s': '4', 'http_request_rate_60s': '0.10000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:59:40+00:00 10.10.20.26 {'packet_count_10s': '0', 'http_request_count_60s': '6', 'dns_query_count_60s': '2', 'http_request_rate_60s': '0.10000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:59:50+00:00 10.10.20.22 {'packet_count_10s': '0', 'http_request_count_60s': '2', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.03333333', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:59:50+00:00 10.10.20.26 {'packet_count_10s': '0', 'http_request_count_60s': '1', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.01666667', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T06:59:50+00:00 10.10.20.30 {'packet_count_10s': '52', 'http_request_count_60s': '8', 'dns_query_count_60s': '4', 'http_request_rate_60s': '0.13333333', 'http_auth_failure_ratio_60s': '0.50000000'}
+    2026-10-28T07:00:00+00:00 10.10.20.26 {'packet_count_10s': '0', 'http_request_count_60s': '2', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.03333333', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T07:00:00+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '8', 'dns_query_count_60s': '4', 'http_request_rate_60s': '0.13333333', 'http_auth_failure_ratio_60s': '0.50000000'}
+    2026-10-28T07:00:10+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '8', 'dns_query_count_60s': '4', 'http_request_rate_60s': '0.13333333', 'http_auth_failure_ratio_60s': '0.50000000'}
+    2026-10-28T07:00:20+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '8', 'dns_query_count_60s': '4', 'http_request_rate_60s': '0.13333333', 'http_auth_failure_ratio_60s': '0.50000000'}
+    2026-10-28T07:00:30+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '8', 'dns_query_count_60s': '4', 'http_request_rate_60s': '0.13333333', 'http_auth_failure_ratio_60s': '0.50000000'}
+    2026-10-28T07:00:40+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '8', 'dns_query_count_60s': '4', 'http_request_rate_60s': '0.13333333', 'http_auth_failure_ratio_60s': '0.50000000'}
+    2026-10-28T07:00:50+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T07:01:00+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T07:01:10+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T07:01:20+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T07:01:30+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T07:01:40+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T07:01:50+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T07:02:00+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T07:02:10+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T07:02:20+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T07:02:30+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T07:02:40+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T07:02:50+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T07:03:00+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T07:03:10+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T07:03:20+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T07:03:30+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T07:03:40+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T07:03:50+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '0', 'dns_query_count_60s': '0', 'http_request_rate_60s': '0.00000000', 'http_auth_failure_ratio_60s': '0.00000000'}
+    2026-10-28T07:04:00+00:00 10.10.20.30 {'packet_count_10s': '48', 'http_request_count_60s': '8', 'dns_query_count_60s': '4', 'http_request_rate_60s': '0.13333333', 'http_auth_failure_ratio_60s': '0.50000000'}
+    2026-10-28T07:04:10+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '8', 'dns_query_count_60s': '4', 'http_request_rate_60s': '0.13333333', 'http_auth_failure_ratio_60s': '0.50000000'}
+    2026-10-28T07:04:20+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '8', 'dns_query_count_60s': '4', 'http_request_rate_60s': '0.13333333', 'http_auth_failure_ratio_60s': '0.50000000'}
+    2026-10-28T07:04:30+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '8', 'dns_query_count_60s': '4', 'http_request_rate_60s': '0.13333333', 'http_auth_failure_ratio_60s': '0.50000000'}
+    2026-10-28T07:04:40+00:00 10.10.20.30 {'packet_count_10s': '0', 'http_request_count_60s': '8', 'dns_query_count_60s': '4', 'http_request_rate_60s': '0.13333333', 'http_auth_failure_ratio_60s': '0.50000000'}
+    2026-10-28T07:04:50+00:00 10.10.20.30 {'packet_count_10s': '2', 'http_request_count_60s': '8', 'dns_query_count_60s': '4', 'http_request_rate_60s': '0.13333333', 'http_auth_failure_ratio_60s': '0.50000000'}
+## fin=2026-10-28T07:12:15.033Z

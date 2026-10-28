@@ -1,0 +1,17 @@
+## p10 relojes  inicio=2026-10-28T07:02:13.268Z  referencia=bastion VM-GESTION
+  Reference ID    : A860FBC3 (168.96.251.195)
+  System time     : 0.001204773 seconds slow of NTP time
+  Last offset     : +0.000157711 seconds
+  RMS offset      : 0.000482165 seconds
+  Root dispersion : 0.029097522 seconds
+## [2026-10-28T07:02:14.203Z] sensor 10.10.60.11
+## [2026-10-28T07:02:16.032Z] kali 10.10.20.30
+## [2026-10-28T07:02:18.071Z] srv-dmz 10.10.30.10
+## [2026-10-28T07:02:19.882Z] clientes 10.10.20.20
+## [2026-10-28T07:02:22.484Z] DNS/DC 10.10.10.20 (SNTP, sin llave SSH)
+  dns      m1 desfase=+0.0009 s  inc=+-0.0002 s  estrato=2
+  dns      m2 desfase=+0.0008 s  inc=+-0.0003 s  estrato=2
+  dns      m3 desfase=+0.0009 s  inc=+-0.0003 s  estrato=2
+  dns      m4 desfase=+0.0008 s  inc=+-0.0003 s  estrato=2
+  dns      m5 desfase=+0.0008 s  inc=+-0.0002 s  estrato=2
+## fin=2026-10-28T07:02:24.028Z

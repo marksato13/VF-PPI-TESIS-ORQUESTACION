@@ -1,0 +1,20 @@
+## p15  2026-10-28T07:12:45.858Z
+    2026-10-28T06:58:40+00:00 10.10.20.21 PERMIT no_live_packets_heuristic pk10 0 logged-window_end=12.38s
+    2026-10-28T06:58:50+00:00 10.10.20.21 PERMIT no_live_packets_heuristic pk10 0 logged-window_end=2.38s
+    2026-10-28T06:58:40+00:00 10.10.20.22 PERMIT empty_window_heuristic pk10 0 logged-window_end=12.38s
+    2026-10-28T06:58:50+00:00 10.10.20.22 PERMIT no_live_packets_heuristic pk10 0 logged-window_end=2.38s
+    2026-10-28T06:58:40+00:00 10.10.20.23 PERMIT empty_window_heuristic pk10 0 logged-window_end=12.38s
+    2026-10-28T06:58:50+00:00 10.10.20.23 PERMIT no_live_packets_heuristic pk10 0 logged-window_end=2.38s
+    2026-10-28T06:58:40+00:00 10.10.20.24 PERMIT empty_window_heuristic pk10 0 logged-window_end=12.38s
+    2026-10-28T06:58:50+00:00 10.10.20.24 PERMIT no_live_packets_heuristic pk10 0 logged-window_end=2.38s
+    2026-10-28T06:58:40+00:00 10.10.20.25 PERMIT empty_window_heuristic pk10 0 logged-window_end=12.38s
+    2026-10-28T06:58:50+00:00 10.10.20.25 PERMIT no_live_packets_heuristic pk10 0 logged-window_end=2.38s
+    2026-10-28T06:58:40+00:00 10.10.20.26 PERMIT empty_window_heuristic pk10 0 logged-window_end=12.38s
+    2026-10-28T06:58:50+00:00 10.10.20.26 PERMIT no_live_packets_heuristic pk10 0 logged-window_end=2.38s
+    2026-10-28T06:59:50+00:00 10.10.20.22 PERMIT no_live_packets_heuristic pk10 0 logged-window_end=3.06s
+    2026-10-28T06:59:50+00:00 10.10.20.26 PERMIT no_live_packets_heuristic pk10 0 logged-window_end=3.06s
+    2026-10-28T06:59:50+00:00 10.10.20.30 PERMIT no_live_packets_heuristic pk10 0 logged-window_end=3.06s
+    2026-10-28T07:04:00+00:00 10.10.20.30 ALERT if_limpio_2026_10 pk10 48 logged-window_end=10.05s
+    2026-10-28T07:04:50+00:00 10.10.20.30 ALERT if_limpio_2026_10 pk10 2 logged-window_end=10.17s
+## journal del publicador 07:03-07:08 (menciones de 10.10.20.30 / LIMIT / BLOCK)
+  (unidades del publicador: ppi-publicar-feed.service ppi-publicar-feed.timer )
