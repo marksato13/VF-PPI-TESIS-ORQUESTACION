@@ -24,6 +24,14 @@ Reglas (ver config-campana.json y PLAN):
   - Umbrales en escala score_samples, con precisión completa, leídos de la config (sin valores por defecto) y
     contrastados con la calibración de 4.1 cuando el fichero está accesible. Señal IF: score < umbral (estricto).
     Escala de anomalía equivalente: anomalia = -score, umbral_anomalia = -umbral, señal si anomalia > umbral_anomalia.
+  - Las 7 configuraciones son CLASIFICACIONES COMPARATIVAS DERIVADAS de los registros (análisis de componentes y
+    umbrales). Su tiempo (logged_at del registro usado) es la disponibilidad de esa evidencia, NO la latencia de
+    emisión de la configuración. Ninguna se etiqueta como «emitida», ni siquiera IF_0.05: su umbral recalibrado
+    (65 553) no es el desplegado (65 633) aunque ambas clasificaciones coincidan en una ventana.
+  - Las EMISIONES OBSERVADAS (decisiones ALERT y señales heurísticas registradas en vivo) se listan aparte, con
+    registro, emisor, decisión, logged_at/window_end, modelo/score/umbral REGISTRADOS y atribución; no son una octava
+    configuración. El emisor y el umbral se toman del registro: si faltan o no identifican la configuración, se
+    declaran «desconocido» (no se rellenan con el valor esperado ni se deduce una emisión de un score).
 """
 from __future__ import annotations
 import argparse, csv, hashlib, json, math
@@ -106,6 +114,7 @@ def leer_motor(path: Path):
         falta = [k for k in REQ_MOTOR if k not in r]
         if falta:
             inc.append(f"motor:{ln}: faltan claves {falta}"); continue
+        r["_ln"] = ln                                                    # referencia al registro de respaldo
         try:
             r["_logged"] = float(r["logged_at"]); r["_wend"] = ep_iso(r["window_end_utc"])
             r["_pk10"] = float(r["packet_count_10s"])
@@ -184,27 +193,40 @@ def verificar_procedencia(cfg: dict, cfg_path: Path, U: dict) -> dict:
 
 
 # ------------------------------------------------------------------- señales por ventana
+# Procedencia de las configuraciones comparativas: TODAS derivadas de los registros (ninguna es una emisión).
+# Antes de 2026-10-28.2: IF_0.05 = "emitido_por_modelo_desplegado" si el registro era ALERT (incorrecto: el umbral
+# recalibrado no es el desplegado); HEUR = "emitido_ALERT(auth_heredada)" / "registrada_en_vivo" (eso es evidencia
+# observada de la ventana, que ahora va en 'evidencia_registrada', no en la base de la configuración).
+BASE_DERIVADA = {
+    "IF_0.05": "derivado(umbral_recalibrado_0.05; distinto del desplegado)",
+    "IF_0.03": "derivado(umbral_no_desplegado)",
+    "IF_0.01": "derivado(umbral_no_desplegado)",
+    "HEUR": "derivado(componente_heuristico_registrado)",
+    "HIB_0.05": "derivado(IF_0.05 OR HEUR)", "HIB_0.03": "derivado(IF_0.03 OR HEUR)",
+    "HIB_0.01": "derivado(IF_0.01 OR HEUR)"}
+TIEMPO_DERIVADO = "disponibilidad_del_registro(logged_at); no es latencia de emision de esta configuracion"
+
+
 def senales(r: dict, U: dict) -> dict:
-    """Señal por componente, con score null a salvo, y separación emitido/derivado por componente.
-    U = {α: umbral score_samples}. Los tres α cortan la MISMA puntuación; HEUR no depende de α (se calcula una vez)."""
+    """Clasificación comparativa por componente (derivada), con score null a salvo.
+    U = {α: umbral score_samples}. Los tres α cortan la MISMA puntuación; HEUR no depende de α (se calcula una vez).
+    'evidencia_registrada' describe lo que el registro muestra (decisión, detector, heurístico) sin convertirlo en
+    procedencia de la configuración."""
     sc, pk = r.get("_score"), r.get("_pk10", 0)
     if_valida = (sc is not None) and (pk > 0)
     ifs = {a: bool(if_valida and sc < U[a]) for a in ALFAS}             # estricto: score == umbral NO es señal
     heur_field = r.get("heuristico") is not None
     det = r.get("decision") == "ALERT"
-    auth_emitio = det and r.get("detector_name") == AUTH_DETECTOR        # regla heredada: SÍ emite ALERT
-    modelo_emitio = det and r.get("detector_name") != AUTH_DETECTOR      # el modelo desplegado emitió ALERT
-    heur_sig = bool(heur_field or auth_emitio)                           # componente 'heurísticos' (sin duplicar)
+    auth_alert = det and r.get("detector_name") == AUTH_DETECTOR         # regla heredada registrada con ALERT
+    heur_sig = bool(heur_field or auth_alert)                            # componente 'heurísticos' (sin duplicar)
     g = {**{f"IF_{a}": ifs[a] for a in ALFAS}, "HEUR": heur_sig,
          **{f"HIB_{a}": bool(ifs[a] or heur_sig) for a in ALFAS},
-         "if_valida": if_valida, "modelo_emitio_alert": modelo_emitio, "auth_emitio_alert": auth_emitio,
-         "heuristico_registrado_en_vivo": heur_field}
-    g["base"] = {
-        "IF_0.05": "emitido_por_modelo_desplegado" if modelo_emitio else "derivado(umbral_recalibrado)",
-        "IF_0.03": "derivado(umbral_no_desplegado)",
-        "IF_0.01": "derivado(umbral_no_desplegado)",
-        "HEUR": "emitido_ALERT(auth_heredada)" if auth_emitio else ("registrada_en_vivo" if heur_field else "-"),
-        "HIB_0.05": "derivado(feed)", "HIB_0.03": "derivado(feed)", "HIB_0.01": "derivado(feed)"}
+         "if_valida": if_valida, "heuristico_registrado_en_vivo": heur_field}
+    g["base"] = dict(BASE_DERIVADA)
+    g["evidencia_registrada"] = {
+        "decision_registrada": r.get("decision"), "detector_name_registrado": r.get("detector_name"),
+        "heuristico_registrado": (r.get("heuristico") or {}).get("heuristico") if heur_field else None,
+        "alerta_auth_heredada_registrada": auth_alert}
     return g
 
 
@@ -327,9 +349,10 @@ def clasificar(ep, regs_global, origen, U, destinos, integridad_apto=None):
                    "atribucion": atrib, "atribucion_confirmada": conf, "base": g["base"][c],
                    "score": r.get("_score"), "score_estado": r.get("_score_estado"),
                    "detector_name": r.get("detector_name"),
-                   # logged_at es la emisión real solo si ESTA configuración emitió en vivo; en una derivada es
-                   # cuándo quedó registrada la puntuación, no una latencia de emisión de esa configuración
-                   "tiempo_es_emision_real": g["base"][c].startswith("emitido")}
+                   # clasificación derivada: logged_at = cuándo quedó registrada la evidencia usada; la latencia
+                   # real de emisión solo se mide con 'emisiones_observadas' (antes: tiempo_es_emision_real)
+                   "tiempo_significado": TIEMPO_DERIVADO,
+                   "evidencia_registrada": g["evidencia_registrada"]}
             if rel in ("previa", "ambigua"):
                 previas.append(reg)
             elif rel == "durante_actividad":
@@ -377,6 +400,116 @@ def clasificar(ep, regs_global, origen, U, destinos, integridad_apto=None):
                 comp[k] += 1
         res[f"compartidas_durante_{a}"] = comp
     return res
+
+
+# ------------------------------------------------------------------- emisiones observadas (no son una configuración)
+def _numero(v) -> bool:
+    return isinstance(v, (int, float)) and not isinstance(v, bool) and math.isfinite(v)
+
+
+def emisor_de(r: dict, detector_modelo) -> tuple:
+    """Componente emisor según el REGISTRO (detector_name), no según el score. Devuelve (componente, motivo)."""
+    dn = r.get("detector_name")
+    if r.get("decision") == "ALERT":
+        if dn == AUTH_DETECTOR:
+            return "heuristico_auth_heredado", None
+        if detector_modelo and dn == detector_modelo:
+            return "IF_desplegado", None
+        return "desconocido", ("ALERT sin detector_name registrado" if not dn else
+                               f"detector_name {dn!r} no identifica el IF desplegado esperado ({detector_modelo!r})")
+    return "heuristico:" + str((r.get("heuristico") or {}).get("heuristico") or "sin_nombre"), None
+
+
+def configuracion_emisora(r: dict, componente: str, desplegado) -> dict:
+    """Configuración realmente usada, solo con lo REGISTRADO. Si falta o no cuadra: desconocida (no se rellena)."""
+    thr = r.get("threshold")
+    umbral = thr if _numero(thr) else None
+    out = {"umbral_registrado": umbral if umbral is not None else "desconocido (no registrado o no numérico)"}
+    if componente == "IF_desplegado":
+        if umbral is None:
+            out.update(estado="desconocida", motivo="el registro no trae un umbral numérico")
+        elif not _numero(desplegado):
+            out.update(estado="desconocida", motivo="la config no declara umbrales.desplegado_referencia")
+        elif umbral == desplegado:
+            out.update(estado="confirmada", configuracion="IF desplegado (umbral registrado == desplegado_referencia)")
+        else:
+            out.update(estado="desconocida",
+                       motivo=f"umbral registrado {umbral!r} != desplegado_referencia {desplegado!r}")
+        sc = r.get("_score")
+        out["coherencia_score_umbral"] = (None if (sc is None or umbral is None) else
+                                          "coherente(score<umbral)" if sc < umbral else
+                                          "incoherente(ALERT con score>=umbral registrado)")
+    elif componente.startswith("heuristico"):
+        out.update(estado="identificada", configuracion=componente + " (no usa umbral del IF)")
+    else:
+        out.update(estado="desconocida", motivo="emisor no identificado en el registro")
+    return out
+
+
+def _relacion_episodio(r: dict, eps: dict, origen: str, destinos) -> dict:
+    """Relación de un evento real con los episodios: mismos criterios temporales y de atribución que clasificar()."""
+    nada = {"episodio_id": None, "relacion_temporal": "fuera_de_episodio", "atribucion": None,
+            "atribucion_confirmada": False}
+    if r["entity_ip"] != origen:
+        return {**nada, "relacion_temporal": "fuera_de_episodio(otra_entidad)"}
+    for clave, ep in eps.items():
+        ini, fin = ep["inicio_ep"], ep["fin_ep"]
+        if fin is None or not (ini <= r["_logged"] <= fin + HORIZONTE_S):
+            continue
+        eid = f"{ep['escenario']}-r{ep['repeticion']}"
+        incluir, atrib, conf = atribuir(destinos, eid, r["window_end_utc"], ep.get("destino"))
+        w0, w1 = r["_wend"] - HORIZONTE_S, r["_wend"]
+        solapa = w1 > ini and w0 < fin
+        rel = ("durante_actividad" if (solapa and r["_logged"] <= fin)
+               else "posterior" if (solapa and r["_logged"] > fin)
+               else "previa" if r["_wend"] <= ini else "ambigua")
+        return {"episodio_id": clave, "relacion_temporal": rel, "atribucion": atrib,
+                "atribucion_confirmada": bool(incluir and conf),
+                "desde_inicio_generador_s": round(r["_logged"] - ini, 1),
+                "tras_fin_generador_s": round(r["_logged"] - fin, 1)}
+    return nada
+
+
+def emisiones_observadas(regs, eps, origen, destinos, desplegado, detector_modelo, ref_motor) -> list:
+    """Eventos REALES del registro: decisiones ALERT y señales heurísticas registradas en vivo. Un score que cruza un
+    umbral sin ALERT ni heurístico registrado NO es una emisión y no aparece aquí."""
+    out = []
+    for r in regs:
+        alerta = r.get("decision") == "ALERT"
+        heur = r.get("heuristico") is not None
+        if not (alerta or heur):
+            continue
+        comp, motivo = emisor_de(r, detector_modelo)
+        h = r.get("heuristico") or {}
+        out.append({
+            "registro_id": r.get("decision_id") or r.get("id") or f"motor:{r['_ln']}",
+            "tipo": "alerta_emitida" if alerta else "senal_heuristica_registrada(sin_ALERT)",
+            "componente_emisor": comp, **({"motivo_emisor_desconocido": motivo} if motivo else {}),
+            "decision_emitida": r.get("decision"),
+            "accion_heuristica_registrada": h.get("accion") if heur else None,
+            "logged_at_utc": iso(r["_logged"]), "window_end_utc": r["window_end_utc"],
+            "entity_ip": r["entity_ip"],
+            "modelo_registrado": r.get("detector_name") or "desconocido (no registrado)",
+            "score_registrado": r.get("_score"), "score_estado": r.get("_score_estado"),
+            "configuracion_emisora": configuracion_emisora(r, comp, desplegado),
+            **_relacion_episodio(r, eps, origen, destinos),
+            "respaldo": {**ref_motor, "linea": r["_ln"]}})
+    return out
+
+
+def resumen_emisiones_episodio(lst: list) -> dict:
+    """Por episodio: la latencia REAL solo sale de una alerta del IF desplegado confirmada, durante y atribuida."""
+    ok = [e for e in lst if e["tipo"] == "alerta_emitida" and e["componente_emisor"] == "IF_desplegado"
+          and e["configuracion_emisora"]["estado"] == "confirmada"
+          and e["relacion_temporal"] == "durante_actividad" and e["atribucion_confirmada"]]
+    p = ok[0] if ok else None
+    return {"nota": "eventos reales del registro; no son una configuración de la Tabla 8",
+            "registros": [e["registro_id"] for e in lst],
+            "primera_alerta_IF_desplegado_confirmada_durante": (
+                {k: p[k] for k in ("registro_id", "logged_at_utc", "window_end_utc", "desde_inicio_generador_s")}
+                if p else None),
+            "eventos_con_emisor_o_configuracion_desconocida": sum(
+                1 for e in lst if e["configuracion_emisora"]["estado"] == "desconocida")}
 
 
 # ------------------------------------------------------------------- control normal (FPR)
@@ -462,6 +595,14 @@ def main() -> int:
         else:
             t["no_evaluables"].append(eid)
 
+    # emisiones REALES, aparte de las 7 configuraciones comparativas (no entran en la Tabla 8)
+    ref_motor = {"archivo": a.motor, "sha256": hashlib.sha256(Path(a.motor).read_bytes()).hexdigest()}
+    detector_modelo = (cfg.get("modelo") or {}).get("detector")
+    emis = emisiones_observadas(regs, eps, origen, destinos, desplegado, detector_modelo, ref_motor)
+    for eid in por_ep:
+        por_ep[eid]["emisiones_observadas"] = resumen_emisiones_episodio(
+            [e for e in emis if e["episodio_id"] == eid])
+
     salida = {
         "fuentes": {"marcas": a.marcas, "motor": a.motor, "config": a.config},
         "umbrales": {"0.05_recalibrado": U["0.05"], "0.03_recalibrado": U["0.03"],
@@ -471,9 +612,32 @@ def main() -> int:
                      "regla_escala_anomalia": "anomalia = -score; señal si anomalia > umbral_anomalia",
                      "orden_respetado": orden_ok, "procedencia": procedencia},
         "configuraciones": list(CONFIGS),
-        "nota_umbral": "el motor emitió en vivo con el umbral DESPLEGADO; IF_0.05/0.03/0.01 recalculados son "
-                       "derivados (análisis de umbrales sobre los scores registrados, no alertas emitidas).",
-        "clasificacion_por": "logged_at (emisión real) + solape de la ventana con el ataque; window_end ≠ emisión",
+        "nota_umbral": "el motor emitió en vivo con el umbral DESPLEGADO; las 7 configuraciones (incluida IF_0.05 "
+                       "recalibrada) son clasificaciones comparativas derivadas de los registros, no alertas emitidas.",
+        "clasificacion_por": "logged_at (instante en que quedó registrada la evidencia usada) + solape de la ventana "
+                             "con el ataque; window_end ≠ logged_at. En las configuraciones derivadas ese tiempo es "
+                             "disponibilidad del registro; la latencia real de emisión está en emisiones_observadas.",
+        "tiempos": {
+            "clasificaciones_derivadas": TIEMPO_DERIVADO,
+            "latencia_real_de_emision": "solo emisiones_observadas con componente_emisor=IF_desplegado, "
+                                        "configuracion_emisora.estado=confirmada, relación durante y atribución "
+                                        "confirmada: logged_at - inicio del generador",
+            "cambio_de_campos": "hasta a6dc5ab: tiempo_es_emision_real (bool) y base 'emitido_por_modelo_desplegado'"
+                                "/'emitido_ALERT(auth_heredada)'/'registrada_en_vivo'; desde 2026-10-28.2: "
+                                "tiempo_significado, base derivada, evidencia_registrada y emisiones_observadas"},
+        "emisiones_observadas": {
+            "definicion": "decisiones ALERT y señales heurísticas registradas en vivo, tal como constan en el "
+                          "registro; NO son una configuración ni entran en la Tabla 8; un score que cruza un umbral "
+                          "sin ese registro no es una emisión",
+            "detector_modelo_esperado": detector_modelo or "desconocido (la config no declara modelo.detector)",
+            "umbral_desplegado_referencia": desplegado, "fuente": ref_motor,
+            "resumen": {
+                "eventos": len(emis),
+                "por_componente": {k: sum(1 for e in emis if e["componente_emisor"] == k)
+                                   for k in sorted({e["componente_emisor"] for e in emis})},
+                "configuracion_desconocida": sum(1 for e in emis
+                                                 if e["configuracion_emisora"]["estado"] == "desconocida")},
+            "registros": emis},
         "atribucion_destino": "con --destinos" if destinos is not None else "sin evidencia de destino (incompleta)",
         "integridad_fuentes": ("de " + a.integridad) if a.integridad else "DESCONOCIDA (no se pasó --integridad); "
                                "ningún episodio se declara evaluable sin verificación de integridad",
@@ -517,6 +681,16 @@ def _tabla_md(path, tabla, salida):
     L += ["", f"No evaluables: {noev}", "",
           "Métricas por ventana: " + ("calculadas" if salida["metricas_por_ventana"].get("calculadas")
                                        else "no calculadas (" + salida["metricas_por_ventana"]["motivo"] + ")")]
+    # registro aparte: lo que el sistema emitió realmente (no es una columna ni una octava configuración)
+    L += ["", "## Emisiones observadas (registro aparte; no es una configuración de la tabla)", "",
+          "Primera alerta del IF **desplegado** con umbral registrado = desplegado, durante el ataque y con "
+          "atribución confirmada. Es la única base para una latencia real de emisión.", "",
+          "| Episodio | Primera alerta real (s desde el inicio) | Registro | Eventos con emisor/configuración desconocida |",
+          "|---|---|---|---|"]
+    for eid, e in salida["episodios"].items():
+        eo = e["emisiones_observadas"]; p = eo["primera_alerta_IF_desplegado_confirmada_durante"]
+        L.append(f"| {eid} | {p['desde_inicio_generador_s'] if p else '—'} | {p['registro_id'] if p else '—'} "
+                 f"| {eo['eventos_con_emisor_o_configuracion_desconocida']} |")
     path.write_text("\n".join(L) + "\n", encoding="utf-8")
 
 

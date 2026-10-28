@@ -1,28 +1,41 @@
 #!/usr/bin/env python3
-"""No-regresión de α 0,05 y 0,03 al añadir α 0,01 (comprobación del CÓDIGO con fixtures, no resultado experimental).
+"""No-regresión de DETECCIÓN y COBERTURA del analizador (comprobación del CÓDIGO con fixtures, no resultado
+experimental).
 
 Corre un analizador sobre las MISMAS entradas (tests/fixtures.py + evidencia de destino completa + integridad apta +
-control + etiquetas) y proyecta solo lo que ya existía con 5 configuraciones (IF_0.05, IF_0.03, HEUR, HIB_0.05,
-HIB_0.03, compartidas 0,05, control, métricas, umbrales). Los campos AÑADIDOS (IF_0.01, HIB_0.01, compartidas 0,01,
-tiempo_es_emision_real, ...) se excluyen de la proyección: son aditivos y no pueden alterar lo anterior.
+control + etiquetas) y proyecta lo que no debe cambiar: evaluable, cobertura, evidencia de destino, categoría,
+primera señal (ventana, logged_at, tiempos, score, atribución) por configuración, señales previas/observadas,
+solapamiento, Tabla 8, control FPR, métricas por ventana y calidad de datos.
 
-Golden: tests/golden-5config-fixtures.json, generado con el analizar.py ANTERIOR (último cambio en 2eb4577, vigente
-hasta 0d40bdb):
-  git show 0d40bdb:<carpeta>/scripts/analizar.py > /tmp/analizar_prev.py
-  python3 tests/regresion_alfa.py --generar-golden --analizador /tmp/analizar_prev.py
-Comparación directa (sin golden):  python3 tests/regresion_alfa.py --comparar /tmp/analizar_prev.py
+Exclusiones EXPLÍCITAS (lo único que la corrección de procedencia de 2026-10-28.2 debe cambiar):
+  - base                   etiqueta de procedencia; antes IF_0.05 podía decir 'emitido_por_modelo_desplegado' y HEUR
+                           'emitido_ALERT(auth_heredada)'/'registrada_en_vivo'; ahora todas son 'derivado(...)'
+  - tiempo_es_emision_real campo de a6dc5ab, retirado (afirmaba emisión real para IF_0.05 recalibrado)
+  - tiempo_significado     campo nuevo: disponibilidad del registro, no latencia de emisión
+  - evidencia_registrada   campo nuevo: lo que el registro muestra (decisión/detector/heurístico)
+  - emisiones_observadas   bloque nuevo, aparte de las configuraciones
+Con --comparar se listan además, separadas, las diferencias en esas claves, para que no queden ocultas.
+
+Goldens (generados con analizadores ANTERIORES, sobre estas mismas entradas):
+  tests/golden-5config-fixtures.json  analizar.py de 0d40bdb (5 configuraciones)
+  tests/golden-7config-fixtures.json  analizar.py de a6dc5ab (7 configuraciones, antes de corregir la procedencia)
+  git show <commit>:<carpeta>/scripts/analizar.py > /tmp/analizar_prev.py
+  python3 tests/regresion_alfa.py --generar-golden 7 --analizador /tmp/analizar_prev.py
+Comparación directa:  python3 tests/regresion_alfa.py --comparar /tmp/analizar_prev.py [--configs 5|7]
 """
 from __future__ import annotations
-import argparse, importlib.util, json, sys, tempfile
+import argparse, contextlib, importlib.util, io, json, sys, tempfile
 from pathlib import Path
 
 AQUI = Path(__file__).resolve().parent
 sys.path.insert(0, str(AQUI))
 import fixtures  # noqa: E402
 
-CONFIGS_PREVIAS = ("IF_0.05", "IF_0.03", "HEUR", "HIB_0.05", "HIB_0.03")
-CLAVES_NUEVAS_REG = ("tiempo_es_emision_real",)
-GOLDEN = AQUI / "golden-5config-fixtures.json"
+CONFIGS = {5: ("IF_0.05", "IF_0.03", "HEUR", "HIB_0.05", "HIB_0.03"),
+           7: ("IF_0.05", "IF_0.03", "IF_0.01", "HEUR", "HIB_0.05", "HIB_0.03", "HIB_0.01")}
+COMPARTIDAS = {5: ("0.05",), 7: ("0.05", "0.01")}
+CLAVES_PROCEDENCIA = ("base", "tiempo_es_emision_real", "tiempo_significado", "evidencia_registrada")
+GOLDEN = {5: AQUI / "golden-5config-fixtures.json", 7: AQUI / "golden-7config-fixtures.json"}
 
 
 def cargar_analizador(ruta: Path):
@@ -32,7 +45,6 @@ def cargar_analizador(ruta: Path):
 
 def correr(an) -> dict:
     """Mismas entradas para cualquier versión del analizador. Devuelve analisis.json."""
-    import contextlib, io
     with tempfile.TemporaryDirectory() as tmp:
         d = Path(tmp)
         with contextlib.redirect_stdout(io.StringIO()):
@@ -62,35 +74,49 @@ def correr(an) -> dict:
         return json.loads((d / "out" / "analisis.json").read_text(encoding="utf-8"))
 
 
-def _reg(x):
-    return {k: v for k, v in x.items() if k not in CLAVES_NUEVAS_REG} if isinstance(x, dict) else x
+def sin_procedencia(x):
+    """Quita, a cualquier profundidad, las claves de procedencia/etiquetado temporal (exclusiones documentadas)."""
+    if isinstance(x, dict):
+        return {k: sin_procedencia(v) for k, v in x.items() if k not in CLAVES_PROCEDENCIA}
+    if isinstance(x, list):
+        return [sin_procedencia(v) for v in x]
+    return x
 
 
-def proyeccion_5(j: dict) -> dict:
-    """Solo lo que existía con 5 configuraciones (sin rutas temporales)."""
+def proyeccion(j: dict, n: int) -> dict:
+    """Detección y cobertura de las n configuraciones (sin rutas temporales ni claves de procedencia)."""
+    C = CONFIGS[n]
     eps = {}
     for eid, e in sorted(j["episodios"].items()):
         eps[eid] = {"evaluable": e["evaluable"], "motivo_no_evaluable": e["motivo_no_evaluable"],
                     "cobertura": e["cobertura"], "evidencia_destino": e["evidencia_destino"],
-                    **{c: _reg(e[c]) for c in CONFIGS_PREVIAS},
-                    "senales_previas_o_ambiguas": [_reg(s) for s in e["senales_previas_o_ambiguas"]
-                                                   if s["configuracion"] in CONFIGS_PREVIAS],
-                    "senales_observadas_sin_confirmar": [_reg(s) for s in e["senales_observadas_sin_confirmar"]
-                                                         if s["configuracion"] in CONFIGS_PREVIAS],
-                    "compartidas_durante_0.05": e["compartidas_durante_0.05"]}
-    t8 = {f: {"evaluables": t["evaluables"], "no_evaluables": t["no_evaluables"],
-              **{c: t[c] for c in CONFIGS_PREVIAS}} for f, t in sorted(j["tabla8"].items())}
-    ctl = j["control_normal_fpr"]
-    met = j["metricas_por_ventana"]
-    return {"umbrales": {k: j["umbrales"][k] for k in ("0.05_recalibrado", "0.03_recalibrado",
-                                                         "0.05_desplegado_en_vivo")},
-            "tabla8": t8, "episodios": eps,
-            "control_normal_fpr": {k: v for k, v in ctl.items() if k not in ("IF_0.01", "HIB_0.01")},
-            "metricas_por_ventana": {k: v for k, v in met.items() if k not in ("IF_0.01", "HIB_0.01")},
-            "calidad_datos": {k: v for k, v in j["calidad_datos"].items() if k != "aviso_orden_umbrales"}}
+                    **{c: e[c] for c in C},
+                    "senales_previas_o_ambiguas": [s for s in e["senales_previas_o_ambiguas"]
+                                                   if s["configuracion"] in C],
+                    "senales_observadas_sin_confirmar": [s for s in e["senales_observadas_sin_confirmar"]
+                                                         if s["configuracion"] in C],
+                    **{f"compartidas_durante_{a}": e[f"compartidas_durante_{a}"] for a in COMPARTIDAS[n]}}
+    t8 = {f: {"evaluables": t["evaluables"], "no_evaluables": t["no_evaluables"], **{c: t[c] for c in C}}
+          for f, t in sorted(j["tabla8"].items())}
+    ctl, met = j["control_normal_fpr"], j["metricas_por_ventana"]
+    otras = [c for c in CONFIGS[7] if c not in C]
+    return sin_procedencia({
+        "umbrales": {k: j["umbrales"][k] for k in ("0.05_recalibrado", "0.03_recalibrado", "0.05_desplegado_en_vivo")
+                     + (("0.01_recalibrado",) if n == 7 else ())},
+        "tabla8": t8, "episodios": eps,
+        "control_normal_fpr": {k: v for k, v in ctl.items() if k not in otras},
+        "metricas_por_ventana": {k: v for k, v in met.items() if k not in otras},
+        "calidad_datos": {k: v for k, v in j["calidad_datos"].items() if k != "aviso_orden_umbrales"}})
 
 
-def diferencias(a, b, camino="") -> list[str]:
+def procedencia(j: dict) -> dict:
+    """Solo las claves excluidas, por episodio y configuración (para mostrarlas aparte)."""
+    return {eid: {c: {k: e[c].get(k) for k in CLAVES_PROCEDENCIA if k in e[c]}
+                  for c in CONFIGS[7] if isinstance(e.get(c), dict)}
+            for eid, e in sorted(j["episodios"].items())}
+
+
+def diferencias(a, b, camino="") -> list:
     if isinstance(a, dict) and isinstance(b, dict):
         out = [f"{camino}/{k}: solo en uno" for k in sorted(set(a) ^ set(b))]
         for k in sorted(set(a) & set(b)):
@@ -105,21 +131,32 @@ def diferencias(a, b, camino="") -> list[str]:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--generar-golden", action="store_true")
-    ap.add_argument("--analizador", help="analizador con el que generar el golden (el ANTERIOR)")
-    ap.add_argument("--comparar", help="analizador anterior: compara su proyección con la del actual")
+    ap.add_argument("--generar-golden", type=int, choices=(5, 7))
+    ap.add_argument("--analizador", help="analizador ANTERIOR con el que generar el golden")
+    ap.add_argument("--comparar", help="analizador anterior: compara directamente con el actual")
+    ap.add_argument("--configs", type=int, choices=(5, 7), default=7)
     a = ap.parse_args()
     actual = cargar_analizador(AQUI.parent / "scripts" / "analizar.py")
     if a.generar_golden:
-        p = proyeccion_5(correr(cargar_analizador(Path(a.analizador))))
-        GOLDEN.write_text(json.dumps(p, ensure_ascii=False, indent=1, sort_keys=True) + "\n", encoding="utf-8",
-                          newline="\n")
-        print(f"golden escrito: {GOLDEN.name}")
+        n = a.generar_golden
+        p = proyeccion(correr(cargar_analizador(Path(a.analizador))), n)
+        GOLDEN[n].write_text(json.dumps(p, ensure_ascii=False, indent=1, sort_keys=True) + "\n", encoding="utf-8",
+                             newline="\n")
+        print(f"golden escrito: {GOLDEN[n].name}")
         return 0
-    ref = (proyeccion_5(correr(cargar_analizador(Path(a.comparar)))) if a.comparar
-           else json.loads(GOLDEN.read_text(encoding="utf-8")))
-    dif = diferencias(ref, proyeccion_5(correr(actual)))
-    print("\n".join(dif) if dif else "0 diferencias en IF_0.05/IF_0.03/HEUR/HIB_0.05/HIB_0.03")
+    n = a.configs
+    j_act = correr(actual)
+    if a.comparar:
+        j_prev = correr(cargar_analizador(Path(a.comparar)))
+        ref = proyeccion(j_prev, n)
+        dp = diferencias(procedencia(j_prev), procedencia(j_act))
+        print(f"diferencias EXCLUIDAS (procedencia/etiquetado temporal): {len(dp)}")
+        for x in dp:
+            print("  [excluida] " + x)
+    else:
+        ref = sin_procedencia(json.loads(GOLDEN[n].read_text(encoding="utf-8")))
+    dif = diferencias(ref, proyeccion(j_act, n))
+    print("\n".join(dif) if dif else f"0 diferencias de detección/cobertura en {n} configuraciones")
     return 1 if dif else 0
 
 

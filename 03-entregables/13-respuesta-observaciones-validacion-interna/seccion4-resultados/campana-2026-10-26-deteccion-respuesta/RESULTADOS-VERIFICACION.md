@@ -4,8 +4,79 @@ Verifican las **herramientas** de evaluación, no el desempeño de CyberFlow. No
 
 ## Suite de herramientas — `tests/test_herramientas.py`
 
-**Windows (laptop), 2026-10-28, tras añadir α 0,01:** `130 comprobaciones pasaron.` (87 previas + 43 de α 0,01;
-las 14 pruebas previas siguen pasando con las mismas expectativas).
+**Windows (laptop), 2026-10-28, tras corregir la procedencia temporal (config `2026-10-28.2`):**
+`172 comprobaciones pasaron.` Las 20 pruebas anteriores siguen pasando; en 3 se **corrigió la expectativa** que
+aceptaba IF 0,05 recalibrado como «emitido» (`test_analizador_basico`, `test_emitido_vs_derivado`,
+`test_siete_configuraciones`) y se añaden `test_procedencia_emisiones` y `test_conteos_cobertura_7_sin_cambios`.
+Ejecución con `CF_ANALIZADOR_PREVIO` apuntando al `scripts/analizar.py` de `a6dc5ab` (activa la comparación directa
+con el analizador anterior). Sin esa variable la comparación directa se omite y la suite informa **171** (la
+comparación con el golden de 7 configuraciones se hace igual).
+
+```
+OK  test_validacion
+OK  test_generador_simulacion
+OK  test_generador_timeout_mata_hijos
+OK  test_analizador_basico
+OK  test_cobertura_una_ventana_insuficiente
+OK  test_score_nulo_con_heuristico
+OK  test_tabla8_evidencia_y_denominador
+OK  test_ventana_previa
+OK  test_emitido_vs_derivado
+OK  test_integridad_backing
+OK  test_integridad_informe_externo
+OK  test_integridad_descriptor_ilustrativo
+OK  test_integridad_gate_analizador
+OK  test_integridad_e2e_no_habilita_denominador
+OK  test_umbral_001_procedencia
+OK  test_comparacion_estricta
+OK  test_escala_anomalia
+OK  test_siete_configuraciones
+OK  test_no_regresion_005_003
+OK  test_anidamiento_por_alfa
+OK  test_procedencia_emisiones
+OK  test_conteos_cobertura_7_sin_cambios
+172 comprobaciones pasaron.
+```
+
+### Procedencia temporal — comprobaciones del código (registros sintéticos, NO resultados experimentales)
+
+| Caso | Resultado |
+|---|---|
+| 1. ALERT real del IF desplegado (score −0,70, cruza los tres umbrales) | IF 0,05/0,03/0,01 `durante` con base `derivado(...)` y `tiempo_significado` = disponibilidad del registro; **una** emisión aparte: `IF_desplegado`, `ALERT`, `logged_at` T+41 ≠ `window_end` T+40, modelo/score/umbral registrados (umbral = desplegado → `confirmada`), `durante_actividad`, `origen+destino`, respaldo línea 5 + sha256; latencia real 41 s; no es columna de la Tabla 8 |
+| 2. Score −0,56942 (entre el 0,05 desplegado y el recalibrado) con ALERT real | IF 0,05 recalibrado `sin_deteccion` (Tabla 8 = 0) **y** alerta real del desplegado registrada aparte |
+| 3. IF 0,01 positivo sin ALERT | clasificación `durante` derivada; **ninguna** emisión ni latencia real inventada |
+| 4. Heurístico `dns_entropy` registrado en vivo (PERMIT) | HEUR comparativo derivado; `evidencia_registrada.heuristico_registrado = dns_entropy`; evento `heuristico:dns_entropy` sin ALERT; ninguna emisión del IF |
+| 5. Identificación insuficiente (ALERT sin `detector_name`; umbral null; umbral registrado = 0,05 recalibrado ≠ desplegado; config sin `modelo.detector`) | configuración `desconocida` sin rellenar (se informa el umbral **registrado** o «desconocido»); emisor `desconocido` con motivo cuando falta; sin latencia real; la clasificación comparativa no cambia |
+
+**Conteos y cobertura sin cambios.** `tests/regresion_alfa.py --comparar <analizar.py de a6dc5ab> --configs 7` →
+**0 diferencias de detección/cobertura en 7 configuraciones** (Tabla 8, evaluabilidad, cobertura, evidencia de destino,
+categoría y primera señal por configuración, señales previas/observadas, solapamiento 0,05 y 0,01, control FPR,
+métricas, calidad de datos). Con `0d40bdb` y 5 configuraciones, también 0. Diferencias **excluidas** y listadas
+aparte (86 frente a `a6dc5ab`): solo `base` (p. ej. IF 0,05 `emitido_por_modelo_desplegado` →
+`derivado(umbral_recalibrado_0.05; distinto del desplegado)`, HEUR `registrada_en_vivo` →
+`derivado(componente_heuristico_registrado)`, híbridos `derivado(feed)` → `derivado(IF_α OR HEUR)`),
+`tiempo_es_emision_real` (retirado), y los nuevos `tiempo_significado` y `evidencia_registrada`.
+
+### Ejemplo de salida (fixture `fuerza_bruta_http-r1`): clasificación derivada y emisión real por separado
+
+```
+episodios.fuerza_bruta_http-r1.IF_0.05   (clasificación comparativa)
+  categoria: durante · window_end 08:40:30 · logged_at 08:40:31 · score -0.6 · atribucion origen+destino
+  base: derivado(umbral_recalibrado_0.05; distinto del desplegado)
+  tiempo_significado: disponibilidad_del_registro(logged_at); no es latencia de emision de esta configuracion
+  evidencia_registrada: decision ALERT · detector if_limpio_2026_10 · heuristico null
+
+emisiones_observadas.registros[motor:49]  (evento real del log)
+  tipo alerta_emitida · componente_emisor IF_desplegado · decision_emitida ALERT
+  logged_at 08:40:31 · window_end 08:40:30 · modelo if_limpio_2026_10 · score -0.6
+  configuracion_emisora: umbral_registrado -0.5693969936322356 · confirmada · coherente(score<umbral)
+  episodio fuerza_bruta_http-r1 · durante_actividad · origen+destino · respaldo motor.log línea 49 + sha256
+
+episodios.fuerza_bruta_http-r1.emisiones_observadas
+  primera_alerta_IF_desplegado_confirmada_durante: motor:49, 31.0 s desde el inicio
+```
+
+### Ejecución anterior (130 comprobaciones, α 0,01, commit `a6dc5ab`)
 
 ```
 OK  test_validacion
@@ -42,7 +113,7 @@ OK  test_anidamiento_por_alfa
 | Comparación estricta | `score == umbral` no da señal en ninguno de los tres α; 1 ULP por debajo, sí; un score entre el umbral completo y el redondeado a 8 decimales no da señal 0,01 |
 | Escala de anomalía | `score < u ⇔ −score > −u` en 5 009 scores (con fronteras ±1 ULP); `umbral_anomalia 0,01 = 0.6223889502095352`, no el cuantil recalculado `0.6223889502095351` |
 | 7 configuraciones | orden IF 0,05 · IF 0,03 · IF 0,01 · HEUR · HIB 0,05 · HIB 0,03 · HIB 0,01 en `CONFIGS`, `analisis.json`, Tabla 8 y `TABLA8.md`; HEUR una sola vez |
-| Tiempos | IF 0,05 emitido por el modelo → `tiempo_es_emision_real=true`; IF 0,01/0,03 e híbridos → `false` (disponibilidad derivada, no latencia de emisión) |
+| Tiempos | (en `a6dc5ab`: IF 0,05 → `tiempo_es_emision_real=true`. **Corregido** en `2026-10-28.2`: era incorrecto, el 0,05 recalibrado no es el desplegado; ver la sección de procedencia temporal) |
 | No-regresión 0,05/0,03 | `tests/regresion_alfa.py`: proyección de IF 0,05, IF 0,03, HEUR, HIB 0,05, HIB 0,03, compartidas 0,05, control FPR, métricas y calidad de datos sobre 5 episodios (4 evaluables) → **0 diferencias** frente al analizador anterior (golden y comparación directa con `analizar.py` de `0d40bdb`) |
 | Anidamiento | 5 003 ventanas sintéticas: IF 0,01 ⊆ 0,03 ⊆ 0,05 y HIB 0,01 ⊆ 0,03 ⊆ 0,05, no triviales; umbrales invertidos → detectado |
 

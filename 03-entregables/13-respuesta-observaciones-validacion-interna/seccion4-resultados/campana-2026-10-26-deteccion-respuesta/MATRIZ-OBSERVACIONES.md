@@ -86,3 +86,17 @@ Detalle en `CAMBIOS-2026-10-28-alfa001.md`.
 | 49 | 0,05 y 0,03 no deben cambiar | Golden con el analizador anterior sobre las mismas entradas; proyección de lo existente | `tests/regresion_alfa.py`, `tests/golden-5config-fixtures.json`, `tests/fixtures.py` | `test_no_regresion_005_003` (0 diferencias) | PA |
 | 50 | Anidamiento IF 0,01 ⊆ 0,03 ⊆ 0,05 | Se comprueba el orden de los umbrales y se avisa si no se cumple (`aviso_orden_umbrales`) | `scripts/analizar.py` | `test_anidamiento_por_alfa` | PA |
 | — | Las llamadas de las pruebas usaban `(u05, u03)` sueltos | Pasan el diccionario de umbrales `UM`; los casos y expectativas previos no cambian | `tests/test_herramientas.py` | 130 comprobaciones | PA |
+
+## Corrección de procedencia temporal (2026-10-28, sobre `a6dc5ab`) — config `2026-10-28.2`
+
+Detalle en `CAMBIOS-2026-10-28-procedencia.md`. Afecta a la procedencia y al significado de los tiempos; no a las
+detecciones, conteos, categorías, cobertura, atribución, integridad, control ni combinación.
+
+| # | Pendiente | Solución | Archivo(s) | Comprobación | Estado |
+|---|---|---|---|---|---|
+| 51 | `senales()` marcaba IF_0.05 como `emitido_por_modelo_desplegado` si el registro era ALERT, y `clasificar()` ponía `tiempo_es_emision_real=true`; pero el umbral recalibrado (−0,5694578968) no es el desplegado (−0,5693969936) | Las 7 configuraciones son siempre `derivado(...)`; `tiempo_es_emision_real` se retira y se sustituye por `tiempo_significado` (disponibilidad del registro) | `scripts/analizar.py` | `test_analizador_basico`, `test_emitido_vs_derivado`, `test_siete_configuraciones` (expectativas corregidas) | PA |
+| 52 | Las emisiones reales no se registraban aparte | `emisiones_observadas`: registro, emisor, decisión, `logged_at`/`window_end`, modelo/score/umbral **registrados**, relación con el episodio, atribución y respaldo (línea + sha256 del log); por episodio, la primera alerta real del IF desplegado confirmada y atribuida. No es una 8.ª configuración | `scripts/analizar.py` | `test_procedencia_emisiones` (casos 1–4) | PA |
+| 53 | Un ALERT sin emisor identificado se atribuía al modelo | Emisor por `detector_name` registrado; sin él, o con umbral ausente / distinto del desplegado, o sin `modelo.detector` en la config → `desconocido`, sin rellenar | `scripts/analizar.py` | `test_procedencia_emisiones` (caso 5, 4 variantes) | PA |
+| 54 | La procedencia del heurístico se mezclaba con la configuración «heurísticos solos» | Lo observado va en `evidencia_registrada` (decisión, detector, heurístico) y en `emisiones_observadas`; HEUR comparativo = `derivado(componente_heuristico_registrado)` | `scripts/analizar.py` | `test_emitido_vs_derivado`, `test_procedencia_emisiones` (caso 4) | PA |
+| 55 | Demostrar que no cambian detecciones ni cobertura | Golden de 7 configuraciones con el analizador de `a6dc5ab`; proyección que excluye **solo** `base`, `tiempo_es_emision_real`, `tiempo_significado`, `evidencia_registrada`; con `--comparar` se listan aparte | `tests/regresion_alfa.py`, `tests/golden-7config-fixtures.json` | `test_no_regresion_005_003`, `test_conteos_cobertura_7_sin_cambios` (0 diferencias) | PA |
+| — | Fixtures registraban `threshold` = 0,05 recalibrado | Ahora registran el desplegado, como el motor real; la config del fixture declara `modelo.detector`. Ninguno de los dos campos interviene en la detección | `tests/fixtures.py`, `tests/test_herramientas.py` | 172 comprobaciones | PA |

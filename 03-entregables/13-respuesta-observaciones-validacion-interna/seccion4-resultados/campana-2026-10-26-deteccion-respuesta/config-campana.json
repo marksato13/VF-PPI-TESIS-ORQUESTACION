@@ -2,9 +2,9 @@
   "campana": "deteccion-respuesta-2026-10-26",
   "registrado": "2026-10-26, en la fase de preparacion, antes de ejecutar ningun ataque ni campana.",
   "version_config": {
-    "version": "2026-10-28.1",
-    "cambio": "ampliacion puntual: anade alfa 0,01 (IF_0.01 y HIB_0.01) conservando 0,05 y 0,03; 5 -> 7 configuraciones de analisis. Detalle en CAMBIOS-2026-10-28-alfa001.md.",
-    "anterior": "sin campo de version (commit 72fb95c y previos): 5 configuraciones, alfa 0,05 y 0,03",
+    "version": "2026-10-28.2",
+    "cambio": "correccion de procedencia temporal (solo textos; umbrales y criterios sin cambios): las 7 configuraciones son clasificaciones comparativas derivadas; las emisiones reales se registran aparte (emisiones_observadas). Detalle en CAMBIOS-2026-10-28-procedencia.md.",
+    "anterior": "2026-10-28.1 (commit a6dc5ab): anade alfa 0,01, 5 -> 7 configuraciones (CAMBIOS-2026-10-28-alfa001.md). Antes, sin campo de version (72fb95c y previos): 5 configuraciones, alfa 0,05 y 0,03",
     "campana_iniciada_al_cambiar": "no: comprobado en solo lectura el 2026-10-28 05:47 UTC (Kali sin marcas.jsonl ni generador; sensor sin ~/cf-campana-archivo; ningun proceso de campana). Por eso se actualiza esta configuracion en su sitio, sin ensayo previo que proteger."
   },
   "proposito": "Completar 4.2 (aporte de componentes, campana A de deteccion) y despues 4.4 (respuesta y tiempos, campana B). No sustituye ni modifica aporte-componentes-r2-2026-10-26; es una campana nueva e independiente.",
@@ -86,10 +86,12 @@
   },
 
   "emitidas_vs_derivadas": {
-    "emitidas_en_vivo": "las decisiones que el motor escriba en motor_decision.log durante la campana, con su hora de escritura. Son las alertas realmente emitidas.",
+    "emitidas_en_vivo": "las decisiones ALERT (y las senales heuristicas registradas) que el motor escriba en motor_decision.log durante la campana, con su hora de escritura. analizar.py las lista aparte en emisiones_observadas con registro, componente emisor, decision, logged_at y window_end, modelo/score/umbral REGISTRADOS, relacion con el episodio, atribucion y referencia al log. El emisor y el umbral se toman del registro; si faltan o no identifican la configuracion se declaran desconocidos (no se rellenan ni se deducen del score). No son una configuracion de la Tabla 8.",
     "derivadas_offline": "IF_0.05, IF_0.03, IF_0.01, HEUR, HIB_0.05, HIB_0.03 y HIB_0.01 recomputadas sobre las puntuaciones/ventanas observadas. Se presentan como ANALISIS DE UMBRALES sobre ventanas observadas, NO como alertas emitidas en vivo.",
     "umbral_del_motor_en_vivo": "el motor en vivo usa alfa 0,05 (umbral desplegado -0,5693969936). alfa 0,03 y 0,01 son cortes derivados offline sobre las mismas puntuaciones, no emisiones.",
-    "tiempos_de_configuraciones_derivadas": "para IF_0.03, IF_0.01 y los hibridos, logged_at es cuando el motor registro la puntuacion de esa ventana, no una emision de esa configuracion; no prueba latencia real de emision de un umbral que no estaba desplegado (campo tiempo_es_emision_real=false en analisis.json). Una clasificacion alternativa tampoco equivale a una accion aplicada."
+    "tiempos_de_configuraciones_derivadas": "para LAS SIETE configuraciones (incluida IF_0.05 recalibrada, cuyo umbral -0.5694578968 no es el desplegado -0.5693969936), logged_at es cuando quedo registrada la evidencia usada, no una emision de esa configuracion (campo tiempo_significado en analisis.json). Que un ALERT real del IF desplegado coincida con una clasificacion recalibrada no demuestra que la configuracion recalibrada emitiera. Una clasificacion alternativa tampoco equivale a una accion aplicada.",
+    "latencia_real": "solo desde emisiones_observadas: alerta con componente_emisor=IF_desplegado, umbral registrado == desplegado_referencia (configuracion confirmada), durante el ataque y con atribucion confirmada; latencia = logged_at - inicio del generador.",
+    "cambio_de_campos_2026_10_28_2": "retirado tiempo_es_emision_real (a6dc5ab); base de las configuraciones siempre derivado(...) (antes IF_0.05 'emitido_por_modelo_desplegado' y HEUR 'emitido_ALERT(auth_heredada)'/'registrada_en_vivo'); nuevos tiempo_significado, evidencia_registrada y emisiones_observadas. Detecciones, conteos y cobertura sin cambios."
   },
 
   "campanas": {
@@ -117,7 +119,7 @@
     "escenarios_pendientes": "ninguno al 27-oct: los 5 habilitados y verificados en entorno (ver ESTADO-ENTORNO-2026-10-27.md). DNS usa zona local lab-ppi; fuerza bruta usa endpoint 18081/auth (cadena red+Suricata+extractor confirmada)."
   },
   "emision_vs_window_end": {
-    "logged_at": "motor_decision.py escribe logged_at = time.time() del ciclo (motor_decision.py:601) = instante REAL de emision; el analizador clasifica por logged_at.",
+    "logged_at": "motor_decision.py escribe logged_at = time.time() del ciclo (motor_decision.py:601) = instante real en que el motor escribio ESE registro. Es la emision real solo de lo que el registro emitio (p.ej. un ALERT del IF desplegado, ver emisiones_observadas); para las configuraciones comparativas derivadas es la disponibilidad de la evidencia usada. El analizador clasifica por logged_at.",
     "window_end_utc": "cierre de la ventana; NO es la hora de emision y NO se usa para la deteccion operativa."
   },
 
