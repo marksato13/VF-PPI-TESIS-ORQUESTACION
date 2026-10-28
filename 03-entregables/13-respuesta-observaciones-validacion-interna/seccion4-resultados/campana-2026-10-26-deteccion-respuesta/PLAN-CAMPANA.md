@@ -123,7 +123,11 @@ con su prueba de funcionamiento y su reversión documentadas.
 - **Durante:** señal atribuible entre inicio y fin del ataque.
 - **Posterior:** primera señal tras el fin y hasta +60 s.
 - **Sin detección:** observación completa sin señal atribuible.
-- **No evaluable:** evidencia insuficiente.
+- **No evaluable:** evidencia insuficiente. Incluye las ventanas del ataque que el motor registró como
+  `ventana_no_evaluada` (añadido 28-oct, #59). Sin score, el IF no es evaluable en ellas; el heurístico es
+  desconocido; el híbrido solo prueba detección con un positivo confirmado. La ausencia no se afirma, y una detección
+  confirmada se mantiene visible fuera de la Tabla 8. En el control y las métricas, estas ventanas no son TN, FP ni
+  FN: se informa la cobertura y las tasas son sobre ventanas evaluadas.
 
 Atribución por escenario + origen + destino + contexto; no se cuenta cualquier anomalía de la Kali como detección.
 Las configuraciones derivadas offline son análisis de umbrales sobre ventanas observadas, no alertas emitidas.
@@ -147,7 +151,7 @@ criterio de etiquetado previo si se calculan métricas por ventana, **separadas*
 |---|---|---|
 | `generar_campana.py` | Kali | Valida la config, lanza los escenarios habilitados en orden aleatorizado por semilla, con calentamiento + contexto previo (≥120 s) y observación (≥90 s); escribe `marcas.jsonl` (inicio/fin separados, pared + monotónico, comando, código, salida completa en `salidas/`). **Simula sin `--autorizado`; aborta ante marcadores o destino fuera de la lista blanca; mata el grupo de procesos en timeout.** |
 | `esquema_campana.py` | — | Esquema + validación (tipos, destinos, puertos, rutas, deps, placeholders) y construcción de comandos. |
-| `tests/test_herramientas.py` + `tests/fixtures.py` + `tests/regresion_alfa.py` | Laptop/Linux | Verificación sin ataques (188 comprobaciones), fixtures con resultado conocido y no-regresión de detección/cobertura frente a los analizadores anteriores (`tests/golden-5config-fixtures.json`, `tests/golden-7config-fixtures.json`). |
+| `tests/test_herramientas.py` + `tests/fixtures.py` + `tests/regresion_alfa.py` | Laptop/Linux | Verificación sin ataques (212 comprobaciones; 213 con el analizador previo), fixtures con resultado conocido y no-regresión de detección/cobertura frente a los analizadores anteriores (`tests/golden-5config-fixtures.json`, `tests/golden-7config-fixtures.json`). |
 | `scripts/endpoint_brute/` | srv-dmz | Endpoint 401 correcto (Python o nginx), unidad systemd, README con Suricata/extractor. |
 | `capturar.sh` | Sensor | Captura PCAP continua sin huecos a disco archivado, con rotación por tamaño; marca inicio/fin. |
 | `modo_sombra.sh` / `restaurar_enforcement.sh` | srv-dmz | **Detiene y enmascara** el agente para A (impedir que aplique; NO es ejecutarlo en dry-run) y lo restaura para B según el estado guardado; fallo seguro. `restaurar` exige `--escalada-revisada`. |
@@ -185,7 +189,9 @@ pasada produce las 7 configuraciones; comprobar en `analisis.json` que `umbrales
 **solo es evaluable** con cobertura temporal continua, **evidencia de destino** (atribución confirmada) e **integridad
 apta**; la Tabla 8 cuenta en el numerador **solo detecciones durante con atribución confirmada**. Las señales
 observadas sin confirmar, previas, tardías o ambiguas van a registros complementarios, no al numerador. Sin
-`--integridad` o sin `--destinos`, ningún episodio se declara evaluable. Los contadores del generador son **intentos**
+`--integridad` o sin `--destinos`, ningún episodio se declara evaluable. Revisar en `analisis.json` el bloque
+`ventanas_no_evaluadas` (motivos, duplicados, conflictos, efecto por episodio) y la cobertura del control y de las
+métricas antes de leer las tasas. Los contadores del generador son **intentos**
 del bucle, no peticiones enviadas ni respuestas (eso se mide con PCAP/EVE/servidor).
 
 **Campaña B (4.4), separada:** repetir con el agente en `--aplicar`, una familia por bloque, registrando cada eslabón.

@@ -1,0 +1,374 @@
+{
+ "nota": "FIXTURE DE CODIGO (tests/test_herramientas.py, _e2e_ne): datos sinteticos, no resultados de la campana A",
+ "ventanas_no_evaluadas": {
+  "definicion": "eventos ventana_no_evaluada del motor: calidad y cobertura, no decisiones. Sin score, decisión ni etiqueta; no son TP/FP/TN/FN, ni PERMIT, ni alerta, ni emisión observada",
+  "fuente": "mismo --motor que las decisiones (respaldo con archivo, sha256 y línea por registro)",
+  "contadas": 3,
+  "por_motivo": {
+   "pcap_incompleto": 2,
+   "ventana_no_regenerada": 1
+  },
+  "registros": [
+   {
+    "registro_id": "motor:15",
+    "evento": "ventana_no_evaluada",
+    "entity_ip": "10.10.20.30",
+    "window_end_utc": "2026-10-26T07:34:30+00:00",
+    "intervalo_ventana_utc": [
+     "2026-10-26T07:33:30+00:00",
+     "2026-10-26T07:34:30+00:00"
+    ],
+    "logged_at": 1793000085,
+    "logged_at_utc": "2026-10-26T07:34:45+00:00",
+    "escrito_tras_window_end_s": 15.0,
+    "motivo": "pcap_incompleto",
+    "motivo_estado": "reconocido",
+    "motivo_significado": "los PCAP cerrados no cubrían la ventana al vencer la espera",
+    "disponibilidad": {
+     "pendiente_desde": 1793000072,
+     "inicio_ciclo": 1793000084,
+     "marca_pcap": 1793000065,
+     "marca_eve": 1793000084,
+     "pcaps_ilegibles": 0
+    },
+    "campos_disponibilidad_ausentes": [],
+    "espera_desde_pendiente_s": 13.0,
+    "marca_pcap_menos_window_end_s": -5.0,
+    "diagnosticos": [],
+    "respaldo": {
+     "archivo": "motor.log",
+     "sha256": "5934f218e88b1bcb5cfdfc9ad0751f86a4d6c07ac13d45c13a483500f74ec702",
+     "linea": 15
+    },
+    "estado_en_analisis": "contada",
+    "relacion_episodios": [
+     {
+      "episodio_id": "inundacion_http-r1",
+      "relacion_ventana": "ventana_del_ataque"
+     }
+    ]
+   },
+   {
+    "registro_id": "motor:29",
+    "evento": "ventana_no_evaluada",
+    "entity_ip": "10.10.20.21",
+    "window_end_utc": "2026-10-26T07:35:10+00:00",
+    "intervalo_ventana_utc": [
+     "2026-10-26T07:34:10+00:00",
+     "2026-10-26T07:35:10+00:00"
+    ],
+    "logged_at": 1793000280,
+    "logged_at_utc": "2026-10-26T07:38:00+00:00",
+    "escrito_tras_window_end_s": 170.0,
+    "motivo": "ventana_no_regenerada",
+    "motivo_estado": "reconocido",
+    "motivo_significado": "los PCAP la cubrían, pero build_rows ya no generaba la ventana (historia podada)",
+    "disponibilidad": {
+     "pendiente_desde": 1793000112,
+     "inicio_ciclo": 1793000279,
+     "marca_pcap": 1793000105,
+     "marca_eve": 1793000279,
+     "pcaps_ilegibles": 0
+    },
+    "campos_disponibilidad_ausentes": [],
+    "espera_desde_pendiente_s": 168.0,
+    "marca_pcap_menos_window_end_s": -5.0,
+    "diagnosticos": [],
+    "respaldo": {
+     "archivo": "motor.log",
+     "sha256": "5934f218e88b1bcb5cfdfc9ad0751f86a4d6c07ac13d45c13a483500f74ec702",
+     "linea": 29
+    },
+    "estado_en_analisis": "contada",
+    "relacion_episodios": "otra_entidad (solo control/métricas)"
+   },
+   {
+    "registro_id": "motor:30",
+    "evento": "ventana_no_evaluada",
+    "entity_ip": "10.10.20.21",
+    "window_end_utc": "2026-10-26T07:35:20+00:00",
+    "intervalo_ventana_utc": [
+     "2026-10-26T07:34:20+00:00",
+     "2026-10-26T07:35:20+00:00"
+    ],
+    "logged_at": 1793000290,
+    "logged_at_utc": "2026-10-26T07:38:10+00:00",
+    "escrito_tras_window_end_s": 170.0,
+    "motivo": "pcap_incompleto",
+    "motivo_estado": "reconocido",
+    "motivo_significado": "los PCAP cerrados no cubrían la ventana al vencer la espera",
+    "disponibilidad": {
+     "pendiente_desde": 1793000122,
+     "inicio_ciclo": 1793000289,
+     "marca_pcap": 1793000115,
+     "marca_eve": 1793000289,
+     "pcaps_ilegibles": 0
+    },
+    "campos_disponibilidad_ausentes": [],
+    "espera_desde_pendiente_s": 168.0,
+    "marca_pcap_menos_window_end_s": -5.0,
+    "diagnosticos": [],
+    "respaldo": {
+     "archivo": "motor.log",
+     "sha256": "5934f218e88b1bcb5cfdfc9ad0751f86a4d6c07ac13d45c13a483500f74ec702",
+     "linea": 30
+    },
+    "estado_en_analisis": "contada",
+    "relacion_episodios": "otra_entidad (solo control/métricas)"
+   }
+  ],
+  "incidencias": [],
+  "duplicados": [],
+  "conflictos": [],
+  "reglas": {
+   "duplicado": "misma clave entity_ip|window_end: se cuenta una vez (primer registro)",
+   "conflicto": "decisión y no evaluada en la misma clave: prevalece la decisión; el evento no se cuenta",
+   "relacion": "por el intervalo (window_end-60, window_end] frente a [inicio, fin]; logged_at se informa aparte (instante de escritura)",
+   "tabla8": "no se añade columna ni se cambia el denominador: un ancla del ataque sin decisión ya dejaba el episodio no evaluable; ahora el motivo distingue el registro"
+  },
+  "detecciones_confirmadas_en_episodios_no_evaluables": [
+   {
+    "episodio_id": "inundacion_http-r1",
+    "configuraciones_con_deteccion_confirmada": [
+     "IF_0.05",
+     "IF_0.03",
+     "IF_0.01",
+     "HIB_0.05",
+     "HIB_0.03",
+     "HIB_0.01"
+    ],
+    "motivo_no_evaluable": "cobertura:faltan 1 de 9 anclas de la Kali durante el ataque: 1 registradas como ventana_no_evaluada (pcap_incompleto) y 0 sin registro (pérdida de datos)"
+   }
+  ]
+ },
+ "episodio": {
+  "evaluable": false,
+  "motivo_no_evaluable": "cobertura:faltan 1 de 9 anclas de la Kali durante el ataque: 1 registradas como ventana_no_evaluada (pcap_incompleto) y 0 sin registro (pérdida de datos)",
+  "cobertura": {
+   "suficiente": false,
+   "motivo": "faltan 1 de 9 anclas de la Kali durante el ataque: 1 registradas como ventana_no_evaluada (pcap_incompleto) y 0 sin registro (pérdida de datos)",
+   "motor_continuo": true,
+   "anclas_ataque_esperadas": 9,
+   "anclas_ataque_observadas": 8,
+   "hueco_motor_max_s": 10.0,
+   "cubre_inicio": true,
+   "cubre_fin_mas_60": true,
+   "anclas_no_evaluadas": 1,
+   "anclas_sin_registro": 0
+  },
+  "IF_0.05": {
+   "categoria": "no_evaluable",
+   "senal_observada": true,
+   "deteccion_confirmada": true,
+   "primera_fiable": false,
+   "window_end_utc": "2026-10-26T07:34:00+00:00",
+   "logged_at_utc": "2026-10-26T07:34:01+00:00"
+  },
+  "HEUR": {
+   "categoria": "no_evaluable",
+   "senal_observada": false,
+   "deteccion_confirmada": false
+  },
+  "ventanas_no_evaluadas": {
+   "n": 1,
+   "ventanas_del_ataque": 1,
+   "ventanas_posteriores_que_solapan": 0,
+   "detalle": [
+    {
+     "registro_id": "motor:15",
+     "window_end_utc": "2026-10-26T07:34:30+00:00",
+     "intervalo_ventana_utc": [
+      "2026-10-26T07:33:30+00:00",
+      "2026-10-26T07:34:30+00:00"
+     ],
+     "logged_at_utc": "2026-10-26T07:34:45+00:00",
+     "motivo": "pcap_incompleto",
+     "relacion_ventana": "ventana_del_ataque",
+     "escrito": "durante_actividad",
+     "escrito_tras_fin_s": -5.0
+    }
+   ],
+   "efecto_en_evaluabilidad": "1 ancla(s) del ataque sin decisión constan como ventana_no_evaluada: la cobertura es insuficiente y el episodio no es evaluable (antes de #59 esas anclas ya faltaban como pérdida de datos; la Tabla 8 no cambia, cambia el motivo)",
+   "por_configuracion": {
+    "IF_0.05": {
+     "estado": "deteccion_confirmada_visible",
+     "ausencia_establecible": null,
+     "motivo": "detección confirmada durante el ataque en una ventana con decisión registrada; las ventanas no evaluadas no la anulan"
+    },
+    "IF_0.03": {
+     "estado": "deteccion_confirmada_visible",
+     "ausencia_establecible": null,
+     "motivo": "detección confirmada durante el ataque en una ventana con decisión registrada; las ventanas no evaluadas no la anulan"
+    },
+    "IF_0.01": {
+     "estado": "deteccion_confirmada_visible",
+     "ausencia_establecible": null,
+     "motivo": "detección confirmada durante el ataque en una ventana con decisión registrada; las ventanas no evaluadas no la anulan"
+    },
+    "HEUR": {
+     "estado": "ausencia_no_establecible",
+     "ausencia_establecible": false,
+     "motivo": "el evento no registra el heurístico y no hay decisión para esa clave (los conflictos se resuelven aparte): no se sabe si disparó; no se supone que no"
+    },
+    "HIB_0.05": {
+     "estado": "deteccion_confirmada_visible",
+     "ausencia_establecible": null,
+     "motivo": "detección confirmada durante el ataque en una ventana con decisión registrada; las ventanas no evaluadas no la anulan"
+    },
+    "HIB_0.03": {
+     "estado": "deteccion_confirmada_visible",
+     "ausencia_establecible": null,
+     "motivo": "detección confirmada durante el ataque en una ventana con decisión registrada; las ventanas no evaluadas no la anulan"
+    },
+    "HIB_0.01": {
+     "estado": "deteccion_confirmada_visible",
+     "ausencia_establecible": null,
+     "motivo": "detección confirmada durante el ataque en una ventana con decisión registrada; las ventanas no evaluadas no la anulan"
+    }
+   },
+   "nota": "ausencia_establecible se refiere solo a estas ventanas no evaluadas; si el episodio entra en la comparación lo decide 'evaluable' (cobertura, destino e integridad)"
+  }
+ },
+ "tabla8": {
+  "Inundación HTTP": {
+   "evaluables": [],
+   "no_evaluables": [
+    "inundacion_http-r1"
+   ],
+   "IF_0.05": 0,
+   "IF_0.03": 0,
+   "IF_0.01": 0,
+   "HEUR": 0,
+   "HIB_0.05": 0,
+   "HIB_0.03": 0,
+   "HIB_0.01": 0
+  }
+ },
+ "control_normal_fpr": {
+  "ventanas": 8,
+  "denominador": 8,
+  "desde": "2026-10-26T07:34:55+00:00",
+  "hasta": "2026-10-26T07:36:40+00:00",
+  "ventanas_no_evaluadas": 2,
+  "ventanas_no_evaluadas_por_motivo": {
+   "pcap_incompleto": 1,
+   "ventana_no_regenerada": 1
+  },
+  "ventanas_no_evaluadas_criterio": "window_end en [desde, hasta] (las decisiones se seleccionan por logged_at); excluidas las entidades NUNCA_BLOQUEAR",
+  "cobertura_evaluada": 0.8,
+  "denominador_significado": "ventanas con decisión registrada (evaluadas); las ventanas no evaluadas no son TN, FP ni FN y una decisión ausente no es PERMIT: las tasas se leen junto a la cobertura",
+  "IF_0.05": {
+   "falsas_alarmas": 0,
+   "tasa": 0.0
+  },
+  "IF_0.03": {
+   "falsas_alarmas": 0,
+   "tasa": 0.0
+  },
+  "IF_0.01": {
+   "falsas_alarmas": 0,
+   "tasa": 0.0
+  },
+  "HEUR": {
+   "falsas_alarmas": 0,
+   "tasa": 0.0
+  },
+  "HIB_0.05": {
+   "falsas_alarmas": 0,
+   "tasa": 0.0
+  },
+  "HIB_0.03": {
+   "falsas_alarmas": 0,
+   "tasa": 0.0
+  },
+  "HIB_0.01": {
+   "falsas_alarmas": 0,
+   "tasa": 0.0
+  }
+ },
+ "metricas_por_ventana": {
+  "calculadas": true,
+  "n_etiquetadas": 2,
+  "denominador": 2,
+  "etiquetadas_no_evaluadas": 1,
+  "etiquetadas_sin_registro": 0,
+  "cobertura_etiquetadas": 0.666667,
+  "denominador_significado": "etiquetadas con decisión registrada (evaluadas); las etiquetadas no evaluadas no son TP, FP, TN ni FN: las métricas se leen junto a cobertura_etiquetadas",
+  "IF_0.05": {
+   "TP": 1,
+   "FP": 0,
+   "TN": 1,
+   "FN": 0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "FPR": 0.0
+  },
+  "IF_0.03": {
+   "TP": 1,
+   "FP": 0,
+   "TN": 1,
+   "FN": 0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "FPR": 0.0
+  },
+  "IF_0.01": {
+   "TP": 1,
+   "FP": 0,
+   "TN": 1,
+   "FN": 0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "FPR": 0.0
+  },
+  "HEUR": {
+   "TP": 0,
+   "FP": 0,
+   "TN": 1,
+   "FN": 1,
+   "precision": null,
+   "recall": 0.0,
+   "FPR": 0.0
+  },
+  "HIB_0.05": {
+   "TP": 1,
+   "FP": 0,
+   "TN": 1,
+   "FN": 0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "FPR": 0.0
+  },
+  "HIB_0.03": {
+   "TP": 1,
+   "FP": 0,
+   "TN": 1,
+   "FN": 0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "FPR": 0.0
+  },
+  "HIB_0.01": {
+   "TP": 1,
+   "FP": 0,
+   "TN": 1,
+   "FN": 0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "FPR": 0.0
+  }
+ },
+ "calidad_datos": {
+  "incidencias_marcas": [],
+  "incidencias_motor": [],
+  "ventanas_duplicadas": 0,
+  "episodios_incompletos": [],
+  "ventanas_no_evaluadas": {
+   "contadas": 3,
+   "incidencias": 0,
+   "duplicados": 0,
+   "conflictos": 0,
+   "detalle": "bloque ventanas_no_evaluadas"
+  }
+ }
+}

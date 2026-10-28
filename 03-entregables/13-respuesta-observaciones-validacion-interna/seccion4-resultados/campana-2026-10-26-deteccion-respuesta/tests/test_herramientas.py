@@ -902,6 +902,239 @@ def test_conteos_cobertura_7_sin_cambios():
         check(not rg.diferencias(rg.proyeccion(jp, 7), act), "comparación directa con el analizador previo: 0 dif.")
 
 
+# --------------------------------------------------------------- 6. ventana_no_evaluada (#59)
+# Fixtures de CÓDIGO (no resultados experimentales): eventos del motor corregido (producto 7b275b8) sin decisión.
+OTRA = "10.10.20.21"   # perfil legítimo sintético (control)
+
+
+def noev(logged, wend_ep, motivo="pcap_incompleto", ip=K, **extra):
+    ciclo = logged - 1 if isinstance(logged, (int, float)) else wend_ep
+    r = {"event": "ventana_no_evaluada", "logged_at": logged, "entity_ip": ip, "window_end_utc": iso(wend_ep),
+         "motivo": motivo, "pendiente_desde": wend_ep + 2, "inicio_ciclo": ciclo,
+         "marca_pcap": wend_ep - 5, "marca_eve": ciclo, "pcaps_ilegibles": 0, **extra}
+    return json.dumps({k: v for k, v in r.items() if v is not ...})
+
+
+def _sin(mot, *wends):
+    """Quita las decisiones de la Kali con esos window_end (la ventana no tuvo decisión)."""
+    return [x for x in mot if json.loads(x)["window_end_utc"] not in {iso(w) for w in wends}]
+
+
+def _e2e_ne(an, mot, control=None, etiquetas=None):
+    """Como _e2e_mot (episodio EID [T0, T0+90], destino completo, integridad apta) con --control y --etiquetas."""
+    import contextlib, io
+    with tempfile.TemporaryDirectory() as tmp:
+        d = Path(tmp)
+        (d / "marcas.jsonl").write_text("\n".join(marca(EID, "inundacion_http", "10.10.30.10", T0, T0 + 90)),
+                                        encoding="utf-8")
+        (d / "motor.log").write_text("\n".join(mot), encoding="utf-8")
+        (d / "cfg.json").write_text(json.dumps({"umbrales": {**UM, "desplegado_referencia": UDESP}, "origen": K,
+                                                "modelo": {"detector": "if_limpio_2026_10"},
+                                                "combinacion_real": {"exclusiones": {"NUNCA_BLOQUEAR": []}}}),
+                                    encoding="utf-8")
+        (d / "integ.json").write_text(json.dumps({"episodios": [{"episodio_id": EID, "apto": True}]}), encoding="utf-8")
+        (d / "dest.csv").write_text(_csv_cubre(T0, "10.10.30.10"), encoding="utf-8")
+        argv = ["x", "--marcas", str(d / "marcas.jsonl"), "--motor", str(d / "motor.log"), "--config",
+                str(d / "cfg.json"), "--destinos", str(d / "dest.csv"), "--integridad", str(d / "integ.json"),
+                "--salida", str(d / "out")]
+        if control:
+            argv += ["--control", f"{control[0]},{control[1]}"]
+        if etiquetas:
+            (d / "et.csv").write_text("entity_ip,window_end_utc,etiqueta\n" + "\n".join(
+                f"{ip},{iso(w)},{y}" for (ip, w), y in etiquetas.items()) + "\n", encoding="utf-8")
+            argv += ["--etiquetas", str(d / "et.csv")]
+        old = sys.argv; sys.argv = argv
+        try:
+            with contextlib.redirect_stdout(io.StringIO()):
+                an.main()
+        finally:
+            sys.argv = old
+        return (json.loads((d / "out" / "analisis.json").read_text(encoding="utf-8")),
+                (d / "out" / "TABLA8.md").read_text(encoding="utf-8"))
+
+
+def test_ventanas_no_evaluadas():
+    import regresion_alfa as rg
+    an = cargar("analizar")
+    T = T0
+    base = _mot({})
+    j0, _ = _e2e_ne(an, base, control=(T, T + 200))
+    # 0) sin eventos: claves nuevas neutras; el resto, igual (la regresión de goldens lo cubre aparte)
+    jf = rg.correr(an)
+    c0, m0 = jf["control_normal_fpr"], jf["metricas_por_ventana"]
+    check(c0["ventanas_no_evaluadas"] == 0 and c0["cobertura_evaluada"] == 1.0
+          and c0["ventanas_no_evaluadas_por_motivo"] == {} and m0["etiquetadas_no_evaluadas"] == 0
+          and m0["cobertura_etiquetadas"] == 1.0 and jf["calidad_datos"]["ventanas_no_evaluadas"]["contadas"] == 0
+          and jf["ventanas_no_evaluadas"]["contadas"] == 0 and jf["ventanas_no_evaluadas"]["registros"] == []
+          and all(e["ventanas_no_evaluadas"] == {"n": 0, "ventanas_del_ataque": 0,
+                                                 "ventanas_posteriores_que_solapan": 0, "detalle": [],
+                                                 "efecto": "ninguno"} for e in jf["episodios"].values())
+          and all("anclas_no_evaluadas" not in e["cobertura"] for e in jf["episodios"].values()),
+          "sin eventos: 0 no evaluadas, cobertura 1,0 y cobertura/episodios sin claves nuevas")
+    check(set(rg.CLAVES_NO_EVALUADAS).isdisjoint(rg.CLAVES_PROCEDENCIA)
+          and not any(k in c0 for k in ("TN", "FN")), "exclusiones de #59 separadas de las de procedencia")
+    check(j0["episodios"][EID]["evaluable"] is True and j0["tabla8"]["Inundación HTTP"]["evaluables"] == [EID],
+          "base sintética: el episodio es evaluable sin eventos")
+
+    # 1) evento ESCRITO tras el ataque (logged T+220 > fin T+90) cuya ventana (T-10, T+50] solapa el ataque;
+    #    episodio sin detección y con cobertura insuficiente
+    mot1 = _sin(base, T + 50) + [noev(T + 220, T + 50)]
+    j1, md1 = _e2e_ne(an, mot1)
+    jperd, _ = _e2e_ne(an, _sin(base, T + 50))               # misma ancla sin ningún registro (pérdida)
+    e1 = j1["episodios"][EID]; v1 = e1["ventanas_no_evaluadas"]
+    check(e1["evaluable"] is False and e1["cobertura"]["suficiente"] is False
+          and e1["cobertura"]["anclas_no_evaluadas"] == 1 and e1["cobertura"]["anclas_sin_registro"] == 0
+          and "1 registradas como ventana_no_evaluada (pcap_incompleto)" in e1["cobertura"]["motivo"],
+          "ventana del ataque no evaluada: cobertura insuficiente con motivo distinto de la pérdida")
+    check(v1["ventanas_del_ataque"] == 1 and v1["detalle"][0]["escrito"] == "tras_fin"
+          and v1["detalle"][0]["escrito_tras_fin_s"] == 130.0
+          and v1["detalle"][0]["relacion_ventana"] == "ventana_del_ataque"
+          and v1["detalle"][0]["intervalo_ventana_utc"] == [iso(T - 10), iso(T + 50)],
+          "se relaciona por el intervalo de la ventana, no por el instante de escritura (130 s tras el fin)")
+    check(all(e1[c]["categoria"] == "no_evaluable" and e1[c]["senal_observada"] is False for c in an.CONFIGS)
+          and all(v1["por_configuracion"][c]["estado"] == "ausencia_no_establecible"
+                  and v1["por_configuracion"][c]["ausencia_establecible"] is False for c in an.CONFIGS)
+          and "ningún α" in v1["por_configuracion"]["IF_0.01"]["motivo"]
+          and "no se supone que no" in v1["por_configuracion"]["HEUR"]["motivo"],
+          "sin detección y cobertura insuficiente: no evaluable, nunca 'sin_deteccion' ni ausencia confirmada")
+    check(j1["tabla8"] == jperd["tabla8"] and j1["tabla8"]["Inundación HTTP"]["evaluables"] == []
+          and e1["evaluable"] == jperd["episodios"][EID]["evaluable"]
+          and "anclas_no_evaluadas" not in jperd["episodios"][EID]["cobertura"]
+          and "(pérdida de datos)" in jperd["episodios"][EID]["cobertura"]["motivo"],
+          "Tabla 8 y denominador iguales que con la misma ancla perdida: el evento no cambia la comparación")
+    check("## Ventanas no evaluadas" in md1 and "| inundacion_http-r1 | 1 | 0 | no |" in md1,
+          "TABLA8.md lista el episodio afectado")
+
+    # 2) detección confirmada (IF ALERT T+40) + OTRA ventana del ataque no evaluada (T+70)
+    mot2 = _sin(_mot({T + 40: {"score": -0.70, "decision": "ALERT"}}), T + 70) + [noev(T + 85, T + 70)]
+    j2, md2 = _e2e_ne(an, mot2)
+    e2 = j2["episodios"][EID]; pc2 = e2["ventanas_no_evaluadas"]["por_configuracion"]
+    check(e2["evaluable"] is False and e2["IF_0.05"]["deteccion_confirmada"] is True
+          and e2["IF_0.05"]["categoria"] == "no_evaluable" and pc2["IF_0.05"]["estado"] == "deteccion_confirmada_visible"
+          and pc2["HIB_0.05"]["estado"] == "deteccion_confirmada_visible"
+          and pc2["HEUR"]["estado"] == "ausencia_no_establecible"
+          and e2["ventanas_no_evaluadas"]["detalle"][0]["escrito"] == "durante_actividad",
+          "detección confirmada visible; HEUR (sin positivo) queda desconocido; el híbrido la prueba por el IF")
+    dfu = j2["ventanas_no_evaluadas"]["detecciones_confirmadas_en_episodios_no_evaluables"]
+    check(len(dfu) == 1 and dfu[0]["episodio_id"] == EID and "IF_0.05" in dfu[0]["configuraciones_con_deteccion_confirmada"]
+          and "HEUR" not in dfu[0]["configuraciones_con_deteccion_confirmada"]
+          and j2["tabla8"]["Inundación HTTP"]["IF_0.05"] == 0 and "Detección confirmada fuera de la comparación" in md2,
+          "la detección se lista aparte y no entra en el numerador de la Tabla 8 (denominador común)")
+
+    # 3) evento FUERA del periodo relevante (ventana T+400) y ventana posterior que solapa (T+120, fin=T+90)
+    mot3 = _sin(base, T + 120) + [noev(T + 570, T + 400), noev(T + 290, T + 120)]
+    j3, _ = _e2e_ne(an, mot3)
+    e3 = j3["episodios"][EID]; v3 = e3["ventanas_no_evaluadas"]
+    cob3, cob0 = e3["cobertura"], j0["episodios"][EID]["cobertura"]
+    check(e3["evaluable"] is True and j3["tabla8"] == j0["tabla8"] and cob3["suficiente"] is True
+          and cob3["anclas_ataque_observadas"] == cob0["anclas_ataque_observadas"] and "anclas_no_evaluadas" not in cob3
+          and v3["n"] == 1 and v3["ventanas_posteriores_que_solapan"] == 1 and v3["ventanas_del_ataque"] == 0
+          and all(v3["por_configuracion"][c]["estado"] == "posterior_incompleta" for c in an.CONFIGS)
+          and "ninguno sobre la evaluabilidad" in v3["efecto_en_evaluabilidad"],
+          "ventana que solapa solo el final: no excluye el episodio; deja incompleta la relación posterior")
+    fuera = [r for r in j3["ventanas_no_evaluadas"]["registros"] if r["window_end_utc"] == iso(T + 400)][0]
+    check(fuera["relacion_episodios"] == "fuera_de_episodio" and j3["ventanas_no_evaluadas"]["contadas"] == 2,
+          "evento fuera del periodo: se cuenta como calidad, sin efecto sobre el episodio")
+
+    # 4) control con ventanas no evaluadas (perfil legítimo): no son TN ni FP; denominador explícito
+    mot4 = base + [rec(w + 1, w, -0.50, ip=OTRA) for w in range(T, T + 150, 10) if w not in (T + 60, T + 70, T + 80)]
+    mot4 += [noev(T + 230, T + 60, "ventana_no_regenerada", ip=OTRA), noev(T + 240, T + 70, "otro_motivo", ip=OTRA),
+             noev(T + 250, T + 80, None, ip=OTRA)]
+    j4, md4 = _e2e_ne(an, mot4, control=(T, T + 200))
+    c4, c0b = j4["control_normal_fpr"], j0["control_normal_fpr"]
+    check(c4["ventanas"] == c4["denominador"] == 27 and c4["ventanas_no_evaluadas"] == 3
+          and c4["cobertura_evaluada"] == round(27 / 30, 6)
+          and c4["ventanas_no_evaluadas_por_motivo"] == {"desconocido (motivo ausente)": 1, "otro_motivo": 1,
+                                                          "ventana_no_regenerada": 1},
+          "control: 27 evaluadas + 3 no evaluadas; cobertura 0,9; motivos separados")
+    check(all(c4[c]["falsas_alarmas"] == c0b[c]["falsas_alarmas"] and c4[c]["tasa"] == round(
+        c4[c]["falsas_alarmas"] / 27, 6) for c in an.CONFIGS) and "no son TN" in c4["denominador_significado"],
+          "las no evaluadas no son TN ni FP: tasa sobre las 27 evaluadas, rotulada")
+    r4 = {r["motivo"]: r for r in j4["ventanas_no_evaluadas"]["registros"]}
+    inc4 = j4["ventanas_no_evaluadas"]["incidencias"]
+    check(r4["ventana_no_regenerada"]["motivo_estado"] == "reconocido"
+          and r4["otro_motivo"]["motivo_estado"] == "no_reconocido"
+          and r4["desconocido (motivo ausente)"]["motivo_estado"] == "ausente"
+          and any("motivo no reconocido 'otro_motivo'" in s for s in inc4)
+          and any("motivo ausente" in s for s in inc4)
+          and all(r["relacion_episodios"].startswith("otra_entidad") for r in r4.values())
+          and "Control: cobertura 0.9 (3 no evaluadas)" in md4,
+          "motivos conocido, no reconocido y ausente: se conservan con diagnóstico explícito")
+    check(not any(k in r for r in r4.values() for k in ("score", "decision", "etiqueta", "senal"))
+          and all(set(r["disponibilidad"]) == set(an.CAMPOS_DISPONIBILIDAD) and r["respaldo"]["linea"] > 0
+                  and len(r["respaldo"]["sha256"]) == 64 for r in r4.values()),
+          "sin score/decisión/etiqueta inventados; disponibilidad y respaldo (línea + sha256) conservados")
+
+    # 5) métricas por ventana: la no evaluada etiquetada no es FN
+    j5, _ = _e2e_ne(an, _sin(_mot({T + 40: {"score": -0.70, "decision": "ALERT"}}), T + 50) + [noev(T + 220, T + 50)],
+                    etiquetas={(K, T + 40): 1, (K, T + 50): 1, (K, T + 60): 0})
+    m5 = j5["metricas_por_ventana"]["IF_0.05"]
+    check(j5["metricas_por_ventana"]["denominador"] == 2 and j5["metricas_por_ventana"]["etiquetadas_no_evaluadas"] == 1
+          and j5["metricas_por_ventana"]["cobertura_etiquetadas"] == round(2 / 3, 6)
+          and m5["TP"] == 1 and m5["FN"] == 0 and m5["TN"] == 1 and m5["FP"] == 0,
+          "métricas: la ventana positiva no evaluada no cuenta como FN; denominador 2 de 3 rotulado")
+
+    # 6) duplicados y conflicto con una decisión de la misma clave
+    mot6 = _sin(base, T + 50) + [noev(T + 220, T + 50), noev(T + 230, T + 50, "ventana_no_regenerada"),
+                                 noev(T + 231, T + 60)]                    # T+60 SÍ tiene decisión
+    j6, _ = _e2e_ne(an, mot6)
+    b6 = j6["ventanas_no_evaluadas"]
+    est = sorted(r["estado_en_analisis"] for r in b6["registros"])
+    check(b6["contadas"] == 1 and len(b6["duplicados"]) == 1 and len(b6["duplicados"][0]["registros"]) == 2
+          and b6["duplicados"][0]["motivos"] == ["pcap_incompleto", "ventana_no_regenerada"]
+          and est == ["conflicto_con_decision", "contada", "duplicado_no_contado"],
+          "duplicado: se cuenta una vez y se conservan ambos registros con sus motivos")
+    check(len(b6["conflictos"]) == 1 and b6["conflictos"][0]["registro_decision"].startswith("motor:")
+          and "prevalece la decisión" in b6["conflictos"][0]["regla"]
+          and j6["episodios"][EID]["cobertura"]["anclas_no_evaluadas"] == 1
+          and j6["episodios"][EID]["ventanas_no_evaluadas"]["n"] == 1
+          and any(s.startswith("conflicto ") for s in b6["incidencias"]),
+          "conflicto decisión/no evaluada: prevalece la decisión, el evento no se cuenta, queda registrado")
+    check(j6["configuraciones"] == list(an.CONFIGS) == ["IF_0.05", "IF_0.03", "IF_0.01", "HEUR", "HIB_0.05",
+                                                        "HIB_0.03", "HIB_0.01"]
+          and list(j6["episodios"][EID]["ventanas_no_evaluadas"]["por_configuracion"]) == list(an.CONFIGS),
+          "siete configuraciones en su orden")
+
+    # 7) campos ausentes o inválidos con diagnóstico explícito
+    malos = [noev(T + 220, T + 50, window_end_utc=...), noev("abc", T + 70), noev(T + 670, T + 500, marca_pcap="x")]
+    with tempfile.TemporaryDirectory() as d:
+        p = Path(d) / "m.log"
+        p.write_text("\n".join(base + malos), encoding="utf-8")
+        regs, inc_dec, _ = an.leer_motor(p)
+        b7 = an.leer_no_evaluadas(p, regs, {"archivo": "m.log", "sha256": "0" * 64})
+    check(len(regs) == 15 and not inc_dec, "las decisiones no cambian ni heredan incidencias de los eventos")
+    check(len(b7["vigentes"]) == 1 and b7["vigentes"][0]["window_end_utc"] == iso(T + 500)
+          and any(s.startswith("motor:16: ventana_no_evaluada: faltan claves ['window_end_utc']") for s in b7["incidencias"])
+          and any(s.startswith("motor:17: ventana_no_evaluada: valor inválido") for s in b7["incidencias"])
+          and b7["vigentes"][0]["diagnosticos"] == ["marca_pcap no numérico ('x')"]
+          and b7["vigentes"][0]["marca_pcap_menos_window_end_s"] is None,
+          "sin window_end o con logged_at inválido: no se cuenta, con incidencia motor:línea; campo de "
+          "disponibilidad no numérico: se conserva con diagnóstico")
+
+
+def test_no_evaluada_real_compatibilidad():
+    """Evento REAL de la preparación (out_p38, candidato, 28-oct): solo compatibilidad de lectura. No se le asigna
+    etiqueta, atribución ni efecto experimental."""
+    an = cargar("analizar")
+    src = AQUI.parent / "preparacion-2026-10-28" / "salidas" / "out_p38_sensor_noevaluada.txt"
+    largo = Path("\\\\?\\" + str(src)) if os.name == "nt" else src   # ruta > 260 caracteres en Windows
+    lineas = [x.strip() for x in largo.read_text(encoding="utf-8").splitlines()
+              if x.strip().startswith("{") and '"ventana_no_evaluada"' in x]
+    with tempfile.TemporaryDirectory() as d:
+        p = Path(d) / "m.log"
+        p.write_text("\n".join(lineas), encoding="utf-8")
+        b = an.leer_no_evaluadas(p, [], {"archivo": str(src.name), "sha256": "-"})
+    check(len(lineas) == 1 and len(b["vigentes"]) == 1 and not b["incidencias"], "out_p38: un evento, sin incidencias")
+    e = b["vigentes"][0]
+    check(e["entity_ip"] == "10.10.20.23" and e["window_end_utc"] == "2026-10-28T07:57:30+00:00"
+          and e["motivo"] == "pcap_incompleto" and e["motivo_estado"] == "reconocido"
+          and e["campos_disponibilidad_ausentes"] == [] and e["espera_desde_pendiente_s"] == 172.6
+          and e["marca_pcap_menos_window_end_s"] == 163.3 and e["escrito_tras_window_end_s"] == 175.8,
+          "out_p38: campos leídos tal cual (motivo registrado por el candidato; marca_pcap 163 s tras la ventana)")
+    check(not any(k in e for k in ("score", "decision", "etiqueta", "atribucion")),
+          "out_p38: sin etiqueta, atribución ni decisión inventadas")
+
+
 def main():
     for fn in (test_validacion, test_generador_simulacion, test_generador_timeout_mata_hijos,
                test_analizador_basico, test_cobertura_una_ventana_insuficiente, test_score_nulo_con_heuristico,
@@ -910,7 +1143,8 @@ def main():
                test_integridad_gate_analizador, test_integridad_e2e_no_habilita_denominador,
                test_umbral_001_procedencia, test_comparacion_estricta, test_escala_anomalia,
                test_siete_configuraciones, test_no_regresion_005_003, test_anidamiento_por_alfa,
-               test_procedencia_emisiones, test_umbral_registrado_ausente, test_conteos_cobertura_7_sin_cambios):
+               test_procedencia_emisiones, test_umbral_registrado_ausente, test_conteos_cobertura_7_sin_cambios,
+               test_ventanas_no_evaluadas, test_no_evaluada_real_compatibilidad):
         fn()
         print(f"OK  {fn.__name__}")
     print(f"\n{ok['n']} comprobaciones pasaron.")

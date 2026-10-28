@@ -2,9 +2,9 @@
   "campana": "deteccion-respuesta-2026-10-26",
   "registrado": "2026-10-26, en la fase de preparacion, antes de ejecutar ningun ataque ni campana.",
   "version_config": {
-    "version": "2026-10-28.2",
-    "cambio": "correccion de procedencia temporal (solo textos; umbrales y criterios sin cambios): las 7 configuraciones son clasificaciones comparativas derivadas; las emisiones reales se registran aparte (emisiones_observadas). Detalle en CAMBIOS-2026-10-28-procedencia.md.",
-    "anterior": "2026-10-28.1 (commit a6dc5ab): anade alfa 0,01, 5 -> 7 configuraciones (CAMBIOS-2026-10-28-alfa001.md). Antes, sin campo de version (72fb95c y previos): 5 configuraciones, alfa 0,05 y 0,03",
+    "version": "2026-10-28.3",
+    "cambio": "#59 (solo textos; umbrales, configuraciones, caracteristicas, escenarios y criterios sin cambios): referencia estable de logged_at (sin motor_decision.py:601) y nota ventana_no_evaluada en emision_vs_window_end. El tratamiento esta en scripts/analizar.py. Detalle en CAMBIOS-2026-10-28-no-evaluadas.md.",
+    "anterior": "2026-10-28.2 (vigente hasta 2612e3f): correccion de procedencia temporal, solo textos (CAMBIOS-2026-10-28-procedencia.md). 2026-10-28.1 (commit a6dc5ab): anade alfa 0,01, 5 -> 7 configuraciones (CAMBIOS-2026-10-28-alfa001.md). Antes, sin campo de version (72fb95c y previos): 5 configuraciones, alfa 0,05 y 0,03",
     "campana_iniciada_al_cambiar": "no: comprobado en solo lectura el 2026-10-28 05:47 UTC (Kali sin marcas.jsonl ni generador; sensor sin ~/cf-campana-archivo; ningun proceso de campana). Por eso se actualiza esta configuracion en su sitio, sin ensayo previo que proteger."
   },
   "proposito": "Completar 4.2 (aporte de componentes, campana A de deteccion) y despues 4.4 (respuesta y tiempos, campana B). No sustituye ni modifica aporte-componentes-r2-2026-10-26; es una campana nueva e independiente.",
@@ -119,8 +119,9 @@
     "escenarios_pendientes": "ninguno al 27-oct: los 5 habilitados y verificados en entorno (ver ESTADO-ENTORNO-2026-10-27.md). DNS usa zona local lab-ppi; fuerza bruta usa endpoint 18081/auth (cadena red+Suricata+extractor confirmada)."
   },
   "emision_vs_window_end": {
-    "logged_at": "motor_decision.py escribe logged_at = time.time() del ciclo (motor_decision.py:601) = instante real en que el motor escribio ESE registro. Es la emision real solo de lo que el registro emitio (p.ej. un ALERT del IF desplegado, ver emisiones_observadas); para las configuraciones comparativas derivadas es la disponibilidad de la evidencia usada. El analizador clasifica por logged_at.",
-    "window_end_utc": "cierre de la ventana; NO es la hora de emision y NO se usa para la deteccion operativa."
+    "logged_at": "motor_decision.py escribe logged_at = time.time() al construir el registro, dentro del ciclo (producto scripts/engine/motor_decision.py, funcion main(), campo logged_at de los registros 'decision' y 'ventana_no_evaluada'; commit 7b275b8 desplegado el 28-oct; referencia sin numero de linea, que cambia entre versiones) = instante real en que el motor escribio ESE registro. Es la emision real solo de lo que el registro emitio (p.ej. un ALERT del IF desplegado, ver emisiones_observadas); para las configuraciones comparativas derivadas es la disponibilidad de la evidencia usada. El analizador clasifica por logged_at.",
+    "window_end_utc": "cierre de la ventana; NO es la hora de emision y NO se usa para la deteccion operativa.",
+    "ventana_no_evaluada": "evento del motor corregido (7b275b8) cuando una ventana pendiente caduca sin decision (motivo pcap_incompleto o ventana_no_regenerada). Su logged_at es cuando se escribio el evento (puede ser ~170 s despues de window_end); su efecto se juzga por el intervalo (window_end-60, window_end]. No trae score ni decision: no es PERMIT, ni TN/FN, ni alerta. analizar.py lo trata como calidad/cobertura (bloque ventanas_no_evaluadas)."
   },
 
   "historia_y_registros": {
