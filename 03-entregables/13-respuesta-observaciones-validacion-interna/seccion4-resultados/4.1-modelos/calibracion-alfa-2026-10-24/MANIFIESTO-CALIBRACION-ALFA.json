@@ -49,21 +49,50 @@
     }
   },
   "salidas_sha256": {
+    "ampliar_alfa.py": "4a48a28188bdccc2809032f872028842835d0b16408ab4fda7d5a23fba5d6796",
     "calibrar_alfa.py": "8f81e75a0e8ad991a6e61cafc282a8a7ad85577332f03096a53367f5879581ee",
+    "COMPARACION-VENTANAS-ALFA.csv": "d4a8e2f85da3e32b20499b011d1638cfa8245541e9e98224b595115176e925b3",
+    "COMPARACION-VENTANAS-ALFA.md": "c492b9b70fa043e7edb480470aa79645891cb3540e8979be4ba110fe78b6705c",
     "figura-roc-pr-puntos-operativos.pdf": "f0e4a61569664f37bee9d222410d6ebacbbb5d70f87e0f4ae7e0e566c421f558",
     "figura-roc-pr-puntos-operativos.png": "1064ad8ae18ca264e31cece859fece65d3f211748223a3f5ac445018e3009f66",
     "figura-roc-pr-puntos-operativos.svg": "b1f1eac0e9afc10d69479a6a425900b57760daec73f2815b4188db6c1db3b5c7",
     "figura-sensibilidad-alfa.pdf": "a8fbd2b844e3b4dfaf328f7a5073cf8e38cdd044b5fa9affb9df3b9a800d54bd",
     "figura-sensibilidad-alfa.png": "b4e3a683b41d175cea3db8bf4ebadac89d279c02073344b59aabeaf460bf70fb",
     "figura-sensibilidad-alfa.svg": "2109867a2f13798491c5470ad526031d0c7ed0fa996d80944889d73cd183bb8a",
+    "MANIFIESTO-AMPLIACION-ALFA-2026-10-27.json": "80a8d5a8db9690993e9a155305309cbf5cb4309fd6064ac21b70cbcb178074b9",
     "NOTA-CALIBRACION-ALFA.md": "96174ded6e24e224b2f0883599ef75368219e6977c91070152be2b46325bba02",
+    "NOTA-INTERPRETACION-ALFA.md": "19cbe97da05fa1dbc02dd2f10eca27a6e08d5a84103e9ae10049c8474954cdb0",
     "resultados-calibracion-alfa.json": "cf07c0c9545b1f3ac75e7564faf95f3b1225b790d8cf98ba7e287eb5469bd57d",
-    "SENSIBILIDAD-ALFA.csv": "e9d63f457751ee5f465653627bbc9b14cb0439073cd9dde1295dd82f78675d72",
-    "SENSIBILIDAD-ALFA.md": "b81b58a24556d3f1cd3af046be4f4a979d3406216e2e24b4ede860e327a07713",
+    "SENSIBILIDAD-ALFA.csv": "f9b05331f29df81e9510cde8ce81614af7053bccdf83e64653b804ffd9217a53",
+    "SENSIBILIDAD-ALFA.md": "aa11067e4487a293b6cfdf556c2ade21f8e802f884185283b5ecb124ba7e112a",
     "TABLA6-variante-alfa0.03-sinKali.csv": "5cf59bcf8aaa1f4570aaba13eea7370e2a04175f0dde4babd8e1933584e3515b",
+    "TABLA6a-comparacion-alfa.csv": "5e038dee321e2f3c57daff8f15a00f5cf15905da0785c7fdca80ff5b112bde83",
+    "TABLA6a-comparacion-alfa.md": "ab8d610b4c2808cdcd965212b795699f33b7f4c3f31fa775a493ef59c98c41df",
     "TABLA7-fila-IF-variante-alfa0.03-sinKali.csv": "f96c302b68df4473ea2962d4fb72ae4a1e0713d6f8236d67d20e4380702adb82",
     "TRAZABILIDAD-DATOS.csv": "abfbf18583e093509aa5938a45e36b63f292c4239ef79c9231d867f0c727be88",
     "TRAZABILIDAD-DATOS.md": "a93218f95d87e64077959385880eeb73634ef699a63f3480d67ae3d0160b2986",
+    "umbrales-alfa-precision-completa.json": "26bfc6e6c98bc164b27e79daa234bd5dd6f028eb880548914ae184f36bb6753e",
     "validacion-kali-80-excluidas.csv": "a8d1de2d84698f751ca25bcca7a16bfdb51f21ee58e46b99e863af5d687374dc"
+  },
+  "actualizado_utc": "2026-10-28T01:19:46.954682+00:00",
+  "ampliacion_2026_10_27": {
+    "script": "ampliar_alfa.py",
+    "cambio": "sensibilidad de alfa ampliada con 0,008 y 0,005; SENSIBILIDAD-ALFA.{md,csv} actualizadas; nuevas TABLA6a-comparacion-alfa.*, umbrales-alfa-precision-completa.json, COMPARACION-VENTANAS-ALFA.*, NOTA-INTERPRETACION-ALFA.md.",
+    "no_cambia": "modelo, escalador, umbral desplegado (-0.5693969936322356), servicios, Word, figuras.",
+    "ficheros_cambiados": [
+      "SENSIBILIDAD-ALFA.csv",
+      "SENSIBILIDAD-ALFA.md"
+    ],
+    "ficheros_anadidos": [
+      "ampliar_alfa.py",
+      "COMPARACION-VENTANAS-ALFA.csv",
+      "COMPARACION-VENTANAS-ALFA.md",
+      "MANIFIESTO-AMPLIACION-ALFA-2026-10-27.json",
+      "NOTA-INTERPRETACION-ALFA.md",
+      "TABLA6a-comparacion-alfa.csv",
+      "TABLA6a-comparacion-alfa.md",
+      "umbrales-alfa-precision-completa.json"
+    ],
+    "manifiesto_detalle": "MANIFIESTO-AMPLIACION-ALFA-2026-10-27.json"
   }
 }

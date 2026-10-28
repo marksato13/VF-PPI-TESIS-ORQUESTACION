@@ -1,0 +1,124 @@
+{
+  "generado_utc": "2026-10-28T01:18:44.306933+00:00",
+  "proposito": "ampliacion de la sensibilidad de alfa (anade 0,008 y 0,005) sobre los artefactos existentes; no cambia modelo, umbral desplegado, servicios ni Word",
+  "protocolo_identico_a": "calibrar_alfa.py (2026-10-24)",
+  "discrepancia_65633_vs_65553": "el fichero de validacion tiene 65633 filas; la Tabla 6-a calibra con 65553 = 65633 - 80 ventanas de 10.10.20.30 (Kali). Documentado y verificado aqui.",
+  "limitacion_episodios": "scores-ataques-84 no trae escenario/episodio; no se puede comprobar cobertura por episodio ni deteccion durante el ataque con estos datos (pendiente de campana A).",
+  "entradas_sensor_sha256_verificadas": {
+    "exclusiones-entrenamiento-181.csv": "5403ed339b59587010b9a11862c5c925e939e5de7b94938b3939be8b94132301",
+    "scores-ataques-84.csv.gz": "af0b410125f6917f95bf6178931c691a28ab4da05eb6b0c9c44601649d0e5257",
+    "scores-prueba-normal-65421.csv.gz": "175f05aa0c3a62b171aee01f251f8d7a019f6032478c15c2d3a5dc80990d2154",
+    "scores-validacion-65633.csv.gz": "7207933cd8ef5b6ea44b06f64594641142052f527316e8de0e24e104e2704e99",
+    "sensor_calib.py": "6807dfb8f6e71ceac790afee2f81d67078125307e970fb91005fad732a01ad95"
+  },
+  "verificaciones": {
+    "identidades_conteo": [],
+    "reproduccion_refs": {
+      "0.01": {
+        "TP": {
+          "esperado": 50,
+          "obtenido": 50,
+          "coincide": true
+        },
+        "FP": {
+          "esperado": 567,
+          "obtenido": 567,
+          "coincide": true
+        },
+        "TN": {
+          "esperado": 64854,
+          "obtenido": 64854,
+          "coincide": true
+        },
+        "FN": {
+          "esperado": 34,
+          "obtenido": 34,
+          "coincide": true
+        }
+      },
+      "0.03": {
+        "umbral": {
+          "esperado": -0.5898535710336618,
+          "obtenido": -0.5898535710336618,
+          "coincide": true
+        },
+        "TP": {
+          "esperado": 54,
+          "obtenido": 54,
+          "coincide": true
+        },
+        "FP": {
+          "esperado": 1723,
+          "obtenido": 1723,
+          "coincide": true
+        },
+        "TN": {
+          "esperado": 63698,
+          "obtenido": 63698,
+          "coincide": true
+        },
+        "FN": {
+          "esperado": 30,
+          "obtenido": 30,
+          "coincide": true
+        }
+      },
+      "0.05": {
+        "umbral": {
+          "esperado": -0.5694578968203694,
+          "obtenido": -0.5694578968203694,
+          "coincide": true
+        },
+        "TP": {
+          "esperado": 54,
+          "obtenido": 54,
+          "coincide": true
+        },
+        "FP": {
+          "esperado": 2955,
+          "obtenido": 2955,
+          "coincide": true
+        },
+        "TN": {
+          "esperado": 62466,
+          "obtenido": 62466,
+          "coincide": true
+        },
+        "FN": {
+          "esperado": 30,
+          "obtenido": 30,
+          "coincide": true
+        }
+      }
+    },
+    "umbral_desplegado": {
+      "q05_validacion_original": -0.5693969936322356,
+      "U_OP_declarado": -0.5693969936322356,
+      "coincide": true
+    },
+    "fp_monotono_no_decreciente_sinKali": true
+  },
+  "alfas": [
+    0.005,
+    0.008,
+    0.01,
+    0.02,
+    0.025,
+    0.03,
+    0.04,
+    0.05,
+    0.1
+  ],
+  "salidas_sha256_lf": {
+    "ampliar_alfa.py": "4a48a28188bdccc2809032f872028842835d0b16408ab4fda7d5a23fba5d6796",
+    "TABLA6a-comparacion-alfa.csv": "5e038dee321e2f3c57daff8f15a00f5cf15905da0785c7fdca80ff5b112bde83",
+    "TABLA6a-comparacion-alfa.md": "ab8d610b4c2808cdcd965212b795699f33b7f4c3f31fa775a493ef59c98c41df",
+    "umbrales-alfa-precision-completa.json": "26bfc6e6c98bc164b27e79daa234bd5dd6f028eb880548914ae184f36bb6753e",
+    "COMPARACION-VENTANAS-ALFA.csv": "d4a8e2f85da3e32b20499b011d1638cfa8245541e9e98224b595115176e925b3",
+    "COMPARACION-VENTANAS-ALFA.md": "c492b9b70fa043e7edb480470aa79645891cb3540e8979be4ba110fe78b6705c",
+    "NOTA-INTERPRETACION-ALFA.md": "19cbe97da05fa1dbc02dd2f10eca27a6e08d5a84103e9ae10049c8474954cdb0",
+    "SENSIBILIDAD-ALFA.csv": "f9b05331f29df81e9510cde8ce81614af7053bccdf83e64653b804ffd9217a53",
+    "SENSIBILIDAD-ALFA.md": "aa11067e4487a293b6cfdf556c2ade21f8e802f884185283b5ecb124ba7e112a"
+  },
+  "manifiesto_original_historico": "MANIFIESTO-CALIBRACION-ALFA.json (estado 2026-10-24)"
+}
