@@ -35,6 +35,19 @@ Reglas (ver config-campana.json y PLAN):
   - Un registro de decisión SIN la clave threshold se conserva (con incidencia archivo:línea) si tiene los campos
     para leerlo y ubicarlo (REQ_MOTOR). Su umbral registrado queda desconocido, distinguiendo clave ausente de null;
     no da latencia confirmada. Las clasificaciones comparativas usan sus propios umbrales de análisis.
+  - Eventos 'ventana_no_evaluada' (motor corregido, producto 7b275b8; #59): registros de CALIDAD Y COBERTURA, aparte
+    de las decisiones y de las emisiones observadas. No traen score, decisión ni etiqueta: no son TP/FP/TN/FN, ni
+    PERMIT, ni alerta. Se conservan con motivo (pcap_incompleto, ventana_no_regenerada o cualquier otro, marcado no
+    reconocido), campos de disponibilidad y respaldo (archivo, sha256, línea). Se relacionan con el episodio por el
+    INTERVALO de la ventana (window_end-60, window_end], no por el instante de escritura (que puede ser ~170 s
+    posterior): ventana del ataque (window_end en (inicio, fin]) -> el ancla falta y el episodio no es evaluable, igual
+    que antes de #59 (el motivo ahora separa «registrada como no evaluada» de «sin registro»); ventana que solapa el
+    final (window_end en (fin, fin+60)) -> solo deja incompleta la relación «posterior»; fuera -> sin efecto. Sin score
+    el IF no es evaluable en esa ventana para ningún α; el heurístico queda desconocido; el híbrido solo prueba
+    detección con un positivo confirmado. Una detección confirmada se mantiene visible; la ausencia no se afirma.
+    En el control y las métricas por ventana se informan aparte (cobertura = evaluadas / (evaluadas + no evaluadas));
+    las tasas son sobre ventanas evaluadas. Duplicados: se cuentan una vez. Conflicto con una decisión de la misma
+    clave: prevalece la decisión y el evento queda en 'conflictos'. Nada se descarta en silencio.
 """
 from __future__ import annotations
 import argparse, csv, hashlib, json, math
@@ -55,6 +68,12 @@ UMBRAL_DESCONOCIDO = {"clave_ausente": "desconocido (el registro no contiene la 
                       "null": "desconocido (threshold registrado como null)",
                       "no_numerico": "desconocido (threshold registrado no numérico)"}
 AUTH_DETECTOR = "auth_failure_heuristic"
+EVENTO_NO_EVALUADA = "ventana_no_evaluada"
+REQ_NO_EVALUADA = ("logged_at", "entity_ip", "window_end_utc")   # ubicar la ventana y el instante de escritura
+CAMPOS_DISPONIBILIDAD = ("pendiente_desde", "inicio_ciclo", "marca_pcap", "marca_eve", "pcaps_ilegibles")
+MOTIVOS_NO_EVALUADA = {  # producto scripts/engine/motor_decision.py, main(), bloque de pendientes (commit 7b275b8)
+    "pcap_incompleto": "los PCAP cerrados no cubrían la ventana al vencer la espera",
+    "ventana_no_regenerada": "los PCAP la cubrían, pero build_rows ya no generaba la ventana (historia podada)"}
 
 
 def ep_iso(s) -> float:
@@ -158,6 +177,93 @@ def leer_motor(path: Path):
     return dedup, inc, dups
 
 
+def leer_no_evaluadas(path: Path, decisiones: list, ref_motor: dict) -> dict:
+    """Eventos 'ventana_no_evaluada' como registros de calidad/cobertura (no son decisiones). No se inventa score,
+    decisión, etiqueta ni señal. Devuelve {'vigentes': [...], 'registros', 'incidencias', 'duplicados', 'conflictos'}:
+    'vigentes' son los que se cuentan (uno por clave entity_ip|window_end, sin decisión para esa clave)."""
+    evs, inc = [], []
+    for ln, linea in enumerate(open(path, encoding="utf-8"), 1):
+        linea = linea.strip()
+        if not linea:
+            continue
+        try:
+            r = json.loads(linea)
+        except json.JSONDecodeError:
+            continue                                                     # ya consta en las incidencias del motor
+        if not isinstance(r, dict) or r.get("event") != EVENTO_NO_EVALUADA:
+            continue
+        falta = [k for k in REQ_NO_EVALUADA if r.get(k) is None]
+        if falta:
+            inc.append(f"motor:{ln}: {EVENTO_NO_EVALUADA}: faltan claves {falta}; no se puede ubicar la ventana "
+                       "(no se cuenta; queda solo esta incidencia)"); continue
+        try:
+            logged, wend = float(r["logged_at"]), ep_iso(r["window_end_utc"])
+            if not math.isfinite(logged):
+                raise ValueError(f"logged_at no finito {r['logged_at']!r}")
+        except (ValueError, TypeError) as ex:
+            inc.append(f"motor:{ln}: {EVENTO_NO_EVALUADA}: valor inválido ({ex}); no se cuenta"); continue
+        diag = []
+        mot = r.get("motivo")
+        if mot is None:
+            est = "ausente"; diag.append("motivo ausente")
+        elif isinstance(mot, str) and mot in MOTIVOS_NO_EVALUADA:
+            est = "reconocido"
+        else:
+            est = "no_reconocido"; diag.append(f"motivo no reconocido {mot!r} (se conserva tal cual)")
+        disp = {k: r[k] for k in CAMPOS_DISPONIBILIDAD if k in r}
+        diag += [f"{k} no numérico ({v!r})" for k, v in disp.items() if not _numero(v)]
+        pend = disp.get("pendiente_desde")
+        mp = disp.get("marca_pcap")
+        e = {"registro_id": f"motor:{ln}", "evento": EVENTO_NO_EVALUADA, "entity_ip": r["entity_ip"],
+             "window_end_utc": r["window_end_utc"],
+             "intervalo_ventana_utc": [iso(wend - HORIZONTE_S), iso(wend)],
+             "logged_at": r["logged_at"], "logged_at_utc": iso(logged),
+             "escrito_tras_window_end_s": round(logged - wend, 1),
+             "motivo": mot if mot is not None else "desconocido (motivo ausente)", "motivo_estado": est,
+             "motivo_significado": MOTIVOS_NO_EVALUADA.get(mot) if est == "reconocido" else None,
+             "disponibilidad": disp,
+             "campos_disponibilidad_ausentes": [k for k in CAMPOS_DISPONIBILIDAD if k not in r],
+             "espera_desde_pendiente_s": round(logged - pend, 1) if _numero(pend) else None,
+             "marca_pcap_menos_window_end_s": round(mp - wend, 1) if _numero(mp) else None,
+             "diagnosticos": diag,
+             "respaldo": {**ref_motor, "linea": ln},
+             "_logged": logged, "_wend": wend, "_clave": (r["entity_ip"], r["window_end_utc"])}
+        if diag:
+            inc.append(f"motor:{ln}: {EVENTO_NO_EVALUADA}: " + "; ".join(diag) + " (registro conservado)")
+        evs.append(e)
+    dec = {(r["entity_ip"], r["window_end_utc"]): f"motor:{r['_ln']}" for r in decisiones}
+    grupos = defaultdict(list)
+    for e in evs:
+        grupos[e["_clave"]].append(e)
+    vigentes, duplicados, conflictos = [], [], []
+    for k, lst in grupos.items():
+        ids = [e["registro_id"] for e in lst]
+        if len(lst) > 1:
+            duplicados.append({"clave": f"{k[0]}|{k[1]}", "registros": ids,
+                               "motivos": [e["motivo"] for e in lst],
+                               "regla": "la ventana se cuenta UNA vez (primer registro); todos se conservan"})
+            inc.append(f"{EVENTO_NO_EVALUADA} duplicada {k[0]}|{k[1]}: {', '.join(ids)} — se cuenta una vez")
+        if k in dec:
+            conflictos.append({"clave": f"{k[0]}|{k[1]}", "registro_decision": dec[k], "registros_no_evaluada": ids,
+                               "regla": "prevalece la decisión registrada para clasificar; el evento se conserva "
+                                        "aquí y NO se cuenta como ventana no evaluada"})
+            inc.append(f"conflicto {k[0]}|{k[1]}: decisión {dec[k]} y {EVENTO_NO_EVALUADA} {', '.join(ids)} — "
+                       "prevalece la decisión")
+            estado = "conflicto_con_decision"
+        else:
+            vigentes.append(lst[0]); estado = "contada"
+        for i, e in enumerate(lst):
+            e["estado_en_analisis"] = estado if (i == 0 or estado != "contada") else "duplicado_no_contado"
+    vigentes.sort(key=lambda e: e["_logged"])
+    return {"vigentes": vigentes, "registros": evs, "incidencias": inc, "duplicados": duplicados,
+            "conflictos": conflictos}
+
+
+def publico(e: dict) -> dict:
+    """Registro sin las claves internas (_logged, _wend, _clave)."""
+    return {k: v for k, v in e.items() if not k.startswith("_")}
+
+
 # ------------------------------------------------------------------- umbrales
 def umbrales_de(cfg: dict) -> dict:
     """Umbrales por α en escala score_samples, tal cual (float de precisión completa). Sin valores por defecto:
@@ -242,8 +348,11 @@ def senales(r: dict, U: dict) -> dict:
 
 
 # ------------------------------------------------------------------- cobertura temporal
-def cobertura(ep: dict, regs_global: list, regs_kali: list) -> dict:
-    """¿El motor registró de forma continua [inicio, fin+60] y hay ventanas de la Kali en todas las anclas del ataque?"""
+def cobertura(ep: dict, regs_global: list, regs_kali: list, no_eval_kali=()) -> dict:
+    """¿El motor registró de forma continua [inicio, fin+60] y hay ventanas de la Kali en todas las anclas del ataque?
+    no_eval_kali: eventos ventana_no_evaluada vigentes de la Kali. NO cuentan como ancla observada (no hay decisión);
+    solo separan, en el motivo, las anclas registradas como no evaluadas de las que no tienen ningún registro. Sin
+    eventos la salida es idéntica a la anterior a #59. La continuidad del motor se sigue midiendo con decisiones."""
     ini, fin = ep["inicio_ep"], ep["fin_ep"]
     if ep["estado"] != "completo" or fin is None:
         return {"suficiente": False, "motivo": "episodio incompleto/sin fin", "motor_continuo": False}
@@ -263,12 +372,24 @@ def cobertura(ep: dict, regs_global: list, regs_kali: list) -> dict:
     obs = {int(round(r["_wend"])) for r in regs_kali if ini < r["_wend"] <= fin}
     faltan = [a for a in esperadas if a not in obs]
     suf = motor_continuo and not faltan and len(esperadas) >= 1
+    ne = {int(round(e["_wend"])): e for e in no_eval_kali if ini < e["_wend"] <= fin}
+    ne_faltan = [a for a in faltan if a in ne]
+    if ne_faltan:
+        motivos = sorted({str(ne[a]["motivo"]) for a in ne_faltan})
+        txt_faltan = (f"faltan {len(faltan)} de {len(esperadas)} anclas de la Kali durante el ataque: "
+                      f"{len(ne_faltan)} registradas como {EVENTO_NO_EVALUADA} ({', '.join(motivos)}) y "
+                      f"{len(faltan) - len(ne_faltan)} sin registro (pérdida de datos)")
+    else:
+        txt_faltan = f"faltan {len(faltan)} de {len(esperadas)} anclas de la Kali durante el ataque (pérdida de datos)"
     mot = "ok" if suf else (
-        "motor no continuo (hueco o no cubre el intervalo)" if not motor_continuo else
-        f"faltan {len(faltan)} de {len(esperadas)} anclas de la Kali durante el ataque (pérdida de datos)")
-    return {"suficiente": suf, "motivo": mot, "motor_continuo": motor_continuo,
-            "anclas_ataque_esperadas": len(esperadas), "anclas_ataque_observadas": len(esperadas) - len(faltan),
-            "hueco_motor_max_s": round(hueco, 1), "cubre_inicio": cubre_ini, "cubre_fin_mas_60": cubre_fin}
+        "motor no continuo (hueco o no cubre el intervalo)" if not motor_continuo else txt_faltan)
+    out = {"suficiente": suf, "motivo": mot, "motor_continuo": motor_continuo,
+           "anclas_ataque_esperadas": len(esperadas), "anclas_ataque_observadas": len(esperadas) - len(faltan),
+           "hueco_motor_max_s": round(hueco, 1), "cubre_inicio": cubre_ini, "cubre_fin_mas_60": cubre_fin}
+    if ne_faltan:                                    # solo con eventos: sin ellos la salida no cambia
+        out["anclas_no_evaluadas"] = len(ne_faltan)
+        out["anclas_sin_registro"] = len(faltan) - len(ne_faltan)
+    return out
 
 
 # ------------------------------------------------------------------- evidencia de destino
@@ -311,13 +432,14 @@ def atribuir(destinos, eid, wend_utc, ep_destino):
 
 
 # ------------------------------------------------------------------- clasificación por episodio
-def clasificar(ep, regs_global, origen, U, destinos, integridad_apto=None):
+def clasificar(ep, regs_global, origen, U, destinos, integridad_apto=None, no_eval=()):
     """integridad_apto: True/False/None. None = integridad DESCONOCIDA (no verificada) => NO evaluable.
-    U = {α: umbral score_samples} (ver umbrales_de)."""
+    U = {α: umbral score_samples} (ver umbrales_de). no_eval: eventos ventana_no_evaluada vigentes (leer_no_evaluadas)."""
     ini, fin = ep["inicio_ep"], ep["fin_ep"]
     eid = f"{ep['escenario']}-r{ep['repeticion']}"
     kali = [r for r in regs_global if r["entity_ip"] == origen]
-    cob = cobertura(ep, regs_global, kali)
+    ne_kali = [e for e in no_eval if e["entity_ip"] == origen]
+    cob = cobertura(ep, regs_global, kali, ne_kali)
     # Evidencia de destino VÁLIDA que CUBRE el intervalo: no basta con que exista el mapa; cada ventana de la Kali
     # durante el ataque (window_end en (inicio, fin]) debe tener entrada de destino, para poder confirmar O descartar
     # la atribución de cada una. Un mapa vacío o con claves ausentes NO cubre el intervalo.
@@ -336,6 +458,7 @@ def clasificar(ep, regs_global, origen, U, destinos, integridad_apto=None):
         for c in CONFIGS:
             res[c] = {"categoria": "no_evaluable", "motivo": "sin fin de episodio"}
         res["senales_previas_o_ambiguas"] = []; res["senales_observadas_sin_confirmar"] = []
+        res["ventanas_no_evaluadas"] = efecto_no_evaluadas(ep, res, ne_kali)
         return res
     lim = fin + HORIZONTE_S
     dentro = [r for r in kali if ini <= r["_logged"] <= lim]
@@ -410,7 +533,73 @@ def clasificar(ep, regs_global, origen, U, destinos, integridad_apto=None):
                      else "solo_HEUR" if g["HEUR"] else f"ninguno_{a}")
                 comp[k] += 1
         res[f"compartidas_durante_{a}"] = comp
+    res["ventanas_no_evaluadas"] = efecto_no_evaluadas(ep, res, ne_kali)
     return res
+
+
+def relacion_no_evaluada(e: dict, ini: float, fin) -> str | None:
+    """Relación por el INTERVALO de la ventana (window_end-60, window_end], no por el instante de escritura."""
+    if fin is None:
+        return None
+    w1 = e["_wend"]
+    if not (w1 > ini and w1 - HORIZONTE_S < fin):
+        return None                                   # no solapa el ataque: sin efecto en este episodio
+    return "ventana_del_ataque" if w1 <= fin else "ventana_posterior_solapa"
+
+
+EFECTO_COMPONENTE = {
+    "IF": "sin score en esas ventanas: la clasificación IF no es evaluable en ellas para ningún α (0,05/0,03/0,01)",
+    "HEUR": "el evento no registra el heurístico y no hay decisión para esa clave (los conflictos se resuelven "
+            "aparte): no se sabe si disparó; no se supone que no",
+    "HIB": "IF sin score y heurístico desconocido en esas ventanas: solo un positivo confirmado probaría detección"}
+
+
+def efecto_no_evaluadas(ep: dict, res: dict, ne_kali: list) -> dict:
+    """Efecto de las ventanas no evaluadas de la Kali sobre este episodio, por configuración. No toca la Tabla 8: la
+    evaluabilidad ya la decide cobertura() (un ancla del ataque sin decisión falta, con o sin evento)."""
+    ini, fin = ep["inicio_ep"], ep["fin_ep"]
+    det = []
+    for e in ne_kali:
+        rel = relacion_no_evaluada(e, ini, fin)
+        if rel is None:
+            continue
+        det.append({"registro_id": e["registro_id"], "window_end_utc": e["window_end_utc"],
+                    "intervalo_ventana_utc": e["intervalo_ventana_utc"], "logged_at_utc": e["logged_at_utc"],
+                    "motivo": e["motivo"], "relacion_ventana": rel,
+                    "escrito": "durante_actividad" if e["_logged"] <= fin else "tras_fin",
+                    "escrito_tras_fin_s": round(e["_logged"] - fin, 1)})
+    ataque = [d for d in det if d["relacion_ventana"] == "ventana_del_ataque"]
+    post = [d for d in det if d["relacion_ventana"] == "ventana_posterior_solapa"]
+    out = {"n": len(det), "ventanas_del_ataque": len(ataque), "ventanas_posteriores_que_solapan": len(post),
+           "detalle": det}
+    if not det:
+        out["efecto"] = "ninguno"
+        return out
+    out["efecto_en_evaluabilidad"] = (
+        f"{len(ataque)} ancla(s) del ataque sin decisión constan como {EVENTO_NO_EVALUADA}: la cobertura es "
+        "insuficiente y el episodio no es evaluable (antes de #59 esas anclas ya faltaban como pérdida de datos; "
+        "la Tabla 8 no cambia, cambia el motivo)" if ataque else
+        "ninguno sobre la evaluabilidad (la cobertura exige anclas en (inicio, fin]); solo deja incompleta la "
+        "relación 'posterior', que no entra en la Tabla 8")
+    por_conf = {}
+    for c in CONFIGS:
+        conf = bool(isinstance(res.get(c), dict) and res[c].get("deteccion_confirmada"))
+        comp = "HIB" if c.startswith("HIB") else "IF" if c.startswith("IF") else "HEUR"
+        if conf:
+            por_conf[c] = {"estado": "deteccion_confirmada_visible", "ausencia_establecible": None,
+                           "motivo": "detección confirmada durante el ataque en una ventana con decisión registrada; "
+                                     "las ventanas no evaluadas no la anulan"}
+        elif ataque:
+            por_conf[c] = {"estado": "ausencia_no_establecible", "ausencia_establecible": False,
+                           "motivo": EFECTO_COMPONENTE[comp]}
+        else:
+            por_conf[c] = {"estado": "posterior_incompleta", "ausencia_establecible": True,
+                           "motivo": "las ventanas afectadas cierran después del fin: no pueden dar detección "
+                                     "durante (logged_at > fin); solo la relación posterior queda incompleta"}
+    out["por_configuracion"] = por_conf
+    out["nota"] = ("ausencia_establecible se refiere solo a estas ventanas no evaluadas; si el episodio entra en la "
+                   "comparación lo decide 'evaluable' (cobertura, destino e integridad)")
+    return out
 
 
 # ------------------------------------------------------------------- emisiones observadas (no son una configuración)
@@ -534,10 +723,23 @@ def resumen_emisiones_episodio(lst: list) -> dict:
 
 
 # ------------------------------------------------------------------- control normal (FPR)
-def fpr_control(regs, desde, hasta, U, excluidas):
+DENOMINADOR_EVALUADAS = ("ventanas con decisión registrada (evaluadas); las ventanas no evaluadas no son TN, FP ni "
+                         "FN y una decisión ausente no es PERMIT: las tasas se leen junto a la cobertura")
+
+
+def fpr_control(regs, desde, hasta, U, excluidas, no_eval=()):
     v = [r for r in regs if desde <= r["_logged"] <= hasta and r["entity_ip"] not in excluidas]
     n = len(v)
     out = {"ventanas": n, "denominador": n, "desde": iso(desde), "hasta": iso(hasta)}
+    # no evaluadas: por el intervalo de la ventana (window_end en el control), no por el instante de escritura
+    ne = [e for e in no_eval if desde <= e["_wend"] <= hasta and e["entity_ip"] not in excluidas]
+    out["ventanas_no_evaluadas"] = len(ne)
+    out["ventanas_no_evaluadas_por_motivo"] = {m: sum(1 for e in ne if str(e["motivo"]) == m)
+                                               for m in sorted({str(e["motivo"]) for e in ne})}
+    out["ventanas_no_evaluadas_criterio"] = ("window_end en [desde, hasta] (las decisiones se seleccionan por "
+                                             "logged_at); excluidas las entidades NUNCA_BLOQUEAR")
+    out["cobertura_evaluada"] = round(n / (n + len(ne)), 6) if n + len(ne) else None
+    out["denominador_significado"] = DENOMINADOR_EVALUADAS
     if n == 0:
         out["aviso"] = "sin ventanas en el control"; return out
     for c in CONFIGS:
@@ -547,12 +749,18 @@ def fpr_control(regs, desde, hasta, U, excluidas):
 
 
 # ------------------------------------------------------------------- métricas por ventana (solo con etiquetas)
-def metricas_por_ventana(regs, etiquetas, U):
+def metricas_por_ventana(regs, etiquetas, U, no_eval=()):
     pares = [(r, etiquetas[(r["entity_ip"], r["window_end_utc"])]) for r in regs
              if (r["entity_ip"], r["window_end_utc"]) in etiquetas]
+    ne = {e["_clave"] for e in no_eval} & set(etiquetas)
+    cob = {"etiquetadas_no_evaluadas": len(ne),
+           "etiquetadas_sin_registro": len(set(etiquetas) - ne - {(r["entity_ip"], r["window_end_utc"]) for r, _ in pares}),
+           "cobertura_etiquetadas": round(len(pares) / (len(pares) + len(ne)), 6) if pares or ne else None,
+           "denominador_significado": "etiquetadas con decisión registrada (evaluadas); las etiquetadas no evaluadas "
+                                      "no son TP, FP, TN ni FN: las métricas se leen junto a cobertura_etiquetadas"}
     if not pares:
-        return {"calculadas": False, "motivo": "ninguna ventana coincide con el fichero de etiquetas"}
-    out = {"calculadas": True, "n_etiquetadas": len(pares), "denominador": len(pares)}
+        return {"calculadas": False, "motivo": "ninguna ventana coincide con el fichero de etiquetas", **cob}
+    out = {"calculadas": True, "n_etiquetadas": len(pares), "denominador": len(pares), **cob}
     for c in CONFIGS:
         tp = fp = tn = fn = 0
         for r, y in pares:
@@ -564,6 +772,44 @@ def metricas_por_ventana(regs, etiquetas, U):
                   "recall": round(tp / (tp + fn), 6) if tp + fn else None,
                   "FPR": round(fp / (fp + tn), 6) if fp + tn else None}
     return out
+
+
+# ------------------------------------------------------------------- bloque de ventanas no evaluadas (salida)
+def bloque_no_evaluadas(ne: dict, eps: dict, por_ep: dict, origen: str) -> dict:
+    regs = []
+    for e in ne["registros"]:
+        rel = []
+        if e["entity_ip"] == origen:
+            for eid, ep in eps.items():
+                r = relacion_no_evaluada(e, ep["inicio_ep"], ep["fin_ep"])
+                if r:
+                    rel.append({"episodio_id": eid, "relacion_ventana": r})
+        regs.append({**publico(e), "relacion_episodios": rel or (
+            "otra_entidad (solo control/métricas)" if e["entity_ip"] != origen else "fuera_de_episodio")})
+    vig = ne["vigentes"]
+    det_fuera = []
+    for eid, c in por_ep.items():
+        v = c.get("ventanas_no_evaluadas") or {}
+        confs = [cf for cf in CONFIGS if isinstance(c.get(cf), dict) and c[cf].get("deteccion_confirmada")]
+        if v.get("ventanas_del_ataque") and not c["evaluable"] and confs:
+            det_fuera.append({"episodio_id": eid, "configuraciones_con_deteccion_confirmada": confs,
+                              "motivo_no_evaluable": c["motivo_no_evaluable"]})
+    return {
+        "definicion": "eventos ventana_no_evaluada del motor: calidad y cobertura, no decisiones. Sin score, decisión "
+                      "ni etiqueta; no son TP/FP/TN/FN, ni PERMIT, ni alerta, ni emisión observada",
+        "fuente": "mismo --motor que las decisiones (respaldo con archivo, sha256 y línea por registro)",
+        "contadas": len(vig),
+        "por_motivo": {m: sum(1 for e in vig if str(e["motivo"]) == m) for m in sorted({str(e["motivo"]) for e in vig})},
+        "motivos_reconocidos": MOTIVOS_NO_EVALUADA,
+        "registros": regs, "incidencias": ne["incidencias"],
+        "duplicados": ne["duplicados"], "conflictos": ne["conflictos"],
+        "reglas": {"duplicado": "misma clave entity_ip|window_end: se cuenta una vez (primer registro)",
+                   "conflicto": "decisión y no evaluada en la misma clave: prevalece la decisión; el evento no se cuenta",
+                   "relacion": "por el intervalo (window_end-60, window_end] frente a [inicio, fin]; logged_at se "
+                               "informa aparte (instante de escritura)",
+                   "tabla8": "no se añade columna ni se cambia el denominador: un ancla del ataque sin decisión ya "
+                             "dejaba el episodio no evaluable; ahora el motivo distingue el registro"},
+        "detecciones_confirmadas_en_episodios_no_evaluables": det_fuera}
 
 
 # ------------------------------------------------------------------- principal
@@ -589,6 +835,8 @@ def main() -> int:
 
     eps, inc_m = leer_marcas(Path(a.marcas))
     regs, inc_r, dups = leer_motor(Path(a.motor))
+    ref_motor = {"archivo": a.motor, "sha256": hashlib.sha256(Path(a.motor).read_bytes()).hexdigest()}
+    ne = leer_no_evaluadas(Path(a.motor), regs, ref_motor)            # calidad/cobertura, aparte de las decisiones
     destinos = None
     if a.destinos:
         destinos = defaultdict(list)
@@ -604,7 +852,7 @@ def main() -> int:
 
     por_ep, tabla = {}, {}
     for eid, ep in eps.items():
-        c = clasificar(ep, regs, origen, U, destinos, integridad.get(eid))
+        c = clasificar(ep, regs, origen, U, destinos, integridad.get(eid), ne["vigentes"])
         por_ep[eid] = c
         fam = familia(ep["escenario"])
         t = tabla.setdefault(fam, {"evaluables": [], "no_evaluables": [], **{cf: 0 for cf in CONFIGS}})
@@ -617,7 +865,6 @@ def main() -> int:
             t["no_evaluables"].append(eid)
 
     # emisiones REALES, aparte de las 7 configuraciones comparativas (no entran en la Tabla 8)
-    ref_motor = {"archivo": a.motor, "sha256": hashlib.sha256(Path(a.motor).read_bytes()).hexdigest()}
     detector_modelo = (cfg.get("modelo") or {}).get("detector")
     emis = emisiones_observadas(regs, eps, origen, destinos, desplegado, detector_modelo, ref_motor)
     for eid in por_ep:
@@ -663,17 +910,24 @@ def main() -> int:
         "integridad_fuentes": ("de " + a.integridad) if a.integridad else "DESCONOCIDA (no se pasó --integridad); "
                                "ningún episodio se declara evaluable sin verificación de integridad",
         "calidad_datos": {"incidencias_marcas": inc_m, "incidencias_motor": inc_r, "ventanas_duplicadas": len(dups),
-                          "episodios_incompletos": [e for e, v in eps.items() if v["estado"] != "completo"]},
+                          "episodios_incompletos": [e for e, v in eps.items() if v["estado"] != "completo"],
+                          "ventanas_no_evaluadas": {"contadas": len(ne["vigentes"]),
+                                                    "incidencias": len(ne["incidencias"]),
+                                                    "duplicados": len(ne["duplicados"]),
+                                                    "conflictos": len(ne["conflictos"]),
+                                                    "detalle": "bloque ventanas_no_evaluadas"}},
+        "ventanas_no_evaluadas": bloque_no_evaluadas(ne, eps, por_ep, origen),
         "tabla8": tabla, "episodios": por_ep}
     if not orden_ok:
         salida["calidad_datos"]["aviso_orden_umbrales"] = (
             "los umbrales no cumplen u_0.01 <= u_0.03 <= u_0.05: las señales IF no quedan anidadas por α")
-    salida["control_normal_fpr"] = (fpr_control(regs, *map(como_epoch, a.control.split(",")), U, excluidas)
+    salida["control_normal_fpr"] = (fpr_control(regs, *map(como_epoch, a.control.split(",")), U, excluidas,
+                                                ne["vigentes"])
                                     if a.control else {"calculado": False, "motivo": "no se pasó --control"})
     if a.etiquetas:
         et = {(r["entity_ip"], r["window_end_utc"]): r["etiqueta"]
               for r in csv.DictReader(open(a.etiquetas, encoding="utf-8"))}
-        salida["metricas_por_ventana"] = metricas_por_ventana(regs, et, U)
+        salida["metricas_por_ventana"] = metricas_por_ventana(regs, et, U, ne["vigentes"])
     else:
         salida["metricas_por_ventana"] = {"calculadas": False, "motivo": "sin --etiquetas no se fabrican métricas"}
 
@@ -712,6 +966,29 @@ def _tabla_md(path, tabla, salida):
         eo = e["emisiones_observadas"]; p = eo["primera_alerta_IF_desplegado_confirmada_durante"]
         L.append(f"| {eid} | {p['desde_inicio_generador_s'] if p else '—'} | {p['registro_id'] if p else '—'} "
                  f"| {eo['eventos_con_emisor_o_configuracion_desconocida']} |")
+    # calidad y cobertura: ventanas que el motor declaró no evaluadas (no son decisiones ni negativos)
+    ne = salida["ventanas_no_evaluadas"]
+    L += ["", "## Ventanas no evaluadas (calidad y cobertura; no son decisiones)", "",
+          f"Contadas: {ne['contadas']} · por motivo: "
+          + (", ".join(f"{m} = {n}" for m, n in ne["por_motivo"].items()) or "—")
+          + f" · duplicados: {len(ne['duplicados'])} · conflictos con decisión: {len(ne['conflictos'])}"
+          + f" · incidencias: {len(ne['incidencias'])}", ""]
+    afect = [(eid, e["ventanas_no_evaluadas"]) for eid, e in salida["episodios"].items()
+             if e["ventanas_no_evaluadas"]["n"]]
+    if afect:
+        L += ["| Episodio | Ventanas del ataque | Posteriores que solapan | Evaluable | Efecto |", "|---|---|---|---|---|"]
+        for eid, v in afect:
+            L.append(f"| {eid} | {v['ventanas_del_ataque']} | {v['ventanas_posteriores_que_solapan']} | "
+                     f"{'sí' if salida['episodios'][eid]['evaluable'] else 'no'} | {v['efecto_en_evaluabilidad']} |")
+        L.append("")
+    for d in ne["detecciones_confirmadas_en_episodios_no_evaluables"]:
+        L.append(f"- Detección confirmada fuera de la comparación: {d['episodio_id']} "
+                 f"({', '.join(d['configuraciones_con_deteccion_confirmada'])}).")
+    for nombre, blq, k in (("Control", salida["control_normal_fpr"], "cobertura_evaluada"),
+                           ("Métricas por ventana", salida["metricas_por_ventana"], "cobertura_etiquetadas")):
+        if k in blq:
+            n_ne = blq.get("ventanas_no_evaluadas", blq.get("etiquetadas_no_evaluadas"))
+            L.append(f"- {nombre}: cobertura {blq[k]} ({n_ne} no evaluadas); tasas sobre ventanas evaluadas.")
     path.write_text("\n".join(L) + "\n", encoding="utf-8")
 
 

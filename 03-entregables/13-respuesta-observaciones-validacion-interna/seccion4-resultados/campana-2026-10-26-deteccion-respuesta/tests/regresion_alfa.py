@@ -16,6 +16,11 @@ Exclusiones EXPLÍCITAS (lo único que la corrección de procedencia de 2026-10-
   - emisiones_observadas   bloque nuevo, aparte de las configuraciones
 Con --comparar se listan además, separadas, las diferencias en esas claves, para que no queden ocultas.
 
+Exclusiones EXPLÍCITAS de #59 (ventana_no_evaluada, 2026-10-28; CLAVES_NO_EVALUADAS): solo claves NUEVAS de
+cobertura en control_normal_fpr, metricas_por_ventana y calidad_datos. Las claves existentes (ventanas, denominador,
+conteos, tasas) se siguen comparando. test_herramientas.py comprueba aparte que, sin eventos, las nuevas son neutras
+(0 no evaluadas, cobertura 1,0) y que episodios/cobertura no cambian.
+
 Goldens (generados con analizadores ANTERIORES, sobre estas mismas entradas):
   tests/golden-5config-fixtures.json  analizar.py de 0d40bdb (5 configuraciones)
   tests/golden-7config-fixtures.json  analizar.py de a6dc5ab (7 configuraciones, antes de corregir la procedencia)
@@ -35,6 +40,9 @@ CONFIGS = {5: ("IF_0.05", "IF_0.03", "HEUR", "HIB_0.05", "HIB_0.03"),
            7: ("IF_0.05", "IF_0.03", "IF_0.01", "HEUR", "HIB_0.05", "HIB_0.03", "HIB_0.01")}
 COMPARTIDAS = {5: ("0.05",), 7: ("0.05", "0.01")}
 CLAVES_PROCEDENCIA = ("base", "tiempo_es_emision_real", "tiempo_significado", "evidencia_registrada")
+CLAVES_NO_EVALUADAS = ("ventanas_no_evaluadas", "ventanas_no_evaluadas_por_motivo", "ventanas_no_evaluadas_criterio",
+                       "cobertura_evaluada", "denominador_significado", "etiquetadas_no_evaluadas",
+                       "etiquetadas_sin_registro", "cobertura_etiquetadas")
 GOLDEN = {5: AQUI / "golden-5config-fixtures.json", 7: AQUI / "golden-7config-fixtures.json"}
 
 
@@ -104,9 +112,10 @@ def proyeccion(j: dict, n: int) -> dict:
         "umbrales": {k: j["umbrales"][k] for k in ("0.05_recalibrado", "0.03_recalibrado", "0.05_desplegado_en_vivo")
                      + (("0.01_recalibrado",) if n == 7 else ())},
         "tabla8": t8, "episodios": eps,
-        "control_normal_fpr": {k: v for k, v in ctl.items() if k not in otras},
-        "metricas_por_ventana": {k: v for k, v in met.items() if k not in otras},
-        "calidad_datos": {k: v for k, v in j["calidad_datos"].items() if k != "aviso_orden_umbrales"}})
+        "control_normal_fpr": {k: v for k, v in ctl.items() if k not in otras and k not in CLAVES_NO_EVALUADAS},
+        "metricas_por_ventana": {k: v for k, v in met.items() if k not in otras and k not in CLAVES_NO_EVALUADAS},
+        "calidad_datos": {k: v for k, v in j["calidad_datos"].items()
+                          if k != "aviso_orden_umbrales" and k not in CLAVES_NO_EVALUADAS}})
 
 
 def procedencia(j: dict) -> dict:

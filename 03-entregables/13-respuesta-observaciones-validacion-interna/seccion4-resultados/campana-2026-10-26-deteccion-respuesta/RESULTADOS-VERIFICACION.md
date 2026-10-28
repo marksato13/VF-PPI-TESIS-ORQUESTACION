@@ -4,7 +4,15 @@ Verifican las **herramientas** de evaluación, no el desempeño de CyberFlow. No
 
 ## Suite de herramientas — `tests/test_herramientas.py`
 
-**Windows (laptop), 2026-10-28, tras conservar los registros sin la clave `threshold` (sobre `a69224c`):**
+**Windows (laptop), 2026-10-28, tras tratar `ventana_no_evaluada` (#59, sobre `2612e3f`):** `212 comprobaciones
+pasaron.` (**213** con `CF_ANALIZADOR_PREVIO` = analizador de `a6dc5ab`). Las 23 pruebas anteriores pasan sin cambiar
+ninguna expectativa. Se añaden `test_ventanas_no_evaluadas` (22) y `test_no_evaluada_real_compatibilidad` (3); los casos
+están en `CAMBIOS-2026-10-28-no-evaluadas.md`. Son fixtures de código, no resultados experimentales.
+Regresión: 0 diferencias de detección/cobertura en 7 y 5 configuraciones frente a los goldens, a `2612e3f`, a
+`a6dc5ab` (86 excluidas de procedencia) y a `0d40bdb`. Sin eventos, `analisis.json` solo **añade** claves.
+`test_matar_grupo.py` 6/6.
+
+**Ejecución anterior — tras conservar los registros sin la clave `threshold` (sobre `a69224c`):**
 `188 comprobaciones pasaron.` con `CF_ANALIZADOR_PREVIO` = `scripts/analizar.py` de `a6dc5ab` (**187** sin la
 variable). Las 22 pruebas anteriores siguen pasando sin cambiar ninguna expectativa (incluido el caso
 `threshold: null`); se añade `test_umbral_registrado_ausente` (16 comprobaciones).
