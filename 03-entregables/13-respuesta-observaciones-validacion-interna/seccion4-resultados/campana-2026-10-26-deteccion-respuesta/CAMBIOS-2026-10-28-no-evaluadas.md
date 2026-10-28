@@ -1,5 +1,16 @@
 # Cambios 2026-10-28 — `ventana_no_evaluada` en el analizador (#59)
 
+> **Corrección posterior (#60, #61; ver `CAMBIOS-2026-10-28-cobertura.md`).** Dos cosas de este documento quedaron
+> corregidas:
+> - `cobertura_etiquetadas` excluía del denominador las etiquetadas sin registro. Se sustituye por
+>   `conjunto_etiquetado` (`cobertura_total` = con decisión / claves esperadas, y `cobertura_entre_registradas`).
+> - El control seleccionaba las decisiones por `logged_at`. Ahora decisiones y no evaluadas van por `window_end` en
+>   `[desde, hasta]`; `cobertura_evaluada` pasa a llamarse `cobertura_entre_registradas` y
+>   `ventanas_no_evaluadas_criterio` pasa a `seleccion`.
+>
+> Los nombres y cifras de abajo describen 719bf3a. El ejemplo `EJEMPLO-no-evaluadas/` está regenerado con los nombres
+> nuevos.
+
 Sobre el commit `2612e3f` (preparación tras el preflight bloqueado). Cambio de **código del analizador, tests y
 documentación**; `config-campana.json` pasa a `2026-10-28.3` **solo en textos**. **No se ejecutó ningún ataque ni se
 inició la campaña A.** No se tocaron Word, modelo, escalador, umbrales, características, heurísticos, escenarios, el

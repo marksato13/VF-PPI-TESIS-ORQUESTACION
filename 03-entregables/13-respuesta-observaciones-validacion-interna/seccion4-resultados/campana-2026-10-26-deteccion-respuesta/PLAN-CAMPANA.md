@@ -128,6 +128,10 @@ con su prueba de funcionamiento y su reversión documentadas.
   desconocido; el híbrido solo prueba detección con un positivo confirmado. La ausencia no se afirma, y una detección
   confirmada se mantiene visible fuera de la Tabla 8. En el control y las métricas, estas ventanas no son TN, FP ni
   FN: se informa la cobertura y las tasas son sobre ventanas evaluadas.
+- **Control normal:** la población se selecciona por `window_end_utc` en `[desde, hasta]` (ambos extremos), igual
+  para decisiones y no evaluadas. La cobertura entre registradas no garantiza que no falten registros.
+- **Métricas por ventana:** la cobertura total del conjunto etiquetado es claves con decisión / claves etiquetadas
+  esperadas. Se informan aparte las no evaluadas y las sin registro.
 
 Atribución por escenario + origen + destino + contexto; no se cuenta cualquier anomalía de la Kali como detección.
 Las configuraciones derivadas offline son análisis de umbrales sobre ventanas observadas, no alertas emitidas.
@@ -151,7 +155,7 @@ criterio de etiquetado previo si se calculan métricas por ventana, **separadas*
 |---|---|---|
 | `generar_campana.py` | Kali | Valida la config, lanza los escenarios habilitados en orden aleatorizado por semilla, con calentamiento + contexto previo (≥120 s) y observación (≥90 s); escribe `marcas.jsonl` (inicio/fin separados, pared + monotónico, comando, código, salida completa en `salidas/`). **Simula sin `--autorizado`; aborta ante marcadores o destino fuera de la lista blanca; mata el grupo de procesos en timeout.** |
 | `esquema_campana.py` | — | Esquema + validación (tipos, destinos, puertos, rutas, deps, placeholders) y construcción de comandos. |
-| `tests/test_herramientas.py` + `tests/fixtures.py` + `tests/regresion_alfa.py` | Laptop/Linux | Verificación sin ataques (212 comprobaciones; 213 con el analizador previo), fixtures con resultado conocido y no-regresión de detección/cobertura frente a los analizadores anteriores (`tests/golden-5config-fixtures.json`, `tests/golden-7config-fixtures.json`). |
+| `tests/test_herramientas.py` + `tests/fixtures.py` + `tests/regresion_alfa.py` | Laptop/Linux | Verificación sin ataques (222 comprobaciones; 223 con el analizador previo), fixtures con resultado conocido y no-regresión de detección/cobertura frente a los analizadores anteriores (`tests/golden-5config-fixtures.json`, `tests/golden-7config-fixtures.json`). |
 | `scripts/endpoint_brute/` | srv-dmz | Endpoint 401 correcto (Python o nginx), unidad systemd, README con Suricata/extractor. |
 | `capturar.sh` | Sensor | Captura PCAP continua sin huecos a disco archivado, con rotación por tamaño; marca inicio/fin. |
 | `modo_sombra.sh` / `restaurar_enforcement.sh` | srv-dmz | **Detiene y enmascara** el agente para A (impedir que aplique; NO es ejecutarlo en dry-run) y lo restaura para B según el estado guardado; fallo seguro. `restaurar` exige `--escalada-revisada`. |

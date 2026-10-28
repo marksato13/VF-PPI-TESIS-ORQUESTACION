@@ -962,9 +962,9 @@ def test_ventanas_no_evaluadas():
     # 0) sin eventos: claves nuevas neutras; el resto, igual (la regresión de goldens lo cubre aparte)
     jf = rg.correr(an)
     c0, m0 = jf["control_normal_fpr"], jf["metricas_por_ventana"]
-    check(c0["ventanas_no_evaluadas"] == 0 and c0["cobertura_evaluada"] == 1.0
-          and c0["ventanas_no_evaluadas_por_motivo"] == {} and m0["etiquetadas_no_evaluadas"] == 0
-          and m0["cobertura_etiquetadas"] == 1.0 and jf["calidad_datos"]["ventanas_no_evaluadas"]["contadas"] == 0
+    check(c0["ventanas_no_evaluadas"] == 0 and c0["cobertura_entre_registradas"] == 1.0
+          and c0["ventanas_no_evaluadas_por_motivo"] == {} and m0["conjunto_etiquetado"]["no_evaluadas"] == 0
+          and m0["conjunto_etiquetado"]["cobertura_entre_registradas"] == 1.0 and jf["calidad_datos"]["ventanas_no_evaluadas"]["contadas"] == 0
           and jf["ventanas_no_evaluadas"]["contadas"] == 0 and jf["ventanas_no_evaluadas"]["registros"] == []
           and all(e["ventanas_no_evaluadas"] == {"n": 0, "ventanas_del_ataque": 0,
                                                  "ventanas_posteriores_que_solapan": 0, "detalle": [],
@@ -1043,7 +1043,7 @@ def test_ventanas_no_evaluadas():
     j4, md4 = _e2e_ne(an, mot4, control=(T, T + 200))
     c4, c0b = j4["control_normal_fpr"], j0["control_normal_fpr"]
     check(c4["ventanas"] == c4["denominador"] == 27 and c4["ventanas_no_evaluadas"] == 3
-          and c4["cobertura_evaluada"] == round(27 / 30, 6)
+          and c4["cobertura_entre_registradas"] == round(27 / 30, 6)
           and c4["ventanas_no_evaluadas_por_motivo"] == {"desconocido (motivo ausente)": 1, "otro_motivo": 1,
                                                           "ventana_no_regenerada": 1},
           "control: 27 evaluadas + 3 no evaluadas; cobertura 0,9; motivos separados")
@@ -1058,7 +1058,7 @@ def test_ventanas_no_evaluadas():
           and any("motivo no reconocido 'otro_motivo'" in s for s in inc4)
           and any("motivo ausente" in s for s in inc4)
           and all(r["relacion_episodios"].startswith("otra_entidad") for r in r4.values())
-          and "Control: cobertura 0.9 (3 no evaluadas)" in md4,
+          and "27 evaluadas + 3 no evaluadas explícitas; cobertura entre registradas 0.9" in md4,
           "motivos conocido, no reconocido y ausente: se conservan con diagnóstico explícito")
     check(not any(k in r for r in r4.values() for k in ("score", "decision", "etiqueta", "senal"))
           and all(set(r["disponibilidad"]) == set(an.CAMPOS_DISPONIBILIDAD) and r["respaldo"]["linea"] > 0
@@ -1069,8 +1069,9 @@ def test_ventanas_no_evaluadas():
     j5, _ = _e2e_ne(an, _sin(_mot({T + 40: {"score": -0.70, "decision": "ALERT"}}), T + 50) + [noev(T + 220, T + 50)],
                     etiquetas={(K, T + 40): 1, (K, T + 50): 1, (K, T + 60): 0})
     m5 = j5["metricas_por_ventana"]["IF_0.05"]
-    check(j5["metricas_por_ventana"]["denominador"] == 2 and j5["metricas_por_ventana"]["etiquetadas_no_evaluadas"] == 1
-          and j5["metricas_por_ventana"]["cobertura_etiquetadas"] == round(2 / 3, 6)
+    ce5 = j5["metricas_por_ventana"]["conjunto_etiquetado"]
+    check(j5["metricas_por_ventana"]["denominador"] == 2 and ce5["no_evaluadas"] == 1 and ce5["sin_registro"] == 0
+          and ce5["cobertura_total"] == round(2 / 3, 6)
           and m5["TP"] == 1 and m5["FN"] == 0 and m5["TN"] == 1 and m5["FP"] == 0,
           "métricas: la ventana positiva no evaluada no cuenta como FN; denominador 2 de 3 rotulado")
 
@@ -1135,6 +1136,89 @@ def test_no_evaluada_real_compatibilidad():
           "out_p38: sin etiqueta, atribución ni decisión inventadas")
 
 
+# --------------------------------------------------------------- 7. cobertura del conjunto etiquetado y del control
+# Fixtures de CÓDIGO (no resultados experimentales).
+def _leer(an, lineas):
+    with tempfile.TemporaryDirectory() as d:
+        p = Path(d) / "m.log"
+        p.write_text("\n".join(lineas), encoding="utf-8")
+        regs, _, _ = an.leer_motor(p)
+        return regs, an.leer_no_evaluadas(p, regs, {"archivo": "m.log", "sha256": "0" * 64})
+
+
+def test_cobertura_etiquetado_y_control():
+    an = cargar("analizar")
+    T = T0
+    regs, ne = _leer(an, [rec(T + 41, T + 40, -0.70, "ALERT"), rec(T + 51, T + 50, -0.50),
+                          noev(T + 230, T + 60), noev(T + 231, T + 60, "ventana_no_regenerada"),   # duplicado
+                          noev(T + 232, T + 50)])                                                # conflicto (T+50)
+    vig = ne["vigentes"]
+
+    def ce(et):
+        return an.conjunto_etiquetado(regs, {(K, iso(w)): y for w, y in et.items()}, vig)
+
+    def suma(c):
+        return c["con_decision"] + c["no_evaluadas"] + c["sin_registro"] == c["claves_esperadas"]
+    c = ce({T + 40: 1, T + 70: 1})                                   # una evaluada + una sin registro
+    check(c["claves_esperadas"] == 2 and c["con_decision"] == 1 and c["sin_registro"] == 1
+          and c["cobertura_total"] == 0.5 and c["cobertura_entre_registradas"] == 1.0 and suma(c),
+          "etiquetado: 1 evaluada + 1 sin registro -> cobertura total 0,5 (no 100 %)")
+    c = ce({T + 40: 1, T + 60: 1, T + 70: 0})                        # evaluada + no evaluada + sin registro
+    check((c["con_decision"], c["no_evaluadas"], c["sin_registro"]) == (1, 1, 1)
+          and c["cobertura_total"] == round(1 / 3, 6) and c["cobertura_entre_registradas"] == 0.5 and suma(c),
+          "etiquetado: 1 evaluada + 1 no evaluada + 1 sin registro -> cobertura total 1/3")
+    c = ce({T + 40: 1, T + 50: 0})
+    check(c["cobertura_total"] == 1.0 and c["con_decision"] == 2 and suma(c)
+          and c["no_evaluadas"] == 0, "etiquetado: todas evaluadas -> 1,0; T+50 (decisión y no evaluada) cuenta "
+                                      "una vez, con decisión (regla de conflicto)")
+    c = ce({T + 60: 1, T + 70: 0})
+    m = an.metricas_por_ventana(regs, {(K, iso(T + 60)): "1", (K, iso(T + 70)): "0"}, UM, vig)
+    check(c["cobertura_total"] == 0.0 and c["no_evaluadas"] == 1 and c["sin_registro"] == 1 and suma(c)
+          and m["calculadas"] is False and not any(k in m for k in an.CONFIGS),
+          "etiquetado: ninguna evaluada -> cobertura 0, sin métricas (no hay TN/FN fabricados)")
+    m0 = an.metricas_por_ventana(regs, {}, UM, vig)
+    check(m0["calculadas"] is False and m0["conjunto_etiquetado"]["cobertura_total"] is None
+          and m0["conjunto_etiquetado"]["claves_esperadas"] == 0
+          and "indefinida" in m0["conjunto_etiquetado"]["cobertura_total_motivo"],
+          "etiquetado vacío: cobertura indefinida con motivo, no 100 %")
+    et = {(K, iso(w)): str(y) for w, y in {T + 40: 1, T + 50: 0, T + 60: 1, T + 70: 1}.items()}
+    m = an.metricas_por_ventana(regs, et, UM, vig)
+    check(m["denominador"] == 2 and m["conjunto_etiquetado"]["cobertura_total"] == 0.5
+          and all(sum(m[c][k] for k in ("TP", "FP", "TN", "FN")) == 2 for c in an.CONFIGS)
+          and m["IF_0.05"]["FN"] == 0 and m["HEUR"]["FN"] == 1,
+          "no evaluada (T+60) y sin registro (T+70), ambas positivas: no son FN; TP+FP+TN+FN = 2 = con decisión")
+
+    # control [T+100, T+200] por window_end, ambos extremos incluidos
+    EXC = "10.10.10.30"
+    lin = [rec(T + 101, T + 90, -0.70, ip=OTRA),                     # escrita dentro, ventana fuera
+           rec(T + 111, T + 100, -0.50, ip=OTRA),                    # extremo inferior
+           rec(T + 121, T + 110, -0.50, ip=OTRA),
+           rec(T + 131, T + 120, -0.50, ip=OTRA), rec(T + 132, T + 120, -0.50, ip=OTRA),   # duplicada
+           rec(T + 230, T + 200, -0.70, ip=OTRA),                    # extremo superior, escrita tras el control
+           rec(T + 161, T + 150, -0.70, ip=EXC),                     # entidad excluida
+           noev(T + 320, T + 150, ip=OTRA), noev(T + 321, T + 150, ip=OTRA),   # tras el control; duplicado
+           noev(T + 300, T + 120, ip=OTRA),                          # conflicto con decisión
+           noev(T + 270, T + 100, ip="10.10.20.24"),                 # extremo inferior
+           noev(T + 400, T + 200, ip="10.10.20.24"),                 # extremo superior, escrita tras el control
+           noev(T + 380, T + 210, ip="10.10.20.24"),                 # fuera
+           noev(T + 330, T + 160, ip=EXC)]                           # entidad excluida
+    regs, ne = _leer(an, lin)
+    f = an.fpr_control(regs, T + 100, T + 200, UM, {EXC}, ne["vigentes"])
+    check(f["ventanas"] == f["denominador"] == 4 and f["decisiones_escritas_tras_hasta"] == 1
+          and f["ventanas_no_evaluadas"] == 3 and f["cobertura_entre_registradas"] == round(4 / 7, 6),
+          "control: 4 evaluadas (incluye T+200 escrita tras 'hasta', excluye T+90 escrita dentro) + 3 no "
+          "evaluadas (incluye la escrita tras el control); duplicados, conflicto y excluida sin doble conteo")
+    check(f["IF_0.05"]["falsas_alarmas"] == 1 and f["IF_0.05"]["tasa"] == 0.25 and f["HEUR"]["falsas_alarmas"] == 0,
+          "control: la alarma de T+200 (registrada tarde) cuenta; la de T+90 no; tasa 1/4 sobre evaluadas")
+    tarde = [r for r in regs if r["window_end_utc"] == iso(T + 200)][0]
+    check(tarde["_logged"] == T + 230 and "inventario" in f["cobertura_entre_registradas_significado"]
+          and "AMBOS extremos" in f["seleccion"] and "no disponible" in f["inventario_esperado"],
+          "logged_at real conservado; la cobertura se declara limitada (sin inventario de esperadas)")
+    f2 = an.fpr_control(regs, T + 100.001, T + 199.999, UM, {EXC}, ne["vigentes"])
+    check(f2["ventanas"] == 2 and f2["ventanas_no_evaluadas"] == 1,
+          "límites: al estrechar el intervalo salen a la vez la decisión y la no evaluada de cada extremo")
+
+
 def main():
     for fn in (test_validacion, test_generador_simulacion, test_generador_timeout_mata_hijos,
                test_analizador_basico, test_cobertura_una_ventana_insuficiente, test_score_nulo_con_heuristico,
@@ -1144,7 +1228,7 @@ def main():
                test_umbral_001_procedencia, test_comparacion_estricta, test_escala_anomalia,
                test_siete_configuraciones, test_no_regresion_005_003, test_anidamiento_por_alfa,
                test_procedencia_emisiones, test_umbral_registrado_ausente, test_conteos_cobertura_7_sin_cambios,
-               test_ventanas_no_evaluadas, test_no_evaluada_real_compatibilidad):
+               test_ventanas_no_evaluadas, test_no_evaluada_real_compatibilidad, test_cobertura_etiquetado_y_control):
         fn()
         print(f"OK  {fn.__name__}")
     print(f"\n{ok['n']} comprobaciones pasaron.")

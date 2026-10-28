@@ -19,7 +19,10 @@ Con --comparar se listan además, separadas, las diferencias en esas claves, par
 Exclusiones EXPLÍCITAS de #59 (ventana_no_evaluada, 2026-10-28; CLAVES_NO_EVALUADAS): solo claves NUEVAS de
 cobertura en control_normal_fpr, metricas_por_ventana y calidad_datos. Las claves existentes (ventanas, denominador,
 conteos, tasas) se siguen comparando. test_herramientas.py comprueba aparte que, sin eventos, las nuevas son neutras
-(0 no evaluadas, cobertura 1,0) y que episodios/cobertura no cambian.
+(0 no evaluadas, cobertura 1,0) y que episodios/cobertura no cambian. Desde la corrección de cobertura (sobre
+719bf3a) el control selecciona decisiones por window_end en vez de logged_at: en estos fixtures ninguna ventana cruza
+los límites del control, así que ventanas, denominador y falsas alarmas no cambian; con marcas que cruzan los
+límites el cambio es esperado y está documentado en CAMBIOS-2026-10-28-cobertura.md.
 
 Goldens (generados con analizadores ANTERIORES, sobre estas mismas entradas):
   tests/golden-5config-fixtures.json  analizar.py de 0d40bdb (5 configuraciones)
@@ -40,8 +43,13 @@ CONFIGS = {5: ("IF_0.05", "IF_0.03", "HEUR", "HIB_0.05", "HIB_0.03"),
            7: ("IF_0.05", "IF_0.03", "IF_0.01", "HEUR", "HIB_0.05", "HIB_0.03", "HIB_0.01")}
 COMPARTIDAS = {5: ("0.05",), 7: ("0.05", "0.01")}
 CLAVES_PROCEDENCIA = ("base", "tiempo_es_emision_real", "tiempo_significado", "evidencia_registrada")
-CLAVES_NO_EVALUADAS = ("ventanas_no_evaluadas", "ventanas_no_evaluadas_por_motivo", "ventanas_no_evaluadas_criterio",
-                       "cobertura_evaluada", "denominador_significado", "etiquetadas_no_evaluadas",
+CLAVES_NO_EVALUADAS = ("ventanas_no_evaluadas", "ventanas_no_evaluadas_por_motivo", "seleccion",
+                       "decisiones_escritas_tras_hasta", "cobertura_entre_registradas",
+                       "cobertura_entre_registradas_significado", "inventario_esperado", "denominador_significado",
+                       "conjunto_etiquetado",
+                       # nombres de 719bf3a, sustituidos (CAMBIOS-2026-10-28-cobertura.md); se excluyen para poder
+                       # comparar directamente con ese analizador
+                       "ventanas_no_evaluadas_criterio", "cobertura_evaluada", "etiquetadas_no_evaluadas",
                        "etiquetadas_sin_registro", "cobertura_etiquetadas")
 GOLDEN = {5: AQUI / "golden-5config-fixtures.json", 7: AQUI / "golden-7config-fixtures.json"}
 

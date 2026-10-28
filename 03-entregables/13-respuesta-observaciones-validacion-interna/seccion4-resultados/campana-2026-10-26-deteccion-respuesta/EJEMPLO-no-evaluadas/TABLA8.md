@@ -31,5 +31,5 @@ Contadas: 3 · por motivo: pcap_incompleto = 2, ventana_no_regenerada = 1 · dup
 | inundacion_http-r1 | 1 | 0 | no | 1 ancla(s) del ataque sin decisión constan como ventana_no_evaluada: la cobertura es insuficiente y el episodio no es evaluable (antes de #59 esas anclas ya faltaban como pérdida de datos; la Tabla 8 no cambia, cambia el motivo) |
 
 - Detección confirmada fuera de la comparación: inundacion_http-r1 (IF_0.05, IF_0.03, IF_0.01, HIB_0.05, HIB_0.03, HIB_0.01).
-- Control: cobertura 0.8 (2 no evaluadas); tasas sobre ventanas evaluadas.
-- Métricas por ventana: cobertura 0.666667 (1 no evaluadas); tasas sobre ventanas evaluadas.
+- Control (window_end en [desde, hasta]): 8 evaluadas + 2 no evaluadas explícitas; cobertura entre registradas 0.8 (sin inventario de ventanas esperadas: no garantiza que no falten registros); tasas sobre las evaluadas.
+- Conjunto etiquetado: 3 claves esperadas = 2 con decisión + 1 no evaluadas + 0 sin registro; cobertura total 0.666667; métricas solo sobre las claves con decisión.

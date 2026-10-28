@@ -4,7 +4,14 @@ Verifican las **herramientas** de evaluación, no el desempeño de CyberFlow. No
 
 ## Suite de herramientas — `tests/test_herramientas.py`
 
-**Windows (laptop), 2026-10-28, tras tratar `ventana_no_evaluada` (#59, sobre `2612e3f`):** `212 comprobaciones
+**Windows (laptop), 2026-10-28, tras corregir la cobertura del etiquetado y la población del control (#60/#61,
+sobre `719bf3a`):** `222 comprobaciones pasaron.` (**223** con `CF_ANALIZADOR_PREVIO` = analizador de `a6dc5ab`).
+Se añade `test_cobertura_etiquetado_y_control` (10); en `test_ventanas_no_evaluadas` solo se renombran los
+indicadores. Regresión: 0 diferencias de detección/cobertura en 7 y 5 configuraciones frente a los goldens,
+`719bf3a`, `2612e3f`, `a6dc5ab` y `0d40bdb`. Los fixtures no cruzan los límites del control; el cambio esperado
+cuando sí los cruzan está en `CAMBIOS-2026-10-28-cobertura.md`.
+
+**Ejecución anterior — tras tratar `ventana_no_evaluada` (#59, sobre `2612e3f`):** `212 comprobaciones
 pasaron.` (**213** con `CF_ANALIZADOR_PREVIO` = analizador de `a6dc5ab`). Las 23 pruebas anteriores pasan sin cambiar
 ninguna expectativa. Se añaden `test_ventanas_no_evaluadas` (22) y `test_no_evaluada_real_compatibilidad` (3); los casos
 están en `CAMBIOS-2026-10-28-no-evaluadas.md`. Son fixtures de código, no resultados experimentales.
