@@ -1,0 +1,37 @@
+{
+  "alfa": 0.01,
+  "n_validacion": 65553,
+  "procedimiento": "umbral = numpy.quantile(puntuacion_anomalia_validacion, 1-alfa, method='linear') por modelo; anomalia si puntuacion > umbral; puntuacion mayor = mas anomalo; clasificacion con precision completa.",
+  "umbrales": {
+    "IF": {
+      "umbral_anomalia": "0.6223889502095351",
+      "umbral_escala_original": "-0.6223889502095351",
+      "regla": "-score_samples > umbral  (== score_samples < -umbral)",
+      "convencion_puntuacion": "mayor = mas anomalo"
+    },
+    "OCSVM": {
+      "umbral_anomalia": "-177.5154311522422",
+      "umbral_escala_original": "177.5154311522422",
+      "regla": "-score_samples > umbral  (== score_samples < -umbral)",
+      "convencion_puntuacion": "mayor = mas anomalo"
+    },
+    "LOF": {
+      "umbral_anomalia": "278.2690726140263",
+      "umbral_escala_original": "-278.2690726140263",
+      "regla": "-score_samples > umbral  (== score_samples < -umbral)",
+      "convencion_puntuacion": "mayor = mas anomalo"
+    },
+    "EllipticEnvelope": {
+      "umbral_anomalia": "5566829575.714513",
+      "umbral_escala_original": "-5566829575.714513",
+      "regla": "-score_samples > umbral  (== score_samples < -umbral)",
+      "convencion_puntuacion": "mayor = mas anomalo"
+    },
+    "PCA": {
+      "umbral_anomalia": "11.259068388450087",
+      "umbral_escala_original": null,
+      "regla": "error de reconstruccion > umbral",
+      "convencion_puntuacion": "mayor = mas anomalo"
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "generado_utc": "2026-10-28T03:21:56.724748+00:00",
+  "proposito": "Tabla 7-c (alfa=0,01) anadida con los mismos artefactos y protocolo que 7-a/7-b; no modifica las tablas previas, modelos, figuras, Word ni configuracion desplegada.",
+  "alfa": 0.01,
+  "mismas_claves_de_ventana_los_5_modelos": true,
+  "entradas_verificadas_sha256": {
+    "salidas/puntuaciones-IF.csv.gz": "536638f47145a8c86d17ba63f7ebf4a2cc3aca2a8294f9ff6d57d8d4ee795fd4",
+    "salidas/puntuaciones-OCSVM.csv.gz": "f8a3c19c32141182ed3920f9553a7539017490362491513ed40d8195d889da41",
+    "salidas/puntuaciones-LOF.csv.gz": "b33a6875247828f30185046c01558ae436889509b1b92ee3180c3f047b7e7465",
+    "salidas/puntuaciones-EllipticEnvelope.csv.gz": "3de4f17c61b0f47d6b3b6d45fb9a53e2e95a6375031f334d78b2a366c290f0e9",
+    "salidas/puntuaciones-PCA.csv.gz": "132b5b1c494967efb8df7ee30d3c4d9cf8469ce9ac926ca41252654742aa133c"
+  },
+  "manifiesto_comparacion_referencia": "MANIFIESTO-COMPARACION.json (no modificado)",
+  "roc_auc_ap_coinciden_con_7a_7b": {
+    "IF": {
+      "roc_auc": 0.9247265513258084,
+      "ap": 0.18580688397625872
+    },
+    "OCSVM": {
+      "roc_auc": 0.869071457322936,
+      "ap": 0.6356616971916291
+    },
+    "LOF": {
+      "roc_auc": 0.9762796422584565,
+      "ap": 0.029066072188399145
+    },
+    "EllipticEnvelope": {
+      "roc_auc": 0.9179326428604184,
+      "ap": 0.3811037448703374
+    },
+    "PCA": {
+      "roc_auc": 0.9486616355167738,
+      "ap": 0.5944055724226315
+    }
+  },
+  "verificacion_IF": {
+    "umbral_escala_original": {
+      "esperado": -0.6223889502095352,
+      "obtenido": -0.6223889502095351,
+      "coincide": true
+    },
+    "TP": {
+      "esperado": 50,
+      "obtenido": 50,
+      "coincide": true
+    },
+    "FP": {
+      "esperado": 567,
+      "obtenido": 567,
+      "coincide": true
+    },
+    "TN": {
+      "esperado": 64854,
+      "obtenido": 64854,
+      "coincide": true
+    },
+    "FN": {
+      "esperado": 34,
+      "obtenido": 34,
+      "coincide": true
+    }
+  },
+  "salidas_sha256_lf": {
+    "tabla7c_alfa001.py": "e471091f1c47439d0ffe9fee91e6e6b6f75691c09efa9142dc330cda47c35567",
+    "TABLA7c-alfa0.01.csv": "76470920a519e91935596b786c3e0a78afc77ca5c0f354787ec1fdfca339c2b6",
+    "TABLA7c-alfa0.01.md": "78502b8cef35750d1a3c40b7f1e6b9a3d48ce87ba80333f149d0694e418b78e6",
+    "umbrales-7c-precision-completa.json": "23beaf4992eb789a5cd5fd4999a766e4d6d230d74377a5594441930b94d68b53",
+    "NOTA-TABLA7C.md": "4d4c3c87a5e180094f768af5cfa7f4b59340a2718f28ef5b68c98732cccc2a64"
+  }
+}
