@@ -804,6 +804,83 @@ def test_procedencia_emisiones():
                   f"caso 5 ({nombre}): emisor desconocido con motivo (no se atribuye al IF)")
 
 
+def _sin_clave(lineas, w, clave):
+    """Elimina REALMENTE la clave del JSON de la ventana w (no la reemplaza por null)."""
+    out = []
+    for x in lineas:
+        r = json.loads(x)
+        if r["window_end_utc"] == iso(w):
+            del r[clave]
+        out.append(json.dumps(r))
+    return out
+
+
+def test_umbral_registrado_ausente():
+    """Registro de decisión sin la clave threshold: se conserva como evidencia incompleta (comprobación del CÓDIGO)."""
+    an = cargar("analizar")
+    T = T0
+    alerta = {T + 40: {"score": -0.70, "decision": "ALERT"}}
+    completo = _mot(alerta)
+    sin_thr = _sin_clave(completo, T + 40, "threshold")
+    check('"threshold"' not in sin_thr[4] and "threshold" not in json.loads(sin_thr[4]),
+          "ausente: la línea de la alerta no contiene la clave threshold (ni como null)")
+    j_ok, j = _e2e_mot(an, completo), _e2e_mot(an, sin_thr)
+    em = j["emisiones_observadas"]["registros"]
+    check(len(em) == 1 and em[0]["decision_emitida"] == "ALERT" and em[0]["componente_emisor"] == "IF_desplegado"
+          and em[0]["score_registrado"] == -0.70 and em[0]["logged_at_utc"] == iso(T + 41)
+          and em[0]["window_end_utc"] == iso(T + 40) and em[0]["modelo_registrado"] == "if_limpio_2026_10",
+          "ausente: la alerta permanece en emisiones_observadas con decisión, emisor, score y tiempos")
+    x = em[0]
+    check(x["respaldo"]["linea"] == 5 and len(x["respaldo"]["sha256"]) == 64 and x["registro_id"] == "motor:5",
+          "ausente: conserva la referencia al registro original (línea + sha256)")
+    inc = j["calidad_datos"]["incidencias_motor"]
+    check(any(s.startswith("motor:5 (") and "motor.log" in s and "falta la clave 'threshold'" in s for s in inc)
+          and x["incidencias_registro"] == ["falta la clave 'threshold'"],
+          "ausente: incidencia explícita con archivo y línea, también en la emisión")
+    ce = x["configuracion_emisora"]
+    check(ce["umbral_registrado"] == "desconocido (el registro no contiene la clave threshold)"
+          and ce["umbral_registrado_estado"] == "clave_ausente" and ce["estado"] == "desconocida"
+          and "configuracion" not in ce and ce["coherencia_score_umbral"] is None,
+          "ausente: umbral y configuración DESCONOCIDOS (ni desplegado, ni esperado, ni calculado)")
+    eo = j["episodios"][EID]["emisiones_observadas"]
+    check(eo["primera_alerta_IF_desplegado_confirmada_durante"] is None
+          and eo["eventos_con_emisor_o_configuracion_desconocida"] == 1 and eo["registros"] == ["motor:5"],
+          "ausente: no es la primera alerta confirmada del IF desplegado; la incertidumbre se cuenta")
+    e, e_ok = j["episodios"][EID], j_ok["episodios"][EID]
+    check(all(str(e[c].get("base")).startswith("derivado") for c in ("IF_0.05", "IF_0.03", "IF_0.01", "HIB_0.05"))
+          and not any(str(e[c].get("base", "")).startswith("emitido") for c in an.CONFIGS)
+          and j["configuraciones"] == list(an.CONFIGS),
+          "ausente: las siete configuraciones siguen siendo derivadas")
+    check(all(e[c] == e_ok[c] for c in an.CONFIGS) and e["IF_0.01"]["categoria"] == "durante"
+          and e["cobertura"] == e_ok["cobertura"] and e["evaluable"] == e_ok["evaluable"] is True
+          and j["tabla8"] == j_ok["tabla8"],
+          "ausente: clasificaciones comparativas, cobertura y Tabla 8 iguales que con el registro completo")
+    # el registro completo mantiene su resultado y no genera incidencia
+    ok_x = j_ok["emisiones_observadas"]["registros"][0]
+    check(ok_x["configuracion_emisora"]["estado"] == "confirmada" and "incidencias_registro" not in ok_x
+          and ok_x["configuracion_emisora"]["umbral_registrado_estado"] == "numerico"
+          and not j_ok["calidad_datos"]["incidencias_motor"]
+          and j_ok["episodios"][EID]["emisiones_observadas"]["primera_alerta_IF_desplegado_confirmada_durante"]
+          ["desde_inicio_generador_s"] == 41.0, "completo: confirmada, sin incidencia, latencia real 41 s")
+    # null: se distingue de la ausencia en el diagnóstico; la incertidumbre es la misma
+    j_n = _e2e_mot(an, _mot({T + 40: {"score": -0.70, "decision": "ALERT", "thr": None}}))
+    cn = j_n["emisiones_observadas"]["registros"][0]["configuracion_emisora"]
+    check(cn["umbral_registrado_estado"] == "null" and cn["umbral_registrado"] == "desconocido (threshold registrado como null)"
+          and cn["estado"] == "desconocida" and cn["umbral_registrado"] != ce["umbral_registrado"],
+          "null: diagnóstico distinto de la clave ausente, igual de desconocido")
+    check(j_n["episodios"][EID]["emisiones_observadas"]["primera_alerta_IF_desplegado_confirmada_durante"] is None
+          and all(j_n["episodios"][EID][c] == e_ok[c] for c in an.CONFIGS),
+          "null: sin latencia confirmada; clasificaciones comparativas iguales")
+    # no se aceptan registros sin otros campos imprescindibles
+    for falta in ("logged_at", "window_end_utc", "decision", "entity_ip", "packet_count_10s"):
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "m.log"
+            p.write_text("\n".join(_sin_clave(sin_thr, T + 40, falta)), encoding="utf-8")
+            regs, incs, _ = an.leer_motor(p)
+        check(len(regs) == 14 and any(s.startswith("motor:5: faltan claves") and falta in s for s in incs),
+              f"sin {falta}: el registro se descarta con incidencia (el requisito no se relaja)")
+
+
 def test_conteos_cobertura_7_sin_cambios():
     """Comparación directa con el analizador de a6dc5ab si está disponible (CF_ANALIZADOR_PREVIO); siempre con el
     golden de 7 configuraciones."""
@@ -833,7 +910,7 @@ def main():
                test_integridad_gate_analizador, test_integridad_e2e_no_habilita_denominador,
                test_umbral_001_procedencia, test_comparacion_estricta, test_escala_anomalia,
                test_siete_configuraciones, test_no_regresion_005_003, test_anidamiento_por_alfa,
-               test_procedencia_emisiones, test_conteos_cobertura_7_sin_cambios):
+               test_procedencia_emisiones, test_umbral_registrado_ausente, test_conteos_cobertura_7_sin_cambios):
         fn()
         print(f"OK  {fn.__name__}")
     print(f"\n{ok['n']} comprobaciones pasaron.")

@@ -32,6 +32,9 @@ Reglas (ver config-campana.json y PLAN):
     registro, emisor, decisión, logged_at/window_end, modelo/score/umbral REGISTRADOS y atribución; no son una octava
     configuración. El emisor y el umbral se toman del registro: si faltan o no identifican la configuración, se
     declaran «desconocido» (no se rellenan con el valor esperado ni se deduce una emisión de un score).
+  - Un registro de decisión SIN la clave threshold se conserva (con incidencia archivo:línea) si tiene los campos
+    para leerlo y ubicarlo (REQ_MOTOR). Su umbral registrado queda desconocido, distinguiendo clave ausente de null;
+    no da latencia confirmada. Las clasificaciones comparativas usan sus propios umbrales de análisis.
 """
 from __future__ import annotations
 import argparse, csv, hashlib, json, math
@@ -46,7 +49,11 @@ ALFAS = ("0.05", "0.03", "0.01")      # orden de salida; claves de config["umbra
 CONFIGS = ("IF_0.05", "IF_0.03", "IF_0.01", "HEUR", "HIB_0.05", "HIB_0.03", "HIB_0.01")
 ALFAS_COMPARTIDAS = ("0.05", "0.01")  # solapamiento IF/heurísticos: el existente (0,05) + el añadido (0,01)
 CLAVE_CALIBRACION = {"0.05": "0.050", "0.03": "0.030", "0.01": "0.010"}
-REQ_MOTOR = ("logged_at", "entity_ip", "window_end_utc", "threshold", "decision", "packet_count_10s")
+REQ_MOTOR = ("logged_at", "entity_ip", "window_end_utc", "decision", "packet_count_10s")  # leer y ubicar en el tiempo
+CLAVE_UMBRAL = "threshold"            # umbral REGISTRADO: si falta, el registro se conserva como evidencia incompleta
+UMBRAL_DESCONOCIDO = {"clave_ausente": "desconocido (el registro no contiene la clave threshold)",
+                      "null": "desconocido (threshold registrado como null)",
+                      "no_numerico": "desconocido (threshold registrado no numérico)"}
 AUTH_DETECTOR = "auth_failure_heuristic"
 
 
@@ -120,6 +127,10 @@ def leer_motor(path: Path):
             r["_pk10"] = float(r["packet_count_10s"])
         except (ValueError, TypeError) as ex:
             inc.append(f"motor:{ln}: valor inválido ({ex})"); continue
+        if estado_umbral_registrado(r) == "clave_ausente":               # no se sustituye por ningún umbral
+            r["_incidencias"] = [f"falta la clave '{CLAVE_UMBRAL}'"]
+            inc.append(f"motor:{ln} ({path}): falta la clave '{CLAVE_UMBRAL}'; registro conservado, umbral "
+                       "registrado desconocido")
         sc = r.get("score", "__ausente__")
         if sc is None:
             r["_score"], r["_score_estado"] = None, "no_aplicable"       # IF no puntuó (válido)
@@ -420,14 +431,23 @@ def emisor_de(r: dict, detector_modelo) -> tuple:
     return "heuristico:" + str((r.get("heuristico") or {}).get("heuristico") or "sin_nombre"), None
 
 
+def estado_umbral_registrado(r: dict) -> str:
+    """Distingue clave ausente, null y no numérico; los tres dejan el umbral registrado desconocido."""
+    if CLAVE_UMBRAL not in r:
+        return "clave_ausente"
+    thr = r[CLAVE_UMBRAL]
+    return "null" if thr is None else "numerico" if _numero(thr) else "no_numerico"
+
+
 def configuracion_emisora(r: dict, componente: str, desplegado) -> dict:
     """Configuración realmente usada, solo con lo REGISTRADO. Si falta o no cuadra: desconocida (no se rellena)."""
-    thr = r.get("threshold")
-    umbral = thr if _numero(thr) else None
-    out = {"umbral_registrado": umbral if umbral is not None else "desconocido (no registrado o no numérico)"}
+    est = estado_umbral_registrado(r)
+    umbral = r[CLAVE_UMBRAL] if est == "numerico" else None
+    out = {"umbral_registrado": umbral if umbral is not None else UMBRAL_DESCONOCIDO[est],
+           "umbral_registrado_estado": est}
     if componente == "IF_desplegado":
         if umbral is None:
-            out.update(estado="desconocida", motivo="el registro no trae un umbral numérico")
+            out.update(estado="desconocida", motivo="el registro no trae un umbral numérico (" + est + ")")
         elif not _numero(desplegado):
             out.update(estado="desconocida", motivo="la config no declara umbrales.desplegado_referencia")
         elif umbral == desplegado:
@@ -493,6 +513,7 @@ def emisiones_observadas(regs, eps, origen, destinos, desplegado, detector_model
             "score_registrado": r.get("_score"), "score_estado": r.get("_score_estado"),
             "configuracion_emisora": configuracion_emisora(r, comp, desplegado),
             **_relacion_episodio(r, eps, origen, destinos),
+            **({"incidencias_registro": r["_incidencias"]} if r.get("_incidencias") else {}),
             "respaldo": {**ref_motor, "linea": r["_ln"]}})
     return out
 
