@@ -1,6 +1,12 @@
 {
   "campana": "deteccion-respuesta-2026-10-26",
   "registrado": "2026-10-26, en la fase de preparacion, antes de ejecutar ningun ataque ni campana.",
+  "version_config": {
+    "version": "2026-10-28.1",
+    "cambio": "ampliacion puntual: anade alfa 0,01 (IF_0.01 y HIB_0.01) conservando 0,05 y 0,03; 5 -> 7 configuraciones de analisis. Detalle en CAMBIOS-2026-10-28-alfa001.md.",
+    "anterior": "sin campo de version (commit 72fb95c y previos): 5 configuraciones, alfa 0,05 y 0,03",
+    "campana_iniciada_al_cambiar": "no: comprobado en solo lectura el 2026-10-28 05:47 UTC (Kali sin marcas.jsonl ni generador; sensor sin ~/cf-campana-archivo; ningun proceso de campana). Por eso se actualiza esta configuracion en su sitio, sin ensayo previo que proteger."
+  },
   "proposito": "Completar 4.2 (aporte de componentes, campana A de deteccion) y despues 4.4 (respuesta y tiempos, campana B). No sustituye ni modifica aporte-componentes-r2-2026-10-26; es una campana nueva e independiente.",
   "no_se_toca": "modelo, escalador, umbrales, heuristicos, servicios desplegados y documento Word. No se reentrena ni se recalibra. No se ajusta ningun escenario a la vista de los resultados del detector.",
   "autorizacion": "laboratorio propio y autorizado. Esta configuracion se versiona ANTES de ejecutar. La campana A se autoriza en una instruccion posterior.",
@@ -15,11 +21,28 @@
     "regla": "senal IF si score_samples < umbral (estricta), igual que motor_decision.py; sin paquetes en 10 s el IF no se puntua"
   },
   "umbrales": {
-    "procedencia": "cuantil lineal 1-alfa de -score_samples sobre las 65 553 ventanas de validacion (4.1-modelos/calibracion-alfa-2026-10-24). NO se recalibra con los nuevos ataques.",
+    "procedencia": "numpy.quantile(score_samples_validacion_sin_kali, alfa, method='linear') sobre las 65 553 ventanas de validacion (4.1-modelos/calibracion-alfa-2026-10-24, columna validacion_sin_kali_65553). NO se recalibra con los nuevos ataques. (Hasta 2026-10-28.1 este campo decia 'cuantil 1-alfa de -score_samples': es la misma definicion salvo redondeo de 1 ULP; los valores de 0,05 y 0,03 eran y siguen siendo los de la columna canonica en escala score_samples.)",
+    "fuente": {
+      "archivo": "../4.1-modelos/calibracion-alfa-2026-10-24/umbrales-alfa-precision-completa.json",
+      "columna": "validacion_sin_kali_65553",
+      "claves": {"0.05": "0.050", "0.03": "0.030", "0.01": "0.010"},
+      "sha256_lf": "26bfc6e6c98bc164b27e79daa234bd5dd6f028eb880548914ae184f36bb6753e",
+      "commit": "b9d7e4c",
+      "verificacion": "analizar.py compara por igualdad exacta de float cada umbral de esta config con la fuente (si esta accesible) y aborta si difiere; tests/test_herramientas.py::test_umbral_001_procedencia lo comprueba sobre el repositorio."
+    },
+    "escala": "score_samples (mayor = mas normal). Senal IF si score_samples < umbral, comparacion ESTRICTA (score == umbral no es senal). Se clasifica con el valor completo, nunca con el redondeado.",
+    "escala_anomalia_equivalente": "si se usa puntuacion_anomalia = -score_samples: umbral_anomalia = -umbral (negacion exacta en IEEE-754) y senal si puntuacion_anomalia > umbral_anomalia. Equivalente bit a bit. No se usa un cuantil recalculado sobre la escala de anomalia (para 0,01 daria 0.6223889502095351, 1 ULP distinto de 0.6223889502095352).",
     "0.05": -0.5694578968203694,
     "0.03": -0.5898535710336618,
+    "0.01": -0.6223889502095352,
     "desplegado_referencia": -0.5693969936322356,
-    "evaluacion_de_los_dos_alfa": "Un unico modelo puntua cada ventana una sola vez (score_samples). Los dos umbrales se aplican a ESAS MISMAS puntuaciones: IF_0.05 = score < -0.56945..., IF_0.03 = score < -0.58985.... No hay dos modelos ni dos pasadas; son dos cortes del mismo vector de scores."
+    "distincion_umbral_desplegado": "desplegado_referencia (-0.5693969936322356) = alfa 0,05 sobre la validacion ORIGINAL de 65 633 ventanas; es el que usa el motor en vivo y NO cambia. '0.05' (-0.5694578968203694) = alfa 0,05 recalibrado sobre las 65 553 ventanas sin Kali; solo para analisis derivado. Son valores distintos y ninguno sustituye al otro.",
+    "orden_esperado": "u_0.01 < u_0.03 < u_0.05 (-0.6224 < -0.5899 < -0.5695): con los mismos scores, las senales IF_0.01 estan contenidas en IF_0.03 y estas en IF_0.05.",
+    "evaluacion_de_los_alfa": "Un unico modelo puntua cada ventana una sola vez (score_samples). Los tres umbrales se aplican a ESAS MISMAS puntuaciones: IF_0.05 = score < -0.56945..., IF_0.03 = score < -0.58985..., IF_0.01 = score < -0.62238.... No hay tres modelos ni tres pasadas ni tres campanas; son tres cortes del mismo vector de scores."
+  },
+  "configuraciones_analisis": {
+    "orden": ["IF_0.05", "IF_0.03", "IF_0.01", "HEUR", "HIB_0.05", "HIB_0.03", "HIB_0.01"],
+    "nota": "mismo trafico, mismas ventanas elegibles, mismas 28 caracteristicas, misma version de heuristicos (2026-10-06.2) y mismo criterio de combinacion (HIB_a = IF_a OR HEUR). HEUR no depende de alfa: se calcula una sola vez. No se cambian reglas para compensar detecciones perdidas."
   },
   "caracteristicas_28_orden": [
     "packet_rate_10s","byte_rate_10s","mean_ip_len_10s","large_ip_ratio_10s","unique_dst_ip_ratio_30s",
@@ -64,13 +87,14 @@
 
   "emitidas_vs_derivadas": {
     "emitidas_en_vivo": "las decisiones que el motor escriba en motor_decision.log durante la campana, con su hora de escritura. Son las alertas realmente emitidas.",
-    "derivadas_offline": "IF_0.05, IF_0.03, HEUR, HIB_0.05 y HIB_0.03 recomputadas sobre las puntuaciones/ventanas observadas. Se presentan como ANALISIS DE UMBRALES sobre ventanas observadas, NO como alertas emitidas en vivo.",
-    "umbral_del_motor_en_vivo": "el motor en vivo usa alfa 0,05 (umbral desplegado -0,5693969936). alfa 0,03 es un corte derivado offline sobre las mismas puntuaciones, no una emision."
+    "derivadas_offline": "IF_0.05, IF_0.03, IF_0.01, HEUR, HIB_0.05, HIB_0.03 y HIB_0.01 recomputadas sobre las puntuaciones/ventanas observadas. Se presentan como ANALISIS DE UMBRALES sobre ventanas observadas, NO como alertas emitidas en vivo.",
+    "umbral_del_motor_en_vivo": "el motor en vivo usa alfa 0,05 (umbral desplegado -0,5693969936). alfa 0,03 y 0,01 son cortes derivados offline sobre las mismas puntuaciones, no emisiones.",
+    "tiempos_de_configuraciones_derivadas": "para IF_0.03, IF_0.01 y los hibridos, logged_at es cuando el motor registro la puntuacion de esa ventana, no una emision de esa configuracion; no prueba latencia real de emision de un umbral que no estaba desplegado (campo tiempo_es_emision_real=false en analisis.json). Una clasificacion alternativa tampoco equivale a una accion aplicada."
   },
 
   "campanas": {
     "A_deteccion_4.2": {
-      "objetivo": "comparar IF 0,05, IF 0,03, heuristicos, hibrido 0,05 e hibrido 0,03 sobre las mismas ventanas",
+      "objetivo": "comparar IF 0,05, IF 0,03, IF 0,01, heuristicos, hibrido 0,05, hibrido 0,03 e hibrido 0,01 sobre las mismas ventanas (una sola campana; las 7 configuraciones son cortes del mismo registro)",
       "modo": "SOMBRA: sin aplicar ninguna restriccion que altere el trafico",
       "precondicion_critica": "el agente de enforcement de srv-dmz (ppi-enforce-agent.timer) esta ACTIVE+ENABLED y el motor emite al feed cada 10 s; el motor NO lleva --enforce (solo emite al feed), verificado 27-oct en evidencia-entorno-2026-10-27/05-modo-sombra.txt. Antes de A, modo SOMBRA por el procedimiento revisado: [srv-dmz] scripts/modo_sombra.sh --ejecutar --motor-verificado (guarda estado, detiene+enmascara el agente, vacia cyberflow_bloqueados/cyberflow_limitados y verifica que quedan SIN elements; fallo-seguro: una consulta nft fallida NO se interpreta como set vacio). Restaurar tras A: scripts/restaurar_enforcement.sh --ejecutar --escalada-revisada (comprobando antes el feed/escalada residual).",
       "fuentes": "motor_decision.log en vivo (emitidas) + PCAP continuo + EVE + features/scores por ventana (derivadas)"

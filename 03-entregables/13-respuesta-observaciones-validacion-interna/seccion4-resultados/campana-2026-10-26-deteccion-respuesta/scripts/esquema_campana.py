@@ -8,7 +8,7 @@ from __future__ import annotations
 import re
 import shutil
 
-CONFIGS = ("IF_0.05", "IF_0.03", "HEUR", "HIB_0.05", "HIB_0.03")
+CONFIGS = ("IF_0.05", "IF_0.03", "IF_0.01", "HEUR", "HIB_0.05", "HIB_0.03", "HIB_0.01")   # = analizar.CONFIGS
 MARCADOR = re.compile(r"<[^>]+>")          # <PUERTO>, <R>, <ZONA_LAB>, ...
 IP = re.compile(r"^\d{1,3}(\.\d{1,3}){3}$")
 RUTA = re.compile(r"^/[A-Za-z0-9._~/-]*$")

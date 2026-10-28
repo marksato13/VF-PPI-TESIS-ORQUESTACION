@@ -5,10 +5,12 @@ Usa fixtures con resultados conocidos. Ejecuta:  python3 tests/test_herramientas
 Comprueba: validación de config (válida/ inválida, placeholders, destino fuera de lista), construcción de
 comandos sin marcadores, simulación por defecto, timeout con muerte del grupo de procesos (hijos incluidos),
 clasificación temporal por logged_at, separación emitido/derivado, duplicados/discontinuidades, control FPR y
-métricas por ventana solo con etiquetas.
+métricas por ventana solo con etiquetas. α 0,01 (2026-10-28): lectura y procedencia del umbral completo, comparación
+estricta, escala de anomalía, 7 configuraciones sin duplicar HEUR, no-regresión de 0,05/0,03 y anidamiento por α.
+Todos los datos son sintéticos o fixtures: comprueban el CÓDIGO, no son resultados experimentales.
 """
 from __future__ import annotations
-import importlib.util, json, os, sys, tempfile, time
+import importlib.util, json, math, os, random, sys, tempfile, time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -23,7 +25,9 @@ def cargar(nombre):
     m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m); return m
 
 
-U05, U03 = -0.5694578968203694, -0.5898535710336618
+U05, U03, U01 = -0.5694578968203694, -0.5898535710336618, -0.6223889502095352
+UM = {"0.05": U05, "0.03": U03, "0.01": U01}
+UDESP = -0.5693969936322356
 ok = {"n": 0}
 
 
@@ -154,7 +158,7 @@ def clasif(an, lineas_marca, lineas_motor, eid, destinos=None, integridad_apto=N
         (Path(d) / "x").write_text("\n".join(lineas_motor), encoding="utf-8")
         eps, _ = an.leer_marcas(Path(d) / "m")
         regs, inc, dups = an.leer_motor(Path(d) / "x")
-        return an.clasificar(eps[eid], regs, K, U05, U03, destinos, integridad_apto), regs, dups
+        return an.clasificar(eps[eid], regs, K, UM, destinos, integridad_apto), regs, dups
 
 
 def test_analizador_basico():
@@ -177,10 +181,10 @@ def test_analizador_basico():
     check(c["IF_0.05"]["base"].startswith("emitido_por_modelo"), "IF 0,05 por el modelo => emitido en vivo")
     check(c["IF_0.03"]["base"].startswith("derivado"), "IF 0,03 => derivado (umbral no desplegado)")
     # métricas por ventana solo con etiquetas; dedup evita doble conteo
-    check(an.metricas_por_ventana(regs, {}, U05, U03)["calculadas"] is False, "sin etiquetas: no métricas")
-    m2 = an.metricas_por_ventana(regs, {(K, iso(T + 40)): "1", (K, iso(T + 50)): "0"}, U05, U03)
+    check(an.metricas_por_ventana(regs, {}, UM)["calculadas"] is False, "sin etiquetas: no métricas")
+    m2 = an.metricas_por_ventana(regs, {(K, iso(T + 40)): "1", (K, iso(T + 50)): "0"}, UM)
     check(m2["IF_0.05"]["TP"] == 1 and m2["IF_0.05"]["FP"] == 0, "etiquetas conocidas: TP=1, FP=0")
-    f = an.fpr_control(regs, T, T + 150, U05, U03, set())
+    f = an.fpr_control(regs, T, T + 150, UM, set())
     check(f["denominador"] == f["ventanas"] and f["IF_0.05"]["falsas_alarmas"] >= 1, "control FPR con denominador")
 
 
@@ -214,8 +218,9 @@ def test_score_nulo_con_heuristico():
         fila = [r for r in regs if r["window_end_utc"] == iso(T + 500)]
         check(len(fila) == 1, "la fila con score null NO se descarta")
         check(fila[0]["_score_estado"] == "no_aplicable", "score null = IF no aplicable (no error)")
-        g = an.senales(fila[0], U05, U03)
+        g = an.senales(fila[0], UM)
         check(g["HEUR"] and not g["IF_0.05"], "score null: HEUR dispara, IF no")
+        check(not g["IF_0.01"] and g["HIB_0.01"], "score null: IF 0,01 no aplica; híbrido 0,01 = HEUR")
 
 
 def _tabla8_e2e(an, tmp, destinos_csv, con_senal=True):
@@ -227,7 +232,7 @@ def _tabla8_e2e(an, tmp, destinos_csv, con_senal=True):
     mot = [rec(w + 1, w, (-0.70 if (con_senal and w == T + 40) else -0.50),
                ("ALERT" if (con_senal and w == T + 40) else "PERMIT")) for w in range(T, T + 150, 10)]
     (d / "motor.log").write_text("\n".join(mot), encoding="utf-8")
-    (d / "cfg.json").write_text(json.dumps({"umbrales": {"0.05": U05, "0.03": U03, "desplegado_referencia": -0.5693969936322356},
+    (d / "cfg.json").write_text(json.dumps({"umbrales": {"0.05": U05, "0.03": U03, "0.01": U01, "desplegado_referencia": UDESP},
                                             "origen": K, "combinacion_real": {"exclusiones": {"NUNCA_BLOQUEAR": []}}}),
                                 encoding="utf-8")
     (d / "integ.json").write_text(json.dumps({"episodios": [{"episodio_id": "inundacion_http-r1", "apto": True}]}),
@@ -436,7 +441,7 @@ def test_integridad_e2e_no_habilita_denominador():
         (Path(d) / "marcas.jsonl").write_text("\n".join(marca(EID, "inundacion_http", "10.10.30.10", T, T + 90)), encoding="utf-8")
         mot = [rec(w + 1, w, -0.70 if w == T + 40 else -0.50, "ALERT" if w == T + 40 else "PERMIT") for w in range(T, T + 150, 10)]
         (Path(d) / "motor.log").write_text("\n".join(mot), encoding="utf-8")
-        (Path(d) / "cfg.json").write_text(json.dumps({"umbrales": {"0.05": U05, "0.03": U03, "desplegado_referencia": -0.5693969936322356},
+        (Path(d) / "cfg.json").write_text(json.dumps({"umbrales": {"0.05": U05, "0.03": U03, "0.01": U01, "desplegado_referencia": UDESP},
                                                       "origen": K, "combinacion_real": {"exclusiones": {"NUNCA_BLOQUEAR": []}}}), encoding="utf-8")
         (Path(d) / "dest.csv").write_text("episodio_id,window_end_utc,destino\n"
                                           + "".join(f"{EID},{iso(w)},10.10.30.10\n" for w in range(T + 10, T + 91, 10)), encoding="utf-8")
@@ -485,22 +490,180 @@ def test_emitido_vs_derivado():
     an = cargar("analizar")
     # ALERT solo por IF (modelo): base emitido; HEUR no
     g = an.senales({"_score": -0.70, "_pk10": 5, "decision": "ALERT", "detector_name": "if_limpio_2026_10",
-                    "heuristico": None}, U05, U03)
+                    "heuristico": None}, UM)
     check(g["IF_0.05"] and not g["HEUR"] and g["base"]["IF_0.05"].startswith("emitido_por_modelo"),
           "ALERT solo por IF: IF emitido, HEUR no")
     # señal solo heurística (PERMIT): registrada en vivo, no ALERT
     g = an.senales({"_score": -0.50, "_pk10": 5, "decision": "PERMIT", "detector_name": "if_limpio_2026_10",
-                    "heuristico": {"heuristico": "http_abuse", "accion": "LIMIT"}}, U05, U03)
+                    "heuristico": {"heuristico": "http_abuse", "accion": "LIMIT"}}, UM)
     check(g["HEUR"] and not g["IF_0.05"] and g["base"]["HEUR"] == "registrada_en_vivo",
           "heurístico LIMIT en PERMIT: registrada en vivo, no ALERT")
     # compartida
     g = an.senales({"_score": -0.70, "_pk10": 5, "decision": "ALERT", "detector_name": "if_limpio_2026_10",
-                    "heuristico": {"heuristico": "http_abuse", "accion": "LIMIT"}}, U05, U03)
+                    "heuristico": {"heuristico": "http_abuse", "accion": "LIMIT"}}, UM)
     check(g["IF_0.05"] and g["HEUR"] and g["HIB_0.05"], "señal compartida IF+HEUR")
     # alternativa no desplegada: IF_0.03 derivado; score intermedio dispara 0,05 y no 0,03
-    g = an.senales({"_score": -0.58, "_pk10": 5, "decision": "PERMIT", "heuristico": None}, U05, U03)
+    g = an.senales({"_score": -0.58, "_pk10": 5, "decision": "PERMIT", "heuristico": None}, UM)
     check(g["IF_0.05"] and not g["IF_0.03"] and g["base"]["IF_0.03"].startswith("derivado"),
           "IF 0,03 es derivado (umbral no desplegado); -0.58 no lo dispara")
+    # α 0,01: siempre derivado, aunque el modelo desplegado emitiera ALERT en esa ventana
+    g = an.senales({"_score": -0.70, "_pk10": 5, "decision": "ALERT", "detector_name": "if_limpio_2026_10",
+                    "heuristico": None}, UM)
+    check(g["IF_0.01"] and g["base"]["IF_0.01"].startswith("derivado") and g["base"]["HIB_0.01"].startswith("derivado"),
+          "IF 0,01 e híbrido 0,01 son derivados aunque el modelo emitiera ALERT")
+
+
+# --------------------------------------------------------------- 4. α 0,01 (comprobaciones del código)
+CAL = (AQUI.parent.parent / "4.1-modelos" / "calibracion-alfa-2026-10-24" / "umbrales-alfa-precision-completa.json")
+CFG_REAL = AQUI.parent / "config-campana.json"
+
+
+def test_umbral_001_procedencia():
+    an = cargar("analizar")
+    cfg = json.loads(CFG_REAL.read_text(encoding="utf-8"))
+    U = an.umbrales_de(cfg)
+    check(U["0.01"] == float("-0.6223889502095352") and repr(U["0.01"]) == "-0.6223889502095352",
+          "config: umbral 0,01 leído con precisión completa (-0.6223889502095352)")
+    check(repr(U["0.05"]) == "-0.5694578968203694" and repr(U["0.03"]) == "-0.5898535710336618",
+          "config: umbrales 0,05 y 0,03 conservados")
+    check(cfg["umbrales"]["desplegado_referencia"] == UDESP and UDESP != U["0.05"],
+          "el umbral desplegado (65 633) se conserva y es distinto del 0,05 recalibrado (65 553)")
+    col = json.loads(CAL.read_text(encoding="utf-8"))["umbrales_full_precision"]["validacion_sin_kali_65553"]
+    for a, k in (("0.05", "0.050"), ("0.03", "0.030"), ("0.01", "0.010")):
+        check(float(col[k]) == U[a], f"umbral {a} == calibración 4.1 [validacion_sin_kali_65553][{k}] (igualdad exacta)")
+    p = an.verificar_procedencia(cfg, CFG_REAL, U)
+    check(p["estado"] == "verificada" and p["sha256_coincide_con_config"], "procedencia verificada (valores y sha256)")
+    # config con 0,01 distinto de la calibración => aborta (no clasifica con un umbral sin procedencia)
+    malo = json.loads(json.dumps(cfg)); malo["umbrales"]["0.01"] = -0.62238895
+    try:
+        an.verificar_procedencia(malo, CFG_REAL, an.umbrales_de(malo)); abortó = False
+    except SystemExit:
+        abortó = True
+    check(abortó, "umbral 0,01 redondeado (-0.62238895) != calibración => aborta")
+    # sin 0,01, o como texto: aborta (sin valor por defecto)
+    for v in (None, "-0.6223889502095352"):
+        c = {"umbrales": {"0.05": U05, "0.03": U03, **({} if v is None else {"0.01": v})}}
+        try:
+            an.umbrales_de(c); abortó = False
+        except SystemExit:
+            abortó = True
+        check(abortó, f"umbral 0,01 {'ausente' if v is None else 'de texto'} => aborta (sin valor por defecto)")
+
+
+def test_comparacion_estricta():
+    an = cargar("analizar")
+    for a, u in UM.items():
+        en = an.senales({"_score": u, "_pk10": 5, "decision": "PERMIT", "heuristico": None}, UM)
+        bajo = an.senales({"_score": math.nextafter(u, -math.inf), "_pk10": 5, "decision": "PERMIT",
+                           "heuristico": None}, UM)
+        check(not en[f"IF_{a}"], f"score == umbral {a} NO genera señal IF (estricto)")
+        check(bajo[f"IF_{a}"], f"score 1 ULP por debajo del umbral {a} SÍ genera señal IF")
+    # un valor que solo dispararía con el umbral redondeado a 8 decimales no dispara con el completo
+    r8 = round(U01, 8)                       # -0.62238895 > U01
+    entre = (r8 + U01) / 2                   # U01 < entre < r8
+    check(U01 < entre < r8 and not an.senales({"_score": entre, "_pk10": 5}, UM)["IF_0.01"],
+          "score entre el umbral completo y el redondeado: no hay señal 0,01 (no se usa el redondeado)")
+
+
+def test_escala_anomalia():
+    an = cargar("analizar")
+    check(an.umbral_escala_anomalia(U01) == 0.6223889502095352, "umbral_anomalia 0,01 = -umbral = 0.6223889502095352")
+    check(an.umbral_escala_anomalia(U01) != 0.6223889502095351,
+          "no se usa el cuantil recalculado en escala de anomalía (difiere 1 ULP)")
+    rng = random.Random(20261028)
+    scores = [rng.uniform(-0.75, -0.45) for _ in range(5000)] + [U05, U03, U01] + \
+             [math.nextafter(u, s) for u in (U05, U03, U01) for s in (-math.inf, math.inf)]
+    for a, u in UM.items():
+        ua = an.umbral_escala_anomalia(u)
+        check(all((s < u) == ((-s) > ua) for s in scores),
+              f"α {a}: score < umbral <=> anomalía > umbral_anomalía en {len(scores)} scores (incl. fronteras)")
+
+
+def _e2e_siete(an, tmp):
+    T = 1793000000
+    d = Path(tmp)
+    (d / "marcas.jsonl").write_text("\n".join(marca(EID, "inundacion_http", "10.10.30.10", T, T + 90)), encoding="utf-8")
+    sc = {T + 30: -0.60, T + 50: -0.63}      # 0,05+0,03 / los tres
+    mot = [rec(w + 1, w, sc.get(w, -0.50), "ALERT" if sc.get(w, 0) < UDESP else "PERMIT",
+               {"heuristico": "http_abuse", "accion": "LIMIT"} if w == T + 70 else None) for w in range(T, T + 150, 10)]
+    (d / "motor.log").write_text("\n".join(mot), encoding="utf-8")
+    (d / "cfg.json").write_text(json.dumps({"umbrales": {**UM, "desplegado_referencia": UDESP}, "origen": K,
+                                            "combinacion_real": {"exclusiones": {"NUNCA_BLOQUEAR": []}}}), encoding="utf-8")
+    (d / "integ.json").write_text(json.dumps({"episodios": [{"episodio_id": EID, "apto": True}]}), encoding="utf-8")
+    (d / "dest.csv").write_text(_csv_cubre(T, "10.10.30.10"), encoding="utf-8")
+    old = sys.argv
+    sys.argv = ["x", "--marcas", str(d / "marcas.jsonl"), "--motor", str(d / "motor.log"), "--config", str(d / "cfg.json"),
+                "--destinos", str(d / "dest.csv"), "--integridad", str(d / "integ.json"),
+                "--control", f"{T},{T + 150}", "--salida", str(d / "out")]
+    try:
+        import contextlib, io
+        with contextlib.redirect_stdout(io.StringIO()):
+            an.main()
+    finally:
+        sys.argv = old
+    return (json.loads((d / "out" / "analisis.json").read_text(encoding="utf-8")),
+            (d / "out" / "TABLA8.md").read_text(encoding="utf-8"))
+
+
+def test_siete_configuraciones():
+    an = cargar("analizar")
+    ORDEN = ["IF_0.05", "IF_0.03", "IF_0.01", "HEUR", "HIB_0.05", "HIB_0.03", "HIB_0.01"]
+    check(list(an.CONFIGS) == ORDEN and list(esq.CONFIGS) == ORDEN, "CONFIGS = 7 en el orden pedido (analizar y esquema)")
+    with tempfile.TemporaryDirectory() as tmp:
+        j, md = _e2e_siete(an, tmp)
+    t8 = j["tabla8"]["Inundación HTTP"]
+    check([k for k in t8 if k not in ("evaluables", "no_evaluables")] == ORDEN, "tabla8: 7 columnas en orden")
+    check(j["configuraciones"] == ORDEN, "analisis.json declara las 7 configuraciones en orden")
+    cab = [l for l in md.splitlines() if l.startswith("| Familia")][0]
+    check([c.strip() for c in cab.strip("|").split("|")][2:] ==
+          ["IF 0,05", "IF 0,03", "IF 0,01", "Heurísticos", "Híbrido 0,05", "Híbrido 0,03", "Híbrido 0,01"],
+          "TABLA8.md: cabecera con las 7 columnas en orden")
+    check("-0.6223889502095352" in md and "-0.5693969936322356" in md,
+          "TABLA8.md muestra el umbral 0,01 completo y el desplegado, por separado")
+    claves_heur = [k for k in j["episodios"][EID] if "HEUR" in k]
+    check(claves_heur == ["HEUR"], f"HEUR una sola vez por episodio, sin variantes por α (hay {claves_heur})")
+    epi = j["episodios"][EID]
+    check(t8["IF_0.05"] == t8["IF_0.03"] == t8["IF_0.01"] == 1 and t8["HEUR"] == 1, "fixture: 0,05/0,03/0,01 y HEUR durante")
+    check(epi["IF_0.05"]["window_end_utc"] == iso(T0 + 30) and epi["IF_0.01"]["window_end_utc"] == iso(T0 + 50),
+          "primera señal atribuible por α: 0,05 en T+30, 0,01 en T+50 (score -0.60 no dispara 0,01)")
+    check(epi["IF_0.05"]["tiempo_es_emision_real"] is True and epi["IF_0.01"]["tiempo_es_emision_real"] is False,
+          "IF 0,05 emitido por el modelo: tiempo real; IF 0,01 derivado: no es latencia de emisión")
+    comp = epi["compartidas_durante_0.01"]
+    check(comp["solo_IF_0.01"] == 1 and comp["solo_HEUR"] == 1 and comp["ambos_0.01"] == 0,
+          "solapamiento/exclusivas 0,01 sobre ventanas confirmadas (solo_IF=1, solo_HEUR=1)")
+    f = j["control_normal_fpr"]
+    check(all(c in f for c in ORDEN) and f["IF_0.01"]["falsas_alarmas"] == 1 and f["denominador"] == f["ventanas"],
+          "control FPR con las 7 configuraciones y denominador explícito")
+    check(j["umbrales"]["orden_respetado"] is True and j["umbrales"]["0.01_recalibrado"] == U01,
+          "analisis.json: orden de umbrales respetado y umbral 0,01 completo")
+
+
+T0 = 1793000000
+
+
+def test_no_regresion_005_003():
+    import regresion_alfa as rg
+    an = cargar("analizar")
+    ref = json.loads(rg.GOLDEN.read_text(encoding="utf-8"))
+    dif = rg.diferencias(ref, rg.proyeccion_5(rg.correr(an)))
+    check(not dif, "0,05/0,03/HEUR/híbridos idénticos al analizador anterior (golden): " + "; ".join(dif[:3]))
+    check(len(ref["episodios"]) == 5 and any(e["evaluable"] for e in ref["episodios"].values()),
+          "el golden cubre 5 episodios, con evaluables (no es una comparación vacía)")
+
+
+def test_anidamiento_por_alfa():
+    an = cargar("analizar")
+    check(an.orden_umbrales(UM), "los umbrales de la config respetan u_0.01 <= u_0.03 <= u_0.05")
+    rng = random.Random(7)
+    filas = [{"_score": (None if rng.random() < 0.05 else rng.uniform(-0.72, -0.50)), "_pk10": rng.choice([0, 5, 5, 5]),
+              "decision": "PERMIT", "heuristico": ({"heuristico": "x"} if rng.random() < 0.1 else None)}
+             for _ in range(5000)] + [{"_score": u, "_pk10": 5} for u in UM.values()]
+    S = {c: {i for i, r in enumerate(filas) if an.senales(r, UM)[c]} for c in an.CONFIGS}
+    check(S["IF_0.01"] <= S["IF_0.03"] <= S["IF_0.05"], "IF: señales 0,01 ⊆ 0,03 ⊆ 0,05 (mismos scores)")
+    check(S["HIB_0.01"] <= S["HIB_0.03"] <= S["HIB_0.05"], "híbrido: 0,01 ⊆ 0,03 ⊆ 0,05")
+    check(len(S["IF_0.01"]) < len(S["IF_0.03"]) < len(S["IF_0.05"]), "los subconjuntos no son triviales")
+    malo = {"0.05": U05, "0.03": U01, "0.01": U03}
+    check(not an.orden_umbrales(malo), "umbrales en orden invertido: se detecta (no se afirma el anidamiento)")
 
 
 def main():
@@ -508,7 +671,9 @@ def main():
                test_analizador_basico, test_cobertura_una_ventana_insuficiente, test_score_nulo_con_heuristico,
                test_tabla8_evidencia_y_denominador, test_ventana_previa, test_emitido_vs_derivado,
                test_integridad_backing, test_integridad_informe_externo, test_integridad_descriptor_ilustrativo,
-               test_integridad_gate_analizador, test_integridad_e2e_no_habilita_denominador):
+               test_integridad_gate_analizador, test_integridad_e2e_no_habilita_denominador,
+               test_umbral_001_procedencia, test_comparacion_estricta, test_escala_anomalia,
+               test_siete_configuraciones, test_no_regresion_005_003, test_anidamiento_por_alfa):
         fn()
         print(f"OK  {fn.__name__}")
     print(f"\n{ok['n']} comprobaciones pasaron.")
