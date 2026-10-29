@@ -1,0 +1,19 @@
+ciclos con historia PCAP completa: 773
+Pearson r(trabajo, MB en 230 s) = 0.949; pendiente 0.605 s/MB; ordenada -0.29 s
+    0-5   MB: ciclos=  13 trabajo p50=  1.4 s p90=  1.8 s max=  1.8 s
+    5-20  MB: ciclos= 561 trabajo p50=  9.3 s p90= 12.0 s max= 21.2 s
+   20-40  MB: ciclos= 148 trabajo p50= 19.3 s p90= 23.2 s max= 26.1 s
+   40-60  MB: ciclos=  28 trabajo p50= 23.3 s p90= 32.7 s max= 43.5 s
+   60-80  MB: ciclos=  21 trabajo p50= 42.2 s p90= 45.3 s max= 45.7 s
+   80-120 MB: ciclos=   2 trabajo p50= 45.4 s p90= 43.5 s max= 45.4 s
+10 ciclos más largos:
+  09:06:17 trabajo= 45.7 s MB_230s=  76.5 decisiones=58
+  09:04:46 trabajo= 45.6 s MB_230s=  77.0 decisiones=77
+  08:45:45 trabajo= 45.4 s MB_230s=  80.5 decisiones=67
+  09:01:09 trabajo= 45.3 s MB_230s=  76.3 decisiones=52
+  09:05:32 trabajo= 44.6 s MB_230s=  76.7 decisiones=56
+  08:56:29 trabajo= 43.7 s MB_230s=  77.1 decisiones=37
+  08:46:31 trabajo= 43.5 s MB_230s=  81.4 decisiones=50
+  09:01:55 trabajo= 43.5 s MB_230s=  58.2 decisiones=60
+  08:55:46 trabajo= 43.2 s MB_230s=  76.8 decisiones=72
+  10:25:10 trabajo= 43.1 s MB_230s=  77.0 decisiones=50
