@@ -1,0 +1,47 @@
+{
+ "campana": "deteccion-respuesta-2026-10-26",
+ "episodio": "escaneo_breve-r2",
+ "periodo": {
+  "inicio": 1793269484.085733,
+  "fin": 1793269711.669966
+ },
+ "origen": "sensor (automatico)",
+ "fuente": "p34_relojes.sh",
+ "tolerancia_s": 1.0,
+ "requeridos": [
+  "sensor",
+  "kali",
+  "srv-dmz",
+  "bastion"
+ ],
+ "mediciones": [
+  {
+   "host": "sensor",
+   "referencia": "bastion (p34, sesión SSH persistente, 9 muestras)",
+   "momento": 1793270366.0,
+   "desfase_s": 0.0032,
+   "incertidumbre_s": 0.0007
+  },
+  {
+   "host": "kali",
+   "referencia": "bastion (p34, sesión SSH persistente, 9 muestras)",
+   "momento": 1793270368.0,
+   "desfase_s": -0.0229,
+   "incertidumbre_s": 0.0008
+  },
+  {
+   "host": "srv-dmz",
+   "referencia": "bastion (p34, sesión SSH persistente, 9 muestras)",
+   "momento": 1793270370.0,
+   "desfase_s": 0.0042,
+   "incertidumbre_s": 0.0004
+  },
+  {
+   "host": "bastion",
+   "referencia": "NTP (chrony del bastión)",
+   "momento": 1793270366.641,
+   "desfase_s": 0.001185541,
+   "incertidumbre_s": 0.019074285
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+# ppi-motor-capture (proceso REAL) (2026-10-29T07:33:42Z)
+is-active: active
+  MainPID=1393
+  NRestarts=0
+  MemoryCurrent=40157184
+  ActiveEnterTimestamp=Wed 2026-10-21 19:09:39 UTC
+ficheros presentes en el anillo: 75
+descartes de kernel del proceso ACTUAL (PID 1393):
+  (hay lineas de descarte en el journal, pero de PIDs ANTERIORES -no del 1393-; NO se usan como sustituto:)
+    [historico otro PID] sep 23 20:42:44 cyberflow-sensor tcpdump[4886]: 0 packets dropped by kernel
+    [historico otro PID] sep 23 20:46:46 cyberflow-sensor tcpdump[5145]: 0 packets dropped by kernel
+    [historico otro PID] sep 23 20:50:43 cyberflow-sensor tcpdump[5457]: 0 packets dropped by kernel
+  NO MEDIDOS para el proceso actual: corre con -G (rotacion) sin --print-statistics y no imprime stats en vivo.
+  NO se afirma 0 perdidas. Indicador de continuidad disponible: NRestarts=0 (sin reinicios de captura) +
+  inventario sin huecos/solapes por marca de paquete (ver 'inventario').

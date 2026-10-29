@@ -1,0 +1,32 @@
+{
+ "campana": "deteccion-respuesta-2026-10-26",
+ "episodio": "inundacion_http-r2",
+ "periodo": {
+  "inicio": 1793264146.062558,
+  "fin": 1793264446.057594
+ },
+ "origen": "sensor (automatico)",
+ "fuente": "motor_decision.log + secuencia de PCAP archivados",
+ "previa_s": 1.1,
+ "posterior_s": 70.1,
+ "detalle": {
+  "motor_previa_s": 1.1,
+  "motor_posterior_desde_fin_mas_60_s": 10.1,
+  "pcap_previa_s": 889.1,
+  "pcap_posterior_s": 885.9,
+  "hueco_motor_max_s": 40.41809105873108,
+  "analizar_cobertura": {
+   "suficiente": false,
+   "motivo": "motor no continuo (hueco o no cubre el intervalo)",
+   "motor_continuo": false,
+   "anclas_ataque_esperadas": 9,
+   "anclas_ataque_observadas": 9,
+   "hueco_motor_max_s": 40.4,
+   "cubre_inicio": true,
+   "cubre_fin_mas_60": true
+  }
+ },
+ "durante_completa": false,
+ "faltantes": [],
+ "continuidad_sin_huecos": false
+}

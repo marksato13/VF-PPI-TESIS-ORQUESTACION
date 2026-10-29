@@ -1,0 +1,32 @@
+{
+ "campana": "deteccion-respuesta-2026-10-26",
+ "episodio": "escaneo_sostenido-r1",
+ "periodo": {
+  "inicio": 1793269711.671801,
+  "fin": 1793269987.434875
+ },
+ "origen": "sensor (automatico)",
+ "fuente": "motor_decision.log + secuencia de PCAP archivados",
+ "previa_s": 49.5,
+ "posterior_s": 77.3,
+ "detalle": {
+  "motor_previa_s": 49.5,
+  "motor_posterior_desde_fin_mas_60_s": 17.3,
+  "pcap_previa_s": 893.7,
+  "pcap_posterior_s": 452.6,
+  "hueco_motor_max_s": 21.224560022354126,
+  "analizar_cobertura": {
+   "suficiente": false,
+   "motivo": "motor no continuo (hueco o no cubre el intervalo)",
+   "motor_continuo": false,
+   "anclas_ataque_esperadas": 6,
+   "anclas_ataque_observadas": 6,
+   "hueco_motor_max_s": 21.2,
+   "cubre_inicio": true,
+   "cubre_fin_mas_60": true
+  }
+ },
+ "durante_completa": false,
+ "faltantes": [],
+ "continuidad_sin_huecos": false
+}

@@ -1,0 +1,15 @@
+{
+ "campana": "deteccion-respuesta-2026-10-26",
+ "episodio": "escaneo_sostenido-r1",
+ "periodo": {
+  "inicio": 1793269711.671801,
+  "fin": 1793269987.434875
+ },
+ "origen": "sensor (automatico)",
+ "fuente": "systemctl show al inicio y al final",
+ "reinicios": {
+  "motor": [],
+  "captura": [],
+  "suricata": []
+ }
+}

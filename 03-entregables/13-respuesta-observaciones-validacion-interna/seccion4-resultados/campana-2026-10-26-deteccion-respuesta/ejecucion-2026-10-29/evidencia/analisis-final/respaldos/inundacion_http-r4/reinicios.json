@@ -1,0 +1,15 @@
+{
+ "campana": "deteccion-respuesta-2026-10-26",
+ "episodio": "inundacion_http-r4",
+ "periodo": {
+  "inicio": 1793263846.121184,
+  "fin": 1793264146.060207
+ },
+ "origen": "sensor (automatico)",
+ "fuente": "systemctl show al inicio y al final",
+ "reinicios": {
+  "motor": [],
+  "captura": [],
+  "suricata": []
+ }
+}

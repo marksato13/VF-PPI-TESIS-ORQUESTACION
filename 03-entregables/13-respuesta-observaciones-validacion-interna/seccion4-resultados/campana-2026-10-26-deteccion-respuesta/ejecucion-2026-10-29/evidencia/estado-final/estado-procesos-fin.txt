@@ -1,0 +1,15 @@
+HASHES_IGUALES (8 artefactos)
+MainPID=2277062 NRestarts=0 Id=ppi-motor.service ActiveState=active  MainPID=1393 NRestarts=0 Id=ppi-motor-capture.service ActiveState=active  MainPID=1110887 NRestarts=0 Id=suricata.service ActiveState=active  Id=ppi-publicar-feed.timer ActiveState=active
+motor_con_--enforce: 0
+no server running on /tmp/tmux-1000/default
+/dev/mapper/ubuntu--vg-ubuntu--lv   37G   18G   17G  52% /
+2026-10-29T11:35:51Z
+--- srv-dmz
+Id=ppi-enforce-agent.service ActiveState=inactive UnitFileState=static  Id=ppi-enforce-agent.timer ActiveState=inactive UnitFileState=disabled
+cyberflow_bloqueados elementos=0
+cyberflow_limitados elementos=0
+--- kali
+no server running on /tmp/tmux-1000/default
+sin procesos de ataque
+--- bastion
+495486 bash -c for i in 1 2 3 4 5 6; do sleep 2400; bash ~/cf-stage/p34_relojes.sh >> ~/cf-stage/relojes-A.log 2>&1; done

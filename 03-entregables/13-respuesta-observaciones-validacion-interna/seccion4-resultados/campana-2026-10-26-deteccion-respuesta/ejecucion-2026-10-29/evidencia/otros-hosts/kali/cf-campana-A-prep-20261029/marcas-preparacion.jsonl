@@ -1,0 +1,8 @@
+{"evento": "inicio_preparacion", "comprobacion": "-", "resultado": "-", "pared_utc": "2026-10-29T07:35:02.242727+00:00", "monotonico": 649533.123297, "tipo": "preparacion_excluida_del_control"}
+{"evento": "prueba", "comprobacion": "http_80", "resultado": "200", "pared_utc": "2026-10-29T07:35:02.300248+00:00", "monotonico": 649533.180786, "tipo": "preparacion_excluida_del_control"}
+{"evento": "prueba", "comprobacion": "https_443", "resultado": "200", "pared_utc": "2026-10-29T07:35:02.406104+00:00", "monotonico": 649533.286641, "tipo": "preparacion_excluida_del_control"}
+{"evento": "prueba", "comprobacion": "auth_sin_credencial", "resultado": "401", "pared_utc": "2026-10-29T07:35:02.462075+00:00", "monotonico": 649533.342609, "tipo": "preparacion_excluida_del_control"}
+{"evento": "prueba", "comprobacion": "auth_credencial_control", "resultado": "200", "pared_utc": "2026-10-29T07:35:02.517324+00:00", "monotonico": 649533.39786, "tipo": "preparacion_excluida_del_control"}
+{"evento": "prueba", "comprobacion": "dns_nombre_unico", "resultado": "prep-1793259302.lab-ppi=10.10.30.10", "pared_utc": "2026-10-29T07:35:02.579280+00:00", "monotonico": 649533.459817, "tipo": "preparacion_excluida_del_control"}
+{"evento": "prueba", "comprobacion": "dns_soa_flags", "resultado": "flags: qr aa rd ra ad", "pared_utc": "2026-10-29T07:35:02.640404+00:00", "monotonico": 649533.520941, "tipo": "preparacion_excluida_del_control"}
+{"evento": "fin_preparacion", "comprobacion": "-", "resultado": "-", "pared_utc": "2026-10-29T07:35:02.680496+00:00", "monotonico": 649533.561031, "tipo": "preparacion_excluida_del_control"}

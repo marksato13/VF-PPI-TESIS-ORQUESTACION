@@ -1,0 +1,15 @@
+{
+ "campana": "deteccion-respuesta-2026-10-26",
+ "episodio": "dns_inusual-r5",
+ "periodo": {
+  "inicio": 1793266125.027872,
+  "fin": 1793266425.160228
+ },
+ "origen": "sensor (automatico)",
+ "fuente": "systemctl show al inicio y al final",
+ "reinicios": {
+  "motor": [],
+  "captura": [],
+  "suricata": []
+ }
+}

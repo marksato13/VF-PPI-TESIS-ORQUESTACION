@@ -1,0 +1,108 @@
+{
+ "campana": "deteccion-respuesta-2026-10-26",
+ "episodio": "escaneo_breve-r4",
+ "periodo": {
+  "inicio": 1793268128.383265,
+  "fin": 1793268356.36799
+ },
+ "origen": "sensor (automatico)",
+ "fuente": "pcap",
+ "ficheros": [
+  {
+   "fichero": "live-20261029100205.pcap",
+   "bytes": 1476114,
+   "sha256": "8372cbb040da67b156d42cbbe6c5622ac3cf4f32e3eb13b5e5ebe14dc96e804a",
+   "sha256_archivador": "8372cbb040da67b156d42cbbe6c5622ac3cf4f32e3eb13b5e5ebe14dc96e804a"
+  },
+  {
+   "fichero": "live-20261029100220.pcap",
+   "bytes": 1094690,
+   "sha256": "0a926851fbf1b5fb2164cf4f03c92b9de504183e201989cbdf944faf9b9732f5",
+   "sha256_archivador": "0a926851fbf1b5fb2164cf4f03c92b9de504183e201989cbdf944faf9b9732f5"
+  },
+  {
+   "fichero": "live-20261029100235.pcap",
+   "bytes": 1094921,
+   "sha256": "420471a36cf1461e3b9a2f8de875c8657d8f492a01e062f05fad50bde38d4527",
+   "sha256_archivador": "420471a36cf1461e3b9a2f8de875c8657d8f492a01e062f05fad50bde38d4527"
+  },
+  {
+   "fichero": "live-20261029100251.pcap",
+   "bytes": 998865,
+   "sha256": "9988233281fca4c5e0ee1866d2efabdd102429d1d34f5c5ce6f8f3dacf3ff3ef",
+   "sha256_archivador": "9988233281fca4c5e0ee1866d2efabdd102429d1d34f5c5ce6f8f3dacf3ff3ef"
+  },
+  {
+   "fichero": "live-20261029100306.pcap",
+   "bytes": 1110056,
+   "sha256": "35d64e96284ff85c8437bd9b4dab919489b9ac34ee364cc6a0be5e98447bdbeb",
+   "sha256_archivador": "35d64e96284ff85c8437bd9b4dab919489b9ac34ee364cc6a0be5e98447bdbeb"
+  },
+  {
+   "fichero": "live-20261029100321.pcap",
+   "bytes": 844390,
+   "sha256": "ccacfca62a359ce4da584a18e74daf56457b5842e022b6cecd1cd2811ffa20da",
+   "sha256_archivador": "ccacfca62a359ce4da584a18e74daf56457b5842e022b6cecd1cd2811ffa20da"
+  },
+  {
+   "fichero": "live-20261029100336.pcap",
+   "bytes": 1507186,
+   "sha256": "7f9b011d3d755effcd49edf963035bd425f9867d76036279e27cf75f659668f7",
+   "sha256_archivador": "7f9b011d3d755effcd49edf963035bd425f9867d76036279e27cf75f659668f7"
+  },
+  {
+   "fichero": "live-20261029100351.pcap",
+   "bytes": 472527,
+   "sha256": "2991f3b86bf84fe2223c8a63f8281ad0b3aab87f71c49d0e59dbd35e203f1d99",
+   "sha256_archivador": "2991f3b86bf84fe2223c8a63f8281ad0b3aab87f71c49d0e59dbd35e203f1d99"
+  },
+  {
+   "fichero": "live-20261029100406.pcap",
+   "bytes": 2071295,
+   "sha256": "51b91354482d2bdb7707706a6c781b10689a98f2a821dadfd04768d663cd78ea",
+   "sha256_archivador": "51b91354482d2bdb7707706a6c781b10689a98f2a821dadfd04768d663cd78ea"
+  },
+  {
+   "fichero": "live-20261029100421.pcap",
+   "bytes": 1897029,
+   "sha256": "f2473c5cb9467959d6219cd1cbff884736c17f49c8a126ede7d650c4202f8ac2",
+   "sha256_archivador": "f2473c5cb9467959d6219cd1cbff884736c17f49c8a126ede7d650c4202f8ac2"
+  },
+  {
+   "fichero": "live-20261029100436.pcap",
+   "bytes": 1305073,
+   "sha256": "b7bc36f3a9e3459c8697034039db875047baf1fc1e580a8888949675dad2ec8f",
+   "sha256_archivador": "b7bc36f3a9e3459c8697034039db875047baf1fc1e580a8888949675dad2ec8f"
+  },
+  {
+   "fichero": "live-20261029100451.pcap",
+   "bytes": 982129,
+   "sha256": "d700b2bf894e2f12513a33a3e81b5f969c06659d23820a98038a091b89f28cc3",
+   "sha256_archivador": "d700b2bf894e2f12513a33a3e81b5f969c06659d23820a98038a091b89f28cc3"
+  },
+  {
+   "fichero": "live-20261029100506.pcap",
+   "bytes": 1074683,
+   "sha256": "ee7eab029428f7b6ea8ea24d92c8b3e0c945c22072df4a9e0652fbdc8cdc44f5",
+   "sha256_archivador": "ee7eab029428f7b6ea8ea24d92c8b3e0c945c22072df4a9e0652fbdc8cdc44f5"
+  },
+  {
+   "fichero": "live-20261029100521.pcap",
+   "bytes": 1159606,
+   "sha256": "a21e7cae44f3c83c9500f0d63ebbd5b9fd9f6f386bd3907532259835fd51aac6",
+   "sha256_archivador": "a21e7cae44f3c83c9500f0d63ebbd5b9fd9f6f386bd3907532259835fd51aac6"
+  },
+  {
+   "fichero": "live-20261029100536.pcap",
+   "bytes": 1571754,
+   "sha256": "5e3fb1133cbd98d923b68583cd5cc6203825d9581c09cae6806d69c89a8a8eaa",
+   "sha256_archivador": "5e3fb1133cbd98d923b68583cd5cc6203825d9581c09cae6806d69c89a8a8eaa"
+  },
+  {
+   "fichero": "live-20261029100551.pcap",
+   "bytes": 2129567,
+   "sha256": "b26abe96f35782d27f46b3017ba45c252ed2bf1e6c533a08e3c6efe4f234bc0d",
+   "sha256_archivador": "b26abe96f35782d27f46b3017ba45c252ed2bf1e6c533a08e3c6efe4f234bc0d"
+  }
+ ]
+}
