@@ -1,0 +1,15 @@
+{
+ "campana": "deteccion-respuesta-2026-10-26",
+ "episodio": "dns_inusual-r2",
+ "periodo": {
+  "inicio": 1793266700.870444,
+  "fin": 1793267000.088311
+ },
+ "origen": "sensor (automatico)",
+ "fuente": "archivar.log + estado del servicio de captura + mediciones de descarte",
+ "errores": [],
+ "paquetes_descartados": 0,
+ "alcance_descartes": "medido: contador acumulado del proceso tcpdump = 0 al final",
+ "suricata_kernel_drops_delta_periodo": 0,
+ "suricata_mediciones_en_periodo": 37
+}

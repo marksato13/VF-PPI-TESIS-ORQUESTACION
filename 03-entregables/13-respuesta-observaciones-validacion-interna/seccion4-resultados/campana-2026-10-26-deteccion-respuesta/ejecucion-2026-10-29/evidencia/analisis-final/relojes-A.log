@@ -1,0 +1,60 @@
+## p10b relojes  inicio=2026-10-29T08:45:15.118Z  referencia=bastion VM-GESTION
+  Reference ID    : A860FBC3 (evlbi.aggo-conicet.gob.ar)
+  System time     : 0.000399705 seconds slow of NTP time
+  RMS offset      : 0.000771393 seconds
+  Root dispersion : 0.022754325 seconds
+  [2026-10-29T08:45:20Z] sensor   mejor desfase=+0.0054 s inc=+-0.0006 s | mediana=+0.0054 s | rango=[+0.0053,+0.0062] | |desfase|<=1 s: SI | NTP yes 10.10.60.1
+  [2026-10-29T08:45:22Z] kali     mejor desfase=-0.0218 s inc=+-0.0004 s | mediana=-0.0216 s | rango=[-0.0218,-0.0216] | |desfase|<=1 s: SI | NTP yes 2.debian.pool.ntp.org
+  [2026-10-29T08:45:23Z] srv-dmz  mejor desfase=+0.0053 s inc=+-0.0003 s | mediana=+0.0054 s | rango=[+0.0053,+0.0060] | |desfase|<=1 s: SI | NTP yes ntp.ubuntu.com
+  [2026-10-29T08:45:25Z] clientes mejor desfase=+0.0033 s inc=+-0.0005 s | mediana=+0.0035 s | rango=[+0.0020,+0.0099] | |desfase|<=1 s: SI | NTP yes ntp.ubuntu.com
+## fin=2026-10-29T08:45:28.218Z
+## p10b relojes  inicio=2026-10-29T09:25:36.963Z  referencia=bastion VM-GESTION
+  Reference ID    : A860FBC3 (evlbi.aggo-conicet.gob.ar)
+  System time     : 0.005875345 seconds slow of NTP time
+  RMS offset      : 0.003486398 seconds
+  Root dispersion : 0.018063443 seconds
+  [2026-10-29T09:25:42Z] sensor   mejor desfase=+0.0096 s inc=+-0.0006 s | mediana=+0.0096 s | rango=[+0.0095,+0.0097] | |desfase|<=1 s: SI | NTP yes 10.10.60.1
+  [2026-10-29T09:25:43Z] kali     mejor desfase=-0.0171 s inc=+-0.0005 s | mediana=-0.0170 s | rango=[-0.0171,-0.0168] | |desfase|<=1 s: SI | NTP yes 2.debian.pool.ntp.org
+  [2026-10-29T09:25:45Z] srv-dmz  mejor desfase=+0.0098 s inc=+-0.0003 s | mediana=+0.0099 s | rango=[+0.0098,+0.0101] | |desfase|<=1 s: SI | NTP yes ntp.ubuntu.com
+  [2026-10-29T09:25:47Z] clientes mejor desfase=+0.0078 s inc=+-0.0005 s | mediana=+0.0079 s | rango=[+0.0077,+0.0101] | |desfase|<=1 s: SI | NTP yes ntp.ubuntu.com
+## fin=2026-10-29T09:25:50.036Z
+## p10b relojes  inicio=2026-10-29T10:05:50.044Z  referencia=bastion VM-GESTION
+  Reference ID    : A860FBC3 (evlbi.aggo-conicet.gob.ar)
+  System time     : 0.003351565 seconds slow of NTP time
+  RMS offset      : 0.003143622 seconds
+  Root dispersion : 0.018519122 seconds
+  [2026-10-29T10:05:55Z] sensor   mejor desfase=+0.0040 s inc=+-0.0005 s | mediana=+0.0041 s | rango=[+0.0018,+0.0044] | |desfase|<=1 s: SI | NTP yes 10.10.60.1
+  [2026-10-29T10:05:56Z] kali     mejor desfase=-0.0223 s inc=+-0.0005 s | mediana=-0.0222 s | rango=[-0.0223,-0.0221] | |desfase|<=1 s: SI | NTP yes 2.debian.pool.ntp.org
+  [2026-10-29T10:05:58Z] srv-dmz  mejor desfase=+0.0049 s inc=+-0.0003 s | mediana=+0.0050 s | rango=[-0.0006,+0.0097] | |desfase|<=1 s: SI | NTP yes ntp.ubuntu.com
+  [2026-10-29T10:06:00Z] clientes mejor desfase=+0.0038 s inc=+-0.0005 s | mediana=+0.0038 s | rango=[+0.0037,+0.0040] | |desfase|<=1 s: SI | NTP yes ntp.ubuntu.com
+## fin=2026-10-29T10:06:03.138Z
+## p10b relojes  inicio=2026-10-29T10:39:26.641Z  referencia=bastion VM-GESTION
+  Reference ID    : A860FBC3 (evlbi.aggo-conicet.gob.ar)
+  System time     : 0.001185541 seconds fast of NTP time
+  RMS offset      : 0.003044487 seconds
+  Root dispersion : 0.019074285 seconds
+  [2026-10-29T10:39:26Z] sensor   mejor desfase=+0.0032 s inc=+-0.0007 s | mediana=+0.0031 s | rango=[-0.0028,+0.0059] | |desfase|<=1 s: SI | NTP yes 10.10.60.1
+  [2026-10-29T10:39:28Z] kali     mejor desfase=-0.0229 s inc=+-0.0008 s | mediana=-0.0228 s | rango=[-0.0229,-0.0218] | |desfase|<=1 s: SI | NTP yes 2.debian.pool.ntp.org
+  [2026-10-29T10:39:30Z] srv-dmz  mejor desfase=+0.0042 s inc=+-0.0004 s | mediana=+0.0044 s | rango=[+0.0020,+0.0052] | |desfase|<=1 s: SI | NTP yes ntp.ubuntu.com
+  [2026-10-29T10:39:32Z] clientes mejor desfase=+0.0023 s inc=+-0.0005 s | mediana=+0.0024 s | rango=[+0.0023,+0.0028] | |desfase|<=1 s: SI | NTP yes ntp.ubuntu.com
+## fin=2026-10-29T10:39:35.033Z
+## p10b relojes  inicio=2026-10-29T10:46:03.146Z  referencia=bastion VM-GESTION
+  Reference ID    : A860FBC3 (evlbi.aggo-conicet.gob.ar)
+  System time     : 0.000017085 seconds fast of NTP time
+  RMS offset      : 0.002911473 seconds
+  Root dispersion : 0.018549718 seconds
+  [2026-10-29T10:46:03Z] sensor   mejor desfase=+0.0031 s inc=+-0.0006 s | mediana=+0.0031 s | rango=[+0.0030,+0.0035] | |desfase|<=1 s: SI | NTP yes 10.10.60.1
+  [2026-10-29T10:46:05Z] kali     mejor desfase=-0.0230 s inc=+-0.0004 s | mediana=-0.0228 s | rango=[-0.0230,-0.0226] | |desfase|<=1 s: SI | NTP yes 2.debian.pool.ntp.org
+  [2026-10-29T10:46:07Z] srv-dmz  mejor desfase=+0.0043 s inc=+-0.0003 s | mediana=+0.0045 s | rango=[+0.0043,+0.0045] | |desfase|<=1 s: SI | NTP yes ntp.ubuntu.com
+  [2026-10-29T10:46:08Z] clientes mejor desfase=+0.0023 s inc=+-0.0005 s | mediana=+0.0024 s | rango=[+0.0022,+0.0025] | |desfase|<=1 s: SI | NTP yes ntp.ubuntu.com
+## fin=2026-10-29T10:46:11.555Z
+## p10b relojes  inicio=2026-10-29T11:26:11.563Z  referencia=bastion VM-GESTION
+  Reference ID    : A860FBC3 (evlbi.aggo-conicet.gob.ar)
+  System time     : 0.000233290 seconds slow of NTP time
+  RMS offset      : 0.002621043 seconds
+  Root dispersion : 0.018800009 seconds
+  [2026-10-29T11:26:16Z] sensor   mejor desfase=+0.0045 s inc=+-0.0005 s | mediana=+0.0046 s | rango=[+0.0045,+0.0065] | |desfase|<=1 s: SI | NTP yes 10.10.60.1
+  [2026-10-29T11:26:18Z] kali     mejor desfase=-0.0219 s inc=+-0.0004 s | mediana=-0.0216 s | rango=[-0.0219,-0.0215] | |desfase|<=1 s: SI | NTP yes 2.debian.pool.ntp.org
+  [2026-10-29T11:26:20Z] srv-dmz  mejor desfase=+0.0044 s inc=+-0.0004 s | mediana=+0.0045 s | rango=[+0.0044,+0.0046] | |desfase|<=1 s: SI | NTP yes ntp.ubuntu.com
+  [2026-10-29T11:26:22Z] clientes mejor desfase=+0.0026 s inc=+-0.0005 s | mediana=+0.0027 s | rango=[+0.0023,+0.0030] | |desfase|<=1 s: SI | NTP yes ntp.ubuntu.com
+## fin=2026-10-29T11:26:24.985Z

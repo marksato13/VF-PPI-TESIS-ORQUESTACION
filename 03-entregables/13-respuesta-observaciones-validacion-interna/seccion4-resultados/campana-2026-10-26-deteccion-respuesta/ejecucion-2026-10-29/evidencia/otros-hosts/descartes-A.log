@@ -1,0 +1,42 @@
+## 2026-10-29T08:44:09.421Z
+Netid State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess                                           
+p_raw UNCONN 0      0            [35020]:ens34             *     skmem:(r0,rb212992,t0,tb212992,f0,w0,o560,bl0,d0)
+p_raw UNCONN 0      0            [35020]:ens37             *     skmem:(r0,rb212992,t0,tb212992,f0,w0,o560,bl0,d0)
+p_raw UNCONN 0      0                  *:ens37             *     skmem:(r0,rb212992,t0,tb212992,f0,w0,o112,bl0,d0)
+p_raw UNCONN 0      0                  *:ens37             *     skmem:(r0,rb212992,t0,tb212992,f0,w0,o0,bl0,d0)  
+p_raw UNCONN 0      0                  *:ens37             *     skmem:(r0,rb212992,t0,tb212992,f0,w0,o0,bl0,d0)  
+p_raw UNCONN 0      0                  *:ens37             *     skmem:(r0,rb212992,t0,tb212992,f0,w0,o0,bl0,d0)  
+p_raw UNCONN 0      0                  *:ens37             *     skmem:(r0,rb212992,t0,tb212992,f0,w0,o0,bl0,d0)  
+3: ens37: <BROADCAST,MULTICAST,PROMISC,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
+    link/ether 00:0c:29:15:7c:02 brd ff:ff:ff:ff:ff:ff
+    RX:   bytes   packets errors dropped  missed    mcast           
+    21406650975 107118248      0 7732797       0 21129777 
+    RX errors:     length    crc   frame    fifo  overrun otherhost
+                        0      0       0       0        0  98795948 
+    TX:   bytes   packets errors dropped carrier  collsns           
+            796        10      0       0       0        0 
+    TX errors:    aborted   fifo  window heartbt  transns
+                        0      0       0       0        1 
+    altname enp2s5
+7732797 0 0 <- rx_dropped rx_missed rx_fifo
+## 2026-10-29T10:39:35.386Z
+Netid State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess                                           
+p_raw UNCONN 0      0            [35020]:ens34             *     skmem:(r0,rb212992,t0,tb212992,f0,w0,o560,bl0,d0)
+p_raw UNCONN 0      0            [35020]:ens37             *     skmem:(r0,rb212992,t0,tb212992,f0,w0,o560,bl0,d0)
+p_raw UNCONN 0      0                  *:ens37             *     skmem:(r0,rb212992,t0,tb212992,f0,w0,o112,bl0,d0)
+p_raw UNCONN 0      0                  *:ens37             *     skmem:(r0,rb212992,t0,tb212992,f0,w0,o0,bl0,d0)  
+p_raw UNCONN 0      0                  *:ens37             *     skmem:(r0,rb212992,t0,tb212992,f0,w0,o0,bl0,d0)  
+p_raw UNCONN 0      0                  *:ens37             *     skmem:(r0,rb212992,t0,tb212992,f0,w0,o0,bl0,d0)  
+p_raw UNCONN 0      0                  *:ens37             *     skmem:(r0,rb212992,t0,tb212992,f0,w0,o0,bl0,d0)  
+3: ens37: <BROADCAST,MULTICAST,PROMISC,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
+    link/ether 00:0c:29:15:7c:02 brd ff:ff:ff:ff:ff:ff
+    RX:   bytes   packets errors dropped  missed    mcast           
+    22180974013 113836077      0 7829969       0 21405241 
+    RX errors:     length    crc   frame    fifo  overrun otherhost
+                        0      0       0       0        0 105413985 
+    TX:   bytes   packets errors dropped carrier  collsns           
+            796        10      0       0       0        0 
+    TX errors:    aborted   fifo  window heartbt  transns
+                        0      0       0       0        1 
+    altname enp2s5
+7829969 0 0 <- rx_dropped rx_missed rx_fifo

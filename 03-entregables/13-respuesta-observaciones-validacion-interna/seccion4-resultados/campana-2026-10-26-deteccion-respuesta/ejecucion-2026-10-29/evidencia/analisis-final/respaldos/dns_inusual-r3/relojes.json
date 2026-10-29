@@ -1,0 +1,47 @@
+{
+ "campana": "deteccion-respuesta-2026-10-26",
+ "episodio": "dns_inusual-r3",
+ "periodo": {
+  "inicio": 1793263546.042742,
+  "fin": 1793263846.118421
+ },
+ "origen": "sensor (automatico)",
+ "fuente": "p34_relojes.sh",
+ "tolerancia_s": 1.0,
+ "requeridos": [
+  "sensor",
+  "kali",
+  "srv-dmz",
+  "bastion"
+ ],
+ "mediciones": [
+  {
+   "host": "sensor",
+   "referencia": "bastion (p34, sesión SSH persistente, 9 muestras)",
+   "momento": 1793263520.0,
+   "desfase_s": 0.0054,
+   "incertidumbre_s": 0.0006
+  },
+  {
+   "host": "kali",
+   "referencia": "bastion (p34, sesión SSH persistente, 9 muestras)",
+   "momento": 1793263522.0,
+   "desfase_s": -0.0218,
+   "incertidumbre_s": 0.0004
+  },
+  {
+   "host": "srv-dmz",
+   "referencia": "bastion (p34, sesión SSH persistente, 9 muestras)",
+   "momento": 1793263523.0,
+   "desfase_s": 0.0053,
+   "incertidumbre_s": 0.0003
+  },
+  {
+   "host": "bastion",
+   "referencia": "NTP (chrony del bastión)",
+   "momento": 1793263515.118,
+   "desfase_s": -0.000399705,
+   "incertidumbre_s": 0.022754325
+  }
+ ]
+}

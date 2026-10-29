@@ -1,0 +1,164 @@
+08:43:29 | arch:OK: vistos=351 archivados=351, sin fallos  (2026-10-29T08:43 | pcap=351 267M | motor_log 3s eve -1s | 5min: dec=415 no_eval=0 retraso_med=36s max=171s | libre 19G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+KALI generador=vivo |         -> completo [2/25] inundacion_http-r1: bash -c fin=$((SECONDS+90)); n=8; d=$(mktemp -d); for i in $(seq $n); do ( c=0; while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null --max-time 2 http://10.10.30.10/ ; c=$((c+1)); done; echo $c > "$d/$i" ) & done; wait; echo "intentos=$(cat "$d"/* | awk '{s+=$1} END{print s+0}')"; rm -rf "$d"…  | fines=1 | stderr=0B
+    escaneo_sostenido-r2 completo rc= 0 intentos= None 08:39:16
+08:48:30 | arch:OK: vistos=371 archivados=371, sin fallos  (2026-10-29T08:48 | pcap=371 343M | motor_log 3s eve 0s | 5min: dec=443 no_eval=0 retraso_med=62s max=250s | libre 19G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+KALI generador=vivo |         -> completo [3/25] dns_inusual-r3: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do dig +time=1 +tries=1 @10.10.10.20 "$(openssl rand -hex 8).lab-ppi" +short >/dev/null 2>&1; c=$((c+1)); sleep 0.4; done; echo "intentos=$c"…  | fines=2 | stderr=0B
+    escaneo_sostenido-r2 completo rc= 0 intentos= None 08:39:16
+    inundacion_http-r1 completo rc= 0 intentos= 13960 08:44:16
+08:53:31 | arch:OK: vistos=391 archivados=391, sin fallos  (2026-10-29T08:53 | pcap=391 376M | motor_log 11s eve 0s | 5min: dec=411 no_eval=0 retraso_med=29s max=211s | libre 19G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+KALI generador=vivo |         -> completo [4/25] inundacion_http-r4: bash -c fin=$((SECONDS+90)); n=8; d=$(mktemp -d); for i in $(seq $n); do ( c=0; while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null --max-time 2 http://10.10.30.10/ ; c=$((c+1)); done; echo $c > "$d/$i" ) & done; wait; echo "intentos=$(cat "$d"/* | awk '{s+=$1} END{print s+0}')"; rm -rf "$d"…  | fines=3 | stderr=0B
+    escaneo_sostenido-r2 completo rc= 0 intentos= None 08:39:16
+    inundacion_http-r1 completo rc= 0 intentos= 13960 08:44:16
+    dns_inusual-r3 completo rc= 0 intentos= 209 08:49:16
+08:58:32 | arch:OK: vistos=411 archivados=411, sin fallos  (2026-10-29T08:58 | pcap=411 452M | motor_log 0s eve 0s | 5min: dec=422 no_eval=0 retraso_med=63s max=277s | libre 19G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+KALI generador=vivo |         -> completo [5/25] inundacion_http-r2: bash -c fin=$((SECONDS+90)); n=8; d=$(mktemp -d); for i in $(seq $n); do ( c=0; while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null --max-time 2 http://10.10.30.10/ ; c=$((c+1)); done; echo $c > "$d/$i" ) & done; wait; echo "intentos=$(cat "$d"/* | awk '{s+=$1} END{print s+0}')"; rm -rf "$d"…  | fines=4 | stderr=0B
+    inundacion_http-r1 completo rc= 0 intentos= 13960 08:44:16
+    dns_inusual-r3 completo rc= 0 intentos= 209 08:49:16
+    inundacion_http-r4 completo rc= 0 intentos= 13868 08:54:16
+09:03:32 | arch:OK: vistos=431 archivados=431, sin fallos  (2026-10-29T09:03 | pcap=431 533M | motor_log 3s eve -1s | 5min: dec=394 no_eval=0 retraso_med=67s max=286s | libre 19G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+KALI generador=vivo |         -> completo [6/25] inundacion_http-r3: bash -c fin=$((SECONDS+90)); n=8; d=$(mktemp -d); for i in $(seq $n); do ( c=0; while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null --max-time 2 http://10.10.30.10/ ; c=$((c+1)); done; echo $c > "$d/$i" ) & done; wait; echo "intentos=$(cat "$d"/* | awk '{s+=$1} END{print s+0}')"; rm -rf "$d"…  | fines=5 | stderr=0B
+    dns_inusual-r3 completo rc= 0 intentos= 209 08:49:16
+    inundacion_http-r4 completo rc= 0 intentos= 13868 08:54:16
+    inundacion_http-r2 completo rc= 0 intentos= 14116 08:59:16
+09:08:33 | arch:OK: vistos=451 archivados=451, sin fallos  (2026-10-29T09:08 | pcap=451 603M | motor_log 14s eve 0s | 5min: dec=425 no_eval=0 retraso_med=62s max=264s | libre 19G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+09:08:35 | arch:OK: vistos=451 archivados=451, sin fallos  (2026-10-29T09:08 | pcap=451 603M | motor_log 0s eve 0s | 5min: dec=425 no_eval=0 retraso_med=62s max=264s | libre 19G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+KALI generador=vivo |         -> completo [7/25] escaneo_sostenido-r4: nmap -sT -T4…  | fines=6 | stderr=0B
+    inundacion_http-r4 completo rc= 0 intentos= 13868 08:54:16
+    inundacion_http-r2 completo rc= 0 intentos= 14116 08:59:16
+    inundacion_http-r3 completo rc= 0 intentos= 14073 09:04:16
+09:13:36 | arch:OK: vistos=470 archivados=470, sin fallos  (2026-10-29T09:13 | pcap=472 636M | motor_log 10s eve -1s | 5min: dec=436 no_eval=0 retraso_med=42s max=252s | libre 18G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+KALI generador=vivo | [8/25] escaneo_sostenido-r5: nmap -sT -T4…         -> completo  | fines=8 | stderr=0B
+    inundacion_http-r3 completo rc= 0 intentos= 14073 09:04:16
+    escaneo_sostenido-r4 completo rc= 0 intentos= None 09:08:52
+    escaneo_sostenido-r5 completo rc= 0 intentos= None 09:13:28
+09:18:36 | arch:OK: vistos=491 archivados=491, sin fallos  (2026-10-29T09:18 | pcap=491 661M | motor_log 12s eve 0s | 5min: dec=414 no_eval=0 retraso_med=41s max=262s | libre 19G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+09:18:38 | arch:OK: vistos=491 archivados=491, sin fallos  (2026-10-29T09:18 | pcap=491 661M | motor_log 1s eve 0s | 5min: dec=427 no_eval=0 retraso_med=39s max=262s | libre 19G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+KALI generador=vivo | [9/25] escaneo_breve-r5: nmap -sT -T4…         -> completo  | fines=9 | stderr=0B
+    escaneo_sostenido-r4 completo rc= 0 intentos= None 09:08:52
+    escaneo_sostenido-r5 completo rc= 0 intentos= None 09:13:28
+    escaneo_breve-r5 completo rc= 0 intentos= None 09:17:15
+09:23:39 | arch:OK: vistos=511 archivados=511, sin fallos  (2026-10-29T09:23 | pcap=511 703M | motor_log 5s eve 0s | 5min: dec=398 no_eval=0 retraso_med=28s max=251s | libre 18G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+KALI generador=vivo | [10/25] fuerza_bruta_http-r3: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null -w "%{http_code}
+" --max-time 2 -u fake:fake$RANDOM http://10.10.30.10:18081/auth ; c=$((c+1)); done; echo "intentos=$c"…         -> completo  | fines=10 | stderr=0B
+    escaneo_sostenido-r5 completo rc= 0 intentos= None 09:13:28
+    escaneo_breve-r5 completo rc= 0 intentos= None 09:17:15
+    fuerza_bruta_http-r3 completo rc= 0 intentos= 6077 09:22:15
+09:28:40 | arch:OK: vistos=530 archivados=530, sin fallos  (2026-10-29T09:28 | pcap=532 747M | motor_log 9s eve 1s | 5min: dec=391 no_eval=0 retraso_med=41s max=150s | libre 18G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+KALI generador=vivo | [11/25] fuerza_bruta_http-r5: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null -w "%{http_code}
+" --max-time 2 -u fake:fake$RANDOM http://10.10.30.10:18081/auth ; c=$((c+1)); done; echo "intentos=$c"…         -> completo  | fines=11 | stderr=0B
+    escaneo_breve-r5 completo rc= 0 intentos= None 09:17:15
+    fuerza_bruta_http-r3 completo rc= 0 intentos= 6077 09:22:15
+    fuerza_bruta_http-r5 completo rc= 0 intentos= 6206 09:27:15
+09:33:41 | arch:OK: vistos=551 archivados=551, sin fallos  (2026-10-29T09:33 | pcap=551 766M | motor_log 8s eve 1s | 5min: dec=429 no_eval=0 retraso_med=31s max=249s | libre 18G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+KALI generador=vivo | [12/25] dns_inusual-r5: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do dig +time=1 +tries=1 @10.10.10.20 "$(openssl rand -hex 8).lab-ppi" +short >/dev/null 2>&1; c=$((c+1)); sleep 0.4; done; echo "intentos=$c"…         -> completo  | fines=12 | stderr=0B
+    fuerza_bruta_http-r3 completo rc= 0 intentos= 6077 09:22:15
+    fuerza_bruta_http-r5 completo rc= 0 intentos= 6206 09:27:15
+    dns_inusual-r5 completo rc= 0 intentos= 209 09:32:15
+09:38:41 | arch:OK: vistos=572 archivados=572, sin fallos  (2026-10-29T09:38 | pcap=572 792M | motor_log 13s eve 0s | 5min: dec=409 no_eval=0 retraso_med=28s max=257s | libre 18G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+09:38:43 | arch:OK: vistos=572 archivados=572, sin fallos  (2026-10-29T09:38 | pcap=572 792M | motor_log 15s eve 0s | 5min: dec=394 no_eval=0 retraso_med=29s max=257s | libre 18G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+KALI generador=vivo | [13/25] escaneo_sostenido-r3: nmap -sT -T4…         -> completo  | fines=13 | stderr=0B
+    fuerza_bruta_http-r5 completo rc= 0 intentos= 6206 09:27:15
+    dns_inusual-r5 completo rc= 0 intentos= 209 09:32:15
+    escaneo_sostenido-r3 completo rc= 0 intentos= None 09:36:50
+09:43:44 | arch:OK: vistos=592 archivados=592, sin fallos  (2026-10-29T09:43 | pcap=592 813M | motor_log 8s eve 0s | 5min: dec=425 no_eval=0 retraso_med=33s max=246s | libre 18G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+KALI generador=vivo | [14/25] dns_inusual-r2: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do dig +time=1 +tries=1 @10.10.10.20 "$(openssl rand -hex 8).lab-ppi" +short >/dev/null 2>&1; c=$((c+1)); sleep 0.4; done; echo "intentos=$c"…         -> completo  | fines=14 | stderr=0B
+    dns_inusual-r5 completo rc= 0 intentos= 209 09:32:15
+    escaneo_sostenido-r3 completo rc= 0 intentos= None 09:36:50
+    dns_inusual-r2 completo rc= 0 intentos= 207 09:41:50
+09:48:45 | arch:OK: vistos=611 archivados=611, sin fallos  (2026-10-29T09:48 | pcap=611 855M | motor_log 19s eve 0s | 5min: dec=410 no_eval=0 retraso_med=32s max=251s | libre 18G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+09:48:46 | arch:OK: vistos=611 archivados=611, sin fallos  (2026-10-29T09:48 | pcap=611 855M | motor_log 0s eve 0s | 5min: dec=413 no_eval=0 retraso_med=33s max=251s | libre 18G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+KALI generador=vivo | [15/25] fuerza_bruta_http-r2: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null -w "%{http_code}
+" --max-time 2 -u fake:fake$RANDOM http://10.10.30.10:18081/auth ; c=$((c+1)); done; echo "intentos=$c"…         -> completo  | fines=15 | stderr=0B
+    escaneo_sostenido-r3 completo rc= 0 intentos= None 09:36:50
+    dns_inusual-r2 completo rc= 0 intentos= 207 09:41:50
+    fuerza_bruta_http-r2 completo rc= 0 intentos= 6172 09:46:50
+09:53:47 | arch:OK: vistos=632 archivados=632, sin fallos  (2026-10-29T09:53 | pcap=632 900M | motor_log 22s eve 0s | 5min: dec=364 no_eval=0 retraso_med=39s max=251s | libre 18G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+09:53:49 | arch:OK: vistos=632 archivados=632, sin fallos  (2026-10-29T09:53 | pcap=632 900M | motor_log 0s eve 1s | 5min: dec=380 no_eval=0 retraso_med=40s max=251s | libre 18G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+KALI generador=vivo | [16/25] fuerza_bruta_http-r4: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null -w "%{http_code}
+" --max-time 2 -u fake:fake$RANDOM http://10.10.30.10:18081/auth ; c=$((c+1)); done; echo "intentos=$c"…         -> completo  | fines=16 | stderr=0B
+    dns_inusual-r2 completo rc= 0 intentos= 207 09:41:50
+    fuerza_bruta_http-r2 completo rc= 0 intentos= 6172 09:46:50
+    fuerza_bruta_http-r4 completo rc= 0 intentos= 6031 09:51:50
+09:58:49 | arch:OK: vistos=651 archivados=651, sin fallos  (2026-10-29T09:58 | pcap=651 922M | motor_log 16s eve 0s | 5min: dec=437 no_eval=0 retraso_med=33s max=246s | libre 18G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+KALI generador=vivo | [17/25] dns_inusual-r1: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do dig +time=1 +tries=1 @10.10.10.20 "$(openssl rand -hex 8).lab-ppi" +short >/dev/null 2>&1; c=$((c+1)); sleep 0.4; done; echo "intentos=$c"…         -> completo  | fines=17 | stderr=0B
+    fuerza_bruta_http-r2 completo rc= 0 intentos= 6172 09:46:50
+    fuerza_bruta_http-r4 completo rc= 0 intentos= 6031 09:51:50
+    dns_inusual-r1 completo rc= 0 intentos= 209 09:56:50
+10:03:50 | arch:OK: vistos=672 archivados=672, sin fallos  (2026-10-29T10:03 | pcap=672 943M | motor_log 4s eve 0s | 5min: dec=454 no_eval=0 retraso_med=27s max=247s | libre 18G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+10:03:52 | arch:OK: vistos=672 archivados=672, sin fallos  (2026-10-29T10:03 | pcap=672 943M | motor_log 6s eve 0s | 5min: dec=454 no_eval=0 retraso_med=27s max=247s | libre 18G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+KALI generador=vivo | [18/25] escaneo_breve-r1: nmap -sT -T4…         -> completo  | fines=18 | stderr=0B
+    fuerza_bruta_http-r4 completo rc= 0 intentos= 6031 09:51:50
+    dns_inusual-r1 completo rc= 0 intentos= 209 09:56:50
+    escaneo_breve-r1 completo rc= 0 intentos= None 10:00:38
+10:08:53 | arch:OK: vistos=691 archivados=691, sin fallos  (2026-10-29T10:08 | pcap=691 965M | motor_log 4s eve 0s | 5min: dec=415 no_eval=0 retraso_med=26s max=244s | libre 18G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+KALI generador=vivo | [20/25] escaneo_breve-r3: nmap -sT -T4…         -> completo  | fines=20 | stderr=0B
+    escaneo_breve-r1 completo rc= 0 intentos= None 10:00:38
+    escaneo_breve-r4 completo rc= 0 intentos= None 10:04:26
+    escaneo_breve-r3 completo rc= 0 intentos= None 10:08:14
+10:13:54 | arch:OK: vistos=712 archivados=712, sin fallos  (2026-10-29T10:13 | pcap=712 989M | motor_log 19s eve 0s | 5min: dec=417 no_eval=0 retraso_med=24s max=241s | libre 18G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+10:13:56 | arch:OK: vistos=712 archivados=712, sin fallos  (2026-10-29T10:13 | pcap=712 989M | motor_log 20s eve -1s | 5min: dec=417 no_eval=0 retraso_med=24s max=241s | libre 18G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+KALI generador=vivo | [21/25] dns_inusual-r4: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do dig +time=1 +tries=1 @10.10.10.20 "$(openssl rand -hex 8).lab-ppi" +short >/dev/null 2>&1; c=$((c+1)); sleep 0.4; done; echo "intentos=$c"…         -> completo  | fines=21 | stderr=0B
+    escaneo_breve-r4 completo rc= 0 intentos= None 10:04:26
+    escaneo_breve-r3 completo rc= 0 intentos= None 10:08:14
+    dns_inusual-r4 completo rc= 0 intentos= 209 10:13:14
+10:18:56 | arch:OK: vistos=731 archivados=731, sin fallos  (2026-10-29T10:18 | pcap=731 1,1G | motor_log 15s eve 0s | 5min: dec=379 no_eval=0 retraso_med=28s max=248s | libre 18G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+10:18:58 | arch:OK: vistos=731 archivados=731, sin fallos  (2026-10-29T10:18 | pcap=733 1,1G | motor_log 17s eve 1s | 5min: dec=372 no_eval=0 retraso_med=28s max=248s | libre 18G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+KALI generador=vivo | [22/25] fuerza_bruta_http-r1: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null -w "%{http_code}
+" --max-time 2 -u fake:fake$RANDOM http://10.10.30.10:18081/auth ; c=$((c+1)); done; echo "intentos=$c"…         -> completo  | fines=22 | stderr=0B
+    escaneo_breve-r3 completo rc= 0 intentos= None 10:08:14
+    dns_inusual-r4 completo rc= 0 intentos= 209 10:13:14
+    fuerza_bruta_http-r1 completo rc= 0 intentos= 6196 10:18:14
+10:23:59 | arch:OK: vistos=752 archivados=752, sin fallos  (2026-10-29T10:23 | pcap=752 1,1G | motor_log 15s eve 0s | 5min: dec=380 no_eval=0 retraso_med=42s max=153s | libre 18G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+KALI generador=vivo | [23/25] inundacion_http-r5: bash -c fin=$((SECONDS+90)); n=8; d=$(mktemp -d); for i in $(seq $n); do ( c=0; while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null --max-time 2 http://10.10.30.10/ ; c=$((c+1)); done; echo $c > "$d/$i" ) & done; wait; echo "intentos=$(cat "$d"/* | awk '{s+=$1} END{print s+0}')"; rm -rf "$d"…         -> completo  | fines=23 | stderr=0B
+    dns_inusual-r4 completo rc= 0 intentos= 209 10:13:14
+    fuerza_bruta_http-r1 completo rc= 0 intentos= 6196 10:18:14
+    inundacion_http-r5 completo rc= 0 intentos= 14118 10:23:14
+10:28:59 | arch:OK: vistos=772 archivados=772, sin fallos  (2026-10-29T10:28 | pcap=772 1,2G | motor_log 3s eve 0s | 5min: dec=446 no_eval=0 retraso_med=49s max=276s | libre 18G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+10:29:01 | arch:OK: vistos=772 archivados=772, sin fallos  (2026-10-29T10:28 | pcap=772 1,2G | motor_log 5s eve 0s | 5min: dec=446 no_eval=0 retraso_med=49s max=276s | libre 18G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+KALI generador=vivo | [24/25] escaneo_breve-r2: nmap -sT -T4…         -> completo  | fines=24 | stderr=0B
+    fuerza_bruta_http-r1 completo rc= 0 intentos= 6196 10:18:14
+    inundacion_http-r5 completo rc= 0 intentos= 14118 10:23:14
+    escaneo_breve-r2 completo rc= 0 intentos= None 10:27:01
+10:34:02 | arch:OK: vistos=793 archivados=793, sin fallos  (2026-10-29T10:33 | pcap=793 1,2G | motor_log 1s eve 1s | 5min: dec=391 no_eval=0 retraso_med=33s max=127s | libre 18G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+KALI generador=TERMINADO |         -> completo rc=0 2026-10-29T10:33:07Z  | fines=25 | stderr=0B
+    inundacion_http-r5 completo rc= 0 intentos= 14118 10:23:14
+    escaneo_breve-r2 completo rc= 0 intentos= None 10:27:01
+    escaneo_sostenido-r1 completo rc= 0 intentos= None 10:31:37
+10:39:03 | arch:OK: vistos=812 archivados=812, sin fallos  (2026-10-29T10:38 | pcap=812 1,2G | motor_log 3s eve 1s | 5min: dec=392 no_eval=0 retraso_med=30s max=246s | libre 18G | motor=active cap=active sur=active
+FALLOs en archivar.log: 0
+KALI generador=TERMINADO |         -> completo rc=0 2026-10-29T10:33:07Z  | fines=25 | stderr=0B
+    inundacion_http-r5 completo rc= 0 intentos= 14118 10:23:14
+    escaneo_breve-r2 completo rc= 0 intentos= None 10:27:01
+    escaneo_sostenido-r1 completo rc= 0 intentos= None 10:31:37

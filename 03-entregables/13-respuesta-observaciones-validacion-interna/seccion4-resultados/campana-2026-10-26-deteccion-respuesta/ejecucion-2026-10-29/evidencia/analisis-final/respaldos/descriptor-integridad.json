@@ -1,0 +1,855 @@
+{
+ "_nota": "generado por generar_respaldos.py con evidencias de la campaña A",
+ "episodios": [
+  {
+   "episodio_id": "escaneo_sostenido-r2",
+   "campana": "deteccion-respuesta-2026-10-26",
+   "intervalo": {
+    "inicio": 1793263090.554753,
+    "fin": 1793263156.225439
+   },
+   "rutas": {
+    "pcap": "respaldos/escaneo_sostenido-r2/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-campana-A-20261029/fuentes/eve.json",
+    "decisiones": "/home/m4rk/cf-campana-A-20261029/fuentes/motor_decision.log",
+    "caracteristicas": "caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "4103d60a92048fc39a1edb3dc5d6f9aa1f62b2ffa660c95a06f0c3239594b972",
+    "eve": "54e1882f053b7faa656920eb2237b2f0bd8a371d904cd13b213aa39cba941a00",
+    "decisiones": "2660a254272ba1a47bf72af9d28dc64ddf0e09137f99e177ee710e6506a12acb",
+    "caracteristicas": "a9586bd6c4c1e04ba8710b93158fdeb3422cc39f7a711bef9f5de911e7f0e992"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "respaldos/escaneo_sostenido-r2/cobertura.json"
+    },
+    "captura": {
+     "ruta": "respaldos/escaneo_sostenido-r2/captura.json"
+    },
+    "reinicios": {
+     "ruta": "respaldos/escaneo_sostenido-r2/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "respaldos/escaneo_sostenido-r2/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "inundacion_http-r1",
+   "campana": "deteccion-respuesta-2026-10-26",
+   "intervalo": {
+    "inicio": 1793263366.227639,
+    "fin": 1793263456.040635
+   },
+   "rutas": {
+    "pcap": "respaldos/inundacion_http-r1/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-campana-A-20261029/fuentes/eve.json",
+    "decisiones": "/home/m4rk/cf-campana-A-20261029/fuentes/motor_decision.log",
+    "caracteristicas": "caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "17e85a5b0bf12bc984a60c7c2be92d408c6e12a7b7535e3c7b16a3b4f9b12a5c",
+    "eve": "54e1882f053b7faa656920eb2237b2f0bd8a371d904cd13b213aa39cba941a00",
+    "decisiones": "2660a254272ba1a47bf72af9d28dc64ddf0e09137f99e177ee710e6506a12acb",
+    "caracteristicas": "a9586bd6c4c1e04ba8710b93158fdeb3422cc39f7a711bef9f5de911e7f0e992"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "respaldos/inundacion_http-r1/cobertura.json"
+    },
+    "captura": {
+     "ruta": "respaldos/inundacion_http-r1/captura.json"
+    },
+    "reinicios": {
+     "ruta": "respaldos/inundacion_http-r1/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "respaldos/inundacion_http-r1/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "dns_inusual-r3",
+   "campana": "deteccion-respuesta-2026-10-26",
+   "intervalo": {
+    "inicio": 1793263666.042742,
+    "fin": 1793263756.118421
+   },
+   "rutas": {
+    "pcap": "respaldos/dns_inusual-r3/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-campana-A-20261029/fuentes/eve.json",
+    "decisiones": "/home/m4rk/cf-campana-A-20261029/fuentes/motor_decision.log",
+    "caracteristicas": "caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "8427abaded8eb2949338d61263699eb9f516961ee3833f47defe11828fb4e2ce",
+    "eve": "54e1882f053b7faa656920eb2237b2f0bd8a371d904cd13b213aa39cba941a00",
+    "decisiones": "2660a254272ba1a47bf72af9d28dc64ddf0e09137f99e177ee710e6506a12acb",
+    "caracteristicas": "a9586bd6c4c1e04ba8710b93158fdeb3422cc39f7a711bef9f5de911e7f0e992"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "respaldos/dns_inusual-r3/cobertura.json"
+    },
+    "captura": {
+     "ruta": "respaldos/dns_inusual-r3/captura.json"
+    },
+    "reinicios": {
+     "ruta": "respaldos/dns_inusual-r3/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "respaldos/dns_inusual-r3/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "inundacion_http-r4",
+   "campana": "deteccion-respuesta-2026-10-26",
+   "intervalo": {
+    "inicio": 1793263966.121184,
+    "fin": 1793264056.060207
+   },
+   "rutas": {
+    "pcap": "respaldos/inundacion_http-r4/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-campana-A-20261029/fuentes/eve.json",
+    "decisiones": "/home/m4rk/cf-campana-A-20261029/fuentes/motor_decision.log",
+    "caracteristicas": "caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "9f5faf37067fb843318bde008f52eb2aa97dd2243a3bd69335641251642f0ee5",
+    "eve": "54e1882f053b7faa656920eb2237b2f0bd8a371d904cd13b213aa39cba941a00",
+    "decisiones": "2660a254272ba1a47bf72af9d28dc64ddf0e09137f99e177ee710e6506a12acb",
+    "caracteristicas": "a9586bd6c4c1e04ba8710b93158fdeb3422cc39f7a711bef9f5de911e7f0e992"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "respaldos/inundacion_http-r4/cobertura.json"
+    },
+    "captura": {
+     "ruta": "respaldos/inundacion_http-r4/captura.json"
+    },
+    "reinicios": {
+     "ruta": "respaldos/inundacion_http-r4/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "respaldos/inundacion_http-r4/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "inundacion_http-r2",
+   "campana": "deteccion-respuesta-2026-10-26",
+   "intervalo": {
+    "inicio": 1793264266.062558,
+    "fin": 1793264356.057594
+   },
+   "rutas": {
+    "pcap": "respaldos/inundacion_http-r2/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-campana-A-20261029/fuentes/eve.json",
+    "decisiones": "/home/m4rk/cf-campana-A-20261029/fuentes/motor_decision.log",
+    "caracteristicas": "caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "b39e919f402a5ac2fb046c35967af9a48c268f4fac289e47a55b3581bc9478bc",
+    "eve": "54e1882f053b7faa656920eb2237b2f0bd8a371d904cd13b213aa39cba941a00",
+    "decisiones": "2660a254272ba1a47bf72af9d28dc64ddf0e09137f99e177ee710e6506a12acb",
+    "caracteristicas": "a9586bd6c4c1e04ba8710b93158fdeb3422cc39f7a711bef9f5de911e7f0e992"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "respaldos/inundacion_http-r2/cobertura.json"
+    },
+    "captura": {
+     "ruta": "respaldos/inundacion_http-r2/captura.json"
+    },
+    "reinicios": {
+     "ruta": "respaldos/inundacion_http-r2/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "respaldos/inundacion_http-r2/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "inundacion_http-r3",
+   "campana": "deteccion-respuesta-2026-10-26",
+   "intervalo": {
+    "inicio": 1793264566.059893,
+    "fin": 1793264656.048517
+   },
+   "rutas": {
+    "pcap": "respaldos/inundacion_http-r3/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-campana-A-20261029/fuentes/eve.json",
+    "decisiones": "/home/m4rk/cf-campana-A-20261029/fuentes/motor_decision.log",
+    "caracteristicas": "caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "bf8509674522bda7896607d0d255b290d69f7d3d1107b261533b21ab579df923",
+    "eve": "54e1882f053b7faa656920eb2237b2f0bd8a371d904cd13b213aa39cba941a00",
+    "decisiones": "2660a254272ba1a47bf72af9d28dc64ddf0e09137f99e177ee710e6506a12acb",
+    "caracteristicas": "a9586bd6c4c1e04ba8710b93158fdeb3422cc39f7a711bef9f5de911e7f0e992"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "respaldos/inundacion_http-r3/cobertura.json"
+    },
+    "captura": {
+     "ruta": "respaldos/inundacion_http-r3/captura.json"
+    },
+    "reinicios": {
+     "ruta": "respaldos/inundacion_http-r3/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "respaldos/inundacion_http-r3/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "escaneo_sostenido-r4",
+   "campana": "deteccion-respuesta-2026-10-26",
+   "intervalo": {
+    "inicio": 1793264866.050982,
+    "fin": 1793264932.25505
+   },
+   "rutas": {
+    "pcap": "respaldos/escaneo_sostenido-r4/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-campana-A-20261029/fuentes/eve.json",
+    "decisiones": "/home/m4rk/cf-campana-A-20261029/fuentes/motor_decision.log",
+    "caracteristicas": "caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "29984a8e2867ee04dcb81045558b9602863804b940c55bbc720a832441b1a4b6",
+    "eve": "54e1882f053b7faa656920eb2237b2f0bd8a371d904cd13b213aa39cba941a00",
+    "decisiones": "2660a254272ba1a47bf72af9d28dc64ddf0e09137f99e177ee710e6506a12acb",
+    "caracteristicas": "a9586bd6c4c1e04ba8710b93158fdeb3422cc39f7a711bef9f5de911e7f0e992"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "respaldos/escaneo_sostenido-r4/cobertura.json"
+    },
+    "captura": {
+     "ruta": "respaldos/escaneo_sostenido-r4/captura.json"
+    },
+    "reinicios": {
+     "ruta": "respaldos/escaneo_sostenido-r4/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "respaldos/escaneo_sostenido-r4/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "escaneo_sostenido-r5",
+   "campana": "deteccion-respuesta-2026-10-26",
+   "intervalo": {
+    "inicio": 1793265142.256891,
+    "fin": 1793265208.32097
+   },
+   "rutas": {
+    "pcap": "respaldos/escaneo_sostenido-r5/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-campana-A-20261029/fuentes/eve.json",
+    "decisiones": "/home/m4rk/cf-campana-A-20261029/fuentes/motor_decision.log",
+    "caracteristicas": "caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "7b0b92d0936d29dfb84d78e93ecb589f1839138405d3789d96b9a42f7dc87eb0",
+    "eve": "54e1882f053b7faa656920eb2237b2f0bd8a371d904cd13b213aa39cba941a00",
+    "decisiones": "2660a254272ba1a47bf72af9d28dc64ddf0e09137f99e177ee710e6506a12acb",
+    "caracteristicas": "a9586bd6c4c1e04ba8710b93158fdeb3422cc39f7a711bef9f5de911e7f0e992"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "respaldos/escaneo_sostenido-r5/cobertura.json"
+    },
+    "captura": {
+     "ruta": "respaldos/escaneo_sostenido-r5/captura.json"
+    },
+    "reinicios": {
+     "ruta": "respaldos/escaneo_sostenido-r5/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "respaldos/escaneo_sostenido-r5/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "escaneo_breve-r5",
+   "campana": "deteccion-respuesta-2026-10-26",
+   "intervalo": {
+    "inicio": 1793265418.323131,
+    "fin": 1793265435.910745
+   },
+   "rutas": {
+    "pcap": "respaldos/escaneo_breve-r5/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-campana-A-20261029/fuentes/eve.json",
+    "decisiones": "/home/m4rk/cf-campana-A-20261029/fuentes/motor_decision.log",
+    "caracteristicas": "caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "1c65c0490066f93cc3b42306e9507a432b1fcde2158bd59c03cf5aba59353035",
+    "eve": "54e1882f053b7faa656920eb2237b2f0bd8a371d904cd13b213aa39cba941a00",
+    "decisiones": "2660a254272ba1a47bf72af9d28dc64ddf0e09137f99e177ee710e6506a12acb",
+    "caracteristicas": "a9586bd6c4c1e04ba8710b93158fdeb3422cc39f7a711bef9f5de911e7f0e992"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "respaldos/escaneo_breve-r5/cobertura.json"
+    },
+    "captura": {
+     "ruta": "respaldos/escaneo_breve-r5/captura.json"
+    },
+    "reinicios": {
+     "ruta": "respaldos/escaneo_breve-r5/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "respaldos/escaneo_breve-r5/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "fuerza_bruta_http-r3",
+   "campana": "deteccion-respuesta-2026-10-26",
+   "intervalo": {
+    "inicio": 1793265645.912599,
+    "fin": 1793265735.014706
+   },
+   "rutas": {
+    "pcap": "respaldos/fuerza_bruta_http-r3/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-campana-A-20261029/fuentes/eve.json",
+    "decisiones": "/home/m4rk/cf-campana-A-20261029/fuentes/motor_decision.log",
+    "caracteristicas": "caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "9081976a90ca3bba9f9d82dc2f4a1056e4cf65ec0a1e0d9a06c15ecc43f3e542",
+    "eve": "54e1882f053b7faa656920eb2237b2f0bd8a371d904cd13b213aa39cba941a00",
+    "decisiones": "2660a254272ba1a47bf72af9d28dc64ddf0e09137f99e177ee710e6506a12acb",
+    "caracteristicas": "a9586bd6c4c1e04ba8710b93158fdeb3422cc39f7a711bef9f5de911e7f0e992"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "respaldos/fuerza_bruta_http-r3/cobertura.json"
+    },
+    "captura": {
+     "ruta": "respaldos/fuerza_bruta_http-r3/captura.json"
+    },
+    "reinicios": {
+     "ruta": "respaldos/fuerza_bruta_http-r3/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "respaldos/fuerza_bruta_http-r3/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "fuerza_bruta_http-r5",
+   "campana": "deteccion-respuesta-2026-10-26",
+   "intervalo": {
+    "inicio": 1793265945.016697,
+    "fin": 1793266035.026132
+   },
+   "rutas": {
+    "pcap": "respaldos/fuerza_bruta_http-r5/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-campana-A-20261029/fuentes/eve.json",
+    "decisiones": "/home/m4rk/cf-campana-A-20261029/fuentes/motor_decision.log",
+    "caracteristicas": "caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "7b6f685ce5a2270cea157ce76f4e93832a2d1565c140b6bbf4881f8891b5d94e",
+    "eve": "54e1882f053b7faa656920eb2237b2f0bd8a371d904cd13b213aa39cba941a00",
+    "decisiones": "2660a254272ba1a47bf72af9d28dc64ddf0e09137f99e177ee710e6506a12acb",
+    "caracteristicas": "a9586bd6c4c1e04ba8710b93158fdeb3422cc39f7a711bef9f5de911e7f0e992"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "respaldos/fuerza_bruta_http-r5/cobertura.json"
+    },
+    "captura": {
+     "ruta": "respaldos/fuerza_bruta_http-r5/captura.json"
+    },
+    "reinicios": {
+     "ruta": "respaldos/fuerza_bruta_http-r5/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "respaldos/fuerza_bruta_http-r5/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "dns_inusual-r5",
+   "campana": "deteccion-respuesta-2026-10-26",
+   "intervalo": {
+    "inicio": 1793266245.027872,
+    "fin": 1793266335.160228
+   },
+   "rutas": {
+    "pcap": "respaldos/dns_inusual-r5/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-campana-A-20261029/fuentes/eve.json",
+    "decisiones": "/home/m4rk/cf-campana-A-20261029/fuentes/motor_decision.log",
+    "caracteristicas": "caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "062f8728dccd89a1ee0e8fe3e14ad685a63aafda78baf7d11cad81b5dee55d9c",
+    "eve": "54e1882f053b7faa656920eb2237b2f0bd8a371d904cd13b213aa39cba941a00",
+    "decisiones": "2660a254272ba1a47bf72af9d28dc64ddf0e09137f99e177ee710e6506a12acb",
+    "caracteristicas": "a9586bd6c4c1e04ba8710b93158fdeb3422cc39f7a711bef9f5de911e7f0e992"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "respaldos/dns_inusual-r5/cobertura.json"
+    },
+    "captura": {
+     "ruta": "respaldos/dns_inusual-r5/captura.json"
+    },
+    "reinicios": {
+     "ruta": "respaldos/dns_inusual-r5/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "respaldos/dns_inusual-r5/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "escaneo_sostenido-r3",
+   "campana": "deteccion-respuesta-2026-10-26",
+   "intervalo": {
+    "inicio": 1793266545.162352,
+    "fin": 1793266610.868073
+   },
+   "rutas": {
+    "pcap": "respaldos/escaneo_sostenido-r3/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-campana-A-20261029/fuentes/eve.json",
+    "decisiones": "/home/m4rk/cf-campana-A-20261029/fuentes/motor_decision.log",
+    "caracteristicas": "caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "c2b7e36336696b1b9c18f858ba307fe112c134f621ad2715c97b89bf427168cf",
+    "eve": "54e1882f053b7faa656920eb2237b2f0bd8a371d904cd13b213aa39cba941a00",
+    "decisiones": "2660a254272ba1a47bf72af9d28dc64ddf0e09137f99e177ee710e6506a12acb",
+    "caracteristicas": "a9586bd6c4c1e04ba8710b93158fdeb3422cc39f7a711bef9f5de911e7f0e992"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "respaldos/escaneo_sostenido-r3/cobertura.json"
+    },
+    "captura": {
+     "ruta": "respaldos/escaneo_sostenido-r3/captura.json"
+    },
+    "reinicios": {
+     "ruta": "respaldos/escaneo_sostenido-r3/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "respaldos/escaneo_sostenido-r3/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "dns_inusual-r2",
+   "campana": "deteccion-respuesta-2026-10-26",
+   "intervalo": {
+    "inicio": 1793266820.870444,
+    "fin": 1793266910.088311
+   },
+   "rutas": {
+    "pcap": "respaldos/dns_inusual-r2/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-campana-A-20261029/fuentes/eve.json",
+    "decisiones": "/home/m4rk/cf-campana-A-20261029/fuentes/motor_decision.log",
+    "caracteristicas": "caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "002c39b5ef61b4a752372b6953fa4f71e8e7485731c384126209cfe3bea33795",
+    "eve": "54e1882f053b7faa656920eb2237b2f0bd8a371d904cd13b213aa39cba941a00",
+    "decisiones": "2660a254272ba1a47bf72af9d28dc64ddf0e09137f99e177ee710e6506a12acb",
+    "caracteristicas": "a9586bd6c4c1e04ba8710b93158fdeb3422cc39f7a711bef9f5de911e7f0e992"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "respaldos/dns_inusual-r2/cobertura.json"
+    },
+    "captura": {
+     "ruta": "respaldos/dns_inusual-r2/captura.json"
+    },
+    "reinicios": {
+     "ruta": "respaldos/dns_inusual-r2/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "respaldos/dns_inusual-r2/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "fuerza_bruta_http-r2",
+   "campana": "deteccion-respuesta-2026-10-26",
+   "intervalo": {
+    "inicio": 1793267120.090744,
+    "fin": 1793267210.049481
+   },
+   "rutas": {
+    "pcap": "respaldos/fuerza_bruta_http-r2/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-campana-A-20261029/fuentes/eve.json",
+    "decisiones": "/home/m4rk/cf-campana-A-20261029/fuentes/motor_decision.log",
+    "caracteristicas": "caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "5fce972b246845b15d13724dc3ea3e7b99fb7965d783b7098bc5ec25334ed4d7",
+    "eve": "54e1882f053b7faa656920eb2237b2f0bd8a371d904cd13b213aa39cba941a00",
+    "decisiones": "2660a254272ba1a47bf72af9d28dc64ddf0e09137f99e177ee710e6506a12acb",
+    "caracteristicas": "a9586bd6c4c1e04ba8710b93158fdeb3422cc39f7a711bef9f5de911e7f0e992"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "respaldos/fuerza_bruta_http-r2/cobertura.json"
+    },
+    "captura": {
+     "ruta": "respaldos/fuerza_bruta_http-r2/captura.json"
+    },
+    "reinicios": {
+     "ruta": "respaldos/fuerza_bruta_http-r2/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "respaldos/fuerza_bruta_http-r2/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "fuerza_bruta_http-r4",
+   "campana": "deteccion-respuesta-2026-10-26",
+   "intervalo": {
+    "inicio": 1793267420.051427,
+    "fin": 1793267510.015061
+   },
+   "rutas": {
+    "pcap": "respaldos/fuerza_bruta_http-r4/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-campana-A-20261029/fuentes/eve.json",
+    "decisiones": "/home/m4rk/cf-campana-A-20261029/fuentes/motor_decision.log",
+    "caracteristicas": "caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "7ece0c49327562cdd6aba8e3a1d26a08e52150c688d7533c46f6f5c2a5f29030",
+    "eve": "54e1882f053b7faa656920eb2237b2f0bd8a371d904cd13b213aa39cba941a00",
+    "decisiones": "2660a254272ba1a47bf72af9d28dc64ddf0e09137f99e177ee710e6506a12acb",
+    "caracteristicas": "a9586bd6c4c1e04ba8710b93158fdeb3422cc39f7a711bef9f5de911e7f0e992"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "respaldos/fuerza_bruta_http-r4/cobertura.json"
+    },
+    "captura": {
+     "ruta": "respaldos/fuerza_bruta_http-r4/captura.json"
+    },
+    "reinicios": {
+     "ruta": "respaldos/fuerza_bruta_http-r4/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "respaldos/fuerza_bruta_http-r4/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "dns_inusual-r1",
+   "campana": "deteccion-respuesta-2026-10-26",
+   "intervalo": {
+    "inicio": 1793267720.017688,
+    "fin": 1793267810.38839
+   },
+   "rutas": {
+    "pcap": "respaldos/dns_inusual-r1/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-campana-A-20261029/fuentes/eve.json",
+    "decisiones": "/home/m4rk/cf-campana-A-20261029/fuentes/motor_decision.log",
+    "caracteristicas": "caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "bcc36d712d7499c2010bcfdad2c8a8010d60eed2ac9c23aca21c73ba1f17fa79",
+    "eve": "54e1882f053b7faa656920eb2237b2f0bd8a371d904cd13b213aa39cba941a00",
+    "decisiones": "2660a254272ba1a47bf72af9d28dc64ddf0e09137f99e177ee710e6506a12acb",
+    "caracteristicas": "a9586bd6c4c1e04ba8710b93158fdeb3422cc39f7a711bef9f5de911e7f0e992"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "respaldos/dns_inusual-r1/cobertura.json"
+    },
+    "captura": {
+     "ruta": "respaldos/dns_inusual-r1/captura.json"
+    },
+    "reinicios": {
+     "ruta": "respaldos/dns_inusual-r1/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "respaldos/dns_inusual-r1/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "escaneo_breve-r1",
+   "campana": "deteccion-respuesta-2026-10-26",
+   "intervalo": {
+    "inicio": 1793268020.390657,
+    "fin": 1793268038.38168
+   },
+   "rutas": {
+    "pcap": "respaldos/escaneo_breve-r1/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-campana-A-20261029/fuentes/eve.json",
+    "decisiones": "/home/m4rk/cf-campana-A-20261029/fuentes/motor_decision.log",
+    "caracteristicas": "caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "1445f601723b96e0c9ac52174b2f1cc77a94b5ceda81d3eb781181e1c76bca4d",
+    "eve": "54e1882f053b7faa656920eb2237b2f0bd8a371d904cd13b213aa39cba941a00",
+    "decisiones": "2660a254272ba1a47bf72af9d28dc64ddf0e09137f99e177ee710e6506a12acb",
+    "caracteristicas": "a9586bd6c4c1e04ba8710b93158fdeb3422cc39f7a711bef9f5de911e7f0e992"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "respaldos/escaneo_breve-r1/cobertura.json"
+    },
+    "captura": {
+     "ruta": "respaldos/escaneo_breve-r1/captura.json"
+    },
+    "reinicios": {
+     "ruta": "respaldos/escaneo_breve-r1/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "respaldos/escaneo_breve-r1/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "escaneo_breve-r4",
+   "campana": "deteccion-respuesta-2026-10-26",
+   "intervalo": {
+    "inicio": 1793268248.383265,
+    "fin": 1793268266.36799
+   },
+   "rutas": {
+    "pcap": "respaldos/escaneo_breve-r4/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-campana-A-20261029/fuentes/eve.json",
+    "decisiones": "/home/m4rk/cf-campana-A-20261029/fuentes/motor_decision.log",
+    "caracteristicas": "caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "79c8d021f799ccc23f28aecae91ddf337551445320c77812f34b3956f5845511",
+    "eve": "54e1882f053b7faa656920eb2237b2f0bd8a371d904cd13b213aa39cba941a00",
+    "decisiones": "2660a254272ba1a47bf72af9d28dc64ddf0e09137f99e177ee710e6506a12acb",
+    "caracteristicas": "a9586bd6c4c1e04ba8710b93158fdeb3422cc39f7a711bef9f5de911e7f0e992"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "respaldos/escaneo_breve-r4/cobertura.json"
+    },
+    "captura": {
+     "ruta": "respaldos/escaneo_breve-r4/captura.json"
+    },
+    "reinicios": {
+     "ruta": "respaldos/escaneo_breve-r4/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "respaldos/escaneo_breve-r4/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "escaneo_breve-r3",
+   "campana": "deteccion-respuesta-2026-10-26",
+   "intervalo": {
+    "inicio": 1793268476.370147,
+    "fin": 1793268494.061338
+   },
+   "rutas": {
+    "pcap": "respaldos/escaneo_breve-r3/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-campana-A-20261029/fuentes/eve.json",
+    "decisiones": "/home/m4rk/cf-campana-A-20261029/fuentes/motor_decision.log",
+    "caracteristicas": "caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "932cbbf25742c226cd3b608621745e23bc8d3bdc360af5a7782c4710069e73f7",
+    "eve": "54e1882f053b7faa656920eb2237b2f0bd8a371d904cd13b213aa39cba941a00",
+    "decisiones": "2660a254272ba1a47bf72af9d28dc64ddf0e09137f99e177ee710e6506a12acb",
+    "caracteristicas": "a9586bd6c4c1e04ba8710b93158fdeb3422cc39f7a711bef9f5de911e7f0e992"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "respaldos/escaneo_breve-r3/cobertura.json"
+    },
+    "captura": {
+     "ruta": "respaldos/escaneo_breve-r3/captura.json"
+    },
+    "reinicios": {
+     "ruta": "respaldos/escaneo_breve-r3/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "respaldos/escaneo_breve-r3/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "dns_inusual-r4",
+   "campana": "deteccion-respuesta-2026-10-26",
+   "intervalo": {
+    "inicio": 1793268704.064104,
+    "fin": 1793268794.290916
+   },
+   "rutas": {
+    "pcap": "respaldos/dns_inusual-r4/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-campana-A-20261029/fuentes/eve.json",
+    "decisiones": "/home/m4rk/cf-campana-A-20261029/fuentes/motor_decision.log",
+    "caracteristicas": "caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "e9e25e1b9cd024b23f3d2a7634abd2ad809d359bfd05a86073045940275e7d8f",
+    "eve": "54e1882f053b7faa656920eb2237b2f0bd8a371d904cd13b213aa39cba941a00",
+    "decisiones": "2660a254272ba1a47bf72af9d28dc64ddf0e09137f99e177ee710e6506a12acb",
+    "caracteristicas": "a9586bd6c4c1e04ba8710b93158fdeb3422cc39f7a711bef9f5de911e7f0e992"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "respaldos/dns_inusual-r4/cobertura.json"
+    },
+    "captura": {
+     "ruta": "respaldos/dns_inusual-r4/captura.json"
+    },
+    "reinicios": {
+     "ruta": "respaldos/dns_inusual-r4/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "respaldos/dns_inusual-r4/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "fuerza_bruta_http-r1",
+   "campana": "deteccion-respuesta-2026-10-26",
+   "intervalo": {
+    "inicio": 1793269004.293357,
+    "fin": 1793269094.050907
+   },
+   "rutas": {
+    "pcap": "respaldos/fuerza_bruta_http-r1/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-campana-A-20261029/fuentes/eve.json",
+    "decisiones": "/home/m4rk/cf-campana-A-20261029/fuentes/motor_decision.log",
+    "caracteristicas": "caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "79b4176a5956f7c9c33ee8450aa10b609bab98b644aa87b73057e807d19a3b22",
+    "eve": "54e1882f053b7faa656920eb2237b2f0bd8a371d904cd13b213aa39cba941a00",
+    "decisiones": "2660a254272ba1a47bf72af9d28dc64ddf0e09137f99e177ee710e6506a12acb",
+    "caracteristicas": "a9586bd6c4c1e04ba8710b93158fdeb3422cc39f7a711bef9f5de911e7f0e992"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "respaldos/fuerza_bruta_http-r1/cobertura.json"
+    },
+    "captura": {
+     "ruta": "respaldos/fuerza_bruta_http-r1/captura.json"
+    },
+    "reinicios": {
+     "ruta": "respaldos/fuerza_bruta_http-r1/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "respaldos/fuerza_bruta_http-r1/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "inundacion_http-r5",
+   "campana": "deteccion-respuesta-2026-10-26",
+   "intervalo": {
+    "inicio": 1793269304.052716,
+    "fin": 1793269394.083124
+   },
+   "rutas": {
+    "pcap": "respaldos/inundacion_http-r5/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-campana-A-20261029/fuentes/eve.json",
+    "decisiones": "/home/m4rk/cf-campana-A-20261029/fuentes/motor_decision.log",
+    "caracteristicas": "caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "8be97a8a58054f1922f3787855fadeb344f981b93b8a5533f093a9cfcc880833",
+    "eve": "54e1882f053b7faa656920eb2237b2f0bd8a371d904cd13b213aa39cba941a00",
+    "decisiones": "2660a254272ba1a47bf72af9d28dc64ddf0e09137f99e177ee710e6506a12acb",
+    "caracteristicas": "a9586bd6c4c1e04ba8710b93158fdeb3422cc39f7a711bef9f5de911e7f0e992"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "respaldos/inundacion_http-r5/cobertura.json"
+    },
+    "captura": {
+     "ruta": "respaldos/inundacion_http-r5/captura.json"
+    },
+    "reinicios": {
+     "ruta": "respaldos/inundacion_http-r5/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "respaldos/inundacion_http-r5/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "escaneo_breve-r2",
+   "campana": "deteccion-respuesta-2026-10-26",
+   "intervalo": {
+    "inicio": 1793269604.085733,
+    "fin": 1793269621.669966
+   },
+   "rutas": {
+    "pcap": "respaldos/escaneo_breve-r2/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-campana-A-20261029/fuentes/eve.json",
+    "decisiones": "/home/m4rk/cf-campana-A-20261029/fuentes/motor_decision.log",
+    "caracteristicas": "caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "ebbc5c94e4ed9f9da399a88b36f85003e76a7a2687e2fbfe82e162c1496ccce1",
+    "eve": "54e1882f053b7faa656920eb2237b2f0bd8a371d904cd13b213aa39cba941a00",
+    "decisiones": "2660a254272ba1a47bf72af9d28dc64ddf0e09137f99e177ee710e6506a12acb",
+    "caracteristicas": "a9586bd6c4c1e04ba8710b93158fdeb3422cc39f7a711bef9f5de911e7f0e992"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "respaldos/escaneo_breve-r2/cobertura.json"
+    },
+    "captura": {
+     "ruta": "respaldos/escaneo_breve-r2/captura.json"
+    },
+    "reinicios": {
+     "ruta": "respaldos/escaneo_breve-r2/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "respaldos/escaneo_breve-r2/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "escaneo_sostenido-r1",
+   "campana": "deteccion-respuesta-2026-10-26",
+   "intervalo": {
+    "inicio": 1793269831.671801,
+    "fin": 1793269897.434875
+   },
+   "rutas": {
+    "pcap": "respaldos/escaneo_sostenido-r1/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-campana-A-20261029/fuentes/eve.json",
+    "decisiones": "/home/m4rk/cf-campana-A-20261029/fuentes/motor_decision.log",
+    "caracteristicas": "caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "d11c985d3c361c3c409f22303e01d3bf4d200c10a5c90fae84e880acc019f8c6",
+    "eve": "54e1882f053b7faa656920eb2237b2f0bd8a371d904cd13b213aa39cba941a00",
+    "decisiones": "2660a254272ba1a47bf72af9d28dc64ddf0e09137f99e177ee710e6506a12acb",
+    "caracteristicas": "a9586bd6c4c1e04ba8710b93158fdeb3422cc39f7a711bef9f5de911e7f0e992"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "respaldos/escaneo_sostenido-r1/cobertura.json"
+    },
+    "captura": {
+     "ruta": "respaldos/escaneo_sostenido-r1/captura.json"
+    },
+    "reinicios": {
+     "ruta": "respaldos/escaneo_sostenido-r1/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "respaldos/escaneo_sostenido-r1/relojes.json"
+    }
+   }
+  }
+ ]
+}

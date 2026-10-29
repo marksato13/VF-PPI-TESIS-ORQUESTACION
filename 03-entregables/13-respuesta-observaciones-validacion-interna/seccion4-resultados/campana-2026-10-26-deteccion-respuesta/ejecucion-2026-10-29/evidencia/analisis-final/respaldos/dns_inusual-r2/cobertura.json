@@ -1,0 +1,32 @@
+{
+ "campana": "deteccion-respuesta-2026-10-26",
+ "episodio": "dns_inusual-r2",
+ "periodo": {
+  "inicio": 1793266700.870444,
+  "fin": 1793267000.088311
+ },
+ "origen": "sensor (automatico)",
+ "fuente": "motor_decision.log + secuencia de PCAP archivados",
+ "previa_s": 9.6,
+ "posterior_s": 85.7,
+ "detalle": {
+  "motor_previa_s": 9.6,
+  "motor_posterior_desde_fin_mas_60_s": 25.7,
+  "pcap_previa_s": 887.9,
+  "pcap_posterior_s": 899.9,
+  "hueco_motor_max_s": 18.478334665298462,
+  "analizar_cobertura": {
+   "suficiente": true,
+   "motivo": "ok",
+   "motor_continuo": true,
+   "anclas_ataque_esperadas": 9,
+   "anclas_ataque_observadas": 9,
+   "hueco_motor_max_s": 18.5,
+   "cubre_inicio": true,
+   "cubre_fin_mas_60": true
+  }
+ },
+ "durante_completa": true,
+ "faltantes": [],
+ "continuidad_sin_huecos": true
+}

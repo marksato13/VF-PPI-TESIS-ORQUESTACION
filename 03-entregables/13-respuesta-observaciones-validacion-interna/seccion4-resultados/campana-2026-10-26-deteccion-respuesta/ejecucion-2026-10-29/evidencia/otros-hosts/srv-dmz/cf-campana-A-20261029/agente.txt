@@ -1,0 +1,7 @@
+Id=ppi-enforce-agent.service
+ActiveState=inactive
+UnitFileState=static
+
+Id=ppi-enforce-agent.timer
+ActiveState=inactive
+UnitFileState=disabled

@@ -1,0 +1,15 @@
+{
+ "campana": "deteccion-respuesta-2026-10-26",
+ "episodio": "escaneo_breve-r3",
+ "periodo": {
+  "inicio": 1793268356.370147,
+  "fin": 1793268584.061338
+ },
+ "origen": "sensor (automatico)",
+ "fuente": "archivar.log + estado del servicio de captura + mediciones de descarte",
+ "errores": [],
+ "paquetes_descartados": 0,
+ "alcance_descartes": "medido: contador acumulado del proceso tcpdump = 0 al final",
+ "suricata_kernel_drops_delta_periodo": 0,
+ "suricata_mediciones_en_periodo": 28
+}
