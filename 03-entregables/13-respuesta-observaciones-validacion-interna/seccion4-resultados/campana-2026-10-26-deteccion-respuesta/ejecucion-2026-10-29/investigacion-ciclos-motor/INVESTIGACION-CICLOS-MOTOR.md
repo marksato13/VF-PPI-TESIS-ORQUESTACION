@@ -116,13 +116,56 @@ siguen recorriéndolos todos. Para bajar de 10 s en el pico haría falta además
 (pasar a `build_rows` las observaciones de los últimos 30/60 s antes de la ventana más antigua por decidir) o indexar
 por tiempo. Eso exige otra verificación de equivalencia que **no se ha hecho**.
 
+## 4 bis. Validación en todos los ciclos (773)
+
+`scripts/validar_build_rows_por_entidad.py` (sensor, solo lectura, 2 trabajadores con `nice`) repite la comparación en
+**todos los ciclos con historia PCAP completa en el archivo**, de 07:19 a 10:39 UTC. Exige igualdad exacta de la lista
+de filas: orden, claves y valores float. El agregado lo hace `scripts/resumir_validacion_por_entidad.py` →
+`validacion-por-ciclo.csv` y `validacion-resumen.csv`.
+
+| Tramo | Ciclos | Idénticos | Filas comparadas | Aceleración de build_rows (p50) | Trabajo real p50 / máx | Estimado por entidad p50 / p90 / máx | Ciclos > 9,5 s real → estimado |
+|---|---|---|---|---|---|---|---|
+| Previo 07:19–08:01 | 208 | 208 | 70 727 | 3,1× | 1,8 / 3,1 s | 1,2 / 1,6 / 2,1 s | 0 → 0 |
+| Control | 155 | 155 | 57 165 | 3,9× | 9,5 / 12,2 s | 4,4 / 5,4 / 5,9 s | 76 → 0 |
+| Batería | 387 | 387 | 153 712 | 4,4× | 12,7 / 45,7 s | 6,3 / 12,1 / 23,1 s | 369 → 97 |
+| Posterior | 23 | 23 | 8 866 | 4,0× | 11,1 / 22,3 s | 5,6 / 9,9 / 11,4 s | 23 → 4 |
+| **Total** | **773** | **773** | **290 470** | | | | |
+
+**Equivalencia:** 773 de 773 ciclos idénticos, sin ninguna diferencia.
+
+**Cómo se estima la duración.** El trabajo estimado es el real menos el ahorro medido en `build_rows`. Es una
+estimación, no una medición en vivo: supone que el ahorro sin conexión se traslada tal cual y no corrige la parte del
+ciclo que el perfil no reproduce.
+
+**Batería, ciclos que seguirían por encima de 9,5 s, por escenario.** Un ciclo se asigna a un escenario si cae dentro
+del episodio o en los 60 s siguientes.
+
+| Escenario | Ciclos | Estimado > 9,5 s | Máx estimado |
+|---|---|---|---|
+| Inundación HTTP | 26 | 25 | 23,1 s |
+| Fuerza bruta HTTP | 44 | 9 | 12,2 s |
+| Escaneo sostenido | 36 | 7 | 11,5 s |
+| DNS inusual | 53 | 1 | 11,6 s |
+| Escaneo breve | 28 | 1 | 10,5 s |
+| Pausas | 200 | 54 | 23,1 s |
+
+Los ciclos de pausa por encima del límite son los que aún llevan la inundación anterior dentro de su historia de 230 s.
+
+**Lectura:**
+- **Lo que resuelve:** la partición por entidad devolvería el control y el tráfico normal a unos 4–6 s por ciclo,
+  con margen frente al paso de 10 s, y dejaría casi todos los ataques por debajo del límite.
+- **Lo que no resuelve:** la inundación HTTP, ni la cola de 230 s que deja detrás. Con ella la Kali sola concentra
+  la mayoría de los ~230 k paquetes de la historia, y sus ~23 ventanas los recorren todos.
+- **Para bajar de 10 s ahí** haría falta además la opción (b) de la sección 5, construir solo las ventanas
+  pendientes, o indexar por tiempo dentro del extractor.
+
 ## 5. Qué no se ha hecho y qué decide Mark
 
 - **No se ha tocado nada desplegado.** Motor, extractor y servicios siguen iguales, en modo sombra. Todo lo anterior
   se reprodujo sin conexión sobre el PCAP archivado y las fuentes congeladas.
 - **Opciones, sin recomendar todavía ninguna como definitiva:**
-  - **(a)** Corregir el motor con la partición por entidad, probada como equivalente en 7 ciclos, y validarla en más
-    ciclos antes de desplegar. Una campaña A repetida usaría entonces una versión de motor distinta; las
+  - **(a)** Corregir el motor con la partición por entidad, validada como equivalente en 773 de 773 ciclos
+    (sección 4 bis). Basta para el tráfico normal, pero no para la inundación. Una campaña A repetida usaría entonces una versión de motor distinta; las
     características no cambian, pero el cambio debe declararse.
   - **(b)** Además de lo anterior, limitar `build_rows` a las ventanas pendientes.
   - **(c)** Para una campaña futura, preregistrar una tolerancia de continuidad justificada por la cadencia
