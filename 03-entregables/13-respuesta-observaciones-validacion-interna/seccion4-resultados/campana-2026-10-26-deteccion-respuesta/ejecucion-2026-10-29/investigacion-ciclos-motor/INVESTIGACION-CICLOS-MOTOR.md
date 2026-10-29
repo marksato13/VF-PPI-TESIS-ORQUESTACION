@@ -159,6 +159,69 @@ Los ciclos de pausa por encima del límite son los que aún llevan la inundació
 - **Para bajar de 10 s ahí** haría falta además la opción (b) de la sección 5, construir solo las ventanas
   pendientes, o indexar por tiempo dentro del extractor.
 
+## 4 ter. «Solo ventanas pendientes»: validación en los 773 ciclos
+
+`scripts/validar_build_rows_pendientes.py` (sensor, solo lectura) aplica la variante sin tocar el extractor:
+
+- **Ventana mínima por entidad e:** `A_min(e)` es la primera ancla del rango de e (de su primera a su última
+  observación, igual que `build_rows`) que no está en `scored_windows`. El motor dispone de ese conjunto; aquí se
+  emula con las decisiones del registro anteriores al ciclo.
+- **Entrada:** se pasan solo las observaciones posteriores a `A_min−30` (paquetes) o `A_min−60` (L7), más la primera
+  y la última de la entidad.
+- **Salida:** las filas con ventana ≥ `A_min`.
+
+Se compara contra el `build_rows` global original:
+
+- **Filas idénticas:** igualdad exacta, entidad a entidad, para ventanas ≥ `A_min`.
+- **Cobertura:** toda ventana que el motor decidió en ese ciclo cae en ≥ `A_min`.
+
+Agregado: `scripts/resumir_validacion_pendientes.py` → `pendientes-por-ciclo.csv` y `pendientes-resumen.csv`.
+
+Una primera regla (`A_min` = última ventana registrada + 10 s) se descartó porque no cubría las ventanas que nacen
+por detrás de la última decidida. La evidencia está en `pendientes-regla-ultima-descartada/`.
+
+**Resultado:** 773 de 773 ciclos con filas idénticas y 773 de 773 con cobertura completa.
+
+| Tramo | Ciclos | Aceleración vs global (p50) | Real p50 / máx | Por entidad p50 / máx | Solo pendientes p50 / p90 / máx | > 9,5 s: real → entidad → pendientes |
+|---|---|---|---|---|---|---|
+| Previo | 208 | 4,3× | 1,8 / 3,1 s | 1,2 / 2,2 s | 1,1 / 1,5 / 2,1 s | 0 → 0 → 0 |
+| Control | 155 | 14,8× | 9,5 / 12,2 s | 3,3 / 5,7 s | 2,0 / 3,1 / 4,4 s | 76 → 0 → 0 |
+| Batería | 387 | 17,5× | 12,7 / 45,7 s | 5,2 / 22,9 s | 3,7 / 8,3 / 20,3 s | 369 → 52 → 32 |
+| Posterior | 23 | 17,5× | 11,1 / 22,3 s | 4,8 / 10,0 s | 3,3 / 6,3 / 7,3 s | 23 → 2 → 0 |
+| **Total** | **773** | 14,0× | 10,4 / 45,7 s | 3,7 / 22,9 s | 2,2 / 6,2 / 20,3 s | 468 → 54 → 32 |
+
+**Batería por escenario**, solo pendientes, con estimado > 9,5 s:
+
+| Escenario | Ciclos | Estimado > 9,5 s | Máx estimado |
+|---|---|---|---|
+| DNS inusual | 53 | 0 | 6,9 s |
+| Escaneo breve | 28 | 0 | 6,3 s |
+| Escaneo sostenido | 36 | 0 | 8,9 s |
+| Fuerza bruta HTTP | 44 | 0 | 8,3 s |
+| Inundación HTTP | 26 | 19 | 20,3 s |
+| Pausas | 200 | 13 | 17,2 s |
+
+Las pausas por encima del límite arrastran la inundación anterior en su historia de 230 s.
+
+**Lectura:**
+- **Con las dos correcciones,** todos los escenarios salvo la inundación HTTP quedan por debajo de 9,5 s en todos sus
+  ciclos, y el control baja a unos 2 s.
+- **En la inundación** `build_rows` deja de ser el problema: queda en menos de 1 s. Lo que manda pasa a ser:
+  - el resto del ciclo: `attribute_packets`, de unos 3,5 s en el pico;
+  - deduplicación y EVE;
+  - la parte que el perfil no reproduce.
+
+  Todo eso crece con el volumen de los 230 s de historia y no se toca con estas variantes.
+
+**Límites de la estimación:**
+- **Qué se estima.** El trabajo estimado es el real menos el ahorro medido sin conexión. Las mediciones de tiempo
+  varían entre corridas por la carga de la máquina: la partición por entidad dio 97 ciclos de batería por encima de
+  9,5 s en la sección 4 bis y 52 en esta corrida.
+- **Qué falta.** La cifra que vale es la que se mida en vivo con el motor corregido.
+- **Cómo se emula `scored_windows`.** Se usa el registro; el motor real además marca como puntuadas las ventanas de
+  entidades excluidas sin registrarlas. Aquí esas entidades se calculan completas, lo que hace la estimación de
+  tiempo conservadora y no afecta a la igualdad.
+
 ## 5. Qué no se ha hecho y qué decide Mark
 
 - **No se ha tocado nada desplegado.** Motor, extractor y servicios siguen iguales, en modo sombra. Todo lo anterior
@@ -167,7 +230,9 @@ Los ciclos de pausa por encima del límite son los que aún llevan la inundació
   - **(a)** Corregir el motor con la partición por entidad, validada como equivalente en 773 de 773 ciclos
     (sección 4 bis). Basta para el tráfico normal, pero no para la inundación. Una campaña A repetida usaría entonces una versión de motor distinta; las
     características no cambian, pero el cambio debe declararse.
-  - **(b)** Además de lo anterior, limitar `build_rows` a las ventanas pendientes.
+  - **(b)** Además de lo anterior, limitar `build_rows` a las ventanas pendientes, con la regla de la primera ancla
+    no puntuada. Está validada como equivalente en 773 de 773 ciclos (sección 4 ter). Resuelve todo salvo la
+    inundación HTTP, que necesitaría además aligerar `attribute_packets` o la historia de 230 s.
   - **(c)** Para una campaña futura, preregistrar una tolerancia de continuidad justificada por la cadencia
     estructural de 10/20 s, antes de ejecutarla. Aplicarla a la campaña del 29-oct solo valdría como análisis de
     sensibilidad no preregistrado.
