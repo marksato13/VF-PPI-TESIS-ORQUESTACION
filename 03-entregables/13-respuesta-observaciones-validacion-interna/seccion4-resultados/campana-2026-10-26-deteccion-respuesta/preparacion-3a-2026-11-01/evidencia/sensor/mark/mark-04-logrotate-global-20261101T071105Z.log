@@ -1,0 +1,257 @@
+## mark/04 v2 2026-11-01T07:11:05.760Z usuario=m4rk host=cyberflow-sensor
+## logrotate: /usr/sbin/logrotate logrotate 3.21.0
+## sha256 de la configuración evaluada
+fc0877189d2feacbfca441dfa4ddeffaebbd074635c48fbf1c70672e62954fe9  /etc/logrotate.conf
+edd383958ce315a642cdfa6aa3fbe2779aa5c674b305fe910449b90cee594c58  /etc/logrotate.d/alternatives
+f6427b0070782079f0048da7c9f06c66462655cde350d35ed1bc044085c583be  /etc/logrotate.d/apport
+fcc2510172fd914ca22762c4b2dc43d36152e65becf8e84abec59f7652da5e3f  /etc/logrotate.d/apt
+f8384c13504a01676cedb4aeea4e0ac9c1eec8000a5dedc74e524c25c4c656ec  /etc/logrotate.d/bootlog
+7f64bae051c1727236f9dabe11526f1d1aad26aa53c1d0b8425efee746f5fbe8  /etc/logrotate.d/btmp
+3c7a69b73e00ac06bba19a793ddc4de167df1efe4f621171642a49932ac795c7  /etc/logrotate.d/cloud-init
+183e7bc469122ed9e2d517d0561adde2afa589a97dce3365e291d9b185fce094  /etc/logrotate.d/cyberflow
+e4103352545278e47a88b2ca2f2d3681ca474d400d8057ba6ac4f18d71c32042  /etc/logrotate.d/dpkg
+1e493ae5151c429d214d2f43e69da4431e6293abf755a7b3d367f7180f3f005e  /etc/logrotate.d/rsyslog
+d8ddbe3ce5ea773077aba2eeb0fb885671b77fd540e2d174166c062077f110c2  /etc/logrotate.d/suricata
+5ca2c3c909eb3a9088c3f2dc3349b964745049f00655d8047c67b59de2981a7b  /etc/logrotate.d/ubuntu-pro-client
+b1dbfea99aa6f8cfff2a88428a797a9e1f22751fa0853b36f19a07aa5ea7c223  /etc/logrotate.d/ufw
+63dcd38508a5e6fe84e9e5a98bb4fd3275e0ae929a30e735de5e3a3ecb783290  /etc/logrotate.d/unattended-upgrades
+81eec3d3e01e4263ffc6aab6aeee74f3b260f1df4c692525312608f7a60db048  /etc/logrotate.d/wtmp
+## salida completa de 'sudo logrotate -d /etc/logrotate.conf' (233 líneas, sha256 b34f523251e10b37fdef1823ec04285a624f9514457754ccda573d97939fd45a)
+warning: logrotate in debug mode does nothing except printing debug messages!  Consider using verbose mode (-v) instead if this is not what you want.
+
+reading config file /etc/logrotate.conf
+including /etc/logrotate.d
+reading config file alternatives
+reading config file apport
+reading config file apt
+reading config file bootlog
+reading config file btmp
+reading config file cloud-init
+reading config file cyberflow
+reading config file dpkg
+reading config file rsyslog
+reading config file suricata
+reading config file ubuntu-pro-client
+reading config file ufw
+reading config file unattended-upgrades
+reading config file wtmp
+Reading state from file: /var/lib/logrotate/status
+Allocating hash table for state file, size 64 entries
+Creating new state
+Creating new state
+Creating new state
+Creating new state
+Creating new state
+Creating new state
+Creating new state
+Creating new state
+Creating new state
+Creating new state
+Creating new state
+Creating new state
+Creating new state
+Creating new state
+Creating new state
+Creating new state
+Creating new state
+Creating new state
+Creating new state
+Creating new state
+Creating new state
+Creating new state
+Creating new state
+Creating new state
+Creating new state
+Creating new state
+
+Handling 15 logs
+
+rotating pattern: /var/log/alternatives.log  monthly (12 rotations)
+empty log files are not rotated, old logs are removed
+switching euid from 0 to 0 and egid from 0 to 4 (pid 1602064)
+considering log /var/log/alternatives.log
+  Now: 2026-11-01 07:11
+  Last rotated at 2026-10-01 00:00
+  log does not need rotating (log is empty)
+switching euid from 0 to 0 and egid from 4 to 0 (pid 1602064)
+
+rotating pattern: /var/log/apport.log  after 1 days (7 rotations)
+empty log files are not rotated, old logs are removed
+switching euid from 0 to 0 and egid from 0 to 4 (pid 1602064)
+considering log /var/log/apport.log
+  Now: 2026-11-01 07:11
+  Last rotated at 2026-09-17 00:00
+  log does not need rotating (log is empty)
+switching euid from 0 to 0 and egid from 4 to 0 (pid 1602064)
+
+rotating pattern: /var/log/apt/term.log  monthly (12 rotations)
+empty log files are not rotated, old logs are removed
+switching euid from 0 to 0 and egid from 0 to 4 (pid 1602064)
+considering log /var/log/apt/term.log
+  Now: 2026-11-01 07:11
+  Last rotated at 2026-10-01 00:00
+  log does not need rotating (log is empty)
+switching euid from 0 to 0 and egid from 4 to 0 (pid 1602064)
+
+rotating pattern: /var/log/apt/history.log  monthly (12 rotations)
+empty log files are not rotated, old logs are removed
+switching euid from 0 to 0 and egid from 0 to 4 (pid 1602064)
+considering log /var/log/apt/history.log
+  Now: 2026-11-01 07:11
+  Last rotated at 2026-10-01 00:00
+  log does not need rotating (log is empty)
+switching euid from 0 to 0 and egid from 4 to 0 (pid 1602064)
+
+rotating pattern: /var/log/boot.log
+ after 1 days (7 rotations)
+empty log files are not rotated, old logs are removed
+switching euid from 0 to 0 and egid from 0 to 4 (pid 1602064)
+considering log /var/log/boot.log
+  log /var/log/boot.log does not exist -- skipping
+switching euid from 0 to 0 and egid from 4 to 0 (pid 1602064)
+
+rotating pattern: /var/log/btmp  monthly (1 rotations)
+empty log files are rotated, old logs are removed
+switching euid from 0 to 0 and egid from 0 to 4 (pid 1602064)
+considering log /var/log/btmp
+  Now: 2026-11-01 07:11
+  Last rotated at 2026-11-01 00:00
+  log does not need rotating (log has been rotated at 2026-11-01 00:00, which is less than a month ago)
+switching euid from 0 to 0 and egid from 4 to 0 (pid 1602064)
+
+rotating pattern: /var/log/cloud-init*.log
+ 1048576 bytes (6 rotations)
+empty log files are not rotated, old logs are removed
+considering log /var/log/cloud-init.log
+  Now: 2026-11-01 07:11
+  Last rotated at 2026-09-17 00:00
+  log does not need rotating (log size is below the 'size' threshold)
+considering log /var/log/cloud-init-output.log
+  Now: 2026-11-01 07:11
+  Last rotated at 2026-09-17 00:00
+  log does not need rotating (log size is below the 'size' threshold)
+
+rotating pattern: /home/m4rk/cyberflow/logs/motor_decision.log /home/m4rk/cyberflow/logs/_state/ciclos.jsonl  after 1 days (14 rotations)
+empty log files are not rotated, log files >= 209715200 are rotated earlier, old logs are removed
+switching euid from 0 to 0 and egid from 0 to 4 (pid 1602064)
+considering log /home/m4rk/cyberflow/logs/motor_decision.log
+  Now: 2026-11-01 07:11
+  Last rotated at 2026-11-01 00:00
+  log does not need rotating (log has been rotated at 2026-11-01 00:00, which is less than a day ago)
+considering log /home/m4rk/cyberflow/logs/_state/ciclos.jsonl
+Creating new state
+  Now: 2026-11-01 07:11
+  Last rotated at 2026-11-01 07:00
+  log does not need rotating (log has already been rotated)
+switching euid from 0 to 0 and egid from 4 to 0 (pid 1602064)
+
+rotating pattern: /var/log/dpkg.log  monthly (12 rotations)
+empty log files are not rotated, old logs are removed
+switching euid from 0 to 0 and egid from 0 to 4 (pid 1602064)
+considering log /var/log/dpkg.log
+  Now: 2026-11-01 07:11
+  Last rotated at 2026-10-01 00:00
+  log does not need rotating (log is empty)
+switching euid from 0 to 0 and egid from 4 to 0 (pid 1602064)
+
+rotating pattern: /var/log/syslog
+/var/log/mail.log
+/var/log/kern.log
+/var/log/auth.log
+/var/log/user.log
+/var/log/cron.log
+ weekly (4 rotations)
+empty log files are not rotated, old logs are removed
+switching euid from 0 to 0 and egid from 0 to 4 (pid 1602064)
+considering log /var/log/syslog
+  Now: 2026-11-01 07:11
+  Last rotated at 2026-11-01 00:00
+  log does not need rotating (log has been rotated at 2026-11-01 00:00, which is less than a week ago)
+considering log /var/log/mail.log
+  log /var/log/mail.log does not exist -- skipping
+considering log /var/log/kern.log
+  Now: 2026-11-01 07:11
+  Last rotated at 2026-11-01 00:00
+  log does not need rotating (log has been rotated at 2026-11-01 00:00, which is less than a week ago)
+considering log /var/log/auth.log
+  Now: 2026-11-01 07:11
+  Last rotated at 2026-11-01 00:00
+  log does not need rotating (log has been rotated at 2026-11-01 00:00, which is less than a week ago)
+considering log /var/log/user.log
+  log /var/log/user.log does not exist -- skipping
+considering log /var/log/cron.log
+  log /var/log/cron.log does not exist -- skipping
+not running postrotate script, since no logs were rotated
+switching euid from 0 to 0 and egid from 4 to 0 (pid 1602064)
+
+rotating pattern: /var/log/suricata/*.log
+/var/log/suricata/*.json
+ after 1 days (7 rotations)
+empty log files are rotated, log files >= 524288000 are rotated earlier, old logs are removed
+switching euid from 0 to 0 and egid from 0 to 4 (pid 1602064)
+considering log /var/log/suricata/fast.log
+  Now: 2026-11-01 07:11
+  Last rotated at 2026-11-01 00:00
+  log does not need rotating (log has been rotated at 2026-11-01 00:00, which is less than a day ago)
+considering log /var/log/suricata/stats.log
+  Now: 2026-11-01 07:11
+  Last rotated at 2026-11-01 00:00
+  log does not need rotating (log has been rotated at 2026-11-01 00:00, which is less than a day ago)
+considering log /var/log/suricata/suricata.log
+  Now: 2026-11-01 07:11
+  Last rotated at 2026-11-01 00:00
+  log does not need rotating (log has been rotated at 2026-11-01 00:00, which is less than a day ago)
+considering log /var/log/suricata/eve.json
+  Now: 2026-11-01 07:11
+  Last rotated at 2026-11-01 00:00
+  log does not need rotating (log has been rotated at 2026-11-01 00:00, which is less than a day ago)
+not running postrotate script, since no logs were rotated
+switching euid from 0 to 0 and egid from 4 to 0 (pid 1602064)
+
+rotating pattern: /var/log/ubuntu-advantage*.log  monthly (6 rotations)
+empty log files are not rotated, old logs are removed
+considering log /var/log/ubuntu-advantage*.log
+  log /var/log/ubuntu-advantage*.log does not exist -- skipping
+
+rotating pattern: /var/log/ufw.log
+ weekly (4 rotations)
+empty log files are not rotated, old logs are removed
+switching euid from 0 to 0 and egid from 0 to 4 (pid 1602064)
+considering log /var/log/ufw.log
+  log /var/log/ufw.log does not exist -- skipping
+not running postrotate script, since no logs were rotated
+switching euid from 0 to 0 and egid from 4 to 0 (pid 1602064)
+
+rotating pattern: /var/log/unattended-upgrades/unattended-upgrades.log 
+/var/log/unattended-upgrades/unattended-upgrades-dpkg.log
+/var/log/unattended-upgrades/unattended-upgrades-shutdown.log
+ monthly (6 rotations)
+empty log files are not rotated, old logs are removed
+switching euid from 0 to 0 and egid from 0 to 4 (pid 1602064)
+considering log /var/log/unattended-upgrades/unattended-upgrades.log
+  Now: 2026-11-01 07:11
+  Last rotated at 2026-11-01 00:00
+  log does not need rotating (log has been rotated at 2026-11-01 00:00, which is less than a month ago)
+considering log /var/log/unattended-upgrades/unattended-upgrades-dpkg.log
+  Now: 2026-11-01 07:11
+  Last rotated at 2026-09-17 00:00
+  log does not need rotating (log is empty)
+considering log /var/log/unattended-upgrades/unattended-upgrades-shutdown.log
+  Now: 2026-11-01 07:11
+  Last rotated at 2026-09-17 00:00
+  log does not need rotating (log is empty)
+switching euid from 0 to 0 and egid from 4 to 0 (pid 1602064)
+
+rotating pattern: /var/log/wtmp  monthly (1 rotations)
+empty log files are rotated, only log files >= 1048576 bytes are rotated, old logs are removed
+switching euid from 0 to 0 and egid from 0 to 4 (pid 1602064)
+considering log /var/log/wtmp
+  Now: 2026-11-01 07:11
+  Last rotated at 2026-09-17 00:00
+  log does not need rotating ('minsize' directive is used and the log size is smaller than the minsize value)
+switching euid from 0 to 0 and egid from 4 to 0 (pid 1602064)
+## rc_logrotate=0
+## lineas_error=0
+## lineas_warning=1 (se informan; no cierran ni bloquean por sí solas)
+   warning: logrotate in debug mode does nothing except printing debug messages!  Consider using verbose mode (-v) instead if this is not what you want.
+## RESULTADO: OK (rc_logrotate=0, errores=0, warnings=1) 2026-11-01T07:11:10.986Z

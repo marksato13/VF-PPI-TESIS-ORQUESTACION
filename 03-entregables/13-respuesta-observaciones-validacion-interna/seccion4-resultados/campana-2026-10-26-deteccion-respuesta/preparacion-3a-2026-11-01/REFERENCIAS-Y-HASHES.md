@@ -78,6 +78,9 @@ Commits completos: `24f8a80e376d89b78454fd16854d2239a1b7d278`, `f57ca00771030296
 |---|---|
 | `04_logrotate_global.sh` (v2, vigente) | `5481d99b1fff5bed7d697017537bfbff35881dfb60a1c9ccb3f21e732e92bfdb` |
 | `04_logrotate_global.v1.sh` (e0ba9e0, devolvía el rc de `tail`; no usar) | `af99e727…` |
+| `mark-04-logrotate-global-20261101T071105Z.log` (ejecución de Mark, 07:11:05Z: rc_logrotate=0, errores=0, RESULTADO OK) | `7cae51694c5ce508fa7d76bfba6587f08bef1b87693efe8622ae14a54ff0c47b` |
+| `mark-04-logrotate-global-20261101T071105Z.salida` (salida completa de `sudo logrotate -d`, 233 líneas) | `b34f523251e10b37fdef1823ec04285a624f9514457754ccda573d97939fd45a` |
+| `/etc/logrotate.conf` evaluado | `fc0877189d2feacbfca441dfa4ddeffaebbd074635c48fbf1c70672e62954fe9` |
 
 ## Clientes legítimos
 
