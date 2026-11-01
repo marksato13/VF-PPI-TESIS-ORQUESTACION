@@ -1,0 +1,47 @@
+{
+ "_nota": "Config congelada de la campana. Parametros numericos y de texto SEPARADOS. Los campos pendientes (zona_dns, brute_puerto, brute_ruta) valen null y su escenario queda 'habilitado': false hasta resolverlos. generar_campana.py valida y ABORTA si un escenario habilitado tiene valores sin resolver o marcadores (<...>). Las variables de entorno NO pueden cambiar estos valores. No se ejecuta nada en preparacion.",
+ "version_esquema": 2,
+ "origen": "10.10.20.30",
+ "lista_blanca_destinos": [
+  "10.10.10.20",
+  "10.10.30.10"
+ ],
+ "semilla": 20261026,
+ "repeticiones": 3,
+ "tiempos_s": {
+  "calentamiento_inicial": 60,
+  "contexto_antes": 120,
+  "observacion_despues": 90
+ },
+ "_tiempos_nota": "Entre episodios: al terminar uno se espera 'observacion_despues' (cola del ataque) y luego 'contexto_antes' (historia previa del siguiente) antes de iniciar el siguiente. El primero ademas lleva 'calentamiento_inicial'. No se inicia un episodio hasta cumplir la observacion del anterior.",
+ "escenarios": [
+  {
+   "id": "inundacion_http",
+   "habilitado": true,
+   "destino": "10.10.30.10",
+   "servicio": "TCP/80",
+   "herramienta": "curl",
+   "duracion_objetivo_s": 90,
+   "duracion_descripcion": "90 s de peticiones con concurrencia fija 8",
+   "timeout_s": 150,
+   "params": {
+    "concurrencia": 8,
+    "max_time_s": 2,
+    "recurso": "http://10.10.30.10/"
+   },
+   "accion_prevista": "LIMIT (http_abuse) o anomalia del modelo",
+   "evidencia_actividad": "peticiones en marcas y eventos http en eve.json"
+  }
+ ],
+ "_campana": "paso2-tecnico-motor-20261101T0254Z (prueba de ingenieria; NO es la campana A)",
+ "_origen_config": {
+  "/home/adminatacante/cf-campana-A/scripts/generar_campana.py": "c586d813472d5853ae43fe512b5a53d22654699ace10894e43f57b3ddc4b171b",
+  "/home/adminatacante/cf-campana-A/scripts/esquema_campana.py": "e762e60421b4721b1e8ce32549049ae10c7e86596b0fbd37f9a35517ab904144",
+  "/home/adminatacante/cf-campana-A/escenarios/escenarios.json": "67798012cbd306e9c06ebccf5ec293c7d9db12951d93119f739c3f86a83c64ec"
+ },
+ "_comando_constructor_aprobado": [
+  "bash",
+  "-c",
+  "fin=$((SECONDS+90)); n=8; d=$(mktemp -d); for i in $(seq $n); do ( c=0; while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null --max-time 2 http://10.10.30.10/ ; c=$((c+1)); done; echo $c > \"$d/$i\" ) & done; wait; echo \"intentos=$(cat \"$d\"/* | awk '{s+=$1} END{print s+0}')\"; rm -rf \"$d\""
+ ]
+}

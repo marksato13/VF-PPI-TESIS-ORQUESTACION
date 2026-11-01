@@ -1,0 +1,20 @@
+## arrancar factor1 2026-11-01T03:03:25.799Z
+  generador sha=ae5134a778e66d90f5c3fbcd47323e328f3422cf4ba8d5197649f402c1d4cdc3 (esperado ae5134a7...)
+  envoltorio sha=69d79937f2fee84d8d63a38eb1171ed822858a54fa48d5a1e9266fb4e5a4c6c6
+  ofimatica: unidad -> /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil ofimatica --origen 10.10.20.21 --servidor 10.10.30.10 --dns 10.10.10.20 
+  navegacion: unidad -> /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil navegacion --origen 10.10.20.22 --servidor 10.10.30.10 --dns 10.10.10.20 
+  descargas: unidad -> /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil descargas --origen 10.10.20.23 --servidor 10.10.30.10 --dns 10.10.10.20 
+  aplicacion: unidad -> /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil aplicacion --origen 10.10.20.24 --servidor 10.10.30.10 --dns 10.10.10.20 
+  ligero: unidad -> /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil ligero --origen 10.10.20.25 --servidor 10.10.30.10 --dns 10.10.10.20 
+  erratico: unidad -> /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil erratico --origen 10.10.20.26 --servidor 10.10.30.10 --dns 10.10.10.20 
+  ofimatica pgid=6394 vivo=si hijos=2
+  navegacion pgid=6406 vivo=si hijos=2
+  descargas pgid=6418 vivo=si hijos=2
+  aplicacion pgid=6430 vivo=si hijos=2
+  ligero pgid=6442 vivo=si hijos=2
+  erratico pgid=6454 vivo=si hijos=2
+  errores: 
+PASO2: factor_horario fijado en 1.0 (original devolveria 0.036 ahora)
+## conexiones por origen (ss)
+        1 10.10.20.20
+## fin 2026-11-01T03:03:54.207Z

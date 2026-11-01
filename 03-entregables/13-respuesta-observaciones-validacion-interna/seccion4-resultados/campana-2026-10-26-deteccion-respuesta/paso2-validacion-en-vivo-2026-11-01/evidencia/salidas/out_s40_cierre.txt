@@ -1,0 +1,24 @@
+## s40 2026-11-01T04:18:29.656Z
+  archivador PID=1260257 -> TERM (barrido final)
+  archivador rc=0  ESTADO: OK: vistos=374 archivados=374, sin fallos  (2026-11-01T04:18:51Z)
+   | 2026-11-01T04:18:50Z OK live-20261101041746.pcap (659458 bytes) sha=deed8e061f4e402b8abb0da0b5b8030553506e5bf0f39cde25130a0618a801bb
+   | 2026-11-01T04:18:50Z OK live-20261101041801.pcap (1252732 bytes) sha=6c09d4d2846b7bf92201e6674dc53d6c2901418c1f124e3400b3bbd2105d1e96
+   | 2026-11-01T04:18:50Z OK live-20261101041816.pcap (1384782 bytes) sha=19774fb1fbe91658ae0625d1e9ed7e2810fd81b963486000ad650b1a6cec77c7
+   | 2026-11-01T04:18:51Z FIN OK: vistos=374 archivados=374, sin fallos  (2026-11-01T04:18:51Z)
+  pcaps archivados: 374  tamano: 514M
+  muestreador 1260252 parado (902 muestras)
+  eve segmento desde byte 23760588: 169040034 bytes
+      389 /home/m4rk/cf-paso2-20261101T0254Z/copias/ciclos.jsonl
+        9 /home/m4rk/cf-paso2-20261101T0254Z/copias/marcas-episodios.jsonl
+      902 /home/m4rk/cf-paso2-20261101T0254Z/copias/muestras.jsonl
+    12464 /home/m4rk/cf-paso2-20261101T0254Z/copias/motor_decision.log
+    13764 total
+  feed final copiado
+  journal motor: 5 lineas, trazas: 0 | avisos sistema: 1
+  ppi-motor active NR=0 PID=1289322
+  ppi-motor-capture active NR=0 PID=1375
+  suricata active NR=0 PID=1372
+  ppi-dashboard active NR=0 PID=1379
+  motor sha: 6c274d9e3529e3fb a403307aa5f76d38 
+  --enforce en argv: ''
+## fin 2026-11-01T04:18:54.969Z

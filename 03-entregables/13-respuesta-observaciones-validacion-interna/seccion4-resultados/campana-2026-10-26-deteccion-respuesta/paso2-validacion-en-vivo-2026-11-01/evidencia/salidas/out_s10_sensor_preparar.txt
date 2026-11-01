@@ -1,0 +1,85 @@
+## s10 2026-11-01T02:58:41.124Z
+  tgz 5e535c9a61b188cfaaffe95e9ad85c4f19a8dcc2296efe9ed554ad1f73bd64ee  /home/m4rk/cf-paso2-20261101T0254Z/candidato-24f8a80.tgz
+  6c274d9e3529e3fb6971ff38d8c6d586780b718b483ce4e2a5e3a1cfbf25692e  scripts/engine/motor_decision.py
+  a403307aa5f76d38d199aef2542350f57eaf5843fdb94b44ec0bd20eaa8ff168  scripts/engine/motor_incremental.py
+  6d5fcb60cb74cee21aa7bead2b520f0e2295683b4df0e4e342ddc42a54e5449f  scripts/setup/cyberflow_config.py
+  HASHES APROBADOS: OK
+## dependencias no modificadas: desplegado vs candidata
+  scripts/engine/heuristicos.py                 desplegado=10deb05d22fa0215 candidata=10deb05d22fa0215
+  scripts/features/extract_multilayer_v2.py     desplegado=7130edae65afefa2 candidata=7130edae65afefa2
+  scripts/features/extract_multilayer_v3.py     desplegado=5adbfbf484555443 candidata=5adbfbf484555443
+  configs/features/multilayer-v2.json           desplegado=e032a1a28650d438 candidata=1445ccd4f33f2269
+## compilacion y pruebas especificas (venv del motor)
+  py_compile OK
+  unittest rc=0
+  ----------------------------------------------------------------------
+  Ran 48 tests in 18.207s
+  
+  OK
+## estrofa de logrotate (--mostrar; NO --escribir)
+  --mostrar rc=0
+  183e7bc469122ed9e2d517d0561adde2afa589a97dce3365e291d9b185fce094  /home/m4rk/cf-paso2-20261101T0254Z/logrotate/logrotate-cyberflow.nuevo
+  diff rc=1
+  | 8,9c8,11
+  | < # necesidad de senales ni de reiniciar el servicio.
+  | < /home/m4rk/cyberflow/logs/motor_decision.log {
+  | ---
+  | > # necesidad de senales ni de reiniciar el servicio. Lo mismo vale para
+  | > # _state/ciclos.jsonl, el registro por ciclo del motor (~0,9 kB por ciclo,
+  | > # ~8 MB al dia con paso de 10 s).
+  | > /home/m4rk/cyberflow/logs/motor_decision.log /home/m4rk/cyberflow/logs/_state/ciclos.jsonl {
+## temporizador de logrotate y estado EVE
+  NEXT                        LEFT LAST                              PASSED UNIT            ACTIVATES
+  Mon 2026-11-02 00:00:00 UTC  21h Sun 2026-11-01 00:00:00 UTC 2h 59min ago logrotate.timer logrotate.service
+  
+  1 timers listed.
+  Pass --all to see loaded but inactive timers, too.
+  eve.json 23232981 bytes inode=663679 mtime=2026-11-01 02:58:59.011338116 +0000
+  total 1684576
+  drwxr-xr-x  2 root root        4096 nov  1 00:00 .
+  drwxrwxr-x 11 root syslog      4096 nov  1 00:00 ..
+  -rw-r--r--  1 root root    23232981 nov  1 02:58 eve.json
+  -rw-r--r--  1 root root    84086784 oct  5 18:50 eve.json.1-2026100600.backup
+  -rw-r--r--  1 root root   113516544 oct  9 13:53 eve.json.1-2026101000.backup
+  -rw-r--r--  1 root root   138301440 oct 21 19:07 eve.json.1-2026102200.backup
+  -rw-r--r--  1 root root   926269440 oct 30 15:50 eve.json.1-2026103100.backup
+  -rw-r--r--  1 root root    11908848 nov  1 00:00 eve.json.1.gz
+  -rw-r--r--  1 root root     4250336 oct 30 23:59 eve.json.2.gz
+  -rw-r--r--  1 root root    46753835 oct 28 23:59 eve.json.4.gz
+  -rw-r--r--  1 root root    12749245 oct 28 00:00 eve.json.5.gz
+  -rw-r--r--  1 root root    13778846 oct 27 00:00 eve.json.6.gz
+  -rw-r--r--  1 root root    12622701 oct 26 00:00 eve.json.7.gz
+  -rw-r--r--  1 root root           0 nov  1 00:00 fast.log
+  -rw-r--r--  1 root root           0 oct  5 18:50 fast.log.1-2026100600.backup
+  -rw-r--r--  1 root root           0 oct  9 13:53 fast.log.1-2026101000.backup
+  -rw-r--r--  1 root root           0 oct 21 19:07 fast.log.1-2026102200.backup
+  -rw-r--r--  1 root root           0 oct 30 15:50 fast.log.1-2026103100.backup
+  -rw-r--r--  1 root root          20 oct 31 00:00 fast.log.1.gz
+  -rw-r--r--  1 root root          20 oct 30 15:50 fast.log.2.gz
+  -rw-r--r--  1 root root          20 oct 28 00:00 fast.log.4.gz
+  -rw-r--r--  1 root root          20 oct 27 00:00 fast.log.5.gz
+  -rw-r--r--  1 root root          20 oct 26 00:00 fast.log.6.gz
+  -rw-r--r--  1 root root          20 oct 25 00:00 fast.log.7.gz
+  -rw-r--r--  1 root root    11574390 nov  1 02:58 stats.log
+  -rw-r--r--  1 root root    62914560 oct  5 18:50 stats.log.1-2026100600.backup
+  -rw-r--r--  1 root root    80986112 oct  9 13:53 stats.log.1-2026101000.backup
+  -rw-r--r--  1 root root    79921152 oct 21 19:07 stats.log.1-2026102200.backup
+  -rw-r--r--  1 root root    86529376 oct 30 15:50 stats.log.1-2026103100.backup
+  -rw-r--r--  1 root root     2774915 oct 31 23:59 stats.log.1.gz
+  -rw-r--r--  1 root root      745285 oct 30 23:59 stats.log.2.gz
+  -rw-r--r--  1 root root     3287550 oct 28 23:59 stats.log.4.gz
+  -rw-r--r--  1 root root     2784584 oct 27 23:59 stats.log.5.gz
+  -rw-r--r--  1 root root     2975931 oct 26 23:59 stats.log.6.gz
+  -rw-r--r--  1 root root     2925991 oct 25 23:59 stats.log.7.gz
+  -rw-r--r--  1 root root           0 nov  1 00:00 suricata.log
+  -rw-r--r--  1 root root           0 oct  5 18:50 suricata.log.1-2026100600.backup
+  -rw-r--r--  1 root root           0 oct  9 13:53 suricata.log.1-2026101000.backup
+  -rw-r--r--  1 root root           0 oct 21 19:07 suricata.log.1-2026102200.backup
+  -rw-r--r--  1 root root           0 oct 30 15:50 suricata.log.1-2026103100.backup
+  -rw-r--r--  1 root root          20 oct 31 00:00 suricata.log.1.gz
+  -rw-r--r--  1 root root         794 oct 30 19:55 suricata.log.2.gz
+  -rw-r--r--  1 root root          20 oct 28 00:00 suricata.log.4.gz
+  -rw-r--r--  1 root root         986 oct 27 07:23 suricata.log.5.gz
+  -rw-r--r--  1 root root          20 oct 26 00:00 suricata.log.6.gz
+  -rw-r--r--  1 root root          20 oct 25 00:00 suricata.log.7.gz
+## fin 2026-11-01T02:59:00.334Z

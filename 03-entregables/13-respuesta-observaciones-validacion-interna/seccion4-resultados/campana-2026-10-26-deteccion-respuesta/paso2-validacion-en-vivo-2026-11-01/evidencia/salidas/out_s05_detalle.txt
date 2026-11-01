@@ -1,0 +1,118 @@
+## kali: procesos que coinciden con el patron de carga
+2026-10-29T08:35:10.432Z python3 -u /home/adminatacante/cf-campana-A/scripts/generar_campana.py --config /home/adminatacante/cf-campana-A/escenarios/escenarios.json --salida-dir /home/adminatacante/cf-campana-A-corrida-20261029 --autorizado
+
+c586d813472d5853ae43fe512b5a53d22654699ace10894e43f57b3ddc4b171b  scripts/generar_campana.py
+e762e60421b4721b1e8ce32549049ae10c7e86596b0fbd37f9a35517ab904144  scripts/esquema_campana.py
+67798012cbd306e9c06ebccf5ec293c7d9db12951d93119f739c3f86a83c64ec  escenarios/escenarios.json
+/home/adminatacante/cf-campana-A/escenarios:
+total 16
+drwxrwxr-x 2 adminatacante adminatacante 4096 oct 28 02:28 .
+drwxrwxr-x 4 adminatacante adminatacante 4096 oct 28 02:28 ..
+-rw-rw-r-- 1 adminatacante adminatacante 5103 oct 28 02:28 escenarios.json
+
+/home/adminatacante/cf-campana-A/scripts:
+total 36
+drwxrwxr-x 3 adminatacante adminatacante  4096 oct 28 03:01 .
+drwxrwxr-x 4 adminatacante adminatacante  4096 oct 28 02:28 ..
+-rw-rw-r-- 1 adminatacante adminatacante  8281 oct 28 02:28 esquema_campana.py
+-rw-rw-r-- 1 adminatacante adminatacante 10222 oct 28 02:28 generar_campana.py
+drwxrwxr-x 2 adminatacante adminatacante  4096 oct 28 03:01 __pycache__
+## srv-dmz: nftables (consulta completa)
+rc_tables=0
+rc_ruleset=0 lineas=0
+Matching Defaults entries for adminsrvdmz on srv-dmz:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin, use_pty
+
+User adminsrvdmz may run the following commands on srv-dmz:
+    (ALL : ALL) ALL
+    (ALL) NOPASSWD: ALL
+    (root) NOPASSWD: /usr/local/sbin/cf-nft-mostrar
+/opt/cf-sombra-estado/:
+total 20
+drwxr-xr-x 4 root root 4096 oct 28 07:33 .
+drwxr-xr-x 4 root root 4096 oct 28 07:29 ..
+drwxr-xr-x 2 root root 4096 oct 28 07:29 20261028-072923
+drwxr-xr-x 2 root root 4096 oct 28 07:33 20261028-073340
+-rw-r--r-- 1 root root   16 oct 28 07:33 ultimo
+
+/opt/cf-sombra-estado/20261028-073340:
+total 40
+drwxr-xr-x 2 root root 4096 oct 28 07:33 .
+drwxr-xr-x 4 root root 4096 oct 28 07:33 ..
+-rw-r--r-- 1 root root    7 oct 28 07:33 agent-service.enabled
+-rw-r--r-- 1 root root    7 oct 28 07:33 agent-timer.active
+-rw-r--r-- 1 root root    8 oct 28 07:33 agent-timer.enabled
+-rw------- 1 root root  470 oct 28 07:33 escalada-estado.json
+-rw-r--r-- 1 root root  320 oct 28 07:33 feed-ls.txt
+-rw-r--r-- 1 root root   20 oct 28 07:33 mecanismo
+-rw-r--r-- 1 root root  354 oct 28 07:33 nft-antes.txt
+-rw-r--r-- 1 root root  981 oct 28 07:33 ppi-enforce-agent.service
+ls: cannot access '/var/lib/ppi-enforce': No such file or directory
+Description=CyberFlow - agente de enforcement en el host protegido (verifica feed, aplica nftables)
+# Trae el feed, verifica la firma ed25519 y sincroniza nftables (LIMIT=rate,
+ExecStart=/usr/bin/python3 /home/adminsrvdmz/enforce/agente_enforce.py \
+    --feed /home/adminsrvdmz/enforce/feed.json \
+    --firma /home/adminsrvdmz/enforce/feed.sig \
+## clientes: generador y factor
+-rw-rw-r-- 1 adminclientes adminclientes  8061 sep 27 02:41 clientes_config.py
+-rw-rw-r-- 1 adminclientes adminclientes 15357 sep 27 02:41 clientes_lab.py
+
+.:
+total 36
+drwxrwxr-x 3 adminclientes adminclientes  4096 oct 28 23:17 .
+drwxr-x--- 6 adminclientes adminclientes  4096 sep 24 07:05 ..
+-rw-rw-r-- 1 adminclientes adminclientes  8061 sep 27 02:41 clientes_config.py
+-rw-rw-r-- 1 adminclientes adminclientes 15357 sep 27 02:41 clientes_lab.py
+drwxrwxr-x 2 adminclientes adminclientes  4096 oct 28 23:17 __pycache__
+
+__pycache__:
+total 28
+drwxrwxr-x 2 adminclientes adminclientes  4096 oct 28 23:17 .
+drwxrwxr-x 3 adminclientes adminclientes  4096 oct 28 23:17 ..
+-rw-rw-r-- 1 adminclientes adminclientes 18238 oct 28 23:17 clientes_lab.cpython-312.pyc
+ae5134a778e66d90f5c3fbcd47323e328f3422cf4ba8d5197649f402c1d4cdc3  clientes_lab.py
+17:3. CURVA DIARIA. La intensidad varia con la hora. Sin variacion diaria no se
+45:# acciones en hora punta.
+84:def factor_horario(ahora: datetime.datetime, forzar_laborable: bool = False) -> float:
+85:    """Curva diaria: laborable activo, noche tranquila, fin de semana flojo.
+87:    ``forzar_laborable`` ignora la caida del fin de semana. Es para ENSAYOS, no
+94:    h = ahora.hour + ahora.minute / 60.0
+105:    if ahora.weekday() >= 5 and not forzar_laborable:
+111:    def __init__(self, origen: str, servidor: str, dns: str, ficheros: str | None,
+125:    def _socket(self, destino: str, puerto: int, espera: float = 5.0) -> socket.socket:
+138:            # descriptores a las horas.
+143:    def _http(self, ruta: str, metodo: str = "GET", cuerpo: bytes | None = None,
+170:    def _consulta_dns(self, nombre: str) -> None:
+187:    def web_pequena(self) -> None:
+190:    def web_media(self) -> None:
+193:    def web_grande(self) -> None:
+196:    def https(self) -> None:
+199:    def dns(self) -> None:
+202:    def dns_inexistente(self) -> None:
+206:    def api_ok(self) -> None:
+209:    def api_post(self) -> None:
+213:    def api_auth(self) -> None:
+216:    def api_404(self) -> None:
+219:    def api_500(self) -> None:
+222:    def api_lento(self) -> None:
+225:    def abandono(self) -> None:
+228:    def puerto_cerrado(self) -> None:
+244:    def ping(self) -> None:
+275:def main() -> int:
+278:    p.add_argument("--perfil", choices=sorted(PERFILES))
+279:    p.add_argument("--origen", default="", help="IP de origen: es la identidad de la entidad")
+280:    p.add_argument("--servidor", default="10.10.30.10")
+281:    p.add_argument("--dns", default="10.10.10.20")
+282:    p.add_argument("--ficheros", default=None, help="servidor de ficheros, opcional")
+283:    p.add_argument("--puerto", type=int, default=80)
+284:    p.add_argument("--puerto-https", type=int, default=443)
+285:    p.add_argument("--intensidad", type=float, default=1.0,
+287:    p.add_argument("--forzar-laborable", action="store_true",
+288:                   help="ignora la caida del fin de semana. SOLO PARA ENSAYOS: "
+292:    p.add_argument("--listar-perfiles", action="store_true")
+293:    p.add_argument("--una-vuelta", action="store_true",
+316:        print("AVISO: --forzar-laborable activo. El fin de semana se genera con "
+332:        ahora = datetime.datetime.now()
+333:        factor = (factor_horario(ahora, args.forzar_laborable)
+343:                factor *= 6.0
+358:        time.sleep(random.expovariate(1.0 / max(perfil["ritmo"] / factor, 0.05)))

@@ -1,0 +1,137 @@
+replay: 2 proceso(s)
+{"evento": "eve_indexado", "lineas": 314431, "s": 0.8}
+escrito /home/m4rk/cf-paso2-20261101T0254Z/copias/resultados-sin-inventario.json
+{
+"inundacion_http-rT1": {
+"ini": 1793505059.754273,
+"fin": 1793505149.044071,
+"estado": "completo",
+"rc": 0,
+"intentos": 13968,
+"ini_utc": "03:50:59.754",
+"fin_utc": "03:52:29.044",
+"duracion_s": 89.28979802131653
+},
+"inundacion_http-rT2": {
+"ini": 1793505416.136085,
+"fin": 1793505506.063182,
+"estado": "completo",
+"rc": 0,
+"intentos": 14213,
+"ini_utc": "03:56:56.136",
+"fin_utc": "03:58:26.063",
+"duracion_s": 89.92709708213806
+},
+"inundacion_http-rT3": {
+"ini": 1793505772.070218,
+"fin": 1793505862.037883,
+"estado": "completo",
+"rc": 0,
+"intentos": 14192,
+"ini_utc": "04:02:52.070",
+"fin_utc": "04:04:22.037",
+"duracion_s": 89.96766495704651
+}
+}
+calentamiento   ciclos  23 p50  0.95 p95  1.63 max  6.40 >9.5 0 >10 0 | pend p95 18.0 max 21 1/3 11.1->11.0 | lag dec p50 14.3 p95 34.2 max 174.0 | esc-dec max 0.0014 | orden_ok 323/323 | cpu p95 100 rss 424 memmin 5980 swap 0 pswpout 0 | rxdrop 12550 sur {'capture.kernel_packets': 110169, 'capture.kernel_drops': 250}
+    ventanas {'decisiones': 323, 'no_evaluadas': 0, 'no_evaluadas_motivos': {}, 'entidades': 14} | http {'transacciones_unicas': 4, 'con_respuesta': 4, 'estados': {'200': 2, '401': 2}, 'agente_preparacion': 4} | sin_dec_nuevas 5 | edad pcap max 16.0 eve max 0.8
+normal          ciclos 186 p50  1.16 p95  1.88 max  2.54 >9.5 0 >10 0 | pend p95 22.75 max 26 1/3 13.6->16.4 | lag dec p50 15.0 p95 25.8 max 240.5 | esc-dec max 0.0016 | orden_ok 2322/2322 | cpu p95 34 rss 496 memmin 5503 swap 0 pswpout 0 | rxdrop 26031 sur {'capture.kernel_packets': 1157942, 'capture.kernel_drops': 559}
+    ventanas {'decisiones': 2322, 'no_evaluadas': 0, 'no_evaluadas_motivos': {}, 'entidades': 18} | http {'transacciones_unicas': 0, 'con_respuesta': 0, 'estados': {}, 'agente_preparacion': 0} | sin_dec_nuevas 52 | edad pcap max 16.2 eve max 0.9
+inundacion_T1   ciclos   9 p50  5.15 p95  6.97 max  7.20 >9.5 0 >10 0 | pend p95 23.799999999999997 max 25 1/3 16.7->17.0 | lag dec p50 20.5 p95 30.5 max 106.4 | esc-dec max 0.0018 | orden_ok 126/126 | cpu p95 68 rss 912 memmin 5509 swap 0 pswpout 0 | rxdrop 1286 sur {'capture.kernel_packets': 351881, 'capture.kernel_drops': 0}
+    ventanas {'decisiones': 126, 'no_evaluadas': 0, 'no_evaluadas_motivos': {}, 'entidades': 14} | http {'transacciones_unicas': 26402, 'con_respuesta': 26046, 'estados': {'200': 26046, 'None': 356}, 'agente_preparacion': 0} | sin_dec_nuevas 3 | edad pcap max 14.0 eve max 0.0
+recuperacion_T1 ciclos  23 p50  2.73 p95  4.07 max  7.33 >9.5 0 >10 0 | pend p95 22.799999999999997 max 23 1/3 16.7->16.6 | lag dec p50 16.8 p95 62.6 max 240.1 | esc-dec max 0.0017 | orden_ok 309/309 | cpu p95 72 rss 1015 memmin 4874 swap 0 pswpout 0 | rxdrop 3178 sur {'capture.kernel_packets': 135624, 'capture.kernel_drops': 0}
+    ventanas {'decisiones': 309, 'no_evaluadas': 0, 'no_evaluadas_motivos': {}, 'entidades': 16} | http {'transacciones_unicas': 82, 'con_respuesta': 0, 'estados': {'None': 82}, 'agente_preparacion': 0} | sin_dec_nuevas 7 | edad pcap max 14.3 eve max 0.8
+inundacion_T2   ciclos   9 p50  6.82 p95  7.71 max  7.79 >9.5 0 >10 0 | pend p95 25.0 max 25 1/3 18.3->18.7 | lag dec p50 20.9 p95 30.9 max 226.5 | esc-dec max 0.0016 | orden_ok 123/123 | cpu p95 100 rss 953 memmin 6165 swap 0 pswpout 0 | rxdrop 1206 sur {'capture.kernel_packets': 400384, 'capture.kernel_drops': 91}
+    ventanas {'decisiones': 123, 'no_evaluadas': 0, 'no_evaluadas_motivos': {}, 'entidades': 15} | http {'transacciones_unicas': 27183, 'con_respuesta': 26723, 'estados': {'200': 26723, 'None': 460}, 'agente_preparacion': 0} | sin_dec_nuevas 2 | edad pcap max 13.5 eve max 0.0
+recuperacion_T2 ciclos  23 p50  3.18 p95  4.69 max  6.77 >9.5 0 >10 0 | pend p95 24.0 max 25 1/3 18.7->18.6 | lag dec p50 17.1 p95 28.0 max 239.3 | esc-dec max 0.0016 | orden_ok 302/302 | cpu p95 76 rss 1187 memmin 4678 swap 0 pswpout 0 | rxdrop 3258 sur {'capture.kernel_packets': 168404, 'capture.kernel_drops': 70}
+    ventanas {'decisiones': 302, 'no_evaluadas': 0, 'no_evaluadas_motivos': {}, 'entidades': 14} | http {'transacciones_unicas': 92, 'con_respuesta': 15, 'estados': {'None': 77, '200': 15}, 'agente_preparacion': 0} | sin_dec_nuevas 8 | edad pcap max 14.2 eve max 0.9
+inundacion_T3   ciclos   9 p50  4.41 p95  8.46 max  8.47 >9.5 0 >10 0 | pend p95 27.0 max 27 1/3 19.0->18.7 | lag dec p50 22.7 p95 173.3 max 236.8 | esc-dec max 0.0017 | orden_ok 128/128 | cpu p95 100 rss 1124 memmin 4762 swap 0 pswpout 0 | rxdrop 1270 sur {'capture.kernel_packets': 380846, 'capture.kernel_drops': 0}
+    ventanas {'decisiones': 128, 'no_evaluadas': 0, 'no_evaluadas_motivos': {}, 'entidades': 15} | http {'transacciones_unicas': 26480, 'con_respuesta': 25883, 'estados': {'200': 25883, 'None': 597}, 'agente_preparacion': 0} | sin_dec_nuevas 3 | edad pcap max 13.5 eve max 0.0
+recuperacion_T3 ciclos  23 p50  3.03 p95  7.44 max  9.38 >9.5 0 >10 0 | pend p95 26.0 max 27 1/3 17.4->16.9 | lag dec p50 17.0 p95 86.3 max 234.9 | esc-dec max 0.0017 | orden_ok 321/321 | cpu p95 84 rss 1124 memmin 4078 swap 0 pswpout 0 | rxdrop 3195 sur {'capture.kernel_packets': 164051, 'capture.kernel_drops': 68}
+    ventanas {'decisiones': 321, 'no_evaluadas': 0, 'no_evaluadas_motivos': {}, 'entidades': 15} | http {'transacciones_unicas': 131, 'con_respuesta': 17, 'estados': {'None': 114, '200': 17}, 'agente_preparacion': 0} | sin_dec_nuevas 6 | edad pcap max 14.2 eve max 0.6
+entre_o_cierre  ciclos  81 p50  1.10 p95  1.80 max  2.66 >9.5 0 >10 0 | pend p95 24.0 max 26 1/3 15.1->12.7 | lag dec p50 14.8 p95 25.1 max 236.7 | esc-dec max 0.0019 | orden_ok 995/995 | cpu p95 31 rss 1131 memmin 4054 swap 0 pswpout 0 | rxdrop 11390 sur {'capture.kernel_packets': 3283486, 'capture.kernel_drops': 788}
+    ventanas {'decisiones': 995, 'no_evaluadas': 0, 'no_evaluadas_motivos': {}, 'entidades': 15} | http {'transacciones_unicas': 732, 'con_respuesta': 344, 'estados': {'None': 388, '200': 344}, 'agente_preparacion': 0} | sin_dec_nuevas 22 | edad pcap max 16.1 eve max 0.8
+{'vigente_total': [0, []], 'solo_antes_instalacion_rotado_y_vigente': [0, []], 'solo_despues_instalacion': [0, []], 'rotado_mas_vigente': [0, []], 'registros_rotado': 52688, 'registros_vigente': 12464, 'registros_despues': 4973}
+inundacion_http-rT1 emitidas 17 durante 10 ventanas_durante 10 primera {'window_end': '03:51:00.000', 'logged_at': '03:51:28.414', 'escrito': '03:51:28.415', 'latencia_logged_desde_inicio_s': 28.66038155555725, 'latencia_escrito_desde_inicio_s': 28.66138219833374, 'decision': 'ALERT', 'heuristico': None} derivadas {'IF_0.05': 10, 'IF_0.03': 9, 'IF_0.01': 9, 'HEUR': 9, 'HIB_0.05': 10, 'HIB_0.03': 9, 'HIB_0.01': 9}
+inundacion_http-rT2 emitidas 17 durante 10 ventanas_durante 10 primera {'window_end': '03:57:00.000', 'logged_at': '03:57:30.588', 'escrito': '03:57:30.590', 'latencia_logged_desde_inicio_s': 34.452887535095215, 'latencia_escrito_desde_inicio_s': 34.45392918586731, 'decision': 'ALERT', 'heuristico': {'accion': 'LIMIT', 'heuristico': 'http_abuse', 'motivo': '1152 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)'}} derivadas {'IF_0.05': 10, 'IF_0.03': 10, 'IF_0.01': 10, 'HEUR': 10, 'HIB_0.05': 10, 'HIB_0.03': 10, 'HIB_0.01': 10}
+inundacion_http-rT3 emitidas 15 durante 10 ventanas_durante 10 primera {'window_end': '04:03:00.000', 'logged_at': '04:03:29.280', 'escrito': '04:03:29.281', 'latencia_logged_desde_inicio_s': 37.21028184890747, 'latencia_escrito_desde_inicio_s': 37.211325883865356, 'decision': 'ALERT', 'heuristico': {'accion': 'LIMIT', 'heuristico': 'http_abuse', 'motivo': '2388 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)'}} derivadas {'IF_0.05': 10, 'IF_0.03': 10, 'IF_0.01': 10, 'HEUR': 10, 'HIB_0.05': 10, 'HIB_0.03': 10, 'HIB_0.01': 10}
+{
+"calentamiento": {
+"('10.10.20.22', 'ALERT', None)": 21,
+"('10.10.20.26', 'ALERT', None)": 7,
+"('10.10.20.24', 'ALERT', None)": 15,
+"('10.10.10.20', 'ALERT', None)": 1,
+"('10.10.10.20', 'PERMIT', None)": 10
+},
+"normal": {
+"('10.10.20.22', 'ALERT', None)": 161,
+"('10.10.20.24', 'ALERT', None)": 106,
+"('10.10.20.26', 'ALERT', None)": 41,
+"('10.10.10.20', 'PERMIT', None)": 73,
+"('10.10.20.23', 'ALERT', None)": 8,
+"('10.10.10.20', 'ALERT', None)": 29,
+"('10.10.50.51', 'ALERT', None)": 2,
+"('10.10.50.52', 'ALERT', None)": 3,
+"('10.10.20.21', 'ALERT', None)": 9
+},
+"inundacion_T1": {
+"('10.10.20.22', 'ALERT', None)": 7,
+"('10.10.20.24', 'ALERT', None)": 5
+},
+"recuperacion_T1": {
+"('10.10.10.20', 'ALERT', None)": 4,
+"('10.10.20.22', 'ALERT', None)": 15,
+"('10.10.50.51', 'ALERT', None)": 1,
+"('10.10.50.52', 'ALERT', None)": 1,
+"('10.10.20.21', 'ALERT', None)": 4,
+"('10.10.20.26', 'ALERT', None)": 2,
+"('10.10.10.20', 'PERMIT', None)": 6,
+"('10.10.20.23', 'ALERT', None)": 3,
+"('10.10.20.24', 'ALERT', None)": 8
+},
+"inundacion_T2": {
+"('10.10.10.20', 'PERMIT', None)": 3,
+"('10.10.20.22', 'ALERT', None)": 8,
+"('10.10.20.24', 'ALERT', None)": 7,
+"('10.10.20.26', 'ALERT', None)": 3,
+"('10.10.10.20', 'ALERT', None)": 3,
+"('10.10.10.21', 'ALERT', None)": 1,
+"('10.10.50.51', 'ALERT', None)": 1,
+"('10.10.50.52', 'ALERT', None)": 1
+},
+"recuperacion_T2": {
+"('10.10.10.20', 'ALERT', None)": 5,
+"('10.10.20.22', 'ALERT', None)": 19,
+"('10.10.10.20', 'PERMIT', None)": 8,
+"('10.10.40.10', 'ALERT', None)": 1,
+"('10.10.20.24', 'ALERT', None)": 8,
+"('10.10.20.26', 'ALERT', None)": 9
+},
+"inundacion_T3": {
+"('10.10.20.22', 'ALERT', None)": 9,
+"('10.10.20.24', 'ALERT', None)": 7,
+"('10.10.10.20', 'PERMIT', None)": 4,
+"('10.10.20.26', 'ALERT', None)": 3,
+"('10.10.10.20', 'ALERT', None)": 1
+},
+"recuperacion_T3": {
+"('10.10.10.20', 'PERMIT', None)": 3,
+"('10.10.20.22', 'ALERT', None)": 19,
+"('10.10.20.24', 'ALERT', None)": 13,
+"('10.10.20.23', 'ALERT', None)": 1,
+"('10.10.10.20', 'ALERT', None)": 3,
+"('10.10.20.21', 'ALERT', None)": 3,
+"('10.10.50.51', 'ALERT', None)": 1,
+"('10.10.50.52', 'ALERT', None)": 1,
+"('10.10.20.26', 'ALERT', None)": 2
+},
+"entre_o_cierre": {
+"('10.10.20.22', 'ALERT', None)": 60,
+"('10.10.20.24', 'ALERT', None)": 56,
+"('10.10.10.20', 'ALERT', None)": 13,
+"('10.10.20.26', 'ALERT', None)": 14,
+"('10.10.10.20', 'PERMIT', None)": 18,
+"('10.10.20.21', 'ALERT', None)": 5,
+"('10.10.20.23', 'ALERT', None)": 1
+}
+}

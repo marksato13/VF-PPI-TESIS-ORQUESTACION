@@ -1,0 +1,16 @@
+replay procesos: 2  rc: 
+ultimo ciclo simulado: 03:30:50 {'t': 1793503850.0}
+    67 /home/m4rk/cf-paso2-20261101T0254Z/replay/ciclos-arnes.jsonl
+  1011 /home/m4rk/cf-paso2-20261101T0254Z/replay/motor_decision.log
+  1078 total
+total 352
+drwxr-xr-x 2 root root   4096 2026-10-01_02:48:25 .
+drwxr-xr-x 3 m4rk m4rk   4096 2026-11-01_03:14:00 ..
+-rw-r--r-- 1 root root 199011 2026-10-01_02:48:25 dashboard.cpython-312.pyc
+-rw-r--r-- 1 root root 151404 2026-09-27_23:22:03 dashboard.cpython-314.pyc
+root:root 755 /home/m4rk/cyberflow/scripts/engine/__pycache__
+m4rk:m4rk 755 /home/m4rk/cyberflow/scripts/engine
+User=m4rk
+ReadWritePaths=/home/m4rk/cyberflow/logs
+ProtectSystem=strict
+Mem:            7940        2811         848           1        4562        5129

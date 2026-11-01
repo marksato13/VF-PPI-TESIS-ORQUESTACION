@@ -1,0 +1,6 @@
+## c01 2026-11-01T03:56:38.747Z  kali curl=0 generador=0
+  motor active NR=0 PID=1289322 | captura active | suricata active | archivador: OK: vistos=284 archivados=284, sin fallos  (2026-11-01T03:56
+  normal [03:20, 03:50:59): ciclos=186 dur p50=1.16 max=2.54 >9.5=0 | pendientes p50=14 p95=23 max=26
+  6 ultimos: dur=[1.47, 2.59, 2.3, 1.1, 1.87, 1.42] pend=[23, 13, 13, 18, 11, 16] media=15.7
+  ciclos<9.5=True  pend_media<=p95normal=True  >=230s desde fin anterior=True (251)  => LISTO=True
+  memavail=6212 MB rss=923 MB swapusado=0 MB pswpout=0

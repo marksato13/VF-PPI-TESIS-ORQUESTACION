@@ -1,0 +1,31 @@
+== T1
+  wend     +0  decidido  +28.7  lag  28.4  ALERT  score -0.5842 pc10 359 heur None
+  wend    +10  decidido  +28.7  lag  18.4  ALERT  score -0.6573 pc10 18831 heur {"accion": "LIMIT", "heuristico": "http_abuse", "motivo": "3009 req HTTP/60s (volumen alto, sin patr\u00f3n de fuerza br
+  wend    +20  decidido  +39.3  lag  19.0  ALERT  score -0.6573 pc10 18805 heur {"accion": "LIMIT", "heuristico": "http_abuse", "motivo": "5966 req HTTP/60s (volumen alto, sin patr\u00f3n de fuerza br
+  wend    +30  decidido  +60.1  lag  29.9  ALERT  score -0.6587 pc10 18792 heur {"accion": "LIMIT", "heuristico": "http_abuse", "motivo": "8890 req HTTP/60s (volumen alto, sin patr\u00f3n de fuerza br
+  wend    +40  decidido  +60.1  lag  19.9  ALERT  score -0.6587 pc10 18792 heur {"accion": "LIMIT", "heuristico": "http_abuse", "motivo": "11888 req HTTP/60s (volumen alto, sin patr\u00f3n de fuerza b
+  wend    +50  decidido  +69.8  lag  19.5  ALERT  score -0.6587 pc10 18777 heur {"accion": "LIMIT", "heuristico": "http_abuse", "motivo": "14829 req HTTP/60s (volumen alto, sin patr\u00f3n de fuerza b
+  wend    +60  decidido  +90.7  lag  30.5  ALERT  score -0.6587 pc10 18777 heur {"accion": "LIMIT", "heuristico": "http_abuse", "motivo": "17719 req HTTP/60s (volumen alto, sin patr\u00f3n de fuerza b
+  wend    +70  decidido  +90.7  lag  20.5  ALERT  score -0.6689 pc10 18737 heur {"accion": "LIMIT", "heuristico": "http_abuse", "motivo": "17753 req HTTP/60s (volumen alto, sin patr\u00f3n de fuerza b
+  wend    +80  decidido +100.8  lag  20.6  ALERT  score -0.6689 pc10 18775 heur {"accion": "LIMIT", "heuristico": "http_abuse", "motivo": "17735 req HTTP/60s (volumen alto, sin patr\u00f3n de fuerza b
+  wend    +90  decidido +117.6  lag  27.4  ALERT  score -0.6701 pc10 16984 heur {"accion": "LIMIT", "heuristico": "http_abuse", "motivo": "17513 req HTTP/60s (volumen alto, sin patr\u00f3n de fuerza b
+  wend   +100  decidido +117.6  lag  17.4  PERMIT score nan pc10 0 heur {"accion": "BLOCK", "heuristico": "port_scan", "motivo": "1846 intentos/30s a muchos puertos, 0% completados"}
+  wend   +110  decidido +127.0  lag  16.8  PERMIT score nan pc10 0 heur {"accion": "BLOCK", "heuristico": "port_scan", "motivo": "437 intentos/30s a muchos puertos, 0% completados"}
+  wend   +120  decidido +146.7  lag  26.4  PERMIT score nan pc10 0 heur {"accion": "LIMIT", "heuristico": "http_abuse", "motivo": "8669 req HTTP/60s (volumen alto, sin patr\u00f3n de fuerza br
+  wend   +130  decidido +146.7  lag  16.4  PERMIT score nan pc10 0 heur {"accion": "LIMIT", "heuristico": "http_abuse", "motivo": "5695 req HTTP/60s (volumen alto, sin patr\u00f3n de fuerza br
+  wend   +140  decidido +156.6  lag  16.4  PERMIT score nan pc10 0 heur {"accion": "LIMIT", "heuristico": "http_abuse", "motivo": "2767 req HTTP/60s (volumen alto, sin patr\u00f3n de fuerza br
+  wend   +150  decidido +176.3  lag  26.0  PERMIT score nan pc10 0 heur None
+  wend   +160  decidido +176.3  lag  16.0  PERMIT score nan pc10 0 heur None
+  wend   +170  decidido +366.9  lag 196.6  PERMIT score nan pc10 0 heur None
+== T2
+  wend    -16  decidido  +10.5  lag  26.6  PERMIT score nan pc10 0 heur None
+  wend     -6  decidido  +10.5  lag  16.6  PERMIT score nan pc10 0 heur None
+  wend     +4  decidido  +34.5  lag  30.6  ALERT  score -0.6566 pc10 7212 heur {"accion": "LIMIT", "heuristico": "http_abuse", "motivo": "1152 req HTTP/60s (volumen alto, sin patr\u00f3n de fuerza br
+  wend    +14  decidido  +34.5  lag  20.6  ALERT  score -0.6565 pc10 18803 heur {"accion": "LIMIT", "heuristico": "http_abuse", "motivo": "4152 req HTTP/60s (volumen alto, sin patr\u00f3n de fuerza br
+  wend    +24  decidido  +44.0  lag  20.2  ALERT  score -0.6565 pc10 18936 heur {"accion": "LIMIT", "heuristico": "http_abuse", "motivo": "7228 req HTTP/60s (volumen alto, sin patr\u00f3n de fuerza br
+  wend    +34  decidido  +64.0  lag  30.1  ALERT  score -0.6573 pc10 18965 heur {"accion": "LIMIT", "heuristico": "http_abuse", "motivo": "10216 req HTTP/60s (volumen alto, sin patr\u00f3n de fuerza b
+  wend    +44  decidido  +64.0  lag  20.1  ALERT  score -0.6574 pc10 19060 heur {"accion": "LIMIT", "heuristico": "http_abuse", "motivo": "13272 req HTTP/60s (volumen alto, sin patr\u00f3n de fuerza b
+  wend    +54  decidido  +74.9  lag  21.1  ALERT  score -0.6573 pc10 19032 heur {"accion": "LIMIT", "heuristico": "http_abuse", "motivo": "16366 req HTTP/60s (volumen alto, sin patr\u00f3n de fuerza b
+  wend    +64  decidido  +94.7  lag  30.9  ALERT  score -0.6669 pc10 19073 heur {"accion": "LIMIT", "heuristico": "http_abuse", "motivo": "18273 req HTTP/60s (volumen alto, sin patr\u00f3n de fuerza b
+  wend    +74  decidido  +94.7  lag  20.9  ALERT  score -0.6677 pc10 19034 heur {"accion": "LIMIT", "heuristico": "http_abuse", "motivo": "18266 req HTTP/60s (volumen alto, sin patr\u00f3n de fuerza b
+  wend    +84  decidido +103.9  lag  20.0  ALERT  score -0.6691 pc10 18965 heur {"accion": "LIMIT", "heuristico": "http_abuse", "motivo": "18149 req HTTP/60s (volumen alto, sin patr\u00f3n de fuerza b
