@@ -234,12 +234,116 @@ def test_control_poblacion_y_cotas():
     inv = {"desde": T0 - 100, "hasta": T0 + 1000, "esperadas": esp, "no_evaluadas_en_referencia": {},
            "fuente": "-", "sha256": "-"}
     c = a3.control_3b(vivo, {}, inv, T0, T0 + 90, U, p)
-    check(c["ventanas"] == 19, "población: DNS dentro, excluida fuera (10 + 9)")
-    check(c["IF_0.05"]["falsas_alarmas"] == 2, "señales del DNS cuentan (excepción no borra señales)")
-    check(c["inventario"]["sin_decision"] == 1, "inventario detecta la ventana sin decisión")
-    check(c["IF_0.05"]["cotas_si_faltan"]["max"] == round(3 / 20, 6), "cota superior con la ventana faltante")
+    # 2026-11-01 (corrección 3A-2): la salida separa tramo_cubierto / tramos_sin_inventario; mismas comprobaciones
+    t = c["tramo_cubierto"]
+    check(c["historico_fpr_control"]["ventanas"] == 19 and t["decididas"] == 19,
+          "población: DNS dentro, excluida fuera (10 + 9)")
+    check(t["IF_0.05"]["falsas_alarmas"] == 2, "señales del DNS cuentan (excepción no borra señales)")
+    check(t["sin_decision"] == 1 and t["requeridas"] == 20, "inventario detecta la ventana sin decisión")
+    check(t["IF_0.05"]["cotas_sobre_requeridas"]["max"] == round(3 / 20, 6), "cota superior con la ventana faltante")
+    check(t["IF_0.05"]["cotas_sobre_requeridas"]["min"] == round(2 / 20, 6), "cota inferior sobre las requeridas")
+    check(c["control_dentro_del_inventario"] is True and c["tramos_sin_inventario"] == [], "control cubierto entero")
     check(c["por_entidad"][DNS]["excepcion_respuesta"] is True, "desglose por entidad anota la excepción")
     check("no se adopta" in c["umbral_cobertura"], "sin umbral automático de cobertura")
+
+
+# --------------------------------------------------------------------------------------------- correcciones 3A (2026-11-01)
+def test_regresion_inventario_truncado():
+    """3A-1: inventario que termina en T0+100 no puede dar observación completa con 10 de 15 ventanas."""
+    vivo, inv, dest = escenario(senal_en={T0 + 30})
+    inv["hasta"] = T0 + 100
+    inv["esperadas"] = {k: v for k, v in inv["esperadas"].items() if an.ep_iso(k[1]) <= inv["hasta"]}
+    c = clas(vivo, inv, dest)
+    check(c["ventanas_requeridas"] == 15, "requeridas = 15 anclas aunque el inventario se corte")
+    check(not c["cobertura_inventario"]["cubre"] and len(c["cobertura_inventario"]["fuera_del_inventario"]) == 5,
+          "cobertura parcial identificada (5 anclas fuera)")
+    check(not c["en_poblacion_principal"], "cobertura parcial no habilita la población principal")
+    check(any("no cubre 5/15" in m for m in c["observacion"]["motivos"]), "motivo explícito")
+    check(c["IF_0.05"]["categoria"] == "oportuna", "la señal observada se conserva con observación incompleta")
+    check(c["HEUR"]["categoria"] == "no_evaluable", "sin señal y cobertura parcial: no evaluable, no ausencia")
+    fuera = [v for v in c["ventanas"] if an.ep_iso(v["window_end_utc"]) > T0 + 100]
+    check(all(v["estado"] in ("decidida_a_tiempo", "evidencia_insuficiente") for v in fuera),
+          "ventanas fuera del inventario conservan su identidad")
+
+
+def test_limites_temporales_rejilla():
+    check(a3.anclas_rejilla(T0, T0 + 30) == [T0 + 10, T0 + 20], "ambos extremos abiertos sobre la rejilla")
+    check(a3.anclas_rejilla(T0 + 0.5, T0 + 30.5) == [T0 + 10, T0 + 20, T0 + 30], "extremos fuera de la rejilla")
+    check(len(a3.anclas_rejilla(INI, FIN + 60)) == 15, "episodio sintético: 15 anclas en (inicio, fin+60)")
+    ep_r = dict(EP, inicio_ep=T0, fin_ep=T0 + 90)                       # inicio y fin+60 caen en la rejilla
+    ks, _ = a3.ventanas_esperadas_episodio(ep_r, KALI, None, {})
+    check(an.ep_iso(ks[0][1]) == T0 + 10 and an.ep_iso(ks[-1][1]) == T0 + 140,
+          "window_end = inicio y = fin+60 quedan fuera (intervalo abierto)")
+    for hasta, cubre in ((T0 + 150, True), (T0 + 149.9, False)):
+        vivo, inv, dest = escenario(); inv["hasta"] = hasta
+        check(a3.ventanas_esperadas_episodio(EP, KALI, inv, vivo)[1]["cubre"] is cubre,
+              f"inventario hasta {hasta - T0:+} s: cubre={cubre}")
+    for desde, cubre in ((T0 + 10, True), (T0 + 10.1, False)):
+        vivo, inv, dest = escenario(); inv["desde"] = desde
+        check(a3.ventanas_esperadas_episodio(EP, KALI, inv, vivo)[1]["cubre"] is cubre,
+              f"inventario desde {desde - T0:+} s: cubre={cubre}")
+    vivo, inv, dest = escenario(); inv["hasta"] = T0 + 150
+    check(clas(vivo, inv, dest)["en_poblacion_principal"], "límite exacto en la última ancla: completa")
+
+
+def test_regresion_no_evaluada_en_ambas_versiones():
+    """3A-2: una ventana no evaluada en la referencia y en vivo sigue siendo requerida."""
+    vivo, inv, dest = escenario()
+    k = (KALI, iso(T0 + 60))
+    inv["no_evaluadas_en_referencia"][k] = inv["esperadas"].pop(k)
+    vivo.pop(k)
+    ne = {k: {"_clave": k, "_wend": T0 + 60, "entity_ip": KALI}}
+    c = clas(vivo, inv, dest, ne=ne)
+    check(c["ventanas_requeridas"] == 15, "15 requeridas (no 14)")
+    check(not c["en_poblacion_principal"], "requerida sin decisión: observación incompleta")
+    v = [x for x in c["ventanas"] if x["window_end_utc"] == k[1]][0]
+    check(v["estado"] == "no_evaluada" and v["estado_referencia"] == "no_evaluada", "identidad y estado conservados")
+    r = a3.inventario_resumen(inv, vivo, ne, lambda ip: False)
+    check(r["requeridas"] == 15 and r["decididas_en_vivo"] == 14 and r["cobertura_total"] == round(14 / 15, 6),
+          "resumen global: la no evaluada en la referencia sigue en el denominador")
+    check(r["no_evaluadas_en_referencia"]["no_evaluadas_en_vivo"] == 1, "se distingue no evaluada en ambas")
+    # ausente en ambas: ni la referencia ni el vivo la registran
+    vivo, inv, dest = escenario()
+    inv["esperadas"].pop(k); vivo.pop(k)
+    c = clas(vivo, inv, dest)
+    v = [x for x in c["ventanas"] if x["window_end_utc"] == k[1]][0]
+    check(c["ventanas_requeridas"] == 15 and v["estado"] == "ausente" and v["estado_referencia"] == "sin_registro",
+          "ancla sin registro en ninguna versión: ausente, requerida")
+    check(not c["en_poblacion_principal"], "ausente en ambas: observación incompleta")
+    # no evaluada en la referencia pero decidida en vivo: cuenta como decidida
+    vivo, inv, dest = escenario()
+    inv["no_evaluadas_en_referencia"][k] = inv["esperadas"].pop(k)
+    c = clas(vivo, inv, dest)
+    check(c["en_poblacion_principal"], "no evaluada en la referencia y decidida en vivo: completa")
+
+
+def test_control_parcialmente_cubierto_y_no_evaluadas():
+    p = poblacion.cargar_poblacion({"poblacion": {"excepciones_respuesta": [], "exclusiones_poblacion": []}})
+    vivo, esp, ne_ref, ne_vivo = {}, {}, {}, {}
+    for i in range(10):                                       # window_end T0 .. T0+90
+        w = T0 + 10 * i
+        k = (DNS, iso(w))
+        if i == 3:                                            # no evaluada en la referencia y en vivo
+            ne_ref[k] = {}; ne_vivo[k] = {"_clave": k, "_wend": w, "entity_ip": DNS, "motivo": "x"}
+        else:
+            esp[k] = {}; vivo[k] = reg(w, w + 15, score=-0.70 if i in (1, 8) else -0.40, ip=DNS)
+    inv = {"desde": T0, "hasta": T0 + 50, "esperadas": esp, "no_evaluadas_en_referencia": ne_ref,
+           "fuente": "-", "sha256": "-"}
+    c = a3.control_3b(vivo, ne_vivo, inv, T0, T0 + 90, U, p)
+    t = c["tramo_cubierto"]
+    check(t["intervalo_utc"] == [iso(T0), iso(T0 + 50)], "tramo cubierto explícito")
+    check(t["requeridas"] == 6 and t["decididas"] == 5 and t["sin_decision"] == 1,
+          "la no evaluada en ambas sigue en el denominador del tramo cubierto")
+    check(t["IF_0.05"]["falsas_alarmas"] == 1 and t["IF_0.05"]["cotas_sobre_requeridas"] ==
+          {"min": round(1 / 6, 6), "max": round(2 / 6, 6)}, "cotas sobre las requeridas del tramo")
+    check(len(c["tramos_sin_inventario"]) == 1 and c["tramos_sin_inventario"][0]["intervalo_utc"] ==
+          [iso(T0 + 60), iso(T0 + 90)], "tramo sin inventario separado")
+    s = c["tramos_sin_inventario"][0]
+    check(s["decididas_en_vivo"] == 4 and s["IF_0.05"]["falsas_alarmas"] == 1 and "no determinable" in s["cobertura"],
+          "fuera del inventario: solo lo decidido en vivo, cobertura no determinable")
+    check(c["control_dentro_del_inventario"] is False, "el control no se declara cubierto entero")
+    check(t["decididas"] + s["decididas_en_vivo"] == c["historico_fpr_control"]["ventanas"],
+          "tramos disjuntos que suman lo decidido en el intervalo declarado")
 
 
 # --------------------------------------------------------------------------------------------- extremo a extremo
@@ -289,7 +393,7 @@ def test_cli_extremo_a_extremo():
         check(c["emisiones_reales"]["oportunas"] == 1 and
               c["emisiones_reales"]["latencia_primera_oportuna_s"] == round(T0 + 49 - INI, 2),
               "CLI: latencia por registro_escrito_en del ciclo")
-        check(s["inventario"]["estados"]["ausente"] == 0 and s["inventario"]["esperadas"] == 15,
+        check(s["inventario"]["estados"]["ausente"] == 0 and s["inventario"]["requeridas"] == 15,
               "CLI: inventario")
         check((d / "out" / "TABLA-3B.md").exists(), "CLI: tabla Markdown")
 

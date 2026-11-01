@@ -1,0 +1,20 @@
+## s11 2026-11-01T06:23:48.533Z
+  HEAD del clon: fatal: not a git repository (or any of the parent directories): .git rama: fatal: not a git repository (or any of the parent directories): .git
+  24f8a80 -> fatal: not a git repository (or any of the parent directories): .git  fatal: not a git repository (or any of the parent directories): .git
+  ramas que contienen 24f8a80: fatal: not a git repository (or any of the parent directories): .git 
+  scripts/engine/motor_decision.py sha256=6c274d9e3529e3fb6971ff38d8c6d586780b718b483ce4e2a5e3a1cfbf25692e blob_desplegado=068c025dc867e753d59167b0e73d9df10db00c64 blob_24f8a80= (DISTINTO) ultimo_commit_en_24f8a80= blob_HEAD=
+  scripts/engine/motor_incremental.py sha256=a403307aa5f76d38d199aef2542350f57eaf5843fdb94b44ec0bd20eaa8ff168 blob_desplegado=1197907c0d3f8e1c28001485bb43b1ed5fc12375 blob_24f8a80= (DISTINTO) ultimo_commit_en_24f8a80= blob_HEAD=
+  scripts/engine/heuristicos.py sha256=10deb05d22fa0215e5f5f37bc6f05225cda31b806c67051a6584d878e25ed6a2 blob_desplegado=ec0fe9e870c2f3c98c0cc9140011674df327f1f3 blob_24f8a80= (DISTINTO) ultimo_commit_en_24f8a80= blob_HEAD=
+  scripts/features/extract_multilayer_v2.py sha256=7130edae65afefa2fd82a9314e20194adec684f4b2c3c35c2337880d8e636ccb blob_desplegado=ec46849dc8454976b056622e334cc35b7cc95d26 blob_24f8a80= (DISTINTO) ultimo_commit_en_24f8a80= blob_HEAD=
+  scripts/features/extract_multilayer_v3.py sha256=5adbfbf4845554430a3e8b5a4c00eb1e45c2216cae73532da73d9d3f4898fa7f blob_desplegado=0739e4cda326c640facb5b6d1def1182a1d8b09c blob_24f8a80= (DISTINTO) ultimo_commit_en_24f8a80= blob_HEAD=
+  scripts/engine/publicar_feed.py sha256=f7bc4c7d8e7ac0cd958f3936d55a5782285e59509919d82bf2998fbb70acc03d blob_desplegado=bf2b73f49fbbd48df8931540d2ff475403f12d15 blob_24f8a80= (DISTINTO) ultimo_commit_en_24f8a80= blob_HEAD=
+  scripts/engine/escalada.py sha256=7d80ab4a926457efb37f4c6c9778e53eda67a5840ca255ff4504f333ca638479 blob_desplegado=7bd55de8fbb261e521ebfbe40ad0a9bf04277dfb blob_24f8a80= (DISTINTO) ultimo_commit_en_24f8a80= blob_HEAD=
+  scripts/engine/feed.py sha256=b4d36adb3f29b21693eb0cd964515aed42b3965910379616f1af27441793baba blob_desplegado=fa30b818f03bf389554559312fc3e596314f3750 blob_24f8a80= (DISTINTO) ultimo_commit_en_24f8a80= blob_HEAD=
+sha256sum: scripts/engine/agente_enforce.py: No such file or directory
+  scripts/engine/agente_enforce.py sha256= blob_desplegado= blob_24f8a80= (IGUAL) ultimo_commit_en_24f8a80= blob_HEAD=
+  configs/features/multilayer-v2.json sha256=e032a1a28650d438ae707c93b3045801770b3a069b4395426077af3bbd2b0e33 blob_desplegado=9560ce9e49f569e930dff07f12c3a85a1e7d0a82 blob_24f8a80= (DISTINTO) ultimo_commit_en_24f8a80= blob_HEAD=
+  artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib sha256=df547da098e51171aa267c8466edc6624bc1bd5c6b602639cc00bd4711a2fd60
+  artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json sha256=b3ad680595128189574527208e53058f613822f56f542f914faef6495aa2a9e7
+  git status (resumen): 1 entradas; modificados rastreados:
+    fatal: not a git repository (or any of the parent directories): .git
+## fin

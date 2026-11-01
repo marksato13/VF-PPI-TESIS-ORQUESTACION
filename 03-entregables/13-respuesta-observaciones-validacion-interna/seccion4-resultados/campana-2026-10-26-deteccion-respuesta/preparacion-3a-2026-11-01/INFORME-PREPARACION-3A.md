@@ -13,12 +13,13 @@
 
 ## Conclusión
 
-**El 3B puede ejecutarse en cuanto se cierre un único impedimento:** la comprobación global de logrotate (punto 3).
-Requiere el sudo con contraseña de Mark. El guion ya está en el sensor; lo que falta es su ejecución y su resultado.
+**3A pendiente.** Las correcciones pedidas sobre e0ba9e0 están hechas y probadas (sección 11). Queda un único
+impedimento verificable: la comprobación global de logrotate (sección 3), que requiere el sudo con contraseña de Mark.
+El guion v2 ya está en el sensor; falta su ejecución y su registro.
 
 | # | Impedimento | Quién | Cómo se cierra |
 |---|---|---|---|
-| 1 | `sudo logrotate -d /etc/logrotate.conf`: falta el rc y la salida completa | Mark | Ejecutar `mark/04_logrotate_global.sh` (sección 3). Si rc = 0 y no hay líneas de error, queda cerrado. |
+| 1 | `sudo logrotate -d /etc/logrotate.conf`: no hay rc ni salida completa (a las 06:45Z no existe ningún `mark-04-logrotate-global-*.log` en el sensor) | Mark | Ejecutar `mark/04_logrotate_global.sh` v2 (sección 3). Se cierra **solo** si el registro dice `rc_logrotate=0` y `lineas_error=0` (código de salida 0). |
 
 **Condiciones, que no son impedimentos y están en el protocolo:**
 
@@ -110,13 +111,23 @@ El primer intento (`b10`) no llegó a enviar peticiones por un fallo al leer std
 
 - `sudo -n logrotate -d` da rc = 1 sin contraseña: no está en las reglas NOPASSWD del sensor.
 - El guion `mark/04_logrotate_global.sh` es de solo lectura: `-d` es el modo depuración y no rota nada.
-- Guarda el rc, la salida completa y las líneas de error en `~/cf-paso3a-20261101T0523Z/mark/mark-04-logrotate-global.log`.
+- **v1 (e0ba9e0) tenía un defecto:** terminaba con `tail`, así que su código de salida era el de `tail` y no el de
+  logrotate. Se conserva como `mark/04_logrotate_global.v1.sh` (af99e727…) y no debe usarse.
+- **v2 (sha256 5481d99b…, en el sensor desde las 06:28Z):**
+  - guarda la salida completa en `mark/mark-04-logrotate-global-<UTC>.salida` y el registro en `…-<UTC>.log`, con marca de tiempo y sin sobrescribir ejecuciones anteriores;
+  - el registro incluye el sha256 de `/etc/logrotate.conf` y de cada fichero de `/etc/logrotate.d/`, el rc real de `sudo logrotate -d` (`rc_logrotate`), las líneas `error:` y las `warning:`;
+  - código de salida del guion, que `ssh` propaga: **0** = rc 0 y ninguna línea de error; **1** = rc ≠ 0 o hay errores; **2** = no se pudo ejecutar (sudo rechazado o logrotate ausente);
+  - los warnings se informan, pero no cierran ni bloquean por sí solos;
+  - probado en local con `sudo` y `logrotate` simulados: los cuatro casos (rc 0 limpio, rc 0 con `error:`, rc 1, sudo rechazado) dan 0/1/1/2.
 
-`[BASTIÓN gadmin]` → lo ejecuta Mark (sudo con contraseña):
+`[BASTIÓN gadmin]` → lo ejecuta Mark (sudo con contraseña; `sudo -n logrotate` no está permitido sin ella):
 
 ```
-ssh -t sensor1 'bash ~/cf-paso3a-20261101T0523Z/mark/04_logrotate_global.sh'
+ssh -t sensor1 'bash ~/cf-paso3a-20261101T0523Z/mark/04_logrotate_global.sh'; echo "rc_ssh=$?"
 ```
+
+**Criterio de cierre:** `rc_ssh=0` y, en el registro, `## rc_logrotate=0`, `## lineas_error=0` y
+`## RESULTADO: OK`. Cualquier otro resultado deja el 3A pendiente.
 
 ## 4. Excepciones de respuesta frente a exclusiones de población
 
@@ -248,7 +259,7 @@ documentado y autorizado. Nada se restablece en silencio.
 
 ## 10. Pruebas
 
-`tests/test_analizar_3b.py`: **57 comprobaciones OK**, con datos sintéticos. Cubren:
+`tests/test_analizar_3b.py`: **90 comprobaciones OK** tras la corrección (eran 57 en e0ba9e0; sección 11), con datos sintéticos. Cubren:
 
 - detección:
   - señal oportuna y posterior;
@@ -278,6 +289,50 @@ Además, `test_herramientas.py` (222 OK) y `regresion_alfa.py` (0 diferencias) s
 - el control es idéntico al histórico;
 - **la Tabla 8 publicada no se sustituye.**
 
+## 11. Corrección del 3A sobre e0ba9e0 (2026-11-01, 06:00–06:50Z)
+
+Sin ejecutar ataques, controles ni episodios; sin tocar el motor, el modelo, el escalador, las características, los
+heurísticos, los escenarios ni sus parámetros; sin recalibrar. Se conservan los 3 α y las 7 configuraciones. Todo
+sigue en sombra.
+
+| # | Problema en e0ba9e0 | Corrección | Prueba | Resultado |
+|---|---|---|---|---|
+| 1 | `ventanas_esperadas_episodio()` tomaba las ventanas **del inventario** y solo comprobaba `fin + 60 ≤ hasta + 60`: un inventario truncado devolvía menos ventanas y el episodio salía con observación completa. Reproducido: un inventario cortado dejaba 10 de 15 ventanas y se aceptaba como completo. | Las ventanas del episodio son **todas** las anclas de la rejilla de 10 s en (inicio, fin + 60), abierto en ambos extremos, con independencia de lo que haya en el inventario. Se exige que el rango del inventario las contenga todas; si no, motivo «el inventario no cubre X/N ventanas requeridas» y salida `cobertura_inventario`. | `test_regresion_inventario_truncado`; `test_limites_temporales_rejilla` (hasta = T0+150 cubre y T0+149,9 no; desde = T0+10 cubre y T0+10,1 no; inicio y fin + 60 sobre la rejilla quedan fuera) | OK; con el analizador de e0ba9e0 estas pruebas fallan |
+| 2 | Una ventana `ventana_no_evaluada` en la **referencia** se quitaba de las esperadas: si tampoco se evaluaba en vivo, desaparecía del denominador. Reproducido: 14 de 15 ventanas y observación completa. | Requeridas = claves con decisión **o** no evaluadas en la referencia. Por ventana se informa `estado_referencia` (decision / no_evaluada / sin_registro / sin_inventario) junto al estado en vivo (decidida / no evaluada / ausente). El resumen global da `requeridas`, `decididas_en_vivo`, `cobertura_total` y el desglose de las no evaluadas en la referencia; `solo_en_vivo` queda fuera del denominador. El **control** separa el tramo cubierto por el inventario (requeridas, cotas sobre ellas) de los tramos sin inventario (cobertura «no determinable») y dice si está parcialmente cubierto. | `test_regresion_no_evaluada_en_ambas_versiones` (también ausente en ambas; no evaluada en la referencia pero decidida en vivo = completa); `test_control_parcialmente_cubierto_y_no_evaluadas` | OK; fallan con e0ba9e0 |
+| 3 | El cierre del archivo no estaba definido: sin mínimo tras el último episodio, sin marcas de los extremos y sin requisito para el inicio del control. | Protocolo, sección 3 bis, y `config → protocolo_3b.cierre_archivo`: cierre ≥ `fin_ultimo + 60 + 120 = fin_ultimo + 180 s`, prolongado hasta verificar cinco condiciones (PCAP `OK` que cubra, sin `FALLO`, EVE posterior, decisiones en vivo hasta `fin_ultimo + 60`, replay con rc = 0 que cubra). Marcas `inicio_archivo`, `fin_ultimo` y `cierre_archivo` con su fuente. Control: `desde ≥ inicio_archivo + 230`. Los 90 + 120 s entre episodios no son un cierre. | Aplicado a la evidencia del paso 2: inicio 02:44:54Z; control 03:23:50Z ≥ 02:48:44Z; fin último 04:04:22Z; cierre 04:18:31Z, 669 s por encima del mínimo; `archivar.log` sin fallos (374/374) | Cumple |
+| 4 | `config-campana-3b.json` describía en `codigo` el motor por lotes de la primera A y mantenía la precondición de enforcement activo; el estado operativo del 3B era ambiguo. | Versión `3b-2026-11-01.2`: `codigo` = motor incremental `24f8a80` con blob y sha256 de cada fichero desplegado, y las dos excepciones as-deployed (`publicar_feed.py`, `escalada.py` de `f57ca00`/6d92ff3); lo anterior pasa a `codigo_historico_primera_A` y `campanas.historico_primera_A`, marcado HISTÓRICO. Nuevo `estado_operativo_3b`: sombra durante, verificación previa, escalada sin restablecer, se termina en sombra y la activación de la respuesta pertenece a la preparación del B. Protocolo, secciones 1, 3 y 8, unificado. | Guion s11 en el sensor (blobs desplegados) + s11b en local (comparación con 24f8a80, f57ca00 y 6d92ff3) | 6 ficheros iguales a 24f8a80; el esquema, igual salvo CRLF; publicador y escalada, de f57ca00 = 6d92ff3 |
+| 5 | `mark/04` v1 devolvía el rc de `tail`, no el de logrotate, y sobrescribía su registro. | v2 (sección 3): rc real, registro con marca de tiempo, criterio rc = 0 y ninguna línea `error:`. | Prueba local con sudo y logrotate simulados (4 casos) | Guion OK; **ejecución pendiente de Mark** |
+| 6 | — | Re-análisis del paso 2 y de la primera A con el analizador corregido, en carpetas nuevas (`reanalisis-paso2/analisis-corregido/`, `reanalisis-campana-A-2026-10-29/corregido/`), sin sobrescribir los anteriores. | 90 comprobaciones en `test_analizar_3b.py` (eran 57; dos aserciones anteriores se adaptaron a las claves renombradas, con la misma semántica); 222 en `test_herramientas.py`; `regresion_alfa.py` con 0 diferencias | OK |
+
+**Re-análisis del paso 2 con el analizador corregido** (`reanalisis-paso2/analisis-corregido/`; mismas entradas que
+`analisis/`: motor.log f344dfa0…, replay.log e43f2ce2…, rango 03:20:00–04:18:15Z, control 03:23:50–03:50:50Z):
+
+| Medida | Antes (`analisis/`) | Ahora (`analisis-corregido/`) |
+|---|---|---|
+| **Cobertura:** ventanas por episodio | 15 «esperadas» (del inventario) | 15 **requeridas** (rejilla); el inventario cubre las 15 en los tres episodios |
+| Inventario global | 4058 esperadas / 4058 decididas | 4058 requeridas / 4058 decididas; 0 no evaluadas en la referencia; 0 solo en vivo |
+| Puntualidad | 3942 a tiempo / 116 tardías | igual |
+| Control | 2043 ventanas, cobertura 1,0 | tramo cubierto = todo el control (2043 requeridas, 2043 decididas, cotas mín = máx); 0 tramos sin inventario; mismas falsas alarmas en las 7 configuraciones |
+| **Calidad de fuentes** | T1 completa; T2 y T3 degradadas (91 y 68 descartes) | igual: **no** se convierten en completas |
+| Integridad | desconocida en los tres | igual |
+| Población principal | 0 de 3 | 0 de 3 (motivos: T1 integridad; T2 y T3 fuente e integridad) |
+| **Oportunidad** | 7/7 configuraciones `oportuna` en los tres; 6 emisiones oportunas a 28,66 / 34,45 / 37,21 s | igual |
+
+**Por qué no cambian los números.** En el paso 2 el inventario cubría de sobra los tres episodios (el último terminó a
+las 04:04:22 y el inventario llega a 04:16:15) y no había ninguna ventana no evaluada en la referencia. Los dos
+defectos solo se manifiestan con un inventario truncado o con no evaluadas en la referencia, que es justo lo que
+cubren las pruebas nuevas. Las diferencias son de estructura: `ventanas_requeridas`, `cobertura_inventario` y
+`estado_referencia` por ventana, y el control con `tramo_cubierto`, `tramos_sin_inventario` y
+`historico_fpr_control`.
+
+**Re-análisis de la primera A** (`reanalisis-campana-A-2026-10-29/corregido/`): igual población (25/25
+`no_evaluable`) y misma tabla principal. Cambia la presentación: cada episodio lleva el motivo «sin inventario» y
+el control 08:01–08:35 se presenta como **tramo sin inventario, cobertura no determinable** (2526 decididas en vivo,
+mismas falsas alarmas), en vez de una cobertura 1,0 que solo se refería a las ventanas registradas.
+
+**Analizador en el sensor:** `~/cf-paso3a-20261101T0523Z/herramientas3b/analizar_3b.py` = 27e67fd1… (compila con
+python3); la versión de e0ba9e0 queda como `analizar_3b.e0ba9e0.py` (bdd44729…).
+
 ## Contenido de esta carpeta
 
 | Ruta | Qué es |
@@ -286,10 +341,10 @@ Además, `test_herramientas.py` (222 OK) y `regresion_alfa.py` (0 diferencias) s
 | `config-campana-3b.json` | Configuración del 3B |
 | `REFERENCIAS-Y-HASHES.md` | Commits y sha256 congelados |
 | `plan-sin-trafico/` | Simulación del generador en la Kali |
-| `reanalisis-paso2/` | Destinos 3b, calidad de fuentes y análisis 3B de la evidencia del paso 2 |
-| `reanalisis-campana-A-2026-10-29/` | Re-análisis de la primera A |
+| `reanalisis-paso2/` | Destinos 3b, calidad de fuentes y análisis 3B de la evidencia del paso 2 (`analisis/` con e0ba9e0; `analisis-corregido/` con la corrección) |
+| `reanalisis-campana-A-2026-10-29/` | Re-análisis de la primera A (raíz con e0ba9e0; `corregido/` con la corrección) |
 | `evidencia/sensor/` | Estado inicial, preparación de auth, escalada y guion `mark/04` |
-| `evidencia/guiones/` | Guiones ejecutados (s01–s10, b10, b11, 04, lanzadores) |
+| `evidencia/guiones/` | Guiones ejecutados (s01–s11, s11b, b10, b11, `04` v2 y `04.v1`, lanzadores; `correccion-3a/` con los scripts que aplicaron la corrección) |
 | `evidencia/salidas/` | Sus salidas |
 | `MANIFIESTO.sha256` | sha256 de todo lo anterior |
 

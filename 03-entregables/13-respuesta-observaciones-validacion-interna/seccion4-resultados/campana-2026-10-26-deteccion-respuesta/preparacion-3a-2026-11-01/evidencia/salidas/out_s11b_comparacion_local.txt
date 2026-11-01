@@ -1,0 +1,14 @@
+## s11b 2026-11-01T06:32:59.871Z clon=producto-as-deployed
+  24f8a80 -> 24f8a80e376d89b78454fd16854d2239a1b7d278 2026-10-31 15:39:46 -0500 Setup: logrotate tambien rota _state/ciclos.jsonl del motor
+  f57ca00 -> f57ca00771030296f0d83d60d8a39b4aad1f5a94 2026-10-29 12:26:17 -0500 Snapshot as-deployed del Sensor1 2026-10-29: motor 7b275b8 y ficheros tal como estan desplegados
+  6d92ff3 -> 6d92ff3ed7c3573d5def6cb276904501eb5d646a tags: validacion-interna-2026-10-15 
+  scripts/engine/motor_decision.py desplegado=068c025dc867e753d59167b0e73d9df10db00c64 24f8a80=068c025dc867e753d59167b0e73d9df10db00c64 f57ca00=cebba977f5d8a5cec810db29fa0d8393c371b79f 6d92ff3=c918f3796183afc518477e1f10358af85a1b7cb9 -> IGUAL_24f8a80
+  scripts/engine/motor_incremental.py desplegado=1197907c0d3f8e1c28001485bb43b1ed5fc12375 24f8a80=1197907c0d3f8e1c28001485bb43b1ed5fc12375 f57ca00=f57ca00:scripts/engine/motor_incremental.py 6d92ff3=6d92ff3:scripts/engine/motor_incremental.py -> IGUAL_24f8a80
+  scripts/engine/heuristicos.py desplegado=ec0fe9e870c2f3c98c0cc9140011674df327f1f3 24f8a80=ec0fe9e870c2f3c98c0cc9140011674df327f1f3 f57ca00=ec0fe9e870c2f3c98c0cc9140011674df327f1f3 6d92ff3=ec0fe9e870c2f3c98c0cc9140011674df327f1f3 -> IGUAL_24f8a80+IGUAL_6d92ff3
+  scripts/features/extract_multilayer_v2.py desplegado=ec46849dc8454976b056622e334cc35b7cc95d26 24f8a80=ec46849dc8454976b056622e334cc35b7cc95d26 f57ca00=ec46849dc8454976b056622e334cc35b7cc95d26 6d92ff3=ec46849dc8454976b056622e334cc35b7cc95d26 -> IGUAL_24f8a80+IGUAL_6d92ff3
+  scripts/features/extract_multilayer_v3.py desplegado=0739e4cda326c640facb5b6d1def1182a1d8b09c 24f8a80=0739e4cda326c640facb5b6d1def1182a1d8b09c f57ca00=0739e4cda326c640facb5b6d1def1182a1d8b09c 6d92ff3=0739e4cda326c640facb5b6d1def1182a1d8b09c -> IGUAL_24f8a80+IGUAL_6d92ff3
+  scripts/engine/publicar_feed.py desplegado=bf2b73f49fbbd48df8931540d2ff475403f12d15 24f8a80=f73db5af8e2949f88ba2bbf23651af7ab3bf7d3a f57ca00=bf2b73f49fbbd48df8931540d2ff475403f12d15 6d92ff3=bf2b73f49fbbd48df8931540d2ff475403f12d15 -> IGUAL_f57ca00+IGUAL_6d92ff3
+  scripts/engine/escalada.py desplegado=7bd55de8fbb261e521ebfbe40ad0a9bf04277dfb 24f8a80=8f260bd0874b56809123f0f0ade9c234cb9b6014 f57ca00=7bd55de8fbb261e521ebfbe40ad0a9bf04277dfb 6d92ff3=7bd55de8fbb261e521ebfbe40ad0a9bf04277dfb -> IGUAL_f57ca00+IGUAL_6d92ff3
+  scripts/engine/feed.py desplegado=fa30b818f03bf389554559312fc3e596314f3750 24f8a80=fa30b818f03bf389554559312fc3e596314f3750 f57ca00=fa30b818f03bf389554559312fc3e596314f3750 6d92ff3=fa30b818f03bf389554559312fc3e596314f3750 -> IGUAL_24f8a80+IGUAL_6d92ff3
+  configs/features/multilayer-v2.json desplegado=9560ce9e49f569e930dff07f12c3a85a1e7d0a82 24f8a80=20a89b8176b689cd3b31668c5c75a0fbdb4b39ca f57ca00=20a89b8176b689cd3b31668c5c75a0fbdb4b39ca 6d92ff3=20a89b8176b689cd3b31668c5c75a0fbdb4b39ca -> IGUAL_24f8a80_con_CRLF (blob LF 20a89b8176b689cd3b31668c5c75a0fbdb4b39ca)
+## fin
