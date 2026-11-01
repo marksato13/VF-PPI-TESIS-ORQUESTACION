@@ -1,14 +1,14 @@
-# Etapa 1 · Objetivos y criterios de la candidata (versión 2)
+# Etapa 1 · Objetivos y criterios de la candidata (versión 3)
 
 **Fecha:** 1-nov-2026.
 
-**Corrige** la entrega `2482a40`. Los cambios están en [CAMBIOS-RESPECTO-2482a40.md](CAMBIOS-RESPECTO-2482a40.md).
+**Consolida** la entrega `c1de49d` (versión 2, que corregía `2482a40`). Los cambios están en [CAMBIOS-RESPECTO-c1de49d.md](CAMBIOS-RESPECTO-c1de49d.md) y [CAMBIOS-RESPECTO-2482a40.md](CAMBIOS-RESPECTO-2482a40.md).
 
 **Decisiones:** véase la [matriz única D1–D8](DECISIONES.md).
 
 **Alcance:** solo criterios, diseño de la evaluación, simulador offline y documentación. No se modificó el producto desplegado ni ningún servicio, modelo, umbral o regla. No hubo controles, ataques ni campañas, y el agente sigue inactivo.
 
-> **Estado del protocolo de evaluación: NO CONGELADO.** Quedan pendientes esenciales D1, D3 y D6 ([DECISIONES.md](DECISIONES.md)).
+> **Estado del protocolo de evaluación: NO CONGELADO.** D1 tiene resuelto el punto de aplicación (DC1), pero faltan sus comprobaciones técnicas. D3 está adoptada pero sin implementar en la candidata. Los valores de LIMIT de D6 están pendientes de confirmar ([DECISIONES.md](DECISIONES.md)).
 
 ---
 
@@ -96,6 +96,19 @@ Las cinco condiciones se evalúan **por separado** y se publican todas. El episo
 | E4 | **Tráfico legítimo de control funcionando** | 0 fallos de transacciones de control atribuibles a una restricción en [t_inicio − 60 s, t_fin_eval + 90 s] | se registra (línea base) | se evalúa |
 | E5 | **Caducidad o retirada verificada** | La restricción caduca o se retira y se verifica que el set no contiene al origen antes del siguiente episodio ([D5](DECISIONES.md)) | **no aplica** | se evalúa |
 
+**E1 separa tres resultados** ([D3](DECISIONES.md)), que se publican por separado:
+
+1. **anomalía del IF** a cada α (0,05, 0,03 y 0,01): ventana atribuible con ALERT del IF. El IF no clasifica familias y no se le exige `port_scan`;
+2. **identificación por el heurístico previsto**: es la condición E1 de respuesta;
+3. **decisión y aplicación de la respuesta**: E2 y E3.
+
+La anomalía del IF cuenta como **detección del IF** en la comparación de detectores (campaña A), pero no sustituye al heurístico previsto en E1 ni produce respuesta con `if_senal`.
+
+**Punto de aplicación por escenario:**
+
+- srv-dmz (10.10.30.10) para HTTP y los escaneos;
+- **DC1 (10.10.10.20)** para el DNS ([D1](D1-VIABILIDAD-DC1.md)). En DC1, E2 y E3 se refieren solo al puerto 53 del origen.
+
 **Resultados posibles por episodio:**
 
 - **cumple**;
@@ -169,12 +182,12 @@ El hueco de más de 20 s entre escrituras del motor es **solo informativo**. La 
 
 ### 6.1 Clases por descartes (corregidas)
 
-**El IF depende también del EVE.** De sus 28 características (`configs/features/multilayer-v2.json`), **12 son L7 del EVE**:
+**El IF depende también del EVE.** Contrato verificado ([CONTRATO-CARACTERISTICAS.md](CONTRATO-CARACTERISTICAS.md)): de sus **28** características, **9 son L3 y 8 son L4** (las 17 del PCAP), y **11 son L7 del EVE**:
 
-- `http_error_ratio_60s`, `dns_nxdomain_ratio_60s`, `tls_session_rate_60s`;
-- `http_request_rate_60s`, `http_method_entropy_60s`, `http_auth_failure_ratio_60s`;
-- `dns_query_rate_60s`, `unique_dns_name_ratio_60s`;
-- `tls_handshake_failure_ratio_60s`, `tls_version_ratio_60s`, `http_status_5xx_ratio_60s`.
+- `http_error_ratio_60s`, `dns_nxdomain_ratio_60s`, `tls_session_rate_60s` (orden 12–14);
+- `http_request_rate_60s`, `http_method_entropy_60s`, `http_auth_failure_ratio_60s`, `dns_query_rate_60s`, `unique_dns_name_ratio_60s`, `tls_handshake_failure_ratio_60s`, `tls_version_ratio_60s`, `http_status_5xx_ratio_60s` (orden 21–28).
+
+La versión 2 decía «12 L7»: era un error de conteo y la lista ya tenía 11 nombres. Corregirlo no cambia las entradas del modelo.
 
 Los descartes de Suricata pueden alterar las entradas del IF, además de las de los heurísticos L7.
 
@@ -193,7 +206,9 @@ Los descartes de Suricata pueden alterar las entradas del IF, además de las de 
 
 ### 6.2 Igualdad de score frente a igualdad de características
 
-El 3B comparó score, decisión y `packet_count_10s`, pero las 28 características no se registran. Cualquier cambio de extracción de las Etapas 2 y 3 debe comparar **las 28 características** en la prueba offline.
+El 3B comparó score, decisión y `packet_count_10s`, pero las 28 características no se registran. Cualquier cambio de **captura o extracción** de las Etapas 2 y 3 debe comparar **las 28 entradas del IF** en la prueba offline, **en las mismas ventanas y con los mismos datos disponibles**. Una diferencia solo es admisible si se explica por datos que antes no estaban disponibles y se documenta.
+
+Esto **no** se aplica a las **señales heurísticas nuevas** (por ejemplo, la regla temprana de escaneo): son una mejora deliberada, y se les exige corrección y ausencia de regresiones, no identidad con las señales antiguas. Las 3 características L2 del esquema ampliado **no** se incorporan al IF.
 
 ---
 

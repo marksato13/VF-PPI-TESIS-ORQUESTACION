@@ -1,14 +1,28 @@
-# Referencias consultadas (Etapa 1, 1-nov-2026; versión 2)
+# Referencias consultadas (Etapa 1, 1-nov-2026; versión 3)
 
-## HEAD consultado al empezar la corrección (versión 2)
+## HEAD consultado al empezar la consolidación (versión 3)
 
 | Repositorio | Rama | HEAD |
 |---|---|---|
-| Documentación (`VF-PPI-TESIS-ORQUESTACION`) | `main` | `2482a4024c730564574c6cc819b0afd02a2a66f7`, la entrega que se corrige |
-| Código (`VF-Sistema-Open-Source-…`) | `main` | `7b275b8bab1c8343e55f40a103ee980dc497620b` (sin cambios desde la versión 1) |
+| Documentación (`VF-PPI-TESIS-ORQUESTACION`) | `main` | `c1de49d474dc86a36ce20e852ad04cced9897ad9`, la entrega que se consolida |
+| Código (`VF-Sistema-Open-Source-…`) | `main` | `7b275b8bab1c8343e55f40a103ee980dc497620b` (sin cambios) |
 | Código | `candidato/motor-rendimiento-20261031` | `24f8a80e376d89b78454fd16854d2239a1b7d278` (sin cambios; es el motor desplegado) |
 
-En la versión 2 se consultó además `configs/features/multilayer-v2.json` (en `24f8a80`): 28 características, **12 de ellas L7 del EVE**, y `configs/cyberflow.local.toml` (`esquema = "configs/features/multilayer-v2.json"`).
+**Ficheros de la versión 3** (todos de `24f8a80`, salvo los que se indican):
+
+- `configs/features/multilayer-v2.json` (28) y `multilayer-v3.json` (31);
+- `scripts/features/extract_multilayer_v2.py` (`FEATURE_NAMES`, `METADATA_COLUMNS`);
+- `scripts/engine/motor_decision.py` (líneas 374–379, comprobación esquema = extractor);
+- `deploy/enforcement/relay-feed.sh`, `ppi-enforce-agent.service` y `scripts/engine/feed.py` (firma ed25519 con openssl).
+
+**Lecturas en vivo de solo lectura, 1-nov-2026, sin cambios:**
+
+- **sensor** (`m4rk`): `cyberflow.local.toml`, manifiesto del modelo, sha256 y `n_features_in_` del joblib. Detalle en `contrato/sensor-lectura-modelo.txt`.
+- **DC1** (`dcadmin`, cuenta de lectura documentada en `infra-2026-10-27/README-EVIDENCIA-INFRA.md`): sistema, Samba, DNS, nftables y dependencias. Detalle en `d1-dc1/`.
+- **Desde el bastión:** LDAP rootDSE anónimo de DC1 y DC2, y banner SSH.
+- `/etc/resolv.conf` de la Kali.
+
+La corrección de la versión 2 se hizo sobre `2482a40` con los mismos HEAD de código.
 
 ## Repositorios y commits
 
@@ -16,7 +30,8 @@ En la versión 2 se consultó además `configs/features/multilayer-v2.json` (en 
 
 | Commit | Contenido | Uso en esta etapa |
 |---|---|---|
-| `2482a40` | Etapa 1, versión 1 | entrega corregida por esta versión (se conserva en Git) |
+| `c1de49d` | Etapa 1, versión 2 | entrega consolidada por esta versión (se conserva en Git) |
+| `2482a40` | Etapa 1, versión 1 | entrega corregida por la versión 2 (se conserva en Git) |
 | `f16b673` (origin/main al empezar la versión 1) | Revisión 3B: integridad v2, recálculo v2 y diagnósticos | población v2 (15/25), demora A–D, análisis revisado |
 | `191b043` | Criterios v2, escritos antes del reanálisis | cadena de calidad de evidencia (sin cambios) |
 | `67fc1f5`, `b714492` | Paso 3B: ejecución y evidencia byte a byte | marcas, `motor_decision.log.gz`, `ciclos.jsonl`, `control-declarado.json`, feed y estado finales, relojes |

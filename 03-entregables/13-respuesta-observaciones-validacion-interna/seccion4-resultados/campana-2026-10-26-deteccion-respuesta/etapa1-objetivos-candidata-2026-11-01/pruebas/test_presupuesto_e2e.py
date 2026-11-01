@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Comprobaciones offline de presupuesto_e2e.py v2 (solo lectura). Uso: python -I -B pruebas/test_presupuesto_e2e.py
+"""Comprobaciones offline de presupuesto_e2e.py v3 y contrato_caracteristicas.py (solo lectura). Uso: python -I -B pruebas/test_presupuesto_e2e.py
 
 Validación contra la realidad (bloque 3). El publicador SÍ corrió en sombra durante el 3B y dejó su feed final
 (feed.json, generado 10:36:30,40 UTC) y su estado de escalada (estado.json). Se comparan EXACTAMENTE estos campos:
@@ -131,6 +131,60 @@ def main() -> int:
     sr3 = next(e for e in ep if e["episodio"] == "escaneo_sostenido-r3")
     ok(sr3["primera_prevista"]["V0"]["clase"] == "deteccion_posterior",
        "escaneo_sostenido-r3: port_scan llega tras el fin aunque otra señal (IF) llegó antes")
+
+    # 6. D3: tres resultados separados (IF / heurístico previsto / respuesta if_senal)
+    tres = {x["episodio"]: x for x in res["tres_resultados_d3"]}
+    ok(len(tres) == 25 and all(set(x["1_anomalia_if"]) == {"desplegado", "IF_0.05", "IF_0.03", "IF_0.01"}
+                               for x in tres.values()), "D3: los 25 episodios con la anomalía del IF a los 4 umbrales")
+    ifs = res["politicas"]["if_senal|desplegado"]
+    ok(all(not (e[k] and e[k]["motivo"].startswith("modelo:")) for e in ifs["episodios"]
+           for k in ("primera_cualquiera", "primera_LIMIT", "primera_BLOCK")),
+       "if_senal: ninguna respuesta procede de un ALERT aislado del IF (motivo 'modelo:')")
+    ok(not any(k.startswith("LIMIT_modelo") for v in ifs["control"]["senales_por_entidad"].values() for k in v),
+       "if_senal en el control: ningún veredicto 'modelo:' convertido en LIMIT")
+
+    def t_if(x, u):
+        a = x["1_anomalia_if"][u]
+        return float("inf") if a is None else a["t_det_menos_inicio_s"]
+    ok(all(t_if(x, "IF_0.05") <= t_if(x, "IF_0.03") <= t_if(x, "IF_0.01") for x in tres.values()),
+       "un α menor (umbral más estricto) nunca adelanta la primera anomalía del IF")
+    s3 = tres["escaneo_sostenido-r3"]
+    ok(s3["1_anomalia_if"]["desplegado"]["disponible_antes_del_fin"] and
+       not s3["2_heuristico_previsto"]["disponible_antes_del_fin"] and
+       not s3["3_respuesta_if_senal"]["es_regla_prevista"],
+       "sostenido-r3: la anomalía del IF cuenta antes del fin sin exigirle port_scan; heurístico y respuesta aparte")
+    ok(all(tres["dns_inusual-r%d" % i]["1_anomalia_if"]["desplegado"] is None for i in (2, 3, 4)),
+       "dns_inusual r2-r4: sin ALERT del IF; solo el heurístico dns_entropy")
+    ok(all(x["punto_de_aplicacion"].startswith("DC1") == (x["escenario"] == "dns_inusual") for x in tres.values()),
+       "punto de aplicación: DC1 solo en el escenario DNS (D1), srv-dmz en los demás")
+    ep_s = [{"episodio": "e", "escenario": "x", "t_inicio": 0.0, "t_fin_eval": 100.0}]
+    k_s = [{"window_end_utc": "w1", "decision": "ALERT", "score": -0.70, "detector_name": "if"},
+           {"window_end_utc": "w0", "decision": "NORMAL", "score": -0.60, "detector_name": "if"}]
+    at_s = {"e": {"w0": {"atribucion": "atribuible", "disponible_utc": "1970-01-01T00:00:10+00:00"},
+                  "w1": {"atribucion": "atribuible", "disponible_utc": "1970-01-01T00:00:20+00:00"}}}
+    ok(p.primera_alerta_if(ep_s, k_s, at_s, -0.55)["e"]["t_det_menos_inicio_s"] == 10.0 and
+       p.primera_alerta_if(ep_s, k_s, at_s, -0.65)["e"]["t_det_menos_inicio_s"] == 20.0 and
+       p.primera_alerta_if(ep_s, k_s, at_s, -0.80)["e"] is None and
+       p.primera_alerta_if(ep_s, k_s, at_s, None)["e"]["t_det_menos_inicio_s"] == 20.0,
+       "primera_alerta_if: score con cada umbral; con el desplegado, la decisión registrada")
+
+    # 7. Contrato de características (28 del IF; 31 en el esquema ampliado)
+    import contrato_caracteristicas as cc
+    C = AQUI / "contrato"
+    lee = lambda n: json.loads((C / n).read_text(encoding="utf-8"))  # noqa: E731
+    src = (C / "extract_multilayer_v2.py").read_text(encoding="utf-8")
+    rc = cc.comprobar(lee("multilayer-v2.json"), lee("multilayer-v3.json"), lee("manifest-if-limpio-2026-10.json"), src)
+    ok(rc["todo_ok"] and rc["por_capa"] == {"L3": 9, "L4": 8, "L7": 11} and rc["por_fuente"] == {"eve": 11, "pcap": 17},
+       "contrato: 28 = L3 9 + L4 8 + L7 11; 11 de EVE y 17 de PCAP; manifiesto, esquema y extractor en el mismo orden")
+    ok([x["nombre"] for x in rc["ampliado_solo"]] == ["arp_request_rate_10s", "unique_src_mac_30s",
+                                                       "mac_ip_binding_changes_60s"],
+       "esquema ampliado: 31 = las 28 + 3 de L2 que el IF actual no usa")
+    ok("dns_query_count_60s" in rc["metadatos_del_extractor_no_entradas"],
+       "los contadores auxiliares (p. ej. dns_query_count_60s) son metadatos, no entradas del modelo")
+    malo = lee("multilayer-v2.json")
+    malo["features"][11]["layer"] = "L4"
+    ok(not cc.comprobar(malo, lee("multilayer-v3.json"), lee("manifest-if-limpio-2026-10.json"), src)["todo_ok"],
+       "contrato: una capa alterada se detecta (la comprobación no es tautológica)")
     print("\n%d fallos" % len(FALLOS))
     return 1 if FALLOS else 0
 

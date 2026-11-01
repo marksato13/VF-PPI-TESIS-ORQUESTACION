@@ -1,42 +1,66 @@
-# Etapa 1 de 5 · Objetivos y criterios de la candidata (versión 2, 1-nov-2026)
+# Etapa 1 de 5 · Objetivos y criterios de la candidata (versión 3, 1-nov-2026)
 
-**Versión 2:** corrige y consolida la versión 1 (`2482a40`). Los cambios están en [CAMBIOS-RESPECTO-2482a40.md](CAMBIOS-RESPECTO-2482a40.md).
+**Versión 3:** consolida las decisiones sobre la versión 2 (`c1de49d`), que corregía la versión 1 (`2482a40`). Cambios en [CAMBIOS-RESPECTO-c1de49d.md](CAMBIOS-RESPECTO-c1de49d.md) y [CAMBIOS-RESPECTO-2482a40.md](CAMBIOS-RESPECTO-2482a40.md).
 
-**Qué se hizo:** solo criterios, el diseño de la evaluación, el simulador offline y la documentación.
+**Qué se hizo:**
+
+- criterios y diseño de la evaluación;
+- simulador offline y documentación;
+- verificación del contrato de características;
+- estudio de viabilidad de la respuesta DNS en DC1, con consultas de **solo lectura**.
 
 **Qué no se hizo:**
 
-- no se modificó el producto desplegado, ningún servicio ni el modelo, los umbrales o las reglas;
+- no se modificó el producto desplegado, ningún servicio ni el modelo, el escalador, los umbrales, las reglas o el vector de entrada;
+- no se instaló ningún agente;
 - no hubo controles, ataques ni campañas;
-- el agente sigue **inactivo**;
-- no se editó el Word ni se sobrescribió ninguna evidencia histórica.
+- no se activó ninguna restricción;
+- no se editó el Word ni se sobrescribió evidencia histórica.
 
-> **El protocolo de evaluación NO está congelado.** Quedan pendientes esenciales: **D1** (punto de aplicación DNS en DC1: cambio de alcance), **D3** (política del IF) y **D6** (cifras del presupuesto de falsas alarmas). Detalle en la [matriz única de decisiones](DECISIONES.md).
+> **El protocolo de evaluación NO está congelado.** Antes de congelar faltan:
+>
+> - **D1:** las comprobaciones técnicas en DC1 (el punto de aplicación ya está resuelto);
+> - **D3:** implementar `if_senal` en la rama candidata (la política ya está adoptada);
+> - **D6:** confirmar los valores de LIMIT;
+> - confirmar D5, D7 y D8.
+>
+> Nada está listo para desplegar. Detalle en la [matriz D1–D8](DECISIONES.md).
 
-## Diseño adoptado
+## Decisiones y estado
 
-- **25 episodios por campaña, 5 por escenario** ([D4](DECISIONES.md), decidida por el usuario): una campaña A (sombra) y una campaña B (respuesta), cada una con 25 episodios nuevos de la candidata congelada.
-- **Meta de desarrollo:** detección y respuesta oportunas en los 25 episodios. Es una meta que se comprueba, no una garantía.
-- Se publican todos los fallos, exclusiones y resultados tardíos.
+| Id | Estado |
+|---|---|
+| D1 | Punto de aplicación **DC1 resuelto**. DC1 es **Samba 4.22.10 sobre Debian 13**, no Windows: se recomienda **nftables en DC1** limitado a UDP/TCP 53 y al origen. Compatibilidad concreta pendiente; despliegue no autorizado. |
+| D2 | **Decidida:** detectar y actuar durante el escaneo breve, sin prolongarlo |
+| D3 | **Adoptada `if_senal`**: el IF señala y no restringe por sí solo; α 0,05 / 0,03 / 0,01 conservados |
+| D4 | **Decidida:** 25 episodios por campaña, 5 por escenario |
+| D5 | Recomendada: limpieza verificada solo del origen de ensayo, en srv-dmz y DC1 |
+| D6 | P1 = 0 BLOCK y P4 = 0 transacciones fallidas: **aceptados**. P2 (≤ 1 intervalo por 8 h) y P3 (≤ 1 % del tiempo): **propuesta pendiente** |
+| D7 | Recomendada: instrumentar no es activar |
+| D8 | Recomendada: `t_fin_eval = min(ref, observado)`; corte por respuesta ≠ fin natural |
+
+**Contrato del IF:** 28 características = L3 9 + L4 8 + L7 11 (17 PCAP + 11 EVE). El esquema ampliado tiene 31 (+3 L2), que el IF no usa. [CONTRATO-CARACTERISTICAS.md](CONTRATO-CARACTERISTICAS.md).
 
 ## Contenido
 
 | Fichero | Qué contiene |
 |---|---|
-| [DECISIONES.md](DECISIONES.md) | **Matriz única D1–D8**: estado, recomendación, fundamento, consecuencias y etapa; comparación de puntos de aplicación DNS; comparación de políticas del IF |
-| [OBJETIVOS-Y-CRITERIOS.md](OBJETIVOS-Y-CRITERIOS.md) | Objetivo; poblaciones y unidades; campañas A y B; marcas y métricas; **cumplimiento por episodio E1–E5**; diseño de 25; fallos del experimento y del detector; calidad de la evidencia (C0–C3 corregidas) |
-| [MATRIZ-ESCENARIOS.md](MATRIZ-ESCENARIOS.md) | Los 5 escenarios × elementos; regla prevista; errores de atribución del 3B |
-| [PRESUPUESTO-TEMPORAL.md](PRESUPUESTO-TEMPORAL.md) | Tramos con su clase (M/C/S/D); modelo de la cadena con consumidor perdido; escenarios favorable y alto; escaneo breve por tramos |
-| [PRESUPUESTO-FALSAS-ALARMAS.md](PRESUPUESTO-FALSAS-ALARMAS.md) | M1–M4; control 3B por política × α (restricciones hipotéticas, con renovaciones); propuesta P1–P5 |
-| [DISENO-VALIDACION.md](DISENO-VALIDACION.md) | Recorrido de 6 pasos; trabajo offline de la Etapa 2 que puede empezar ya; dependencias |
-| [REFERENCIAS.md](REFERENCIAS.md) | HEAD y commits consultados; versiones desplegadas frente a las del repo; cadencias |
-| [CAMBIOS-RESPECTO-2482a40.md](CAMBIOS-RESPECTO-2482a40.md) | Observación → corrección → evidencia |
-| `herramientas/presupuesto_e2e.py` | Simulador v2 (solo lectura) con el código desplegado extraído literalmente |
-| `herramientas/tablas_e2e.py` | Genera `resultados/TABLAS-E2E.md` |
-| `pruebas/test_presupuesto_e2e.py` | 31 comprobaciones offline, 0 fallos; el docstring enumera los campos comparados con el feed y el estado reales |
-| `codigo-desplegado/` | publicador f7bc4c7d, escalada 7d80ab4a y agente 2985c123 (sin cambios) |
-| `resultados/` | `presupuesto-e2e.json`, `TABLAS-E2E.md`, `presupuesto-e2e.stdout` (regenerados) |
-| `MANIFIESTO.sha256` | sha256 de todos los ficheros (`sha256sum -c MANIFIESTO.sha256`) |
+| [DECISIONES.md](DECISIONES.md) | Matriz única D1–D8 en tres planos (alcance o diseño / compatibilidad pendiente / autorización futura); política D3 consolidada |
+| [D1-VIABILIDAD-DC1.md](D1-VIABILIDAD-DC1.md) | Informe de viabilidad de la respuesta DNS en DC1, con evidencia y referencias oficiales |
+| [CONTRATO-CARACTERISTICAS.md](CONTRATO-CARACTERISTICAS.md) | Contrato 28/31 y comprobación reproducible |
+| [OBJETIVOS-Y-CRITERIOS.md](OBJETIVOS-Y-CRITERIOS.md) | Objetivo; poblaciones y unidades; marcas; E1–E5 (E1 con tres resultados); diseño de 25; fallos; calidad de la evidencia |
+| [MATRIZ-ESCENARIOS.md](MATRIZ-ESCENARIOS.md) | Los 5 escenarios; regla prevista; punto de aplicación (DNS en DC1) |
+| [PRESUPUESTO-TEMPORAL.md](PRESUPUESTO-TEMPORAL.md) | Tramos y clases; cadena con consumidor perdido; escaneo breve por tramos |
+| [PRESUPUESTO-FALSAS-ALARMAS.md](PRESUPUESTO-FALSAS-ALARMAS.md) | M1–M4; control 3B por política y α; presupuesto D6 y cómo se medirá |
+| [DISENO-VALIDACION.md](DISENO-VALIDACION.md) | Recorrido de 6 pasos; **trabajo offline de la Etapa 2 en orden** |
+| [REFERENCIAS.md](REFERENCIAS.md) | HEAD, commits y lecturas en vivo |
+| `herramientas/presupuesto_e2e.py` v3 · `tablas_e2e.py` v3 · `contrato_caracteristicas.py` | Simulador, tablas y contrato (solo lectura) |
+| `pruebas/test_presupuesto_e2e.py` | 43 comprobaciones offline, 0 fallos |
+| `contrato/` | esquemas v2 y v3, extractor y manifiesto desplegado; lectura del sensor |
+| `d1-dc1/` | scripts y salida de las lecturas de DC1 y del bastión |
+| `codigo-desplegado/` | publicador, escalada y agente desplegados (sin cambios) |
+| `resultados/` | `presupuesto-e2e.json`, `TABLAS-E2E.md`, `presupuesto-e2e.stdout`, `contrato-caracteristicas.json` |
+| `MANIFIESTO.sha256` | sha256 de todos los ficheros |
 
 ## Reproducir (solo lectura)
 
@@ -50,32 +74,35 @@ python -I -B herramientas/presupuesto_e2e.py --marcas "$X/bastion/kali/corrida/m
   --control "$X/sensor/control-declarado.json" --publicador codigo-desplegado/publicar_feed.py \
   --escalada codigo-desplegado/escalada.py --salida resultados/presupuesto-e2e.json
 python -I -B herramientas/tablas_e2e.py
+python -I -B herramientas/contrato_caracteristicas.py --esquema contrato/multilayer-v2.json \
+  --ampliado contrato/multilayer-v3.json --manifiesto contrato/manifest-if-limpio-2026-10.json \
+  --extractor contrato/extract_multilayer_v2.py --salida resultados/contrato-caracteristicas.json
 python -I -B pruebas/test_presupuesto_e2e.py
 sha256sum -c MANIFIESTO.sha256
 ```
 
-## Explicación sencilla
+## Poblaciones (no se mezclan)
 
-1. **Qué debe demostrar la candidata.** En cada uno de los 25 episodios de la campaña B:
-   - que detecta el ataque con la regla correcta mientras dura;
-   - que la restricción se aplica de verdad en el servidor antes del fin;
-   - que corta o limita el ataque mientras el atacante sigue intentándolo;
-   - que no perjudica a los usuarios legítimos;
-   - que la restricción se retira bien.
+| Población | n | Uso |
+|---|---|---|
+| 3B original | 25 ejecutados | histórico |
+| Revisión del 3B | 15 admitidos | histórico |
+| Control normal del 3B | 22 entidades, 33 min, con restricciones **hipotéticas** simuladas | desarrollo |
+| Futura campaña A (sombra, detección) | 25 nuevos | prueba |
+| Futura campaña B (respuesta) | 25 nuevos | prueba |
 
-   En la campaña A (sombra) se compara la detección de los detectores con el ataque completo. Con 5 episodios por escenario se describe lo que pasa y su incertidumbre; no se promete una tasa.
-2. **Qué lo impide hoy.**
-   - **Escaneo breve:** la regla tiene evidencia en ventanas que cierran después del fin, y la captura y la cadena añaden 15–28 s. Hacen falta las dos mejoras a la vez.
-   - **DNS:** no hay dónde aplicar la respuesta; la recomendación es actuar en DC1.
-   - **Tráfico legítimo:** si el IF restringe por sí solo, afecta a entre 3 y 9 clientes legítimos en 33 min (hipotético). Si solo señala, a uno, por un heurístico que hay que corregir.
-   - **Errores de atribución:** `brute_force` durante escaneos, `port_scan` en la inundación y `dns_entropy` sobre el resolvedor.
-   - **Calidad de la evidencia:** los descartes de Suricata, que también afectan al IF.
-   - **Medición:** faltan registros de aplicación y contadores.
-3. **Decisiones pendientes esenciales:** D1 (agente en DC1), D3 (que el IF solo señale) y D6 (cifras del presupuesto de falsas alarmas). D5, D7 y D8 tienen recomendación; D2 y D4 están decididas.
-4. **Siguiente trabajo de la Etapa 2** (offline, sin desplegar; detalle en [DISENO-VALIDACION.md](DISENO-VALIDACION.md)):
-   - diagnosticar los descartes de Suricata;
-   - prototipo de captura incremental con ciclo por eventos, comparando las 28 características;
-   - cadena por eventos e instrumentación en la rama candidata;
-   - medir el escaneo breve por tramos con el prototipo;
-   - empezar la regla temprana de escaneo, la atribución DNS al cliente y la separación del abuso HTTP, con regresiones;
-   - escribir el procedimiento de limpieza D5 y ensayarlo en seco.
+Las simulaciones no son aplicaciones reales: `t_apl` real y `t_efecto` valen «no aplica», y las demoras desconocidas (activación nft y efecto) no se suman como cero.
+
+## Siguiente trabajo (Etapa 2, offline, en orden)
+
+1. Diagnosticar los descartes de Suricata.
+2. Prototipo de captura más rápida y evaluación por eventos (mismas 28 entradas en las mismas ventanas).
+3. Instrumentar la publicación, la distribución y la aplicación (srv-dmz y DC1).
+4. Presupuesto completo del escaneo breve (depende de 2 y 3).
+5. Regresiones de atribución DNS al cliente y de separación HTTP/escaneo.
+6. Limpieza D5 ensayada en seco.
+7. D1: ensayo de las reglas nft de DC1 fuera de DC1.
+8. D1: agente de DC1 en la rama candidata (depende de 7).
+9. D3: `if_senal` en el publicador candidato.
+
+Detalle en [DISENO-VALIDACION.md](DISENO-VALIDACION.md).

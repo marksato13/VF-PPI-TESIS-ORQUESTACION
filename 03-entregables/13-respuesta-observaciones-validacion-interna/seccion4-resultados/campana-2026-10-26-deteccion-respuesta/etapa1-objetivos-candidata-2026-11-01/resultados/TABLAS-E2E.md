@@ -1,4 +1,4 @@
-# Tablas del presupuesto temporal (v2; generadas por herramientas/tablas_e2e.py)
+# Tablas del presupuesto temporal (v3; generadas por herramientas/tablas_e2e.py)
 
 > **Simulación sobre registros de sombra del 3B.** No es una campaña de respuesta: no modela cómo una restricción habría cambiado el ataque ni las decisiones posteriores. `t_apl_estimada` es una estimación bajo supuestos (escenarios *favorable* = p50/mínimos medidos con offsets desconocidos supuestos 0; *alto* = máximos históricos + cotas configuradas). **No son intervalos de confianza ni límites garantizados.** t_apl real y t_efecto: no aplica. «*» = bajo supuestos; además deben caber las demoras desconocidas (activación nft, efecto). «det. posterior» = t_det MEDIDO después del fin: no depende de supuestos.
 
@@ -134,3 +134,45 @@ Detalle por entidad (restricción hipotética; fracción del control):
 | inundacion_http-r5 | sí | 3587,9 | 3 |
 | escaneo_breve-r2 | sí | 3547,9 | 3 |
 | escaneo_sostenido-r1 | sí | 3540,0 | 3 |
+
+## 5. D3: tres resultados separados por episodio (política if_senal)
+
+> 1) **Anomalía del IF**: primera ventana atribuible con ALERT del IF a cada umbral; el IF no clasifica familias y no se le exige producir `port_scan`. 2) **Heurístico previsto** (la regla del escenario). 3) **Respuesta** con `if_senal`: primera acción (solo heurísticos) y su clase V0 bajo supuestos. `!` = disponible después del fin; `—` = sin señal. En DNS no hay agente: el punto de aplicación propuesto es DC1 (D1). Simulación en sombra: no es aplicación real.
+
+| Episodio | A | 1. IF desplegado | 1. IF α 0,05 | 1. IF α 0,03 | 1. IF α 0,01 | 2. Heurístico previsto | 3. Respuesta if_senal | 3. ¿Regla prevista? | 3. V0 |
+|---|---|---|---|---|---|---|---|---|---|
+| dns_inusual-r1 | sí | 17,2 | 17,2 | 17,2 | 17,2 | 17,2 | LIMIT · dns_entropy (17,2) | sí | antes* |
+| dns_inusual-r2 | sí | — | — | — | — | 25,9 | LIMIT · dns_entropy (25,9) | sí | antes* |
+| dns_inusual-r3 | no | — | — | — | — | 20,2 | LIMIT · dns_entropy (20,2) | sí | antes* |
+| dns_inusual-r4 | sí | — | — | — | — | 23,9 | LIMIT · dns_entropy (23,9) | sí | antes* |
+| dns_inusual-r5 | no | 21,9 | 21,9 | 21,9 | 21,9 | 21,9 | LIMIT · dns_entropy (21,9) | sí | antes* |
+| escaneo_breve-r1 | sí | 16,4 | 16,4 | 16,4 | 36,4 ! | 36,4 ! | BLOCK · brute_force (16,4) | **no** | **después*** |
+| escaneo_breve-r2 | sí | 26,2 ! | 26,2 ! | 26,2 ! | 26,2 ! | 26,2 ! | BLOCK · port_scan (26,2) | sí | **det. posterior** |
+| escaneo_breve-r3 | sí | 41,0 ! | 41,0 ! | 41,0 ! | — | 30,7 ! | BLOCK · port_scan (30,7) | sí | **det. posterior** |
+| escaneo_breve-r4 | no | 28,8 ! | 28,8 ! | 28,8 ! | — | 28,8 ! | BLOCK · port_scan (28,8) | sí | **det. posterior** |
+| escaneo_breve-r5 | sí | 39,5 ! | 39,5 ! | 39,5 ! | — | 39,5 ! | BLOCK · port_scan (39,5) | sí | **det. posterior** |
+| escaneo_sostenido-r1 | no | 39,6 | 39,6 | 39,6 | 39,6 | 39,6 | BLOCK · port_scan (39,6) | sí | antes* |
+| escaneo_sostenido-r2 | sí | 26,6 | 26,6 | 26,6 | 26,6 | 26,6 | BLOCK · port_scan (26,6) | sí | antes* |
+| escaneo_sostenido-r3 | sí | 22,0 | 22,0 | 22,0 | 22,0 | 74,3 ! | BLOCK · brute_force (22,0) | **no** | antes* |
+| escaneo_sostenido-r4 | sí | 22,0 | 22,0 | 42,8 | 42,8 | 22,0 | BLOCK · port_scan (22,0) | sí | antes* |
+| escaneo_sostenido-r5 | sí | 35,6 | 35,6 | 35,6 | 35,6 | 35,6 | BLOCK · port_scan (35,6) | sí | antes* |
+| fuerza_bruta_http-r1 | sí | 25,1 | 25,1 | 25,1 | 25,1 | 25,1 | BLOCK · brute_force (25,1) | sí | antes* |
+| fuerza_bruta_http-r2 | no | 18,8 | 18,8 | 18,8 | 18,8 | 18,8 | BLOCK · brute_force (18,8) | sí | antes* |
+| fuerza_bruta_http-r3 | no | 23,6 | 23,6 | 23,6 | 23,6 | 23,6 | BLOCK · brute_force (23,6) | sí | antes* |
+| fuerza_bruta_http-r4 | sí | 18,4 | 18,4 | 18,4 | 18,4 | 18,4 | BLOCK · brute_force (18,4) | sí | antes* |
+| fuerza_bruta_http-r5 | sí | 23,7 | 23,7 | 23,7 | 23,7 | 23,7 | BLOCK · brute_force (23,7) | sí | antes* |
+| inundacion_http-r1 | no | 24,9 | 24,9 | 24,9 | 24,9 | 24,9 | LIMIT · http_abuse (24,9) | sí | antes* |
+| inundacion_http-r2 | no | 25,4 | 25,4 | 25,4 | 25,4 | 25,4 | LIMIT · http_abuse (25,4) | sí | antes* |
+| inundacion_http-r3 | no | 25,4 | 25,4 | 25,4 | 25,4 | 25,4 | LIMIT · http_abuse (25,4) | sí | antes* |
+| inundacion_http-r4 | no | 24,2 | 24,2 | 24,2 | 24,2 | 24,2 | LIMIT · http_abuse (24,2) | sí | antes* |
+| inundacion_http-r5 | sí | 29,3 | 29,3 | 29,3 | 29,3 | 29,3 | LIMIT · http_abuse (29,3) | sí | antes* |
+
+**Resumen por escenario** (episodios con el resultado disponible antes del fin; respuesta: regla prevista y aplicación estimada antes del fin bajo supuestos):
+
+| Escenario | n | 1. IF desplegado / 0,05 / 0,03 / 0,01 | 2. Heurístico previsto | 3. Respuesta prevista antes* | Señal solo del IF, sin respuesta |
+|---|---|---|---|---|---|
+| dns_inusual | 5 | 2 / 2 / 2 / 2 | 5 | 5 | 0 |
+| escaneo_breve | 5 | 1 / 1 / 1 / 0 | 0 | 0 | 0 |
+| escaneo_sostenido | 5 | 5 / 5 / 5 / 5 | 4 | 4 | 0 |
+| fuerza_bruta_http | 5 | 5 / 5 / 5 / 5 | 5 | 5 | 0 |
+| inundacion_http | 5 | 5 / 5 / 5 / 5 | 5 | 5 | 0 |

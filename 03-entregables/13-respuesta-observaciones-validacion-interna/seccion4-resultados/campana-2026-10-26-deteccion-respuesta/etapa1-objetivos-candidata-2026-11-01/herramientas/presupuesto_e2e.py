@@ -352,6 +352,31 @@ def evaluar_episodios(eps, kali, atrib_por_ep, ciclos, vfun) -> list[dict]:
     return out
 
 
+def primera_alerta_if(eps, kali, atrib_por_ep, umbral) -> dict:
+    """Resultado 1 (D3): primera ventana atribuible con ALERT del IF al umbral dado, sin política ni regla.
+
+    El IF no clasifica familias: aquí solo cuenta que la anomalía del origen sea atribuible al episodio."""
+    out = {}
+    for ep in eps:
+        atrib = atrib_por_ep[ep["episodio"]]
+        mejor = None
+        for d in kali:
+            w = atrib.get(d["window_end_utc"])
+            if not w or w.get("atribucion") != "atribuible" or not alerta_if(d, umbral):
+                continue
+            disp = ts(w["disponible_utc"])
+            if mejor is None or disp < mejor[0]:
+                mejor = (disp, d)
+        if mejor is None:
+            out[ep["episodio"]] = None
+        else:
+            td, d = mejor
+            out[ep["episodio"]] = {"window_end_utc": d["window_end_utc"],
+                                   "t_det_menos_inicio_s": round(td - ep["t_inicio"], 2),
+                                   "disponible_antes_del_fin": td + P["reloj_incertidumbre_s"] < ep["t_fin_eval"]}
+    return out
+
+
 def resumir(evs: list[dict], eps_meta: dict) -> dict:
     resumen = {}
     for esc in sorted({x["escenario"] for x in evs}):
@@ -506,7 +531,29 @@ def main() -> int:
                 "politica": pol, "umbral_if": un_nombre,
                 "resumen_por_escenario": resumir(evs, meta),
                 "control": evaluar_control(dec, en_ctl, claves_ctl, c0, c1, vfun, escalada, sev, nunca),
-                "episodios": evs if (pol == "actual" and un_nombre == "desplegado") else None}
+                "episodios": evs if (un_nombre == "desplegado" and pol in ("actual", "if_senal")) else None}
+
+    # D3: tres resultados separados por episodio (IF / heurístico previsto / respuesta con if_senal)
+    det_if = {un_nombre: primera_alerta_if(eps, kali, atrib_por_ep, un) for un_nombre, un in umbrales.items()}
+    resp = {e["episodio"]: e for e in politicas["if_senal|desplegado"]["episodios"]}
+    tres = []
+    for ep in eps:
+        e = ep["episodio"]
+        pv = resp[e]["primera_prevista"]
+        rc = resp[e]["primera_cualquiera"]
+        tres.append({
+            "episodio": e, "escenario": ep["escenario"], "admitido_v2": meta[e]["admitido_v2"],
+            "1_anomalia_if": {k: v[e] for k, v in det_if.items()},
+            "2_heuristico_previsto": None if pv is None else {
+                "regla": REGLA_PREVISTA.get(ep["escenario"]), "t_det_menos_inicio_s": pv["t_det_menos_inicio_s"],
+                "disponible_antes_del_fin": pv["deteccion_disponible_antes_del_fin"]},
+            "3_respuesta_if_senal": None if rc is None else {
+                "accion": rc["accion"], "motivo": rc["motivo"], "t_det_menos_inicio_s": rc["t_det_menos_inicio_s"],
+                "V0_t_apl_estimada_menos_inicio_s": rc["V0"]["t_apl_estimada_menos_inicio_s"],
+                "V0_clase": rc["V0"]["clase"], "es_regla_prevista": pv is not None and
+                rc["window_end_utc"] == pv["window_end_utc"] and rc["accion"] == pv["accion"]},
+            "punto_de_aplicacion": ("DC1 10.10.10.20 (D1: propuesto, sin agente)" if ep["escenario"] == "dns_inusual"
+                                    else "srv-dmz 10.10.30.10 (agente inactivo)")})
 
     # Secuencial con la política actual (riesgo de contaminación bajo supuestos)
     cad_s = Cadena(escalada, verdicto, sev, nunca)
@@ -522,7 +569,7 @@ def main() -> int:
                               "limit_hipotetico_vigente_al_inicio": vl > t0 and vb <= t0,
                               "nivel_escalada_previo": max((x["nivel"] for x in prev), default=0)})
 
-    out = {"herramienta": "presupuesto_e2e.py v2", "solo_lectura": True,
+    out = {"herramienta": "presupuesto_e2e.py v3", "solo_lectura": True,
            "advertencia": ("Simulación sobre tráfico registrado en sombra. No es una campaña de respuesta: no "
                            "modela cómo una restricción habría cambiado ataques, decisiones ni tráfico legítimo. "
                            "Los tiempos de aplicación son estimaciones bajo supuestos; t_apl real y t_efecto: no "
@@ -542,6 +589,7 @@ def main() -> int:
            "duraciones_naturales_nmap_s": {k: [round(x, 2) for x in v] for k, v in nat.items()},
            "episodios_meta": [meta[e] for e in orden],
            "politicas": politicas,
+           "tres_resultados_d3": tres,
            "secuencial": {"politica": "actual|desplegado", "estado_al_inicio_de_cada_episodio": estado_por_ep,
                           "estado_escalada_final_origen": cad_s.estado.get(ORIGEN),
                           "nota": "riesgo bajo supuestos: con bloqueo real, los ataques y decisiones posteriores "

@@ -1,4 +1,4 @@
-# Presupuesto temporal de extremo a extremo (versión 2)
+# Presupuesto temporal de extremo a extremo (versión 3)
 
 > **Qué es y qué no es.**
 >
@@ -66,6 +66,8 @@ Las demoras desconocidas **no se suman como cero**. Cada estimación lleva la li
 
 ## 3. Resultados por escenario (política actual, α desplegado)
 
+> La política **desplegada** (IF → LIMIT) es la que generó los registros. Con la política **adoptada** `if_senal` (D3), la primera acción de la regla prevista llega en las mismas ventanas en los 25 episodios. La separación entre anomalía del IF, heurístico previsto y respuesta está en [resultados/TABLAS-E2E.md](resultados/TABLAS-E2E.md) §5.
+
 Tabla por episodio en [resultados/TABLAS-E2E.md](resultados/TABLAS-E2E.md) §1 y §1b. Las distribuciones son **por episodio**.
 
 | Escenario | Ejecutados (admitidos v2) | Regla prevista: t_det − t_inicio, mín–máx | V0 con la regla prevista | Primera señal de cualquier regla: V0 / V1 / V2 (antes\*) |
@@ -73,7 +75,7 @@ Tabla por episodio en [resultados/TABLAS-E2E.md](resultados/TABLAS-E2E.md) §1 y
 | Escaneo sostenido | 5 (4) | 22,0–74,3 s | antes\* 4 · det. posterior 1 (r3) | 5 / 5 / 5 |
 | Fuerza bruta HTTP | 5 (3) | 18,4–25,1 s | antes\* 5 | 5 / 5 / 5 |
 | Inundación HTTP | 5 (1) | 24,2–29,3 s | antes\* 5 (efecto **desconocido**) | 5 / 5 / 5 |
-| DNS inusual | 5 (3) | 17,2–25,9 s | antes\* 5 (**sin punto de aplicación**, D1) | 5 / 5 / 5 |
+| DNS inusual | 5 (3) | 17,2–25,9 s | antes\* 5 (hoy **sin agente**; con D1, en DC1 y bajo el supuesto de la misma cadencia de relé y agente) | 5 / 5 / 5 |
 | **Escaneo breve** | 5 (4) | **26,2–39,5 s** (fin a 17,6 s) | **det. posterior 5/5** | 0 / 0 / 1 (el 1 lo da `brute_force` mal atribuido) |
 
 «antes\*» = antes del fin bajo supuestos (§2).
