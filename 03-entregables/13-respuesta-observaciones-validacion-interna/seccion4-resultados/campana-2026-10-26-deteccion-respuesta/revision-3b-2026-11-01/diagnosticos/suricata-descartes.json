@@ -1,0 +1,395 @@
+{
+ "intervalos": 1431,
+ "con_descartes": 21,
+ "descartes_total": 3232,
+ "paquetes_total": 9436692,
+ "comparacion": {
+  "kernel_packets": {
+   "con_descartes": {
+    "p50": 10098,
+    "p90": 32150,
+    "max": 42909
+   },
+   "sin_descartes": {
+    "p50": 4471,
+    "p90": 13018,
+    "max": 45918
+   }
+  },
+  "max_10ms": {
+   "con_descartes": {
+    "p50": 1051,
+    "p90": 1310,
+    "max": 1430
+   },
+   "sin_descartes": {
+    "p50": 817,
+    "p90": 1101,
+    "max": 1535
+   }
+  },
+  "max_100ms": {
+   "con_descartes": {
+    "p50": 2724,
+    "p90": 3888,
+    "max": 4860
+   },
+   "sin_descartes": {
+    "p50": 1844,
+    "p90": 3184,
+    "max": 5736
+   }
+  },
+  "cpu_total": {
+   "con_descartes": {
+    "p50": 0.369,
+    "p90": 0.561,
+    "max": 0.574
+   },
+   "sin_descartes": {
+    "p50": 0.222,
+    "p90": 0.391,
+    "max": 0.651
+   }
+  },
+  "cpu_motor": {
+   "con_descartes": {
+    "p50": 0.149,
+    "p90": 0.768,
+    "max": 0.95
+   },
+   "sin_descartes": {
+    "p50": 0.134,
+    "p90": 0.31,
+    "max": 0.955
+   }
+  },
+  "load1": {
+   "con_descartes": {
+    "p50": 1.13,
+    "p90": 1.77,
+    "max": 1.97
+   },
+   "sin_descartes": {
+    "p50": 0.78,
+    "p90": 1.39,
+    "max": 2.19
+   }
+  },
+  "memavail_gb": {
+   "con_descartes": {
+    "p50": 5.12,
+    "p90": 6.0,
+    "max": 6.23
+   },
+   "sin_descartes": {
+    "p50": 6.0,
+    "p90": 6.23,
+    "max": 6.28
+   }
+  },
+  "ciclo_max_s": {
+   "con_descartes": {
+    "p50": 1.67,
+    "p90": 9.108,
+    "max": 10.056
+   },
+   "sin_descartes": {
+    "p50": 1.618,
+    "p90": 3.56,
+    "max": 10.611
+   }
+  }
+ },
+ "intervalos_sin_descartes_con_valor_>=_minimo_de_los_con_descartes": {
+  "kernel_packets": 730,
+  "max_10ms": 1153,
+  "cpu_total": 1105
+ },
+ "eventos": [
+  {
+   "t": "2026-11-01T07:28:57+00:00",
+   "kernel_packets": 7655,
+   "drops": 134,
+   "pcap_paquetes": 8779,
+   "max_10ms": 819,
+   "max_100ms": 3860,
+   "cpu_total": 0.089,
+   "cpu_motor": 0.107,
+   "load1": 0.08,
+   "memavail_gb": 6.23,
+   "ciclo_max_s": 1.0696
+  },
+  {
+   "t": "2026-11-01T07:30:17+00:00",
+   "kernel_packets": 5104,
+   "drops": 26,
+   "pcap_paquetes": 3923,
+   "max_10ms": 1039,
+   "max_100ms": 1219,
+   "cpu_total": 0.328,
+   "cpu_motor": 0.083,
+   "load1": 0.39,
+   "memavail_gb": 5.91,
+   "ciclo_max_s": 1.5109
+  },
+  {
+   "t": "2026-11-01T07:52:02+00:00",
+   "kernel_packets": 7095,
+   "drops": 53,
+   "pcap_paquetes": 7630,
+   "max_10ms": 1147,
+   "max_100ms": 2724,
+   "cpu_total": 0.348,
+   "cpu_motor": 0.242,
+   "load1": 0.98,
+   "memavail_gb": 5.71,
+   "ciclo_max_s": 2.1551
+  },
+  {
+   "t": "2026-11-01T08:12:02+00:00",
+   "kernel_packets": 6759,
+   "drops": 11,
+   "pcap_paquetes": 6389,
+   "max_10ms": 1309,
+   "max_100ms": 2504,
+   "cpu_total": 0.325,
+   "cpu_motor": 0.149,
+   "load1": 0.95,
+   "memavail_gb": 5.58,
+   "ciclo_max_s": 1.4019
+  },
+  {
+   "t": "2026-11-01T08:17:38+00:00",
+   "kernel_packets": 10098,
+   "drops": 28,
+   "pcap_paquetes": 11782,
+   "max_10ms": 1277,
+   "max_100ms": 3385,
+   "cpu_total": 0.143,
+   "cpu_motor": 0.366,
+   "load1": 0.32,
+   "memavail_gb": 6.0,
+   "ciclo_max_s": 3.6987
+  },
+  {
+   "t": "2026-11-01T08:22:18+00:00",
+   "kernel_packets": 18404,
+   "drops": 56,
+   "pcap_paquetes": 15472,
+   "max_10ms": 1310,
+   "max_100ms": 3888,
+   "cpu_total": 0.32,
+   "cpu_motor": 0.038,
+   "load1": 0.99,
+   "memavail_gb": 5.03,
+   "ciclo_max_s": 1.0402
+  },
+  {
+   "t": "2026-11-01T08:24:10+00:00",
+   "kernel_packets": 32150,
+   "drops": 126,
+   "pcap_paquetes": 36919,
+   "max_10ms": 993,
+   "max_100ms": 3043,
+   "cpu_total": 0.459,
+   "cpu_motor": 0.489,
+   "load1": 1.46,
+   "memavail_gb": 5.04,
+   "ciclo_max_s": 6.4371
+  },
+  {
+   "t": "2026-11-01T08:30:42+00:00",
+   "kernel_packets": 12439,
+   "drops": 111,
+   "pcap_paquetes": 12582,
+   "max_10ms": 1006,
+   "max_100ms": 2910,
+   "cpu_total": 0.375,
+   "cpu_motor": 0.369,
+   "load1": 0.74,
+   "memavail_gb": 5.36,
+   "ciclo_max_s": 3.7331
+  },
+  {
+   "t": "2026-11-01T08:34:02+00:00",
+   "kernel_packets": 39541,
+   "drops": 62,
+   "pcap_paquetes": 35118,
+   "max_10ms": 1001,
+   "max_100ms": 1392,
+   "cpu_total": 0.525,
+   "cpu_motor": 0.672,
+   "load1": 1.27,
+   "memavail_gb": 4.91,
+   "ciclo_max_s": 8.6487
+  },
+  {
+   "t": "2026-11-01T08:34:18+00:00",
+   "kernel_packets": 31063,
+   "drops": 463,
+   "pcap_paquetes": 36094,
+   "max_10ms": 1051,
+   "max_100ms": 1532,
+   "cpu_total": 0.526,
+   "cpu_motor": 0.768,
+   "load1": 1.43,
+   "memavail_gb": 4.91,
+   "ciclo_max_s": 9.1077
+  },
+  {
+   "t": "2026-11-01T08:34:34+00:00",
+   "kernel_packets": 42909,
+   "drops": 599,
+   "pcap_paquetes": 38009,
+   "max_10ms": 1046,
+   "max_100ms": 4860,
+   "cpu_total": 0.561,
+   "cpu_motor": 0.95,
+   "load1": 1.63,
+   "memavail_gb": 4.92,
+   "ciclo_max_s": 10.0562
+  },
+  {
+   "t": "2026-11-01T08:34:42+00:00",
+   "kernel_packets": 27654,
+   "drops": 22,
+   "pcap_paquetes": 35859,
+   "max_10ms": 962,
+   "max_100ms": 2178,
+   "cpu_total": 0.574,
+   "cpu_motor": 0.935,
+   "load1": 1.77,
+   "memavail_gb": 4.81,
+   "ciclo_max_s": 10.0562
+  },
+  {
+   "t": "2026-11-01T08:35:54+00:00",
+   "kernel_packets": 10549,
+   "drops": 337,
+   "pcap_paquetes": 8467,
+   "max_10ms": 996,
+   "max_100ms": 2702,
+   "cpu_total": 0.382,
+   "cpu_motor": 0.298,
+   "load1": 1.44,
+   "memavail_gb": 4.7,
+   "ciclo_max_s": 3.4285
+  },
+  {
+   "t": "2026-11-01T08:51:06+00:00",
+   "kernel_packets": 14172,
+   "drops": 61,
+   "pcap_paquetes": 22557,
+   "max_10ms": 1382,
+   "max_100ms": 3888,
+   "cpu_total": 0.368,
+   "cpu_motor": 0.165,
+   "load1": 0.89,
+   "memavail_gb": 5.39,
+   "ciclo_max_s": 1.6703
+  },
+  {
+   "t": "2026-11-01T09:02:42+00:00",
+   "kernel_packets": 7213,
+   "drops": 100,
+   "pcap_paquetes": 8188,
+   "max_10ms": 1303,
+   "max_100ms": 2377,
+   "cpu_total": 0.369,
+   "cpu_motor": 0.145,
+   "load1": 1.04,
+   "memavail_gb": 5.29,
+   "ciclo_max_s": 1.5422
+  },
+  {
+   "t": "2026-11-01T09:15:46+00:00",
+   "kernel_packets": 7533,
+   "drops": 97,
+   "pcap_paquetes": 7432,
+   "max_10ms": 1430,
+   "max_100ms": 2334,
+   "cpu_total": 0.093,
+   "cpu_motor": 0.146,
+   "load1": 0.38,
+   "memavail_gb": 6.16,
+   "ciclo_max_s": 1.4995
+  },
+  {
+   "t": "2026-11-01T09:34:02+00:00",
+   "kernel_packets": 8868,
+   "drops": 58,
+   "pcap_paquetes": 8466,
+   "max_10ms": 1220,
+   "max_100ms": 3138,
+   "cpu_total": 0.311,
+   "cpu_motor": 0.11,
+   "load1": 1.13,
+   "memavail_gb": 5.2,
+   "ciclo_max_s": 1.1144
+  },
+  {
+   "t": "2026-11-01T10:25:39+00:00",
+   "kernel_packets": 10812,
+   "drops": 149,
+   "pcap_paquetes": 5083,
+   "max_10ms": 1266,
+   "max_100ms": 3129,
+   "cpu_total": 0.302,
+   "cpu_motor": 0.073,
+   "load1": 1.2,
+   "memavail_gb": 5.12,
+   "ciclo_max_s": 1.889
+  },
+  {
+   "t": "2026-11-01T10:30:35+00:00",
+   "kernel_packets": 6790,
+   "drops": 11,
+   "pcap_paquetes": 5907,
+   "max_10ms": 1260,
+   "max_100ms": 3676,
+   "cpu_total": 0.56,
+   "cpu_motor": 0.094,
+   "load1": 1.54,
+   "memavail_gb": 4.61,
+   "ciclo_max_s": 1.1567
+  },
+  {
+   "t": "2026-11-01T10:30:51+00:00",
+   "kernel_packets": 4341,
+   "drops": 256,
+   "pcap_paquetes": 3019,
+   "max_10ms": 859,
+   "max_100ms": 1347,
+   "cpu_total": 0.563,
+   "cpu_motor": 0.116,
+   "load1": 1.79,
+   "memavail_gb": 4.6,
+   "ciclo_max_s": 1.157
+  },
+  {
+   "t": "2026-11-01T10:31:39+00:00",
+   "kernel_packets": 5947,
+   "drops": 472,
+   "pcap_paquetes": 2228,
+   "max_10ms": 525,
+   "max_100ms": 991,
+   "cpu_total": 0.546,
+   "cpu_motor": 0.029,
+   "load1": 1.97,
+   "memavail_gb": 4.63,
+   "ciclo_max_s": 0.9088
+  }
+ ],
+ "demostrado": [
+  "los descartes se concentran en 21 intervalos de 8 s; también aparecen con el sensor casi en reposo (07:28:57, 09:15:46: CPU total 0,09)",
+  "ni el volumen por intervalo ni la ráfaga máxima de 10/100 ms los separan: hay intervalos sin descartes con más paquetes y con ráfagas mayores",
+  "tcpdump (otro socket AF_PACKET en la misma interfaz) no descartó ningún paquete en todo el proceso",
+  "el mayor episodio (08:34, 1146-1483 descartes) coincide con el motor al ~95 % de una CPU y un ciclo de 10,06 s; el otro ciclo > 10 s (09:53, 10,61 s) no tuvo descartes"
+ ],
+ "hipotesis_no_demostradas": [
+  "anillo AF_PACKET de Suricata con valores por defecto (ring-size, sin tpacket-v3/mmap explícitos) insuficiente ante ráfagas cortas combinadas con planificación de CPU",
+  "competencia de CPU con el motor en los ciclos más pesados (08:34)",
+  "competencia con la repetición offline y el análisis tras la campaña (10:25-10:31)"
+ ]
+}

@@ -1,0 +1,992 @@
+{
+ "resumen": {
+  "decisiones_v1": 702,
+  "decisiones_v2": 702,
+  "exactas_v1": 693,
+  "exactas_v2": 702,
+  "claves_solo_v1": 0,
+  "claves_solo_v2": 0,
+  "no_exactas_v1": 9,
+  "no_exactas_v2": 0
+ },
+ "filas": [
+  {
+   "episodio": "dns_inusual-r3",
+   "window_end_utc": "2026-11-01T08:18:50+00:00",
+   "pk10": {
+    "registrado": 46,
+    "v1": 32,
+    "v2": 46
+   },
+   "score": {
+    "registrado": -0.5444227570109554,
+    "v1": -0.5428373954372862,
+    "v2": -0.5444227570109554
+   },
+   "tipo_v1": "puntuacion_distinta",
+   "tipo_v2": "exacta",
+   "caracteristicas_que_difieren_v1_v2": [
+    {
+     "caracteristica": "packet_rate_10s",
+     "v1": 3.2,
+     "v2": 4.6
+    },
+    {
+     "caracteristica": "byte_rate_10s",
+     "v1": 404.8,
+     "v2": 581.9
+    },
+    {
+     "caracteristica": "unique_dst_ip_ratio_30s",
+     "v1": 0.016129032258064516,
+     "v2": 0.014492753623188406
+    },
+    {
+     "caracteristica": "flow_attempt_rate_10s",
+     "v1": 1.6,
+     "v2": 2.3
+    },
+    {
+     "caracteristica": "unique_dst_port_ratio_30s",
+     "v1": 0.016129032258064516,
+     "v2": 0.014492753623188406
+    },
+    {
+     "caracteristica": "protocol_diversity_30s",
+     "v1": 0.008064516129032258,
+     "v2": 0.007246376811594203
+    }
+   ],
+   "senal_IF_con_score_registrado": {
+    "0.05": false,
+    "0.03": false,
+    "0.01": false
+   },
+   "senal_IF_con_score_v1": {
+    "0.05": false,
+    "0.03": false,
+    "0.01": false
+   },
+   "efecto_hipotetico_si_se_usara_v1": {},
+   "ventana_en_el_episodio": {
+    "estado": "decidida_a_tiempo",
+    "atribucion": "atribuible",
+    "senales": [
+     "HEUR",
+     "HIB_0.05",
+     "HIB_0.03",
+     "HIB_0.01"
+    ]
+   },
+   "primera_senal_episodio": {
+    "IF_0.05": null,
+    "IF_0.03": null,
+    "IF_0.01": null,
+    "HEUR": "2026-11-01T08:18:20+00:00",
+    "HIB_0.05": "2026-11-01T08:18:20+00:00",
+    "HIB_0.03": "2026-11-01T08:18:20+00:00",
+    "HIB_0.01": "2026-11-01T08:18:20+00:00"
+   },
+   "categoria_episodio": {
+    "IF_0.05": "no_evaluable",
+    "IF_0.03": "no_evaluable",
+    "IF_0.01": "no_evaluable",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna"
+   },
+   "efecto_real_sobre_el_analisis": "ninguno: el análisis usa el registro en vivo, no el recálculo"
+  },
+  {
+   "episodio": "dns_inusual-r3",
+   "window_end_utc": "2026-11-01T08:19:00+00:00",
+   "pk10": {
+    "registrado": 48,
+    "v1": 0,
+    "v2": 48
+   },
+   "score": {
+    "registrado": -0.5459809710394449,
+    "v1": null,
+    "v2": -0.5459809710394449
+   },
+   "tipo_v1": "sin_puntuacion (fila con 0 paquetes; null no es 0)",
+   "tipo_v2": "exacta",
+   "caracteristicas_que_difieren_v1_v2": [
+    {
+     "caracteristica": "packet_rate_10s",
+     "v1": 0.0,
+     "v2": 4.8
+    },
+    {
+     "caracteristica": "byte_rate_10s",
+     "v1": 0.0,
+     "v2": 607.2
+    },
+    {
+     "caracteristica": "mean_ip_len_10s",
+     "v1": 0.0,
+     "v2": 126.5
+    },
+    {
+     "caracteristica": "unique_dst_ip_ratio_30s",
+     "v1": 0.02564102564102564,
+     "v2": 0.014285714285714285
+    },
+    {
+     "caracteristica": "flow_attempt_rate_10s",
+     "v1": 0.0,
+     "v2": 2.4
+    },
+    {
+     "caracteristica": "unique_dst_port_ratio_30s",
+     "v1": 0.02564102564102564,
+     "v2": 0.014285714285714285
+    },
+    {
+     "caracteristica": "ttl_mean_10s",
+     "v1": 0.0,
+     "v2": 64.0
+    },
+    {
+     "caracteristica": "protocol_diversity_30s",
+     "v1": 0.01282051282051282,
+     "v2": 0.007142857142857143
+    },
+    {
+     "caracteristica": "flow_duration_mean_30s",
+     "v1": 0.0019218921661376953,
+     "v2": 0.0020668506622314453
+    }
+   ],
+   "senal_IF_con_score_registrado": {
+    "0.05": false,
+    "0.03": false,
+    "0.01": false
+   },
+   "senal_IF_con_score_v1": {
+    "0.05": false,
+    "0.03": false,
+    "0.01": false
+   },
+   "efecto_hipotetico_si_se_usara_v1": {},
+   "ventana_en_el_episodio": {
+    "estado": "decidida_a_tiempo",
+    "atribucion": "atribuible",
+    "senales": [
+     "HEUR",
+     "HIB_0.05",
+     "HIB_0.03",
+     "HIB_0.01"
+    ]
+   },
+   "primera_senal_episodio": {
+    "IF_0.05": null,
+    "IF_0.03": null,
+    "IF_0.01": null,
+    "HEUR": "2026-11-01T08:18:20+00:00",
+    "HIB_0.05": "2026-11-01T08:18:20+00:00",
+    "HIB_0.03": "2026-11-01T08:18:20+00:00",
+    "HIB_0.01": "2026-11-01T08:18:20+00:00"
+   },
+   "categoria_episodio": {
+    "IF_0.05": "no_evaluable",
+    "IF_0.03": "no_evaluable",
+    "IF_0.01": "no_evaluable",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna"
+   },
+   "efecto_real_sobre_el_analisis": "ninguno: el análisis usa el registro en vivo, no el recálculo"
+  },
+  {
+   "episodio": "dns_inusual-r3",
+   "window_end_utc": "2026-11-01T08:19:10+00:00",
+   "pk10": {
+    "registrado": 46,
+    "v1": 8,
+    "v2": 46
+   },
+   "score": {
+    "registrado": -0.5444227570109554,
+    "v1": -0.5030883948567701,
+    "v2": -0.5444227570109554
+   },
+   "tipo_v1": "puntuacion_distinta",
+   "tipo_v2": "exacta",
+   "caracteristicas_que_difieren_v1_v2": [
+    {
+     "caracteristica": "packet_rate_10s",
+     "v1": 0.8,
+     "v2": 4.6
+    },
+    {
+     "caracteristica": "byte_rate_10s",
+     "v1": 101.2,
+     "v2": 581.9
+    },
+    {
+     "caracteristica": "unique_dst_ip_ratio_30s",
+     "v1": 0.0196078431372549,
+     "v2": 0.014285714285714285
+    },
+    {
+     "caracteristica": "flow_attempt_rate_10s",
+     "v1": 0.4,
+     "v2": 2.3
+    },
+    {
+     "caracteristica": "unique_dst_port_ratio_30s",
+     "v1": 0.0196078431372549,
+     "v2": 0.014285714285714285
+    },
+    {
+     "caracteristica": "protocol_diversity_30s",
+     "v1": 0.00980392156862745,
+     "v2": 0.007142857142857143
+    }
+   ],
+   "senal_IF_con_score_registrado": {
+    "0.05": false,
+    "0.03": false,
+    "0.01": false
+   },
+   "senal_IF_con_score_v1": {
+    "0.05": false,
+    "0.03": false,
+    "0.01": false
+   },
+   "efecto_hipotetico_si_se_usara_v1": {},
+   "ventana_en_el_episodio": {
+    "estado": "decidida_a_tiempo",
+    "atribucion": "atribuible",
+    "senales": [
+     "HEUR",
+     "HIB_0.05",
+     "HIB_0.03",
+     "HIB_0.01"
+    ]
+   },
+   "primera_senal_episodio": {
+    "IF_0.05": null,
+    "IF_0.03": null,
+    "IF_0.01": null,
+    "HEUR": "2026-11-01T08:18:20+00:00",
+    "HIB_0.05": "2026-11-01T08:18:20+00:00",
+    "HIB_0.03": "2026-11-01T08:18:20+00:00",
+    "HIB_0.01": "2026-11-01T08:18:20+00:00"
+   },
+   "categoria_episodio": {
+    "IF_0.05": "no_evaluable",
+    "IF_0.03": "no_evaluable",
+    "IF_0.01": "no_evaluable",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna"
+   },
+   "efecto_real_sobre_el_analisis": "ninguno: el análisis usa el registro en vivo, no el recálculo"
+  },
+  {
+   "episodio": "inundacion_http-r4",
+   "window_end_utc": "2026-11-01T08:24:40+00:00",
+   "pk10": {
+    "registrado": 18832,
+    "v1": 3318,
+    "v2": 18832
+   },
+   "score": {
+    "registrado": -0.6690986995660642,
+    "v1": -0.6657523938821971,
+    "v2": -0.6690986995660642
+   },
+   "tipo_v1": "puntuacion_distinta",
+   "tipo_v2": "exacta",
+   "caracteristicas_que_difieren_v1_v2": [
+    {
+     "caracteristica": "packet_rate_10s",
+     "v1": 331.8,
+     "v2": 1883.2
+    },
+    {
+     "caracteristica": "byte_rate_10s",
+     "v1": 25545.9,
+     "v2": 144998.8
+    },
+    {
+     "caracteristica": "mean_ip_len_10s",
+     "v1": 76.99186256781194,
+     "v2": 76.99596431605778
+    },
+    {
+     "caracteristica": "unique_dst_ip_ratio_30s",
+     "v1": 0.0002979737783075089,
+     "v2": 0.00023923444976076556
+    },
+    {
+     "caracteristica": "flow_attempt_rate_10s",
+     "v1": 27.9,
+     "v2": 110.3
+    },
+    {
+     "caracteristica": "syn_rate_10s",
+     "v1": 27.9,
+     "v2": 157.1
+    },
+    {
+     "caracteristica": "syn_completion_ratio_10s",
+     "v1": 1.0,
+     "v2": 0.9993634627625716
+    },
+    {
+     "caracteristica": "unique_dst_port_ratio_30s",
+     "v1": 0.0002979737783075089,
+     "v2": 0.00023923444976076556
+    },
+    {
+     "caracteristica": "protocol_diversity_30s",
+     "v1": 2.437003460544914e-05,
+     "v2": 1.768409139138431e-05
+    },
+    {
+     "caracteristica": "flow_duration_mean_30s",
+     "v1": 72.20586109161377,
+     "v2": 78.92449498176575
+    },
+    {
+     "caracteristica": "tx_rx_byte_ratio_30s",
+     "v1": 0.4837967131655365,
+     "v2": 0.4837799005260324
+    }
+   ],
+   "senal_IF_con_score_registrado": {
+    "0.05": true,
+    "0.03": true,
+    "0.01": true
+   },
+   "senal_IF_con_score_v1": {
+    "0.05": true,
+    "0.03": true,
+    "0.01": true
+   },
+   "efecto_hipotetico_si_se_usara_v1": {},
+   "ventana_en_el_episodio": {
+    "estado": "decidida_a_tiempo",
+    "atribucion": "atribuible",
+    "senales": [
+     "IF_0.05",
+     "IF_0.03",
+     "IF_0.01",
+     "HEUR",
+     "HIB_0.05",
+     "HIB_0.03",
+     "HIB_0.01"
+    ]
+   },
+   "primera_senal_episodio": {
+    "IF_0.05": "2026-11-01T08:23:20+00:00",
+    "IF_0.03": "2026-11-01T08:23:20+00:00",
+    "IF_0.01": "2026-11-01T08:23:20+00:00",
+    "HEUR": "2026-11-01T08:23:20+00:00",
+    "HIB_0.05": "2026-11-01T08:23:20+00:00",
+    "HIB_0.03": "2026-11-01T08:23:20+00:00",
+    "HIB_0.01": "2026-11-01T08:23:20+00:00"
+   },
+   "categoria_episodio": {
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna"
+   },
+   "efecto_real_sobre_el_analisis": "ninguno: el análisis usa el registro en vivo, no el recálculo"
+  },
+  {
+   "episodio": "escaneo_sostenido-r5",
+   "window_end_utc": "2026-11-01T08:43:00+00:00",
+   "pk10": {
+    "registrado": 13,
+    "v1": 0,
+    "v2": 13
+   },
+   "score": {
+    "registrado": -0.558858661587145,
+    "v1": null,
+    "v2": -0.558858661587145
+   },
+   "tipo_v1": "sin_puntuacion (fila con 0 paquetes; null no es 0)",
+   "tipo_v2": "exacta",
+   "caracteristicas_que_difieren_v1_v2": [
+    {
+     "caracteristica": "packet_rate_10s",
+     "v1": 0.0,
+     "v2": 1.3
+    },
+    {
+     "caracteristica": "byte_rate_10s",
+     "v1": 0.0,
+     "v2": 89.4
+    },
+    {
+     "caracteristica": "mean_ip_len_10s",
+     "v1": 0.0,
+     "v2": 68.76923076923077
+    },
+    {
+     "caracteristica": "unique_dst_ip_ratio_30s",
+     "v1": 0.0,
+     "v2": 0.5
+    },
+    {
+     "caracteristica": "icmp_ratio_10s",
+     "v1": 0.0,
+     "v2": 0.23076923076923078
+    },
+    {
+     "caracteristica": "flow_attempt_rate_10s",
+     "v1": 0.0,
+     "v2": 0.6
+    },
+    {
+     "caracteristica": "syn_rate_10s",
+     "v1": 0.0,
+     "v2": 0.1
+    },
+    {
+     "caracteristica": "syn_completion_ratio_10s",
+     "v1": 0.0,
+     "v2": 1.0
+    },
+    {
+     "caracteristica": "rst_ratio_10s",
+     "v1": 0.0,
+     "v2": 0.25
+    },
+    {
+     "caracteristica": "unique_dst_port_ratio_30s",
+     "v1": 0.0,
+     "v2": 0.75
+    },
+    {
+     "caracteristica": "ttl_mean_10s",
+     "v1": 0.0,
+     "v2": 58.92307692307692
+    },
+    {
+     "caracteristica": "protocol_diversity_30s",
+     "v1": 0.0,
+     "v2": 0.23076923076923078
+    },
+    {
+     "caracteristica": "flow_duration_mean_30s",
+     "v1": 0.0,
+     "v2": 0.5010786056518555
+    },
+    {
+     "caracteristica": "tx_rx_byte_ratio_30s",
+     "v1": 0.0,
+     "v2": 0.44966442953020136
+    }
+   ],
+   "senal_IF_con_score_registrado": {
+    "0.05": false,
+    "0.03": false,
+    "0.01": false
+   },
+   "senal_IF_con_score_v1": {
+    "0.05": false,
+    "0.03": false,
+    "0.01": false
+   },
+   "efecto_hipotetico_si_se_usara_v1": {},
+   "ventana_en_el_episodio": {
+    "estado": "decidida_a_tiempo",
+    "atribucion": "atribuible",
+    "senales": []
+   },
+   "primera_senal_episodio": {
+    "IF_0.05": "2026-11-01T08:43:10+00:00",
+    "IF_0.03": "2026-11-01T08:43:10+00:00",
+    "IF_0.01": "2026-11-01T08:43:10+00:00",
+    "HEUR": "2026-11-01T08:43:10+00:00",
+    "HIB_0.05": "2026-11-01T08:43:10+00:00",
+    "HIB_0.03": "2026-11-01T08:43:10+00:00",
+    "HIB_0.01": "2026-11-01T08:43:10+00:00"
+   },
+   "categoria_episodio": {
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna"
+   },
+   "efecto_real_sobre_el_analisis": "ninguno: el análisis usa el registro en vivo, no el recálculo"
+  },
+  {
+   "episodio": "escaneo_sostenido-r5",
+   "window_end_utc": "2026-11-01T08:43:10+00:00",
+   "pk10": {
+    "registrado": 3670,
+    "v1": 2,
+    "v2": 3670
+   },
+   "score": {
+    "registrado": -0.6340919601934427,
+    "v1": -0.4595342806311957,
+    "v2": -0.6340919601934427
+   },
+   "tipo_v1": "puntuacion_distinta",
+   "tipo_v2": "exacta",
+   "caracteristicas_que_difieren_v1_v2": [
+    {
+     "caracteristica": "packet_rate_10s",
+     "v1": 0.2,
+     "v2": 367.0
+    },
+    {
+     "caracteristica": "byte_rate_10s",
+     "v1": 21.0,
+     "v2": 22019.4
+    },
+    {
+     "caracteristica": "mean_ip_len_10s",
+     "v1": 105.0,
+     "v2": 59.9983651226158
+    },
+    {
+     "caracteristica": "unique_dst_ip_ratio_30s",
+     "v1": 0.5,
+     "v2": 0.0008205689277899343
+    },
+    {
+     "caracteristica": "flow_attempt_rate_10s",
+     "v1": 0.0,
+     "v2": 365.0
+    },
+    {
+     "caracteristica": "syn_rate_10s",
+     "v1": 0.0,
+     "v2": 365.0
+    },
+    {
+     "caracteristica": "syn_completion_ratio_10s",
+     "v1": 0.0,
+     "v2": 0.0016438356164383563
+    },
+    {
+     "caracteristica": "rst_ratio_10s",
+     "v1": 0.0,
+     "v2": 0.0016357688113413304
+    },
+    {
+     "caracteristica": "unique_dst_port_ratio_30s",
+     "v1": 0.75,
+     "v2": 0.9978106185002736
+    },
+    {
+     "caracteristica": "protocol_diversity_30s",
+     "v1": 0.2,
+     "v2": 0.0008145533532446375
+    },
+    {
+     "caracteristica": "flow_duration_mean_30s",
+     "v1": 1.0015700340270997,
+     "v2": 0.0013730961775315824
+    },
+    {
+     "caracteristica": "tx_rx_byte_ratio_30s",
+     "v1": 0.427536231884058,
+     "v2": 0.9955130988565639
+    }
+   ],
+   "senal_IF_con_score_registrado": {
+    "0.05": true,
+    "0.03": true,
+    "0.01": true
+   },
+   "senal_IF_con_score_v1": {
+    "0.05": false,
+    "0.03": false,
+    "0.01": false
+   },
+   "efecto_hipotetico_si_se_usara_v1": {
+    "0.05": [
+     true,
+     false
+    ],
+    "0.03": [
+     true,
+     false
+    ],
+    "0.01": [
+     true,
+     false
+    ]
+   },
+   "ventana_en_el_episodio": {
+    "estado": "decidida_a_tiempo",
+    "atribucion": "atribuible",
+    "senales": [
+     "IF_0.05",
+     "IF_0.03",
+     "IF_0.01",
+     "HEUR",
+     "HIB_0.05",
+     "HIB_0.03",
+     "HIB_0.01"
+    ]
+   },
+   "primera_senal_episodio": {
+    "IF_0.05": "2026-11-01T08:43:10+00:00",
+    "IF_0.03": "2026-11-01T08:43:10+00:00",
+    "IF_0.01": "2026-11-01T08:43:10+00:00",
+    "HEUR": "2026-11-01T08:43:10+00:00",
+    "HIB_0.05": "2026-11-01T08:43:10+00:00",
+    "HIB_0.03": "2026-11-01T08:43:10+00:00",
+    "HIB_0.01": "2026-11-01T08:43:10+00:00"
+   },
+   "categoria_episodio": {
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna"
+   },
+   "efecto_real_sobre_el_analisis": "ninguno: el análisis usa el registro en vivo, no el recálculo"
+  },
+  {
+   "episodio": "fuerza_bruta_http-r5",
+   "window_end_utc": "2026-11-01T08:57:40+00:00",
+   "pk10": {
+    "registrado": 7525,
+    "v1": 2275,
+    "v2": 7525
+   },
+   "score": {
+    "registrado": -0.7262608363233237,
+    "v1": -0.7182361049698709,
+    "v2": -0.7262608363233237
+   },
+   "tipo_v1": "puntuacion_distinta",
+   "tipo_v2": "exacta",
+   "caracteristicas_que_difieren_v1_v2": [
+    {
+     "caracteristica": "packet_rate_10s",
+     "v1": 227.5,
+     "v2": 752.5
+    },
+    {
+     "caracteristica": "byte_rate_10s",
+     "v1": 18388.0,
+     "v2": 61099.0
+    },
+    {
+     "caracteristica": "mean_ip_len_10s",
+     "v1": 80.82637362637362,
+     "v2": 81.19468438538206
+    },
+    {
+     "caracteristica": "unique_dst_ip_ratio_30s",
+     "v1": 0.0007102272727272727,
+     "v2": 0.0006090133982947625
+    },
+    {
+     "caracteristica": "flow_attempt_rate_10s",
+     "v1": 9.8,
+     "v2": 33.2
+    },
+    {
+     "caracteristica": "syn_rate_10s",
+     "v1": 21.2,
+     "v2": 70.8
+    },
+    {
+     "caracteristica": "unique_dst_port_ratio_30s",
+     "v1": 0.0007102272727272727,
+     "v2": 0.0006090133982947625
+    },
+    {
+     "caracteristica": "ttl_mean_10s",
+     "v1": 64.0,
+     "v2": 63.9997342192691
+    },
+    {
+     "caracteristica": "protocol_diversity_30s",
+     "v1": 5.808550185873606e-05,
+     "v2": 4.451170657883023e-05
+    },
+    {
+     "caracteristica": "tcp_retransmission_ratio_10s",
+     "v1": 0.0,
+     "v2": 0.0004701457451810061
+    },
+    {
+     "caracteristica": "flow_duration_mean_30s",
+     "v1": 70.69968914985657,
+     "v2": 70.99535202980042
+    },
+    {
+     "caracteristica": "tx_rx_byte_ratio_30s",
+     "v1": 0.4777901423802225,
+     "v2": 0.4778574884356303
+    }
+   ],
+   "senal_IF_con_score_registrado": {
+    "0.05": true,
+    "0.03": true,
+    "0.01": true
+   },
+   "senal_IF_con_score_v1": {
+    "0.05": true,
+    "0.03": true,
+    "0.01": true
+   },
+   "efecto_hipotetico_si_se_usara_v1": {},
+   "ventana_en_el_episodio": {
+    "estado": "decidida_a_tiempo",
+    "atribucion": "atribuible",
+    "senales": [
+     "IF_0.05",
+     "IF_0.03",
+     "IF_0.01",
+     "HEUR",
+     "HIB_0.05",
+     "HIB_0.03",
+     "HIB_0.01"
+    ]
+   },
+   "primera_senal_episodio": {
+    "IF_0.05": "2026-11-01T08:56:20+00:00",
+    "IF_0.03": "2026-11-01T08:56:20+00:00",
+    "IF_0.01": "2026-11-01T08:56:20+00:00",
+    "HEUR": "2026-11-01T08:56:20+00:00",
+    "HIB_0.05": "2026-11-01T08:56:20+00:00",
+    "HIB_0.03": "2026-11-01T08:56:20+00:00",
+    "HIB_0.01": "2026-11-01T08:56:20+00:00"
+   },
+   "categoria_episodio": {
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna"
+   },
+   "efecto_real_sobre_el_analisis": "ninguno: el análisis usa el registro en vivo, no el recálculo"
+  },
+  {
+   "episodio": "dns_inusual-r1",
+   "window_end_utc": "2026-11-01T09:26:20+00:00",
+   "pk10": {
+    "registrado": 46,
+    "v1": 40,
+    "v2": 46
+   },
+   "score": {
+    "registrado": -0.6729745989343802,
+    "v1": -0.672701459136508,
+    "v2": -0.6729745989343802
+   },
+   "tipo_v1": "puntuacion_distinta",
+   "tipo_v2": "exacta",
+   "caracteristicas_que_difieren_v1_v2": [
+    {
+     "caracteristica": "packet_rate_10s",
+     "v1": 4.0,
+     "v2": 4.6
+    },
+    {
+     "caracteristica": "byte_rate_10s",
+     "v1": 506.0,
+     "v2": 581.9
+    },
+    {
+     "caracteristica": "unique_dst_ip_ratio_30s",
+     "v1": 0.015151515151515152,
+     "v2": 0.014492753623188406
+    },
+    {
+     "caracteristica": "flow_attempt_rate_10s",
+     "v1": 2.0,
+     "v2": 2.3
+    },
+    {
+     "caracteristica": "unique_dst_port_ratio_30s",
+     "v1": 0.015151515151515152,
+     "v2": 0.014492753623188406
+    },
+    {
+     "caracteristica": "protocol_diversity_30s",
+     "v1": 0.007575757575757576,
+     "v2": 0.007246376811594203
+    }
+   ],
+   "senal_IF_con_score_registrado": {
+    "0.05": true,
+    "0.03": true,
+    "0.01": true
+   },
+   "senal_IF_con_score_v1": {
+    "0.05": true,
+    "0.03": true,
+    "0.01": true
+   },
+   "efecto_hipotetico_si_se_usara_v1": {},
+   "ventana_en_el_episodio": {
+    "estado": "decidida_a_tiempo",
+    "atribucion": "atribuible",
+    "senales": [
+     "IF_0.05",
+     "IF_0.03",
+     "IF_0.01",
+     "HEUR",
+     "HIB_0.05",
+     "HIB_0.03",
+     "HIB_0.01"
+    ]
+   },
+   "primera_senal_episodio": {
+    "IF_0.05": "2026-11-01T09:26:00+00:00",
+    "IF_0.03": "2026-11-01T09:26:00+00:00",
+    "IF_0.01": "2026-11-01T09:26:00+00:00",
+    "HEUR": "2026-11-01T09:26:00+00:00",
+    "HIB_0.05": "2026-11-01T09:26:00+00:00",
+    "HIB_0.03": "2026-11-01T09:26:00+00:00",
+    "HIB_0.01": "2026-11-01T09:26:00+00:00"
+   },
+   "categoria_episodio": {
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna"
+   },
+   "efecto_real_sobre_el_analisis": "ninguno: el análisis usa el registro en vivo, no el recálculo"
+  },
+  {
+   "episodio": "dns_inusual-r1",
+   "window_end_utc": "2026-11-01T09:26:30+00:00",
+   "pk10": {
+    "registrado": 48,
+    "v1": 0,
+    "v2": 48
+   },
+   "score": {
+    "registrado": -0.6726192726748031,
+    "v1": null,
+    "v2": -0.6726192726748031
+   },
+   "tipo_v1": "sin_puntuacion (fila con 0 paquetes; null no es 0)",
+   "tipo_v2": "exacta",
+   "caracteristicas_que_difieren_v1_v2": [
+    {
+     "caracteristica": "packet_rate_10s",
+     "v1": 0.0,
+     "v2": 4.8
+    },
+    {
+     "caracteristica": "byte_rate_10s",
+     "v1": 0.0,
+     "v2": 607.2
+    },
+    {
+     "caracteristica": "mean_ip_len_10s",
+     "v1": 0.0,
+     "v2": 126.5
+    },
+    {
+     "caracteristica": "unique_dst_ip_ratio_30s",
+     "v1": 0.023255813953488372,
+     "v2": 0.014285714285714285
+    },
+    {
+     "caracteristica": "flow_attempt_rate_10s",
+     "v1": 0.0,
+     "v2": 2.4
+    },
+    {
+     "caracteristica": "unique_dst_port_ratio_30s",
+     "v1": 0.023255813953488372,
+     "v2": 0.014285714285714285
+    },
+    {
+     "caracteristica": "ttl_mean_10s",
+     "v1": 0.0,
+     "v2": 64.0
+    },
+    {
+     "caracteristica": "protocol_diversity_30s",
+     "v1": 0.011627906976744186,
+     "v2": 0.007142857142857143
+    }
+   ],
+   "senal_IF_con_score_registrado": {
+    "0.05": true,
+    "0.03": true,
+    "0.01": true
+   },
+   "senal_IF_con_score_v1": {
+    "0.05": false,
+    "0.03": false,
+    "0.01": false
+   },
+   "efecto_hipotetico_si_se_usara_v1": {
+    "0.05": [
+     true,
+     false
+    ],
+    "0.03": [
+     true,
+     false
+    ],
+    "0.01": [
+     true,
+     false
+    ]
+   },
+   "ventana_en_el_episodio": {
+    "estado": "decidida_a_tiempo",
+    "atribucion": "atribuible",
+    "senales": [
+     "IF_0.05",
+     "IF_0.03",
+     "IF_0.01",
+     "HEUR",
+     "HIB_0.05",
+     "HIB_0.03",
+     "HIB_0.01"
+    ]
+   },
+   "primera_senal_episodio": {
+    "IF_0.05": "2026-11-01T09:26:00+00:00",
+    "IF_0.03": "2026-11-01T09:26:00+00:00",
+    "IF_0.01": "2026-11-01T09:26:00+00:00",
+    "HEUR": "2026-11-01T09:26:00+00:00",
+    "HIB_0.05": "2026-11-01T09:26:00+00:00",
+    "HIB_0.03": "2026-11-01T09:26:00+00:00",
+    "HIB_0.01": "2026-11-01T09:26:00+00:00"
+   },
+   "categoria_episodio": {
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna"
+   },
+   "efecto_real_sobre_el_analisis": "ninguno: el análisis usa el registro en vivo, no el recálculo"
+  }
+ ]
+}

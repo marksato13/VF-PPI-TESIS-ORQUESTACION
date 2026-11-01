@@ -1,0 +1,171 @@
+{
+ "campana": "campana-A-repetida-3b-20261101T0721Z",
+ "episodio": "escaneo_sostenido-r4",
+ "periodo": {
+  "inicio": 1793522175.082926,
+  "fin": 1793522451.201814
+ },
+ "origen": "sensor (automatico)",
+ "fuente": "PCAP archivados + pulso stats del EVE + decisiones en vivo frente al inventario",
+ "version_criterio": "v2-revision-posterior-2026-11-01",
+ "intervalos": {
+  "previa": {
+   "rango_utc": [
+    "2026-11-01T08:36:15.082926+00:00",
+    "2026-11-01T08:38:15.082926+00:00"
+   ],
+   "duracion_s": 120.0,
+   "pcap": {
+    "ok": true,
+    "motivo": "ok",
+    "ficheros": 9,
+    "primero_utc": "2026-11-01T08:36:02+00:00",
+    "ultimo_utc": "2026-11-01T08:38:02+00:00",
+    "hueco_max_s": 15.0
+   },
+   "eve": {
+    "ok": true,
+    "motivo": "ok",
+    "eventos": 17,
+    "hueco_max_s": 8.0
+   },
+   "procesamiento": {
+    "ok": true,
+    "motivo": "ok",
+    "requeridas": 157,
+    "decididas": 157,
+    "ausentes": [],
+    "no_evaluadas": [],
+    "sin_marcas": [],
+    "n_ausentes": 0,
+    "n_no_evaluadas": 0,
+    "n_sin_marcas": 0
+   },
+   "verificado": true
+  },
+  "durante": {
+   "rango_utc": [
+    "2026-11-01T08:38:15.082926+00:00",
+    "2026-11-01T08:40:21.201814+00:00"
+   ],
+   "duracion_s": 126.1,
+   "pcap": {
+    "ok": true,
+    "motivo": "ok",
+    "ficheros": 10,
+    "primero_utc": "2026-11-01T08:38:02+00:00",
+    "ultimo_utc": "2026-11-01T08:40:17+00:00",
+    "hueco_max_s": 15.0
+   },
+   "eve": {
+    "ok": true,
+    "motivo": "ok",
+    "eventos": 18,
+    "hueco_max_s": 8.0
+   },
+   "procesamiento": {
+    "ok": true,
+    "motivo": "ok",
+    "requeridas": 169,
+    "decididas": 169,
+    "ausentes": [],
+    "no_evaluadas": [],
+    "sin_marcas": [],
+    "n_ausentes": 0,
+    "n_no_evaluadas": 0,
+    "n_sin_marcas": 0
+   },
+   "anclas_kali": {
+    "ok": true,
+    "motivo": "ok",
+    "anclas": 13,
+    "sin_decision": []
+   },
+   "verificado": true
+  },
+  "posterior": {
+   "rango_utc": [
+    "2026-11-01T08:39:21.201814+00:00",
+    "2026-11-01T08:40:51.201814+00:00"
+   ],
+   "duracion_s": 90.0,
+   "pcap": {
+    "ok": true,
+    "motivo": "ok",
+    "ficheros": 7,
+    "primero_utc": "2026-11-01T08:39:17+00:00",
+    "ultimo_utc": "2026-11-01T08:40:47+00:00",
+    "hueco_max_s": 15.0
+   },
+   "eve": {
+    "ok": true,
+    "motivo": "ok",
+    "eventos": 14,
+    "hueco_max_s": 8.0
+   },
+   "procesamiento": {
+    "ok": true,
+    "motivo": "ok",
+    "requeridas": 120,
+    "decididas": 120,
+    "ausentes": [],
+    "no_evaluadas": [],
+    "sin_marcas": [],
+    "n_ausentes": 0,
+    "n_no_evaluadas": 0,
+    "n_sin_marcas": 0
+   },
+   "verificado": true
+  }
+ },
+ "continuidad": {
+  "rango_utc": [
+   "2026-11-01T08:36:15.082926+00:00",
+   "2026-11-01T08:40:51.201814+00:00"
+  ],
+  "duracion_s": 276.1,
+  "pcap": {
+   "ok": true,
+   "motivo": "ok",
+   "ficheros": 20,
+   "primero_utc": "2026-11-01T08:36:02+00:00",
+   "ultimo_utc": "2026-11-01T08:40:47+00:00",
+   "hueco_max_s": 15.0
+  },
+  "eve": {
+   "ok": true,
+   "motivo": "ok",
+   "eventos": 37,
+   "hueco_max_s": 8.0
+  },
+  "procesamiento": {
+   "ok": true,
+   "motivo": "ok",
+   "requeridas": 368,
+   "decididas": 368,
+   "ausentes": [],
+   "no_evaluadas": [],
+   "sin_marcas": [],
+   "n_ausentes": 0,
+   "n_no_evaluadas": 0,
+   "n_sin_marcas": 0
+  },
+  "verificado": true
+ },
+ "previa_s": 120.0,
+ "posterior_s": 90.0,
+ "durante_completa": true,
+ "continuidad_sin_huecos": true,
+ "faltantes": [],
+ "informativo": {
+  "hueco_escritura_max_s": 21.13,
+  "nota": "cadencia de escritura del registro: NO clasifica (ciclo sin ventanas listas no escribe); la pérdida solo se establece contra el inventario"
+ },
+ "v1": {
+  "previa_s": 47.1,
+  "posterior_s": 135.0,
+  "durante_completa": false,
+  "continuidad_sin_huecos": false,
+  "hueco_motor_max_s": 21.1339008808136
+ }
+}

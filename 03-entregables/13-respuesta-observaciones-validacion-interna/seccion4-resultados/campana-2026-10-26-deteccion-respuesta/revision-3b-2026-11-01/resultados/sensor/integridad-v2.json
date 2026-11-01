@@ -1,0 +1,3396 @@
+{
+ "generado_por": "verificar_integridad_v2.py (revisión posterior a conocer los resultados)",
+ "episodios": [
+  {
+   "episodio_id": "escaneo_sostenido-r2",
+   "campana": "campana-A-repetida-3b-20261101T0721Z",
+   "requisitos": {
+    "pcap": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "7bf2b1b4b3eb732ff639463fc971424a8fc9f2701d51f1ce07d7d22b9d8ad799"
+     }
+    },
+    "eve": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "b7bf61a20a88d789c6fa6dedabd9cf1d6dbe08166da0b9cc24ab2d9a5ae9318f"
+     }
+    },
+    "decisiones": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "bf51f308dfa0bd66bbb782a540a154df90642d5d35d92e92fe60457e01919501"
+     }
+    },
+    "caracteristicas": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "a79d1c8b82abf390cb31aafd1d9ff6ee3cbe3c0d5ed516ee3baa47b10e8e2833"
+     }
+    },
+    "cobertura_previa": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "previa: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:06:39.147371+00:00",
+       "2026-11-01T08:08:39.147371+00:00"
+      ]
+     }
+    },
+    "cobertura_durante": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "durante: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:08:39.147371+00:00",
+       "2026-11-01T08:10:45.453144+00:00"
+      ]
+     }
+    },
+    "cobertura_posterior": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "posterior: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:09:45.453144+00:00",
+       "2026-11-01T08:11:15.453144+00:00"
+      ]
+     }
+    },
+    "continuidad": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "continua: pcap, eve y procesamiento",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:06:39.147371+00:00",
+       "2026-11-01T08:11:15.453144+00:00"
+      ]
+     }
+    },
+    "sin_faltantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin faltantes (respaldo)",
+     "evidencia": null
+    },
+    "captura_sin_errores_relevantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin errores relevantes ni descartes (respaldo)",
+     "evidencia": null
+    },
+    "reinicios": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin reinicios",
+     "evidencia": null
+    },
+    "relojes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "mediciones válidas para ['sensor', 'kali', 'srv-dmz', 'bastion']",
+     "evidencia": {
+      "hosts": [
+       "sensor",
+       "kali",
+       "srv-dmz",
+       "bastion"
+      ]
+     }
+    }
+   },
+   "resumen": {
+    "verificado": [
+     "pcap",
+     "eve",
+     "decisiones",
+     "caracteristicas",
+     "cobertura_previa",
+     "cobertura_durante",
+     "cobertura_posterior",
+     "continuidad",
+     "sin_faltantes",
+     "captura_sin_errores_relevantes",
+     "reinicios",
+     "relojes"
+    ],
+    "declarado_sin_verificar": [],
+    "ausente": [],
+    "desconocido": []
+   },
+   "apto": true,
+   "criterio": "v2 (revisión posterior): apto solo si los 12 requisitos están 'verificado'; cobertura y continuidad por componente (pcap, eve, procesamiento frente al inventario)"
+  },
+  {
+   "episodio_id": "inundacion_http-r1",
+   "campana": "campana-A-repetida-3b-20261101T0721Z",
+   "requisitos": {
+    "pcap": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "5acad891571e851087e2ab24c72d08452d30b5cbe226477108a085f529609d89"
+     }
+    },
+    "eve": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "b7bf61a20a88d789c6fa6dedabd9cf1d6dbe08166da0b9cc24ab2d9a5ae9318f"
+     }
+    },
+    "decisiones": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "bf51f308dfa0bd66bbb782a540a154df90642d5d35d92e92fe60457e01919501"
+     }
+    },
+    "caracteristicas": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "a79d1c8b82abf390cb31aafd1d9ff6ee3cbe3c0d5ed516ee3baa47b10e8e2833"
+     }
+    },
+    "cobertura_previa": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "previa: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:11:15.455787+00:00",
+       "2026-11-01T08:13:15.455787+00:00"
+      ]
+     }
+    },
+    "cobertura_durante": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "durante: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:13:15.455787+00:00",
+       "2026-11-01T08:15:45.049884+00:00"
+      ]
+     }
+    },
+    "cobertura_posterior": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "posterior: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:14:45.049884+00:00",
+       "2026-11-01T08:16:15.049884+00:00"
+      ]
+     }
+    },
+    "continuidad": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "continua: pcap, eve y procesamiento",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:11:15.455787+00:00",
+       "2026-11-01T08:16:15.049884+00:00"
+      ]
+     }
+    },
+    "sin_faltantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin faltantes (respaldo)",
+     "evidencia": null
+    },
+    "captura_sin_errores_relevantes": {
+     "estado": "ausente",
+     "metodo": "sensor (automatico)",
+     "razon": "errores que afectan a las fuentes: Suricata kernel_drops +11 en el periodo (afecta a EVE)",
+     "evidencia": null
+    },
+    "reinicios": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin reinicios",
+     "evidencia": null
+    },
+    "relojes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "mediciones válidas para ['sensor', 'kali', 'srv-dmz', 'bastion']",
+     "evidencia": {
+      "hosts": [
+       "sensor",
+       "kali",
+       "srv-dmz",
+       "bastion"
+      ]
+     }
+    }
+   },
+   "resumen": {
+    "verificado": [
+     "pcap",
+     "eve",
+     "decisiones",
+     "caracteristicas",
+     "cobertura_previa",
+     "cobertura_durante",
+     "cobertura_posterior",
+     "continuidad",
+     "sin_faltantes",
+     "reinicios",
+     "relojes"
+    ],
+    "declarado_sin_verificar": [],
+    "ausente": [
+     "captura_sin_errores_relevantes"
+    ],
+    "desconocido": []
+   },
+   "apto": false,
+   "criterio": "v2 (revisión posterior): apto solo si los 12 requisitos están 'verificado'; cobertura y continuidad por componente (pcap, eve, procesamiento frente al inventario)"
+  },
+  {
+   "episodio_id": "dns_inusual-r3",
+   "campana": "campana-A-repetida-3b-20261101T0721Z",
+   "requisitos": {
+    "pcap": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "bd6174892b15f26f99bdeb947b4db7137e9881ad37ac10fa9f177b906d35f33b"
+     }
+    },
+    "eve": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "b7bf61a20a88d789c6fa6dedabd9cf1d6dbe08166da0b9cc24ab2d9a5ae9318f"
+     }
+    },
+    "decisiones": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "bf51f308dfa0bd66bbb782a540a154df90642d5d35d92e92fe60457e01919501"
+     }
+    },
+    "caracteristicas": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "a79d1c8b82abf390cb31aafd1d9ff6ee3cbe3c0d5ed516ee3baa47b10e8e2833"
+     }
+    },
+    "cobertura_previa": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "previa: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:16:15.052535+00:00",
+       "2026-11-01T08:18:15.052535+00:00"
+      ]
+     }
+    },
+    "cobertura_durante": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "durante: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:18:15.052535+00:00",
+       "2026-11-01T08:20:45.239200+00:00"
+      ]
+     }
+    },
+    "cobertura_posterior": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "posterior: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:19:45.239200+00:00",
+       "2026-11-01T08:21:15.239200+00:00"
+      ]
+     }
+    },
+    "continuidad": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "continua: pcap, eve y procesamiento",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:16:15.052535+00:00",
+       "2026-11-01T08:21:15.239200+00:00"
+      ]
+     }
+    },
+    "sin_faltantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin faltantes (respaldo)",
+     "evidencia": null
+    },
+    "captura_sin_errores_relevantes": {
+     "estado": "ausente",
+     "metodo": "sensor (automatico)",
+     "razon": "errores que afectan a las fuentes: Suricata kernel_drops +28 en el periodo (afecta a EVE)",
+     "evidencia": null
+    },
+    "reinicios": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin reinicios",
+     "evidencia": null
+    },
+    "relojes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "mediciones válidas para ['sensor', 'kali', 'srv-dmz', 'bastion']",
+     "evidencia": {
+      "hosts": [
+       "sensor",
+       "kali",
+       "srv-dmz",
+       "bastion"
+      ]
+     }
+    }
+   },
+   "resumen": {
+    "verificado": [
+     "pcap",
+     "eve",
+     "decisiones",
+     "caracteristicas",
+     "cobertura_previa",
+     "cobertura_durante",
+     "cobertura_posterior",
+     "continuidad",
+     "sin_faltantes",
+     "reinicios",
+     "relojes"
+    ],
+    "declarado_sin_verificar": [],
+    "ausente": [
+     "captura_sin_errores_relevantes"
+    ],
+    "desconocido": []
+   },
+   "apto": false,
+   "criterio": "v2 (revisión posterior): apto solo si los 12 requisitos están 'verificado'; cobertura y continuidad por componente (pcap, eve, procesamiento frente al inventario)"
+  },
+  {
+   "episodio_id": "inundacion_http-r4",
+   "campana": "campana-A-repetida-3b-20261101T0721Z",
+   "requisitos": {
+    "pcap": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "83c64bf3379db1cac9682b9e8f53bb56912382ce5b1dd3ac81fb7f9571ae8ced"
+     }
+    },
+    "eve": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "b7bf61a20a88d789c6fa6dedabd9cf1d6dbe08166da0b9cc24ab2d9a5ae9318f"
+     }
+    },
+    "decisiones": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "bf51f308dfa0bd66bbb782a540a154df90642d5d35d92e92fe60457e01919501"
+     }
+    },
+    "caracteristicas": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "a79d1c8b82abf390cb31aafd1d9ff6ee3cbe3c0d5ed516ee3baa47b10e8e2833"
+     }
+    },
+    "cobertura_previa": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "previa: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:21:15.240858+00:00",
+       "2026-11-01T08:23:15.240858+00:00"
+      ]
+     }
+    },
+    "cobertura_durante": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "durante: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:23:15.240858+00:00",
+       "2026-11-01T08:25:45.066324+00:00"
+      ]
+     }
+    },
+    "cobertura_posterior": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "posterior: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:24:45.066324+00:00",
+       "2026-11-01T08:26:15.066324+00:00"
+      ]
+     }
+    },
+    "continuidad": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "continua: pcap, eve y procesamiento",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:21:15.240858+00:00",
+       "2026-11-01T08:26:15.066324+00:00"
+      ]
+     }
+    },
+    "sin_faltantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin faltantes (respaldo)",
+     "evidencia": null
+    },
+    "captura_sin_errores_relevantes": {
+     "estado": "ausente",
+     "metodo": "sensor (automatico)",
+     "razon": "errores que afectan a las fuentes: Suricata kernel_drops +182 en el periodo (afecta a EVE)",
+     "evidencia": null
+    },
+    "reinicios": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin reinicios",
+     "evidencia": null
+    },
+    "relojes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "mediciones válidas para ['sensor', 'kali', 'srv-dmz', 'bastion']",
+     "evidencia": {
+      "hosts": [
+       "sensor",
+       "kali",
+       "srv-dmz",
+       "bastion"
+      ]
+     }
+    }
+   },
+   "resumen": {
+    "verificado": [
+     "pcap",
+     "eve",
+     "decisiones",
+     "caracteristicas",
+     "cobertura_previa",
+     "cobertura_durante",
+     "cobertura_posterior",
+     "continuidad",
+     "sin_faltantes",
+     "reinicios",
+     "relojes"
+    ],
+    "declarado_sin_verificar": [],
+    "ausente": [
+     "captura_sin_errores_relevantes"
+    ],
+    "desconocido": []
+   },
+   "apto": false,
+   "criterio": "v2 (revisión posterior): apto solo si los 12 requisitos están 'verificado'; cobertura y continuidad por componente (pcap, eve, procesamiento frente al inventario)"
+  },
+  {
+   "episodio_id": "inundacion_http-r2",
+   "campana": "campana-A-repetida-3b-20261101T0721Z",
+   "requisitos": {
+    "pcap": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "7b7c724e825a33f31e9012d3d16ea146b06092b5e8c0364de60412c2a14dce71"
+     }
+    },
+    "eve": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "b7bf61a20a88d789c6fa6dedabd9cf1d6dbe08166da0b9cc24ab2d9a5ae9318f"
+     }
+    },
+    "decisiones": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "bf51f308dfa0bd66bbb782a540a154df90642d5d35d92e92fe60457e01919501"
+     }
+    },
+    "caracteristicas": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "a79d1c8b82abf390cb31aafd1d9ff6ee3cbe3c0d5ed516ee3baa47b10e8e2833"
+     }
+    },
+    "cobertura_previa": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "previa: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:26:15.068368+00:00",
+       "2026-11-01T08:28:15.068368+00:00"
+      ]
+     }
+    },
+    "cobertura_durante": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "durante: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:28:15.068368+00:00",
+       "2026-11-01T08:30:45.029547+00:00"
+      ]
+     }
+    },
+    "cobertura_posterior": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "posterior: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:29:45.029547+00:00",
+       "2026-11-01T08:31:15.029547+00:00"
+      ]
+     }
+    },
+    "continuidad": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "continua: pcap, eve y procesamiento",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:26:15.068368+00:00",
+       "2026-11-01T08:31:15.029547+00:00"
+      ]
+     }
+    },
+    "sin_faltantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin faltantes (respaldo)",
+     "evidencia": null
+    },
+    "captura_sin_errores_relevantes": {
+     "estado": "ausente",
+     "metodo": "sensor (automatico)",
+     "razon": "errores que afectan a las fuentes: Suricata kernel_drops +111 en el periodo (afecta a EVE)",
+     "evidencia": null
+    },
+    "reinicios": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin reinicios",
+     "evidencia": null
+    },
+    "relojes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "mediciones válidas para ['sensor', 'kali', 'srv-dmz', 'bastion']",
+     "evidencia": {
+      "hosts": [
+       "sensor",
+       "kali",
+       "srv-dmz",
+       "bastion"
+      ]
+     }
+    }
+   },
+   "resumen": {
+    "verificado": [
+     "pcap",
+     "eve",
+     "decisiones",
+     "caracteristicas",
+     "cobertura_previa",
+     "cobertura_durante",
+     "cobertura_posterior",
+     "continuidad",
+     "sin_faltantes",
+     "reinicios",
+     "relojes"
+    ],
+    "declarado_sin_verificar": [],
+    "ausente": [
+     "captura_sin_errores_relevantes"
+    ],
+    "desconocido": []
+   },
+   "apto": false,
+   "criterio": "v2 (revisión posterior): apto solo si los 12 requisitos están 'verificado'; cobertura y continuidad por componente (pcap, eve, procesamiento frente al inventario)"
+  },
+  {
+   "episodio_id": "inundacion_http-r3",
+   "campana": "campana-A-repetida-3b-20261101T0721Z",
+   "requisitos": {
+    "pcap": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "fc92630d3449a9e74c78023dc2fd916bcc43e5944c67741d1ffb1ba79e16c88a"
+     }
+    },
+    "eve": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "b7bf61a20a88d789c6fa6dedabd9cf1d6dbe08166da0b9cc24ab2d9a5ae9318f"
+     }
+    },
+    "decisiones": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "bf51f308dfa0bd66bbb782a540a154df90642d5d35d92e92fe60457e01919501"
+     }
+    },
+    "caracteristicas": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "a79d1c8b82abf390cb31aafd1d9ff6ee3cbe3c0d5ed516ee3baa47b10e8e2833"
+     }
+    },
+    "cobertura_previa": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "previa: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:31:15.031997+00:00",
+       "2026-11-01T08:33:15.031997+00:00"
+      ]
+     }
+    },
+    "cobertura_durante": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "durante: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:33:15.031997+00:00",
+       "2026-11-01T08:35:45.080583+00:00"
+      ]
+     }
+    },
+    "cobertura_posterior": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "posterior: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:34:45.080583+00:00",
+       "2026-11-01T08:36:15.080583+00:00"
+      ]
+     }
+    },
+    "continuidad": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "continua: pcap, eve y procesamiento",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:31:15.031997+00:00",
+       "2026-11-01T08:36:15.080583+00:00"
+      ]
+     }
+    },
+    "sin_faltantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin faltantes (respaldo)",
+     "evidencia": null
+    },
+    "captura_sin_errores_relevantes": {
+     "estado": "ausente",
+     "metodo": "sensor (automatico)",
+     "razon": "errores que afectan a las fuentes: Suricata kernel_drops +1483 en el periodo (afecta a EVE)",
+     "evidencia": null
+    },
+    "reinicios": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin reinicios",
+     "evidencia": null
+    },
+    "relojes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "mediciones válidas para ['sensor', 'kali', 'srv-dmz', 'bastion']",
+     "evidencia": {
+      "hosts": [
+       "sensor",
+       "kali",
+       "srv-dmz",
+       "bastion"
+      ]
+     }
+    }
+   },
+   "resumen": {
+    "verificado": [
+     "pcap",
+     "eve",
+     "decisiones",
+     "caracteristicas",
+     "cobertura_previa",
+     "cobertura_durante",
+     "cobertura_posterior",
+     "continuidad",
+     "sin_faltantes",
+     "reinicios",
+     "relojes"
+    ],
+    "declarado_sin_verificar": [],
+    "ausente": [
+     "captura_sin_errores_relevantes"
+    ],
+    "desconocido": []
+   },
+   "apto": false,
+   "criterio": "v2 (revisión posterior): apto solo si los 12 requisitos están 'verificado'; cobertura y continuidad por componente (pcap, eve, procesamiento frente al inventario)"
+  },
+  {
+   "episodio_id": "escaneo_sostenido-r4",
+   "campana": "campana-A-repetida-3b-20261101T0721Z",
+   "requisitos": {
+    "pcap": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "b304c093cbfb5dfc1089d58435f7e82b2c60f79dc166011a847fc682f892102f"
+     }
+    },
+    "eve": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "b7bf61a20a88d789c6fa6dedabd9cf1d6dbe08166da0b9cc24ab2d9a5ae9318f"
+     }
+    },
+    "decisiones": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "bf51f308dfa0bd66bbb782a540a154df90642d5d35d92e92fe60457e01919501"
+     }
+    },
+    "caracteristicas": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "a79d1c8b82abf390cb31aafd1d9ff6ee3cbe3c0d5ed516ee3baa47b10e8e2833"
+     }
+    },
+    "cobertura_previa": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "previa: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:36:15.082926+00:00",
+       "2026-11-01T08:38:15.082926+00:00"
+      ]
+     }
+    },
+    "cobertura_durante": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "durante: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:38:15.082926+00:00",
+       "2026-11-01T08:40:21.201814+00:00"
+      ]
+     }
+    },
+    "cobertura_posterior": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "posterior: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:39:21.201814+00:00",
+       "2026-11-01T08:40:51.201814+00:00"
+      ]
+     }
+    },
+    "continuidad": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "continua: pcap, eve y procesamiento",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:36:15.082926+00:00",
+       "2026-11-01T08:40:51.201814+00:00"
+      ]
+     }
+    },
+    "sin_faltantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin faltantes (respaldo)",
+     "evidencia": null
+    },
+    "captura_sin_errores_relevantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin errores relevantes ni descartes (respaldo)",
+     "evidencia": null
+    },
+    "reinicios": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin reinicios",
+     "evidencia": null
+    },
+    "relojes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "mediciones válidas para ['sensor', 'kali', 'srv-dmz', 'bastion']",
+     "evidencia": {
+      "hosts": [
+       "sensor",
+       "kali",
+       "srv-dmz",
+       "bastion"
+      ]
+     }
+    }
+   },
+   "resumen": {
+    "verificado": [
+     "pcap",
+     "eve",
+     "decisiones",
+     "caracteristicas",
+     "cobertura_previa",
+     "cobertura_durante",
+     "cobertura_posterior",
+     "continuidad",
+     "sin_faltantes",
+     "captura_sin_errores_relevantes",
+     "reinicios",
+     "relojes"
+    ],
+    "declarado_sin_verificar": [],
+    "ausente": [],
+    "desconocido": []
+   },
+   "apto": true,
+   "criterio": "v2 (revisión posterior): apto solo si los 12 requisitos están 'verificado'; cobertura y continuidad por componente (pcap, eve, procesamiento frente al inventario)"
+  },
+  {
+   "episodio_id": "escaneo_sostenido-r5",
+   "campana": "campana-A-repetida-3b-20261101T0721Z",
+   "requisitos": {
+    "pcap": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "1b21a86fb790dd406c50cc2e7dd03199f5104b8aa72cb941d3ac97247283157f"
+     }
+    },
+    "eve": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "b7bf61a20a88d789c6fa6dedabd9cf1d6dbe08166da0b9cc24ab2d9a5ae9318f"
+     }
+    },
+    "decisiones": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "bf51f308dfa0bd66bbb782a540a154df90642d5d35d92e92fe60457e01919501"
+     }
+    },
+    "caracteristicas": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "a79d1c8b82abf390cb31aafd1d9ff6ee3cbe3c0d5ed516ee3baa47b10e8e2833"
+     }
+    },
+    "cobertura_previa": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "previa: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:40:51.203365+00:00",
+       "2026-11-01T08:42:51.203365+00:00"
+      ]
+     }
+    },
+    "cobertura_durante": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "durante: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:42:51.203365+00:00",
+       "2026-11-01T08:44:56.927014+00:00"
+      ]
+     }
+    },
+    "cobertura_posterior": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "posterior: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:43:56.927014+00:00",
+       "2026-11-01T08:45:26.927014+00:00"
+      ]
+     }
+    },
+    "continuidad": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "continua: pcap, eve y procesamiento",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:40:51.203365+00:00",
+       "2026-11-01T08:45:26.927014+00:00"
+      ]
+     }
+    },
+    "sin_faltantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin faltantes (respaldo)",
+     "evidencia": null
+    },
+    "captura_sin_errores_relevantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin errores relevantes ni descartes (respaldo)",
+     "evidencia": null
+    },
+    "reinicios": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin reinicios",
+     "evidencia": null
+    },
+    "relojes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "mediciones válidas para ['sensor', 'kali', 'srv-dmz', 'bastion']",
+     "evidencia": {
+      "hosts": [
+       "sensor",
+       "kali",
+       "srv-dmz",
+       "bastion"
+      ]
+     }
+    }
+   },
+   "resumen": {
+    "verificado": [
+     "pcap",
+     "eve",
+     "decisiones",
+     "caracteristicas",
+     "cobertura_previa",
+     "cobertura_durante",
+     "cobertura_posterior",
+     "continuidad",
+     "sin_faltantes",
+     "captura_sin_errores_relevantes",
+     "reinicios",
+     "relojes"
+    ],
+    "declarado_sin_verificar": [],
+    "ausente": [],
+    "desconocido": []
+   },
+   "apto": true,
+   "criterio": "v2 (revisión posterior): apto solo si los 12 requisitos están 'verificado'; cobertura y continuidad por componente (pcap, eve, procesamiento frente al inventario)"
+  },
+  {
+   "episodio_id": "escaneo_breve-r5",
+   "campana": "campana-A-repetida-3b-20261101T0721Z",
+   "requisitos": {
+    "pcap": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "79695283a20e281f20cbf157165fe76f7c05f95d37e2a0f7775e80a986622b38"
+     }
+    },
+    "eve": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "b7bf61a20a88d789c6fa6dedabd9cf1d6dbe08166da0b9cc24ab2d9a5ae9318f"
+     }
+    },
+    "decisiones": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "bf51f308dfa0bd66bbb782a540a154df90642d5d35d92e92fe60457e01919501"
+     }
+    },
+    "caracteristicas": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "a79d1c8b82abf390cb31aafd1d9ff6ee3cbe3c0d5ed516ee3baa47b10e8e2833"
+     }
+    },
+    "cobertura_previa": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "previa: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:45:26.929050+00:00",
+       "2026-11-01T08:47:26.929050+00:00"
+      ]
+     }
+    },
+    "cobertura_durante": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "durante: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:47:26.929050+00:00",
+       "2026-11-01T08:48:44.917133+00:00"
+      ]
+     }
+    },
+    "cobertura_posterior": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "posterior: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:47:44.917133+00:00",
+       "2026-11-01T08:49:14.917133+00:00"
+      ]
+     }
+    },
+    "continuidad": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "continua: pcap, eve y procesamiento",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:45:26.929050+00:00",
+       "2026-11-01T08:49:14.917133+00:00"
+      ]
+     }
+    },
+    "sin_faltantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin faltantes (respaldo)",
+     "evidencia": null
+    },
+    "captura_sin_errores_relevantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin errores relevantes ni descartes (respaldo)",
+     "evidencia": null
+    },
+    "reinicios": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin reinicios",
+     "evidencia": null
+    },
+    "relojes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "mediciones válidas para ['sensor', 'kali', 'srv-dmz', 'bastion']",
+     "evidencia": {
+      "hosts": [
+       "sensor",
+       "kali",
+       "srv-dmz",
+       "bastion"
+      ]
+     }
+    }
+   },
+   "resumen": {
+    "verificado": [
+     "pcap",
+     "eve",
+     "decisiones",
+     "caracteristicas",
+     "cobertura_previa",
+     "cobertura_durante",
+     "cobertura_posterior",
+     "continuidad",
+     "sin_faltantes",
+     "captura_sin_errores_relevantes",
+     "reinicios",
+     "relojes"
+    ],
+    "declarado_sin_verificar": [],
+    "ausente": [],
+    "desconocido": []
+   },
+   "apto": true,
+   "criterio": "v2 (revisión posterior): apto solo si los 12 requisitos están 'verificado'; cobertura y continuidad por componente (pcap, eve, procesamiento frente al inventario)"
+  },
+  {
+   "episodio_id": "fuerza_bruta_http-r3",
+   "campana": "campana-A-repetida-3b-20261101T0721Z",
+   "requisitos": {
+    "pcap": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "dd59e7fd7a7b337930abc26b4e7207ec9eca4465b5216505ea11e64df0268286"
+     }
+    },
+    "eve": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "b7bf61a20a88d789c6fa6dedabd9cf1d6dbe08166da0b9cc24ab2d9a5ae9318f"
+     }
+    },
+    "decisiones": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "bf51f308dfa0bd66bbb782a540a154df90642d5d35d92e92fe60457e01919501"
+     }
+    },
+    "caracteristicas": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "a79d1c8b82abf390cb31aafd1d9ff6ee3cbe3c0d5ed516ee3baa47b10e8e2833"
+     }
+    },
+    "cobertura_previa": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "previa: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:49:14.919485+00:00",
+       "2026-11-01T08:51:14.919485+00:00"
+      ]
+     }
+    },
+    "cobertura_durante": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "durante: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:51:14.919485+00:00",
+       "2026-11-01T08:53:44.026060+00:00"
+      ]
+     }
+    },
+    "cobertura_posterior": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "posterior: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:52:44.026060+00:00",
+       "2026-11-01T08:54:14.026060+00:00"
+      ]
+     }
+    },
+    "continuidad": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "continua: pcap, eve y procesamiento",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:49:14.919485+00:00",
+       "2026-11-01T08:54:14.026060+00:00"
+      ]
+     }
+    },
+    "sin_faltantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin faltantes (respaldo)",
+     "evidencia": null
+    },
+    "captura_sin_errores_relevantes": {
+     "estado": "ausente",
+     "metodo": "sensor (automatico)",
+     "razon": "errores que afectan a las fuentes: Suricata kernel_drops +61 en el periodo (afecta a EVE)",
+     "evidencia": null
+    },
+    "reinicios": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin reinicios",
+     "evidencia": null
+    },
+    "relojes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "mediciones válidas para ['sensor', 'kali', 'srv-dmz', 'bastion']",
+     "evidencia": {
+      "hosts": [
+       "sensor",
+       "kali",
+       "srv-dmz",
+       "bastion"
+      ]
+     }
+    }
+   },
+   "resumen": {
+    "verificado": [
+     "pcap",
+     "eve",
+     "decisiones",
+     "caracteristicas",
+     "cobertura_previa",
+     "cobertura_durante",
+     "cobertura_posterior",
+     "continuidad",
+     "sin_faltantes",
+     "reinicios",
+     "relojes"
+    ],
+    "declarado_sin_verificar": [],
+    "ausente": [
+     "captura_sin_errores_relevantes"
+    ],
+    "desconocido": []
+   },
+   "apto": false,
+   "criterio": "v2 (revisión posterior): apto solo si los 12 requisitos están 'verificado'; cobertura y continuidad por componente (pcap, eve, procesamiento frente al inventario)"
+  },
+  {
+   "episodio_id": "fuerza_bruta_http-r5",
+   "campana": "campana-A-repetida-3b-20261101T0721Z",
+   "requisitos": {
+    "pcap": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "711cd7194aaa9d551bd7eb1e10a8d3bd2d8cd8e411e6591d267ad8760c102ae6"
+     }
+    },
+    "eve": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "b7bf61a20a88d789c6fa6dedabd9cf1d6dbe08166da0b9cc24ab2d9a5ae9318f"
+     }
+    },
+    "decisiones": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "bf51f308dfa0bd66bbb782a540a154df90642d5d35d92e92fe60457e01919501"
+     }
+    },
+    "caracteristicas": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "a79d1c8b82abf390cb31aafd1d9ff6ee3cbe3c0d5ed516ee3baa47b10e8e2833"
+     }
+    },
+    "cobertura_previa": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "previa: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:54:14.028399+00:00",
+       "2026-11-01T08:56:14.028399+00:00"
+      ]
+     }
+    },
+    "cobertura_durante": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "durante: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:56:14.028399+00:00",
+       "2026-11-01T08:58:44.034807+00:00"
+      ]
+     }
+    },
+    "cobertura_posterior": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "posterior: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:57:44.034807+00:00",
+       "2026-11-01T08:59:14.034807+00:00"
+      ]
+     }
+    },
+    "continuidad": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "continua: pcap, eve y procesamiento",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:54:14.028399+00:00",
+       "2026-11-01T08:59:14.034807+00:00"
+      ]
+     }
+    },
+    "sin_faltantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin faltantes (respaldo)",
+     "evidencia": null
+    },
+    "captura_sin_errores_relevantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin errores relevantes ni descartes (respaldo)",
+     "evidencia": null
+    },
+    "reinicios": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin reinicios",
+     "evidencia": null
+    },
+    "relojes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "mediciones válidas para ['sensor', 'kali', 'srv-dmz', 'bastion']",
+     "evidencia": {
+      "hosts": [
+       "sensor",
+       "kali",
+       "srv-dmz",
+       "bastion"
+      ]
+     }
+    }
+   },
+   "resumen": {
+    "verificado": [
+     "pcap",
+     "eve",
+     "decisiones",
+     "caracteristicas",
+     "cobertura_previa",
+     "cobertura_durante",
+     "cobertura_posterior",
+     "continuidad",
+     "sin_faltantes",
+     "captura_sin_errores_relevantes",
+     "reinicios",
+     "relojes"
+    ],
+    "declarado_sin_verificar": [],
+    "ausente": [],
+    "desconocido": []
+   },
+   "apto": true,
+   "criterio": "v2 (revisión posterior): apto solo si los 12 requisitos están 'verificado'; cobertura y continuidad por componente (pcap, eve, procesamiento frente al inventario)"
+  },
+  {
+   "episodio_id": "dns_inusual-r5",
+   "campana": "campana-A-repetida-3b-20261101T0721Z",
+   "requisitos": {
+    "pcap": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "45ffb152cab4579ea70e5b8395a78e3897d948aea9724f21ac78f0efd705ffb7"
+     }
+    },
+    "eve": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "b7bf61a20a88d789c6fa6dedabd9cf1d6dbe08166da0b9cc24ab2d9a5ae9318f"
+     }
+    },
+    "decisiones": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "bf51f308dfa0bd66bbb782a540a154df90642d5d35d92e92fe60457e01919501"
+     }
+    },
+    "caracteristicas": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "a79d1c8b82abf390cb31aafd1d9ff6ee3cbe3c0d5ed516ee3baa47b10e8e2833"
+     }
+    },
+    "cobertura_previa": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "previa: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:59:14.036963+00:00",
+       "2026-11-01T09:01:14.036963+00:00"
+      ]
+     }
+    },
+    "cobertura_durante": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "durante: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:01:14.036963+00:00",
+       "2026-11-01T09:03:44.428064+00:00"
+      ]
+     }
+    },
+    "cobertura_posterior": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "posterior: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:02:44.428064+00:00",
+       "2026-11-01T09:04:14.428064+00:00"
+      ]
+     }
+    },
+    "continuidad": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "continua: pcap, eve y procesamiento",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T08:59:14.036963+00:00",
+       "2026-11-01T09:04:14.428064+00:00"
+      ]
+     }
+    },
+    "sin_faltantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin faltantes (respaldo)",
+     "evidencia": null
+    },
+    "captura_sin_errores_relevantes": {
+     "estado": "ausente",
+     "metodo": "sensor (automatico)",
+     "razon": "errores que afectan a las fuentes: Suricata kernel_drops +100 en el periodo (afecta a EVE)",
+     "evidencia": null
+    },
+    "reinicios": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin reinicios",
+     "evidencia": null
+    },
+    "relojes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "mediciones válidas para ['sensor', 'kali', 'srv-dmz', 'bastion']",
+     "evidencia": {
+      "hosts": [
+       "sensor",
+       "kali",
+       "srv-dmz",
+       "bastion"
+      ]
+     }
+    }
+   },
+   "resumen": {
+    "verificado": [
+     "pcap",
+     "eve",
+     "decisiones",
+     "caracteristicas",
+     "cobertura_previa",
+     "cobertura_durante",
+     "cobertura_posterior",
+     "continuidad",
+     "sin_faltantes",
+     "reinicios",
+     "relojes"
+    ],
+    "declarado_sin_verificar": [],
+    "ausente": [
+     "captura_sin_errores_relevantes"
+    ],
+    "desconocido": []
+   },
+   "apto": false,
+   "criterio": "v2 (revisión posterior): apto solo si los 12 requisitos están 'verificado'; cobertura y continuidad por componente (pcap, eve, procesamiento frente al inventario)"
+  },
+  {
+   "episodio_id": "escaneo_sostenido-r3",
+   "campana": "campana-A-repetida-3b-20261101T0721Z",
+   "requisitos": {
+    "pcap": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "54ccd5d2d650715a8b88cd588d370e3d5140f3e32a9dbce28bf3b4ffec046da6"
+     }
+    },
+    "eve": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "b7bf61a20a88d789c6fa6dedabd9cf1d6dbe08166da0b9cc24ab2d9a5ae9318f"
+     }
+    },
+    "decisiones": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "bf51f308dfa0bd66bbb782a540a154df90642d5d35d92e92fe60457e01919501"
+     }
+    },
+    "caracteristicas": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "a79d1c8b82abf390cb31aafd1d9ff6ee3cbe3c0d5ed516ee3baa47b10e8e2833"
+     }
+    },
+    "cobertura_previa": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "previa: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:04:14.430077+00:00",
+       "2026-11-01T09:06:14.430077+00:00"
+      ]
+     }
+    },
+    "cobertura_durante": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "durante: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:06:14.430077+00:00",
+       "2026-11-01T09:08:19.952266+00:00"
+      ]
+     }
+    },
+    "cobertura_posterior": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "posterior: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:07:19.952266+00:00",
+       "2026-11-01T09:08:49.952266+00:00"
+      ]
+     }
+    },
+    "continuidad": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "continua: pcap, eve y procesamiento",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:04:14.430077+00:00",
+       "2026-11-01T09:08:49.952266+00:00"
+      ]
+     }
+    },
+    "sin_faltantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin faltantes (respaldo)",
+     "evidencia": null
+    },
+    "captura_sin_errores_relevantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin errores relevantes ni descartes (respaldo)",
+     "evidencia": null
+    },
+    "reinicios": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin reinicios",
+     "evidencia": null
+    },
+    "relojes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "mediciones válidas para ['sensor', 'kali', 'srv-dmz', 'bastion']",
+     "evidencia": {
+      "hosts": [
+       "sensor",
+       "kali",
+       "srv-dmz",
+       "bastion"
+      ]
+     }
+    }
+   },
+   "resumen": {
+    "verificado": [
+     "pcap",
+     "eve",
+     "decisiones",
+     "caracteristicas",
+     "cobertura_previa",
+     "cobertura_durante",
+     "cobertura_posterior",
+     "continuidad",
+     "sin_faltantes",
+     "captura_sin_errores_relevantes",
+     "reinicios",
+     "relojes"
+    ],
+    "declarado_sin_verificar": [],
+    "ausente": [],
+    "desconocido": []
+   },
+   "apto": true,
+   "criterio": "v2 (revisión posterior): apto solo si los 12 requisitos están 'verificado'; cobertura y continuidad por componente (pcap, eve, procesamiento frente al inventario)"
+  },
+  {
+   "episodio_id": "dns_inusual-r2",
+   "campana": "campana-A-repetida-3b-20261101T0721Z",
+   "requisitos": {
+    "pcap": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "9635cdeab33793a44d5c960d3ad80a7467208f39df46feed118ed0bf5ec68294"
+     }
+    },
+    "eve": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "b7bf61a20a88d789c6fa6dedabd9cf1d6dbe08166da0b9cc24ab2d9a5ae9318f"
+     }
+    },
+    "decisiones": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "bf51f308dfa0bd66bbb782a540a154df90642d5d35d92e92fe60457e01919501"
+     }
+    },
+    "caracteristicas": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "a79d1c8b82abf390cb31aafd1d9ff6ee3cbe3c0d5ed516ee3baa47b10e8e2833"
+     }
+    },
+    "cobertura_previa": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "previa: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:08:49.954571+00:00",
+       "2026-11-01T09:10:49.954571+00:00"
+      ]
+     }
+    },
+    "cobertura_durante": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "durante: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:10:49.954571+00:00",
+       "2026-11-01T09:13:19.037243+00:00"
+      ]
+     }
+    },
+    "cobertura_posterior": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "posterior: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:12:19.037243+00:00",
+       "2026-11-01T09:13:49.037243+00:00"
+      ]
+     }
+    },
+    "continuidad": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "continua: pcap, eve y procesamiento",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:08:49.954571+00:00",
+       "2026-11-01T09:13:49.037243+00:00"
+      ]
+     }
+    },
+    "sin_faltantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin faltantes (respaldo)",
+     "evidencia": null
+    },
+    "captura_sin_errores_relevantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin errores relevantes ni descartes (respaldo)",
+     "evidencia": null
+    },
+    "reinicios": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin reinicios",
+     "evidencia": null
+    },
+    "relojes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "mediciones válidas para ['sensor', 'kali', 'srv-dmz', 'bastion']",
+     "evidencia": {
+      "hosts": [
+       "sensor",
+       "kali",
+       "srv-dmz",
+       "bastion"
+      ]
+     }
+    }
+   },
+   "resumen": {
+    "verificado": [
+     "pcap",
+     "eve",
+     "decisiones",
+     "caracteristicas",
+     "cobertura_previa",
+     "cobertura_durante",
+     "cobertura_posterior",
+     "continuidad",
+     "sin_faltantes",
+     "captura_sin_errores_relevantes",
+     "reinicios",
+     "relojes"
+    ],
+    "declarado_sin_verificar": [],
+    "ausente": [],
+    "desconocido": []
+   },
+   "apto": true,
+   "criterio": "v2 (revisión posterior): apto solo si los 12 requisitos están 'verificado'; cobertura y continuidad por componente (pcap, eve, procesamiento frente al inventario)"
+  },
+  {
+   "episodio_id": "fuerza_bruta_http-r2",
+   "campana": "campana-A-repetida-3b-20261101T0721Z",
+   "requisitos": {
+    "pcap": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "cc20d448b0b3db0966f918b4c1367c497c88c8c6d1652f9954023211426d7cdb"
+     }
+    },
+    "eve": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "b7bf61a20a88d789c6fa6dedabd9cf1d6dbe08166da0b9cc24ab2d9a5ae9318f"
+     }
+    },
+    "decisiones": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "bf51f308dfa0bd66bbb782a540a154df90642d5d35d92e92fe60457e01919501"
+     }
+    },
+    "caracteristicas": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "a79d1c8b82abf390cb31aafd1d9ff6ee3cbe3c0d5ed516ee3baa47b10e8e2833"
+     }
+    },
+    "cobertura_previa": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "previa: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:13:49.039000+00:00",
+       "2026-11-01T09:15:49.039000+00:00"
+      ]
+     }
+    },
+    "cobertura_durante": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "durante: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:15:49.039000+00:00",
+       "2026-11-01T09:18:19.052861+00:00"
+      ]
+     }
+    },
+    "cobertura_posterior": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "posterior: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:17:19.052861+00:00",
+       "2026-11-01T09:18:49.052861+00:00"
+      ]
+     }
+    },
+    "continuidad": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "continua: pcap, eve y procesamiento",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:13:49.039000+00:00",
+       "2026-11-01T09:18:49.052861+00:00"
+      ]
+     }
+    },
+    "sin_faltantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin faltantes (respaldo)",
+     "evidencia": null
+    },
+    "captura_sin_errores_relevantes": {
+     "estado": "ausente",
+     "metodo": "sensor (automatico)",
+     "razon": "errores que afectan a las fuentes: Suricata kernel_drops +97 en el periodo (afecta a EVE)",
+     "evidencia": null
+    },
+    "reinicios": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin reinicios",
+     "evidencia": null
+    },
+    "relojes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "mediciones válidas para ['sensor', 'kali', 'srv-dmz', 'bastion']",
+     "evidencia": {
+      "hosts": [
+       "sensor",
+       "kali",
+       "srv-dmz",
+       "bastion"
+      ]
+     }
+    }
+   },
+   "resumen": {
+    "verificado": [
+     "pcap",
+     "eve",
+     "decisiones",
+     "caracteristicas",
+     "cobertura_previa",
+     "cobertura_durante",
+     "cobertura_posterior",
+     "continuidad",
+     "sin_faltantes",
+     "reinicios",
+     "relojes"
+    ],
+    "declarado_sin_verificar": [],
+    "ausente": [
+     "captura_sin_errores_relevantes"
+    ],
+    "desconocido": []
+   },
+   "apto": false,
+   "criterio": "v2 (revisión posterior): apto solo si los 12 requisitos están 'verificado'; cobertura y continuidad por componente (pcap, eve, procesamiento frente al inventario)"
+  },
+  {
+   "episodio_id": "fuerza_bruta_http-r4",
+   "campana": "campana-A-repetida-3b-20261101T0721Z",
+   "requisitos": {
+    "pcap": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "dc8fc7d02e157b6d52cb6237f30afdb961c62f7c1b554c2dd8ce86de0bf303fc"
+     }
+    },
+    "eve": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "b7bf61a20a88d789c6fa6dedabd9cf1d6dbe08166da0b9cc24ab2d9a5ae9318f"
+     }
+    },
+    "decisiones": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "bf51f308dfa0bd66bbb782a540a154df90642d5d35d92e92fe60457e01919501"
+     }
+    },
+    "caracteristicas": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "a79d1c8b82abf390cb31aafd1d9ff6ee3cbe3c0d5ed516ee3baa47b10e8e2833"
+     }
+    },
+    "cobertura_previa": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "previa: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:18:49.055095+00:00",
+       "2026-11-01T09:20:49.055095+00:00"
+      ]
+     }
+    },
+    "cobertura_durante": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "durante: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:20:49.055095+00:00",
+       "2026-11-01T09:23:19.059245+00:00"
+      ]
+     }
+    },
+    "cobertura_posterior": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "posterior: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:22:19.059245+00:00",
+       "2026-11-01T09:23:49.059245+00:00"
+      ]
+     }
+    },
+    "continuidad": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "continua: pcap, eve y procesamiento",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:18:49.055095+00:00",
+       "2026-11-01T09:23:49.059245+00:00"
+      ]
+     }
+    },
+    "sin_faltantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin faltantes (respaldo)",
+     "evidencia": null
+    },
+    "captura_sin_errores_relevantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin errores relevantes ni descartes (respaldo)",
+     "evidencia": null
+    },
+    "reinicios": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin reinicios",
+     "evidencia": null
+    },
+    "relojes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "mediciones válidas para ['sensor', 'kali', 'srv-dmz', 'bastion']",
+     "evidencia": {
+      "hosts": [
+       "sensor",
+       "kali",
+       "srv-dmz",
+       "bastion"
+      ]
+     }
+    }
+   },
+   "resumen": {
+    "verificado": [
+     "pcap",
+     "eve",
+     "decisiones",
+     "caracteristicas",
+     "cobertura_previa",
+     "cobertura_durante",
+     "cobertura_posterior",
+     "continuidad",
+     "sin_faltantes",
+     "captura_sin_errores_relevantes",
+     "reinicios",
+     "relojes"
+    ],
+    "declarado_sin_verificar": [],
+    "ausente": [],
+    "desconocido": []
+   },
+   "apto": true,
+   "criterio": "v2 (revisión posterior): apto solo si los 12 requisitos están 'verificado'; cobertura y continuidad por componente (pcap, eve, procesamiento frente al inventario)"
+  },
+  {
+   "episodio_id": "dns_inusual-r1",
+   "campana": "campana-A-repetida-3b-20261101T0721Z",
+   "requisitos": {
+    "pcap": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "b0e623bf47a4e9e83d5bfadfcfb2e0bab5a295a2fbbc32c7081f1975446551c7"
+     }
+    },
+    "eve": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "b7bf61a20a88d789c6fa6dedabd9cf1d6dbe08166da0b9cc24ab2d9a5ae9318f"
+     }
+    },
+    "decisiones": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "bf51f308dfa0bd66bbb782a540a154df90642d5d35d92e92fe60457e01919501"
+     }
+    },
+    "caracteristicas": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "a79d1c8b82abf390cb31aafd1d9ff6ee3cbe3c0d5ed516ee3baa47b10e8e2833"
+     }
+    },
+    "cobertura_previa": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "previa: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:23:49.061441+00:00",
+       "2026-11-01T09:25:49.061441+00:00"
+      ]
+     }
+    },
+    "cobertura_durante": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "durante: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:25:49.061441+00:00",
+       "2026-11-01T09:28:19.391017+00:00"
+      ]
+     }
+    },
+    "cobertura_posterior": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "posterior: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:27:19.391017+00:00",
+       "2026-11-01T09:28:49.391017+00:00"
+      ]
+     }
+    },
+    "continuidad": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "continua: pcap, eve y procesamiento",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:23:49.061441+00:00",
+       "2026-11-01T09:28:49.391017+00:00"
+      ]
+     }
+    },
+    "sin_faltantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin faltantes (respaldo)",
+     "evidencia": null
+    },
+    "captura_sin_errores_relevantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin errores relevantes ni descartes (respaldo)",
+     "evidencia": null
+    },
+    "reinicios": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin reinicios",
+     "evidencia": null
+    },
+    "relojes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "mediciones válidas para ['sensor', 'kali', 'srv-dmz', 'bastion']",
+     "evidencia": {
+      "hosts": [
+       "sensor",
+       "kali",
+       "srv-dmz",
+       "bastion"
+      ]
+     }
+    }
+   },
+   "resumen": {
+    "verificado": [
+     "pcap",
+     "eve",
+     "decisiones",
+     "caracteristicas",
+     "cobertura_previa",
+     "cobertura_durante",
+     "cobertura_posterior",
+     "continuidad",
+     "sin_faltantes",
+     "captura_sin_errores_relevantes",
+     "reinicios",
+     "relojes"
+    ],
+    "declarado_sin_verificar": [],
+    "ausente": [],
+    "desconocido": []
+   },
+   "apto": true,
+   "criterio": "v2 (revisión posterior): apto solo si los 12 requisitos están 'verificado'; cobertura y continuidad por componente (pcap, eve, procesamiento frente al inventario)"
+  },
+  {
+   "episodio_id": "escaneo_breve-r1",
+   "campana": "campana-A-repetida-3b-20261101T0721Z",
+   "requisitos": {
+    "pcap": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "424c029dba6077da6d9ad8e1becfd7343a68a9e5ab766ecda9e47b4fb238ff08"
+     }
+    },
+    "eve": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "b7bf61a20a88d789c6fa6dedabd9cf1d6dbe08166da0b9cc24ab2d9a5ae9318f"
+     }
+    },
+    "decisiones": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "bf51f308dfa0bd66bbb782a540a154df90642d5d35d92e92fe60457e01919501"
+     }
+    },
+    "caracteristicas": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "a79d1c8b82abf390cb31aafd1d9ff6ee3cbe3c0d5ed516ee3baa47b10e8e2833"
+     }
+    },
+    "cobertura_previa": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "previa: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:28:49.393459+00:00",
+       "2026-11-01T09:30:49.393459+00:00"
+      ]
+     }
+    },
+    "cobertura_durante": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "durante: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:30:49.393459+00:00",
+       "2026-11-01T09:32:06.981830+00:00"
+      ]
+     }
+    },
+    "cobertura_posterior": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "posterior: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:31:06.981830+00:00",
+       "2026-11-01T09:32:36.981830+00:00"
+      ]
+     }
+    },
+    "continuidad": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "continua: pcap, eve y procesamiento",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:28:49.393459+00:00",
+       "2026-11-01T09:32:36.981830+00:00"
+      ]
+     }
+    },
+    "sin_faltantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin faltantes (respaldo)",
+     "evidencia": null
+    },
+    "captura_sin_errores_relevantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin errores relevantes ni descartes (respaldo)",
+     "evidencia": null
+    },
+    "reinicios": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin reinicios",
+     "evidencia": null
+    },
+    "relojes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "mediciones válidas para ['sensor', 'kali', 'srv-dmz', 'bastion']",
+     "evidencia": {
+      "hosts": [
+       "sensor",
+       "kali",
+       "srv-dmz",
+       "bastion"
+      ]
+     }
+    }
+   },
+   "resumen": {
+    "verificado": [
+     "pcap",
+     "eve",
+     "decisiones",
+     "caracteristicas",
+     "cobertura_previa",
+     "cobertura_durante",
+     "cobertura_posterior",
+     "continuidad",
+     "sin_faltantes",
+     "captura_sin_errores_relevantes",
+     "reinicios",
+     "relojes"
+    ],
+    "declarado_sin_verificar": [],
+    "ausente": [],
+    "desconocido": []
+   },
+   "apto": true,
+   "criterio": "v2 (revisión posterior): apto solo si los 12 requisitos están 'verificado'; cobertura y continuidad por componente (pcap, eve, procesamiento frente al inventario)"
+  },
+  {
+   "episodio_id": "escaneo_breve-r4",
+   "campana": "campana-A-repetida-3b-20261101T0721Z",
+   "requisitos": {
+    "pcap": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "b312fefab3a2b941021816e20c0900a5fae31144e21601a2f0868269f3f9af46"
+     }
+    },
+    "eve": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "b7bf61a20a88d789c6fa6dedabd9cf1d6dbe08166da0b9cc24ab2d9a5ae9318f"
+     }
+    },
+    "decisiones": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "bf51f308dfa0bd66bbb782a540a154df90642d5d35d92e92fe60457e01919501"
+     }
+    },
+    "caracteristicas": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "a79d1c8b82abf390cb31aafd1d9ff6ee3cbe3c0d5ed516ee3baa47b10e8e2833"
+     }
+    },
+    "cobertura_previa": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "previa: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:32:36.983786+00:00",
+       "2026-11-01T09:34:36.983786+00:00"
+      ]
+     }
+    },
+    "cobertura_durante": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "durante: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:34:36.983786+00:00",
+       "2026-11-01T09:35:54.972803+00:00"
+      ]
+     }
+    },
+    "cobertura_posterior": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "posterior: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:34:54.972803+00:00",
+       "2026-11-01T09:36:24.972803+00:00"
+      ]
+     }
+    },
+    "continuidad": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "continua: pcap, eve y procesamiento",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:32:36.983786+00:00",
+       "2026-11-01T09:36:24.972803+00:00"
+      ]
+     }
+    },
+    "sin_faltantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin faltantes (respaldo)",
+     "evidencia": null
+    },
+    "captura_sin_errores_relevantes": {
+     "estado": "ausente",
+     "metodo": "sensor (automatico)",
+     "razon": "errores que afectan a las fuentes: Suricata kernel_drops +58 en el periodo (afecta a EVE)",
+     "evidencia": null
+    },
+    "reinicios": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin reinicios",
+     "evidencia": null
+    },
+    "relojes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "mediciones válidas para ['sensor', 'kali', 'srv-dmz', 'bastion']",
+     "evidencia": {
+      "hosts": [
+       "sensor",
+       "kali",
+       "srv-dmz",
+       "bastion"
+      ]
+     }
+    }
+   },
+   "resumen": {
+    "verificado": [
+     "pcap",
+     "eve",
+     "decisiones",
+     "caracteristicas",
+     "cobertura_previa",
+     "cobertura_durante",
+     "cobertura_posterior",
+     "continuidad",
+     "sin_faltantes",
+     "reinicios",
+     "relojes"
+    ],
+    "declarado_sin_verificar": [],
+    "ausente": [
+     "captura_sin_errores_relevantes"
+    ],
+    "desconocido": []
+   },
+   "apto": false,
+   "criterio": "v2 (revisión posterior): apto solo si los 12 requisitos están 'verificado'; cobertura y continuidad por componente (pcap, eve, procesamiento frente al inventario)"
+  },
+  {
+   "episodio_id": "escaneo_breve-r3",
+   "campana": "campana-A-repetida-3b-20261101T0721Z",
+   "requisitos": {
+    "pcap": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "d19878ca76046c8adc26e66219ba8a4cebf6944dd9ca42100975352f7dac4794"
+     }
+    },
+    "eve": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "b7bf61a20a88d789c6fa6dedabd9cf1d6dbe08166da0b9cc24ab2d9a5ae9318f"
+     }
+    },
+    "decisiones": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "bf51f308dfa0bd66bbb782a540a154df90642d5d35d92e92fe60457e01919501"
+     }
+    },
+    "caracteristicas": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "a79d1c8b82abf390cb31aafd1d9ff6ee3cbe3c0d5ed516ee3baa47b10e8e2833"
+     }
+    },
+    "cobertura_previa": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "previa: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:36:24.974659+00:00",
+       "2026-11-01T09:38:24.974659+00:00"
+      ]
+     }
+    },
+    "cobertura_durante": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "durante: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:38:24.974659+00:00",
+       "2026-11-01T09:39:42.566150+00:00"
+      ]
+     }
+    },
+    "cobertura_posterior": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "posterior: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:38:42.566150+00:00",
+       "2026-11-01T09:40:12.566150+00:00"
+      ]
+     }
+    },
+    "continuidad": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "continua: pcap, eve y procesamiento",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:36:24.974659+00:00",
+       "2026-11-01T09:40:12.566150+00:00"
+      ]
+     }
+    },
+    "sin_faltantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin faltantes (respaldo)",
+     "evidencia": null
+    },
+    "captura_sin_errores_relevantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin errores relevantes ni descartes (respaldo)",
+     "evidencia": null
+    },
+    "reinicios": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin reinicios",
+     "evidencia": null
+    },
+    "relojes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "mediciones válidas para ['sensor', 'kali', 'srv-dmz', 'bastion']",
+     "evidencia": {
+      "hosts": [
+       "sensor",
+       "kali",
+       "srv-dmz",
+       "bastion"
+      ]
+     }
+    }
+   },
+   "resumen": {
+    "verificado": [
+     "pcap",
+     "eve",
+     "decisiones",
+     "caracteristicas",
+     "cobertura_previa",
+     "cobertura_durante",
+     "cobertura_posterior",
+     "continuidad",
+     "sin_faltantes",
+     "captura_sin_errores_relevantes",
+     "reinicios",
+     "relojes"
+    ],
+    "declarado_sin_verificar": [],
+    "ausente": [],
+    "desconocido": []
+   },
+   "apto": true,
+   "criterio": "v2 (revisión posterior): apto solo si los 12 requisitos están 'verificado'; cobertura y continuidad por componente (pcap, eve, procesamiento frente al inventario)"
+  },
+  {
+   "episodio_id": "dns_inusual-r4",
+   "campana": "campana-A-repetida-3b-20261101T0721Z",
+   "requisitos": {
+    "pcap": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "1d31a9d5b2424019d7a1c258fb5a2137bfd21e161e0f9bfaa3eaa4a5ac2b671a"
+     }
+    },
+    "eve": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "b7bf61a20a88d789c6fa6dedabd9cf1d6dbe08166da0b9cc24ab2d9a5ae9318f"
+     }
+    },
+    "decisiones": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "bf51f308dfa0bd66bbb782a540a154df90642d5d35d92e92fe60457e01919501"
+     }
+    },
+    "caracteristicas": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "a79d1c8b82abf390cb31aafd1d9ff6ee3cbe3c0d5ed516ee3baa47b10e8e2833"
+     }
+    },
+    "cobertura_previa": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "previa: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:40:12.568917+00:00",
+       "2026-11-01T09:42:12.568917+00:00"
+      ]
+     }
+    },
+    "cobertura_durante": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "durante: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:42:12.568917+00:00",
+       "2026-11-01T09:44:42.051632+00:00"
+      ]
+     }
+    },
+    "cobertura_posterior": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "posterior: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:43:42.051632+00:00",
+       "2026-11-01T09:45:12.051632+00:00"
+      ]
+     }
+    },
+    "continuidad": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "continua: pcap, eve y procesamiento",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:40:12.568917+00:00",
+       "2026-11-01T09:45:12.051632+00:00"
+      ]
+     }
+    },
+    "sin_faltantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin faltantes (respaldo)",
+     "evidencia": null
+    },
+    "captura_sin_errores_relevantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin errores relevantes ni descartes (respaldo)",
+     "evidencia": null
+    },
+    "reinicios": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin reinicios",
+     "evidencia": null
+    },
+    "relojes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "mediciones válidas para ['sensor', 'kali', 'srv-dmz', 'bastion']",
+     "evidencia": {
+      "hosts": [
+       "sensor",
+       "kali",
+       "srv-dmz",
+       "bastion"
+      ]
+     }
+    }
+   },
+   "resumen": {
+    "verificado": [
+     "pcap",
+     "eve",
+     "decisiones",
+     "caracteristicas",
+     "cobertura_previa",
+     "cobertura_durante",
+     "cobertura_posterior",
+     "continuidad",
+     "sin_faltantes",
+     "captura_sin_errores_relevantes",
+     "reinicios",
+     "relojes"
+    ],
+    "declarado_sin_verificar": [],
+    "ausente": [],
+    "desconocido": []
+   },
+   "apto": true,
+   "criterio": "v2 (revisión posterior): apto solo si los 12 requisitos están 'verificado'; cobertura y continuidad por componente (pcap, eve, procesamiento frente al inventario)"
+  },
+  {
+   "episodio_id": "fuerza_bruta_http-r1",
+   "campana": "campana-A-repetida-3b-20261101T0721Z",
+   "requisitos": {
+    "pcap": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "7cbfea4bc379a396700dfebb653c4ac226ec8e18aa9dc0bccebdac7d26ec7bba"
+     }
+    },
+    "eve": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "b7bf61a20a88d789c6fa6dedabd9cf1d6dbe08166da0b9cc24ab2d9a5ae9318f"
+     }
+    },
+    "decisiones": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "bf51f308dfa0bd66bbb782a540a154df90642d5d35d92e92fe60457e01919501"
+     }
+    },
+    "caracteristicas": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "a79d1c8b82abf390cb31aafd1d9ff6ee3cbe3c0d5ed516ee3baa47b10e8e2833"
+     }
+    },
+    "cobertura_previa": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "previa: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:45:12.053669+00:00",
+       "2026-11-01T09:47:12.053669+00:00"
+      ]
+     }
+    },
+    "cobertura_durante": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "durante: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:47:12.053669+00:00",
+       "2026-11-01T09:49:42.062290+00:00"
+      ]
+     }
+    },
+    "cobertura_posterior": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "posterior: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:48:42.062290+00:00",
+       "2026-11-01T09:50:12.062290+00:00"
+      ]
+     }
+    },
+    "continuidad": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "continua: pcap, eve y procesamiento",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:45:12.053669+00:00",
+       "2026-11-01T09:50:12.062290+00:00"
+      ]
+     }
+    },
+    "sin_faltantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin faltantes (respaldo)",
+     "evidencia": null
+    },
+    "captura_sin_errores_relevantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin errores relevantes ni descartes (respaldo)",
+     "evidencia": null
+    },
+    "reinicios": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin reinicios",
+     "evidencia": null
+    },
+    "relojes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "mediciones válidas para ['sensor', 'kali', 'srv-dmz', 'bastion']",
+     "evidencia": {
+      "hosts": [
+       "sensor",
+       "kali",
+       "srv-dmz",
+       "bastion"
+      ]
+     }
+    }
+   },
+   "resumen": {
+    "verificado": [
+     "pcap",
+     "eve",
+     "decisiones",
+     "caracteristicas",
+     "cobertura_previa",
+     "cobertura_durante",
+     "cobertura_posterior",
+     "continuidad",
+     "sin_faltantes",
+     "captura_sin_errores_relevantes",
+     "reinicios",
+     "relojes"
+    ],
+    "declarado_sin_verificar": [],
+    "ausente": [],
+    "desconocido": []
+   },
+   "apto": true,
+   "criterio": "v2 (revisión posterior): apto solo si los 12 requisitos están 'verificado'; cobertura y continuidad por componente (pcap, eve, procesamiento frente al inventario)"
+  },
+  {
+   "episodio_id": "inundacion_http-r5",
+   "campana": "campana-A-repetida-3b-20261101T0721Z",
+   "requisitos": {
+    "pcap": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "3588c82fe598b625f343245699135112661c92f8566b309ee15489085c7f9272"
+     }
+    },
+    "eve": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "b7bf61a20a88d789c6fa6dedabd9cf1d6dbe08166da0b9cc24ab2d9a5ae9318f"
+     }
+    },
+    "decisiones": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "bf51f308dfa0bd66bbb782a540a154df90642d5d35d92e92fe60457e01919501"
+     }
+    },
+    "caracteristicas": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "a79d1c8b82abf390cb31aafd1d9ff6ee3cbe3c0d5ed516ee3baa47b10e8e2833"
+     }
+    },
+    "cobertura_previa": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "previa: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:50:12.064410+00:00",
+       "2026-11-01T09:52:12.064410+00:00"
+      ]
+     }
+    },
+    "cobertura_durante": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "durante: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:52:12.064410+00:00",
+       "2026-11-01T09:54:42.052518+00:00"
+      ]
+     }
+    },
+    "cobertura_posterior": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "posterior: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:53:42.052518+00:00",
+       "2026-11-01T09:55:12.052518+00:00"
+      ]
+     }
+    },
+    "continuidad": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "continua: pcap, eve y procesamiento",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:50:12.064410+00:00",
+       "2026-11-01T09:55:12.052518+00:00"
+      ]
+     }
+    },
+    "sin_faltantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin faltantes (respaldo)",
+     "evidencia": null
+    },
+    "captura_sin_errores_relevantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin errores relevantes ni descartes (respaldo)",
+     "evidencia": null
+    },
+    "reinicios": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin reinicios",
+     "evidencia": null
+    },
+    "relojes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "mediciones válidas para ['sensor', 'kali', 'srv-dmz', 'bastion']",
+     "evidencia": {
+      "hosts": [
+       "sensor",
+       "kali",
+       "srv-dmz",
+       "bastion"
+      ]
+     }
+    }
+   },
+   "resumen": {
+    "verificado": [
+     "pcap",
+     "eve",
+     "decisiones",
+     "caracteristicas",
+     "cobertura_previa",
+     "cobertura_durante",
+     "cobertura_posterior",
+     "continuidad",
+     "sin_faltantes",
+     "captura_sin_errores_relevantes",
+     "reinicios",
+     "relojes"
+    ],
+    "declarado_sin_verificar": [],
+    "ausente": [],
+    "desconocido": []
+   },
+   "apto": true,
+   "criterio": "v2 (revisión posterior): apto solo si los 12 requisitos están 'verificado'; cobertura y continuidad por componente (pcap, eve, procesamiento frente al inventario)"
+  },
+  {
+   "episodio_id": "escaneo_breve-r2",
+   "campana": "campana-A-repetida-3b-20261101T0721Z",
+   "requisitos": {
+    "pcap": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "7ceb883fba9ac3a148135a2540426821493cc8f1e191d9a529d1455ac011d79a"
+     }
+    },
+    "eve": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "b7bf61a20a88d789c6fa6dedabd9cf1d6dbe08166da0b9cc24ab2d9a5ae9318f"
+     }
+    },
+    "decisiones": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "bf51f308dfa0bd66bbb782a540a154df90642d5d35d92e92fe60457e01919501"
+     }
+    },
+    "caracteristicas": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "a79d1c8b82abf390cb31aafd1d9ff6ee3cbe3c0d5ed516ee3baa47b10e8e2833"
+     }
+    },
+    "cobertura_previa": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "previa: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:55:12.054408+00:00",
+       "2026-11-01T09:57:12.054408+00:00"
+      ]
+     }
+    },
+    "cobertura_durante": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "durante: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:57:12.054408+00:00",
+       "2026-11-01T09:58:30.041878+00:00"
+      ]
+     }
+    },
+    "cobertura_posterior": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "posterior: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:57:30.041878+00:00",
+       "2026-11-01T09:59:00.041878+00:00"
+      ]
+     }
+    },
+    "continuidad": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "continua: pcap, eve y procesamiento",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:55:12.054408+00:00",
+       "2026-11-01T09:59:00.041878+00:00"
+      ]
+     }
+    },
+    "sin_faltantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin faltantes (respaldo)",
+     "evidencia": null
+    },
+    "captura_sin_errores_relevantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin errores relevantes ni descartes (respaldo)",
+     "evidencia": null
+    },
+    "reinicios": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin reinicios",
+     "evidencia": null
+    },
+    "relojes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "mediciones válidas para ['sensor', 'kali', 'srv-dmz', 'bastion']",
+     "evidencia": {
+      "hosts": [
+       "sensor",
+       "kali",
+       "srv-dmz",
+       "bastion"
+      ]
+     }
+    }
+   },
+   "resumen": {
+    "verificado": [
+     "pcap",
+     "eve",
+     "decisiones",
+     "caracteristicas",
+     "cobertura_previa",
+     "cobertura_durante",
+     "cobertura_posterior",
+     "continuidad",
+     "sin_faltantes",
+     "captura_sin_errores_relevantes",
+     "reinicios",
+     "relojes"
+    ],
+    "declarado_sin_verificar": [],
+    "ausente": [],
+    "desconocido": []
+   },
+   "apto": true,
+   "criterio": "v2 (revisión posterior): apto solo si los 12 requisitos están 'verificado'; cobertura y continuidad por componente (pcap, eve, procesamiento frente al inventario)"
+  },
+  {
+   "episodio_id": "escaneo_sostenido-r1",
+   "campana": "campana-A-repetida-3b-20261101T0721Z",
+   "requisitos": {
+    "pcap": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "ff9e6f8ddb3749713d6117c2bec08f39657faffbc955d3599657de3249fed46a"
+     }
+    },
+    "eve": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "b7bf61a20a88d789c6fa6dedabd9cf1d6dbe08166da0b9cc24ab2d9a5ae9318f"
+     }
+    },
+    "decisiones": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "bf51f308dfa0bd66bbb782a540a154df90642d5d35d92e92fe60457e01919501"
+     }
+    },
+    "caracteristicas": {
+     "estado": "verificado",
+     "metodo": "automatico",
+     "razon": "existe, legible y hash real coincide",
+     "evidencia": {
+      "sha256": "a79d1c8b82abf390cb31aafd1d9ff6ee3cbe3c0d5ed516ee3baa47b10e8e2833"
+     }
+    },
+    "cobertura_previa": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "previa: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:59:00.044057+00:00",
+       "2026-11-01T10:01:00.044057+00:00"
+      ]
+     }
+    },
+    "cobertura_durante": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "durante: pcap, eve y procesamiento verificados",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T10:01:00.044057+00:00",
+       "2026-11-01T10:03:05.818114+00:00"
+      ]
+     }
+    },
+    "cobertura_posterior": {
+     "estado": "ausente",
+     "metodo": "sensor (automatico)",
+     "razon": "posterior: procesamiento: el intervalo [2026-11-01T10:02:05.818114+00:00, 2026-11-01T10:03:35.818114+00:00] sale del inventario [2026-11-01T07:28:30+00:00, 2026-11-01T10:03:30+00:00]: no verificado",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T10:02:05.818114+00:00",
+       "2026-11-01T10:03:35.818114+00:00"
+      ]
+     }
+    },
+    "continuidad": {
+     "estado": "ausente",
+     "metodo": "sensor (automatico)",
+     "razon": "procesamiento: el intervalo [2026-11-01T09:59:00.044057+00:00, 2026-11-01T10:03:35.818114+00:00] sale del inventario [2026-11-01T07:28:30+00:00, 2026-11-01T10:03:30+00:00]: no verificado",
+     "evidencia": {
+      "rango_utc": [
+       "2026-11-01T09:59:00.044057+00:00",
+       "2026-11-01T10:03:35.818114+00:00"
+      ]
+     }
+    },
+    "sin_faltantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin faltantes (respaldo)",
+     "evidencia": null
+    },
+    "captura_sin_errores_relevantes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin errores relevantes ni descartes (respaldo)",
+     "evidencia": null
+    },
+    "reinicios": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "sin reinicios",
+     "evidencia": null
+    },
+    "relojes": {
+     "estado": "verificado",
+     "metodo": "sensor (automatico)",
+     "razon": "mediciones válidas para ['sensor', 'kali', 'srv-dmz', 'bastion']",
+     "evidencia": {
+      "hosts": [
+       "sensor",
+       "kali",
+       "srv-dmz",
+       "bastion"
+      ]
+     }
+    }
+   },
+   "resumen": {
+    "verificado": [
+     "pcap",
+     "eve",
+     "decisiones",
+     "caracteristicas",
+     "cobertura_previa",
+     "cobertura_durante",
+     "sin_faltantes",
+     "captura_sin_errores_relevantes",
+     "reinicios",
+     "relojes"
+    ],
+    "declarado_sin_verificar": [],
+    "ausente": [
+     "cobertura_posterior",
+     "continuidad"
+    ],
+    "desconocido": []
+   },
+   "apto": false,
+   "criterio": "v2 (revisión posterior): apto solo si los 12 requisitos están 'verificado'; cobertura y continuidad por componente (pcap, eve, procesamiento frente al inventario)"
+  }
+ ],
+ "resumen": {
+  "aptos": [
+   "escaneo_sostenido-r2",
+   "escaneo_sostenido-r4",
+   "escaneo_sostenido-r5",
+   "escaneo_breve-r5",
+   "fuerza_bruta_http-r5",
+   "escaneo_sostenido-r3",
+   "dns_inusual-r2",
+   "fuerza_bruta_http-r4",
+   "dns_inusual-r1",
+   "escaneo_breve-r1",
+   "escaneo_breve-r3",
+   "dns_inusual-r4",
+   "fuerza_bruta_http-r1",
+   "inundacion_http-r5",
+   "escaneo_breve-r2"
+  ],
+  "no_aptos": [
+   "inundacion_http-r1",
+   "dns_inusual-r3",
+   "inundacion_http-r4",
+   "inundacion_http-r2",
+   "inundacion_http-r3",
+   "fuerza_bruta_http-r3",
+   "dns_inusual-r5",
+   "fuerza_bruta_http-r2",
+   "escaneo_breve-r4",
+   "escaneo_sostenido-r1"
+  ]
+ }
+}

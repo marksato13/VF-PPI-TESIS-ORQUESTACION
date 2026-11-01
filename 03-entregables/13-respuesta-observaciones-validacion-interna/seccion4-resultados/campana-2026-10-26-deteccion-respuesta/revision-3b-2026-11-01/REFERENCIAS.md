@@ -1,0 +1,58 @@
+# Referencias y hashes — revisión 3B
+
+Base: commit b714492 (3B publicado); criterios: commit 191b043 (antes del reanálisis).
+Repositorio: https://github.com/marksato13/VF-PPI-TESIS-ORQUESTACION
+
+## Herramientas nuevas (esta carpeta)
+```
+799a7e7bbdc9b80da6b198e71340b4ff7268a31f6934da3c2a911fca723cc237 *herramientas/comparar_original_revisado.py
+a3258a16b33618d1cb9de26f14df112e8e00cd00a98598fef9c515d08da6b394 *herramientas/diagnostico_demora.py
+48e7c78d407f4bde54aa154610ba868d337c47d0a0f105fb68ac6b39cc630769 *herramientas/diagnostico_heuristico_replay.py
+3dfdeb95da722110a46e1ac8560d0555b2c9352e6cec1c948821a2d4ca877183 *herramientas/diagnostico_recalculo.py
+3370624ae44d45a1be4c3b91c92d94f8b1ecd93f71a26dfb7ee8c46498d8194f *herramientas/diagnostico_suricata.py
+e759ee46838dbc1c06db68e32a462b6c983ba2a719e6af3120180b0f480210ca *herramientas/generar_respaldos_v2.py
+111c9528c561c90636005c3794e9d555ba3714a2f1e7ea6a3d6ae87734ccab38 *herramientas/recalcular_caracteristicas_v2.py
+f9f016424394a016570ad3f58f4de9463e1419201010cc9fa3ab6ea1b87fd6f7 *herramientas/verificar_integridad_v2.py
+6a600733577ebcbc7a21201e12f7d70e8dc1f2880233a0a0bec75b488bb9a558 *pruebas/test_revision_3b.py
+39571cc1dae6d4f49edcc24928dd98ed5cd16efaa7d23468e0958825a4b21f4b *guiones/s69_config_suricata.sh
+7c35110c80f91df4fee4da43b025ea4025dd13af9738bee3de3774d8a67e410a *guiones/s70_revision_sensor.sh
+98d3b6e5fc62cbe8c01f481226da07817526562610237e524b019cc7cb17fe06 *guiones/s71_rafagas_pcap.sh
+```
+
+## Herramientas originales usadas sin modificar (../scripts y sensor)
+```
+71674908e4fc7f938fc9687cf4b7ad2e4c2b77ad35ff20c0c0fcf59ec92c763a *analizar.py
+27e67fd1620762d7ec7cb172ea45465ad6edb7db77cf8d69c7c8102c8167050f *analizar_3b.py
+159d77361fac7382dc3888a5b94c694825a1f24e86d71cf633cf9e326a52dd62 *generar_respaldos.py
+1de46d03c8954c768c7fc1025e785a1a1ccc3c6649fc5c6a0449fdb544ba42b4 *verificar_integridad.py
+573fe0f10260e2788de1e972e7c809f1f77bed38ab94da602e914bfa86f5362c *recalcular_caracteristicas.py
+7b140ae42905428e0a2b615c8de88ff9d036c0c7021e2bc096b921597d33511b *poblacion.py
+d63ca6e96e8de90aec0ee8cd6274d91f006511248223c48658ad3535b642046d *calidad_fuentes.py
+```
+
+## Entradas (sensor)
+```
+276314a81176a0eb914785f0a51738e0256aba48168ce05d9f1f016936d4243a  /home/m4rk/cf-3b-20261101T0721Z/copias/marcas.jsonl
+bf51f308dfa0bd66bbb782a540a154df90642d5d35d92e92fe60457e01919501  /home/m4rk/cf-3b-20261101T0721Z/copias/motor_decision.log
+b7bf61a20a88d789c6fa6dedabd9cf1d6dbe08166da0b9cc24ab2d9a5ae9318f  /home/m4rk/cf-3b-20261101T0721Z/copias/eve-segmento.json
+5eefbdf418acb57f28a930e4fc3bd179707662448f1f478bba3d874e6864b2c6  /home/m4rk/cf-3b-20261101T0721Z/copias/ciclos.jsonl
+4b93caa4611acd2875442061a6e9aff87a67b22baf56cfc8c6f7a33864536245  /home/m4rk/cf-3b-20261101T0721Z/replay/motor_decision.log
+a79d1c8b82abf390cb31aafd1d9ff6ee3cbe3c0d5ed516ee3baa47b10e8e2833  /home/m4rk/cf-3b-20261101T0721Z/analisis/caracteristicas.jsonl
+21e7da01671adb851d4671b15b53588eb1c9d251374b5bb5d08b2b2d8f32d812  /home/m4rk/cf-3b-20261101T0721Z/copias/descartes-tcpdump.json
+0ec9488aa25d5bde925a8ebfa1725a6dbab168ce6d779f8d53115982758ead6f  /home/m4rk/cf-3b-20261101T0721Z/analisis/suricata-stats.json
+```
+
+## Salidas principales
+```
+667d804e9548b6f2d4a6cb7e853e697d4eb31a9cb23443299beb5dd17f2d307c *resultados/sensor/integridad-v2.json
+a58e0ee7e8a838b81f467d91d4f7c1262fc82f29d3b7a64b983a2fcccb3fb3a1 *resultados/sensor/caracteristicas-v2.jsonl
+87bfb2abf597d1036abf4f095a05e07a1f6b3a6b656d190aca3fc4b76527a784 *resultados/analisis-revisado/analisis-3b.json
+46c0e4f2f433ab5deabc8b511db5cbd0a6e01e1101b0f04e908175ec32038a2c *resultados/comparacion/comparacion.json
+944d70008165c55690a4542d51a650b074f136c183fd77a9122c70ed8ab53792 *diagnosticos/demora.json
+0a59f313775541e21380ad274b62396822855340d3545e2347ec105b6c38a91b *diagnosticos/recalculo-v1-v2.json
+c74bbe73a5c9e6944272eab5cbd13801fea244f1d164e6ecdd3c264c9d10cf50 *diagnosticos/replay-vs-vivo.json
+aeea77c0352bfe5e533c6098231479e093a7de75682dcccc354011a2725734ce *diagnosticos/suricata-descartes.json
+```
+
+## Código del motor consultado (solo lectura, no modificado)
+motor_decision.py 6c274d9e…, motor_incremental.py a403307a…, heuristicos.py 10deb05d…, extract_multilayer_v2.py 7130edae…, replay_motor.py c93c80c8…
