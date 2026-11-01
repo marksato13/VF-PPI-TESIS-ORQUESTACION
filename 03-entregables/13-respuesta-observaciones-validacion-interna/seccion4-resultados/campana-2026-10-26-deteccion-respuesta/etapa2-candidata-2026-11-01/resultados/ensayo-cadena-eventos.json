@@ -1,0 +1,271 @@
+{
+ "decision_repetida_genero_nuevos": 0,
+ "estado_nft": "igen { ip saddr limit rate over 100/second burst 100 packets } counter packets 0 bytes 0 drop\n\t}\n}\ntable inet cyberflow_dns {\n\tset bloqueados {\n\t\ttype ipv4_addr\n\t\tflags timeout\n\t\tcounter\n\t}\n\n\tset limitados {\n\t\ttype ipv4_addr\n\t\tflags timeout\n\t\tcounter\n\t\telements = { 10.10.20.101 counter packets 0 bytes 0 timeout 3m56s expires 3m38s528ms,\n\t\t\t     10.10.20.103 counter packets 0 bytes 0 timeout 4m4s expires 3m46s528ms,\n\t\t\t     10.10.20.105 counter packets 0 bytes 0 timeout 4m12s expires 3m54s528ms,\n\t\t\t     10.10.20.107 counter packets 0 bytes 0 timeout 4m20s expires 4m2s528ms,\n\t\t\t     10.10.20.109 counter packets 0 bytes 0 timeout 4m28s expires 4m10s528ms,\n\t\t\t     10.10.20.111 counter packets 0 bytes 0 timeout 4m36s expires 4m18s528ms,\n\t\t\t     10.10.20.113 counter packets 0 bytes 0 timeout 4m44s expires 4m26s528ms,\n\t\t\t     10.10.20.115 counter packets 0 bytes 0 timeout 4m52s expires 4m34s528ms,\n\t\t\t     10.10.20.117 counter packets 0 bytes 0 timeout 5m expires 4m42s528ms,\n\t\t\t     10.10.20.119 counter packets 0 bytes 0 timeout 4m59s expires 4m49s636ms }\n\t}\n\n\tset tasa_origen {\n\t\ttype ipv4_addr\n\t\tsize 65535\n\t\tflags dynamic,timeout\n\t\ttimeout 1m\n\t}\n\n\tchain entrada {\n\t\ttype filter hook input priority filter - 10; policy accept;\n\t\tmeta l4proto { tcp, udp } th dport 53 ip saddr @bloqueados counter packets 0 bytes 0 drop\n\t\tmeta l4proto { tcp, udp } th dport 53 ip saddr @limitados update @tasa_origen { ip saddr limit rate over 5/second burst 10 packets } counter packets 0 bytes 0 drop\n\t}\n}\n",
+ "eventos": [
+  {
+   "aplicado": 1.706,
+   "confirmado": 1.791,
+   "decision_id": "10.10.20.100|2026-11-01T10:00:00+00:00",
+   "destino": "srv-dmz",
+   "entregado": 1.076,
+   "id": "49496a6e89013542",
+   "leido": 0.122,
+   "publicado": 0.142,
+   "recibido": 1.469
+  },
+  {
+   "aplicado": 12.621,
+   "confirmado": 12.697,
+   "decision_id": "10.10.20.101|2026-11-01T10:00:10+00:00",
+   "destino": "dc1",
+   "entregado": 12.1,
+   "id": "88e54530841558df",
+   "leido": 0.152,
+   "publicado": 0.171,
+   "recibido": 12.441
+  },
+  {
+   "aplicado": 1.741,
+   "confirmado": 1.825,
+   "decision_id": "10.10.20.102|2026-11-01T10:00:20+00:00",
+   "destino": "srv-dmz",
+   "entregado": 1.09,
+   "id": "1b6191fddc842f10",
+   "leido": 0.183,
+   "publicado": 0.205,
+   "recibido": 1.566
+  },
+  {
+   "aplicado": 4.619,
+   "confirmado": 4.695,
+   "decision_id": "10.10.20.103|2026-11-01T10:00:30+00:00",
+   "destino": "dc1",
+   "entregado": 4.098,
+   "id": "49cbda7cf5e6a345",
+   "leido": 0.218,
+   "publicado": 0.235,
+   "recibido": 4.439
+  },
+  {
+   "aplicado": 1.689,
+   "confirmado": 1.769,
+   "decision_id": "10.10.20.104|2026-11-01T10:00:40+00:00",
+   "destino": "srv-dmz",
+   "entregado": 1.105,
+   "id": "78b22ad696d198b3",
+   "leido": 0.247,
+   "publicado": 0.271,
+   "recibido": 1.538
+  },
+  {
+   "aplicado": 0.736,
+   "confirmado": 0.821,
+   "decision_id": "10.10.20.105|2026-11-01T10:00:50+00:00",
+   "destino": "dc1",
+   "entregado": 0.116,
+   "id": "8b2540da817ead52",
+   "leido": 0.03,
+   "publicado": 0.042,
+   "recibido": 0.553
+  },
+  {
+   "aplicado": 0.444,
+   "confirmado": 0.542,
+   "decision_id": "10.10.20.106|2026-11-01T10:01:00+00:00",
+   "destino": "srv-dmz",
+   "entregado": 0.122,
+   "id": "e7b59bf1af30d8e9",
+   "leido": 0.054,
+   "publicado": 0.07,
+   "recibido": 0.256
+  },
+  {
+   "aplicado": 0.799,
+   "confirmado": 0.884,
+   "decision_id": "10.10.20.107|2026-11-01T10:01:10+00:00",
+   "destino": "dc1",
+   "entregado": 0.127,
+   "id": "3b6b05ac1cc1d0ca",
+   "leido": 0.082,
+   "publicado": 0.094,
+   "recibido": 0.646
+  },
+  {
+   "aplicado": 0.438,
+   "confirmado": 0.547,
+   "decision_id": "10.10.20.108|2026-11-01T10:01:20+00:00",
+   "destino": "srv-dmz",
+   "entregado": 0.133,
+   "id": "de5e9b80661d31fc",
+   "leido": 0.106,
+   "publicado": 0.118,
+   "recibido": 0.23
+  },
+  {
+   "aplicado": 1.793,
+   "confirmado": 1.87,
+   "decision_id": "10.10.20.109|2026-11-01T10:01:30+00:00",
+   "destino": "dc1",
+   "entregado": 1.141,
+   "id": "68686b2100692c3f",
+   "leido": 0.129,
+   "publicado": 0.152,
+   "recibido": 1.62
+  },
+  {
+   "aplicado": 1.398,
+   "confirmado": 1.485,
+   "decision_id": "10.10.20.110|2026-11-01T10:01:40+00:00",
+   "destino": "srv-dmz",
+   "entregado": 1.15,
+   "id": "d2634cea41067884",
+   "leido": 0.163,
+   "publicado": 0.175,
+   "recibido": 1.177
+  },
+  {
+   "aplicado": 1.385,
+   "confirmado": 1.472,
+   "decision_id": "10.10.20.111|2026-11-01T10:01:50+00:00",
+   "destino": "dc1",
+   "entregado": 1.152,
+   "id": "13b8832f3d626caa",
+   "leido": 0.182,
+   "publicado": 0.196,
+   "recibido": 1.17
+  },
+  {
+   "aplicado": 1.346,
+   "confirmado": 1.431,
+   "decision_id": "10.10.20.112|2026-11-01T10:02:00+00:00",
+   "destino": "srv-dmz",
+   "entregado": 1.156,
+   "id": "a44684e5dbaccf83",
+   "leido": 0.207,
+   "publicado": 0.22,
+   "recibido": 1.167
+  },
+  {
+   "aplicado": 1.384,
+   "confirmado": 1.485,
+   "decision_id": "10.10.20.113|2026-11-01T10:02:10+00:00",
+   "destino": "dc1",
+   "entregado": 1.162,
+   "id": "3562ae148eb5f3ca",
+   "leido": 0.232,
+   "publicado": 0.252,
+   "recibido": 1.168
+  },
+  {
+   "aplicado": 0.924,
+   "confirmado": 1.012,
+   "decision_id": "10.10.20.114|2026-11-01T10:02:20+00:00",
+   "destino": "srv-dmz",
+   "entregado": 0.166,
+   "id": "e4aa0deba692edcb",
+   "leido": 0.014,
+   "publicado": 0.03,
+   "recibido": 0.752
+  },
+  {
+   "aplicado": 0.987,
+   "confirmado": 1.076,
+   "decision_id": "10.10.20.115|2026-11-01T10:02:30+00:00",
+   "destino": "dc1",
+   "entregado": 0.196,
+   "id": "674ee164606fd2b5",
+   "leido": 0.043,
+   "publicado": 0.058,
+   "recibido": 0.795
+  },
+  {
+   "aplicado": 0.433,
+   "confirmado": 0.516,
+   "decision_id": "10.10.20.116|2026-11-01T10:02:40+00:00",
+   "destino": "srv-dmz",
+   "entregado": 0.201,
+   "id": "3aacf744e1d2bcfd",
+   "leido": 0.071,
+   "publicado": 0.093,
+   "recibido": 0.235
+  },
+  {
+   "aplicado": 0.565,
+   "confirmado": 0.652,
+   "decision_id": "10.10.20.117|2026-11-01T10:02:50+00:00",
+   "destino": "dc1",
+   "entregado": 0.207,
+   "id": "e3e4e7bc2e9df3db",
+   "leido": 0.107,
+   "publicado": 0.12,
+   "recibido": 0.311
+  },
+  {
+   "aplicado": 0.404,
+   "confirmado": 0.487,
+   "decision_id": "10.10.20.118|2026-11-01T10:03:00+00:00",
+   "destino": "srv-dmz",
+   "entregado": 0.211,
+   "id": "9fcec3700188b706",
+   "leido": 0.132,
+   "publicado": 0.145,
+   "recibido": 0.225
+  },
+  {
+   "aplicado": 0.661,
+   "confirmado": 0.744,
+   "decision_id": "10.10.20.119|2026-11-01T10:03:10+00:00",
+   "destino": "dc1",
+   "entregado": 0.217,
+   "id": "3fc72d9b315864e2",
+   "leido": 0.158,
+   "publicado": 0.175,
+   "recibido": 0.463
+  }
+ ],
+ "pasa": true,
+ "rechazos_agentes": {
+  "dmz": [],
+  "dns": []
+ },
+ "rele_errores": 18,
+ "rele_reintento_dc1_ok": true,
+ "resumen_s_desde_logged_at": {
+  "aplicado": {
+   "max": 12.621,
+   "media": 1.804,
+   "n": 20,
+   "p50": 1.346
+  },
+  "confirmado": {
+   "max": 12.697,
+   "media": 1.89,
+   "n": 20,
+   "p50": 1.431
+  },
+  "entregado": {
+   "max": 12.1,
+   "media": 1.346,
+   "n": 20,
+   "p50": 1.076
+  },
+  "leido": {
+   "max": 0.247,
+   "media": 0.132,
+   "n": 20,
+   "p50": 0.132
+  },
+  "publicado": {
+   "max": 0.271,
+   "media": 0.148,
+   "n": 20,
+   "p50": 0.152
+  },
+  "recibido": {
+   "max": 12.441,
+   "media": 1.611,
+   "n": 20,
+   "p50": 1.167
+  }
+ }
+}

@@ -1,0 +1,147 @@
+== fecha
+2026-11-01T21:08:52Z
+== suricata version
+This is Suricata version 7.0.3 RELEASE
+== af-packet (sin comentarios)
+af-packet:
+  - interface: ens37
+    checksum-checks: no
+    cluster-id: 99
+    cluster-type: cluster_flow
+    defrag: yes
+  - interface: default
+== threading
+threading:
+  set-cpu-affinity: no
+  cpu-affinity:
+    - management-cpu-set:
+        cpu: [ 0 ]  # include only these CPUs in affinity settings
+    - receive-cpu-set:
+        cpu: [ 0 ]  # include only these CPUs in affinity settings
+    - worker-cpu-set:
+        cpu: [ "all" ]
+        mode: "exclusive"
+        prio:
+          low: [ 0 ]
+          medium: [ "1-2" ]
+          high: [ 3 ]
+          default: "medium"
+  detect-thread-ratio: 1.0
+== max-pending/runmode
+== eve buffer
+88:      #filetype: regular # 'regular', 'unix_stream' or 'unix_dgram'
+93:      filetype: regular #regular|syslog|unix_dgram|unix_stream|redis
+161:            # payload-buffer-size: 4kb # max size of payload buffer to output in eve-log
+341:      #filetype: regular # 'regular', 'unix_stream' or 'unix_dgram'
+351:      #filetype: regular # 'regular', 'unix_stream' or 'unix_dgram'
+433:      #filetype: regular # 'regular', 'unix_stream' or 'unix_dgram'
+662:    # buffer-size: 32768
+809:    # On Linux, pcap will try to use mmap'ed capture and will use "buffer-size"
+812:    #buffer-size: 16777216
+1904:    buffer-size: 18432
+== interfaz ens37
+3: ens37: <BROADCAST,MULTICAST,PROMISC,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
+    link/ether 00:0c:29:3d:f9:4e brd ff:ff:ff:ff:ff:ff
+    RX:  bytes  packets errors dropped  missed   mcast           
+    4711604396 33974039      0 2485235       0 4866089 
+    RX errors:   length    crc   frame    fifo overrun otherhost
+                      0      0       0       0       0  31421036 
+    TX:  bytes  packets errors dropped carrier collsns           
+           866       11      0       0       0       0 
+    TX errors:  aborted   fifo  window heartbt transns
+                      0      0       0       0       1 
+    altname enp2s5
+rx_dropped=2485235
+rx_missed_errors=0
+rx_fifo_errors=0
+rx_over_errors=0
+rx_packets=33974053
+== ethtool
+       pkts tx err: 0
+       drv dropped tx total: 0
+          hdr err: 0
+       ring full: 0
+       xdp xmit err: 0
+       pkts tx err: 0
+       drv dropped tx total: 0
+          hdr err: 0
+       ring full: 0
+       xdp xmit err: 0
+       pkts tx err: 0
+       drv dropped tx total: 0
+          hdr err: 0
+       ring full: 0
+       xdp xmit err: 0
+       pkts tx err: 0
+       drv dropped tx total: 0
+          hdr err: 0
+       ring full: 0
+       xdp xmit err: 0
+Ring parameters for ens37:
+Pre-set maximums:
+RX:			4096
+RX Mini:		2048
+RX Jumbo:		4096
+TX:			4096
+TX push buff len:	n/a
+Current hardware settings:
+RX:			1024
+RX Mini:		128
+RX Jumbo:		512
+TX:			512
+driver: vmxnet3
+version: 1.7.0.0-k-NAPI
+firmware-version: 
+== softnet (col2 = dropped, col3 = time_squeeze)
+009b09c3 00000000 00000246 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+0091ecaa 00000000 00000338 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001 00000000 00000000
+0061a5fb 00000000 00000213 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000002 00000000 00000000
+0088b179 00000000 00000262 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000003 00000000 00000000
+== cpu
+4
+model name	: Intel(R) Xeon(R) Bronze 3204 CPU @ 1.90GHz
+== servicios
+-- suricata
+MainPID=1372
+CPUWeight=[not set]
+CPUQuotaPerSecUSec=infinity
+IOWeight=[not set]
+Nice=0
+CPUAffinity=
+ActiveEnterTimestamp=Fri 2026-10-30 19:55:21 UTC
+-- ppi-motor
+MainPID=1289322
+CPUWeight=[not set]
+CPUQuotaPerSecUSec=infinity
+IOWeight=[not set]
+Nice=0
+CPUAffinity=
+ActiveEnterTimestamp=Sun 2026-11-01 03:14:01 UTC
+-- ppi-motor-capture
+MainPID=1375
+CPUWeight=[not set]
+CPUQuotaPerSecUSec=infinity
+IOWeight=[not set]
+Nice=0
+CPUAffinity=
+ActiveEnterTimestamp=Fri 2026-10-30 19:55:21 UTC
+== hilos suricata
+    TID PSR %CPU COMMAND
+   1372   0  0.3 Suricata-Main
+   1381   3  0.0 W#01-ens37
+   1383   1  0.1 W#02-ens37
+   1384   0  0.1 W#03-ens37
+   1389   0  0.1 W#04-ens37
+   1395   0  0.3 FM#01
+   1396   1  0.0 FR#01
+   1397   2  0.0 CW
+   1398   0  0.0 CS
+   1399   3  0.0 US
+== kernel_drops actual (eve stats ultima linea)
+2026-11-01T21:08:48.243249+0000 {'kernel_packets': 33972730, 'kernel_drops': 8835, 'errors': 0, 'afpacket': {'busy_loop_avg': 1, 'polls': 22548882, 'poll_signal': 0, 'poll_timeout': 5259623, 'poll_data': 17289259, 'poll_errors': 0, 'send_errors': 0}}
+False
+== disco
+[none] mq-deadline 
+[none] mq-deadline 
+[none] mq-deadline 
+/dev/mapper/ubuntu--vg-ubuntu--lv   37G   23G   13G  65% /
