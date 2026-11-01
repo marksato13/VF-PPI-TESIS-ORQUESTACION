@@ -13,13 +13,14 @@
 
 ## Conclusión
 
-**3A pendiente.** Las correcciones pedidas sobre e0ba9e0 están hechas y probadas (sección 11). Queda un único
-impedimento verificable: la comprobación global de logrotate (sección 3), que requiere el sudo con contraseña de Mark.
-El guion v2 ya está en el sensor; falta su ejecución y su registro.
+**3A cerrado y preparado para solicitar la ejecución del 3B.** Las correcciones pedidas sobre e0ba9e0 están hechas y
+probadas (sección 11). El último impedimento, la comprobación global de logrotate, quedó cerrado el
+2026-11-01 a las 07:11:10Z: Mark ejecutó `mark/04` v2 con `rc_ssh=0`, `rc_logrotate=0`, `lineas_error=0` y
+`RESULTADO: OK` (sección 3). **El 3B no se ha ejecutado**: requiere una solicitud explícita.
 
-| # | Impedimento | Quién | Cómo se cierra |
-|---|---|---|---|
-| 1 | `sudo logrotate -d /etc/logrotate.conf`: no hay rc ni salida completa (a las 06:45Z no existe ningún `mark-04-logrotate-global-*.log` en el sensor) | Mark | Ejecutar `mark/04_logrotate_global.sh` v2 (sección 3). Se cierra **solo** si el registro dice `rc_logrotate=0` y `lineas_error=0` (código de salida 0). |
+| # | Impedimento | Estado |
+|---|---|---|
+| 1 | `sudo logrotate -d /etc/logrotate.conf`: rc y salida completa | **Cerrado** (07:11:10Z). Registro y salida en `evidencia/sensor/mark/`, con sha256 en `REFERENCIAS-Y-HASHES.md` |
 
 **Condiciones, que no son impedimentos y están en el protocolo:**
 
@@ -128,6 +129,21 @@ ssh -t sensor1 'bash ~/cf-paso3a-20261101T0523Z/mark/04_logrotate_global.sh'; ec
 
 **Criterio de cierre:** `rc_ssh=0` y, en el registro, `## rc_logrotate=0`, `## lineas_error=0` y
 `## RESULTADO: OK`. Cualquier otro resultado deja el 3A pendiente.
+
+**Resultado — cerrado (2026-11-01, 07:11:05–07:11:10Z).** Mark ejecutó el guion v2 desde el bastión:
+
+| Comprobación | Valor |
+|---|---|
+| `rc_ssh` (código del guion propagado por ssh) | 0 |
+| `rc_logrotate` | 0 |
+| `lineas_error` | 0 |
+| `lineas_warning` | 1: `warning: logrotate in debug mode does nothing except printing debug messages!`, el aviso estándar de `-d`, que confirma que **no se rotó nada**. No es un problema de configuración |
+| Configuración evaluada | `/etc/logrotate.conf` fc087718… y 14 ficheros de `/etc/logrotate.d/`, todos leídos; `cyberflow` = 183e7bc4…, el vigente esperado |
+| logrotate | 3.21.0, usuario m4rk, host cyberflow-sensor |
+| Registro | `evidencia/sensor/mark/mark-04-logrotate-global-20261101T071105Z.log`, sha256 7cae5169… |
+| Salida completa (233 líneas) | `evidencia/sensor/mark/mark-04-logrotate-global-20261101T071105Z.salida`, sha256 b34f5232… |
+
+Los sha256 de las copias del repositorio son iguales a los del sensor y a los que imprimió el guion.
 
 ## 4. Excepciones de respuesta frente a exclusiones de población
 
@@ -301,7 +317,7 @@ sigue en sombra.
 | 2 | Una ventana `ventana_no_evaluada` en la **referencia** se quitaba de las esperadas: si tampoco se evaluaba en vivo, desaparecía del denominador. Reproducido: 14 de 15 ventanas y observación completa. | Requeridas = claves con decisión **o** no evaluadas en la referencia. Por ventana se informa `estado_referencia` (decision / no_evaluada / sin_registro / sin_inventario) junto al estado en vivo (decidida / no evaluada / ausente). El resumen global da `requeridas`, `decididas_en_vivo`, `cobertura_total` y el desglose de las no evaluadas en la referencia; `solo_en_vivo` queda fuera del denominador. El **control** separa el tramo cubierto por el inventario (requeridas, cotas sobre ellas) de los tramos sin inventario (cobertura «no determinable») y dice si está parcialmente cubierto. | `test_regresion_no_evaluada_en_ambas_versiones` (también ausente en ambas; no evaluada en la referencia pero decidida en vivo = completa); `test_control_parcialmente_cubierto_y_no_evaluadas` | OK; fallan con e0ba9e0 |
 | 3 | El cierre del archivo no estaba definido: sin mínimo tras el último episodio, sin marcas de los extremos y sin requisito para el inicio del control. | Protocolo, sección 3 bis, y `config → protocolo_3b.cierre_archivo`: cierre ≥ `fin_ultimo + 60 + 120 = fin_ultimo + 180 s`, prolongado hasta verificar cinco condiciones (PCAP `OK` que cubra, sin `FALLO`, EVE posterior, decisiones en vivo hasta `fin_ultimo + 60`, replay con rc = 0 que cubra). Marcas `inicio_archivo`, `fin_ultimo` y `cierre_archivo` con su fuente. Control: `desde ≥ inicio_archivo + 230`. Los 90 + 120 s entre episodios no son un cierre. | Aplicado a la evidencia del paso 2: inicio 02:44:54Z; control 03:23:50Z ≥ 02:48:44Z; fin último 04:04:22Z; cierre 04:18:31Z, 669 s por encima del mínimo; `archivar.log` sin fallos (374/374) | Cumple |
 | 4 | `config-campana-3b.json` describía en `codigo` el motor por lotes de la primera A y mantenía la precondición de enforcement activo; el estado operativo del 3B era ambiguo. | Versión `3b-2026-11-01.2`: `codigo` = motor incremental `24f8a80` con blob y sha256 de cada fichero desplegado, y las dos excepciones as-deployed (`publicar_feed.py`, `escalada.py` de `f57ca00`/6d92ff3); lo anterior pasa a `codigo_historico_primera_A` y `campanas.historico_primera_A`, marcado HISTÓRICO. Nuevo `estado_operativo_3b`: sombra durante, verificación previa, escalada sin restablecer, se termina en sombra y la activación de la respuesta pertenece a la preparación del B. Protocolo, secciones 1, 3 y 8, unificado. | Guion s11 en el sensor (blobs desplegados) + s11b en local (comparación con 24f8a80, f57ca00 y 6d92ff3) | 6 ficheros iguales a 24f8a80; el esquema, igual salvo CRLF; publicador y escalada, de f57ca00 = 6d92ff3 |
-| 5 | `mark/04` v1 devolvía el rc de `tail`, no el de logrotate, y sobrescribía su registro. | v2 (sección 3): rc real, registro con marca de tiempo, criterio rc = 0 y ninguna línea `error:`. | Prueba local con sudo y logrotate simulados (4 casos) | Guion OK; **ejecución pendiente de Mark** |
+| 5 | `mark/04` v1 devolvía el rc de `tail`, no el de logrotate, y sobrescribía su registro. | v2 (sección 3): rc real, registro con marca de tiempo, criterio rc = 0 y ninguna línea `error:`. | Prueba local con sudo y logrotate simulados (4 casos) | Guion OK; **ejecutado por Mark a las 07:11Z: rc 0, 0 errores, RESULTADO OK** |
 | 6 | — | Re-análisis del paso 2 y de la primera A con el analizador corregido, en carpetas nuevas (`reanalisis-paso2/analisis-corregido/`, `reanalisis-campana-A-2026-10-29/corregido/`), sin sobrescribir los anteriores. | 90 comprobaciones en `test_analizar_3b.py` (eran 57; dos aserciones anteriores se adaptaron a las claves renombradas, con la misma semántica); 222 en `test_herramientas.py`; `regresion_alfa.py` con 0 diferencias | OK |
 
 **Re-análisis del paso 2 con el analizador corregido** (`reanalisis-paso2/analisis-corregido/`; mismas entradas que
