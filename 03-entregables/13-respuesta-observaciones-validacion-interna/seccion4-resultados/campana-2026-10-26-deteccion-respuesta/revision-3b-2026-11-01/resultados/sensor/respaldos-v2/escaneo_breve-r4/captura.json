@@ -1,0 +1,20 @@
+{
+ "campana": "campana-A-repetida-3b-20261101T0721Z",
+ "episodio": "escaneo_breve-r4",
+ "periodo": {
+  "inicio": 1793525556.983786,
+  "fin": 1793525784.972803
+ },
+ "origen": "sensor (automatico)",
+ "fuente": "archivar.log + estado del servicio de captura + mediciones de descarte",
+ "errores": [
+  {
+   "desc": "Suricata kernel_drops +58 en el periodo (afecta a EVE)",
+   "afecta_fuentes": true
+  }
+ ],
+ "paquetes_descartados": 0,
+ "alcance_descartes": "medido: contador acumulado del proceso tcpdump = 0 al final",
+ "suricata_kernel_drops_delta_periodo": 58,
+ "suricata_mediciones_en_periodo": 28
+}

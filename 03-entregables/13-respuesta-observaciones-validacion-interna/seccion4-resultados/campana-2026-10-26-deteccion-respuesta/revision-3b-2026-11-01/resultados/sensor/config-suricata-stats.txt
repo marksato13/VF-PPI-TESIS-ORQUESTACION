@@ -1,0 +1,72 @@
+64:stats:
+65:  enabled: yes
+68:  interval: 8
+85:      enabled: yes
+92:      enabled: yes
+146:        enabled: no
+178:            enabled: no
+204:            enabled: yes
+296:            enabled: yes
+307:            enabled: no
+335:      enabled: no
+345:      enabled: no  # Log TLS connections.
+358:      enabled: no
+392:      enabled: no
+430:      enabled: no
+437:      enabled: yes
+446:      enabled: no
+472:      enabled: no
+508:        enabled: no
+529:      enabled: no
+stats:
+  enabled: yes
+  # The interval field (in seconds) controls the interval at
+  # which stats are updated in the log.
+  interval: 8
+  # Add decode events to stats.
+  #decoder-events: true
+  # Decoder event prefix in stats. Has been 'decoder' before, but that leads
+  # to missing events in the eve.stats records. See issue #2225.
+analisis
+archivo-pcap
+archivo-pcap.pid
+archivo-pcap.rc
+archivo-pcap.stderr
+archivo-pcap.stdout
+cierre.t
+control-declarado.json
+copias
+estado-inicial
+eve
+herramientas
+marcas.jsonl
+mark
+recursos
+replay
+s30.out
+s40.out
+s50.out
+s50.rc
+voluminosos-sha256.txt
+archivador-ESTADO.txt
+archivar.log
+ciclos.jsonl
+descartes-tcpdump-journal.txt
+descartes-tcpdump.json
+estado.json
+eve-segmento.json
+feed.json
+feed.sig
+journal-avisos-sistema.txt
+journal-captura-suricata.txt
+journal-motor.txt
+marcas.jsonl
+motor_decision.log
+muestras.jsonl
+relojes-3b.log
+servicios-fin.txt
+sha256-feed-final.txt
+SHA256SUMS
+stats-fin.log
+stats-inicio.log
+574M	/home/m4rk/cf-3b-20261101T0721Z/copias/eve-segmento.json

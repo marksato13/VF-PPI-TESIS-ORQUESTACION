@@ -1,0 +1,606 @@
+{
+ "rango_window_end": [
+  "2026-11-01T07:28:30",
+  "2026-11-01T10:03:30"
+ ],
+ "claves_vivo": 12667,
+ "claves_replay": 12667,
+ "comunes": 12667,
+ "solo_vivo": 0,
+ "solo_replay": 0,
+ "duplicados": [
+  0,
+  0
+ ],
+ "diferencias": {
+  "score": 0,
+  "decision": 0,
+  "packet_count_10s": 0
+ },
+ "heuristico": {
+  "diferencias_motivo": 18,
+  "diferencias_tipo": 0,
+  "diferencias_accion": 0,
+  "todas_con_0_paquetes_y_score_null": true,
+  "detalle": [
+   {
+    "entity_ip": "10.10.20.30",
+    "window_end_utc": "2026-11-01T08:20:00+00:00",
+    "pk10": [
+     0,
+     0
+    ],
+    "score": [
+     null,
+     null
+    ],
+    "heuristico_tipo": [
+     "dns_entropy",
+     "dns_entropy"
+    ],
+    "accion": [
+     "LIMIT",
+     "LIMIT"
+    ],
+    "motivo": [
+     "54 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+     "70 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos"
+    ],
+    "fase_ciclo_s": [
+     3.52,
+     0.0
+    ],
+    "inicio_ciclo_menos_marca_eve_s": [
+     -0.0,
+     0.0
+    ]
+   },
+   {
+    "entity_ip": "10.10.20.30",
+    "window_end_utc": "2026-11-01T08:20:10+00:00",
+    "pk10": [
+     0,
+     0
+    ],
+    "score": [
+     null,
+     null
+    ],
+    "heuristico_tipo": [
+     "dns_entropy",
+     "dns_entropy"
+    ],
+    "accion": [
+     "LIMIT",
+     "LIMIT"
+    ],
+    "motivo": [
+     "54 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+     "70 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos"
+    ],
+    "fase_ciclo_s": [
+     3.52,
+     0.0
+    ],
+    "inicio_ciclo_menos_marca_eve_s": [
+     -0.0,
+     0.0
+    ]
+   },
+   {
+    "entity_ip": "10.10.20.30",
+    "window_end_utc": "2026-11-01T08:20:20+00:00",
+    "pk10": [
+     0,
+     0
+    ],
+    "score": [
+     null,
+     null
+    ],
+    "heuristico_tipo": [
+     "dns_entropy",
+     "dns_entropy"
+    ],
+    "accion": [
+     "LIMIT",
+     "LIMIT"
+    ],
+    "motivo": [
+     "54 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+     "70 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos"
+    ],
+    "fase_ciclo_s": [
+     3.52,
+     0.0
+    ],
+    "inicio_ciclo_menos_marca_eve_s": [
+     -0.0,
+     0.0
+    ]
+   },
+   {
+    "entity_ip": "10.10.20.30",
+    "window_end_utc": "2026-11-01T08:20:30+00:00",
+    "pk10": [
+     0,
+     0
+    ],
+    "score": [
+     null,
+     null
+    ],
+    "heuristico_tipo": [
+     "dns_entropy",
+     "dns_entropy"
+    ],
+    "accion": [
+     "LIMIT",
+     "LIMIT"
+    ],
+    "motivo": [
+     "54 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+     "70 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos"
+    ],
+    "fase_ciclo_s": [
+     3.52,
+     0.0
+    ],
+    "inicio_ciclo_menos_marca_eve_s": [
+     -0.0,
+     0.0
+    ]
+   },
+   {
+    "entity_ip": "10.10.20.30",
+    "window_end_utc": "2026-11-01T09:03:10+00:00",
+    "pk10": [
+     0,
+     0
+    ],
+    "score": [
+     null,
+     null
+    ],
+    "heuristico_tipo": [
+     "dns_entropy",
+     "dns_entropy"
+    ],
+    "accion": [
+     "LIMIT",
+     "LIMIT"
+    ],
+    "motivo": [
+     "46 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+     "66 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos"
+    ],
+    "fase_ciclo_s": [
+     4.45,
+     0.0
+    ],
+    "inicio_ciclo_menos_marca_eve_s": [
+     0.0,
+     0.91
+    ]
+   },
+   {
+    "entity_ip": "10.10.20.30",
+    "window_end_utc": "2026-11-01T09:03:20+00:00",
+    "pk10": [
+     0,
+     0
+    ],
+    "score": [
+     null,
+     null
+    ],
+    "heuristico_tipo": [
+     "dns_entropy",
+     "dns_entropy"
+    ],
+    "accion": [
+     "LIMIT",
+     "LIMIT"
+    ],
+    "motivo": [
+     "46 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+     "66 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos"
+    ],
+    "fase_ciclo_s": [
+     4.45,
+     0.0
+    ],
+    "inicio_ciclo_menos_marca_eve_s": [
+     0.0,
+     0.91
+    ]
+   },
+   {
+    "entity_ip": "10.10.20.30",
+    "window_end_utc": "2026-11-01T09:03:30+00:00",
+    "pk10": [
+     0,
+     0
+    ],
+    "score": [
+     null,
+     null
+    ],
+    "heuristico_tipo": [
+     "dns_entropy",
+     "dns_entropy"
+    ],
+    "accion": [
+     "LIMIT",
+     "LIMIT"
+    ],
+    "motivo": [
+     "46 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+     "66 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos"
+    ],
+    "fase_ciclo_s": [
+     4.45,
+     0.0
+    ],
+    "inicio_ciclo_menos_marca_eve_s": [
+     0.0,
+     0.91
+    ]
+   },
+   {
+    "entity_ip": "10.10.20.30",
+    "window_end_utc": "2026-11-01T09:08:00+00:00",
+    "pk10": [
+     0,
+     0
+    ],
+    "score": [
+     null,
+     null
+    ],
+    "heuristico_tipo": [
+     "http_abuse",
+     "http_abuse"
+    ],
+    "accion": [
+     "LIMIT",
+     "LIMIT"
+    ],
+    "motivo": [
+     "135 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)",
+     "146 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)"
+    ],
+    "fase_ciclo_s": [
+     4.46,
+     0.0
+    ],
+    "inicio_ciclo_menos_marca_eve_s": [
+     0.16,
+     0.01
+    ]
+   },
+   {
+    "entity_ip": "10.10.20.30",
+    "window_end_utc": "2026-11-01T09:12:30+00:00",
+    "pk10": [
+     0,
+     0
+    ],
+    "score": [
+     null,
+     null
+    ],
+    "heuristico_tipo": [
+     "dns_entropy",
+     "dns_entropy"
+    ],
+    "accion": [
+     "LIMIT",
+     "LIMIT"
+    ],
+    "motivo": [
+     "66 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+     "88 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos"
+    ],
+    "fase_ciclo_s": [
+     4.46,
+     0.0
+    ],
+    "inicio_ciclo_menos_marca_eve_s": [
+     0.0,
+     0.01
+    ]
+   },
+   {
+    "entity_ip": "10.10.20.30",
+    "window_end_utc": "2026-11-01T09:12:40+00:00",
+    "pk10": [
+     0,
+     0
+    ],
+    "score": [
+     null,
+     null
+    ],
+    "heuristico_tipo": [
+     "dns_entropy",
+     "dns_entropy"
+    ],
+    "accion": [
+     "LIMIT",
+     "LIMIT"
+    ],
+    "motivo": [
+     "66 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+     "88 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos"
+    ],
+    "fase_ciclo_s": [
+     4.46,
+     0.0
+    ],
+    "inicio_ciclo_menos_marca_eve_s": [
+     0.0,
+     0.01
+    ]
+   },
+   {
+    "entity_ip": "10.10.20.30",
+    "window_end_utc": "2026-11-01T09:12:50+00:00",
+    "pk10": [
+     0,
+     0
+    ],
+    "score": [
+     null,
+     null
+    ],
+    "heuristico_tipo": [
+     "dns_entropy",
+     "dns_entropy"
+    ],
+    "accion": [
+     "LIMIT",
+     "LIMIT"
+    ],
+    "motivo": [
+     "66 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+     "88 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos"
+    ],
+    "fase_ciclo_s": [
+     4.46,
+     0.0
+    ],
+    "inicio_ciclo_menos_marca_eve_s": [
+     0.0,
+     0.01
+    ]
+   },
+   {
+    "entity_ip": "10.10.20.30",
+    "window_end_utc": "2026-11-01T09:13:00+00:00",
+    "pk10": [
+     0,
+     0
+    ],
+    "score": [
+     null,
+     null
+    ],
+    "heuristico_tipo": [
+     "dns_entropy",
+     "dns_entropy"
+    ],
+    "accion": [
+     "LIMIT",
+     "LIMIT"
+    ],
+    "motivo": [
+     "66 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+     "88 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos"
+    ],
+    "fase_ciclo_s": [
+     4.46,
+     0.0
+    ],
+    "inicio_ciclo_menos_marca_eve_s": [
+     0.0,
+     0.01
+    ]
+   },
+   {
+    "entity_ip": "10.10.20.30",
+    "window_end_utc": "2026-11-01T09:27:40+00:00",
+    "pk10": [
+     0,
+     0
+    ],
+    "score": [
+     null,
+     null
+    ],
+    "heuristico_tipo": [
+     "dns_entropy",
+     "dns_entropy"
+    ],
+    "accion": [
+     "LIMIT",
+     "LIMIT"
+    ],
+    "motivo": [
+     "68 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+     "90 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos"
+    ],
+    "fase_ciclo_s": [
+     4.47,
+     0.0
+    ],
+    "inicio_ciclo_menos_marca_eve_s": [
+     0.44,
+     0.49
+    ]
+   },
+   {
+    "entity_ip": "10.10.20.30",
+    "window_end_utc": "2026-11-01T09:27:50+00:00",
+    "pk10": [
+     0,
+     0
+    ],
+    "score": [
+     null,
+     null
+    ],
+    "heuristico_tipo": [
+     "dns_entropy",
+     "dns_entropy"
+    ],
+    "accion": [
+     "LIMIT",
+     "LIMIT"
+    ],
+    "motivo": [
+     "68 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+     "90 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos"
+    ],
+    "fase_ciclo_s": [
+     4.47,
+     0.0
+    ],
+    "inicio_ciclo_menos_marca_eve_s": [
+     0.44,
+     0.49
+    ]
+   },
+   {
+    "entity_ip": "10.10.20.30",
+    "window_end_utc": "2026-11-01T09:28:00+00:00",
+    "pk10": [
+     0,
+     0
+    ],
+    "score": [
+     null,
+     null
+    ],
+    "heuristico_tipo": [
+     "dns_entropy",
+     "dns_entropy"
+    ],
+    "accion": [
+     "LIMIT",
+     "LIMIT"
+    ],
+    "motivo": [
+     "68 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+     "90 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos"
+    ],
+    "fase_ciclo_s": [
+     4.47,
+     0.0
+    ],
+    "inicio_ciclo_menos_marca_eve_s": [
+     0.44,
+     0.49
+    ]
+   },
+   {
+    "entity_ip": "10.10.20.30",
+    "window_end_utc": "2026-11-01T09:44:00+00:00",
+    "pk10": [
+     0,
+     0
+    ],
+    "score": [
+     null,
+     null
+    ],
+    "heuristico_tipo": [
+     "dns_entropy",
+     "dns_entropy"
+    ],
+    "accion": [
+     "LIMIT",
+     "LIMIT"
+    ],
+    "motivo": [
+     "80 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+     "56 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos"
+    ],
+    "fase_ciclo_s": [
+     4.49,
+     0.0
+    ],
+    "inicio_ciclo_menos_marca_eve_s": [
+     0.01,
+     0.0
+    ]
+   },
+   {
+    "entity_ip": "10.10.20.30",
+    "window_end_utc": "2026-11-01T09:44:10+00:00",
+    "pk10": [
+     0,
+     0
+    ],
+    "score": [
+     null,
+     null
+    ],
+    "heuristico_tipo": [
+     "dns_entropy",
+     "dns_entropy"
+    ],
+    "accion": [
+     "LIMIT",
+     "LIMIT"
+    ],
+    "motivo": [
+     "80 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+     "56 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos"
+    ],
+    "fase_ciclo_s": [
+     4.49,
+     0.0
+    ],
+    "inicio_ciclo_menos_marca_eve_s": [
+     0.01,
+     0.0
+    ]
+   },
+   {
+    "entity_ip": "10.10.20.30",
+    "window_end_utc": "2026-11-01T09:44:20+00:00",
+    "pk10": [
+     0,
+     0
+    ],
+    "score": [
+     null,
+     null
+    ],
+    "heuristico_tipo": [
+     "dns_entropy",
+     "dns_entropy"
+    ],
+    "accion": [
+     "LIMIT",
+     "LIMIT"
+    ],
+    "motivo": [
+     "80 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+     "56 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos"
+    ],
+    "fase_ciclo_s": [
+     4.49,
+     0.0
+    ],
+    "inicio_ciclo_menos_marca_eve_s": [
+     0.01,
+     0.0
+    ]
+   }
+  ]
+ },
+ "explicacion": "Las diferencias son ventanas SIN paquetes del origen (pk10=0, score null en ambos): su fila solo tiene datos L7 del EVE (consultas DNS / peticiones HTTP en 60 s) y se construye cuando la entidad reaparece. El contenido L7 depende de qué líneas del EVE estaban en el búfer en ese ciclo: en vivo el ciclo empieza a x3,5/x4,5 s y ve el EVE tal como Suricata lo había volcado; el replay usa una rejilla x0,0 s y da por escrita una línea en cuanto el reloj alcanza su timestamp. Tipo y acción coinciden; cambia el conteo explicativo. No afecta al IF (no puntúa sin paquetes).",
+ "por_que_el_replay_coincide_y_el_recalculo_v1_no": "El replay ejecuta el main() real del motor con su lectura de PCAP (todos los cerrados, files[:-1]) y su marca_pcap (máximo de paquetes decodificados). El recálculo v1 reconstruía la entrada con otra regla (ficheros con última TRAMA <= marca_pcap): excluía ficheros que terminan en tramas no decodificables. La v2 usa la regla del motor."
+}
