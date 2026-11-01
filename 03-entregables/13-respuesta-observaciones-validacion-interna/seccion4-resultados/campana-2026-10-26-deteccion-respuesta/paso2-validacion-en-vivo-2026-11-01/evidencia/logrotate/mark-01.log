@@ -1,0 +1,27 @@
+== PASO2 logrotate 2026-11-01T03:12:40.881Z
+-- 1. linea base
+  [03:13:04] antes rc=1
+-- 2. respaldo exclusivo y traslado
+/etc/logrotate.d/cyberflow root:root 644 644 2026-10-19 06:06:50.730673124 +0000
+/etc/logrotate.d/cyberflow.anterior root:root 644 644 2026-09-30 03:25:50.049068313 +0000
+/etc/logrotate.d/suricata root:root 644 203 2026-09-18 00:43:43.836441662 +0000
+/etc/logrotate.d/suricata.orig-cyberflow root:root 644 183 2026-09-17 18:34:01.773361471 +0000
+7832acf2bb33e0f1fbff6861b6c89d9b65f5eb195170b89fadd713d219123f3d  /etc/logrotate.d/cyberflow
+7832acf2bb33e0f1fbff6861b6c89d9b65f5eb195170b89fadd713d219123f3d  /etc/logrotate.d/cyberflow.anterior
+d8ddbe3ce5ea773077aba2eeb0fb885671b77fd540e2d174166c062077f110c2  /etc/logrotate.d/suricata
+f95789a4166f06c69695c31de79bf586cd72c0a862cf50292e35d2ae342f6c96  /etc/logrotate.d/suricata.orig-cyberflow
+  [03:13:04] creado /var/backups/cyberflow-paso2-20261101T0254Z
+  [03:13:04] copiada configuracion activa
+  [03:13:04] trasladado cyberflow.anterior
+  [03:13:04] trasladado suricata.orig-cyberflow
+/var/backups/cyberflow-paso2-20261101T0254Z root:root 700 4096 2026-11-01 03:13:04.369494354 +0000
+stat: cannot statx '/var/backups/cyberflow-paso2-20261101T0254Z/*': No such file or directory
+sha256sum: '/var/backups/cyberflow-paso2-20261101T0254Z/*': No such file or directory
+-- 3. comprobacion global sin los respaldos
+  [03:13:04] sin respaldos rc=0
+-- 4. estrofa nueva con ciclos.jsonl
+  [03:13:04] instalada
+183e7bc469122ed9e2d517d0561adde2afa589a97dce3365e291d9b185fce094  /etc/logrotate.d/cyberflow
+  [03:13:04] despues rc=0
+== resumen: rc=1 -> rc=0 -> rc=0
+== FIN 2026-11-01T03:13:04.489Z. Avisa a Claude: ya puede seguir.

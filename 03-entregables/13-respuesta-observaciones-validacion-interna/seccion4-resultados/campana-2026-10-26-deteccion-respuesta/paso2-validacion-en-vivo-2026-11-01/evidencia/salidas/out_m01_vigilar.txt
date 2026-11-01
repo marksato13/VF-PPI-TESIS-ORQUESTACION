@@ -1,0 +1,10 @@
+## m01 2026-11-01T03:40:40.124Z
+  kali curl=0  generador=0
+  motor active NR=0 | captura active | suricata active
+  archivador: OK: vistos=221 archivados=221, sin fallos  (2026-11-01T03:40:37Z)
+  ultimos 6 ciclos: dur=[0.82, 1.38, 1.36, 0.74, 1.73, 1.78]  pend=[18, 12, 11, 21, 12, 14]
+  pendientes 12 ciclos: [21, 9, 13, 20, 12, 14, 18, 12, 11, 21, 12, 14]  | dur max 40 ciclos=2.02  | hace 6 s del ultimo ciclo
+  retraso decidido_en-window_end (60 s): n=87 p50=15.0 max=234.6
+  10.10.20.30 en 10 min: 0 registros, []
+  LISTO_PARA_EPISODIO(ciclos y pendientes)=True
+  rss=461 MB hwm=469 MB memavail=6230 MB swapusado=0 MB pswpout=0 load1=0.87

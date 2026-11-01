@@ -1,0 +1,1 @@
+/usr/bin/tcpdump -i ens37 -n -s 0 -U -B 65536 -Z tcpdump -w /var/lib/ppi-motor-capture/live-%Y%m%d%H%M%S.pcap -G 15 

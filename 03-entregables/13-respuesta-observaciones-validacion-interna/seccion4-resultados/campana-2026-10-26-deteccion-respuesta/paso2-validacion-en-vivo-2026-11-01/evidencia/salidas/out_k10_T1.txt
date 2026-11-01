@@ -1,0 +1,7 @@
+## k10 T1 2026-11-01T03:50:59.644Z
+  lanzador: {"rep": "T1", "estado": "completo", "fin_utc": "2026-11-01T03:52:29.044852+00:00"}
+{"evento": "episodio_tecnico_lanzado", "rep": "T1", "autorizado": true, "reloj": {"pared_utc": "2026-11-01T03:50:59.753155+00:00", "monotonico": 115122.038449}}
+{"evento": "inicio", "campana": "paso2-tecnico-motor-20261101T0254Z (prueba de ingenieria; NO es la campana A)", "episodio_id": "inundacion_http-rT1", "escenario": "inundacion_http", "repeticion": "T1", "destino": "10.10.30.10", "servicio": "TCP/80", "comando": ["bash", "-c", "fin=$((SECONDS+90)); n=8; d=$(mktemp -d); for i in $(seq $n); do ( c=0; while [ $SECONDS -lt $fin ]; do curl -s -o /dev/nu
+{"evento": "fin", "episodio_id": "inundacion_http-rT1", "estado": "completo", "codigo_salida": 0, "reloj": {"pared_utc": "2026-11-01T03:52:29.044071+00:00", "monotonico": 115211.329366}, "bytes_stdout": 15, "bytes_stderr": 0, "intentos_generador": 13968, "intentos_fuente": "contador de iteraciones del bucle (INTENTOS, no peticiones enviadas ni respuestas)", "medida_real_en": "peticiones/respuestas
+  curl vivos tras el episodio: 0
+## fin 2026-11-01T03:52:29.304Z

@@ -1,0 +1,91 @@
+## s11 2026-11-01T03:14:00.345Z
+-- logrotate: rc y errores
+rc=1 rc=0 rc=0 
+  global-1-antes: lineas=245 error:=5
+  global-2-sin-respaldos: lineas=228 error:=0
+  global-3-despues: lineas=231 error:=0
+   antes| 13:error: cyberflow.anterior:9 duplicate log entry for /home/m4rk/cyberflow/logs/motor_decision.log
+   antes| 14:error: found error in file cyberflow.anterior, skipping
+   antes| 19:error: suricata.orig-cyberflow:1 duplicate log entry for /var/log/suricata/fast.log
+   antes| 20:error: suricata.orig-cyberflow:1 duplicate log entry for /var/log/suricata/eve.json
+   antes| 21:error: found error in file suricata.orig-cyberflow, skipping
+   despues| 115:rotating pattern: /home/m4rk/cyberflow/logs/motor_decision.log /home/m4rk/cyberflow/logs/_state/ciclos.jsonl  after 1 days (14 rotations)
+   despues| 118:considering log /home/m4rk/cyberflow/logs/motor_decision.log
+   despues| 122:considering log /home/m4rk/cyberflow/logs/_state/ciclos.jsonl
+   despues| 123:  log /home/m4rk/cyberflow/logs/_state/ciclos.jsonl does not exist -- skipping
+  diff 2->3 lineas: 111
+   | 52c52
+   | < switching euid from 0 to 0 and egid from 0 to 4 (pid 1286620)
+   | ---
+   | > switching euid from 0 to 0 and egid from 0 to 4 (pid 1286634)
+   | 57c57
+   | < switching euid from 0 to 0 and egid from 4 to 0 (pid 1286620)
+   | ---
+   | > switching euid from 0 to 0 and egid from 4 to 0 (pid 1286634)
+   | 61c61
+   | < switching euid from 0 to 0 and egid from 0 to 4 (pid 1286620)
+   | ---
+   | > switching euid from 0 to 0 and egid from 0 to 4 (pid 1286634)
+   | 66c66
+   | < switching euid from 0 to 0 and egid from 4 to 0 (pid 1286620)
+   | ---
+   | > switching euid from 0 to 0 and egid from 4 to 0 (pid 1286634)
+   | 70c70
+   | < switching euid from 0 to 0 and egid from 0 to 4 (pid 1286620)
+   | ---
+   | > switching euid from 0 to 0 and egid from 0 to 4 (pid 1286634)
+   | 75c75
+   | < switching euid from 0 to 0 and egid from 4 to 0 (pid 1286620)
+   | ---
+   | > switching euid from 0 to 0 and egid from 4 to 0 (pid 1286634)
+   | 79c79
+   | < switching euid from 0 to 0 and egid from 0 to 4 (pid 1286620)
+   | ---
+   | > switching euid from 0 to 0 and egid from 0 to 4 (pid 1286634)
+   | 84c84
+   | < switching euid from 0 to 0 and egid from 4 to 0 (pid 1286620)
+  -rw-r--r--   1 root root  818 nov  1 03:13 cyberflow
+  -rw-r--r--   1 root root  203 sep 18 00:43 suricata
+-- comprobaciones previas
+  ultima rotacion motor_decision.log.1: 2026-10-31 23:59:57.077593242 +0000
+-- respaldo operativo exclusivo en /home/m4rk/cf-paso2-20261101T0254Z/respaldo-operativo
+  5b15774937299f7178be75516cb43efebfa7742c8268332f165285eb17e3167a  cyberflow.local.toml
+  18bd43be231060c7032803a14a06c77e59ae39a658ef734fadeeca31d0a35410  cyberflow.toml
+  7832acf2bb33e0f1fbff6861b6c89d9b65f5eb195170b89fadd713d219123f3d  logrotate.d-cyberflow
+  7832acf2bb33e0f1fbff6861b6c89d9b65f5eb195170b89fadd713d219123f3d  logrotate.d-cyberflow.anterior
+  183e7bc469122ed9e2d517d0561adde2afa589a97dce3365e291d9b185fce094  logrotate.d-cyberflow.instalado
+  d8ddbe3ce5ea773077aba2eeb0fb885671b77fd540e2d174166c062077f110c2  logrotate.d-suricata
+  f95789a4166f06c69695c31de79bf586cd72c0a862cf50292e35d2ae342f6c96  logrotate.d-suricata.orig-cyberflow
+  d470124f8dd370599b7195949dfd50d707d245a6b181566f34771c9d08972b9f  ls-engine-antes.txt
+  e2b2eb535091ea0fb7aa08054aa8cc4eff295a4e678269cba5d4a5ee5d95bc73  motor_decision.py.7b275b8-e2b2eb53
+  e032a1a28650d438ae707c93b3045801770b3a069b4395426077af3bbd2b0e33  multilayer-v2.json
+  51247ac4ed5eb6c4c2f7e83bbb7b0d1cfa53280bfb248d981ccf051ab8d7e5d0  ppi-motor.service.txt
+  61b88202e84556de193ea26173ef2a51e54334a2a90d83ca792e48721a04c258  ppi-motor.show.txt
+  191aca09132710c1bd646da22e150908e79e6a08db0320d8ad693d62b160c538  SHA256SUMS
+-- instalacion
+  6c274d9e3529e3fb6971ff38d8c6d586780b718b483ce4e2a5e3a1cfbf25692e  /home/m4rk/cyberflow/scripts/engine/motor_decision.py
+  a403307aa5f76d38d199aef2542350f57eaf5843fdb94b44ec0bd20eaa8ff168  /home/m4rk/cyberflow/scripts/engine/motor_incremental.py
+  /home/m4rk/cyberflow/scripts/engine/motor_decision.py m4rk:m4rk 664
+  /home/m4rk/cyberflow/scripts/engine/motor_incremental.py m4rk:m4rk 664
+                           [--ciclos-path CICLOS_PATH]
+                           [--verificar-equivalencia VERIFICAR_EQUIVALENCIA]
+    --ciclos-path CICLOS_PATH
+    --verificar-equivalencia VERIFICAR_EQUIVALENCIA
+-- reinicio
+  ultimo antes: {"decision": "PERMIT", "detector_name": "if_limpio_2026_10", "duplicados_espejo": 59945818, "entity_ip": "10.10.60.12", 
+  PID antes=1378
+  restart rc=0 t=1793502840.973717220 (2026-11-01T03:14:01.039Z)
+  activo=active PID=1289322 NRestarts=0
+  argumentos IDENTICOS a los iniciales
+  journal: 5 lineas, Traceback/Error: 0
+   | 2026-11-01T03:14:00+00:00 cyberflow-sensor systemd[1]: Stopping ppi-motor.service - CyberFlow - motor de decision (Isolation Forest limpio), modo observacion...
+   | 2026-11-01T03:14:01+00:00 cyberflow-sensor systemd[1]: ppi-motor.service: Deactivated successfully.
+   | 2026-11-01T03:14:01+00:00 cyberflow-sensor systemd[1]: Stopped ppi-motor.service - CyberFlow - motor de decision (Isolation Forest limpio), modo observacion.
+   | 2026-11-01T03:14:01+00:00 cyberflow-sensor systemd[1]: ppi-motor.service: Consumed 2h 48min 19.114s CPU time, 403.2M memory peak, 0B memory swap peak.
+   | 2026-11-01T03:14:01+00:00 cyberflow-sensor systemd[1]: Started ppi-motor.service - CyberFlow - motor de decision (Isolation Forest limpio), modo observacion.
+  startup: {'logged_at': None, 'procesamiento': 'incremental', 'ciclos_path': '/home/m4rk/cyberflow/logs/_state/ciclos.jsonl', 'detector_name': 'if_limpio_2026_10', 'threshold': -0.5693969936322356, 'history_seconds': 230, 'step_seconds': 10, 'enforce': None, 'schema': None}
+  ciclos.jsonl: 5 registros
+   | {"decididas": 11, "duracion_s": 1.0466, "entidades": 23, "etapas_s": {"atribucion": 0.2109, "decision_y_registro": 0.0002, "deduplicacion": 0.2777, "eve_lectura": 0.008, "eve_observaciones": 0.0002, "eve_poda": 0.0, "expiracion_y_escritura": 0.0007, "filas": 0.215, "filtro_plano_control": 0.0135, "pcap_parseo": 0.2149, "pcap_poda": 0.0423, "puntuacion": 0.0628, "seleccion": 0.0003}, "event": "cicl
+   | {"decididas": 24, "duracion_s": 0.9498, "entidades": 23, "etapas_s": {"atribucion": 0.2808, "decision_y_registro": 0.0003, "deduplicacion": 0.2413, "eve_lectura": 0.0073, "eve_observaciones": 0.0002, "eve_poda": 0.0, "expiracion_y_escritura": 0.0011, "filas": 0.1983, "filtro_plano_control": 0.0131, "pcap_parseo": 0.1, "pcap_poda": 0.0427, "puntuacion": 0.0643, "seleccion": 0.0002}, "event": "ciclo
+## fin 2026-11-01T03:14:46.467Z
+[Errno 13] Permission denied: '/home/m4rk/cyberflow/scripts/engine/__pycache__/motor_decision.cpython-314.pyc.124785287637552'

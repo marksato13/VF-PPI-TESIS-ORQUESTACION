@@ -1,0 +1,12 @@
+## s12 2026-11-01T03:02:52.882Z
+{"t":1793502172,"inode":663679,"size":23760588}
+1793502172.891400748
+  stats.log copiado
+  muestreador pid=1260252 muestras=6
+{"t":1793502198.248308650,"pid":1378,"utime":972732,"stime":2839,"hz":100,"rss_kb":278928,"hwm_kb":360172,"memavail_kb":7104240,"swapfree_kb":4127740,"swaptotal_kb":4127740,"pswpin":0,"pswpout":0,"load1":0.22,"cpu_total_idle":"44750223 37352616","psi_mem_some10":0.00,"ens37_rx_drop":"11485649 1572522","anillo":74}
+  archivador PID=1260257 cmdline=bash /home/m4rk/bin/archivar_captura.sh /home/m4rk/cf-paso2-20261101T0254Z/archivo-pcap 20 
+  ESTADO.txt: OK: vistos=72 archivados=72, sin fallos  (2026-11-01T03:03:17Z)  ficheros=72
+2026-11-01T03:02:56Z OK live-20261101030212.pcap (368887 bytes) sha=cda6bed457e62c4906e914be6f66ae77c4f242521638aefa14a1bb8d01bf7e51
+2026-11-01T03:03:17Z OK live-20261101030227.pcap (266891 bytes) sha=45bf44f6b841d132aab565b045df4c9e2f160001515eddc9c3aa9bc29ba0a38e
+2026-11-01T03:03:17Z OK live-20261101030242.pcap (372634 bytes) sha=66b73d639be4b5fb75c65254111aeb620d7773caaeb5d0bbc3cae4a45db2b4eb
+## fin 2026-11-01T03:03:22.940Z

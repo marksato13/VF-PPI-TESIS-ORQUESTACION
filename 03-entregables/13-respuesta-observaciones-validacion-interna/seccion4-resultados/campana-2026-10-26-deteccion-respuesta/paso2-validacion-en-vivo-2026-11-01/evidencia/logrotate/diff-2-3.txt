@@ -1,0 +1,111 @@
+52c52
+< switching euid from 0 to 0 and egid from 0 to 4 (pid 1286620)
+---
+> switching euid from 0 to 0 and egid from 0 to 4 (pid 1286634)
+57c57
+< switching euid from 0 to 0 and egid from 4 to 0 (pid 1286620)
+---
+> switching euid from 0 to 0 and egid from 4 to 0 (pid 1286634)
+61c61
+< switching euid from 0 to 0 and egid from 0 to 4 (pid 1286620)
+---
+> switching euid from 0 to 0 and egid from 0 to 4 (pid 1286634)
+66c66
+< switching euid from 0 to 0 and egid from 4 to 0 (pid 1286620)
+---
+> switching euid from 0 to 0 and egid from 4 to 0 (pid 1286634)
+70c70
+< switching euid from 0 to 0 and egid from 0 to 4 (pid 1286620)
+---
+> switching euid from 0 to 0 and egid from 0 to 4 (pid 1286634)
+75c75
+< switching euid from 0 to 0 and egid from 4 to 0 (pid 1286620)
+---
+> switching euid from 0 to 0 and egid from 4 to 0 (pid 1286634)
+79c79
+< switching euid from 0 to 0 and egid from 0 to 4 (pid 1286620)
+---
+> switching euid from 0 to 0 and egid from 0 to 4 (pid 1286634)
+84c84
+< switching euid from 0 to 0 and egid from 4 to 0 (pid 1286620)
+---
+> switching euid from 0 to 0 and egid from 4 to 0 (pid 1286634)
+89c89
+< switching euid from 0 to 0 and egid from 0 to 4 (pid 1286620)
+---
+> switching euid from 0 to 0 and egid from 0 to 4 (pid 1286634)
+92c92
+< switching euid from 0 to 0 and egid from 4 to 0 (pid 1286620)
+---
+> switching euid from 0 to 0 and egid from 4 to 0 (pid 1286634)
+96c96
+< switching euid from 0 to 0 and egid from 0 to 4 (pid 1286620)
+---
+> switching euid from 0 to 0 and egid from 0 to 4 (pid 1286634)
+101c101
+< switching euid from 0 to 0 and egid from 4 to 0 (pid 1286620)
+---
+> switching euid from 0 to 0 and egid from 4 to 0 (pid 1286634)
+115c115
+< rotating pattern: /home/m4rk/cyberflow/logs/motor_decision.log  after 1 days (14 rotations)
+---
+> rotating pattern: /home/m4rk/cyberflow/logs/motor_decision.log /home/m4rk/cyberflow/logs/_state/ciclos.jsonl  after 1 days (14 rotations)
+117c117
+< switching euid from 0 to 0 and egid from 0 to 4 (pid 1286620)
+---
+> switching euid from 0 to 0 and egid from 0 to 4 (pid 1286634)
+122c122,125
+< switching euid from 0 to 0 and egid from 4 to 0 (pid 1286620)
+---
+> considering log /home/m4rk/cyberflow/logs/_state/ciclos.jsonl
+>   log /home/m4rk/cyberflow/logs/_state/ciclos.jsonl does not exist -- skipping
+> Creating new state
+> switching euid from 0 to 0 and egid from 4 to 0 (pid 1286634)
+126c129
+< switching euid from 0 to 0 and egid from 0 to 4 (pid 1286620)
+---
+> switching euid from 0 to 0 and egid from 0 to 4 (pid 1286634)
+131c134
+< switching euid from 0 to 0 and egid from 4 to 0 (pid 1286620)
+---
+> switching euid from 0 to 0 and egid from 4 to 0 (pid 1286634)
+141c144
+< switching euid from 0 to 0 and egid from 0 to 4 (pid 1286620)
+---
+> switching euid from 0 to 0 and egid from 0 to 4 (pid 1286634)
+161c164
+< switching euid from 0 to 0 and egid from 4 to 0 (pid 1286620)
+---
+> switching euid from 0 to 0 and egid from 4 to 0 (pid 1286634)
+167c170
+< switching euid from 0 to 0 and egid from 0 to 4 (pid 1286620)
+---
+> switching euid from 0 to 0 and egid from 0 to 4 (pid 1286634)
+185c188
+< switching euid from 0 to 0 and egid from 4 to 0 (pid 1286620)
+---
+> switching euid from 0 to 0 and egid from 4 to 0 (pid 1286634)
+195c198
+< switching euid from 0 to 0 and egid from 0 to 4 (pid 1286620)
+---
+> switching euid from 0 to 0 and egid from 0 to 4 (pid 1286634)
+199c202
+< switching euid from 0 to 0 and egid from 4 to 0 (pid 1286620)
+---
+> switching euid from 0 to 0 and egid from 4 to 0 (pid 1286634)
+206c209
+< switching euid from 0 to 0 and egid from 0 to 4 (pid 1286620)
+---
+> switching euid from 0 to 0 and egid from 0 to 4 (pid 1286634)
+219c222
+< switching euid from 0 to 0 and egid from 4 to 0 (pid 1286620)
+---
+> switching euid from 0 to 0 and egid from 4 to 0 (pid 1286634)
+223c226
+< switching euid from 0 to 0 and egid from 0 to 4 (pid 1286620)
+---
+> switching euid from 0 to 0 and egid from 0 to 4 (pid 1286634)
+228c231
+< switching euid from 0 to 0 and egid from 4 to 0 (pid 1286620)
+---
+> switching euid from 0 to 0 and egid from 4 to 0 (pid 1286634)

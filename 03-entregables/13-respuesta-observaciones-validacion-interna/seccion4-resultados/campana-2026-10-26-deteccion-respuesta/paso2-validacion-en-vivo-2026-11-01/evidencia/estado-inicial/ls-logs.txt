@@ -1,0 +1,29 @@
+/home/m4rk/cyberflow/logs/:
+total 58452
+drwxr-x---  3 m4rk m4rk     4096 2026-11-01 00:00:00.546635099 +0000 .
+drwxr-xr-x 13 m4rk m4rk     4096 2026-10-28 20:48:06.891516366 +0000 ..
+-rw-r--r--  1 root root  1590275 2026-11-01 02:50:57.983566324 +0000 acumular.log
+-rw-r--r--  1 root root    36081 2026-11-01 00:32:12.483054068 +0000 aprendizaje.log
+-rw-r-----  1 m4rk m4rk  4542619 2026-11-01 02:55:17.599679869 +0000 motor_decision.log
+-rw-r-----  1 m4rk m4rk 37259981 2026-10-31 23:59:57.077593242 +0000 motor_decision.log.1
+-rw-r-----  1 m4rk m4rk  1574997 2026-10-22 23:59:51.943375766 +0000 motor_decision.log.10.gz
+-rw-r-----  1 m4rk m4rk   320164 2026-10-21 23:59:51.446063416 +0000 motor_decision.log.11.gz
+-rw-r-----  1 m4rk m4rk  1104958 2026-10-20 19:44:36.167162850 +0000 motor_decision.log.12.gz
+-rw-r-----  1 m4rk m4rk  1136336 2026-10-19 23:59:54.980905882 +0000 motor_decision.log.13.gz
+-rw-r-----  1 m4rk m4rk   543639 2026-10-18 23:59:56.876593541 +0000 motor_decision.log.14.gz
+-rw-r-----  1 m4rk m4rk   413341 2026-10-30 23:59:55.940223864 +0000 motor_decision.log.2.gz
+-rw-r-----  1 m4rk m4rk  2659164 2026-10-29 21:22:17.724933693 +0000 motor_decision.log.3.gz
+-rw-r-----  1 m4rk m4rk  2480386 2026-10-28 23:59:52.372302956 +0000 motor_decision.log.4.gz
+-rw-r-----  1 m4rk m4rk  1209314 2026-10-27 23:59:58.541706546 +0000 motor_decision.log.5.gz
+-rw-r-----  1 m4rk m4rk  1093521 2026-10-26 23:59:49.086625148 +0000 motor_decision.log.6.gz
+-rw-r-----  1 m4rk m4rk  1136806 2026-10-25 23:59:55.831312825 +0000 motor_decision.log.7.gz
+-rw-r-----  1 m4rk m4rk  1113640 2026-10-24 23:59:53.812000469 +0000 motor_decision.log.8.gz
+-rw-r-----  1 m4rk m4rk  1547071 2026-10-23 23:59:53.964688122 +0000 motor_decision.log.9.gz
+-rw-r--r--  1 m4rk m4rk    10932 2026-10-28 18:58:23.967300069 +0000 panel_auditoria.jsonl
+drwxr-xr-x  2 m4rk m4rk     4096 2026-09-18 21:02:39.738706059 +0000 _state
+
+/home/m4rk/cyberflow/logs/_state/:
+total 528
+drwxr-xr-x 2 m4rk m4rk   4096 2026-09-18 21:02:39.738706059 +0000 .
+drwxr-x--- 3 m4rk m4rk   4096 2026-11-01 00:00:00.546635099 +0000 ..
+-rw-r--r-- 1 m4rk m4rk 530969 2026-11-01 02:55:16.333664676 +0000 eve_window.jsonl

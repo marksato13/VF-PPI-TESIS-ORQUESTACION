@@ -1,0 +1,31 @@
+## s13 2026-11-01T03:16:06.195Z  (reinicio hace 125 s)
+  ppi-motor active NR=0
+  ppi-motor-capture active NR=0
+  suricata active NR=0
+  ppi-dashboard active NR=0
+  publicador: {"block": 0, "entradas": 3, "limit": 3, "revisar_humano": []}
+  feed generado hace 7 s
+  journal motor desde reinicio (Traceback/Error): 0
+  eve.json crece: 29852336 ; mtime 2026-11-01 03:16:06.580681823 +0000
+  archivador: OK: vistos=122 archivados=122, sin fallos  (2026-11-01T03:15:53Z)
+  eve_window.jsonl (ya no se escribe): 2026-11-01 03:13:56.367118466 +0000
+  ciclos: 13  p50=1.12  max=6.40  >9.5 s: 0
+  claves de un ciclo: ['decididas', 'duracion_s', 'entidades', 'etapas_s', 'event', 'excluidas_nuevas', 'filas_construidas', 'fin_ciclo', 'flujos_recalculados', 'inicio_ciclo', 'lineas_eve_nuevas', 'marca_eve', 'marca_pcap', 'marca_pcap_avanzo', 'no_elegibles', 'no_evaluadas', 'observaciones_l7', 'observaciones_paquete', 'paquetes_anillo', 'paquetes_deduplicados', 'pcaps_nuevos', 'pendientes_nuevas', 'puntuadas', 'registro_escrito_en', 'registros_escritos', 'ventanas_pendientes']
+  registros vigentes: 7652  claves duplicadas: 0
+  tras reinicio: 161 registros; con decidido_en: 161; decidido_en>logged_at: 0
+  entidades tras reinicio: {'10.10.10.20': 13, '10.10.10.21': 14, '10.10.20.21': 13, '10.10.20.22': 13, '10.10.20.23': 13, '10.10.20.24': 13, '10.10.20.25': 14, '10.10.20.26': 13, '10.10.20.30': 1, '10.10.40.10': 13, '10.10.50.51': 14, '10.10.50.52': 14, '10.10.60.12': 13}
+Traceback (most recent call last):
+  File "<stdin>", line 14, in <module>
+  File "/usr/lib/python3.12/collections/__init__.py", line 607, in __init__
+    self.update(iterable, **kwds)
+  File "/usr/lib/python3.12/collections/__init__.py", line 699, in update
+    _count_elements(self, iterable)
+TypeError: unhashable type: 'dict'
+## EVE: transacciones de preparacion (agente cf-preparacion-paso2)
+   2026-11-01T03:15:43.808894+0000 http 10.10.20.30 -> 10.10.30.10 80 / 200
+   2026-11-01T03:15:43.808959+0000 http 10.10.20.30 -> 10.10.30.10 80 / 200
+   2026-11-01T03:15:43.809133+0000 fileinfo 10.10.30.10 -> 10.10.20.30 39408 / 200
+   2026-11-01T03:15:43.809153+0000 fileinfo 10.10.30.10 -> 10.10.20.30 39408 / 200
+   2026-11-01T03:15:43.897641+0000 http 10.10.20.30 -> 10.10.30.10 80 /api/auth 401
+   2026-11-01T03:15:43.897855+0000 http 10.10.20.30 -> 10.10.30.10 80 /api/auth 401
+## fin 2026-11-01T03:16:07.431Z

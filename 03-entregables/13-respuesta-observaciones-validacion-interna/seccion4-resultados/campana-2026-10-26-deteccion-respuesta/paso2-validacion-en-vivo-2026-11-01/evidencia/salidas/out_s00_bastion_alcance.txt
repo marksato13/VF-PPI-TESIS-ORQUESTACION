@@ -1,0 +1,21 @@
+## s00 bastion VM-GESTION 2026-11-01T02:54:53.962Z
+  sensor1 rc=0 cyberflow-sensor m4rk up=up 1 day, 7 hours, 1 minute
+  kali rc=0 kali adminatacante up=up 1 day, 7 hours, 2 minutes
+  srvdmz rc=0 srv-dmz adminsrvdmz up=up 1 day, 7 hours, 50 minutes
+  clientes rc=0 clientesadmin adminclientes up=up 1 day, 7 hours, 2 minutes
+  admin rc=0 clientesadmin adminclientes up=up 1 day, 7 hours, 2 minutes
+  sensor2 rc=0 cyberflow-sensor2 m4rk up=up 1 day, 7 hours, 1 minute
+  suricata rc=0 suricata-comparator adminsuricata up=up 1 day, 7 hours, 1 minute
+## servidor protegido desde el bastion
+  http://10.10.30.10/ 200 0.002357s
+  https://10.10.30.10/ 200 0.052944s
+  panel https://10.10.60.11:8788/ 401
+## relojes (referencia: bastion)
+  Reference ID    : C8A00008 (a.ntp.br)
+  System time     : 0.000171011 seconds slow of NTP time
+  Leap status     : Normal
+  sensor1  mejor=+0.0001 s inc=+-0.0005 s mediana=+0.0002 s  |d|+inc<=1s: SI  NTP yes TZ=Etc/UTC
+  kali     mejor=-0.0005 s inc=+-0.0004 s mediana=-0.0005 s  |d|+inc<=1s: SI  NTP yes TZ=America/Lima
+  srvdmz   mejor=-0.0000 s inc=+-0.0003 s mediana=+0.0001 s  |d|+inc<=1s: SI  NTP yes TZ=Etc/UTC
+  clientes mejor=-0.0009 s inc=+-0.0005 s mediana=-0.0007 s  |d|+inc<=1s: SI  NTP yes TZ=Etc/UTC
+## fin 2026-11-01T02:55:11.835Z

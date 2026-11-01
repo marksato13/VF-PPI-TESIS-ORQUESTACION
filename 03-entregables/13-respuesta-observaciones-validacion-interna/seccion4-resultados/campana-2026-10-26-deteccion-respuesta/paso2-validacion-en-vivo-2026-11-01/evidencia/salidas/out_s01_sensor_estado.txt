@@ -1,0 +1,223 @@
+## s01 sensor cyberflow-sensor 2026-11-01T02:55:20.401Z destino=/home/m4rk/cf-paso2-20261101T0254Z/estado-inicial
+  directorios cf-* existentes (no se tocan): /home/m4rk/cf-campana-A-20261029 /home/m4rk/cf-deploy /home/m4rk/cf-p1 /home/m4rk/cf-paso2-20261101T0254Z /home/m4rk/cf-preflight-20261028 /home/m4rk/cf-prep-20261028 /home/m4rk/cf-r42 
+  ppi-motor: MainPID=1378 NRestarts=0 ActiveState=active SubState=running UnitFileState=enabled ActiveEnterTimestamp=Fri 2026-10-30 19:55:21 UTC 
+  ppi-motor-capture: MainPID=1375 NRestarts=0 ActiveState=active SubState=running UnitFileState=enabled ActiveEnterTimestamp=Fri 2026-10-30 19:55:21 UTC 
+  suricata: MainPID=1372 NRestarts=0 ActiveState=active SubState=running UnitFileState=enabled ActiveEnterTimestamp=Fri 2026-10-30 19:55:21 UTC 
+  ppi-publicar-feed: MainPID=1254535 NRestarts=0 ActiveState=activating SubState=start UnitFileState=static ActiveEnterTimestamp= 
+  ppi-dashboard: MainPID=1379 NRestarts=0 ActiveState=active SubState=running UnitFileState=enabled ActiveEnterTimestamp=Fri 2026-10-30 19:55:21 UTC 
+  cyberflow-acumular: MainPID=0 NRestarts=0 ActiveState=inactive SubState=dead UnitFileState=static ActiveEnterTimestamp= 
+  cyberflow-limpieza: MainPID=0 NRestarts=0 ActiveState=inactive SubState=dead UnitFileState=static ActiveEnterTimestamp= 
+  cyberflow-aprendizaje: MainPID=0 NRestarts=0 ActiveState=inactive SubState=dead UnitFileState=static ActiveEnterTimestamp= 
+  timer Sun 2026-11-01 02:55:30 UTC       9s Sun 2026-11-01 02:55:20 UTC    325ms ago ppi-publicar-feed.timer        ppi-publicar-feed.service
+  timer Sun 2026-11-01 03:00:00 UTC 4min 39s Sun 2026-11-01 02:50:00 UTC     5min ago cyberflow-acumular.timer       cyberflow-acumular.service
+  timer Sun 2026-11-01 03:00:00 UTC 4min 39s Sun 2026-11-01 02:55:00 UTC      20s ago cyberflow-limpieza.timer       cyberflow-limpieza.service
+  timer Mon 2026-11-02 00:30:00 UTC      21h Sun 2026-11-01 00:30:00 UTC 2h 25min ago cyberflow-aprendizaje.timer    cyberflow-aprendizaje.service
+  argv motor:    /home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow/scripts/engine/motor_decision.py --eve-path /var/log/suricata/eve.json --capture-dir /var/lib/ppi-motor-capture --model-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib --manifest-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json --detector-name if_limpio_2026_10 --schema /home/m4rk/cyberflow/configs/features/multilayer-v2.json --entity-network 10.10.0.0/16 --excluir 10.10.60.11/32,10.10.10.30/32,10.10.60.2/32,10.10.60.3/32,10.10.60.10/32,10.10.60.20/32,10.10.60.21/32,10.10.60.30/32,10.10.60.40/32,10.10.60.41/32,10.10.60.50/32 --excluir-protocolos 112,240 --log-path /home/m4rk/cyberflow/logs/motor_decision.log --step-seconds 10 --history-seconds 230 
+  argv captura:  /usr/bin/tcpdump -i ens37 -n -s 0 -U -B 65536 -Z tcpdump -w /var/lib/ppi-motor-capture/live-%Y%m%d%H%M%S.pcap -G 15 
+  argv suricata: /usr/bin/suricata -D --af-packet -c /etc/suricata/suricata.yaml --pidfile /run/suricata.pid 
+  --enforce unidad='' argv=''
+  suricata version: This is Suricata version 7.0.3 RELEASE   tcpdump: tcpdump version 4.99.4
+  python venv: 3.14.4 sklearn 1.9.0 numpy 2.5.1
+## hashes de implementacion
+  10deb05d22fa0215  scripts/engine/heuristicos.py
+  e2b2eb535091ea0f  scripts/engine/motor_decision.py
+  f7bc4c7d8e7ac0cd  scripts/engine/publicar_feed.py
+  7130edae65afefa2  scripts/features/extract_multilayer_v2.py
+  5adbfbf484555443  scripts/features/extract_multilayer_v3.py
+  e032a1a28650d438  configs/features/multilayer-v2.json
+  5b15774937299f71  configs/cyberflow.local.toml
+  18bd43be231060c7  configs/cyberflow.toml
+  df547da098e51171  artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib
+  fb6b8ed2b677056f  artifacts/preliminar/limpio-2026-10/if_limpio_2026_10.joblib
+  b3ad680595128189  artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json
+  9a4e02645df94840  artifacts/preliminar/limpio-2026-10/verif_vigente.joblib
+  -rw-rw-r--  1 m4rk m4rk  36747 oct 28 08:44 motor_decision.py
+  -rwxr-xr-x  1 m4rk m4rk  28104 sep 23 20:31 motor_decision.py.anterior
+  git sensor: fatal: not a git repository (or any of the parent directories): .git
+## modelo y umbral en el registro de arranque vigente
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+  File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+## registros
+  /home/m4rk/cyberflow/logs/:
+  total 58452
+  drwxr-x---  3 m4rk m4rk     4096 2026-11-01 00:00:00.546635099 +0000 .
+  drwxr-xr-x 13 m4rk m4rk     4096 2026-10-28 20:48:06.891516366 +0000 ..
+  -rw-r--r--  1 root root  1590275 2026-11-01 02:50:57.983566324 +0000 acumular.log
+  -rw-r--r--  1 root root    36081 2026-11-01 00:32:12.483054068 +0000 aprendizaje.log
+  -rw-r-----  1 m4rk m4rk  4542619 2026-11-01 02:55:17.599679869 +0000 motor_decision.log
+  -rw-r-----  1 m4rk m4rk 37259981 2026-10-31 23:59:57.077593242 +0000 motor_decision.log.1
+  -rw-r-----  1 m4rk m4rk  1574997 2026-10-22 23:59:51.943375766 +0000 motor_decision.log.10.gz
+  -rw-r-----  1 m4rk m4rk   320164 2026-10-21 23:59:51.446063416 +0000 motor_decision.log.11.gz
+  -rw-r-----  1 m4rk m4rk  1104958 2026-10-20 19:44:36.167162850 +0000 motor_decision.log.12.gz
+  -rw-r-----  1 m4rk m4rk  1136336 2026-10-19 23:59:54.980905882 +0000 motor_decision.log.13.gz
+  -rw-r-----  1 m4rk m4rk   543639 2026-10-18 23:59:56.876593541 +0000 motor_decision.log.14.gz
+  -rw-r-----  1 m4rk m4rk   413341 2026-10-30 23:59:55.940223864 +0000 motor_decision.log.2.gz
+  -rw-r-----  1 m4rk m4rk  2659164 2026-10-29 21:22:17.724933693 +0000 motor_decision.log.3.gz
+  -rw-r-----  1 m4rk m4rk  2480386 2026-10-28 23:59:52.372302956 +0000 motor_decision.log.4.gz
+  -rw-r-----  1 m4rk m4rk  1209314 2026-10-27 23:59:58.541706546 +0000 motor_decision.log.5.gz
+  -rw-r-----  1 m4rk m4rk  1093521 2026-10-26 23:59:49.086625148 +0000 motor_decision.log.6.gz
+  -rw-r-----  1 m4rk m4rk  1136806 2026-10-25 23:59:55.831312825 +0000 motor_decision.log.7.gz
+  -rw-r-----  1 m4rk m4rk  1113640 2026-10-24 23:59:53.812000469 +0000 motor_decision.log.8.gz
+  -rw-r-----  1 m4rk m4rk  1547071 2026-10-23 23:59:53.964688122 +0000 motor_decision.log.9.gz
+  -rw-r--r--  1 m4rk m4rk    10932 2026-10-28 18:58:23.967300069 +0000 panel_auditoria.jsonl
+  drwxr-xr-x  2 m4rk m4rk     4096 2026-09-18 21:02:39.738706059 +0000 _state
+  
+  /home/m4rk/cyberflow/logs/_state/:
+  total 528
+  drwxr-xr-x 2 m4rk m4rk   4096 2026-09-18 21:02:39.738706059 +0000 .
+  drwxr-x--- 3 m4rk m4rk   4096 2026-11-01 00:00:00.546635099 +0000 ..
+  -rw-r--r-- 1 m4rk m4rk 530969 2026-11-01 02:55:16.333664676 +0000 eve_window.jsonl
+  ultimo: {"decision": "PERMIT", "detector_name": "if_limpio_2026_10", "duplicados_espejo": 57141439, "entity_ip": "10.10.60.12", "event": "decision", "excluidas_acumulado": 51741, "heuristico": null, "history_coverage_s": 60.0, "inicio_ciclo": 1793501716.332038, "logge
+  ahora=1793501723.484336132
+## feed y escalada (copias, sin modificar)
+  copiados
+  98d76aea8874f9b3d52eff7f136924ee57cdf21d46f405d27d25019af2701e14  feed.json
+  de7059a4c0b743d544a549ae178438706554f52fdb332ea509d181df3e4eb69b  feed.sig
+  19d2704bcd14f26e48dccb99bcf5dfe04e16da26bd1b5b1257f0d884e8b091cc  estado.json
+  feed generado=1793501720.3904908 (hace 3 s) umbrales=2026-10-06.2 entradas=1
+     {"accion": "LIMIT", "alcance": "all", "detector": "if_limpio_2026_10", "hasta": 1793502020, "ip": "10.10.20.20", "motivo": "modelo:if_limpio_2026_10", "nivel": 0, "revisar_humano": false}
+  escalada: 5 entidades {'10.10.10.21': 0, '10.10.20.20': 0, '10.10.40.10': 0, '10.10.50.51': 0, '10.10.50.52': 0}
+## recursos
+  nucleos=4
+                 total        used        free      shared  buff/cache   available
+  Mem:            7940        1011        2682           1        4554        6929
+  Swap:           4030           0        4030
+  NAME      TYPE SIZE USED PRIO
+  /swap.img file 3,9G   0B   -2
+  Filesystem                         Size  Used Avail Use% Mounted on
+  /dev/mapper/ubuntu--vg-ubuntu--lv   37G   19G   17G  54% /
+  /dev/mapper/ubuntu--vg-ubuntu--lv   37G   19G   17G  54% /
+  /dev/mapper/ubuntu--vg-ubuntu--lv   37G   19G   17G  54% /
+  psi-mem some avg10=0.00 avg60=0.00 avg300=0.00 total=28097
+  psi-mem full avg10=0.00 avg60=0.00 avg300=0.00 total=26547
+   02:55:23 up 1 day,  7:02,  2 users,  load average: 0,12, 0,30, 0,36
+      PID     ELAPSED %CPU   RSS COMMAND
+     1378  1-07:00:01  8.6 278928 /home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow/scripts/engine/motor_decision.py --eve-path /var/log/suricata/eve.json --capture-dir /var
+     1372  1-07:00:01  1.0 66124 /usr/bin/suricata -D --af-packet -c /etc/suricata/suricata.yaml --pidfile /run/suricata.pid
+  1254571       00:03  0.9  3584 bash -s
+  1254398       00:17  0.2  7552 /usr/lib/systemd/systemd-timedated
+  1254509       00:03  0.2  7792 sshd: m4rk [priv]
+        1  1-07:02:11  0.2 13364 /sbin/init
+  1232259       33:23  0.1     0 [kworker/1:3-mm_percpu_wq]
+  1250636       05:43  0.1     0 [kworker/3:3-events]
+      904  1-07:02:03  0.1  5632 @dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+      839  1-07:02:03  0.1  9728 /usr/bin/vmtoolsd
+  1252845       02:23  0.1     0 [kworker/0:0-events]
+  replay/arnes vivos: 0   tmux: no server running on /tmp/tmux-1000/default 
+  ens37: rx_packets=11411947 rx_drop=1565868   anillo: 62 pcap
+## sudo sin contrasena (lista)
+  Matching Defaults entries for m4rk on cyberflow-sensor:
+      env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin, use_pty
+  
+  User m4rk may run the following commands on cyberflow-sensor:
+      (ALL : ALL) ALL
+      (root) NOPASSWD: /usr/bin/systemctl is-active *, /usr/bin/systemctl is-enabled *, /usr/bin/systemctl is-failed *, /usr/bin/systemctl show *, /usr/bin/systemctl list-timers --no-pager *, /usr/bin/systemctl status --no-pager *, /usr/bin/journalctl --no-pager *, /usr/sbin/nft list *, /usr/bin/systemctl restart cyberflow-capture-nic ppi-motor-capture ppi-motor ppi-dashboard cyberflow-panel-acceso suricata, /usr/bin/systemctl restart ppi-motor, /usr/bin/systemctl restart ppi-motor-capture, /usr/bin/systemctl restart ppi-dashboard, /usr/bin/systemctl restart cyberflow-panel-acceso, /usr/bin/systemctl restart cyberflow-capture-nic, /usr/bin/systemctl restart suricata, /usr/bin/systemctl start cyberflow-limpieza.service, /usr/bin/systemctl reset-failed *, /usr/bin/wc -l /var/log/suricata/eve.json, /usr/bin/tail /var/log/suricata/eve.json, /usr/bin/tail -n [0-9]* /var/log/suricata/eve.json, /usr/bin/grep * /var/log/suricata/eve.json, /usr/bin/ls -la /var/lib/ppi-motor-capture/, /usr/bin/ls -l /var/lib/ppi-motor-capture/, /usr/bin/du -sh /var/lib/ppi-motor-capture/, /usr/bin/find /var/lib/ppi-motor-capture -maxdepth 1 -name live-*.pcap*
+      (root) NOPASSWD: /usr/local/sbin/cf-capturar
+      (root) NOPASSWD: /usr/bin/systemctl daemon-reload
+      (root) NOPASSWD: /usr/bin/systemctl enable ppi-motor ppi-motor-capture ppi-dashboard cyberflow-limpieza.timer cyberflow-capture-nic cyberflow-panel-acceso
+      (root) NOPASSWD: /usr/bin/systemctl disable ppi-motor ppi-motor-capture ppi-dashboard cyberflow-limpieza.timer cyberflow-capture-nic cyberflow-panel-acceso
+      (root) NOPASSWD: /usr/bin/systemctl start cyberflow-acumular.service, /usr/bin/systemctl enable cyberflow-acumular.timer, /usr/bin/systemctl disable cyberflow-acumular.timer, /usr/bin/systemctl start cyberflow-acumular.timer, /usr/bin/systemctl stop cyberflow-acumular.timer
+## logrotate (lectura sin sudo)
+  total 72
+  drwxr-xr-x   2 root root 4096 2026-09-19 05:06:09.570000979 +0000 .
+  drwxr-xr-x 111 root root 4096 2026-09-18 22:39:06.640726980 +0000 ..
+  -rw-r--r--   1 root root  120 2024-02-05 02:31:16.000000000 +0000 alternatives
+  -rw-r--r--   1 root root  126 2022-04-22 13:54:11.000000000 +0000 apport
+  -rw-r--r--   1 root root  173 2024-03-22 10:11:44.000000000 +0000 apt
+  -rw-r--r--   1 root root   91 2024-01-04 21:08:14.000000000 +0000 bootlog
+  -rw-r--r--   1 root root  130 2025-02-16 21:04:48.000000000 +0000 btmp
+  -rw-r--r--   1 root root  144 2024-12-02 19:09:22.000000000 +0000 cloud-init
+  -rw-r--r--   1 root root  644 2026-10-19 06:06:50.730673124 +0000 cyberflow
+  -rw-r--r--   1 root root  644 2026-09-30 03:25:50.049068313 +0000 cyberflow.anterior
+  -rw-r--r--   1 root root  112 2024-02-05 02:31:16.000000000 +0000 dpkg
+  -rw-r--r--   1 root root  248 2025-02-16 21:04:48.000000000 +0000 rsyslog
+  -rw-r--r--   1 root root  203 2026-09-18 00:43:43.836441662 +0000 suricata
+  -rw-r--r--   1 root root  183 2026-09-17 18:34:01.773361471 +0000 suricata.orig-cyberflow
+  -rw-r--r--   1 root root  270 2025-02-16 21:04:48.000000000 +0000 ubuntu-pro-client
+  -rw-r--r--   1 root root  209 2025-02-16 21:04:48.000000000 +0000 ufw
+  -rw-r--r--   1 root root  235 2024-02-12 17:50:35.000000000 +0000 unattended-upgrades
+  -rw-r--r--   1 root root  145 2025-02-16 21:04:48.000000000 +0000 wtmp
+  3:# global options do not affect preceding include directives
+  25:include /etc/logrotate.d
+  -- /etc/logrotate.d/cyberflow  root:root 644 644 2026-10-19 06:06:50.730673124 +0000  sha=7832acf2bb33e0f1fbff6861b6c89d9b65f5eb195170b89fadd713d219123f3d
+     | # Generado por scripts/setup/cyberflow_config.py. NO editar a mano.
+     | # El motor escribe una linea JSON por decision y puede producir cientos por
+     | # minuto. Sin tope, este fichero llena la raiz, y un / lleno tumba la maquina
+     | # entera, incluido el SSH de gestion.
+     | #
+     | # Sin copytruncate a proposito: el motor abre el fichero en modo append en
+     | # cada escritura y lo cierra, asi que tras renombrarlo escribe en el nuevo sin
+     | # necesidad de senales ni de reiniciar el servicio.
+     | /home/m4rk/cyberflow/logs/motor_decision.log {
+     |     daily
+     |     maxsize 200M
+     |     rotate 14
+     |     missingok
+     |     notifempty
+     |     compress
+     |     delaycompress
+     |     create 0640 m4rk m4rk
+     | }
+  -- /etc/logrotate.d/cyberflow.anterior  root:root 644 644 2026-09-30 03:25:50.049068313 +0000  sha=7832acf2bb33e0f1fbff6861b6c89d9b65f5eb195170b89fadd713d219123f3d
+     | # Generado por scripts/setup/cyberflow_config.py. NO editar a mano.
+     | # El motor escribe una linea JSON por decision y puede producir cientos por
+     | # minuto. Sin tope, este fichero llena la raiz, y un / lleno tumba la maquina
+     | # entera, incluido el SSH de gestion.
+     | #
+     | # Sin copytruncate a proposito: el motor abre el fichero en modo append en
+     | # cada escritura y lo cierra, asi que tras renombrarlo escribe en el nuevo sin
+     | # necesidad de senales ni de reiniciar el servicio.
+     | /home/m4rk/cyberflow/logs/motor_decision.log {
+     |     daily
+     |     maxsize 200M
+     |     rotate 14
+     |     missingok
+     |     notifempty
+     |     compress
+     |     delaycompress
+     |     create 0640 m4rk m4rk
+     | }
+  -- /etc/logrotate.d/suricata  root:root 644 203 2026-09-18 00:43:43.836441662 +0000  sha=d8ddbe3ce5ea773077aba2eeb0fb885671b77fd540e2d174166c062077f110c2
+     | /var/log/suricata/*.log
+     | /var/log/suricata/*.json
+     | {
+     | 	daily
+     | 	maxsize 500M
+     | 	rotate 7
+     | 	missingok
+     | 	compress
+     | 	copytruncate
+     | 	sharedscripts
+     | 	postrotate
+     | 		/bin/kill -HUP $(cat /var/run/suricata.pid)
+     | 	endscript
+     | }
+  -- /etc/logrotate.d/suricata.orig-cyberflow  root:root 644 183 2026-09-17 18:34:01.773361471 +0000  sha=f95789a4166f06c69695c31de79bf586cd72c0a862cf50292e35d2ae342f6c96
+     | /var/log/suricata/*.log
+     | /var/log/suricata/*.json
+     | {
+     | 	rotate 14
+     | 	missingok
+     | 	compress
+     | 	copytruncate
+     | 	sharedscripts
+     | 	postrotate
+     | 		/bin/kill -HUP $(cat /var/run/suricata.pid)
+     | 	endscript
+     | }
+## archivador y comandos de captura disponibles
+  total 20
+  drwxrwxr-x  2 m4rk m4rk  4096 oct 27 16:48 .
+  drwxr-x--- 25 m4rk m4rk  4096 nov  1 02:55 ..
+  -rwxrwxr-x  1 m4rk m4rk 12248 oct 27 17:05 archivar_captura.sh
+  2181af5f8406e3aa4f41a26e24d7ec83bfaf72eee06aa3ee564e2dbba5639eb6  /home/m4rk/bin/archivar_captura.sh
+## fin 2026-11-01T02:55:23.662Z

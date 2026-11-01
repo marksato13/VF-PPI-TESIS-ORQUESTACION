@@ -1,0 +1,8 @@
+8,9c8,11
+< # necesidad de senales ni de reiniciar el servicio.
+< /home/m4rk/cyberflow/logs/motor_decision.log {
+---
+> # necesidad de senales ni de reiniciar el servicio. Lo mismo vale para
+> # _state/ciclos.jsonl, el registro por ciclo del motor (~0,9 kB por ciclo,
+> # ~8 MB al dia con paso de 10 s).
+> /home/m4rk/cyberflow/logs/motor_decision.log /home/m4rk/cyberflow/logs/_state/ciclos.jsonl {

@@ -1,0 +1,18 @@
+## s02 srv srv-dmz 2026-11-01T04:19:26.552Z
+  ppi-enforce-agent.timer active=inactive enabled=disabled
+  ppi-enforce-agent.service active=inactive enabled=static
+  cyberflow_bloqueados CONSULTA FALLIDA rc=1: Error: No such file or directory
+list set inet cyberflow cyberflow_bloqueados
+              ^^^^^^^^^
+  cyberflow_limitados CONSULTA FALLIDA rc=1: Error: No such file or directory
+list set inet cyberflow cyberflow_limitados
+              ^^^^^^^^^
+  ultima ejecucion del agente: 2026-10-28T07:33:41+00:00 srv-dmz systemd[1]: Finished ppi-enforce-agent.service - CyberFlow - agente de enforcement en el host protegido (verifica feed, aplica nftables).
+  sombra: ultimo=20261028-073340
+  escalada local sha=sha256sum: /var/lib/ppi-enforce/estado.json: No such file or dir
+  servicios web: 127.0.0.53%lo:53 10.10.30.10:80 127.0.0.54:53 0.0.0.0:22 10.10.30.10:443 [::]:22 
+  servicio lab-web-http.service
+  servicio lab-web-https.service
+  carga:  04:19:26 up 1 day,  9:15,  1 user,  load average: 0,08, 0,03, 0,01
+  Mem:            1967         377        1106           1         640        1590
+## fin 2026-11-01T04:19:26.705Z
