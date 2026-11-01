@@ -1,4 +1,4 @@
-# Presupuesto de falsas alarmas y daño colateral (versión 2)
+# Presupuesto de falsas respuestas y daño colateral (versión 3)
 
 **Referencia:** el control normal del 3B. Va de 07:32 a 08:05 UTC (33 min), con 2644 ventanas decididas, 22 entidades y cobertura 1,0, sin ataques.
 
@@ -6,7 +6,7 @@
 
 Estas cifras sirven para **desarrollo y dimensionado**; no son la prueba de la candidata.
 
-Decisiones relacionadas: [D3 y D6](DECISIONES.md).
+Decisiones relacionadas: [D3 y D6](DECISIONES.md). D3 adopta `if_senal`; P1 y P4 son objetivos operativos aceptados; P2 y P3 son una propuesta técnica pendiente de confirmar.
 
 ## 1. Medidas (siempre separadas) y unidades
 
@@ -41,29 +41,50 @@ Tabla completa en [resultados/TABLAS-E2E.md](resultados/TABLAS-E2E.md) §3.
 3. Bajar α o exigir persistencia reduce las entidades afectadas, pero no protege a 10.10.20.22, .24 y .26, cuyo comportamiento es anómalo **de forma persistente** para el modelo.
 4. En 33 min no hubo **ningún BLOCK** a entidades legítimas. Con cero eventos, la regla de tres da una cota de 5,5/h: con un control tan corto no se puede afirmar nada fuerte.
 5. Las «3–9 entidades» son **entidades del control normal con restricciones hipotéticas**, no episodios de ataque ni restricciones aplicadas.
+6. **Excepción de respuesta ≠ exclusión de población.** El resolvedor 10.10.10.20 está en NUNCA_BLOQUEAR: no se le aplica ninguna restricción **como origen**. Pero **sigue en el denominador** de las señales (M1): sus 88 señales `dns_entropy` cuentan como señales sobre tráfico legítimo y se corrigen en la Etapa 3 (atribución al cliente). Lo mismo vale para cualquier otra entidad protegida.
+7. **Una tasa de señales baja no prueba ausencia de daño.** El daño se mide con M3 (restricciones) y M4 (transacciones), no con M1.
 
-## 3. Presupuesto operativo propuesto ([D6](DECISIONES.md): pendiente esencial)
+## 3. Presupuesto de falsas respuestas ([D6](DECISIONES.md))
 
-| Id | Límite | Unidad | Justificación | Cómo se mide |
+| Id | Límite | Estado | Unidad | Cómo se mide |
 |---|---|---|---|---|
-| P1 | **0 BLOCK** a entidades legítimas | por campaña y control | Un BLOCK corta el servicio ≥ 300 s y escala hasta 3600 s | M3 (BLOCK) en la campaña B y en el control normal nuevo |
-| P2 | ≤ **1 intervalo de restricción** por entidad legítima y jornada de 8 h | intervalos / (entidad · 8 h) | Cada intervalo exige revisión humana; uno por jornada es asumible | M3 (intervalos) |
-| P3 | ≤ **1 %** del tiempo restringido por entidad legítima, **medido directamente** sobre la unión de intervalos con renovaciones | s restringidos / s de control | Independiente de P2: un solo intervalo renovado puede durar horas | M3 (segundos) |
-| P4 | **0 fallos** de transacciones legítimas atribuibles a una restricción | transacciones | Medida directa del daño | M4, frente a una línea base sin agente de la misma duración |
-| P5 | Las señales M1 se publican por componente y α, con incidentes y su intervalo de Clopper-Pearson; **no** son criterio de aprobación por sí mismas | ventanas, incidentes | Una señal sin acción no daña; sirve para comparar detectores (campaña A) | M1 |
+| P1 | **0 BLOCK** a entidades legítimas (en srv-dmz y, con D1, DNS-DENEGAR en DC1, que cuenta como bloqueo del servicio) | **objetivo operativo aceptado** | BLOCK por campaña y control | M3 |
+| P4 | **0 fallos de transacciones legítimas** atribuibles a una restricción | **objetivo operativo aceptado** | transacciones | M4 frente a la línea base |
+| P2 | ≤ **1 intervalo** de LIMIT por entidad legítima y **jornada de 8 h** | **propuesta técnica de ingeniería**, pendiente de confirmar antes de congelar | intervalos / (entidad · 8 h) | M3 (intervalos) |
+| P3 | ≤ **1 %** del tiempo de observación restringido por entidad legítima | **propuesta técnica de ingeniería**, pendiente de confirmar antes de congelar | s restringidos / s observados | M3 (segundos, unión de intervalos) |
+| P5 | Señales M1 publicadas por componente y α, con incidentes; **no** son criterio de aprobación | práctica de publicación | ventanas, incidentes | M1 |
 
-**Control normal nuevo:** ≥ 2 h, con los perfiles de clientes y sin ataques.
+**Sobre los valores de P2 y P3:**
 
-- Con unas 10 entidades legítimas son ~20 entidad·hora.
-- Si hay 0 intervalos, la regla de tres da una cota de 3/20 por entidad·hora (≈ 1,2 por entidad·8 h). Es una **descripción de la incertidumbre**, no una garantía.
+- Son una propuesta de ingeniería para este laboratorio: un intervalo que exige revisión humana por jornada se considera asumible, y un 1 % del tiempo es del orden de 5 minutos por jornada. **No** son umbrales científicos universales.
+- P2 y P3 son **independientes**: un único intervalo renovado puede durar todo el control (10.10.20.22: 1 intervalo, 198 renovaciones, 99,7 %). Cumplir P2 no implica cumplir P3.
+- Si el usuario prefiere otros valores, cambian antes de congelar, no después de ver los resultados.
 
-**Estado actual frente al presupuesto (hipotético, 33 min):**
+## 4. Cómo se medirá (control normal nuevo y campaña B)
 
-- La política actual no cumple P2 ni P3 con ningún α.
-- `if_senal` cumple P1 y P2, pero **no P3**: 10.10.20.26 queda restringida el 21,9 % del tiempo por `http_abuse`. La corrección es de la Etapa 3: umbral o perfil de `http_abuse` y separación del abuso.
+| Magnitud | Definición operativa | Fuente |
+|---|---|---|
+| **Intervalo de restricción** | Unión de los periodos en que el origen está en un set, desde la aplicación (t_apl) hasta la caducidad o la retirada. Una renovación (nueva señal que amplía `hasta`) **no** crea un intervalo nuevo, pero se cuenta aparte. | registro del agente (D7) + relectura del set |
+| **Renovaciones** | número de ampliaciones de `hasta` dentro de un intervalo | feed y registro del agente |
+| **Duración y exposición por entidad** | segundos restringidos (unión de intervalos) / segundos de observación de esa entidad; LIMIT y BLOCK por separado | registro del agente |
+| **Propuestas** | entradas del feed por entidad (M2) | feed |
+| **Aplicaciones** | elementos realmente cargados en srv-dmz o DC1 (M3 real) | agente instrumentado |
+| **Transacciones afectadas** | transacciones de control con resultado y hora; un fallo es **atribuible** si ocurre con la entidad restringida y el mismo tipo de fallo no aparece en la línea base | clientes de control |
+| **Fallos de la línea base** | mismas transacciones, misma duración, **sin agente**: es el ruido de fondo del laboratorio | control sin agente |
+| **Por componente y α** | M1 por IF (α 0,05, 0,03 y 0,01) y por heurístico; M2 y M3 por regla que originó la restricción | motor y feed |
 
-## 4. Qué falta para medir M3 y M4 de verdad
+**Lo que permite concluir un control de 2 h:** permite medir lo ocurrido **durante esas 2 h**. **No** demuestra por sí solo que una entidad cumpla P2 en una jornada de 8 h. Con unas 10 entidades legítimas son ~20 entidad·hora. Si hay 0 intervalos, la regla de tres da una cota de 3/20 por entidad·hora (≈ 1,2 por entidad·8 h), que **no** es inferior a 1. Se publica como descripción de la incertidumbre, no como cumplimiento.
 
-1. Agente instrumentado ([D7](DECISIONES.md)) y activo **solo** cuando se autorice la campaña B; antes, en un control sin ataques si Mark lo autoriza.
-2. Transacciones de control registradas una a una, con resultado y hora.
-3. Línea base sin agente de la misma duración.
+**Recomendación concreta:** para poder **afirmar** P2 por jornada, el control normal de la candidata debería durar al menos **una jornada de 8 h** (mismo perfil de clientes, sin ataques). Si solo se hacen 2 h, P2 se declara «sin violación observada en 2 h», sin extrapolar a 8 h. P3 sí se mide directamente sobre el tiempo observado.
+
+**Estado actual frente al presupuesto (hipotético, 33 min, control 3B):**
+
+- La política desplegada (IF → LIMIT) no cumple P2 ni P3 con ningún α.
+- `if_senal` cumple P1 y P2, y **no** P3: 10.10.20.26 queda restringida el 21,9 % del tiempo por `http_abuse`. La corrección pertenece a la Etapa 3.
+- Ninguna de estas cifras es una aplicación real ni una validación independiente.
+
+## 5. Qué falta para medir M3 y M4 de verdad
+
+1. Agentes instrumentados (D7) en srv-dmz y DC1, activos **solo** cuando se autorice: primero en un control sin ataques y después en la campaña B.
+2. Transacciones de control registradas una a una, con resultado y hora, incluidas consultas DNS a DC1.
+3. Una línea base sin agente de la misma duración.

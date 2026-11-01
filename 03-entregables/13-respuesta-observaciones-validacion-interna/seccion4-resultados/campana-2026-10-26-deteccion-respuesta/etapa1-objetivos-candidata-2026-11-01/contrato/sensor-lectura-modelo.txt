@@ -1,0 +1,25 @@
+Lectura de solo lectura en el sensor (m4rk@10.10.60.11, via bastion gadmin@10.10.10.30), 2026-11-01.
+Sin sudo y sin cambios. El script se envió por la entrada estándar (bash -s).
+
+configs/cyberflow.local.toml (sha256 5b15774937299f7178be75516cb43efebfa7742c8268332f165285eb17e3167a)
+  99: modelo     = "artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib"
+ 100: manifiesto = "artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json"
+ 101: esquema    = "configs/features/multilayer-v2.json"
+
+sha256 en el sensor:
+  b3ad680595128189574527208e53058f613822f56f542f914faef6495aa2a9e7  manifest-if-limpio-2026-10.json  (copiado aquí sin cambios)
+  e032a1a28650d438ae707c93b3045801770b3a069b4395426077af3bbd2b0e33  configs/features/multilayer-v2.json (CRLF)
+  df547da098e51171aa267c8466edc6624bc1bd5c6b602639cc00bd4711a2fd60  if_limpio_2026_10_desplegable.joblib (= model_sha256 del manifiesto)
+  bf48a79812e51537fc621a41069702b3ca311c1b8c0e48379981f394193f8141  configs/features/multilayer-v3.json (= repo)
+
+multilayer-v2.json: el fichero del sensor difiere del de 24f8a80 (1445ccd4…) SOLO en los finales de línea:
+  diff <(tr -d '\r' < sensor) repo  ->  sin diferencias.
+
+Carga del joblib con el Python del venv del sensor (.venv/bin/python -I):
+  <class 'sklearn.pipeline.Pipeline'>
+  n_features_in_ 28
+  -- scaler <class 'sklearn.preprocessing._data.StandardScaler'>   n_features_in_ 28
+  -- model  <class 'sklearn.ensemble._iforest.IsolationForest'>   n_features_in_ 28
+
+motor_decision.py (24f8a80, líneas 374-379): ordena el esquema por "order" y aborta si los nombres
+no coinciden con extractor.FEATURE_NAMES ("el esquema de features no coincide con el extractor importado").

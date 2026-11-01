@@ -1,5 +1,5 @@
 {
- "herramienta": "presupuesto_e2e.py v2",
+ "herramienta": "presupuesto_e2e.py v3",
  "solo_lectura": true,
  "advertencia": "Simulación sobre tráfico registrado en sombra. No es una campaña de respuesta: no modela cómo una restricción habría cambiado ataques, decisiones ni tráfico legítimo. Los tiempos de aplicación son estimaciones bajo supuestos; t_apl real y t_efecto: no aplica.",
  "poblaciones": {
@@ -9776,7 +9776,4118 @@
     "block_a_entidades": 0,
     "nota": "restricciones HIPOTÉTICAS (simuladas sobre tráfico de sombra); no se aplicaron. El tiempo restringido se mide sobre la unión de intervalos con renovaciones, no se deduce del número de intervalos."
    },
-   "episodios": null
+   "episodios": [
+    {
+     "episodio": "escaneo_sostenido-r2",
+     "escenario": "escaneo_sostenido",
+     "primera_cualquiera": {
+      "window_end_utc": "2026-11-01T08:09:00+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 5626 intentos/30s a muchos puertos, 0% completados",
+      "t_det_utc": "2026-11-01T08:09:05.710+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 26.56,
+      "duracion_ciclo_s": 2.2049,
+      "ventana_cierra_menos_inicio_s": 20.85,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 37.03,
+        "alto": 38.42
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 10.46,
+        "alto": 11.85
+       },
+       "margen_s": {
+        "favorable": 28.5,
+        "alto": 27.11
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 28.4,
+        "alto": 29.51
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 23.06,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 24.89,
+        "alto": 26.01
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_prevista": {
+      "window_end_utc": "2026-11-01T08:09:00+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 5626 intentos/30s a muchos puertos, 0% completados",
+      "t_det_utc": "2026-11-01T08:09:05.710+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 26.56,
+      "duracion_ciclo_s": 2.2049,
+      "ventana_cierra_menos_inicio_s": 20.85,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 37.03,
+        "alto": 38.42
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 10.46,
+        "alto": 11.85
+       },
+       "margen_s": {
+        "favorable": 28.5,
+        "alto": 27.11
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 28.4,
+        "alto": 29.51
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 23.06,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 24.89,
+        "alto": 26.01
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_LIMIT": null,
+     "primera_BLOCK": {
+      "window_end_utc": "2026-11-01T08:09:00+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 5626 intentos/30s a muchos puertos, 0% completados",
+      "t_det_utc": "2026-11-01T08:09:05.710+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 26.56,
+      "duracion_ciclo_s": 2.2049,
+      "ventana_cierra_menos_inicio_s": 20.85,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 37.03,
+        "alto": 38.42
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 10.46,
+        "alto": 11.85
+       },
+       "margen_s": {
+        "favorable": 28.5,
+        "alto": 27.11
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 28.4,
+        "alto": 29.51
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 23.06,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 24.89,
+        "alto": 26.01
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     }
+    },
+    {
+     "episodio": "inundacion_http-r1",
+     "escenario": "inundacion_http",
+     "primera_cualquiera": {
+      "window_end_utc": "2026-11-01T08:13:20+00:00",
+      "accion": "LIMIT",
+      "motivo": "http_abuse: 1377 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)",
+      "t_det_utc": "2026-11-01T08:13:40.351+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 24.9,
+      "duracion_ciclo_s": 6.8425,
+      "ventana_cierra_menos_inicio_s": 4.54,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 30.72,
+        "alto": 42.11
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 5.82,
+        "alto": 17.21
+       },
+       "margen_s": {
+        "favorable": 58.88,
+        "alto": 47.49
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 26.73,
+        "alto": 27.84
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 11.39,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 13.22,
+        "alto": 14.34
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_prevista": {
+      "window_end_utc": "2026-11-01T08:13:20+00:00",
+      "accion": "LIMIT",
+      "motivo": "http_abuse: 1377 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)",
+      "t_det_utc": "2026-11-01T08:13:40.351+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 24.9,
+      "duracion_ciclo_s": 6.8425,
+      "ventana_cierra_menos_inicio_s": 4.54,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 30.72,
+        "alto": 42.11
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 5.82,
+        "alto": 17.21
+       },
+       "margen_s": {
+        "favorable": 58.88,
+        "alto": 47.49
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 26.73,
+        "alto": 27.84
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 11.39,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 13.22,
+        "alto": 14.34
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_LIMIT": {
+      "window_end_utc": "2026-11-01T08:13:20+00:00",
+      "accion": "LIMIT",
+      "motivo": "http_abuse: 1377 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)",
+      "t_det_utc": "2026-11-01T08:13:40.351+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 24.9,
+      "duracion_ciclo_s": 6.8425,
+      "ventana_cierra_menos_inicio_s": 4.54,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 30.72,
+        "alto": 42.11
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 5.82,
+        "alto": 17.21
+       },
+       "margen_s": {
+        "favorable": 58.88,
+        "alto": 47.49
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 26.73,
+        "alto": 27.84
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 11.39,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 13.22,
+        "alto": 14.34
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_BLOCK": {
+      "window_end_utc": "2026-11-01T08:15:00+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 1032 intentos/30s a muchos puertos, 0% completados",
+      "t_det_utc": "2026-11-01T08:15:07.881+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 112.43,
+      "duracion_ciclo_s": 4.3707,
+      "ventana_cierra_menos_inicio_s": 104.54,
+      "deteccion_disponible_antes_del_fin": false,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 120.72,
+        "alto": 122.11
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 8.29,
+        "alto": 9.68
+       },
+       "margen_s": {
+        "favorable": -31.12,
+        "alto": -32.51
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "deteccion_posterior"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 114.26,
+        "alto": 115.38
+       },
+       "clase": "deteccion_posterior"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 108.91,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 110.75,
+        "alto": 111.86
+       },
+       "clase": "deteccion_posterior"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     }
+    },
+    {
+     "episodio": "dns_inusual-r3",
+     "escenario": "dns_inusual",
+     "primera_cualquiera": {
+      "window_end_utc": "2026-11-01T08:18:20+00:00",
+      "accion": "LIMIT",
+      "motivo": "dns_entropy: 24 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+      "t_det_utc": "2026-11-01T08:18:35.246+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 20.19,
+      "duracion_ciclo_s": 1.7328,
+      "ventana_cierra_menos_inicio_s": 4.95,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 31.12,
+        "alto": 32.51
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 10.93,
+        "alto": 12.32
+       },
+       "margen_s": {
+        "favorable": 58.88,
+        "alto": 57.49
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 22.03,
+        "alto": 23.14
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 6.68,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 8.52,
+        "alto": 9.63
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_prevista": {
+      "window_end_utc": "2026-11-01T08:18:20+00:00",
+      "accion": "LIMIT",
+      "motivo": "dns_entropy: 24 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+      "t_det_utc": "2026-11-01T08:18:35.246+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 20.19,
+      "duracion_ciclo_s": 1.7328,
+      "ventana_cierra_menos_inicio_s": 4.95,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 31.12,
+        "alto": 32.51
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 10.93,
+        "alto": 12.32
+       },
+       "margen_s": {
+        "favorable": 58.88,
+        "alto": 57.49
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 22.03,
+        "alto": 23.14
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 6.68,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 8.52,
+        "alto": 9.63
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_LIMIT": {
+      "window_end_utc": "2026-11-01T08:18:20+00:00",
+      "accion": "LIMIT",
+      "motivo": "dns_entropy: 24 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+      "t_det_utc": "2026-11-01T08:18:35.246+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 20.19,
+      "duracion_ciclo_s": 1.7328,
+      "ventana_cierra_menos_inicio_s": 4.95,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 31.12,
+        "alto": 32.51
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 10.93,
+        "alto": 12.32
+       },
+       "margen_s": {
+        "favorable": 58.88,
+        "alto": 57.49
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 22.03,
+        "alto": 23.14
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 6.68,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 8.52,
+        "alto": 9.63
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_BLOCK": null
+    },
+    {
+     "episodio": "inundacion_http-r4",
+     "escenario": "inundacion_http",
+     "primera_cualquiera": {
+      "window_end_utc": "2026-11-01T08:23:20+00:00",
+      "accion": "LIMIT",
+      "motivo": "http_abuse: 1431 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)",
+      "t_det_utc": "2026-11-01T08:23:39.443+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 24.2,
+      "duracion_ciclo_s": 5.9251,
+      "ventana_cierra_menos_inicio_s": 4.76,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 30.93,
+        "alto": 32.32
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 6.73,
+        "alto": 8.12
+       },
+       "margen_s": {
+        "favorable": 58.89,
+        "alto": 57.5
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 26.04,
+        "alto": 27.15
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 10.68,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 12.52,
+        "alto": 13.63
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_prevista": {
+      "window_end_utc": "2026-11-01T08:23:20+00:00",
+      "accion": "LIMIT",
+      "motivo": "http_abuse: 1431 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)",
+      "t_det_utc": "2026-11-01T08:23:39.443+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 24.2,
+      "duracion_ciclo_s": 5.9251,
+      "ventana_cierra_menos_inicio_s": 4.76,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 30.93,
+        "alto": 32.32
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 6.73,
+        "alto": 8.12
+       },
+       "margen_s": {
+        "favorable": 58.89,
+        "alto": 57.5
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 26.04,
+        "alto": 27.15
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 10.68,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 12.52,
+        "alto": 13.63
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_LIMIT": {
+      "window_end_utc": "2026-11-01T08:23:20+00:00",
+      "accion": "LIMIT",
+      "motivo": "http_abuse: 1431 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)",
+      "t_det_utc": "2026-11-01T08:23:39.443+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 24.2,
+      "duracion_ciclo_s": 5.9251,
+      "ventana_cierra_menos_inicio_s": 4.76,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 30.93,
+        "alto": 32.32
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 6.73,
+        "alto": 8.12
+       },
+       "margen_s": {
+        "favorable": 58.89,
+        "alto": 57.5
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 26.04,
+        "alto": 27.15
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 10.68,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 12.52,
+        "alto": 13.63
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_BLOCK": {
+      "window_end_utc": "2026-11-01T08:25:00+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 1752 intentos/30s a muchos puertos, 0% completados",
+      "t_det_utc": "2026-11-01T08:25:07.981+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 112.74,
+      "duracion_ciclo_s": 4.4625,
+      "ventana_cierra_menos_inicio_s": 104.76,
+      "deteccion_disponible_antes_del_fin": false,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 120.93,
+        "alto": 122.32
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 8.19,
+        "alto": 9.58
+       },
+       "margen_s": {
+        "favorable": -31.11,
+        "alto": -32.5
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "deteccion_posterior"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 114.58,
+        "alto": 115.69
+       },
+       "clase": "deteccion_posterior"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 109.22,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 111.06,
+        "alto": 112.17
+       },
+       "clase": "deteccion_posterior"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     }
+    },
+    {
+     "episodio": "inundacion_http-r2",
+     "escenario": "inundacion_http",
+     "primera_cualquiera": {
+      "window_end_utc": "2026-11-01T08:28:20+00:00",
+      "accion": "LIMIT",
+      "motivo": "http_abuse: 1500 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)",
+      "t_det_utc": "2026-11-01T08:28:40.494+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 25.43,
+      "duracion_ciclo_s": 6.9731,
+      "ventana_cierra_menos_inicio_s": 4.93,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 31.1,
+        "alto": 42.5
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 5.68,
+        "alto": 17.07
+       },
+       "margen_s": {
+        "favorable": 58.86,
+        "alto": 47.47
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 27.26,
+        "alto": 28.38
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 11.9,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 13.74,
+        "alto": 14.85
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_prevista": {
+      "window_end_utc": "2026-11-01T08:28:20+00:00",
+      "accion": "LIMIT",
+      "motivo": "http_abuse: 1500 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)",
+      "t_det_utc": "2026-11-01T08:28:40.494+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 25.43,
+      "duracion_ciclo_s": 6.9731,
+      "ventana_cierra_menos_inicio_s": 4.93,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 31.1,
+        "alto": 42.5
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 5.68,
+        "alto": 17.07
+       },
+       "margen_s": {
+        "favorable": 58.86,
+        "alto": 47.47
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 27.26,
+        "alto": 28.38
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 11.9,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 13.74,
+        "alto": 14.85
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_LIMIT": {
+      "window_end_utc": "2026-11-01T08:28:20+00:00",
+      "accion": "LIMIT",
+      "motivo": "http_abuse: 1500 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)",
+      "t_det_utc": "2026-11-01T08:28:40.494+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 25.43,
+      "duracion_ciclo_s": 6.9731,
+      "ventana_cierra_menos_inicio_s": 4.93,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 31.1,
+        "alto": 42.5
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 5.68,
+        "alto": 17.07
+       },
+       "margen_s": {
+        "favorable": 58.86,
+        "alto": 47.47
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 27.26,
+        "alto": 28.38
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 11.9,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 13.74,
+        "alto": 14.85
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_BLOCK": {
+      "window_end_utc": "2026-11-01T08:30:00+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 1210 intentos/30s a muchos puertos, 0% completados",
+      "t_det_utc": "2026-11-01T08:30:07.550+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 112.48,
+      "duracion_ciclo_s": 4.0276,
+      "ventana_cierra_menos_inicio_s": 104.93,
+      "deteccion_disponible_antes_del_fin": false,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 121.1,
+        "alto": 122.5
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 8.62,
+        "alto": 10.01
+       },
+       "margen_s": {
+        "favorable": -31.14,
+        "alto": -32.53
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "deteccion_posterior"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 114.32,
+        "alto": 115.43
+       },
+       "clase": "deteccion_posterior"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 108.96,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 110.8,
+        "alto": 111.91
+       },
+       "clase": "deteccion_posterior"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     }
+    },
+    {
+     "episodio": "inundacion_http-r3",
+     "escenario": "inundacion_http",
+     "primera_cualquiera": {
+      "window_end_utc": "2026-11-01T08:33:20+00:00",
+      "accion": "LIMIT",
+      "motivo": "http_abuse: 1499 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)",
+      "t_det_utc": "2026-11-01T08:33:40.394+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 25.36,
+      "duracion_ciclo_s": 6.8685,
+      "ventana_cierra_menos_inicio_s": 4.97,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 31.14,
+        "alto": 42.53
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 5.78,
+        "alto": 17.17
+       },
+       "margen_s": {
+        "favorable": 58.86,
+        "alto": 47.47
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 27.2,
+        "alto": 28.31
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 11.84,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 13.67,
+        "alto": 14.79
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_prevista": {
+      "window_end_utc": "2026-11-01T08:33:20+00:00",
+      "accion": "LIMIT",
+      "motivo": "http_abuse: 1499 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)",
+      "t_det_utc": "2026-11-01T08:33:40.394+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 25.36,
+      "duracion_ciclo_s": 6.8685,
+      "ventana_cierra_menos_inicio_s": 4.97,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 31.14,
+        "alto": 42.53
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 5.78,
+        "alto": 17.17
+       },
+       "margen_s": {
+        "favorable": 58.86,
+        "alto": 47.47
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 27.2,
+        "alto": 28.31
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 11.84,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 13.67,
+        "alto": 14.79
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_LIMIT": {
+      "window_end_utc": "2026-11-01T08:33:20+00:00",
+      "accion": "LIMIT",
+      "motivo": "http_abuse: 1499 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)",
+      "t_det_utc": "2026-11-01T08:33:40.394+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 25.36,
+      "duracion_ciclo_s": 6.8685,
+      "ventana_cierra_menos_inicio_s": 4.97,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 31.14,
+        "alto": 42.53
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 5.78,
+        "alto": 17.17
+       },
+       "margen_s": {
+        "favorable": 58.86,
+        "alto": 47.47
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 27.2,
+        "alto": 28.31
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 11.84,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 13.67,
+        "alto": 14.79
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_BLOCK": {
+      "window_end_utc": "2026-11-01T08:35:00+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 577 intentos/30s a muchos puertos, 0% completados",
+      "t_det_utc": "2026-11-01T08:35:08.913+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 113.88,
+      "duracion_ciclo_s": 4.4863,
+      "ventana_cierra_menos_inicio_s": 104.97,
+      "deteccion_disponible_antes_del_fin": false,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 121.14,
+        "alto": 122.53
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 7.26,
+        "alto": 8.65
+       },
+       "margen_s": {
+        "favorable": -31.14,
+        "alto": -32.53
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "deteccion_posterior"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 115.72,
+        "alto": 116.83
+       },
+       "clase": "deteccion_posterior"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 109.45,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 111.29,
+        "alto": 112.4
+       },
+       "clase": "deteccion_posterior"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     }
+    },
+    {
+     "episodio": "escaneo_sostenido-r4",
+     "escenario": "escaneo_sostenido",
+     "primera_cualquiera": {
+      "window_end_utc": "2026-11-01T08:38:30+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 503 intentos/30s a muchos puertos, 1% completados",
+      "t_det_utc": "2026-11-01T08:38:37.052+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 21.97,
+      "duracion_ciclo_s": 2.6218,
+      "ventana_cierra_menos_inicio_s": 14.92,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 31.09,
+        "alto": 32.48
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 9.12,
+        "alto": 10.51
+       },
+       "margen_s": {
+        "favorable": 34.43,
+        "alto": 33.04
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 23.81,
+        "alto": 24.92
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 17.54,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 19.37,
+        "alto": 20.49
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_prevista": {
+      "window_end_utc": "2026-11-01T08:38:30+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 503 intentos/30s a muchos puertos, 1% completados",
+      "t_det_utc": "2026-11-01T08:38:37.052+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 21.97,
+      "duracion_ciclo_s": 2.6218,
+      "ventana_cierra_menos_inicio_s": 14.92,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 31.09,
+        "alto": 32.48
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 9.12,
+        "alto": 10.51
+       },
+       "margen_s": {
+        "favorable": 34.43,
+        "alto": 33.04
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 23.81,
+        "alto": 24.92
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 17.54,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 19.37,
+        "alto": 20.49
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_LIMIT": null,
+     "primera_BLOCK": {
+      "window_end_utc": "2026-11-01T08:38:30+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 503 intentos/30s a muchos puertos, 1% completados",
+      "t_det_utc": "2026-11-01T08:38:37.052+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 21.97,
+      "duracion_ciclo_s": 2.6218,
+      "ventana_cierra_menos_inicio_s": 14.92,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 31.09,
+        "alto": 32.48
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 9.12,
+        "alto": 10.51
+       },
+       "margen_s": {
+        "favorable": 34.43,
+        "alto": 33.04
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 23.81,
+        "alto": 24.92
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 17.54,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 19.37,
+        "alto": 20.49
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     }
+    },
+    {
+     "episodio": "escaneo_sostenido-r5",
+     "escenario": "escaneo_sostenido",
+     "primera_cualquiera": {
+      "window_end_utc": "2026-11-01T08:43:10+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 3656 intentos/30s a muchos puertos, 0% completados",
+      "t_det_utc": "2026-11-01T08:43:26.832+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 35.63,
+      "duracion_ciclo_s": 2.3976,
+      "ventana_cierra_menos_inicio_s": 18.8,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 44.97,
+        "alto": 46.36
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 9.34,
+        "alto": 10.73
+       },
+       "margen_s": {
+        "favorable": 20.55,
+        "alto": 19.16
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 37.46,
+        "alto": 38.58
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 21.19,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 23.03,
+        "alto": 24.14
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_prevista": {
+      "window_end_utc": "2026-11-01T08:43:10+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 3656 intentos/30s a muchos puertos, 0% completados",
+      "t_det_utc": "2026-11-01T08:43:26.832+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 35.63,
+      "duracion_ciclo_s": 2.3976,
+      "ventana_cierra_menos_inicio_s": 18.8,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 44.97,
+        "alto": 46.36
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 9.34,
+        "alto": 10.73
+       },
+       "margen_s": {
+        "favorable": 20.55,
+        "alto": 19.16
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 37.46,
+        "alto": 38.58
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 21.19,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 23.03,
+        "alto": 24.14
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_LIMIT": {
+      "window_end_utc": "2026-11-01T08:44:30+00:00",
+      "accion": "LIMIT",
+      "motivo": "http_abuse: 643 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)",
+      "t_det_utc": "2026-11-01T08:44:36.519+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 105.32,
+      "duracion_ciclo_s": 2.0842,
+      "ventana_cierra_menos_inicio_s": 98.8,
+      "deteccion_disponible_antes_del_fin": false,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 114.97,
+        "alto": 116.36
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 9.65,
+        "alto": 11.04
+       },
+       "margen_s": {
+        "favorable": -49.45,
+        "alto": -50.84
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "deteccion_posterior"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 107.15,
+        "alto": 108.27
+       },
+       "clase": "deteccion_posterior"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 100.88,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 102.72,
+        "alto": 103.83
+       },
+       "clase": "deteccion_posterior"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_BLOCK": {
+      "window_end_utc": "2026-11-01T08:43:10+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 3656 intentos/30s a muchos puertos, 0% completados",
+      "t_det_utc": "2026-11-01T08:43:26.832+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 35.63,
+      "duracion_ciclo_s": 2.3976,
+      "ventana_cierra_menos_inicio_s": 18.8,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 44.97,
+        "alto": 46.36
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 9.34,
+        "alto": 10.73
+       },
+       "margen_s": {
+        "favorable": 20.55,
+        "alto": 19.16
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 37.46,
+        "alto": 38.58
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 21.19,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 23.03,
+        "alto": 24.14
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     }
+    },
+    {
+     "episodio": "escaneo_breve-r5",
+     "escenario": "escaneo_breve",
+     "primera_cualquiera": {
+      "window_end_utc": "2026-11-01T08:47:50+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 2006 intentos/30s a muchos puertos, 0% completados",
+      "t_det_utc": "2026-11-01T08:48:06.471+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 39.54,
+      "duracion_ciclo_s": 2.0331,
+      "ventana_cierra_menos_inicio_s": 23.07,
+      "deteccion_disponible_antes_del_fin": false,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 49.24,
+        "alto": 50.63
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 9.7,
+        "alto": 11.09
+       },
+       "margen_s": {
+        "favorable": -31.66,
+        "alto": -33.05
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "deteccion_posterior"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 41.38,
+        "alto": 42.49
+       },
+       "clase": "deteccion_posterior"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 25.1,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 26.94,
+        "alto": 28.05
+       },
+       "clase": "deteccion_posterior"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_prevista": {
+      "window_end_utc": "2026-11-01T08:47:50+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 2006 intentos/30s a muchos puertos, 0% completados",
+      "t_det_utc": "2026-11-01T08:48:06.471+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 39.54,
+      "duracion_ciclo_s": 2.0331,
+      "ventana_cierra_menos_inicio_s": 23.07,
+      "deteccion_disponible_antes_del_fin": false,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 49.24,
+        "alto": 50.63
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 9.7,
+        "alto": 11.09
+       },
+       "margen_s": {
+        "favorable": -31.66,
+        "alto": -33.05
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "deteccion_posterior"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 41.38,
+        "alto": 42.49
+       },
+       "clase": "deteccion_posterior"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 25.1,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 26.94,
+        "alto": 28.05
+       },
+       "clase": "deteccion_posterior"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_LIMIT": null,
+     "primera_BLOCK": {
+      "window_end_utc": "2026-11-01T08:47:50+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 2006 intentos/30s a muchos puertos, 0% completados",
+      "t_det_utc": "2026-11-01T08:48:06.471+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 39.54,
+      "duracion_ciclo_s": 2.0331,
+      "ventana_cierra_menos_inicio_s": 23.07,
+      "deteccion_disponible_antes_del_fin": false,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 49.24,
+        "alto": 50.63
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 9.7,
+        "alto": 11.09
+       },
+       "margen_s": {
+        "favorable": -31.66,
+        "alto": -33.05
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "deteccion_posterior"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 41.38,
+        "alto": 42.49
+       },
+       "clase": "deteccion_posterior"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 25.1,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 26.94,
+        "alto": 28.05
+       },
+       "clase": "deteccion_posterior"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     }
+    },
+    {
+     "episodio": "fuerza_bruta_http-r3",
+     "escenario": "fuerza_bruta_http",
+     "primera_cualquiera": {
+      "window_end_utc": "2026-11-01T08:51:20+00:00",
+      "accion": "BLOCK",
+      "motivo": "brute_force: 668 req HTTP/60s con 100% de fallo de auth",
+      "t_det_utc": "2026-11-01T08:51:38.511+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 23.59,
+      "duracion_ciclo_s": 4.0701,
+      "ventana_cierra_menos_inicio_s": 5.08,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 31.25,
+        "alto": 32.64
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 7.66,
+        "alto": 9.05
+       },
+       "margen_s": {
+        "favorable": 57.85,
+        "alto": 56.46
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 25.43,
+        "alto": 26.54
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 9.15,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 10.99,
+        "alto": 12.1
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_prevista": {
+      "window_end_utc": "2026-11-01T08:51:20+00:00",
+      "accion": "BLOCK",
+      "motivo": "brute_force: 668 req HTTP/60s con 100% de fallo de auth",
+      "t_det_utc": "2026-11-01T08:51:38.511+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 23.59,
+      "duracion_ciclo_s": 4.0701,
+      "ventana_cierra_menos_inicio_s": 5.08,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 31.25,
+        "alto": 32.64
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 7.66,
+        "alto": 9.05
+       },
+       "margen_s": {
+        "favorable": 57.85,
+        "alto": 56.46
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 25.43,
+        "alto": 26.54
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 9.15,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 10.99,
+        "alto": 12.1
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_LIMIT": null,
+     "primera_BLOCK": {
+      "window_end_utc": "2026-11-01T08:51:20+00:00",
+      "accion": "BLOCK",
+      "motivo": "brute_force: 668 req HTTP/60s con 100% de fallo de auth",
+      "t_det_utc": "2026-11-01T08:51:38.511+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 23.59,
+      "duracion_ciclo_s": 4.0701,
+      "ventana_cierra_menos_inicio_s": 5.08,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 31.25,
+        "alto": 32.64
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 7.66,
+        "alto": 9.05
+       },
+       "margen_s": {
+        "favorable": 57.85,
+        "alto": 56.46
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 25.43,
+        "alto": 26.54
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 9.15,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 10.99,
+        "alto": 12.1
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     }
+    },
+    {
+     "episodio": "fuerza_bruta_http-r5",
+     "escenario": "fuerza_bruta_http",
+     "primera_cualquiera": {
+      "window_end_utc": "2026-11-01T08:56:20+00:00",
+      "accion": "BLOCK",
+      "motivo": "brute_force: 816 req HTTP/60s con 100% de fallo de auth",
+      "t_det_utc": "2026-11-01T08:56:37.704+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 23.68,
+      "duracion_ciclo_s": 3.2597,
+      "ventana_cierra_menos_inicio_s": 5.97,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 32.14,
+        "alto": 33.54
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 8.47,
+        "alto": 9.86
+       },
+       "margen_s": {
+        "favorable": 57.86,
+        "alto": 56.46
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 25.51,
+        "alto": 26.63
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 9.23,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 11.07,
+        "alto": 12.18
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_prevista": {
+      "window_end_utc": "2026-11-01T08:56:20+00:00",
+      "accion": "BLOCK",
+      "motivo": "brute_force: 816 req HTTP/60s con 100% de fallo de auth",
+      "t_det_utc": "2026-11-01T08:56:37.704+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 23.68,
+      "duracion_ciclo_s": 3.2597,
+      "ventana_cierra_menos_inicio_s": 5.97,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 32.14,
+        "alto": 33.54
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 8.47,
+        "alto": 9.86
+       },
+       "margen_s": {
+        "favorable": 57.86,
+        "alto": 56.46
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 25.51,
+        "alto": 26.63
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 9.23,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 11.07,
+        "alto": 12.18
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_LIMIT": null,
+     "primera_BLOCK": {
+      "window_end_utc": "2026-11-01T08:56:20+00:00",
+      "accion": "BLOCK",
+      "motivo": "brute_force: 816 req HTTP/60s con 100% de fallo de auth",
+      "t_det_utc": "2026-11-01T08:56:37.704+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 23.68,
+      "duracion_ciclo_s": 3.2597,
+      "ventana_cierra_menos_inicio_s": 5.97,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 32.14,
+        "alto": 33.54
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 8.47,
+        "alto": 9.86
+       },
+       "margen_s": {
+        "favorable": 57.86,
+        "alto": 56.46
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 25.51,
+        "alto": 26.63
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 9.23,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 11.07,
+        "alto": 12.18
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     }
+    },
+    {
+     "episodio": "dns_inusual-r5",
+     "escenario": "dns_inusual",
+     "primera_cualquiera": {
+      "window_end_utc": "2026-11-01T09:01:20+00:00",
+      "accion": "LIMIT",
+      "motivo": "dns_entropy: 28 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+      "t_det_utc": "2026-11-01T09:01:35.916+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 21.88,
+      "duracion_ciclo_s": 1.4684,
+      "ventana_cierra_menos_inicio_s": 5.96,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 32.14,
+        "alto": 33.53
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 10.26,
+        "alto": 11.65
+       },
+       "margen_s": {
+        "favorable": 57.86,
+        "alto": 56.47
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 23.72,
+        "alto": 24.83
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 7.43,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 9.27,
+        "alto": 10.38
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_prevista": {
+      "window_end_utc": "2026-11-01T09:01:20+00:00",
+      "accion": "LIMIT",
+      "motivo": "dns_entropy: 28 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+      "t_det_utc": "2026-11-01T09:01:35.916+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 21.88,
+      "duracion_ciclo_s": 1.4684,
+      "ventana_cierra_menos_inicio_s": 5.96,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 32.14,
+        "alto": 33.53
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 10.26,
+        "alto": 11.65
+       },
+       "margen_s": {
+        "favorable": 57.86,
+        "alto": 56.47
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 23.72,
+        "alto": 24.83
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 7.43,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 9.27,
+        "alto": 10.38
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_LIMIT": {
+      "window_end_utc": "2026-11-01T09:01:20+00:00",
+      "accion": "LIMIT",
+      "motivo": "dns_entropy: 28 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+      "t_det_utc": "2026-11-01T09:01:35.916+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 21.88,
+      "duracion_ciclo_s": 1.4684,
+      "ventana_cierra_menos_inicio_s": 5.96,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 32.14,
+        "alto": 33.53
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 10.26,
+        "alto": 11.65
+       },
+       "margen_s": {
+        "favorable": 57.86,
+        "alto": 56.47
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 23.72,
+        "alto": 24.83
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 7.43,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 9.27,
+        "alto": 10.38
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_BLOCK": null
+    },
+    {
+     "episodio": "escaneo_sostenido-r3",
+     "escenario": "escaneo_sostenido",
+     "primera_cualquiera": {
+      "window_end_utc": "2026-11-01T09:06:30+00:00",
+      "accion": "BLOCK",
+      "motivo": "brute_force: 16 req HTTP/60s con 88% de fallo de auth",
+      "t_det_utc": "2026-11-01T09:06:36.440+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 22.01,
+      "duracion_ciclo_s": 1.9883,
+      "ventana_cierra_menos_inicio_s": 15.57,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 31.74,
+        "alto": 33.13
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 9.73,
+        "alto": 11.12
+       },
+       "margen_s": {
+        "favorable": 33.78,
+        "alto": 32.39
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 23.85,
+        "alto": 24.96
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 17.56,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 19.39,
+        "alto": 20.51
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_prevista": {
+      "window_end_utc": "2026-11-01T09:07:10+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 39343 intentos/30s a muchos puertos, 0% completados",
+      "t_det_utc": "2026-11-01T09:07:28.717+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 74.29,
+      "duracion_ciclo_s": 4.2648,
+      "ventana_cierra_menos_inicio_s": 55.57,
+      "deteccion_disponible_antes_del_fin": false,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 81.74,
+        "alto": 83.13
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 7.46,
+        "alto": 8.85
+       },
+       "margen_s": {
+        "favorable": -16.22,
+        "alto": -17.61
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "deteccion_posterior"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 76.12,
+        "alto": 77.24
+       },
+       "clase": "deteccion_posterior"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 59.83,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 61.67,
+        "alto": 62.78
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_LIMIT": {
+      "window_end_utc": "2026-11-01T09:07:50+00:00",
+      "accion": "LIMIT",
+      "motivo": "http_abuse: 175 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)",
+      "t_det_utc": "2026-11-01T09:08:06.594+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 112.16,
+      "duracion_ciclo_s": 2.141,
+      "ventana_cierra_menos_inicio_s": 95.57,
+      "deteccion_disponible_antes_del_fin": false,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 121.74,
+        "alto": 123.13
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 9.58,
+        "alto": 10.97
+       },
+       "margen_s": {
+        "favorable": -56.22,
+        "alto": -57.61
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "deteccion_posterior"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 114.0,
+        "alto": 115.11
+       },
+       "clase": "deteccion_posterior"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 97.71,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 99.55,
+        "alto": 100.66
+       },
+       "clase": "deteccion_posterior"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_BLOCK": {
+      "window_end_utc": "2026-11-01T09:06:30+00:00",
+      "accion": "BLOCK",
+      "motivo": "brute_force: 16 req HTTP/60s con 88% de fallo de auth",
+      "t_det_utc": "2026-11-01T09:06:36.440+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 22.01,
+      "duracion_ciclo_s": 1.9883,
+      "ventana_cierra_menos_inicio_s": 15.57,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 31.74,
+        "alto": 33.13
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 9.73,
+        "alto": 11.12
+       },
+       "margen_s": {
+        "favorable": 33.78,
+        "alto": 32.39
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 23.85,
+        "alto": 24.96
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 17.56,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 19.39,
+        "alto": 20.51
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     }
+    },
+    {
+     "episodio": "dns_inusual-r2",
+     "escenario": "dns_inusual",
+     "primera_cualquiera": {
+      "window_end_utc": "2026-11-01T09:11:00+00:00",
+      "accion": "LIMIT",
+      "motivo": "dns_entropy: 48 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+      "t_det_utc": "2026-11-01T09:11:15.799+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 25.85,
+      "duracion_ciclo_s": 1.3439,
+      "ventana_cierra_menos_inicio_s": 10.05,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 36.22,
+        "alto": 37.61
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 10.37,
+        "alto": 11.76
+       },
+       "margen_s": {
+        "favorable": 52.86,
+        "alto": 51.47
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 27.68,
+        "alto": 28.79
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 11.39,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 13.23,
+        "alto": 14.34
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_prevista": {
+      "window_end_utc": "2026-11-01T09:11:00+00:00",
+      "accion": "LIMIT",
+      "motivo": "dns_entropy: 48 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+      "t_det_utc": "2026-11-01T09:11:15.799+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 25.85,
+      "duracion_ciclo_s": 1.3439,
+      "ventana_cierra_menos_inicio_s": 10.05,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 36.22,
+        "alto": 37.61
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 10.37,
+        "alto": 11.76
+       },
+       "margen_s": {
+        "favorable": 52.86,
+        "alto": 51.47
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 27.68,
+        "alto": 28.79
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 11.39,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 13.23,
+        "alto": 14.34
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_LIMIT": {
+      "window_end_utc": "2026-11-01T09:11:00+00:00",
+      "accion": "LIMIT",
+      "motivo": "dns_entropy: 48 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+      "t_det_utc": "2026-11-01T09:11:15.799+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 25.85,
+      "duracion_ciclo_s": 1.3439,
+      "ventana_cierra_menos_inicio_s": 10.05,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 36.22,
+        "alto": 37.61
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 10.37,
+        "alto": 11.76
+       },
+       "margen_s": {
+        "favorable": 52.86,
+        "alto": 51.47
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 27.68,
+        "alto": 28.79
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 11.39,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 13.23,
+        "alto": 14.34
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_BLOCK": null
+    },
+    {
+     "episodio": "fuerza_bruta_http-r2",
+     "escenario": "fuerza_bruta_http",
+     "primera_cualquiera": {
+      "window_end_utc": "2026-11-01T09:15:50+00:00",
+      "accion": "BLOCK",
+      "motivo": "brute_force: 124 req HTTP/60s con 100% de fallo de auth",
+      "t_det_utc": "2026-11-01T09:16:07.881+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 18.84,
+      "duracion_ciclo_s": 3.4222,
+      "ventana_cierra_menos_inicio_s": 0.96,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 27.13,
+        "alto": 28.52
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 8.29,
+        "alto": 9.68
+       },
+       "margen_s": {
+        "favorable": 62.87,
+        "alto": 61.48
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 20.68,
+        "alto": 21.79
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 4.38,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 6.22,
+        "alto": 7.33
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_prevista": {
+      "window_end_utc": "2026-11-01T09:15:50+00:00",
+      "accion": "BLOCK",
+      "motivo": "brute_force: 124 req HTTP/60s con 100% de fallo de auth",
+      "t_det_utc": "2026-11-01T09:16:07.881+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 18.84,
+      "duracion_ciclo_s": 3.4222,
+      "ventana_cierra_menos_inicio_s": 0.96,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 27.13,
+        "alto": 28.52
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 8.29,
+        "alto": 9.68
+       },
+       "margen_s": {
+        "favorable": 62.87,
+        "alto": 61.48
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 20.68,
+        "alto": 21.79
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 4.38,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 6.22,
+        "alto": 7.33
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_LIMIT": null,
+     "primera_BLOCK": {
+      "window_end_utc": "2026-11-01T09:15:50+00:00",
+      "accion": "BLOCK",
+      "motivo": "brute_force: 124 req HTTP/60s con 100% de fallo de auth",
+      "t_det_utc": "2026-11-01T09:16:07.881+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 18.84,
+      "duracion_ciclo_s": 3.4222,
+      "ventana_cierra_menos_inicio_s": 0.96,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 27.13,
+        "alto": 28.52
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 8.29,
+        "alto": 9.68
+       },
+       "margen_s": {
+        "favorable": 62.87,
+        "alto": 61.48
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 20.68,
+        "alto": 21.79
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 4.38,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 6.22,
+        "alto": 7.33
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     }
+    },
+    {
+     "episodio": "fuerza_bruta_http-r4",
+     "escenario": "fuerza_bruta_http",
+     "primera_cualquiera": {
+      "window_end_utc": "2026-11-01T09:20:50+00:00",
+      "accion": "BLOCK",
+      "motivo": "brute_force: 125 req HTTP/60s con 100% de fallo de auth",
+      "t_det_utc": "2026-11-01T09:21:07.497+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 18.44,
+      "duracion_ciclo_s": 3.0343,
+      "ventana_cierra_menos_inicio_s": 0.94,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 27.12,
+        "alto": 28.51
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 8.68,
+        "alto": 10.07
+       },
+       "margen_s": {
+        "favorable": 62.88,
+        "alto": 61.49
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 20.28,
+        "alto": 21.39
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 3.98,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 5.82,
+        "alto": 6.93
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_prevista": {
+      "window_end_utc": "2026-11-01T09:20:50+00:00",
+      "accion": "BLOCK",
+      "motivo": "brute_force: 125 req HTTP/60s con 100% de fallo de auth",
+      "t_det_utc": "2026-11-01T09:21:07.497+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 18.44,
+      "duracion_ciclo_s": 3.0343,
+      "ventana_cierra_menos_inicio_s": 0.94,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 27.12,
+        "alto": 28.51
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 8.68,
+        "alto": 10.07
+       },
+       "margen_s": {
+        "favorable": 62.88,
+        "alto": 61.49
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 20.28,
+        "alto": 21.39
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 3.98,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 5.82,
+        "alto": 6.93
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_LIMIT": null,
+     "primera_BLOCK": {
+      "window_end_utc": "2026-11-01T09:20:50+00:00",
+      "accion": "BLOCK",
+      "motivo": "brute_force: 125 req HTTP/60s con 100% de fallo de auth",
+      "t_det_utc": "2026-11-01T09:21:07.497+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 18.44,
+      "duracion_ciclo_s": 3.0343,
+      "ventana_cierra_menos_inicio_s": 0.94,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 27.12,
+        "alto": 28.51
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 8.68,
+        "alto": 10.07
+       },
+       "margen_s": {
+        "favorable": 62.88,
+        "alto": 61.49
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 20.28,
+        "alto": 21.39
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 3.98,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 5.82,
+        "alto": 6.93
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     }
+    },
+    {
+     "episodio": "dns_inusual-r1",
+     "escenario": "dns_inusual",
+     "primera_cualquiera": {
+      "window_end_utc": "2026-11-01T09:26:00+00:00",
+      "accion": "LIMIT",
+      "motivo": "dns_entropy: 52 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+      "t_det_utc": "2026-11-01T09:26:06.278+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 17.22,
+      "duracion_ciclo_s": 1.8109,
+      "ventana_cierra_menos_inicio_s": 10.94,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 27.11,
+        "alto": 28.5
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 9.89,
+        "alto": 11.29
+       },
+       "margen_s": {
+        "favorable": 62.89,
+        "alto": 61.5
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 19.05,
+        "alto": 20.17
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 12.75,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 14.59,
+        "alto": 15.7
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_prevista": {
+      "window_end_utc": "2026-11-01T09:26:00+00:00",
+      "accion": "LIMIT",
+      "motivo": "dns_entropy: 52 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+      "t_det_utc": "2026-11-01T09:26:06.278+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 17.22,
+      "duracion_ciclo_s": 1.8109,
+      "ventana_cierra_menos_inicio_s": 10.94,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 27.11,
+        "alto": 28.5
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 9.89,
+        "alto": 11.29
+       },
+       "margen_s": {
+        "favorable": 62.89,
+        "alto": 61.5
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 19.05,
+        "alto": 20.17
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 12.75,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 14.59,
+        "alto": 15.7
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_LIMIT": {
+      "window_end_utc": "2026-11-01T09:26:00+00:00",
+      "accion": "LIMIT",
+      "motivo": "dns_entropy: 52 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+      "t_det_utc": "2026-11-01T09:26:06.278+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 17.22,
+      "duracion_ciclo_s": 1.8109,
+      "ventana_cierra_menos_inicio_s": 10.94,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 27.11,
+        "alto": 28.5
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 9.89,
+        "alto": 11.29
+       },
+       "margen_s": {
+        "favorable": 62.89,
+        "alto": 61.5
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 19.05,
+        "alto": 20.17
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 12.75,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 14.59,
+        "alto": 15.7
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_BLOCK": {
+      "window_end_utc": "2026-11-01T09:28:10+00:00",
+      "accion": "BLOCK",
+      "motivo": "auth_failure_heuristic",
+      "t_det_utc": "2026-11-01T09:30:55.713+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 306.65,
+      "duracion_ciclo_s": 1.2419,
+      "ventana_cierra_menos_inicio_s": 140.94,
+      "deteccion_disponible_antes_del_fin": false,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 317.11,
+        "alto": 318.5
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 10.46,
+        "alto": 11.85
+       },
+       "margen_s": {
+        "favorable": -227.11,
+        "alto": -228.5
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "deteccion_posterior"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 308.49,
+        "alto": 309.6
+       },
+       "clase": "deteccion_posterior"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 142.18,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 144.02,
+        "alto": 145.13
+       },
+       "clase": "deteccion_posterior"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     }
+    },
+    {
+     "episodio": "escaneo_breve-r1",
+     "escenario": "escaneo_breve",
+     "primera_cualquiera": {
+      "window_end_utc": "2026-11-01T09:31:00+00:00",
+      "accion": "BLOCK",
+      "motivo": "brute_force: 5 req HTTP/60s con 100% de fallo de auth",
+      "t_det_utc": "2026-11-01T09:31:05.791+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 16.4,
+      "duracion_ciclo_s": 1.3202,
+      "ventana_cierra_menos_inicio_s": 10.61,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 26.78,
+        "alto": 28.17
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 10.38,
+        "alto": 11.77
+       },
+       "margen_s": {
+        "favorable": -9.19,
+        "alto": -10.58
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "despues_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 18.23,
+        "alto": 19.35
+       },
+       "clase": "despues_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 11.93,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 13.76,
+        "alto": 14.88
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_prevista": {
+      "window_end_utc": "2026-11-01T09:31:10+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 2007 intentos/30s a muchos puertos, 0% completados",
+      "t_det_utc": "2026-11-01T09:31:25.836+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 36.44,
+      "duracion_ciclo_s": 1.3648,
+      "ventana_cierra_menos_inicio_s": 20.61,
+      "deteccion_disponible_antes_del_fin": false,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 46.78,
+        "alto": 48.17
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 10.34,
+        "alto": 11.73
+       },
+       "margen_s": {
+        "favorable": -29.19,
+        "alto": -30.58
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "deteccion_posterior"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 38.28,
+        "alto": 39.39
+       },
+       "clase": "deteccion_posterior"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 21.97,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 23.81,
+        "alto": 24.92
+       },
+       "clase": "deteccion_posterior"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_LIMIT": {
+      "window_end_utc": "2026-11-01T09:31:40+00:00",
+      "accion": "LIMIT",
+      "motivo": "http_abuse: 142 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)",
+      "t_det_utc": "2026-11-01T09:31:55.569+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 66.18,
+      "duracion_ciclo_s": 1.0975,
+      "ventana_cierra_menos_inicio_s": 50.61,
+      "deteccion_disponible_antes_del_fin": false,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 76.78,
+        "alto": 78.17
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 10.6,
+        "alto": 11.99
+       },
+       "margen_s": {
+        "favorable": -59.19,
+        "alto": -60.58
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "deteccion_posterior"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 68.01,
+        "alto": 69.13
+       },
+       "clase": "deteccion_posterior"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 51.7,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 53.54,
+        "alto": 54.65
+       },
+       "clase": "deteccion_posterior"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_BLOCK": {
+      "window_end_utc": "2026-11-01T09:31:00+00:00",
+      "accion": "BLOCK",
+      "motivo": "brute_force: 5 req HTTP/60s con 100% de fallo de auth",
+      "t_det_utc": "2026-11-01T09:31:05.791+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 16.4,
+      "duracion_ciclo_s": 1.3202,
+      "ventana_cierra_menos_inicio_s": 10.61,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 26.78,
+        "alto": 28.17
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 10.38,
+        "alto": 11.77
+       },
+       "margen_s": {
+        "favorable": -9.19,
+        "alto": -10.58
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "despues_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 18.23,
+        "alto": 19.35
+       },
+       "clase": "despues_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 11.93,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 13.76,
+        "alto": 14.88
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     }
+    },
+    {
+     "episodio": "escaneo_breve-r4",
+     "escenario": "escaneo_breve",
+     "primera_cualquiera": {
+      "window_end_utc": "2026-11-01T09:35:00+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 2006 intentos/30s a muchos puertos, 0% completados",
+      "t_det_utc": "2026-11-01T09:35:05.759+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 28.78,
+      "duracion_ciclo_s": 1.284,
+      "ventana_cierra_menos_inicio_s": 23.02,
+      "deteccion_disponible_antes_del_fin": false,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 39.19,
+        "alto": 40.58
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 10.41,
+        "alto": 11.8
+       },
+       "margen_s": {
+        "favorable": -21.6,
+        "alto": -22.99
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "deteccion_posterior"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 30.61,
+        "alto": 31.72
+       },
+       "clase": "deteccion_posterior"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 24.3,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 26.14,
+        "alto": 27.25
+       },
+       "clase": "deteccion_posterior"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_prevista": {
+      "window_end_utc": "2026-11-01T09:35:00+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 2006 intentos/30s a muchos puertos, 0% completados",
+      "t_det_utc": "2026-11-01T09:35:05.759+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 28.78,
+      "duracion_ciclo_s": 1.284,
+      "ventana_cierra_menos_inicio_s": 23.02,
+      "deteccion_disponible_antes_del_fin": false,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 39.19,
+        "alto": 40.58
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 10.41,
+        "alto": 11.8
+       },
+       "margen_s": {
+        "favorable": -21.6,
+        "alto": -22.99
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "deteccion_posterior"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 30.61,
+        "alto": 31.72
+       },
+       "clase": "deteccion_posterior"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 24.3,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 26.14,
+        "alto": 27.25
+       },
+       "clase": "deteccion_posterior"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_LIMIT": null,
+     "primera_BLOCK": {
+      "window_end_utc": "2026-11-01T09:35:00+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 2006 intentos/30s a muchos puertos, 0% completados",
+      "t_det_utc": "2026-11-01T09:35:05.759+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 28.78,
+      "duracion_ciclo_s": 1.284,
+      "ventana_cierra_menos_inicio_s": 23.02,
+      "deteccion_disponible_antes_del_fin": false,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 39.19,
+        "alto": 40.58
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 10.41,
+        "alto": 11.8
+       },
+       "margen_s": {
+        "favorable": -21.6,
+        "alto": -22.99
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "deteccion_posterior"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 30.61,
+        "alto": 31.72
+       },
+       "clase": "deteccion_posterior"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 24.3,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 26.14,
+        "alto": 27.25
+       },
+       "clase": "deteccion_posterior"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     }
+    },
+    {
+     "episodio": "escaneo_breve-r3",
+     "escenario": "escaneo_breve",
+     "primera_cualquiera": {
+      "window_end_utc": "2026-11-01T09:38:40+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 351 intentos/30s a muchos puertos, 1% completados",
+      "t_det_utc": "2026-11-01T09:38:55.707+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 30.73,
+      "duracion_ciclo_s": 1.2287,
+      "ventana_cierra_menos_inicio_s": 15.03,
+      "deteccion_disponible_antes_del_fin": false,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 41.2,
+        "alto": 42.59
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 10.47,
+        "alto": 11.86
+       },
+       "margen_s": {
+        "favorable": -23.61,
+        "alto": -25.0
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "deteccion_posterior"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 32.57,
+        "alto": 33.68
+       },
+       "clase": "deteccion_posterior"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 16.25,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 18.09,
+        "alto": 19.2
+       },
+       "clase": "despues_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_prevista": {
+      "window_end_utc": "2026-11-01T09:38:40+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 351 intentos/30s a muchos puertos, 1% completados",
+      "t_det_utc": "2026-11-01T09:38:55.707+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 30.73,
+      "duracion_ciclo_s": 1.2287,
+      "ventana_cierra_menos_inicio_s": 15.03,
+      "deteccion_disponible_antes_del_fin": false,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 41.2,
+        "alto": 42.59
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 10.47,
+        "alto": 11.86
+       },
+       "margen_s": {
+        "favorable": -23.61,
+        "alto": -25.0
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "deteccion_posterior"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 32.57,
+        "alto": 33.68
+       },
+       "clase": "deteccion_posterior"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 16.25,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 18.09,
+        "alto": 19.2
+       },
+       "clase": "despues_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_LIMIT": null,
+     "primera_BLOCK": {
+      "window_end_utc": "2026-11-01T09:38:40+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 351 intentos/30s a muchos puertos, 1% completados",
+      "t_det_utc": "2026-11-01T09:38:55.707+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 30.73,
+      "duracion_ciclo_s": 1.2287,
+      "ventana_cierra_menos_inicio_s": 15.03,
+      "deteccion_disponible_antes_del_fin": false,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 41.2,
+        "alto": 42.59
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 10.47,
+        "alto": 11.86
+       },
+       "margen_s": {
+        "favorable": -23.61,
+        "alto": -25.0
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "deteccion_posterior"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 32.57,
+        "alto": 33.68
+       },
+       "clase": "deteccion_posterior"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 16.25,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 18.09,
+        "alto": 19.2
+       },
+       "clase": "despues_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     }
+    },
+    {
+     "episodio": "dns_inusual-r4",
+     "escenario": "dns_inusual",
+     "primera_cualquiera": {
+      "window_end_utc": "2026-11-01T09:42:20+00:00",
+      "accion": "LIMIT",
+      "motivo": "dns_entropy: 36 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+      "t_det_utc": "2026-11-01T09:42:36.444+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 23.88,
+      "duracion_ciclo_s": 1.9615,
+      "ventana_cierra_menos_inicio_s": 7.43,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 33.6,
+        "alto": 35.0
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 9.73,
+        "alto": 11.12
+       },
+       "margen_s": {
+        "favorable": 55.88,
+        "alto": 54.49
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 25.71,
+        "alto": 26.82
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 9.39,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 11.23,
+        "alto": 12.34
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_prevista": {
+      "window_end_utc": "2026-11-01T09:42:20+00:00",
+      "accion": "LIMIT",
+      "motivo": "dns_entropy: 36 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+      "t_det_utc": "2026-11-01T09:42:36.444+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 23.88,
+      "duracion_ciclo_s": 1.9615,
+      "ventana_cierra_menos_inicio_s": 7.43,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 33.6,
+        "alto": 35.0
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 9.73,
+        "alto": 11.12
+       },
+       "margen_s": {
+        "favorable": 55.88,
+        "alto": 54.49
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 25.71,
+        "alto": 26.82
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 9.39,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 11.23,
+        "alto": 12.34
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_LIMIT": {
+      "window_end_utc": "2026-11-01T09:42:20+00:00",
+      "accion": "LIMIT",
+      "motivo": "dns_entropy: 36 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+      "t_det_utc": "2026-11-01T09:42:36.444+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 23.88,
+      "duracion_ciclo_s": 1.9615,
+      "ventana_cierra_menos_inicio_s": 7.43,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 33.6,
+        "alto": 35.0
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 9.73,
+        "alto": 11.12
+       },
+       "margen_s": {
+        "favorable": 55.88,
+        "alto": 54.49
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 25.71,
+        "alto": 26.82
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 9.39,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 11.23,
+        "alto": 12.34
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_BLOCK": null
+    },
+    {
+     "episodio": "fuerza_bruta_http-r1",
+     "escenario": "fuerza_bruta_http",
+     "primera_cualquiera": {
+      "window_end_utc": "2026-11-01T09:47:20+00:00",
+      "accion": "BLOCK",
+      "motivo": "brute_force: 1072 req HTTP/60s con 100% de fallo de auth",
+      "t_det_utc": "2026-11-01T09:47:37.194+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 25.14,
+      "duracion_ciclo_s": 2.7074,
+      "ventana_cierra_menos_inicio_s": 7.95,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 34.12,
+        "alto": 35.51
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 8.98,
+        "alto": 10.37
+       },
+       "margen_s": {
+        "favorable": 55.88,
+        "alto": 54.49
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 26.98,
+        "alto": 28.09
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 10.65,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 12.49,
+        "alto": 13.6
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_prevista": {
+      "window_end_utc": "2026-11-01T09:47:20+00:00",
+      "accion": "BLOCK",
+      "motivo": "brute_force: 1072 req HTTP/60s con 100% de fallo de auth",
+      "t_det_utc": "2026-11-01T09:47:37.194+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 25.14,
+      "duracion_ciclo_s": 2.7074,
+      "ventana_cierra_menos_inicio_s": 7.95,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 34.12,
+        "alto": 35.51
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 8.98,
+        "alto": 10.37
+       },
+       "margen_s": {
+        "favorable": 55.88,
+        "alto": 54.49
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 26.98,
+        "alto": 28.09
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 10.65,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 12.49,
+        "alto": 13.6
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_LIMIT": null,
+     "primera_BLOCK": {
+      "window_end_utc": "2026-11-01T09:47:20+00:00",
+      "accion": "BLOCK",
+      "motivo": "brute_force: 1072 req HTTP/60s con 100% de fallo de auth",
+      "t_det_utc": "2026-11-01T09:47:37.194+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 25.14,
+      "duracion_ciclo_s": 2.7074,
+      "ventana_cierra_menos_inicio_s": 7.95,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 34.12,
+        "alto": 35.51
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 8.98,
+        "alto": 10.37
+       },
+       "margen_s": {
+        "favorable": 55.88,
+        "alto": 54.49
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 26.98,
+        "alto": 28.09
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 10.65,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 12.49,
+        "alto": 13.6
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     }
+    },
+    {
+     "episodio": "inundacion_http-r5",
+     "escenario": "inundacion_http",
+     "primera_cualquiera": {
+      "window_end_utc": "2026-11-01T09:52:20+00:00",
+      "accion": "LIMIT",
+      "motivo": "http_abuse: 2369 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)",
+      "t_det_utc": "2026-11-01T09:52:41.381+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 29.32,
+      "duracion_ciclo_s": 6.8883,
+      "ventana_cierra_menos_inicio_s": 7.94,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 44.11,
+        "alto": 45.5
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 14.79,
+        "alto": 16.18
+       },
+       "margen_s": {
+        "favorable": 45.88,
+        "alto": 44.49
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 31.15,
+        "alto": 32.27
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 14.82,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 16.66,
+        "alto": 17.77
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_prevista": {
+      "window_end_utc": "2026-11-01T09:52:20+00:00",
+      "accion": "LIMIT",
+      "motivo": "http_abuse: 2369 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)",
+      "t_det_utc": "2026-11-01T09:52:41.381+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 29.32,
+      "duracion_ciclo_s": 6.8883,
+      "ventana_cierra_menos_inicio_s": 7.94,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 44.11,
+        "alto": 45.5
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 14.79,
+        "alto": 16.18
+       },
+       "margen_s": {
+        "favorable": 45.88,
+        "alto": 44.49
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 31.15,
+        "alto": 32.27
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 14.82,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 16.66,
+        "alto": 17.77
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_LIMIT": {
+      "window_end_utc": "2026-11-01T09:52:20+00:00",
+      "accion": "LIMIT",
+      "motivo": "http_abuse: 2369 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)",
+      "t_det_utc": "2026-11-01T09:52:41.381+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 29.32,
+      "duracion_ciclo_s": 6.8883,
+      "ventana_cierra_menos_inicio_s": 7.94,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 44.11,
+        "alto": 45.5
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 14.79,
+        "alto": 16.18
+       },
+       "margen_s": {
+        "favorable": 45.88,
+        "alto": 44.49
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 31.15,
+        "alto": 32.27
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 14.82,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 16.66,
+        "alto": 17.77
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_BLOCK": {
+      "window_end_utc": "2026-11-01T09:54:00+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 707 intentos/30s a muchos puertos, 0% completados",
+      "t_det_utc": "2026-11-01T09:54:09.428+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 117.36,
+      "duracion_ciclo_s": 3.8238,
+      "ventana_cierra_menos_inicio_s": 107.94,
+      "deteccion_disponible_antes_del_fin": false,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 124.11,
+        "alto": 125.5
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 6.74,
+        "alto": 8.14
+       },
+       "margen_s": {
+        "favorable": -34.12,
+        "alto": -35.51
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "deteccion_posterior"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 119.2,
+        "alto": 120.31
+       },
+       "clase": "deteccion_posterior"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 111.76,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 113.6,
+        "alto": 114.71
+       },
+       "clase": "deteccion_posterior"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     }
+    },
+    {
+     "episodio": "escaneo_breve-r2",
+     "escenario": "escaneo_breve",
+     "primera_cualquiera": {
+      "window_end_utc": "2026-11-01T09:57:30+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 2006 intentos/30s a muchos puertos, 0% completados",
+      "t_det_utc": "2026-11-01T09:57:38.265+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 26.21,
+      "duracion_ciclo_s": 2.6578,
+      "ventana_cierra_menos_inicio_s": 17.95,
+      "deteccion_disponible_antes_del_fin": false,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 34.12,
+        "alto": 35.51
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 7.91,
+        "alto": 9.3
+       },
+       "margen_s": {
+        "favorable": -16.53,
+        "alto": -17.92
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "deteccion_posterior"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 28.05,
+        "alto": 29.16
+       },
+       "clase": "deteccion_posterior"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 20.6,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 22.44,
+        "alto": 23.55
+       },
+       "clase": "deteccion_posterior"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_prevista": {
+      "window_end_utc": "2026-11-01T09:57:30+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 2006 intentos/30s a muchos puertos, 0% completados",
+      "t_det_utc": "2026-11-01T09:57:38.265+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 26.21,
+      "duracion_ciclo_s": 2.6578,
+      "ventana_cierra_menos_inicio_s": 17.95,
+      "deteccion_disponible_antes_del_fin": false,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 34.12,
+        "alto": 35.51
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 7.91,
+        "alto": 9.3
+       },
+       "margen_s": {
+        "favorable": -16.53,
+        "alto": -17.92
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "deteccion_posterior"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 28.05,
+        "alto": 29.16
+       },
+       "clase": "deteccion_posterior"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 20.6,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 22.44,
+        "alto": 23.55
+       },
+       "clase": "deteccion_posterior"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_LIMIT": null,
+     "primera_BLOCK": {
+      "window_end_utc": "2026-11-01T09:57:30+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 2006 intentos/30s a muchos puertos, 0% completados",
+      "t_det_utc": "2026-11-01T09:57:38.265+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 26.21,
+      "duracion_ciclo_s": 2.6578,
+      "ventana_cierra_menos_inicio_s": 17.95,
+      "deteccion_disponible_antes_del_fin": false,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 34.12,
+        "alto": 35.51
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 7.91,
+        "alto": 9.3
+       },
+       "margen_s": {
+        "favorable": -16.53,
+        "alto": -17.92
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "deteccion_posterior"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 28.05,
+        "alto": 29.16
+       },
+       "clase": "deteccion_posterior"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 20.6,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 22.44,
+        "alto": 23.55
+       },
+       "clase": "deteccion_posterior"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     }
+    },
+    {
+     "episodio": "escaneo_sostenido-r1",
+     "escenario": "escaneo_sostenido",
+     "primera_cualquiera": {
+      "window_end_utc": "2026-11-01T10:01:20+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 4637 intentos/30s a muchos puertos, 0% completados",
+      "t_det_utc": "2026-11-01T10:01:39.653+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 39.61,
+      "duracion_ciclo_s": 4.0397,
+      "ventana_cierra_menos_inicio_s": 19.96,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 46.13,
+        "alto": 47.52
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 6.52,
+        "alto": 7.91
+       },
+       "margen_s": {
+        "favorable": 19.39,
+        "alto": 18.0
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 41.45,
+        "alto": 42.56
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 24.0,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 25.83,
+        "alto": 26.94
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_prevista": {
+      "window_end_utc": "2026-11-01T10:01:20+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 4637 intentos/30s a muchos puertos, 0% completados",
+      "t_det_utc": "2026-11-01T10:01:39.653+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 39.61,
+      "duracion_ciclo_s": 4.0397,
+      "ventana_cierra_menos_inicio_s": 19.96,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 46.13,
+        "alto": 47.52
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 6.52,
+        "alto": 7.91
+       },
+       "margen_s": {
+        "favorable": 19.39,
+        "alto": 18.0
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 41.45,
+        "alto": 42.56
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 24.0,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 25.83,
+        "alto": 26.94
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_LIMIT": {
+      "window_end_utc": "2026-11-01T10:02:50+00:00",
+      "accion": "LIMIT",
+      "motivo": "http_abuse: 146 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)",
+      "t_det_utc": "2026-11-01T10:03:07.733+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 127.69,
+      "duracion_ciclo_s": 2.1181,
+      "ventana_cierra_menos_inicio_s": 109.96,
+      "deteccion_disponible_antes_del_fin": false,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 136.13,
+        "alto": 137.52
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 8.44,
+        "alto": 9.83
+       },
+       "margen_s": {
+        "favorable": -70.61,
+        "alto": -72.0
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "deteccion_posterior"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 129.53,
+        "alto": 130.64
+       },
+       "clase": "deteccion_posterior"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 112.07,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 113.91,
+        "alto": 115.02
+       },
+       "clase": "deteccion_posterior"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     },
+     "primera_BLOCK": {
+      "window_end_utc": "2026-11-01T10:01:20+00:00",
+      "accion": "BLOCK",
+      "motivo": "port_scan: 4637 intentos/30s a muchos puertos, 0% completados",
+      "t_det_utc": "2026-11-01T10:01:39.653+00:00",
+      "disponibilidad_fuente": "registro_escrito_en(ciclo)",
+      "t_det_menos_inicio_s": 39.61,
+      "duracion_ciclo_s": 4.0397,
+      "ventana_cierra_menos_inicio_s": 19.96,
+      "deteccion_disponible_antes_del_fin": true,
+      "V0": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 46.13,
+        "alto": 47.52
+       },
+       "t_apl_estimada_menos_t_det_s": {
+        "favorable": 6.52,
+        "alto": 7.91
+       },
+       "margen_s": {
+        "favorable": 19.39,
+        "alto": 18.0
+       },
+       "consumidor_perdido_alto": false,
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V1": {
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 41.45,
+        "alto": 42.56
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "V2": {
+       "t_det_menos_inicio_s": 24.0,
+       "t_apl_estimada_menos_inicio_s": {
+        "favorable": 25.83,
+        "alto": 26.94
+       },
+       "clase": "antes_del_fin_bajo_supuestos"
+      },
+      "demoras_desconocidas_no_incluidas": [
+       "activacion_nft_s",
+       "efecto_s",
+       "lectura_publicador"
+      ]
+     }
+    }
+   ]
   },
   "persist_2|desplegado": {
    "politica": "persist_2",
@@ -17712,6 +21823,1048 @@
    "episodios": null
   }
  },
+ "tres_resultados_d3": [
+  {
+   "episodio": "escaneo_sostenido-r2",
+   "escenario": "escaneo_sostenido",
+   "admitido_v2": true,
+   "1_anomalia_if": {
+    "desplegado": {
+     "window_end_utc": "2026-11-01T08:09:00+00:00",
+     "t_det_menos_inicio_s": 26.56,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.05": {
+     "window_end_utc": "2026-11-01T08:09:00+00:00",
+     "t_det_menos_inicio_s": 26.56,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.03": {
+     "window_end_utc": "2026-11-01T08:09:00+00:00",
+     "t_det_menos_inicio_s": 26.56,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.01": {
+     "window_end_utc": "2026-11-01T08:09:00+00:00",
+     "t_det_menos_inicio_s": 26.56,
+     "disponible_antes_del_fin": true
+    }
+   },
+   "2_heuristico_previsto": {
+    "regla": "port_scan",
+    "t_det_menos_inicio_s": 26.56,
+    "disponible_antes_del_fin": true
+   },
+   "3_respuesta_if_senal": {
+    "accion": "BLOCK",
+    "motivo": "port_scan: 5626 intentos/30s a muchos puertos, 0% completados",
+    "t_det_menos_inicio_s": 26.56,
+    "V0_t_apl_estimada_menos_inicio_s": {
+     "favorable": 37.03,
+     "alto": 38.42
+    },
+    "V0_clase": "antes_del_fin_bajo_supuestos",
+    "es_regla_prevista": true
+   },
+   "punto_de_aplicacion": "srv-dmz 10.10.30.10 (agente inactivo)"
+  },
+  {
+   "episodio": "inundacion_http-r1",
+   "escenario": "inundacion_http",
+   "admitido_v2": false,
+   "1_anomalia_if": {
+    "desplegado": {
+     "window_end_utc": "2026-11-01T08:13:20+00:00",
+     "t_det_menos_inicio_s": 24.9,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.05": {
+     "window_end_utc": "2026-11-01T08:13:20+00:00",
+     "t_det_menos_inicio_s": 24.9,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.03": {
+     "window_end_utc": "2026-11-01T08:13:20+00:00",
+     "t_det_menos_inicio_s": 24.9,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.01": {
+     "window_end_utc": "2026-11-01T08:13:20+00:00",
+     "t_det_menos_inicio_s": 24.9,
+     "disponible_antes_del_fin": true
+    }
+   },
+   "2_heuristico_previsto": {
+    "regla": "http_abuse",
+    "t_det_menos_inicio_s": 24.9,
+    "disponible_antes_del_fin": true
+   },
+   "3_respuesta_if_senal": {
+    "accion": "LIMIT",
+    "motivo": "http_abuse: 1377 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)",
+    "t_det_menos_inicio_s": 24.9,
+    "V0_t_apl_estimada_menos_inicio_s": {
+     "favorable": 30.72,
+     "alto": 42.11
+    },
+    "V0_clase": "antes_del_fin_bajo_supuestos",
+    "es_regla_prevista": true
+   },
+   "punto_de_aplicacion": "srv-dmz 10.10.30.10 (agente inactivo)"
+  },
+  {
+   "episodio": "dns_inusual-r3",
+   "escenario": "dns_inusual",
+   "admitido_v2": false,
+   "1_anomalia_if": {
+    "desplegado": null,
+    "IF_0.05": null,
+    "IF_0.03": null,
+    "IF_0.01": null
+   },
+   "2_heuristico_previsto": {
+    "regla": "dns_entropy",
+    "t_det_menos_inicio_s": 20.19,
+    "disponible_antes_del_fin": true
+   },
+   "3_respuesta_if_senal": {
+    "accion": "LIMIT",
+    "motivo": "dns_entropy: 24 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+    "t_det_menos_inicio_s": 20.19,
+    "V0_t_apl_estimada_menos_inicio_s": {
+     "favorable": 31.12,
+     "alto": 32.51
+    },
+    "V0_clase": "antes_del_fin_bajo_supuestos",
+    "es_regla_prevista": true
+   },
+   "punto_de_aplicacion": "DC1 10.10.10.20 (D1: propuesto, sin agente)"
+  },
+  {
+   "episodio": "inundacion_http-r4",
+   "escenario": "inundacion_http",
+   "admitido_v2": false,
+   "1_anomalia_if": {
+    "desplegado": {
+     "window_end_utc": "2026-11-01T08:23:20+00:00",
+     "t_det_menos_inicio_s": 24.2,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.05": {
+     "window_end_utc": "2026-11-01T08:23:20+00:00",
+     "t_det_menos_inicio_s": 24.2,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.03": {
+     "window_end_utc": "2026-11-01T08:23:20+00:00",
+     "t_det_menos_inicio_s": 24.2,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.01": {
+     "window_end_utc": "2026-11-01T08:23:20+00:00",
+     "t_det_menos_inicio_s": 24.2,
+     "disponible_antes_del_fin": true
+    }
+   },
+   "2_heuristico_previsto": {
+    "regla": "http_abuse",
+    "t_det_menos_inicio_s": 24.2,
+    "disponible_antes_del_fin": true
+   },
+   "3_respuesta_if_senal": {
+    "accion": "LIMIT",
+    "motivo": "http_abuse: 1431 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)",
+    "t_det_menos_inicio_s": 24.2,
+    "V0_t_apl_estimada_menos_inicio_s": {
+     "favorable": 30.93,
+     "alto": 32.32
+    },
+    "V0_clase": "antes_del_fin_bajo_supuestos",
+    "es_regla_prevista": true
+   },
+   "punto_de_aplicacion": "srv-dmz 10.10.30.10 (agente inactivo)"
+  },
+  {
+   "episodio": "inundacion_http-r2",
+   "escenario": "inundacion_http",
+   "admitido_v2": false,
+   "1_anomalia_if": {
+    "desplegado": {
+     "window_end_utc": "2026-11-01T08:28:20+00:00",
+     "t_det_menos_inicio_s": 25.43,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.05": {
+     "window_end_utc": "2026-11-01T08:28:20+00:00",
+     "t_det_menos_inicio_s": 25.43,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.03": {
+     "window_end_utc": "2026-11-01T08:28:20+00:00",
+     "t_det_menos_inicio_s": 25.43,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.01": {
+     "window_end_utc": "2026-11-01T08:28:20+00:00",
+     "t_det_menos_inicio_s": 25.43,
+     "disponible_antes_del_fin": true
+    }
+   },
+   "2_heuristico_previsto": {
+    "regla": "http_abuse",
+    "t_det_menos_inicio_s": 25.43,
+    "disponible_antes_del_fin": true
+   },
+   "3_respuesta_if_senal": {
+    "accion": "LIMIT",
+    "motivo": "http_abuse: 1500 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)",
+    "t_det_menos_inicio_s": 25.43,
+    "V0_t_apl_estimada_menos_inicio_s": {
+     "favorable": 31.1,
+     "alto": 42.5
+    },
+    "V0_clase": "antes_del_fin_bajo_supuestos",
+    "es_regla_prevista": true
+   },
+   "punto_de_aplicacion": "srv-dmz 10.10.30.10 (agente inactivo)"
+  },
+  {
+   "episodio": "inundacion_http-r3",
+   "escenario": "inundacion_http",
+   "admitido_v2": false,
+   "1_anomalia_if": {
+    "desplegado": {
+     "window_end_utc": "2026-11-01T08:33:20+00:00",
+     "t_det_menos_inicio_s": 25.36,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.05": {
+     "window_end_utc": "2026-11-01T08:33:20+00:00",
+     "t_det_menos_inicio_s": 25.36,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.03": {
+     "window_end_utc": "2026-11-01T08:33:20+00:00",
+     "t_det_menos_inicio_s": 25.36,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.01": {
+     "window_end_utc": "2026-11-01T08:33:20+00:00",
+     "t_det_menos_inicio_s": 25.36,
+     "disponible_antes_del_fin": true
+    }
+   },
+   "2_heuristico_previsto": {
+    "regla": "http_abuse",
+    "t_det_menos_inicio_s": 25.36,
+    "disponible_antes_del_fin": true
+   },
+   "3_respuesta_if_senal": {
+    "accion": "LIMIT",
+    "motivo": "http_abuse: 1499 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)",
+    "t_det_menos_inicio_s": 25.36,
+    "V0_t_apl_estimada_menos_inicio_s": {
+     "favorable": 31.14,
+     "alto": 42.53
+    },
+    "V0_clase": "antes_del_fin_bajo_supuestos",
+    "es_regla_prevista": true
+   },
+   "punto_de_aplicacion": "srv-dmz 10.10.30.10 (agente inactivo)"
+  },
+  {
+   "episodio": "escaneo_sostenido-r4",
+   "escenario": "escaneo_sostenido",
+   "admitido_v2": true,
+   "1_anomalia_if": {
+    "desplegado": {
+     "window_end_utc": "2026-11-01T08:38:30+00:00",
+     "t_det_menos_inicio_s": 21.97,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.05": {
+     "window_end_utc": "2026-11-01T08:38:30+00:00",
+     "t_det_menos_inicio_s": 21.97,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.03": {
+     "window_end_utc": "2026-11-01T08:38:40+00:00",
+     "t_det_menos_inicio_s": 42.79,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.01": {
+     "window_end_utc": "2026-11-01T08:38:40+00:00",
+     "t_det_menos_inicio_s": 42.79,
+     "disponible_antes_del_fin": true
+    }
+   },
+   "2_heuristico_previsto": {
+    "regla": "port_scan",
+    "t_det_menos_inicio_s": 21.97,
+    "disponible_antes_del_fin": true
+   },
+   "3_respuesta_if_senal": {
+    "accion": "BLOCK",
+    "motivo": "port_scan: 503 intentos/30s a muchos puertos, 1% completados",
+    "t_det_menos_inicio_s": 21.97,
+    "V0_t_apl_estimada_menos_inicio_s": {
+     "favorable": 31.09,
+     "alto": 32.48
+    },
+    "V0_clase": "antes_del_fin_bajo_supuestos",
+    "es_regla_prevista": true
+   },
+   "punto_de_aplicacion": "srv-dmz 10.10.30.10 (agente inactivo)"
+  },
+  {
+   "episodio": "escaneo_sostenido-r5",
+   "escenario": "escaneo_sostenido",
+   "admitido_v2": true,
+   "1_anomalia_if": {
+    "desplegado": {
+     "window_end_utc": "2026-11-01T08:43:10+00:00",
+     "t_det_menos_inicio_s": 35.63,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.05": {
+     "window_end_utc": "2026-11-01T08:43:10+00:00",
+     "t_det_menos_inicio_s": 35.63,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.03": {
+     "window_end_utc": "2026-11-01T08:43:10+00:00",
+     "t_det_menos_inicio_s": 35.63,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.01": {
+     "window_end_utc": "2026-11-01T08:43:10+00:00",
+     "t_det_menos_inicio_s": 35.63,
+     "disponible_antes_del_fin": true
+    }
+   },
+   "2_heuristico_previsto": {
+    "regla": "port_scan",
+    "t_det_menos_inicio_s": 35.63,
+    "disponible_antes_del_fin": true
+   },
+   "3_respuesta_if_senal": {
+    "accion": "BLOCK",
+    "motivo": "port_scan: 3656 intentos/30s a muchos puertos, 0% completados",
+    "t_det_menos_inicio_s": 35.63,
+    "V0_t_apl_estimada_menos_inicio_s": {
+     "favorable": 44.97,
+     "alto": 46.36
+    },
+    "V0_clase": "antes_del_fin_bajo_supuestos",
+    "es_regla_prevista": true
+   },
+   "punto_de_aplicacion": "srv-dmz 10.10.30.10 (agente inactivo)"
+  },
+  {
+   "episodio": "escaneo_breve-r5",
+   "escenario": "escaneo_breve",
+   "admitido_v2": true,
+   "1_anomalia_if": {
+    "desplegado": {
+     "window_end_utc": "2026-11-01T08:47:50+00:00",
+     "t_det_menos_inicio_s": 39.54,
+     "disponible_antes_del_fin": false
+    },
+    "IF_0.05": {
+     "window_end_utc": "2026-11-01T08:47:50+00:00",
+     "t_det_menos_inicio_s": 39.54,
+     "disponible_antes_del_fin": false
+    },
+    "IF_0.03": {
+     "window_end_utc": "2026-11-01T08:47:50+00:00",
+     "t_det_menos_inicio_s": 39.54,
+     "disponible_antes_del_fin": false
+    },
+    "IF_0.01": null
+   },
+   "2_heuristico_previsto": {
+    "regla": "port_scan",
+    "t_det_menos_inicio_s": 39.54,
+    "disponible_antes_del_fin": false
+   },
+   "3_respuesta_if_senal": {
+    "accion": "BLOCK",
+    "motivo": "port_scan: 2006 intentos/30s a muchos puertos, 0% completados",
+    "t_det_menos_inicio_s": 39.54,
+    "V0_t_apl_estimada_menos_inicio_s": {
+     "favorable": 49.24,
+     "alto": 50.63
+    },
+    "V0_clase": "deteccion_posterior",
+    "es_regla_prevista": true
+   },
+   "punto_de_aplicacion": "srv-dmz 10.10.30.10 (agente inactivo)"
+  },
+  {
+   "episodio": "fuerza_bruta_http-r3",
+   "escenario": "fuerza_bruta_http",
+   "admitido_v2": false,
+   "1_anomalia_if": {
+    "desplegado": {
+     "window_end_utc": "2026-11-01T08:51:20+00:00",
+     "t_det_menos_inicio_s": 23.59,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.05": {
+     "window_end_utc": "2026-11-01T08:51:20+00:00",
+     "t_det_menos_inicio_s": 23.59,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.03": {
+     "window_end_utc": "2026-11-01T08:51:20+00:00",
+     "t_det_menos_inicio_s": 23.59,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.01": {
+     "window_end_utc": "2026-11-01T08:51:20+00:00",
+     "t_det_menos_inicio_s": 23.59,
+     "disponible_antes_del_fin": true
+    }
+   },
+   "2_heuristico_previsto": {
+    "regla": "brute_force",
+    "t_det_menos_inicio_s": 23.59,
+    "disponible_antes_del_fin": true
+   },
+   "3_respuesta_if_senal": {
+    "accion": "BLOCK",
+    "motivo": "brute_force: 668 req HTTP/60s con 100% de fallo de auth",
+    "t_det_menos_inicio_s": 23.59,
+    "V0_t_apl_estimada_menos_inicio_s": {
+     "favorable": 31.25,
+     "alto": 32.64
+    },
+    "V0_clase": "antes_del_fin_bajo_supuestos",
+    "es_regla_prevista": true
+   },
+   "punto_de_aplicacion": "srv-dmz 10.10.30.10 (agente inactivo)"
+  },
+  {
+   "episodio": "fuerza_bruta_http-r5",
+   "escenario": "fuerza_bruta_http",
+   "admitido_v2": true,
+   "1_anomalia_if": {
+    "desplegado": {
+     "window_end_utc": "2026-11-01T08:56:20+00:00",
+     "t_det_menos_inicio_s": 23.68,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.05": {
+     "window_end_utc": "2026-11-01T08:56:20+00:00",
+     "t_det_menos_inicio_s": 23.68,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.03": {
+     "window_end_utc": "2026-11-01T08:56:20+00:00",
+     "t_det_menos_inicio_s": 23.68,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.01": {
+     "window_end_utc": "2026-11-01T08:56:20+00:00",
+     "t_det_menos_inicio_s": 23.68,
+     "disponible_antes_del_fin": true
+    }
+   },
+   "2_heuristico_previsto": {
+    "regla": "brute_force",
+    "t_det_menos_inicio_s": 23.68,
+    "disponible_antes_del_fin": true
+   },
+   "3_respuesta_if_senal": {
+    "accion": "BLOCK",
+    "motivo": "brute_force: 816 req HTTP/60s con 100% de fallo de auth",
+    "t_det_menos_inicio_s": 23.68,
+    "V0_t_apl_estimada_menos_inicio_s": {
+     "favorable": 32.14,
+     "alto": 33.54
+    },
+    "V0_clase": "antes_del_fin_bajo_supuestos",
+    "es_regla_prevista": true
+   },
+   "punto_de_aplicacion": "srv-dmz 10.10.30.10 (agente inactivo)"
+  },
+  {
+   "episodio": "dns_inusual-r5",
+   "escenario": "dns_inusual",
+   "admitido_v2": false,
+   "1_anomalia_if": {
+    "desplegado": {
+     "window_end_utc": "2026-11-01T09:01:30+00:00",
+     "t_det_menos_inicio_s": 21.88,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.05": {
+     "window_end_utc": "2026-11-01T09:01:30+00:00",
+     "t_det_menos_inicio_s": 21.88,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.03": {
+     "window_end_utc": "2026-11-01T09:01:30+00:00",
+     "t_det_menos_inicio_s": 21.88,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.01": {
+     "window_end_utc": "2026-11-01T09:01:30+00:00",
+     "t_det_menos_inicio_s": 21.88,
+     "disponible_antes_del_fin": true
+    }
+   },
+   "2_heuristico_previsto": {
+    "regla": "dns_entropy",
+    "t_det_menos_inicio_s": 21.88,
+    "disponible_antes_del_fin": true
+   },
+   "3_respuesta_if_senal": {
+    "accion": "LIMIT",
+    "motivo": "dns_entropy: 28 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+    "t_det_menos_inicio_s": 21.88,
+    "V0_t_apl_estimada_menos_inicio_s": {
+     "favorable": 32.14,
+     "alto": 33.53
+    },
+    "V0_clase": "antes_del_fin_bajo_supuestos",
+    "es_regla_prevista": true
+   },
+   "punto_de_aplicacion": "DC1 10.10.10.20 (D1: propuesto, sin agente)"
+  },
+  {
+   "episodio": "escaneo_sostenido-r3",
+   "escenario": "escaneo_sostenido",
+   "admitido_v2": true,
+   "1_anomalia_if": {
+    "desplegado": {
+     "window_end_utc": "2026-11-01T09:06:20+00:00",
+     "t_det_menos_inicio_s": 22.01,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.05": {
+     "window_end_utc": "2026-11-01T09:06:20+00:00",
+     "t_det_menos_inicio_s": 22.01,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.03": {
+     "window_end_utc": "2026-11-01T09:06:20+00:00",
+     "t_det_menos_inicio_s": 22.01,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.01": {
+     "window_end_utc": "2026-11-01T09:06:20+00:00",
+     "t_det_menos_inicio_s": 22.01,
+     "disponible_antes_del_fin": true
+    }
+   },
+   "2_heuristico_previsto": {
+    "regla": "port_scan",
+    "t_det_menos_inicio_s": 74.29,
+    "disponible_antes_del_fin": false
+   },
+   "3_respuesta_if_senal": {
+    "accion": "BLOCK",
+    "motivo": "brute_force: 16 req HTTP/60s con 88% de fallo de auth",
+    "t_det_menos_inicio_s": 22.01,
+    "V0_t_apl_estimada_menos_inicio_s": {
+     "favorable": 31.74,
+     "alto": 33.13
+    },
+    "V0_clase": "antes_del_fin_bajo_supuestos",
+    "es_regla_prevista": false
+   },
+   "punto_de_aplicacion": "srv-dmz 10.10.30.10 (agente inactivo)"
+  },
+  {
+   "episodio": "dns_inusual-r2",
+   "escenario": "dns_inusual",
+   "admitido_v2": true,
+   "1_anomalia_if": {
+    "desplegado": null,
+    "IF_0.05": null,
+    "IF_0.03": null,
+    "IF_0.01": null
+   },
+   "2_heuristico_previsto": {
+    "regla": "dns_entropy",
+    "t_det_menos_inicio_s": 25.85,
+    "disponible_antes_del_fin": true
+   },
+   "3_respuesta_if_senal": {
+    "accion": "LIMIT",
+    "motivo": "dns_entropy: 48 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+    "t_det_menos_inicio_s": 25.85,
+    "V0_t_apl_estimada_menos_inicio_s": {
+     "favorable": 36.22,
+     "alto": 37.61
+    },
+    "V0_clase": "antes_del_fin_bajo_supuestos",
+    "es_regla_prevista": true
+   },
+   "punto_de_aplicacion": "DC1 10.10.10.20 (D1: propuesto, sin agente)"
+  },
+  {
+   "episodio": "fuerza_bruta_http-r2",
+   "escenario": "fuerza_bruta_http",
+   "admitido_v2": false,
+   "1_anomalia_if": {
+    "desplegado": {
+     "window_end_utc": "2026-11-01T09:15:50+00:00",
+     "t_det_menos_inicio_s": 18.84,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.05": {
+     "window_end_utc": "2026-11-01T09:15:50+00:00",
+     "t_det_menos_inicio_s": 18.84,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.03": {
+     "window_end_utc": "2026-11-01T09:15:50+00:00",
+     "t_det_menos_inicio_s": 18.84,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.01": {
+     "window_end_utc": "2026-11-01T09:15:50+00:00",
+     "t_det_menos_inicio_s": 18.84,
+     "disponible_antes_del_fin": true
+    }
+   },
+   "2_heuristico_previsto": {
+    "regla": "brute_force",
+    "t_det_menos_inicio_s": 18.84,
+    "disponible_antes_del_fin": true
+   },
+   "3_respuesta_if_senal": {
+    "accion": "BLOCK",
+    "motivo": "brute_force: 124 req HTTP/60s con 100% de fallo de auth",
+    "t_det_menos_inicio_s": 18.84,
+    "V0_t_apl_estimada_menos_inicio_s": {
+     "favorable": 27.13,
+     "alto": 28.52
+    },
+    "V0_clase": "antes_del_fin_bajo_supuestos",
+    "es_regla_prevista": true
+   },
+   "punto_de_aplicacion": "srv-dmz 10.10.30.10 (agente inactivo)"
+  },
+  {
+   "episodio": "fuerza_bruta_http-r4",
+   "escenario": "fuerza_bruta_http",
+   "admitido_v2": true,
+   "1_anomalia_if": {
+    "desplegado": {
+     "window_end_utc": "2026-11-01T09:20:50+00:00",
+     "t_det_menos_inicio_s": 18.44,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.05": {
+     "window_end_utc": "2026-11-01T09:20:50+00:00",
+     "t_det_menos_inicio_s": 18.44,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.03": {
+     "window_end_utc": "2026-11-01T09:20:50+00:00",
+     "t_det_menos_inicio_s": 18.44,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.01": {
+     "window_end_utc": "2026-11-01T09:20:50+00:00",
+     "t_det_menos_inicio_s": 18.44,
+     "disponible_antes_del_fin": true
+    }
+   },
+   "2_heuristico_previsto": {
+    "regla": "brute_force",
+    "t_det_menos_inicio_s": 18.44,
+    "disponible_antes_del_fin": true
+   },
+   "3_respuesta_if_senal": {
+    "accion": "BLOCK",
+    "motivo": "brute_force: 125 req HTTP/60s con 100% de fallo de auth",
+    "t_det_menos_inicio_s": 18.44,
+    "V0_t_apl_estimada_menos_inicio_s": {
+     "favorable": 27.12,
+     "alto": 28.51
+    },
+    "V0_clase": "antes_del_fin_bajo_supuestos",
+    "es_regla_prevista": true
+   },
+   "punto_de_aplicacion": "srv-dmz 10.10.30.10 (agente inactivo)"
+  },
+  {
+   "episodio": "dns_inusual-r1",
+   "escenario": "dns_inusual",
+   "admitido_v2": true,
+   "1_anomalia_if": {
+    "desplegado": {
+     "window_end_utc": "2026-11-01T09:26:00+00:00",
+     "t_det_menos_inicio_s": 17.22,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.05": {
+     "window_end_utc": "2026-11-01T09:26:00+00:00",
+     "t_det_menos_inicio_s": 17.22,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.03": {
+     "window_end_utc": "2026-11-01T09:26:00+00:00",
+     "t_det_menos_inicio_s": 17.22,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.01": {
+     "window_end_utc": "2026-11-01T09:26:00+00:00",
+     "t_det_menos_inicio_s": 17.22,
+     "disponible_antes_del_fin": true
+    }
+   },
+   "2_heuristico_previsto": {
+    "regla": "dns_entropy",
+    "t_det_menos_inicio_s": 17.22,
+    "disponible_antes_del_fin": true
+   },
+   "3_respuesta_if_senal": {
+    "accion": "LIMIT",
+    "motivo": "dns_entropy: 52 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+    "t_det_menos_inicio_s": 17.22,
+    "V0_t_apl_estimada_menos_inicio_s": {
+     "favorable": 27.11,
+     "alto": 28.5
+    },
+    "V0_clase": "antes_del_fin_bajo_supuestos",
+    "es_regla_prevista": true
+   },
+   "punto_de_aplicacion": "DC1 10.10.10.20 (D1: propuesto, sin agente)"
+  },
+  {
+   "episodio": "escaneo_breve-r1",
+   "escenario": "escaneo_breve",
+   "admitido_v2": true,
+   "1_anomalia_if": {
+    "desplegado": {
+     "window_end_utc": "2026-11-01T09:31:00+00:00",
+     "t_det_menos_inicio_s": 16.4,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.05": {
+     "window_end_utc": "2026-11-01T09:31:00+00:00",
+     "t_det_menos_inicio_s": 16.4,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.03": {
+     "window_end_utc": "2026-11-01T09:31:00+00:00",
+     "t_det_menos_inicio_s": 16.4,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.01": {
+     "window_end_utc": "2026-11-01T09:31:10+00:00",
+     "t_det_menos_inicio_s": 36.44,
+     "disponible_antes_del_fin": false
+    }
+   },
+   "2_heuristico_previsto": {
+    "regla": "port_scan",
+    "t_det_menos_inicio_s": 36.44,
+    "disponible_antes_del_fin": false
+   },
+   "3_respuesta_if_senal": {
+    "accion": "BLOCK",
+    "motivo": "brute_force: 5 req HTTP/60s con 100% de fallo de auth",
+    "t_det_menos_inicio_s": 16.4,
+    "V0_t_apl_estimada_menos_inicio_s": {
+     "favorable": 26.78,
+     "alto": 28.17
+    },
+    "V0_clase": "despues_del_fin_bajo_supuestos",
+    "es_regla_prevista": false
+   },
+   "punto_de_aplicacion": "srv-dmz 10.10.30.10 (agente inactivo)"
+  },
+  {
+   "episodio": "escaneo_breve-r4",
+   "escenario": "escaneo_breve",
+   "admitido_v2": false,
+   "1_anomalia_if": {
+    "desplegado": {
+     "window_end_utc": "2026-11-01T09:35:00+00:00",
+     "t_det_menos_inicio_s": 28.78,
+     "disponible_antes_del_fin": false
+    },
+    "IF_0.05": {
+     "window_end_utc": "2026-11-01T09:35:00+00:00",
+     "t_det_menos_inicio_s": 28.78,
+     "disponible_antes_del_fin": false
+    },
+    "IF_0.03": {
+     "window_end_utc": "2026-11-01T09:35:00+00:00",
+     "t_det_menos_inicio_s": 28.78,
+     "disponible_antes_del_fin": false
+    },
+    "IF_0.01": null
+   },
+   "2_heuristico_previsto": {
+    "regla": "port_scan",
+    "t_det_menos_inicio_s": 28.78,
+    "disponible_antes_del_fin": false
+   },
+   "3_respuesta_if_senal": {
+    "accion": "BLOCK",
+    "motivo": "port_scan: 2006 intentos/30s a muchos puertos, 0% completados",
+    "t_det_menos_inicio_s": 28.78,
+    "V0_t_apl_estimada_menos_inicio_s": {
+     "favorable": 39.19,
+     "alto": 40.58
+    },
+    "V0_clase": "deteccion_posterior",
+    "es_regla_prevista": true
+   },
+   "punto_de_aplicacion": "srv-dmz 10.10.30.10 (agente inactivo)"
+  },
+  {
+   "episodio": "escaneo_breve-r3",
+   "escenario": "escaneo_breve",
+   "admitido_v2": true,
+   "1_anomalia_if": {
+    "desplegado": {
+     "window_end_utc": "2026-11-01T09:38:50+00:00",
+     "t_det_menos_inicio_s": 40.95,
+     "disponible_antes_del_fin": false
+    },
+    "IF_0.05": {
+     "window_end_utc": "2026-11-01T09:38:50+00:00",
+     "t_det_menos_inicio_s": 40.95,
+     "disponible_antes_del_fin": false
+    },
+    "IF_0.03": {
+     "window_end_utc": "2026-11-01T09:38:50+00:00",
+     "t_det_menos_inicio_s": 40.95,
+     "disponible_antes_del_fin": false
+    },
+    "IF_0.01": null
+   },
+   "2_heuristico_previsto": {
+    "regla": "port_scan",
+    "t_det_menos_inicio_s": 30.73,
+    "disponible_antes_del_fin": false
+   },
+   "3_respuesta_if_senal": {
+    "accion": "BLOCK",
+    "motivo": "port_scan: 351 intentos/30s a muchos puertos, 1% completados",
+    "t_det_menos_inicio_s": 30.73,
+    "V0_t_apl_estimada_menos_inicio_s": {
+     "favorable": 41.2,
+     "alto": 42.59
+    },
+    "V0_clase": "deteccion_posterior",
+    "es_regla_prevista": true
+   },
+   "punto_de_aplicacion": "srv-dmz 10.10.30.10 (agente inactivo)"
+  },
+  {
+   "episodio": "dns_inusual-r4",
+   "escenario": "dns_inusual",
+   "admitido_v2": true,
+   "1_anomalia_if": {
+    "desplegado": null,
+    "IF_0.05": null,
+    "IF_0.03": null,
+    "IF_0.01": null
+   },
+   "2_heuristico_previsto": {
+    "regla": "dns_entropy",
+    "t_det_menos_inicio_s": 23.88,
+    "disponible_antes_del_fin": true
+   },
+   "3_respuesta_if_senal": {
+    "accion": "LIMIT",
+    "motivo": "dns_entropy: 36 consultas DNS/60s, 0% NXDOMAIN, 50% nombres únicos",
+    "t_det_menos_inicio_s": 23.88,
+    "V0_t_apl_estimada_menos_inicio_s": {
+     "favorable": 33.6,
+     "alto": 35.0
+    },
+    "V0_clase": "antes_del_fin_bajo_supuestos",
+    "es_regla_prevista": true
+   },
+   "punto_de_aplicacion": "DC1 10.10.10.20 (D1: propuesto, sin agente)"
+  },
+  {
+   "episodio": "fuerza_bruta_http-r1",
+   "escenario": "fuerza_bruta_http",
+   "admitido_v2": true,
+   "1_anomalia_if": {
+    "desplegado": {
+     "window_end_utc": "2026-11-01T09:47:20+00:00",
+     "t_det_menos_inicio_s": 25.14,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.05": {
+     "window_end_utc": "2026-11-01T09:47:20+00:00",
+     "t_det_menos_inicio_s": 25.14,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.03": {
+     "window_end_utc": "2026-11-01T09:47:20+00:00",
+     "t_det_menos_inicio_s": 25.14,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.01": {
+     "window_end_utc": "2026-11-01T09:47:20+00:00",
+     "t_det_menos_inicio_s": 25.14,
+     "disponible_antes_del_fin": true
+    }
+   },
+   "2_heuristico_previsto": {
+    "regla": "brute_force",
+    "t_det_menos_inicio_s": 25.14,
+    "disponible_antes_del_fin": true
+   },
+   "3_respuesta_if_senal": {
+    "accion": "BLOCK",
+    "motivo": "brute_force: 1072 req HTTP/60s con 100% de fallo de auth",
+    "t_det_menos_inicio_s": 25.14,
+    "V0_t_apl_estimada_menos_inicio_s": {
+     "favorable": 34.12,
+     "alto": 35.51
+    },
+    "V0_clase": "antes_del_fin_bajo_supuestos",
+    "es_regla_prevista": true
+   },
+   "punto_de_aplicacion": "srv-dmz 10.10.30.10 (agente inactivo)"
+  },
+  {
+   "episodio": "inundacion_http-r5",
+   "escenario": "inundacion_http",
+   "admitido_v2": true,
+   "1_anomalia_if": {
+    "desplegado": {
+     "window_end_utc": "2026-11-01T09:52:20+00:00",
+     "t_det_menos_inicio_s": 29.32,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.05": {
+     "window_end_utc": "2026-11-01T09:52:20+00:00",
+     "t_det_menos_inicio_s": 29.32,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.03": {
+     "window_end_utc": "2026-11-01T09:52:20+00:00",
+     "t_det_menos_inicio_s": 29.32,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.01": {
+     "window_end_utc": "2026-11-01T09:52:20+00:00",
+     "t_det_menos_inicio_s": 29.32,
+     "disponible_antes_del_fin": true
+    }
+   },
+   "2_heuristico_previsto": {
+    "regla": "http_abuse",
+    "t_det_menos_inicio_s": 29.32,
+    "disponible_antes_del_fin": true
+   },
+   "3_respuesta_if_senal": {
+    "accion": "LIMIT",
+    "motivo": "http_abuse: 2369 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)",
+    "t_det_menos_inicio_s": 29.32,
+    "V0_t_apl_estimada_menos_inicio_s": {
+     "favorable": 44.11,
+     "alto": 45.5
+    },
+    "V0_clase": "antes_del_fin_bajo_supuestos",
+    "es_regla_prevista": true
+   },
+   "punto_de_aplicacion": "srv-dmz 10.10.30.10 (agente inactivo)"
+  },
+  {
+   "episodio": "escaneo_breve-r2",
+   "escenario": "escaneo_breve",
+   "admitido_v2": true,
+   "1_anomalia_if": {
+    "desplegado": {
+     "window_end_utc": "2026-11-01T09:57:30+00:00",
+     "t_det_menos_inicio_s": 26.21,
+     "disponible_antes_del_fin": false
+    },
+    "IF_0.05": {
+     "window_end_utc": "2026-11-01T09:57:30+00:00",
+     "t_det_menos_inicio_s": 26.21,
+     "disponible_antes_del_fin": false
+    },
+    "IF_0.03": {
+     "window_end_utc": "2026-11-01T09:57:30+00:00",
+     "t_det_menos_inicio_s": 26.21,
+     "disponible_antes_del_fin": false
+    },
+    "IF_0.01": {
+     "window_end_utc": "2026-11-01T09:57:30+00:00",
+     "t_det_menos_inicio_s": 26.21,
+     "disponible_antes_del_fin": false
+    }
+   },
+   "2_heuristico_previsto": {
+    "regla": "port_scan",
+    "t_det_menos_inicio_s": 26.21,
+    "disponible_antes_del_fin": false
+   },
+   "3_respuesta_if_senal": {
+    "accion": "BLOCK",
+    "motivo": "port_scan: 2006 intentos/30s a muchos puertos, 0% completados",
+    "t_det_menos_inicio_s": 26.21,
+    "V0_t_apl_estimada_menos_inicio_s": {
+     "favorable": 34.12,
+     "alto": 35.51
+    },
+    "V0_clase": "deteccion_posterior",
+    "es_regla_prevista": true
+   },
+   "punto_de_aplicacion": "srv-dmz 10.10.30.10 (agente inactivo)"
+  },
+  {
+   "episodio": "escaneo_sostenido-r1",
+   "escenario": "escaneo_sostenido",
+   "admitido_v2": false,
+   "1_anomalia_if": {
+    "desplegado": {
+     "window_end_utc": "2026-11-01T10:01:20+00:00",
+     "t_det_menos_inicio_s": 39.61,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.05": {
+     "window_end_utc": "2026-11-01T10:01:20+00:00",
+     "t_det_menos_inicio_s": 39.61,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.03": {
+     "window_end_utc": "2026-11-01T10:01:20+00:00",
+     "t_det_menos_inicio_s": 39.61,
+     "disponible_antes_del_fin": true
+    },
+    "IF_0.01": {
+     "window_end_utc": "2026-11-01T10:01:20+00:00",
+     "t_det_menos_inicio_s": 39.61,
+     "disponible_antes_del_fin": true
+    }
+   },
+   "2_heuristico_previsto": {
+    "regla": "port_scan",
+    "t_det_menos_inicio_s": 39.61,
+    "disponible_antes_del_fin": true
+   },
+   "3_respuesta_if_senal": {
+    "accion": "BLOCK",
+    "motivo": "port_scan: 4637 intentos/30s a muchos puertos, 0% completados",
+    "t_det_menos_inicio_s": 39.61,
+    "V0_t_apl_estimada_menos_inicio_s": {
+     "favorable": 46.13,
+     "alto": 47.52
+    },
+    "V0_clase": "antes_del_fin_bajo_supuestos",
+    "es_regla_prevista": true
+   },
+   "punto_de_aplicacion": "srv-dmz 10.10.30.10 (agente inactivo)"
+  }
+ ],
  "secuencial": {
   "politica": "actual|desplegado",
   "estado_al_inicio_de_cada_episodio": [

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera resultados/TABLAS-E2E.md a partir de resultados/presupuesto-e2e.json (v2; solo lee el JSON)."""
+"""Genera resultados/TABLAS-E2E.md a partir de resultados/presupuesto-e2e.json (v3; solo lee el JSON)."""
 from __future__ import annotations
 
 import json
@@ -24,7 +24,7 @@ def main() -> int:
     d = json.loads((AQUI / "resultados" / "presupuesto-e2e.json").read_text(encoding="utf-8"))
     meta = {m["episodio"]: m for m in d["episodios_meta"]}
     act = d["politicas"]["actual|desplegado"]
-    o = ["# Tablas del presupuesto temporal (v2; generadas por herramientas/tablas_e2e.py)", "",
+    o = ["# Tablas del presupuesto temporal (v3; generadas por herramientas/tablas_e2e.py)", "",
          "> **Simulación sobre registros de sombra del 3B.** No es una campaña de respuesta: no modela cómo una "
          "restricción habría cambiado el ataque ni las decisiones posteriores. `t_apl_estimada` es una estimación "
          "bajo supuestos (escenarios *favorable* = p50/mínimos medidos con offsets desconocidos supuestos 0; *alto* "
@@ -102,6 +102,40 @@ def main() -> int:
     for x in d["secuencial"]["estado_al_inicio_de_cada_episodio"]:
         o.append("| %s | %s | %s | %d |" % (x["episodio"], "sí" if x["block_hipotetico_vigente_al_inicio"] else "no",
                                             r(x["block_restante_s"]), x["nivel_escalada_previo"]))
+    o += ["", "## 5. D3: tres resultados separados por episodio (política if_senal)", "",
+          "> 1) **Anomalía del IF**: primera ventana atribuible con ALERT del IF a cada umbral; el IF no clasifica "
+          "familias y no se le exige producir `port_scan`. 2) **Heurístico previsto** (la regla del escenario). "
+          "3) **Respuesta** con `if_senal`: primera acción (solo heurísticos) y su clase V0 bajo supuestos. "
+          "`!` = disponible después del fin; `—` = sin señal. En DNS no hay agente: el punto de aplicación propuesto "
+          "es DC1 (D1). Simulación en sombra: no es aplicación real.", "",
+          "| Episodio | A | 1. IF desplegado | 1. IF α 0,05 | 1. IF α 0,03 | 1. IF α 0,01 | 2. Heurístico previsto | "
+          "3. Respuesta if_senal | 3. ¿Regla prevista? | 3. V0 |", "|---|---|---|---|---|---|---|---|---|---|"]
+    def f1(x):
+        return "—" if x is None else r(x["t_det_menos_inicio_s"]) + ("" if x["disponible_antes_del_fin"] else " !")
+    resumen = {}
+    for x in sorted(d["tres_resultados_d3"], key=lambda z: z["episodio"]):
+        a, h, rr = x["1_anomalia_if"], x["2_heuristico_previsto"], x["3_respuesta_if_senal"]
+        o.append("| %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |" % (
+            x["episodio"], "sí" if x["admitido_v2"] else "no", f1(a["desplegado"]), f1(a["IF_0.05"]),
+            f1(a["IF_0.03"]), f1(a["IF_0.01"]), f1(h),
+            "—" if rr is None else "%s · %s (%s)" % (rr["accion"], rr["motivo"].split(":")[0], r(rr["t_det_menos_inicio_s"])),
+            "—" if rr is None else ("sí" if rr["es_regla_prevista"] else "**no**"),
+            "—" if rr is None else CL[rr["V0_clase"]]))
+        e = resumen.setdefault(x["escenario"], {"n": 0, "if": {k: 0 for k in a}, "heur": 0, "resp_prev_antes": 0,
+                                                 "solo_if": 0})
+        e["n"] += 1
+        for k in a:
+            e["if"][k] += bool(a[k] and a[k]["disponible_antes_del_fin"])
+        e["heur"] += bool(h and h["disponible_antes_del_fin"])
+        e["resp_prev_antes"] += bool(rr and rr["es_regla_prevista"] and rr["V0_clase"] == "antes_del_fin_bajo_supuestos")
+        e["solo_if"] += bool(any(a[k] for k in a) and rr is None)
+    o += ["", "**Resumen por escenario** (episodios con el resultado disponible antes del fin; respuesta: regla prevista "
+          "y aplicación estimada antes del fin bajo supuestos):", "",
+          "| Escenario | n | 1. IF desplegado / 0,05 / 0,03 / 0,01 | 2. Heurístico previsto | 3. Respuesta prevista antes* | "
+          "Señal solo del IF, sin respuesta |", "|---|---|---|---|---|---|"]
+    for k, e in sorted(resumen.items()):
+        o.append("| %s | %d | %s | %d | %d | %d |" % (k, e["n"], " / ".join(str(e["if"][u]) for u in
+                 ("desplegado", "IF_0.05", "IF_0.03", "IF_0.01")), e["heur"], e["resp_prev_antes"], e["solo_if"]))
     (AQUI / "resultados" / "TABLAS-E2E.md").write_text("\n".join(o) + "\n", encoding="utf-8", newline="\n")
     sys.stdout.reconfigure(encoding="utf-8")
     print("\n".join(o[8:60]))
