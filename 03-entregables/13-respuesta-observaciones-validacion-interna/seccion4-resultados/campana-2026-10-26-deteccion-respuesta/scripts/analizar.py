@@ -54,10 +54,13 @@ Reglas (ver config-campana.json y PLAN):
     clave: prevalece la decisión y el evento queda en 'conflictos'. Nada se descarta en silencio.
 """
 from __future__ import annotations
-import argparse, csv, hashlib, json, math
+import argparse, csv, hashlib, json, math, sys
 from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import poblacion  # noqa: E402  (excepciones de respuesta vs exclusiones de población; 2026-11-01)
 
 PASO_S = 10
 HORIZONTE_S = 60                      # horizonte de la característica más larga
@@ -732,8 +735,9 @@ DENOMINADOR_EVALUADAS = ("ventanas con decisión registrada (evaluadas); las ven
 
 
 SELECCION_CONTROL = ("población por ventana: window_end_utc en [desde, hasta] con AMBOS extremos incluidos, el mismo "
-                     "campo e intervalo para decisiones y eventos ventana_no_evaluada, y las mismas exclusiones "
-                     "(NUNCA_BLOQUEAR). Claves entity_ip|window_end únicas: decisiones deduplicadas (leer_motor), "
+                     "campo e intervalo para decisiones y eventos ventana_no_evaluada, y las mismas exclusiones de "
+                     "población JUSTIFICADAS (poblacion.py; las excepciones de respuesta, p. ej. el DNS, NO se "
+                     "excluyen). Claves entity_ip|window_end únicas: decisiones deduplicadas (leer_motor), "
                      "no evaluadas duplicadas contadas una vez y, en conflicto, prevalece la decisión. Una decisión "
                      "escrita después de 'hasta' cuenta si su ventana pertenece al control; logged_at no se altera.")
 COBERTURA_REGISTRADAS = ("evaluadas / (evaluadas + no evaluadas explícitas): solo sobre las ventanas que dejaron algún "
@@ -741,16 +745,24 @@ COBERTURA_REGISTRADAS = ("evaluadas / (evaluadas + no evaluadas explícitas): so
                          "registros")
 
 
+def _excluida(ip: str, excluidas) -> bool:
+    """excluidas: resultado de poblacion.cargar_poblacion (solo exclusiones_poblacion justificadas) o, por
+    compatibilidad con llamadas antiguas y pruebas, un conjunto de IP exactas."""
+    if isinstance(excluidas, dict):
+        return poblacion.excluida(ip, excluidas)
+    return ip in excluidas
+
+
 def fpr_control(regs, desde, hasta, U, excluidas, no_eval=()):
     """Falsas alarmas por ventana sobre una población única seleccionada por window_end (ver SELECCION_CONTROL).
     Antes de 2026-10-28 (sobre 719bf3a) las decisiones se seleccionaban por logged_at y las no evaluadas por
     window_end: poblaciones distintas cerca de los límites."""
-    v = [r for r in regs if desde <= r["_wend"] <= hasta and r["entity_ip"] not in excluidas]
+    v = [r for r in regs if desde <= r["_wend"] <= hasta and not _excluida(r["entity_ip"], excluidas)]
     n = len(v)
     out = {"ventanas": n, "denominador": n, "desde": iso(desde), "hasta": iso(hasta),
            "seleccion": SELECCION_CONTROL,
            "decisiones_escritas_tras_hasta": sum(1 for r in v if r["_logged"] > hasta)}
-    ne = [e for e in no_eval if desde <= e["_wend"] <= hasta and e["entity_ip"] not in excluidas]
+    ne = [e for e in no_eval if desde <= e["_wend"] <= hasta and not _excluida(e["entity_ip"], excluidas)]
     out["ventanas_no_evaluadas"] = len(ne)
     out["ventanas_no_evaluadas_por_motivo"] = {m: sum(1 for e in ne if str(e["motivo"]) == m)
                                                for m in sorted({str(e["motivo"]) for e in ne})}
@@ -877,7 +889,15 @@ def main() -> int:
     orden_ok = orden_umbrales(U)
     desplegado = cfg["umbrales"].get("desplegado_referencia")
     origen = cfg.get("origen") or "10.10.20.30"
-    excluidas = set(cfg.get("combinacion_real", {}).get("exclusiones", {}).get("NUNCA_BLOQUEAR", []))
+    # 2026-11-01 (preparación 3A): antes `set(...NUNCA_BLOQUEAR)` con cadenas anotadas ("10.10.10.20 (DNS/AD)") que
+    # nunca coincidían con entity_ip: no se excluía a nadie, en silencio. Ahora poblacion.py valida y separa
+    # excepciones de respuesta (no excluyen) de exclusiones de población (justificadas). Con el formato anterior la
+    # conversión deja exclusiones vacías: los conteos del control no cambian.
+    try:
+        pob = poblacion.cargar_poblacion(cfg)
+    except poblacion.ErrorPoblacion as ex:
+        raise SystemExit(f"config: población mal definida: {ex}")
+    excluidas = pob
 
     eps, inc_m = leer_marcas(Path(a.marcas))
     regs, inc_r, dups = leer_motor(Path(a.motor))
@@ -963,6 +983,7 @@ def main() -> int:
                                                     "conflictos": len(ne["conflictos"]),
                                                     "detalle": "bloque ventanas_no_evaluadas"}},
         "ventanas_no_evaluadas": bloque_no_evaluadas(ne, eps, por_ep, origen),
+        "poblacion": poblacion.publico(pob),
         "tabla8": tabla, "episodios": por_ep}
     if not orden_ok:
         salida["calidad_datos"]["aviso_orden_umbrales"] = (

@@ -1,0 +1,20 @@
+## b11 2026-11-01T05:26:59.482Z
+  servicio: active/disabled PID=738815
+## peticiones desde la Kali (agente cf-preparacion-paso3a-20261101T0523Z)
+  [sin credenciales]
+  2026-11-01T05:27:00.976Z 401 t=0.002494
+  [credencial ficticia]
+  2026-11-01T05:27:01.001Z 401 t=0.002022
+  [credencial de control]
+  2026-11-01T05:27:01.028Z 200 t=0.001809
+  [ruta inexistente: 404, NO es fallo de auth]
+  2026-11-01T05:27:01.045Z 404 t=0.001928
+  [segunda sin credenciales]
+  2026-11-01T05:27:01.081Z 401 t=0.001780
+## registro del servidor (lineas nuevas)
+  2026-11-01T05:27:00.997643+00:00 10.10.20.30 GET /auth user=- -> 401
+  2026-11-01T05:27:01.022113+00:00 10.10.20.30 GET /auth user=fake -> 401
+  2026-11-01T05:27:01.042379+00:00 10.10.20.30 GET /auth user=control -> 200
+  2026-11-01T05:27:01.078275+00:00 10.10.20.30 GET /no-existe user=- -> 404
+  2026-11-01T05:27:01.096257+00:00 10.10.20.30 GET /auth user=- -> 401
+## fin 2026-11-01T05:27:02.443Z

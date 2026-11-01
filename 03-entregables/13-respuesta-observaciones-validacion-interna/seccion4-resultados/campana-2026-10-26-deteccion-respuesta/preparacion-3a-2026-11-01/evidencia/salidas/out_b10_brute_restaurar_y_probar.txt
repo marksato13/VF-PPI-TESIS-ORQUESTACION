@@ -1,0 +1,20 @@
+## b10 2026-11-01T05:26:19.756Z
+  antes: inactive/disabled  lineas log=30728
+  7e43aecb1002b052309c636fa4ff19925530dcdfec9bca1e81c46ae33c0dad81  /opt/brute-lab/app.py
+  23e27a0b9f3fea66b0bdcfd56717c673c0adb49a54fafc36fea953e04e664acc  /etc/systemd/system/ppi-brute-lab.service
+  [05:26:20.470] start rc=0
+  despues: active/disabled PID=738815
+  escucha 18081: 0.0.0.0:18081
+## peticiones desde la Kali (agente cf-preparacion-paso3a-20261101T0523Z)
+  [sin credenciales]
+  [credencial ficticia]
+bash: línea 2: p: orden no encontrada
+bash: línea 3: p: orden no encontrada
+  [credencial de control]
+bash: línea 4: p: orden no encontrada
+  [ruta inexistente: 404, NO es fallo de auth]
+bash: línea 5: p: orden no encontrada
+  [segunda sin credenciales]
+bash: línea 6: p: orden no encontrada
+## registro del servidor (lineas nuevas)
+## fin 2026-11-01T05:26:25.020Z
