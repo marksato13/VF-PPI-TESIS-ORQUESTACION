@@ -1,0 +1,15 @@
+{
+ "campana": "campana-A-repetida-3b-20261101T0721Z",
+ "episodio": "dns_inusual-r2",
+ "periodo": {
+  "inicio": 1793524129.954571,
+  "fin": 1793524429.037243
+ },
+ "origen": "sensor (automatico)",
+ "fuente": "systemctl show al inicio y al final",
+ "reinicios": {
+  "motor": [],
+  "captura": [],
+  "suricata": []
+ }
+}

@@ -1,0 +1,9 @@
+## s11 2026-11-01T07:25:35.434Z diff frente al guion del paso 2:
+  5c5
+  < ID=20261101T0254Z; R=$HOME/cf-paso2-$ID/recursos; mkdir -p "$R"; O=$R/muestras.jsonl
+  ---
+  > ID=20261101T0721Z; R=$HOME/cf-3b-$ID/recursos; mkdir -p "$R"; O=$R/muestras.jsonl
+  muestreador PID=1615401 muestras=3 out=''
+{"t":1793517945.619071879,"pid":1289322,"utime":93533,"stime":727,"hz":100,"rss_kb":1035572,"hwm_kb":1215788,"memavail_kb":6238364,"swapfree_kb":4127740,"swaptotal_kb":4127740,"pswpin":0,"pswpout":0,"
+  paso 2 sin tocar: /home/m4rk/cf-paso2-20261101T0254Z/recursos/muestreo.pid 2026-11-01 03:02:52.920148216 +0000
+## fin 2026-11-01T07:25:47.452Z

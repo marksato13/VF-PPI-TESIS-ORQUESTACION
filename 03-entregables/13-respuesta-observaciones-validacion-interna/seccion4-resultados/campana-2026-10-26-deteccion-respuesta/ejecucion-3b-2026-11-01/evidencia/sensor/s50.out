@@ -1,0 +1,53 @@
+## s50 2026-11-01T10:37:46.485Z inventario=[2026-11-01T07:24:40Z, 2026-11-01T10:05:30Z]
+  27e67fd1620762d7ec7cb172ea45465ad6edb7db77cf8d69c7c8102c8167050f  /home/m4rk/cf-3b-20261101T0721Z/herramientas/analizar_3b.py
+  71674908e4fc7f938fc9687cf4b7ad2e4c2b77ad35ff20c0c0fcf59ec92c763a  /home/m4rk/cf-3b-20261101T0721Z/herramientas/analizar.py
+  d63ca6e96e8de90aec0ee8cd6274d91f006511248223c48658ad3535b642046d  /home/m4rk/cf-3b-20261101T0721Z/herramientas/calidad_fuentes.py
+  48d13aba2082a044a311a1966817bd6ec62be0c3759bbd1618e5f2dd5b3d508c  /home/m4rk/cf-3b-20261101T0721Z/herramientas/extraer_evidencia_destino.py
+  159d77361fac7382dc3888a5b94c694825a1f24e86d71cf633cf9e326a52dd62  /home/m4rk/cf-3b-20261101T0721Z/herramientas/generar_respaldos.py
+  7b140ae42905428e0a2b615c8de88ff9d036c0c7021e2bc096b921597d33511b  /home/m4rk/cf-3b-20261101T0721Z/herramientas/poblacion.py
+  573fe0f10260e2788de1e972e7c809f1f77bed38ab94da602e914bfa86f5362c  /home/m4rk/cf-3b-20261101T0721Z/herramientas/recalcular_caracteristicas.py
+  1de46d03c8954c768c7fc1025e785a1a1ccc3c6649fc5c6a0449fdb544ba42b4  /home/m4rk/cf-3b-20261101T0721Z/herramientas/verificar_integridad.py
+  cbf72fbb0f112e3db5cc3724640ee18fb3d42f1bc5e24680f5af25faf1939d60  /home/m4rk/cf-3b-20261101T0721Z/herramientas/config-campana-3b.json
+## 1) destinos 3b
+  rc=0
+464 filas de destino; 25 episodios
+## 2) calidad de fuentes
+  rc=0
+## 3) suricata-stats.json (conversion de stats.log: Date + capture.kernel_packets/drops)
+  muestras: 1774 drops 3017 -> 6249
+## 4) recalculo de caracteristicas
+  rc=0 {"decisiones": 702, "reproducidas_exactas": 693, "salida": "/home/m4rk/cf-3b-20261101T0721Z/analisis/caracteristicas.jsonl"}
+## 5) respaldos y descriptor
+  rc=0
+25 episodios -> /home/m4rk/cf-3b-20261101T0721Z/analisis/respaldos/descriptor-integridad.json
+## 6) integridad
+  rc=0
+{"aptos": ["escaneo_breve-r3"], "no_aptos": ["escaneo_sostenido-r2", "inundacion_http-r1", "dns_inusual-r3", "inundacion_http-r4", "inundacion_http-r2", "inundacion_http-r3", "escaneo_sostenido-r4", "escaneo_sostenido-r5", "escaneo_breve-r5", "fuerza_bruta_http-r3", "fuerza_bruta_http-r5", "dns_inusual-r5", "escaneo_sostenido-r3", "dns_inusual-r2", "fuerza_bruta_http-r2", "fuerza_bruta_http-r4", "dns_inusual-r1", "escaneo_breve-r1", "escaneo_breve-r4", "dns_inusual-r4", "fuerza_bruta_http-r1", "inundacion_http-r5", "escaneo_breve-r2", "escaneo_sostenido-r1"]}
+## 7) analizar_3b
+  rc=0
+   },
+   "HIB_0.05": {
+    "fuera:oportuna": 5
+   },
+   "HIB_0.03": {
+    "fuera:oportuna": 5
+   },
+   "HIB_0.01": {
+    "fuera:oportuna": 5
+   },
+   "emisiones_oportunas_episodios": 0
+  }
+ },
+ "inventario": {
+  "requeridas": 12667,
+  "estados": {
+   "decidida_a_tiempo": 12012,
+   "decidida_tardia": 655,
+   "no_evaluada": 0,
+   "ausente": 0
+  },
+  "solo_en_vivo": 0,
+  "cobertura_total": 1.0
+ }
+}
+## fin 2026-11-01T11:25:45.831Z

@@ -1,0 +1,14 @@
+## c04 clientesadmin 2026-11-01T07:23:25.316Z -> /home/adminclientes/cf-3b-20261101T0721Z
+  target: active/disabled
+  cyberflow-lab-ofimatica MainPID=7178 NRestarts=0 ActiveState=active ActiveEnterTimestamp=Sun 2026-11-01 04:19:09 UTC 
+  cyberflow-lab-navegacion MainPID=7177 NRestarts=0 ActiveState=active ActiveEnterTimestamp=Sun 2026-11-01 04:19:09 UTC 
+  cyberflow-lab-descargas MainPID=7174 NRestarts=0 ActiveState=active ActiveEnterTimestamp=Sun 2026-11-01 04:19:09 UTC 
+  cyberflow-lab-aplicacion MainPID=7173 NRestarts=0 ActiveState=active ActiveEnterTimestamp=Sun 2026-11-01 04:19:09 UTC 
+  cyberflow-lab-ligero MainPID=7176 NRestarts=0 ActiveState=active ActiveEnterTimestamp=Sun 2026-11-01 04:19:09 UTC 
+  cyberflow-lab-erratico MainPID=7175 NRestarts=0 ActiveState=active ActiveEnterTimestamp=Sun 2026-11-01 04:19:09 UTC 
+  ae5134a778e66d90f5c3fbcd47323e328f3422cf4ba8d5197649f402c1d4cdc3  /home/adminclientes/laboratorio/clientes_lab.py
+  69d79937f2fee84d8d63a38eb1171ed822858a54fa48d5a1e9266fb4e5a4c6c6  /home/adminclientes/cf-paso2-20261101T0254Z/clientes_factor1.py
+  envoltorio copiado: 69d79937f2fee84d8d63a38eb1171ed822858a54fa48d5a1e9266fb4e5a4c6c6 (esperado 69d79937...)
+  envoltorios vivos: 0  sudo -n systemctl permitido: 3
+  ip: lo 127.0.0.1/8 ens34 10.10.20.20/24 ens34 10.10.20.21/24 ens34 10.10.20.22/24 ens34 10.10.20.23/24 ens34 10.10.20.24/24 ens34 10.10.20.25/24 ens34 10.10.20.26/24 
+## fin 2026-11-01T07:23:25.437Z

@@ -1,0 +1,16 @@
+## c05 completa 2026-11-01T07:24:02.061Z  [PREPARACION, origen bastion 10.10.10.30, agente cf-preparacion-paso3b-20261101T0721Z]
+  servicio: active/disabled PID=738815
+  [sin credenciales, esperado 401]
+  2026-11-01T07:24:02.748Z 401 t=0.005053
+  [credencial ficticia, esperado 401]
+  2026-11-01T07:24:03.108Z 401 t=0.001803
+  [UNA credencial de control, esperado 200]
+  2026-11-01T07:24:03.124Z 200 t=0.001704
+  [ruta inexistente, esperado 404]
+  2026-11-01T07:24:03.140Z 404 t=0.001762
+## registro del servidor (lineas nuevas; sin credenciales)
+  2026-11-01T07:24:02.766460+00:00 10.10.10.30 GET /auth user=- -> 401
+  2026-11-01T07:24:03.120597+00:00 10.10.10.30 GET /auth user=fake -> 401
+  2026-11-01T07:24:03.136562+00:00 10.10.10.30 GET /auth user=control -> 200
+  2026-11-01T07:24:03.152012+00:00 10.10.10.30 GET /no-existe user=- -> 404
+## fin 2026-11-01T07:24:04.505Z

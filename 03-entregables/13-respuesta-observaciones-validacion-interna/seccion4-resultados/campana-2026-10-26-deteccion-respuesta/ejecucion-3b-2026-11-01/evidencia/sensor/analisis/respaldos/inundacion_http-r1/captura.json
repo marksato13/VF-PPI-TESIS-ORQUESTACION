@@ -1,0 +1,20 @@
+{
+ "campana": "campana-A-repetida-3b-20261101T0721Z",
+ "episodio": "inundacion_http-r1",
+ "periodo": {
+  "inicio": 1793520675.455787,
+  "fin": 1793520975.049884
+ },
+ "origen": "sensor (automatico)",
+ "fuente": "archivar.log + estado del servicio de captura + mediciones de descarte",
+ "errores": [
+  {
+   "desc": "Suricata kernel_drops +11 en el periodo (afecta a EVE)",
+   "afecta_fuentes": true
+  }
+ ],
+ "paquetes_descartados": 0,
+ "alcance_descartes": "medido: contador acumulado del proceso tcpdump = 0 al final",
+ "suricata_kernel_drops_delta_periodo": 11,
+ "suricata_mediciones_en_periodo": 37
+}

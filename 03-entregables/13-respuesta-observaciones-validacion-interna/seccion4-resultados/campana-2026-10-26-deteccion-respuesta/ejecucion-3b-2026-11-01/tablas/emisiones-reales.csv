@@ -1,0 +1,26 @@
+episodio,escenario,poblacion_principal,emisiones,atribuibles,oportunas,latencia_1a_oportuna_s,1a_oportuna_componente,1a_oportuna_window_end_utc
+escaneo_sostenido-r2,Escaneo sostenido,no,8,8,4,26.56,IF_desplegado,2026-11-01T08:09:00+00:00
+inundacion_http-r1,Inundación HTTP,no,15,15,8,24.9,IF_desplegado,2026-11-01T08:13:20+00:00
+dns_inusual-r3,DNS inusual,no,15,15,8,20.19,heuristico:dns_entropy,2026-11-01T08:18:20+00:00
+inundacion_http-r4,Inundación HTTP,no,15,15,8,24.2,IF_desplegado,2026-11-01T08:23:20+00:00
+inundacion_http-r2,Inundación HTTP,no,15,15,8,25.43,IF_desplegado,2026-11-01T08:28:20+00:00
+inundacion_http-r3,Inundación HTTP,no,15,15,8,25.36,IF_desplegado,2026-11-01T08:33:20+00:00
+escaneo_sostenido-r4,Escaneo sostenido,no,9,9,4,21.97,IF_desplegado,2026-11-01T08:38:30+00:00
+escaneo_sostenido-r5,Escaneo sostenido,no,11,11,3,35.63,IF_desplegado,2026-11-01T08:43:10+00:00
+escaneo_breve-r5,Escaneo breve,no,3,3,0,,,
+fuerza_bruta_http-r3,Fuerza bruta HTTP,no,15,15,8,23.59,IF_desplegado,2026-11-01T08:51:20+00:00
+fuerza_bruta_http-r5,Fuerza bruta HTTP,no,15,15,8,23.68,IF_desplegado,2026-11-01T08:56:20+00:00
+dns_inusual-r5,DNS inusual,no,15,15,8,21.88,heuristico:dns_entropy,2026-11-01T09:01:20+00:00
+escaneo_sostenido-r3,Escaneo sostenido,no,12,12,5,22.01,IF_desplegado,2026-11-01T09:06:20+00:00
+dns_inusual-r2,DNS inusual,no,14,14,7,25.85,heuristico:dns_entropy,2026-11-01T09:11:00+00:00
+fuerza_bruta_http-r2,Fuerza bruta HTTP,no,15,15,8,18.84,IF_desplegado,2026-11-01T09:15:50+00:00
+fuerza_bruta_http-r4,Fuerza bruta HTTP,no,15,15,8,18.44,IF_desplegado,2026-11-01T09:20:50+00:00
+dns_inusual-r1,DNS inusual,no,14,14,7,17.22,IF_desplegado,2026-11-01T09:26:00+00:00
+escaneo_breve-r1,Escaneo breve,no,7,7,1,16.4,IF_desplegado,2026-11-01T09:31:00+00:00
+escaneo_breve-r4,Escaneo breve,no,3,3,0,,,
+escaneo_breve-r3,Escaneo breve,sí,4,4,0,,,
+dns_inusual-r4,DNS inusual,no,14,14,6,23.88,heuristico:dns_entropy,2026-11-01T09:42:20+00:00
+fuerza_bruta_http-r1,Fuerza bruta HTTP,no,15,15,8,25.14,IF_desplegado,2026-11-01T09:47:20+00:00
+inundacion_http-r5,Inundación HTTP,no,15,15,6,29.32,IF_desplegado,2026-11-01T09:52:20+00:00
+escaneo_breve-r2,Escaneo breve,no,3,3,0,,,
+escaneo_sostenido-r1,Escaneo sostenido,no,10,10,3,39.61,IF_desplegado,2026-11-01T10:01:20+00:00

@@ -1,0 +1,10 @@
+2026-11-01T07:03:09+00:00 cyberflow-sensor systemd[1]: fwupd-refresh.service: Failed with result 'exit-code'.
+2026-11-01T07:03:09+00:00 cyberflow-sensor systemd[1]: Failed to start fwupd-refresh.service - Refresh fwupd metadata and update motd.
+2026-11-01T07:54:03+00:00 cyberflow-sensor systemd-networkd-wait-online[1689758]: Timeout occurred while waiting for network connectivity.
+2026-11-01T07:54:04+00:00 cyberflow-sensor kernel: kauditd_printk_skb: 89 callbacks suppressed
+2026-11-01T08:29:57+00:00 cyberflow-sensor systemd[1]: fwupd-refresh.service: Failed with result 'exit-code'.
+2026-11-01T08:29:57+00:00 cyberflow-sensor systemd[1]: Failed to start fwupd-refresh.service - Refresh fwupd metadata and update motd.
+2026-11-01T09:15:29+00:00 cyberflow-sensor systemd[1]: fwupd-refresh.service: Failed with result 'exit-code'.
+2026-11-01T09:15:29+00:00 cyberflow-sensor systemd[1]: Failed to start fwupd-refresh.service - Refresh fwupd metadata and update motd.
+2026-11-01T10:25:44+00:00 cyberflow-sensor systemd[1]: fwupd-refresh.service: Failed with result 'exit-code'.
+2026-11-01T10:25:44+00:00 cyberflow-sensor systemd[1]: Failed to start fwupd-refresh.service - Refresh fwupd metadata and update motd.

@@ -1,0 +1,21 @@
+MainPID=1289322
+NRestarts=0
+Id=ppi-motor.service
+ActiveState=active
+ActiveEnterTimestamp=Sun 2026-11-01 03:14:01 UTC
+
+MainPID=1375
+NRestarts=0
+Id=ppi-motor-capture.service
+ActiveState=active
+ActiveEnterTimestamp=Fri 2026-10-30 19:55:21 UTC
+
+MainPID=1372
+NRestarts=0
+Id=suricata.service
+ActiveState=active
+ActiveEnterTimestamp=Fri 2026-10-30 19:55:21 UTC
+
+Id=ppi-publicar-feed.timer
+ActiveState=active
+ActiveEnterTimestamp=Fri 2026-10-30 19:53:19 UTC

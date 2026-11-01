@@ -1,0 +1,72 @@
+## c01 cyberflow-sensor 2026-11-01T07:22:46.656Z -> /home/m4rk/cf-3b-20261101T0721Z
+  directorios cf-* previos (no se tocan): /home/m4rk/cf-campana-A-20261029 /home/m4rk/cf-deploy /home/m4rk/cf-p1 /home/m4rk/cf-paso2-20261101T0254Z /home/m4rk/cf-paso3a-20261101T0523Z /home/m4rk/cf-preflight-20261028 /home/m4rk/cf-prep-20261028 /home/m4rk/cf-r42 
+  ppi-motor MainPID=1289322 NRestarts=0 ActiveState=active SubState=running UnitFileState=enabled ActiveEnterTimestamp=Sun 2026-11-01 03:14:01 UTC 
+  ppi-motor-capture MainPID=1375 NRestarts=0 ActiveState=active SubState=running UnitFileState=enabled ActiveEnterTimestamp=Fri 2026-10-30 19:55:21 UTC 
+  suricata MainPID=1372 NRestarts=0 ActiveState=active SubState=running UnitFileState=enabled ActiveEnterTimestamp=Fri 2026-10-30 19:55:21 UTC 
+  ppi-dashboard MainPID=1379 NRestarts=0 ActiveState=active SubState=running UnitFileState=enabled ActiveEnterTimestamp=Fri 2026-10-30 19:55:21 UTC 
+  ppi-publicar-feed.timer ActiveState=active SubState=waiting UnitFileState=enabled ActiveEnterTimestamp=Fri 2026-10-30 19:53:19 UTC 
+  cyberflow-limpieza.timer ActiveState=active SubState=waiting UnitFileState=enabled ActiveEnterTimestamp=Fri 2026-10-30 19:53:19 UTC 
+  cyberflow-acumular.timer ActiveState=active SubState=waiting UnitFileState=enabled ActiveEnterTimestamp=Fri 2026-10-30 19:53:19 UTC 
+  cyberflow-aprendizaje.timer ActiveState=active SubState=waiting UnitFileState=enabled ActiveEnterTimestamp=Fri 2026-10-30 19:53:19 UTC 
+  argv motor: /home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow/scripts/engine/motor_decision.py --eve-path /var/log/suricata/eve.json --capture-dir /var/lib/ppi-motor-capture --model-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib --manifest-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json --detector-name if_limpio_2026_10 --schema /home/m4rk/cyberflow/configs/features/multilayer-v2.json --entity-network 10.10.0.0/16 --excluir 10.10.60.11/32,10.10.10.30/32,10.10.60.2/32,10.10.60.3/32,10.10.60.10/32,10.10.60.20/32,10.10.60.21/32,10.10.60.30/32,10.10.60.40/32,10.10.60.41/32,10.10.60.50/32 --excluir-protocolos 112,240 --log-path /home/m4rk/cyberflow/logs/motor_decision.log --step-seconds 10 --history-seconds 230 
+  --enforce argv: ''  unidad: ''
+  argv IDENTICO al del estado inicial 3A
+## hashes de la implementacion frente a config-campana-3b.json (codigo)
+  scripts/engine/motor_decision.py: OK
+  scripts/engine/motor_incremental.py: OK
+  scripts/engine/heuristicos.py: OK
+  scripts/features/extract_multilayer_v2.py: OK
+  scripts/features/extract_multilayer_v3.py: OK
+  scripts/engine/feed.py: OK
+  configs/features/multilayer-v2.json: OK
+  scripts/engine/publicar_feed.py: OK
+  scripts/engine/escalada.py: OK
+  artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib: OK
+  artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json: OK
+## herramientas del 3B (sensor) frente a REFERENCIAS-Y-HASHES
+  /home/m4rk/cf-paso3a-20261101T0523Z/herramientas3b/analizar_3b.py: OK
+  /home/m4rk/cf-paso3a-20261101T0523Z/herramientas3b/analizar.py: OK
+  /home/m4rk/cf-paso3a-20261101T0523Z/herramientas3b/poblacion.py: OK
+  /home/m4rk/cf-paso3a-20261101T0523Z/herramientas3b/calidad_fuentes.py: OK
+  /home/m4rk/cf-paso3a-20261101T0523Z/herramientas3b/extraer_evidencia_destino.py: OK
+  /home/m4rk/bin/archivar_captura.sh: OK
+  replay_motor.py (paso 2): c93c80c8e313bc1eabfdc6024bae0381136a441d4e231a8492bb298299fc44c7  motor_incremental del arnes: a403307aa5f76d38
+## registros actualizandose
+  logs/motor_decision.log edad=13 s tam=15442236
+  logs/_state/ciclos.jsonl edad=3 s tam=1445280
+  /var/log/suricata/eve.json edad=0 s tam=219888949
+  /var/log/suricata/stats.log edad=5 s tam=29229378
+  anillo: 72 ficheros, mas reciente live-20261101072245.pcap edad=0 s
+  ciclo dur=0.37 pend=4 fin=1793517714
+  ciclo dur=0.29 pend=3 fin=1793517724
+  ciclo dur=0.07 pend=3 fin=1793517734
+  ciclo dur=0.32 pend=3 fin=1793517744
+  ciclo dur=0.32 pend=6 fin=1793517754
+  ciclo dur=0.08 pend=9 fin=1793517764
+  journal motor (trazas desde arranque): 0
+  Date: 11/1/2026 -- 07:22:41 (uptime: 1d, 11h 27m 20s)
+  capture.kernel_packets                        | Total                     | 16524497
+  capture.kernel_drops                          | Total                     | 3017
+## procesos de otras campañas
+  archivadores: ninguno
+  muestreadores: ninguno
+  replay: ninguno  cf-capturar: ninguno
+## feed y escalada (copia sin modificar)
+  bb9080a02c1686b86cdd4c58417f1c117cecc5dfad7380ff7764e9463c91225a  /home/m4rk/feed/feed.json
+  cbfbdc9ddf4c7d1633afca6b1a95bbb0b4c0f808d5f301c49bd3984f8e42c22b  /home/m4rk/feed/feed.sig
+  8902fdddb4360ac760c026cf50d2585c3a74e83d10d165a3358a0b6330851a3c  /home/m4rk/feed/estado.json
+  estado.json: {"10.10.10.21": {"bloqueos": 0, "ultimo_visto": 1793509800.4031055}, "10.10.20.20": {"bloqueos": 0, "ultimo_visto": 1793501830.3880217}, "10.10.20.21": {"bloqueos": 0, "ultimo_visto": 1793516970.3900294}, "10.10.20.22": {"bloqueos": 0, "ultimo_visto": 1793517680.3957458}, "10.10.20.23": {"bloqueos": 0, "ultimo_visto": 1793506500.1672983}, "10.10.20.24": {"bloqueos": 0, "ultimo_visto": 1793517630.1
+## memoria y disco
+                 total        used        free      shared  buff/cache   available
+  Mem:            7940        1843        1756           1        4647        6097
+  Swap:           4030           0        4030
+  Filesystem                         Size  Used Avail Use% Mounted on
+  /dev/mapper/ubuntu--vg-ubuntu--lv   37G   20G   16G  57% /
+  /dev/mapper/ubuntu--vg-ubuntu--lv   37G   20G   16G  57% /
+  logrotate cyberflow: 183e7bc469122ed9 (esperado 183e7bc4...)
+  | /home/m4rk/cyberflow/logs/motor_decision.log /home/m4rk/cyberflow/logs/_state/ciclos.jsonl {
+  |     daily
+  |     maxsize 200M
+  |     rotate 14
+  eve.json: inodo 663679 tam 219888949; motor_decision.log tam 15442236
+## fin 2026-11-01T07:22:47.128Z

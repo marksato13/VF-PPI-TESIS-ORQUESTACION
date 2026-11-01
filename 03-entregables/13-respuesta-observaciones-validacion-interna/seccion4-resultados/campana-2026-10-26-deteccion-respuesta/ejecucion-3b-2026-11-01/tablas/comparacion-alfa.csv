@@ -1,0 +1,7 @@
+configuracion,alfa,umbral,umbral_igual_a_calibracion_sin_kali,pp_oportuna,pp_solo_posterior,pp_ausencia_obs_suficiente,todos_oportuna,todos_solo_posterior,todos_no_evaluable,mediana_disponibilidad_1a_senal_oportuna_s,control_falsas_alarmas,control_tasa,control_cobertura,control_decididas
+IF_0.05,0.05,-0.5694578968203694,True,0/1,1,0,18/25,4,3,23.95,395,0.149395,1.0,2644
+HIB_0.05,0.05,-0.5694578968203694,True,0/1,1,0,21/25,4,0,23.9,466,0.176248,1.0,2644
+IF_0.03,0.03,-0.5898535710336618,True,0/1,1,0,18/25,4,3,24.55,254,0.096067,1.0,2644
+HIB_0.03,0.03,-0.5898535710336618,True,0/1,1,0,21/25,4,0,23.9,336,0.12708,1.0,2644
+IF_0.01,0.01,-0.6223889502095352,True,0/1,0,1,17/25,2,5,24.9,83,0.031392,1.0,2644
+HIB_0.01,0.01,-0.6223889502095352,True,0/1,1,0,21/25,4,0,23.9,171,0.064675,1.0,2644

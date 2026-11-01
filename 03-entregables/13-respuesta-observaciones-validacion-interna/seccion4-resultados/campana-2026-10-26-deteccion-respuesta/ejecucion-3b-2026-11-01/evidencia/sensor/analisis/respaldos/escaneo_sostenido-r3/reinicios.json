@@ -1,0 +1,15 @@
+{
+ "campana": "campana-A-repetida-3b-20261101T0721Z",
+ "episodio": "escaneo_sostenido-r3",
+ "periodo": {
+  "inicio": 1793523854.430077,
+  "fin": 1793524129.952266
+ },
+ "origen": "sensor (automatico)",
+ "fuente": "systemctl show al inicio y al final",
+ "reinicios": {
+  "motor": [],
+  "captura": [],
+  "suricata": []
+ }
+}

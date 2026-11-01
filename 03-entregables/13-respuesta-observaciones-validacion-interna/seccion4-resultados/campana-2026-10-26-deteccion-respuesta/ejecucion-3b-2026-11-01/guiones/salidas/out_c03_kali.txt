@@ -1,0 +1,13 @@
+## c03 kali 2026-11-01T07:23:22.130Z -> /home/adminatacante/cf-3b-20261101T0721Z
+  c586d813472d5853ae43fe512b5a53d22654699ace10894e43f57b3ddc4b171b  /home/adminatacante/cf-campana-A/scripts/generar_campana.py
+  e762e60421b4721b1e8ce32549049ae10c7e86596b0fbd37f9a35517ab904144  /home/adminatacante/cf-campana-A/scripts/esquema_campana.py
+  67798012cbd306e9c06ebccf5ec293c7d9db12951d93119f739c3f86a83c64ec  /home/adminatacante/cf-campana-A/escenarios/escenarios.json
+  /home/adminatacante/cf-campana-A/scripts/generar_campana.py: La suma coincide
+  /home/adminatacante/cf-campana-A/scripts/esquema_campana.py: La suma coincide
+  /home/adminatacante/cf-campana-A/escenarios/escenarios.json: La suma coincide
+  procesos de carga: 0  generadores: 0
+  directorios previos: /home/adminatacante/cf-campana-A /home/adminatacante/cf-campana-A-corrida-20261029 /home/adminatacante/cf-campana-A-prep-20261029 /home/adminatacante/cf-paso2-20261101T0254Z /home/adminatacante/cf-paso3a-plan-sin-trafico-20261101T0523Z /home/adminatacante/cf-simulacion-A-20261028T234452Z /home/adminatacante/cf-simulacion-A-20261028T234452Z.tar 
+  herramientas: /usr/bin/nmap /usr/bin/curl /usr/bin/dig /usr/bin/openssl /usr/bin/python3 /usr/bin/tmux /usr/bin/screen /usr/bin/setsid 
+  ip: lo 127.0.0.1/8 eth0 10.10.20.30/24 
+  disco /dev/sda1         38G    15G   21G  43% /
+## fin 2026-11-01T07:23:22.226Z

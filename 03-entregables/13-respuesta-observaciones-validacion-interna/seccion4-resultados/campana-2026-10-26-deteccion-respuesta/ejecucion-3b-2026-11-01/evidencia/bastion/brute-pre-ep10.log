@@ -1,0 +1,7 @@
+## c05 minima 2026-11-01T08:49:02.116Z  [PREPARACION, origen bastion 10.10.10.30, agente cf-preparacion-paso3b-20261101T0721Z]
+  servicio: active/disabled PID=738815
+  [sin credenciales, esperado 401]
+  2026-11-01T08:49:02.807Z 401 t=0.003772
+## registro del servidor (lineas nuevas; sin credenciales)
+  2026-11-01T08:49:02.823907+00:00 10.10.10.30 GET /auth user=- -> 401
+## fin 2026-11-01T08:49:04.214Z

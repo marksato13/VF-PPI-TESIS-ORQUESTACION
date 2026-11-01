@@ -1,0 +1,8 @@
+  ppi-motor MainPID=1289322 NRestarts=0 ActiveState=active SubState=running UnitFileState=enabled ActiveEnterTimestamp=Sun 2026-11-01 03:14:01 UTC 
+  ppi-motor-capture MainPID=1375 NRestarts=0 ActiveState=active SubState=running UnitFileState=enabled ActiveEnterTimestamp=Fri 2026-10-30 19:55:21 UTC 
+  suricata MainPID=1372 NRestarts=0 ActiveState=active SubState=running UnitFileState=enabled ActiveEnterTimestamp=Fri 2026-10-30 19:55:21 UTC 
+  ppi-dashboard MainPID=1379 NRestarts=0 ActiveState=active SubState=running UnitFileState=enabled ActiveEnterTimestamp=Fri 2026-10-30 19:55:21 UTC 
+  ppi-publicar-feed.timer ActiveState=active SubState=waiting UnitFileState=enabled ActiveEnterTimestamp=Fri 2026-10-30 19:53:19 UTC 
+  cyberflow-limpieza.timer ActiveState=active SubState=waiting UnitFileState=enabled ActiveEnterTimestamp=Fri 2026-10-30 19:53:19 UTC 
+  cyberflow-acumular.timer ActiveState=active SubState=waiting UnitFileState=enabled ActiveEnterTimestamp=Fri 2026-10-30 19:53:19 UTC 
+  cyberflow-aprendizaje.timer ActiveState=active SubState=waiting UnitFileState=enabled ActiveEnterTimestamp=Fri 2026-10-30 19:53:19 UTC 

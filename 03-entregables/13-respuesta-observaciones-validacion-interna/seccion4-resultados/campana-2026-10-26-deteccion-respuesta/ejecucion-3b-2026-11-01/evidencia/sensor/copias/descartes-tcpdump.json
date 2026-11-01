@@ -1,0 +1,10 @@
+{
+ "fuente": "journalctl -u ppi-motor-capture tras SIGUSR1 a tcpdump pid 1375 (ejecutado por Mark con sudo)",
+ "pid": 1375,
+ "proceso_desde": 1793390121.0,
+ "momento": 1793530304.5675554,
+ "packets_captured": 26236100,
+ "packets_received_by_filter": 26236446,
+ "dropped_by_kernel": 0,
+ "alcance": "contador acumulado del proceso tcpdump desde Fri 2026-10-30 19:55:21 UTC; no cubre perdidas aguas arriba (switch/SPAN)"
+}
