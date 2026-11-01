@@ -1,87 +1,58 @@
-# Diseño de la validación independiente (Etapas 2 a 5)
+# Diseño de la validación independiente (versión 2)
 
-**Principio:** los registros anteriores (paso 2, 3A, 3B y su revisión) sirven para **desarrollo** —diagnosticar, dimensionar y probar offline—, pero **no como prueba independiente**. Una candidata ajustada con ellos y evaluada sobre ellos se validaría a sí misma.
+**Principio:**
 
-La prueba se hace con:
+- Los registros anteriores (paso 2, 3A, 3B, su revisión y esta simulación) sirven para **desarrollo**. **No** son prueba independiente de una candidata ajustada con ellos.
+- La prueba se hace con **tráfico normal nuevo** y **dos campañas nuevas de 25 episodios cada una** (5 por escenario, [D4](DECISIONES.md)) con la candidata congelada.
 
-1. **tráfico normal nuevo**, capturado después de congelar la candidata;
-2. una **campaña A** (sombra) nueva con la candidata congelada;
-3. la **campaña B** (respuesta).
+**Reglas de todas las etapas:**
 
-Los criterios de [OBJETIVOS-Y-CRITERIOS.md](OBJETIVOS-Y-CRITERIOS.md) se congelan **antes** del paso 1, con D1–D8 resueltas.
+- No se cambian criterios para aprobar.
+- Los fallos del experimento y los del detector se tratan según [OBJETIVOS-Y-CRITERIOS.md](OBJETIVOS-Y-CRITERIOS.md) §5.
+- Ningún despliegue, sudo ni cambio en hosts sin decisión de Mark. Los comandos con sudo los prepara Claude y los ejecuta Mark.
 
-**Reglas generales de todas las etapas:**
+## Recorrido
 
-- **No se cambian criterios para aprobar.** Si una condición de salida no se cumple, la etapa no sale, y se documenta. Un cambio de criterio exige versión nueva, fechada y publicada **antes** de los datos a los que se aplica.
-- **Fallo del experimento ≠ fallo del detector** ([OBJETIVOS-Y-CRITERIOS.md](OBJETIVOS-Y-CRITERIOS.md) §6). Un fallo del experimento se repite con un identificador nuevo y no borra el original. Un fallo del detector cuenta.
-- **Ningún despliegue, sudo ni cambio en un host sin decisión de Mark.** Los comandos con sudo los prepara Claude y los ejecuta Mark.
+| # | Paso | Etapa | Entrada | Salida | Parada | Reversión |
+|---|---|---|---|---|---|---|
+| 1 | **Diagnóstico y desarrollo de mejoras de captura y cadena** | 2 | Etapa 1 publicada | Causa de los `kernel_drops` identificada con evidencia y propuesta de configuración. Prototipo offline de captura incremental y cadena por eventos. Instrumentación (D7) en la rama candidata. Presupuesto **por episodio** recalculado con los PCAP del 3B. | El prototipo rompe la equivalencia de las 28 características o de las decisiones | Rama candidata; nada desplegado |
+| 2 | **Mejora de heurísticos**: escaneo breve temprano, atribución DNS al cliente, separación del abuso HTTP; política del IF (D3) | 3 | Paso 1 (los datos de entrada de las reglas dependen de la captura) | Reglas nuevas con sus umbrales **escritos antes** de probarlas; casos de atribución errónea del 3B convertidos en regresiones | Una mejora necesita la IP, los horarios o los identificadores del generador | Rama candidata |
+| 3 | **Pruebas offline y regresiones por cambio** | 2–3 | Pasos 1 y 2 | Por cada cambio: prueba unitaria, regresión con los casos del 3B y comparación de las 28 características. Simulador actualizado con el código candidato. **Ninguna cifra se presenta como validación.** | Una regresión empeora otra familia | Revertir el commit |
+| 4 | **Congelación de la candidata** | fin de la 3 | D1, D3 y D6 resueltas; D5, D7 y D8 confirmadas | Commit y hashes de cada fichero, umbrales, α (si interviene), protocolo de evaluación **congelado** y fechado | Falta una decisión esencial | — |
+| 5 | **Tráfico normal nuevo y campaña A nueva, en sombra** | 4 | Candidata instalada en sombra con el procedimiento del paso 2 (decisión y sudo de Mark) | Control ≥ 2 h (P1–P5 con M3 hipotética); **25 episodios** con una semilla nueva publicada antes; E1 por episodio; clases C0–C3; planificados, ejecutados, admitidos y excluidos | Más de 20 % de los ejecutados en C2 o C3: el problema es de captura y se vuelve al paso 1 (parada por evidencia, no por resultado) | Retirar la candidata y volver al motor desplegado |
+| 6 | **Campaña B de respuesta** | 5 | Paso 5 publicado. Agente (o agentes, por D1) instrumentado y **autorizado** por Mark. Limpieza D5 probada. | **25 episodios**; E1–E5 por episodio; M3 y M4 reales; intentos del generador después del corte | Cualquier BLOCK a un legítimo o a la gestión, una regla sin caducidad o una restricción fuera del origen: retirar las reglas y volver a sombra | Desactivar el timer del agente, `nft delete table inet cyberflow` y retirar la política de DC1 (sudo y administración de Mark) |
 
----
+## Trabajo offline que puede empezar ya en la Etapa 2 (sin esperar D1, D3 ni D6)
 
-## Etapa 2 · Corregir la captura y la cadena
+Todo se hace en la **rama candidata** o en herramientas de análisis, sin desplegar nada.
 
-**Objetivo:**
-
-- bajar los descartes que excluyeron 9/25 episodios;
-- instrumentar t_pub, t_apl y t_efecto;
-- medir el presupuesto de la cadena con los cambios.
-
-| | Contenido |
-|---|---|
-| Entrada | Etapa 1 publicada; D7 (agente y contadores) y la parte de D5 que afecta al procedimiento, decididas por Mark; motor `24f8a80` como base |
-| Trabajo | (1) Causa de los `kernel_drops` de Suricata: af-packet (ring, hilos), CPU y su correlación con las inundaciones. **Ajustar af-packet es decisión de Mark.** (2) Rotación o lectura incremental del PCAP, conservando la regla de «paquetes decodificados». (3) Ciclo por eventos (inotify) y cadena publicador → relé → agente por eventos. (4) Registro de t_pub, t_apl (hora y retorno del commit, lote, lectura del set) y `counter` en las reglas. (5) Corregir `--umbrales` del servicio y el comentario de `relay-feed.sh`. |
-| Pruebas | Offline sobre los PCAP del 3B: el replay debe reproducir **las 28 características** y las decisiones. Repetición en sombra con tráfico normal **sin ataques** para medir los descartes. |
-| Salida | (a) 0 `kernel_drops` y 0 descartes de tcpdump en un control normal de ≥ 30 min al ritmo de los perfiles, **y** en una inundación HTTP de prueba en sombra. (b) Presupuesto E–I medido por episodio, con la cota del peor caso publicada. (c) t_apl registrado con precisión ≤ 0,1 s en una prueba en un host de laboratorio. |
-| Parada | Un cambio rompe la equivalencia del replay; un descarte persiste sin causa identificada; aparece un riesgo para la red (afecta a otra VLAN o a la gestión) |
-| Reversión | Cada cambio de servicio con su unidad anterior respaldada y el procedimiento de vuelta probado. Las mismas pautas que el paso 1/2: commit candidato en rama, hashes antes y después. |
-
-## Etapa 3 · Mejorar los heurísticos
-
-**Objetivo:** que las familias tengan una señal **correcta y temprana**.
-
-| | Contenido |
-|---|---|
-| Entrada | Etapa 2 cerrada (fuente C0 disponible); D2 y D3 decididas |
-| Trabajo | (1) **Escaneo breve:** decisión con evidencia parcial (umbral de ráfaga evaluado en cuanto se supera) y sin usar la IP del generador. (2) **Atribución DNS:** `dns_entropy` dispara 88 veces sobre el resolvedor 10.10.10.20, que *reenvía* consultas: la regla debe atribuir al cliente que origina la consulta, no al resolvedor. (3) **Separación del abuso HTTP:** la inundación HTTP produce `port_scan` → BLOCK (en las 5 repeticiones, a los 112–117 s) y, en un escaneo, `brute_force` mal atribuido (breve r1, sostenido r3). (4) La acción del IF según D3. |
-| Pruebas offline | Sobre los registros del 3B y anteriores (**desarrollo**): sensibilidad por familia y falsas alarmas en el control del 3B. Una prueba de regresión por cada error de atribución citado. Comparación de las 28 características. **Ninguna cifra de esta prueba se presenta como validación.** |
-| Salida | Cada mejora con su prueba de regresión; la candidata identificada por commit y hash de cada fichero; los umbrales nuevos **fijados por escrito** |
-| Parada | Una mejora solo funciona si se usa la IP, los horarios o los identificadores del generador; o empeora otra familia en la prueba offline |
-| Reversión | Rama candidata; el motor desplegado no cambia en esta etapa |
-
-### Congelación
-
-Al salir de la Etapa 3 se congela la **candidata**: commit, hashes, umbrales, α (si D3 mantiene el IF en la respuesta, se **elige** aquí con una regla escrita antes del tráfico nuevo) y estos criterios en una versión fechada. **Desde aquí no se toca nada hasta el final de la campaña B.**
-
-## Etapa 4 · Validar la candidata en sombra con tráfico nuevo
-
-| | Contenido |
-|---|---|
-| Entrada | Candidata congelada e instalada en sombra con el procedimiento del paso 2; D1–D8 resueltas; protocolo congelado |
-| Trabajo | (1) **Control normal nuevo** de duración T, fijada por P1/P2 (≥ 2,4 h con 10 entidades legítimas para P2): M1 y M2 medidos, M3 simulado. (2) **Campaña A nueva** con la candidata: n episodios por familia según D4, orden aleatorio con semilla nueva publicada antes. (3) **Prueba del agente sin ataques**, si D7 lo autoriza: control con el agente activo para medir M3 y M4 reales. |
-| Análisis | Cadena v2 (sin cambios); clases C0–C3; Q1 por familia con la cota de Clopper-Pearson; t_apl estimado con la herramienta de esta etapa, ya con t_pub medido |
-| Salida | Q1 cumple la evidencia mínima en las familias con criterio definido; P1–P4 cumplen; t_apl estimado < t_fin con margen en todas las familias con punto de aplicación |
-| Parada | Fallo de la fuente (C2/C3) en > 20 % de los episodios ejecutados: el problema es de captura y se vuelve a la Etapa 2. La parada es por evidencia, no por resultado. |
-| Reversión | Retirar la candidata y volver al motor desplegado con el procedimiento del paso 2 |
-
-## Etapa 5 · Campaña B (respuesta)
-
-| | Contenido |
-|---|---|
-| Entrada | Etapa 4 cumplida. Agente activo en srv-dmz con contadores. Procedimiento de limpieza entre episodios (D5) **probado**. Autorización escrita de Mark para activar el bloqueo en el laboratorio. |
-| Ejecución | Por episodio: (1) verificar que el estado de escalada y los sets nft del origen están vacíos; si no, el episodio es un fallo del experimento; (2) relojes; (3) ataque con `t_fin_programado` fijado; (4) registro de t_det, t_pub, t_apl y t_efecto; (5) intentos posteriores al corte (SPAN); (6) retirada verificada. Transacciones de control activas durante toda la campaña. |
-| Análisis | Q2 y Q3 por familia con la evidencia mínima de D4; P1–P4 sobre los clientes. Las ventanas posteriores al corte **no** se usan para comparar detectores. |
-| Salida | Criterio de éxito de cada familia cumplido y publicado con los indeterminados y los fallos del experimento |
-| Parada inmediata | Cualquier BLOCK a una entidad legítima o a la gestión; una restricción que afecte a otra VLAN; un fallo del agente que deje reglas sin caducidad. En esos casos se retiran las reglas y se pasa a sombra. |
-| Reversión | Desactivar el timer del agente (sudo de Mark), `nft delete table inet cyberflow` y verificar con el control |
-
----
-
-## Separación de las campañas
-
-| | Campaña A (Etapa 4) | Campaña B (Etapa 5) |
+| Trabajo | Depende de | Por qué no espera |
 |---|---|---|
-| Agente | inactivo | activo |
-| Qué responde | Q1: detectores comparados, con el ataque completo visible | Q2 y Q3: aplicación y efecto |
-| Ventanas tras la señal | se usan (FN, latencias, persistencia) | solo hasta t_apl, para detección; después solo para t_efecto |
-| Falsas alarmas | M1 y M2 medidos, M3 simulado | M3 y M4 medidos |
+| a. Correlacionar los `kernel_drops` (21 intervalos del 3B, `revision-3b/diagnosticos/suricata-descartes.json`) con CPU, hilos, ring de af-packet y tipo de tráfico; proponer la configuración | — | Diagnóstico sobre datos existentes. **Aplicar** la configuración sí requiere a Mark. |
+| b. Prototipo de **lectura incremental del PCAP** (o rotación corta) con la misma regla de «paquetes decodificados», y ciclo por eventos (inotify); replay sobre los PCAP del 3B comparando las **28 características** y las decisiones | — | Es la base temporal de todo lo demás |
+| c. **Cadena por eventos** (publicación → distribución → aplicación) e **instrumentación** de t_pub, t_relay, t_apl y `counter` (D7, solo código y pruebas unitarias) | — | Preparar no es activar; el agente sigue inactivo |
+| d. Medir con b y c el tiempo **hasta la evidencia suficiente** y hasta `t_apl_estimada` por episodio para el escaneo breve, con la regla actual, para separar lo que aporta la captura de lo que debe aportar la regla | b, c | Cuantifica el reparto entre la Etapa 2 y la 3 |
+| e. Diseño y pruebas unitarias de la **regla temprana de escaneo** (decisión al cruzar el umbral con evidencia parcial) | b (para el replay realista); el diseño puede empezar ya | El objetivo está decidido (D2) |
+| f. **Atribución DNS al cliente** (el resolvedor no debe heredar las señales) y **separación del abuso HTTP del escaneo**, con regresiones de los casos del 3B | — | No dependen de D1 ni de D3 |
+| g. Procedimiento escrito de **limpieza verificada** del origen (D5), ensayado **en seco** sobre copias del estado | — | Solo documentación y herramienta de verificación |
+| h. Esbozo técnico del agente de DC1 (D1, opción A1) **solo como análisis**: verificación de firma, alta y baja de la política, registro de t_apl | **D1** para implementarlo | Un análisis no compromete el alcance |
+
+**Dependencias reales:**
+
+- e depende de b para el replay temporal realista.
+- d depende de b y c.
+- La implementación del agente de DC1 depende de D1.
+- Aplicar la política del IF en la candidata depende de D3.
+- Fijar el presupuesto de falsas alarmas para congelar depende de D6.
+- Nada se despliega sin Mark.
+
+## Separación entre las campañas
+
+| | Campaña A (paso 5) | Campaña B (paso 6) |
+|---|---|---|
+| Episodios | 25 (5 × 5) | 25 (5 × 5) |
+| Agente | inactivo | activo (autorizado) |
+| Responde a | E1: detectores comparados (IF a cada α, heurísticos, híbrido) con el ataque completo | E1–E5: aplicación, efecto, tráfico legítimo, retirada |
+| Ventanas tras la señal | se usan | solo hasta t_apl para la detección; después, solo para el efecto |
+| Falsas alarmas | M1, M2 medidas; M3 hipotética | M3, M4 medidas |
 | Sustituye a la otra | no | no |
