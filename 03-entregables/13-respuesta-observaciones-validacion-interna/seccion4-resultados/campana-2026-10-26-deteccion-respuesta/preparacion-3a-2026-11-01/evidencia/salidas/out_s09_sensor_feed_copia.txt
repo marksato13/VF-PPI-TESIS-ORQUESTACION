@@ -1,0 +1,27 @@
+## s09 2026-11-01T05:44:14.175Z
+  ExecStart=/home/m4rk/cyberflow/.venv/bin/python scripts/engine/publicar_feed.py \
+      --log logs/motor_decision.log \
+      --estado /home/m4rk/feed/estado.json \
+      --clave-privada artifacts/feed-keys/priv.pem \
+      --salida-feed /home/m4rk/feed/feed.json \
+      --salida-firma /home/m4rk/feed/feed.sig \
+      --ventana-segundos 120 \
+      --umbrales 2026-10-06.1
+  # La salida va al journal (journalctl -u ppi-publicar-feed), no a un fichero.
+0a487138cca5019bd3d82ccc42b679a46849a4ecdd523caf3d3f778f777d3131  /home/m4rk/cf-paso3a-20261101T0523Z/escalada/estado.json.20261101T054414Z
+175ffa0571580b66896bd223327d58a9f1eb969a78a6ecb83e7cf21875968f68  /home/m4rk/cf-paso3a-20261101T0523Z/escalada/feed.json.20261101T054414Z
+01791b5fc2322a819ba18166cfc4fd8893839e5499852084c2343f3af6bda36c  /home/m4rk/cf-paso3a-20261101T0523Z/escalada/feed.sig.20261101T054414Z
+  estado.json: 11 IP
+   10.10.10.21    bloqueos=0 ultimo_visto=2026-11-01T05:10:00Z (hace 2054 s) {}
+   10.10.20.20    bloqueos=0 ultimo_visto=2026-11-01T02:57:10Z (hace 10024 s) {}
+   10.10.20.21    bloqueos=0 ultimo_visto=2026-11-01T04:21:20Z (hace 4974 s) {}
+   10.10.20.22    bloqueos=0 ultimo_visto=2026-11-01T05:12:00Z (hace 1934 s) {}
+   10.10.20.23    bloqueos=0 ultimo_visto=2026-11-01T04:15:00Z (hace 5354 s) {}
+   10.10.20.24    bloqueos=0 ultimo_visto=2026-11-01T05:12:30Z (hace 1904 s) {}
+   10.10.20.26    bloqueos=0 ultimo_visto=2026-11-01T04:16:20Z (hace 5274 s) {}
+   10.10.20.30    bloqueos=3 ultimo_visto=2026-11-01T05:29:30Z (hace 884 s) {'ultimo_evento_block': 1793505898.2423131}
+   10.10.40.10    bloqueos=0 ultimo_visto=2026-11-01T05:01:20Z (hace 2574 s) {}
+   10.10.50.51    bloqueos=0 ultimo_visto=2026-11-01T05:39:40Z (hace 274 s) {}
+   10.10.50.52    bloqueos=0 ultimo_visto=2026-11-01T05:39:40Z (hace 274 s) {}
+  feed: claves=['entradas', 'generado', 'umbrales', 'version'] entradas=0
+## fin

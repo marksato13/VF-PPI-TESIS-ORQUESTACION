@@ -1,0 +1,18 @@
+## s04 2026-11-01T05:27:22.294Z
+  05:27:00.997 vlan=[30] 10.10.20.30:38734 -> 10.10.30.10:18081 GET /auth status=401 ua=cf-preparacion-paso3a-20261101T0523Z
+  05:27:00.997 vlan=[20] 10.10.20.30:38734 -> 10.10.30.10:18081 GET /auth status=401 ua=cf-preparacion-paso3a-20261101T0523Z
+  05:27:01.022 vlan=[30] 10.10.20.30:38750 -> 10.10.30.10:18081 GET /auth status=401 ua=cf-preparacion-paso3a-20261101T0523Z
+  05:27:01.022 vlan=[20] 10.10.20.30:38750 -> 10.10.30.10:18081 GET /auth status=401 ua=cf-preparacion-paso3a-20261101T0523Z
+  05:27:01.042 vlan=[30] 10.10.20.30:38760 -> 10.10.30.10:18081 GET /auth status=200 ua=cf-preparacion-paso3a-20261101T0523Z
+  05:27:01.042 vlan=[20] 10.10.20.30:38760 -> 10.10.30.10:18081 GET /auth status=200 ua=cf-preparacion-paso3a-20261101T0523Z
+  05:27:01.078 vlan=[30] 10.10.20.30:38776 -> 10.10.30.10:18081 GET /no-existe status=404 ua=cf-preparacion-paso3a-20261101T0523Z
+  05:27:01.078 vlan=[20] 10.10.20.30:38776 -> 10.10.30.10:18081 GET /no-existe status=404 ua=cf-preparacion-paso3a-20261101T0523Z
+  05:27:01.096 vlan=[30] 10.10.20.30:38790 -> 10.10.30.10:18081 GET /auth status=401 ua=cf-preparacion-paso3a-20261101T0523Z
+  05:27:01.096 vlan=[20] 10.10.20.30:38790 -> 10.10.30.10:18081 GET /auth status=401 ua=cf-preparacion-paso3a-20261101T0523Z
+  eventos http (todas las VLAN): 10
+## decisiones del motor para 10.10.20.30, ventanas 05:26:50-05:28:30
+  wend=05:26:50 dec=PERMIT score=-0.47355315645917295 heur=None pk10=2 escrito=+13.7s
+      claves del registro: ['decidido_en', 'decision', 'detector_name', 'duplicados_espejo', 'entity_ip', 'event', 'excluidas_acumulado', 'heuristico', 'history_coverage_s', 'inicio_ciclo', 'logged_at', 'marca_eve', 'marca_pcap', 'packet_count_10s', 'pcaps_ilegibles', 'pcaps_ilegibles_motivo', 'pendiente_desde', 'plano_control_descartado', 'score', 'threshold', 'window_end_utc']
+  wend=05:27:00 dec=PERMIT score=None heur=None pk10=0 escrito=+13.7s
+      claves del registro: ['decidido_en', 'decision', 'detector_name', 'duplicados_espejo', 'entity_ip', 'event', 'excluidas_acumulado', 'heuristico', 'history_coverage_s', 'inicio_ciclo', 'logged_at', 'marca_eve', 'marca_pcap', 'packet_count_10s', 'pcaps_ilegibles', 'pcaps_ilegibles_motivo', 'pendiente_desde', 'plano_control_descartado', 'score', 'threshold', 'window_end_utc']
+## fin

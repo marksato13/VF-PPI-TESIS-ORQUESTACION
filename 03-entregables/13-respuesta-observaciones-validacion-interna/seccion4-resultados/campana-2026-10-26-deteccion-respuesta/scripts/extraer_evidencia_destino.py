@@ -63,6 +63,10 @@ def main() -> int:
     ap.add_argument("--vlan-origen", type=int, default=20, help="VLAN 802.1Q del origen en el espejo")
     ap.add_argument("--salida-csv", required=True)
     ap.add_argument("--salida-json", required=True)
+    ap.add_argument("--formato", choices=("a", "3b"), default="a",
+                    help="a: formato de la primera campaña A (sin cambios). 3b (2026-11-01): ventanas (inicio, fin+60] "
+                         "y columnas paquetes_ventana / paquetes_en_intervalo_ataque, para exigir actividad del "
+                         "ataque en los datos que respaldan una señal")
     a = ap.parse_args()
 
     eps, inc_m = an.leer_marcas(Path(a.marcas))
@@ -80,15 +84,24 @@ def main() -> int:
         fich = [p for t, p in pcaps if t + DURACION_PCAP_S >= desde and t <= hasta]
         pk = sorted(paquetes(fich, a.origen, a.vlan_origen))
         # ventanas de la Kali durante el ataque, igual que analizar.cobertura/_evidencia_destino_cubre
-        ventanas = [r for r in kali if ini < r["_wend"] <= fin]
+        tope = fin + HORIZONTE_S if a.formato == "3b" else fin
+        ventanas = [r for r in kali if ini < r["_wend"] <= tope]
         sin_paquetes = 0
         for r in ventanas:
             w = r["_wend"]
-            dst = sorted({d for t, d, _ in pk if w - HORIZONTE_S < t <= w})
+            env = [(t, d) for t, d, _ in pk if w - HORIZONTE_S < t <= w]
+            dst = sorted({d for _, d in env})
             if not dst:
                 sin_paquetes += 1
+                if a.formato == "3b":   # 3b: la ventana procesada SIN paquetes del origen deja constancia (0), no hueco
+                    filas.append({"episodio_id": eid, "window_end_utc": r["window_end_utc"], "destino": "",
+                                  "paquetes_ventana": 0, "paquetes_en_intervalo_ataque": 0})
             for d in dst:
-                filas.append({"episodio_id": eid, "window_end_utc": r["window_end_utc"], "destino": d})
+                fila = {"episodio_id": eid, "window_end_utc": r["window_end_utc"], "destino": d}
+                if a.formato == "3b":
+                    fila["paquetes_ventana"] = sum(1 for _, x in env if x == d)
+                    fila["paquetes_en_intervalo_ataque"] = sum(1 for t, x in env if x == d and ini <= t <= fin)
+                filas.append(fila)
         en_ataque = [(t, d, s) for t, d, s in pk if ini <= t <= fin]
         hacia = [(t, s) for t, d, s in en_ataque if d == ep["destino"]]
         posterior = [t for t, d, _ in pk if d == ep["destino"] and fin < t <= fin + HORIZONTE_S]
@@ -107,14 +120,20 @@ def main() -> int:
             "ventanas_kali_durante": len(ventanas), "ventanas_sin_paquetes_del_origen": sin_paquetes,
         }
     with open(a.salida_csv, "w", newline="", encoding="utf-8") as fh:
-        w = csv.DictWriter(fh, fieldnames=["episodio_id", "window_end_utc", "destino"])
+        campos = ["episodio_id", "window_end_utc", "destino"]
+        if a.formato == "3b":
+            campos += ["paquetes_ventana", "paquetes_en_intervalo_ataque"]
+        w = csv.DictWriter(fh, fieldnames=campos)
         w.writeheader()
         w.writerows(filas)
     Path(a.salida_json).write_text(json.dumps({
         "fuente": "PCAP full-SPAN archivado (archivar_captura.sh); tcpdump -tt -nn 'vlan <vlan_origen> and src host "
                   "<origen>' (una copia por paquete: la de la VLAN del origen)",
         "vlan_origen": a.vlan_origen,
-        "intervalo_ventana": f"(window_end-{HORIZONTE_S}, window_end]", "origen": a.origen,
+        "intervalo_ventana": f"(window_end-{HORIZONTE_S}, window_end]", "origen": a.origen, "formato": a.formato,
+        "ventanas_incluidas": ("(inicio, fin]" if a.formato == "a" else f"(inicio, fin+{HORIZONTE_S}]"),
+        "paquetes_en_intervalo_ataque": ("paquetes del origen hacia ese destino dentro de la ventana Y dentro de "
+                                         "[inicio, fin] del generador (solo formato 3b)"),
         "nota": "actividad que cruzó el espejo; no equivale a intentos del generador ni a respuestas del servidor",
         "incidencias_marcas": inc_m, "episodios": actividad}, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"{len(filas)} filas de destino; {len(actividad)} episodios")

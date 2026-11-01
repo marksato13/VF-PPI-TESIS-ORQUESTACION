@@ -1,0 +1,119 @@
+{
+ "definicion": "Calidad de las fuentes por episodio (preparación 3A, 2026-11-01). Solo lee evidencias; no toca captura ni Suricata.\n\nSepara cuatro cosas que NO son equivalentes:\n  1. archivo           conservación y continuidad de los PCAP del SPAN (archivar.log del archivador): ficheros de\n                       15 s de ppi-motor-capture archivados sin fallo y sin huecos entre inicios consecutivos.\n  2. tcpdump_socket    descartes del socket AF_PACKET de tcpdump. tcpdump solo los informa AL TERMINAR el proceso\n                       (\"N packets dropped by kernel\"); con ppi-motor-capture en marcha durante toda la campaña NO hay\n                       medida por intervalo. Se declara \"no_medido\": es incertidumbre residual, no un cero.\n  3. suricata          capture.kernel_drops de stats.log (contador acumulado, muestras cada ~8 s). El delta se toma\n                       entre la última muestra <= desde y la primera >= hasta (cota CONSERVADORA: puede incluir\n                       descartes de los segundos de alrededor, nunca omite los del intervalo).\n  4. interfaz          rx_dropped de ens37 (muestreador). Su significado no está determinado en este laboratorio\n                       (vmxnet3 en modo promiscuo; rx_missed/rx_fifo/rx_nohandler = 0, crece también sin carga). Se\n                       informa; NO clasifica el episodio.\n\nClasificación por episodio, sobre [inicio - margen, fin + margen] (margen = 60 s, el horizonte de las ventanas):\n  insuficiente  falta archivo (fallo de copia, fichero perdido, hueco entre ficheros > 15 s + tolerancia) o no hay\n                muestras de Suricata que acoten el intervalo -> la ausencia de detección NO se puede atribuir al\n                detector; el episodio sale de la comparación principal.\n  degradada     archivo completo pero Suricata registró descartes de kernel en el intervalo -> la observación L7\n                (HTTP/DNS de EVE, base de los heurísticos y de parte de las 28 características) puede estar\n                incompleta; el episodio sale de la comparación principal (criterio independiente del resultado).\n  completa      archivo continuo y 0 descartes de Suricata en el intervalo. Persiste la incertidumbre de (2) y (4).\nEn todos los casos las detecciones confirmadas se conservan visibles: una fuente degradada no anula una señal\nobservada, solo impide concluir una ausencia.",
+ "margen_s": 60.0,
+ "fuentes": {
+  "stats": [
+   "/home/m4rk/cf-paso2-20261101T0254Z/copias/stats-inicio.log",
+   "/home/m4rk/cf-paso2-20261101T0254Z/copias/stats-fin.log"
+  ],
+  "archivador": "/home/m4rk/cf-paso2-20261101T0254Z/archivo-pcap/archivar.log",
+  "muestras": "/home/m4rk/cf-paso2-20261101T0254Z/copias/muestras.jsonl",
+  "muestras_stats": 530
+ },
+ "incidencias_marcas": [],
+ "episodios": {
+  "inundacion_http-rT1": {
+   "estado": "completa",
+   "motivos": [],
+   "intervalo_utc": [
+    "2026-11-01T03:49:59.754273+00:00",
+    "2026-11-01T03:53:29.044071+00:00"
+   ],
+   "archivo": {
+    "continuo": true,
+    "ficheros": 15,
+    "cubre_inicio": true,
+    "cubre_fin": true,
+    "huecos": [],
+    "fallos_archivador": []
+   },
+   "suricata": {
+    "medido": true,
+    "muestra_desde_utc": "2026-11-01T03:49:52+00:00",
+    "muestra_hasta_utc": "2026-11-01T03:53:36+00:00",
+    "kernel_packets": 464197,
+    "kernel_drops": 0
+   },
+   "tcpdump_socket": {
+    "medido": false,
+    "motivo": "tcpdump solo informa descartes al terminar el proceso; incertidumbre residual declarada"
+   },
+   "interfaz_ens37": {
+    "medido": true,
+    "rx_packets": 461818,
+    "rx_dropped": 3060,
+    "significado": "no determinado; se informa sin clasificar"
+   }
+  },
+  "inundacion_http-rT2": {
+   "estado": "degradada",
+   "motivos": [
+    "suricata: 91 descartes de kernel en el intervalo"
+   ],
+   "intervalo_utc": [
+    "2026-11-01T03:55:56.136085+00:00",
+    "2026-11-01T03:59:26.063182+00:00"
+   ],
+   "archivo": {
+    "continuo": true,
+    "ficheros": 15,
+    "cubre_inicio": true,
+    "cubre_fin": true,
+    "huecos": [],
+    "fallos_archivador": []
+   },
+   "suricata": {
+    "medido": true,
+    "muestra_desde_utc": "2026-11-01T03:55:52+00:00",
+    "muestra_hasta_utc": "2026-11-01T03:59:28+00:00",
+    "kernel_packets": 512455,
+    "kernel_drops": 91
+   },
+   "tcpdump_socket": {
+    "medido": false,
+    "motivo": "tcpdump solo informa descartes al terminar el proceso; incertidumbre residual declarada"
+   },
+   "interfaz_ens37": {
+    "medido": true,
+    "rx_packets": 511793,
+    "rx_dropped": 2998,
+    "significado": "no determinado; se informa sin clasificar"
+   }
+  },
+  "inundacion_http-rT3": {
+   "estado": "degradada",
+   "motivos": [
+    "suricata: 68 descartes de kernel en el intervalo"
+   ],
+   "intervalo_utc": [
+    "2026-11-01T04:01:52.070218+00:00",
+    "2026-11-01T04:05:22.037883+00:00"
+   ],
+   "archivo": {
+    "continuo": true,
+    "ficheros": 15,
+    "cubre_inicio": true,
+    "cubre_fin": true,
+    "huecos": [],
+    "fallos_archivador": []
+   },
+   "suricata": {
+    "medido": true,
+    "muestra_desde_utc": "2026-11-01T04:01:52+00:00",
+    "muestra_hasta_utc": "2026-11-01T04:05:28+00:00",
+    "kernel_packets": 490974,
+    "kernel_drops": 68
+   },
+   "tcpdump_socket": {
+    "medido": false,
+    "motivo": "tcpdump solo informa descartes al terminar el proceso; incertidumbre residual declarada"
+   },
+   "interfaz_ens37": {
+    "medido": true,
+    "rx_packets": 491144,
+    "rx_dropped": 3060,
+    "significado": "no determinado; se informa sin clasificar"
+   }
+  }
+ }
+}

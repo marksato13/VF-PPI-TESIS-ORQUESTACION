@@ -1,0 +1,75 @@
+## s08 2026-11-01T05:43:55.177Z
+## referencias a estado.json / escalada en el codigo desplegado
+scripts/engine/dashboard.py:3434:  // Fuentes: motor_decision.py, heuristicos.py, publicar_feed.py, escalada.py.
+scripts/engine/dashboard.py:3797:      {paso: 'Escalada por reincidencia', fichero: 'escalada.py', garantia: '300→1800→3600 s; nunca ∞ automático'},
+scripts/engine/dashboard.py:3801:      archivo: 'scripts/engine/motor_decision.py + publicar_feed.py + escalada.py',
+scripts/engine/dashboard.py:3818:      {paso: 'Caducidad', fichero: 'escalada.py', garantia: '300→1800→3600 s por reincidencia; ∞ solo revisión humana'},
+scripts/engine/dashboard.py:3933:      { n: 'escalada.py',       host: 'sensor', d: 'caducidad por reincidencia' },
+scripts/engine/dashboard.py:3943:        'escalada.py        — caducidad por reincidencia',
+scripts/engine/dashboard.py:5006:  'escalada.py': {
+scripts/engine/dashboard.py:5008:    editar: 'nano ~/cyberflow/scripts/engine/escalada.py',
+scripts/engine/dashboard.py:5207:      { k: 'archivo', t: 'Escalera de caducidad por reincidencia', ir: 'escalada.py' },
+scripts/engine/dashboard.py:5212:  'escalada.py': {
+scripts/engine/dashboard.py:7082:ESCALERA_BLOCK_S = {1: 300, 2: 1800, 3: 3600}     # = escalada.py
+scripts/engine/dashboard.py:7115:    3600 s (BLOCK, nivel leido de estado.json) + la cadencia del feed. Lo que el
+scripts/engine/dashboard.py:8224:                    rel("scripts/engine/escalada.py", "py",
+scripts/engine/dashboard.py:8233:                 rel("scripts/engine/escalada.py", "py",
+scripts/engine/dashboard.py:8303:        "--feed-estado", type=Path, default=Path.home() / "feed" / "estado.json",
+scripts/engine/publicar_feed.py:6:(`escalada.py`), y escribe un feed firmado (`feed.py`) que los hosts traen y
+scripts/engine/publicar_feed.py:25:    from scripts.engine import escalada, feed, heuristicos
+scripts/engine/publicar_feed.py:27:    import escalada
+scripts/engine/publicar_feed.py:95:        esc = escalada.procesar(estado, ip, v["accion"], ahora,
+scripts/engine/publicar_feed.py:164:    escalada.podar(estado, ahora)
+## ficheros de la ruta del feed
+## unidades que tocan el feed
+    ppi-publicar-feed.service                                                                                               loaded    inactive dead      CyberFlow - publica el feed firmado de acciones (desde las decisiones del motor)
+    ppi-publicar-feed.timer                                                                                                 loaded    active   waiting   CyberFlow - publicar el feed cada 10 segundos
+--- ppi-publicar-feed.service
+  User=m4rk
+  ExecStart=/home/m4rk/cyberflow/.venv/bin/python scripts/engine/publicar_feed.py \
+--- ppi-publicar-feed.timer
+  # OnCalendar (no OnUnitActiveSec): este ultimo se quedaba con NextElapse=infinity.
+  OnCalendar=*-*-* *:*:00/10
+## escalada.py: definicion de bloqueos y ventana de reincidencia
+  /home/m4rk/cyberflow/scripts/engine/escalada.py
+7d80ab4a926457efb37f4c6c9778e53eda67a5840ca255ff4504f333ca638479  /home/m4rk/cyberflow/scripts/engine/escalada.py
+2:"""Escalera de caducidad y reincidencia (ver DISENO-ENFORCEMENT.md §9).
+5:coste de ser un atacante reincidente crece. Nunca `∞` automático.
+9:- BLOCK 2º   (< ventana) -> 1800 s
+10:- BLOCK 3º+  (< ventana) -> 3600 s (tope automático) + marca de revisión humana
+13:Decaimiento: si una IP no reincide en `ventana_s` (24 h por defecto), su contador
+16:El estado es un dict serializable {ip: {"bloqueos": int, "ultimo_visto": epoch}},
+24:VENTANA_DECAIMIENTO_S = 24 * 3600
+28:def procesar(estado: dict, ip: str, accion: str, ahora: float,
+29:             ventana_s: int = VENTANA_DECAIMIENTO_S,
+38:    # Decaimiento: si lleva más de la ventana sin reincidir, se reinicia.
+39:    if st and (ahora - st.get("ultimo_visto", 0)) > ventana_s:
+44:    bloqueos = min(int(st.get("bloqueos", 0)), 3) if st else 0
+54:            bloqueos = min(bloqueos + 1, 3)
+55:        nivel = min(bloqueos, 3)
+57:        revisar = bloqueos >= REVISION_HUMANA_DESDE
+59:        # LIMIT no incrementa el contador de bloqueos (es la entrada suave),
+67:    nuevo_estado = {"bloqueos": bloqueos, "ultimo_visto": ahora}
+73:    return {"accion": accion, "timeout_s": timeout, "nivel": bloqueos,
+77:def podar(estado: dict, ahora: float, ventana_s: int = VENTANA_DECAIMIENTO_S) -> int:
+80:              if (ahora - st.get("ultimo_visto", 0)) > ventana_s]
+  /home/m4rk/cyberflow/scripts/engine/publicar_feed.py
+f7bc4c7d8e7ac0cd958f3936d55a5782285e59509919d82bf2998fbb70acc03d  /home/m4rk/cyberflow/scripts/engine/publicar_feed.py
+2:"""Publica el feed de enforcement (firmado) desde las decisiones del motor.
+6:(`escalada.py`), y escribe un feed firmado (`feed.py`) que los hosts traen y
+25:    from scripts.engine import escalada, feed, heuristicos
+27:    import escalada
+68:def decisiones_a_entradas(decisiones: list[dict], estado: dict, ahora: float,
+72:    Devuelve la lista de entradas del feed. Muta `estado` (para persistir).
+95:        esc = escalada.procesar(estado, ip, v["accion"], ahora,
+144:    p.add_argument("--estado", type=Path, required=True, help="JSON de escalera (persiste)")
+157:        estado = json.loads(a.estado.read_text(encoding="utf-8"))
+159:        estado = {}
+162:    entradas = decisiones_a_entradas(decisiones, estado, ahora,
+164:    escalada.podar(estado, ahora)
+175:    a.estado.write_text(json.dumps(estado, sort_keys=True), encoding="utf-8")
+## motor: lee estado.json?
+  (vacio = no lo lee)
+## copia del estado actual
+  /home/m4rk/feed/estado.json
+## fin

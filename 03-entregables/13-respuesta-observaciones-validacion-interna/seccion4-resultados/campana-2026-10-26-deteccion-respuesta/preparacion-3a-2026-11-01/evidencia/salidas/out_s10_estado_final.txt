@@ -1,0 +1,27 @@
+## s10 2026-11-01T05:47:32.265Z
+  ppi-motor MainPID=1289322 NRestarts=0 ActiveState=active UnitFileState=enabled 
+  ppi-motor-capture MainPID=1375 NRestarts=0 ActiveState=active UnitFileState=enabled 
+  suricata MainPID=1372 NRestarts=0 ActiveState=active UnitFileState=enabled 
+  ppi-publicar-feed.timer ActiveState=active UnitFileState=enabled 
+  --enforce en argv: 0  en unidad: 0
+  6c274d9e3529e3fb  scripts/engine/motor_decision.py
+  a403307aa5f76d38  scripts/engine/motor_incremental.py
+  10deb05d22fa0215  scripts/engine/heuristicos.py
+  f7bc4c7d8e7ac0cd  scripts/engine/publicar_feed.py
+  7d80ab4a926457ef  scripts/engine/escalada.py
+  df547da098e51171  artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib
+  fb6b8ed2b677056f  artifacts/preliminar/limpio-2026-10/if_limpio_2026_10.joblib
+  9a4e02645df94840  artifacts/preliminar/limpio-2026-10/verif_vigente.joblib
+  trazas journal motor desde 05:20Z: 0
+  ultimo ciclo: hace 10 s, dur 0.07 s, pendientes 1
+  herramientas3b: 0e4578a73031a20c  analizar_3b.py 71674908e4fc7f93  analizar.py d63ca6e96e8de90a  calidad_fuentes.py 48d13aba2082a044  extraer_evidencia_destino.py 7b140ae42905428e  poblacion.py 
+  srv ppi-enforce-agent.timer active=inactive enabled=disabled
+  srv ppi-brute-lab.service active=active enabled=disabled
+  srv lab-web-http.service active=active enabled=enabled
+  srv lab-web-https.service active=active enabled=enabled
+  srv tabla inet cyberflow: 0
+  srv brute.log: 30733 lineas
+  kali carga: 0  generador vivo: 0
+  clientes target=active/disabled perfiles_activos=6 envoltorio=0
+  dns 10.10.30.10  http 200 https 200 auth_sin_cred 401
+## fin

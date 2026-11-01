@@ -1,0 +1,11 @@
+  3: ens37: <BROADCAST,MULTICAST,PROMISC,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
+      link/ether 00:0c:29:3d:f9:4e brd ff:ff:ff:ff:ff:ff
+      RX:  bytes  packets errors dropped  missed   mcast           
+      2450215524 15704219      0 1691504       0 3311234 
+      RX errors:   length    crc   frame    fifo overrun otherhost
+                        0      0       0       0       0  13969388 
+      TX:  bytes  packets errors dropped carrier collsns           
+             866       11      0       0       0       0 
+      TX errors:  aborted   fifo  window heartbt transns
+                        0      0       0       0       1 
+      altname enp2s5

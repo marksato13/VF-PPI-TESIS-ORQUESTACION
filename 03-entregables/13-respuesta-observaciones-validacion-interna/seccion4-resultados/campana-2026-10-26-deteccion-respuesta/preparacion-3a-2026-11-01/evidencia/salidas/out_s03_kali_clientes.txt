@@ -1,0 +1,36 @@
+## s03 2026-11-01T05:25:22.455Z
+  kali: procesos de carga (curl, nmap, dig, python3 generar): 0 1  ip=10.10.20.30   date=05:25:22
+/home/adminatacante/cf-campana-A /home/adminatacante/cf-campana-A-corrida-20261029 /home/adminatacante/cf-campana-A-prep-20261029 /home/adminatacante/cf-paso2-20261101T0254Z /home/adminatacante/cf-simulacion-A-20261028T234452Z /home/adminatacante/cf-simulacion-A-20261028T234452Z.tar 
+  c586d813472d5853ae43fe512b5a53d22654699ace10894e43f57b3ddc4b171b  /home/adminatacante/cf-campana-A/scripts/generar_campana.py
+  e762e60421b4721b1e8ce32549049ae10c7e86596b0fbd37f9a35517ab904144  /home/adminatacante/cf-campana-A/scripts/esquema_campana.py
+  67798012cbd306e9c06ebccf5ec293c7d9db12951d93119f739c3f86a83c64ec  /home/adminatacante/cf-campana-A/escenarios/escenarios.json
+   /home/adminatacante/cf-campana-A:
+   escenarios
+   scripts
+   
+   /home/adminatacante/cf-campana-A/escenarios:
+   escenarios.json
+   
+   /home/adminatacante/cf-campana-A/scripts:
+   esquema_campana.py
+   generar_campana.py
+   __pycache__
+  clientes: target=active/disabled TZ=UTC local=dom 05:25
+   cyberflow-lab-ofimatica active NR=0
+   cyberflow-lab-navegacion active NR=0
+   cyberflow-lab-descargas active NR=0
+   cyberflow-lab-aplicacion active NR=0
+   cyberflow-lab-ligero active NR=0
+   cyberflow-lab-erratico active NR=0
+  envoltorio factor1: -rw-rw-r-- 1 adminclientes adminclientes 1164 nov  1 03:01 /home/adminclientes/cf-paso2-20261101T0254Z/clientes_factor1.py
+   69d79937f2fee84d8d63a38eb1171ed822858a54fa48d5a1e9266fb4e5a4c6c6  /home/adminclientes/cf-paso2-20261101T0254Z/clientes_factor1.py
+   ae5134a778e66d90f5c3fbcd47323e328f3422cf4ba8d5197649f402c1d4cdc3  /home/adminclientes/laboratorio/clientes_lab.py
+   b2f04d9411bff287096de209f28fa3ff352061948798383d5ad9d537c90e967f  /home/adminclientes/cf-paso2-20261101T0254Z/c02_clientes_restaurar.sh
+   ad4519519b97aa7ef6d1a2357ddedb54b2adb7971ce65785fe1f8028daa5e1ae  /home/adminclientes/cf-paso2-20261101T0254Z/clientes_arrancar_factor1.sh
+   279178c18febd8730160912d4a82834fd3c0adfd52c6329b8e907de4be7a723a  /home/adminclientes/cf-paso2-20261101T0254Z/clientes_parar_factor1.sh
+  procesos envoltorio vivos: 1
+## dns lab-ppi y web desde el bastion
+  dig @10.10.10.20 prueba1.lab-ppi -> 10.10.30.10 
+  dig @10.10.10.20 x1793510724.lab-ppi -> 10.10.30.10 
+  http 200 0.002656s  https 200 0.053851s
+## fin

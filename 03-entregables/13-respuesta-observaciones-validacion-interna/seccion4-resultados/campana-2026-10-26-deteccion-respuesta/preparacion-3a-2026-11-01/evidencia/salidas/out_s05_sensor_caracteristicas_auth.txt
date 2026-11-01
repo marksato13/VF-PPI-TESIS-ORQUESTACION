@@ -1,0 +1,9 @@
+## s05 2026-11-01T05:27:57.080Z arranque motor=1793502841
+{"decisiones": 3, "reproducidas_exactas": 3, "salida": "/home/m4rk/cf-paso3a-20261101T0523Z/preparacion-auth/caracteristicas-recalculadas.jsonl"}
+  wend=05:26:50 pk10_reg=2 score_reg=-0.47355315645917295 score_recalc=-0.47355315645917295 coincide=None
+      {'http_error_ratio_60s': 0.0, 'dns_nxdomain_ratio_60s': 0.0, 'http_request_rate_60s': 0.0, 'http_method_entropy_60s': 0.0, 'http_auth_failure_ratio_60s': 0.0, 'dns_query_rate_60s': 0.0, 'http_status_5xx_ratio_60s': 0.0}
+  wend=05:27:00 pk10_reg=0 score_reg=None score_recalc=None coincide=None
+      {'http_error_ratio_60s': 0.0, 'dns_nxdomain_ratio_60s': 0.0, 'http_request_rate_60s': 0.0, 'http_method_entropy_60s': 0.0, 'http_auth_failure_ratio_60s': 0.0, 'dns_query_rate_60s': 0.0, 'http_status_5xx_ratio_60s': 0.0}
+  wend=05:27:10 pk10_reg=52 score_reg=-0.5927933326911176 score_recalc=-0.5927933326911176 coincide=None
+      {'http_error_ratio_60s': 0.8, 'dns_nxdomain_ratio_60s': 0.0, 'http_request_rate_60s': 0.16666666666666666, 'http_method_entropy_60s': 0.0, 'http_auth_failure_ratio_60s': 0.6, 'dns_query_rate_60s': 0.0, 'http_status_5xx_ratio_60s': 0.0}
+## fin

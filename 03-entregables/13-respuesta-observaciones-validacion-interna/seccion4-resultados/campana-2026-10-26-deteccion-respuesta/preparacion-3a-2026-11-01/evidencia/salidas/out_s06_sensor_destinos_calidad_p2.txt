@@ -1,0 +1,33 @@
+## s06 2026-11-01T05:38:57.314Z
+archivador-ESTADO.txt ciclos.jsonl estado.json eve-segmento.json feed.json feed.sig journal-avisos-sistema.txt journal-motor.txt marcas-episodios.jsonl motor_decision.log motor_decision.log.1 muestras.jsonl resultados.json resultados-sin-inventario.json SHA256SUMS stats-fin.log stats-inicio.log 
+archivar.log
+ESTADO.txt
+pcap: 374
+81 filas de destino; 3 episodios
+{
+ "inundacion_http-rT1": [
+  "completa",
+  []
+ ],
+ "inundacion_http-rT2": [
+  "degradada",
+  [
+   "suricata: 91 descartes de kernel en el intervalo"
+  ]
+ ],
+ "inundacion_http-rT3": [
+  "degradada",
+  [
+   "suricata: 68 descartes de kernel en el intervalo"
+  ]
+ ]
+}
+f9fcf8a2db6d8ce300a0aacfaa9b91c3c43941706a25818b80bb603a97241cf8  /home/m4rk/cf-paso3a-20261101T0523Z/reanalisis-paso2/actividad-3b.json
+ac1d5080ddd90ec65dacf13253e92f77c27a13fb6870be8a462b04fd8cf4923b  /home/m4rk/cf-paso3a-20261101T0523Z/reanalisis-paso2/calidad-fuentes.json
+b3d0b11a47d9e053994faea52e57946d2df575acf524594015c2a1fd9f23528f  /home/m4rk/cf-paso3a-20261101T0523Z/reanalisis-paso2/destinos-3b.csv
+0e4578a73031a20cd4e476d03b33bd406e479856746443649cae13b09269112e  /home/m4rk/cf-paso3a-20261101T0523Z/herramientas3b/analizar_3b.py
+71674908e4fc7f938fc9687cf4b7ad2e4c2b77ad35ff20c0c0fcf59ec92c763a  /home/m4rk/cf-paso3a-20261101T0523Z/herramientas3b/analizar.py
+d63ca6e96e8de90aec0ee8cd6274d91f006511248223c48658ad3535b642046d  /home/m4rk/cf-paso3a-20261101T0523Z/herramientas3b/calidad_fuentes.py
+48d13aba2082a044a311a1966817bd6ec62be0c3759bbd1618e5f2dd5b3d508c  /home/m4rk/cf-paso3a-20261101T0523Z/herramientas3b/extraer_evidencia_destino.py
+7b140ae42905428e0a2b615c8de88ff9d036c0c7021e2bc096b921597d33511b  /home/m4rk/cf-paso3a-20261101T0523Z/herramientas3b/poblacion.py
+## fin
