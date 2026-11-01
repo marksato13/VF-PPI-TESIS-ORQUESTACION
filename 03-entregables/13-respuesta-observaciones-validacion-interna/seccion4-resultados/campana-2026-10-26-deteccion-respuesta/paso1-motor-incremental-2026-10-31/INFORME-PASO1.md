@@ -126,6 +126,12 @@ de las ventanas que 7b275b8 habría decidido y puntuación en lote frente a una 
 de 9b4cf2b con verificación y con los de 9b4cf2b sin ella (R5). Mismo orden, dos arranques en cada lado y 0
 duplicados, también a través del reinicio.
 
+Al arrancar, los dos motores recuperan de `motor_decision.log` las claves ya registradas con `claves_ya_registradas()`,
+que es idéntica en las dos versiones, y no vuelven a decidir esas ventanas. El arnés reinicia con el mismo
+`--log-path`, así que esta recuperación es lo que R4 y R5 ponen a prueba. Sus límites están en el apartado 0.1 del
+procedimiento: solo lee el fichero vigente, solo sus últimos 16 MiB, y no recupera lo decidido y aún no escrito. El
+arnés corta entre ciclos, de modo que el corte a mitad de ciclo no se probó.
+
 **Casos que el replay no cubre**, probados en `tests/test_motor_incremental.py` (sección 7):
 - duplicados del espejo que cruzan el borde de un fichero;
 - cambio de propietario de un flujo al podar el SYN;
@@ -258,8 +264,19 @@ R3 frente a R1 completo, R4-9b4cf2b con verificación y R5.
   paso 2.
 - **Memoria.** El candidato conserva más estado (mapas de llegada y caché de observaciones): su RSS máximo en el replay
   completo es de 1,34 GB, frente a 0,86 GB de 7b275b8. El sensor tiene 8 GB.
-- **Reinicio cruzado.** La reversión candidato → 7b275b8 no se probó offline.
-- **`ciclos.jsonl`.** Crece unos 8 MB al día; su rotación se instala en el paso 2.
+- **Recuperación de claves al reiniciar.** `claves_ya_registradas()` solo lee los últimos 16 MiB del
+  `motor_decision.log` vigente.
+  - Un reinicio en los ~230 s siguientes a la rotación diaria podría repetir ventanas decididas justo antes de rotar.
+  - Lo decidido y aún no escrito cuando el proceso muere se decide otra vez. En el candidato eso es como mucho el lote
+    de un ciclo; en 7b275b8, un registro.
+  - Ninguno de los dos casos se probó offline. El procedimiento comprueba los duplicados en el registro vigente y en el
+    rotado.
+- **Reinicio cruzado.** La reversión candidato → 7b275b8 **no se probó offline**. Por lectura del código, 7b275b8
+  recuperaría las claves de los registros del candidato, que usan los mismos campos, pero no está demostrado.
+- **`ciclos.jsonl`.** Crece unos 8 MB al día; su rotación se instala en el paso 2. La configuración global de
+  logrotate ya falla hoy (rc=1, lectura sin sudo del 1-nov) por dos respaldos antiguos dentro de `/etc/logrotate.d/`
+  (`cyberflow.anterior` y `suricata.orig-cyberflow`). El procedimiento guarda el respaldo nuevo fuera, en
+  `/var/backups/cyberflow-paso2/`, y exige que no aparezcan errores nuevos frente a esa línea base.
 - **Esquema desplegado.** `configs/features/multilayer-v2.json` desplegado (`e032a1a2…`) no es el de 7b275b8
   (`1445ccd4…`). Todas las corridas usaron el desplegado, igual que el servicio, y la instalación no lo toca.
 
@@ -275,7 +292,9 @@ R3 frente a R1 completo, R4-9b4cf2b con verificación y R5.
 Condiciones:
 
 1. **Instalación.** Instalar siguiendo `PROCEDIMIENTO-PASO2-INSTALACION-Y-REVERSION.md` y aplicar la rotación de
-   `ciclos.jsonl`. Lo que necesita sudo lo ejecuta Mark.
+   `ciclos.jsonl`, con el respaldo en `/var/backups/cyberflow-paso2/` y la comprobación global
+   `sudo logrotate -d /etc/logrotate.conf` antes y después (salida completa y rc guardados). Lo que necesita sudo lo
+   ejecuta Mark. No reiniciar en los ~230 s siguientes a una rotación del registro.
 2. **Sin reinicios durante los episodios.** No reiniciar `ppi-motor` durante una campaña: el primer ciclo con
    historia de inundación tarda unos 25 s. Hay que dejar al menos 230 s de calentamiento antes del primer episodio.
 3. **Rendimiento en vivo, sobre todo en la inundación.** Medirlo con `ciclos.jsonl` (`duracion_s` y
