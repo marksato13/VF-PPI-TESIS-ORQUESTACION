@@ -1,0 +1,44 @@
+Lecturas de solo lectura en Sensor1 (m4rk, sin sudo), via bastion gadmin, 2026-11-01 21:47:58Z - 21:48:31Z.
+Ordenes: ls /var/log/suricata; cat /proc/net/packet; zgrep en suricata.log*; grep y sed -n 600,700p y
+1260,1270p de /etc/suricata/suricata.yaml; uptime. Salida literal relevante:
+
+== /proc/net/packet
+sk               RefCnt Type Proto  Iface R Rmem   User   Inode
+0000000000000000 3      3    88cc   2     1 0      998    9243
+0000000000000000 3      3    88cc   3     1 0      998    9244
+0000000000000000 3      3    0003   3     1 0      0      9943
+0000000000000000 3      3    0003   3     1 0      0      8734
+0000000000000000 3      3    0003   3     1 0      0      8738
+0000000000000000 3      3    0003   3     1 0      0      8739
+0000000000000000 3      3    0003   3     1 0      0      8755
+(Iface 3 = ens37. Cinco sockets ETH_P_ALL (0003) de root: 4 hilos W#01-04 de Suricata + tcpdump.
+ Los 88cc son LLDP (usuario 998). Rmem 0: con anillo mmap la memoria del anillo no aparece en Rmem.)
+
+== suricata.log.2.gz (arranque del proceso vigente, PID 1372)
+[1372 - Suricata-Main] 2026-10-30 19:55:21 Info: runmodes: ens37: creating 4 threads
+[1372 - Suricata-Main] 2026-10-30 19:55:21 Notice: threads: Threads created -> W: 4 FM: 1 FR: 1   Engine started.
+(Ningun mensaje sobre ring-size, tpacket ni mmap: a nivel Info, Suricata 7.0.3 no los registra.)
+
+== suricata.yaml, bloque af-packet (lineas no comentadas)
+  - interface: ens37
+    checksum-checks: no
+    cluster-id: 99
+    cluster-type: cluster_flow
+    defrag: yes
+  - interface: default
+Comentadas (valor por defecto del codigo, no visible en la configuracion):
+  638:    #use-mmap: yes
+  644:    #tpacket-v3: yes
+  650:    #ring-size: 2048   ("Ring size will be computed with respect to max-pending-packets and number of threads")
+  654:    #block-size: 32768
+  #block-timeout: 10, #use-emergency-flush: yes, # buffer-size: 32768
+  1267:#max-pending-packets: 1024
+  692/693 (interface default): #use-mmap: no / #tpacket-v3: yes
+Unica linea buffer-size activa: 1904 "buffer-size: 18432" (fuera del bloque af-packet).
+
+== uptime
+ 21:48:31 up 2 days,  1:55,  1 user,  load average: 0,11, 0,34, 0,66
+
+Conclusion de la lectura: el tamano del anillo, tpacket-v3 y mmap EFECTIVOS no se pueden leer sin privilegios
+(suricata.log no los imprime a nivel Info; /proc/<pid>/maps de Suricata es de root). Queda como medicion
+pendiente (M-S1 del diagnostico) con sudo de Mark.

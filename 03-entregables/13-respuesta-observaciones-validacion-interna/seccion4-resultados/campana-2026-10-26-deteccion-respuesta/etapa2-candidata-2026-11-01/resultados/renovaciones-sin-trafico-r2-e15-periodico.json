@@ -1,0 +1,222 @@
+{
+ "replay": "tramo-r2-e15-periodico",
+ "decisiones": 2244,
+ "variantes": {
+  "A_todas": {
+   "eventos_totales": 115,
+   "eventos_origen_ensayo": 113,
+   "otras_ips_con_eventos": [
+    "10.10.20.26"
+   ],
+   "episodios": [
+    {
+     "episodio": "escaneo_sostenido-r4",
+     "eventos": 7,
+     "por_destino": {
+      "srv-dmz": {
+       "eventos": 7,
+       "hasta_max_tras_fin_s": 347,
+       "ultima_ventana_tras_fin_s": 9,
+       "acciones": [
+        "BLOCK"
+       ]
+      }
+     },
+     "nivel_max": 1
+    },
+    {
+     "episodio": "escaneo_sostenido-r5",
+     "eventos": 20,
+     "por_destino": {
+      "srv-dmz": {
+       "eventos": 20,
+       "hasta_max_tras_fin_s": 1846,
+       "ultima_ventana_tras_fin_s": 103,
+       "acciones": [
+        "BLOCK",
+        "LIMIT"
+       ]
+      }
+     },
+     "nivel_max": 2
+    },
+    {
+     "episodio": "escaneo_breve-r5",
+     "eventos": 3,
+     "por_destino": {
+      "srv-dmz": {
+       "eventos": 3,
+       "hasta_max_tras_fin_s": 3818,
+       "ultima_ventana_tras_fin_s": 25,
+       "acciones": [
+        "BLOCK"
+       ]
+      }
+     },
+     "nivel_max": 3
+    },
+    {
+     "episodio": "fuerza_bruta_http-r3",
+     "eventos": 35,
+     "por_destino": {
+      "srv-dmz": {
+       "eventos": 35,
+       "hasta_max_tras_fin_s": 3819,
+       "ultima_ventana_tras_fin_s": 126,
+       "acciones": [
+        "BLOCK"
+       ]
+      }
+     },
+     "nivel_max": 3
+    },
+    {
+     "episodio": "fuerza_bruta_http-r5",
+     "eventos": 32,
+     "por_destino": {
+      "srv-dmz": {
+       "eventos": 32,
+       "hasta_max_tras_fin_s": 3819,
+       "ultima_ventana_tras_fin_s": 106,
+       "acciones": [
+        "BLOCK"
+       ]
+      }
+     },
+     "nivel_max": 3
+    },
+    {
+     "episodio": "dns_inusual-r5",
+     "eventos": 16,
+     "por_destino": {
+      "dc1": {
+       "eventos": 11,
+       "hasta_max_tras_fin_s": 328,
+       "ultima_ventana_tras_fin_s": 16,
+       "acciones": [
+        "LIMIT"
+       ]
+      },
+      "srv-dmz": {
+       "eventos": 5,
+       "hasta_max_tras_fin_s": 328,
+       "ultima_ventana_tras_fin_s": 16,
+       "acciones": [
+        "LIMIT"
+       ]
+      }
+     },
+     "nivel_max": 3
+    }
+   ]
+  },
+  "B_solo_con_score": {
+   "eventos_totales": 52,
+   "eventos_origen_ensayo": 50,
+   "otras_ips_con_eventos": [
+    "10.10.20.26"
+   ],
+   "episodios": [
+    {
+     "episodio": "escaneo_sostenido-r4",
+     "eventos": 7,
+     "por_destino": {
+      "srv-dmz": {
+       "eventos": 7,
+       "hasta_max_tras_fin_s": 347,
+       "ultima_ventana_tras_fin_s": 9,
+       "acciones": [
+        "BLOCK"
+       ]
+      }
+     },
+     "nivel_max": 1
+    },
+    {
+     "episodio": "escaneo_sostenido-r5",
+     "eventos": 8,
+     "por_destino": {
+      "srv-dmz": {
+       "eventos": 8,
+       "hasta_max_tras_fin_s": 1817,
+       "ultima_ventana_tras_fin_s": 3,
+       "acciones": [
+        "BLOCK",
+        "LIMIT"
+       ]
+      }
+     },
+     "nivel_max": 2
+    },
+    {
+     "episodio": "escaneo_breve-r5",
+     "eventos": 1,
+     "por_destino": {
+      "srv-dmz": {
+       "eventos": 1,
+       "hasta_max_tras_fin_s": 3627,
+       "ultima_ventana_tras_fin_s": 5,
+       "acciones": [
+        "BLOCK"
+       ]
+      }
+     },
+     "nivel_max": 3
+    },
+    {
+     "episodio": "fuerza_bruta_http-r3",
+     "eventos": 10,
+     "por_destino": {
+      "srv-dmz": {
+       "eventos": 10,
+       "hasta_max_tras_fin_s": 3629,
+       "ultima_ventana_tras_fin_s": 6,
+       "acciones": [
+        "BLOCK"
+       ]
+      }
+     },
+     "nivel_max": 3
+    },
+    {
+     "episodio": "fuerza_bruta_http-r5",
+     "eventos": 10,
+     "por_destino": {
+      "srv-dmz": {
+       "eventos": 10,
+       "hasta_max_tras_fin_s": 3629,
+       "ultima_ventana_tras_fin_s": 6,
+       "acciones": [
+        "BLOCK"
+       ]
+      }
+     },
+     "nivel_max": 3
+    },
+    {
+     "episodio": "dns_inusual-r5",
+     "eventos": 14,
+     "por_destino": {
+      "dc1": {
+       "eventos": 10,
+       "hasta_max_tras_fin_s": 328,
+       "ultima_ventana_tras_fin_s": 6,
+       "acciones": [
+        "LIMIT"
+       ]
+      },
+      "srv-dmz": {
+       "eventos": 4,
+       "hasta_max_tras_fin_s": 328,
+       "ultima_ventana_tras_fin_s": 6,
+       "acciones": [
+        "LIMIT"
+       ]
+      }
+     },
+     "nivel_max": 3
+    }
+   ]
+  }
+ }
+}

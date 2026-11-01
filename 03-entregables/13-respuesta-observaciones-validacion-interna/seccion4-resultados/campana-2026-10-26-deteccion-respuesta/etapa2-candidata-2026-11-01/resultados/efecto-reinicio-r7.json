@@ -1,0 +1,188 @@
+{
+ "t_reinicio": 1793523002.1448,
+ "decisiones_con_cambio": 16,
+ "antes_del_reinicio": 5,
+ "despues_max_s": 47.9,
+ "cambios": [
+  {
+   "ip": "10.10.20.22",
+   "ventana": "2026-11-01T08:38:10+00:00",
+   "t_desde_reinicio_s": -712.1,
+   "reglas_ref": [],
+   "reglas_reinicio": [],
+   "clase_ref": "0.03",
+   "clase_reinicio": "0.05"
+  },
+  {
+   "ip": "10.10.20.22",
+   "ventana": "2026-11-01T08:38:20+00:00",
+   "t_desde_reinicio_s": -702.1,
+   "reglas_ref": [],
+   "reglas_reinicio": [],
+   "clase_ref": "0.03",
+   "clase_reinicio": "0.05"
+  },
+  {
+   "ip": "10.10.10.20",
+   "ventana": "2026-11-01T08:50:00+00:00",
+   "t_desde_reinicio_s": -2.1,
+   "reglas_ref": [
+    "dns_entropy"
+   ],
+   "reglas_reinicio": [],
+   "clase_ref": "normal",
+   "clase_reinicio": "normal"
+  },
+  {
+   "ip": "10.10.20.22",
+   "ventana": "2026-11-01T08:50:00+00:00",
+   "t_desde_reinicio_s": -2.1,
+   "reglas_ref": [],
+   "reglas_reinicio": [],
+   "clase_ref": "0.03",
+   "clase_reinicio": "normal"
+  },
+  {
+   "ip": "10.10.20.24",
+   "ventana": "2026-11-01T08:50:00+00:00",
+   "t_desde_reinicio_s": -2.1,
+   "reglas_ref": [],
+   "reglas_reinicio": [],
+   "clase_ref": "0.05",
+   "clase_reinicio": "normal"
+  },
+  {
+   "ip": "10.10.20.22",
+   "ventana": "2026-11-01T08:50:10+00:00",
+   "t_desde_reinicio_s": 7.9,
+   "reglas_ref": [],
+   "reglas_reinicio": [],
+   "clase_ref": "0.01",
+   "clase_reinicio": "0.05"
+  },
+  {
+   "ip": "10.10.20.24",
+   "ventana": "2026-11-01T08:50:10+00:00",
+   "t_desde_reinicio_s": 7.9,
+   "reglas_ref": [],
+   "reglas_reinicio": [],
+   "clase_ref": "0.05",
+   "clase_reinicio": "normal"
+  },
+  {
+   "ip": "10.10.10.20",
+   "ventana": "2026-11-01T08:50:20+00:00",
+   "t_desde_reinicio_s": 17.9,
+   "reglas_ref": [
+    "dns_entropy"
+   ],
+   "reglas_reinicio": [],
+   "clase_ref": "normal",
+   "clase_reinicio": "normal"
+  },
+  {
+   "ip": "10.10.20.22",
+   "ventana": "2026-11-01T08:50:20+00:00",
+   "t_desde_reinicio_s": 17.9,
+   "reglas_ref": [],
+   "reglas_reinicio": [],
+   "clase_ref": "0.01",
+   "clase_reinicio": "0.05"
+  },
+  {
+   "ip": "10.10.20.24",
+   "ventana": "2026-11-01T08:50:20+00:00",
+   "t_desde_reinicio_s": 17.9,
+   "reglas_ref": [],
+   "reglas_reinicio": [],
+   "clase_ref": "0.05",
+   "clase_reinicio": "normal"
+  },
+  {
+   "ip": "10.10.20.22",
+   "ventana": "2026-11-01T08:50:30+00:00",
+   "t_desde_reinicio_s": 27.9,
+   "reglas_ref": [],
+   "reglas_reinicio": [],
+   "clase_ref": "0.01",
+   "clase_reinicio": "0.05"
+  },
+  {
+   "ip": "10.10.20.24",
+   "ventana": "2026-11-01T08:50:30+00:00",
+   "t_desde_reinicio_s": 27.9,
+   "reglas_ref": [],
+   "reglas_reinicio": [],
+   "clase_ref": "0.03",
+   "clase_reinicio": "normal"
+  },
+  {
+   "ip": "10.10.20.22",
+   "ventana": "2026-11-01T08:50:40+00:00",
+   "t_desde_reinicio_s": 37.9,
+   "reglas_ref": [],
+   "reglas_reinicio": [],
+   "clase_ref": "0.03",
+   "clase_reinicio": "normal"
+  },
+  {
+   "ip": "10.10.10.20",
+   "ventana": "2026-11-01T08:50:40+00:00",
+   "t_desde_reinicio_s": 37.9,
+   "reglas_ref": [
+    "dns_entropy"
+   ],
+   "reglas_reinicio": [],
+   "clase_ref": "normal",
+   "clase_reinicio": "normal"
+  },
+  {
+   "ip": "10.10.10.20",
+   "ventana": "2026-11-01T08:50:50+00:00",
+   "t_desde_reinicio_s": 47.9,
+   "reglas_ref": [
+    "dns_entropy"
+   ],
+   "reglas_reinicio": [],
+   "clase_ref": "normal",
+   "clase_reinicio": "normal"
+  },
+  {
+   "ip": "10.10.20.22",
+   "ventana": "2026-11-01T08:50:50+00:00",
+   "t_desde_reinicio_s": 47.9,
+   "reglas_ref": [],
+   "reglas_reinicio": [],
+   "clase_ref": "0.03",
+   "clase_reinicio": "normal"
+  }
+ ],
+ "solo_ref_tras_reinicio": [
+  "2026-11-01T08:53:50+00:00 10.10.30.10"
+ ],
+ "solo_reinicio_tras_reinicio": [
+  "2026-11-01T08:51:00+00:00 10.10.10.1",
+  "2026-11-01T08:51:10+00:00 10.10.10.1",
+  "2026-11-01T08:51:20+00:00 10.10.10.1",
+  "2026-11-01T08:51:30+00:00 10.10.10.1",
+  "2026-11-01T08:51:40+00:00 10.10.10.1",
+  "2026-11-01T08:51:50+00:00 10.10.10.1",
+  "2026-11-01T08:56:40+00:00 10.10.30.10",
+  "2026-11-01T08:57:50+00:00 10.10.30.10",
+  "2026-11-01T08:58:40+00:00 10.10.30.10",
+  "2026-11-01T09:01:00+00:00 10.10.30.10",
+  "2026-11-01T09:04:40+00:00 10.10.10.21",
+  "2026-11-01T09:04:50+00:00 10.10.10.20",
+  "2026-11-01T09:04:50+00:00 10.10.10.21",
+  "2026-11-01T09:04:50+00:00 10.10.20.21",
+  "2026-11-01T09:04:50+00:00 10.10.20.22",
+  "2026-11-01T09:04:50+00:00 10.10.20.23",
+  "2026-11-01T09:04:50+00:00 10.10.20.24",
+  "2026-11-01T09:04:50+00:00 10.10.20.25",
+  "2026-11-01T09:04:50+00:00 10.10.20.26",
+  "2026-11-01T09:04:50+00:00 10.10.40.10",
+  "2026-11-01T09:04:50+00:00 10.10.50.51",
+  "2026-11-01T09:04:50+00:00 10.10.50.52",
+  "2026-11-01T09:04:50+00:00 10.10.60.12"
+ ]
+}

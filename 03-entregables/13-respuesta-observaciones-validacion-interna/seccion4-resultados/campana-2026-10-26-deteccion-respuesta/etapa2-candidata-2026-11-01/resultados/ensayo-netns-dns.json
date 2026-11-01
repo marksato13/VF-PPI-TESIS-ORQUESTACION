@@ -1,0 +1,175 @@
+{
+ "C0_linea_base": {
+  "datos": {
+   "ata": {
+    "dur": 4.0,
+    "enviadas": 80,
+    "respondidas": 80
+   },
+   "leg": {
+    "dur": 4.0,
+    "enviadas": 80,
+    "respondidas": 80
+   }
+  },
+  "pasa": true
+ },
+ "C1_limit_dns": {
+  "contadores": {
+   "reglas": [
+    {
+     "contador": {
+      "bytes": 0,
+      "packets": 0
+     },
+     "handle": 6
+    },
+    {
+     "contador": {
+      "bytes": 658,
+      "packets": 14
+     },
+     "handle": 8
+    }
+   ],
+   "sets": {
+    "bloqueados": {},
+    "limitados": {
+     "10.10.20.30": {
+      "bytes": 2491,
+      "expira_s": 50,
+      "paquetes": 53
+     }
+    }
+   }
+  },
+  "datos": {
+   "ata": {
+    "dur": 6.0,
+    "enviadas": 53,
+    "respondidas": 39
+   },
+   "ata_389": {
+    "dur": 3.0,
+    "enviadas": 30,
+    "respondidas": 30
+   },
+   "leg": {
+    "dur": 6.0,
+    "enviadas": 120,
+    "respondidas": 120
+   }
+  },
+  "pasa": true,
+  "respuestas_por_s_ata": 6.5
+ },
+ "C2_block_dns": {
+  "datos": {
+   "ata": {
+    "dur": 2.0,
+    "enviadas": 7,
+    "respondidas": 0
+   },
+   "ata_389": {
+    "dur": 2.0,
+    "enviadas": 20,
+    "respondidas": 20
+   },
+   "leg": {
+    "dur": 2.0,
+    "enviadas": 20,
+    "respondidas": 20
+   }
+  },
+  "pasa": true
+ },
+ "C3_saliente_reenviador": {
+  "datos": {
+   "dur": 1.0,
+   "enviadas": 10,
+   "respondidas": 10
+  },
+  "pasa": true
+ },
+ "C4_caducidad_nativa": {
+  "datos": {
+   "dur": 1.0,
+   "enviadas": 10,
+   "respondidas": 10
+  },
+  "pasa": true
+ },
+ "C5_retirada_y_reversion": {
+  "datos": {
+   "dur": 1.0,
+   "enviadas": 10,
+   "respondidas": 10
+  },
+  "desinstalar": {
+   "ok": true,
+   "operaciones": 1,
+   "perfil": "dns"
+  },
+  "pasa": true,
+  "retirar": {
+   "ok": true,
+   "operaciones": 1,
+   "perfil": "dns"
+  },
+  "tablas": ""
+ },
+ "C6_dmz_block_y_limit_por_origen": {
+  "datos": {
+   "ata_389": {
+    "dur": 2.0,
+    "enviadas": 4,
+    "respondidas": 0
+   },
+   "leg_389": {
+    "dur": 2.0,
+    "enviadas": 20,
+    "respondidas": 20
+   }
+  },
+  "limit": {
+   "ata": {
+    "dur": 4.0,
+    "enviadas": 488,
+    "respondidas": 486
+   },
+   "leg": {
+    "dur": 4.0,
+    "enviadas": 493,
+    "respondidas": 491
+   }
+  },
+  "pasa": true
+ },
+ "C7_agente_v2": {
+  "pasa": true,
+  "salida": {
+   "ajenas": 1,
+   "estado": "aceptado",
+   "operaciones": 1,
+   "rechazadas": 0,
+   "secuencia": 1
+  },
+  "trafico": {
+   "389": {
+    "dur": 1.0,
+    "enviadas": 10,
+    "respondidas": 10
+   },
+   "dns": {
+    "dur": 1.0,
+    "enviadas": 4,
+    "respondidas": 0
+   }
+  },
+  "traza": [
+   "recepcion",
+   "aplicacion",
+   "confirmacion"
+  ]
+ }
+}
