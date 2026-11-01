@@ -1,0 +1,8 @@
+{"declarado_en": "2026-11-01T07:28:02.897Z", "control_normal": {"desde": "2026-11-01T07:32:00Z", "hasta": "2026-11-01T08:05:00Z",
+ "seleccion": "window_end_utc en [desde, hasta], ambos incluidos", "duracion_min": 33},
+ "inicio_archivo": "2026-11-01T07:04:56Z", "inicio_archivo_mas_230": "2026-11-01T07:08:46Z",
+ "requisito": "desde >= inicio_archivo + 230 s: cumple",
+ "perfiles": "seis perfiles a factor 1,0 desde 2026-11-01T07:26:15Z (k01)",
+ "preparacion_fuera_del_control": ["c00 bastion 07:21:23-07:21:28 (HTTP/HTTPS/DNS desde 10.10.10.30)",
+   "c05 brute-lab 07:24:02-07:24:04 (desde 10.10.10.30)", "p10b relojes 07:21:29-07:21:43"],
+ "accesos_prohibidos_durante_el_control": "sin SSH a Kali ni a srv-dmz; sin sondas; sin ataques"}

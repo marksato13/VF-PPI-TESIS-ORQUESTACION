@@ -1,0 +1,14 @@
+## c02 srv-dmz 2026-11-01T07:22:49.412Z
+  ppi-enforce-agent.timer active=inactive enabled=disabled
+  ppi-enforce-agent.service active=inactive enabled=static
+  ppi-brute-lab.service active=active enabled=disabled
+  lab-web-http.service active=active enabled=enabled
+  lab-web-https.service active=active enabled=enabled
+  sudo -n nft list tables rc=0 ->  
+  consulta correcta (rc=0): NO existe la tabla inet cyberflow
+  nft list ruleset rc=0, lineas=1, menciones cyberflow=0
+  iptables: 0 reglas cyberflow (rc=0)
+  agente: 2985c1230a61933b308c84822b35217a1f6a6680a4a03b1bde07f4025778cb63 (esperado 2985c123...)
+  brute-lab: PID=738815 desde Sun 2026-11-01 05:26:20 UTC; app.py 7e43aecb1002b052; brute.log 30734 lineas
+  escucha: 127.0.0.53%lo:53 0.0.0.0:18081 10.10.30.10:80 127.0.0.54:53 0.0.0.0:22 10.10.30.10:443 [::]:22 
+## fin 2026-11-01T07:22:49.576Z

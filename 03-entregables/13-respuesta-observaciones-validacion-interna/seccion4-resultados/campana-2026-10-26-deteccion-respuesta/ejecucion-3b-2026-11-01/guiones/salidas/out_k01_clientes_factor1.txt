@@ -1,0 +1,30 @@
+## k01 2026-11-01T07:26:15.240Z
+  [2026-11-01T07:26:15.369Z] stop cyberflow-lab.target rc=0
+  target: inactive; unidades activas: 0
+  generador sha=ae5134a778e66d90f5c3fbcd47323e328f3422cf4ba8d5197649f402c1d4cdc3
+  ofimatica: unidad -> /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil ofimatica --origen 10.10.20.21 --servidor 10.10.30.10 --dns 10.10.10.20 
+  navegacion: unidad -> /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil navegacion --origen 10.10.20.22 --servidor 10.10.30.10 --dns 10.10.10.20 
+  descargas: unidad -> /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil descargas --origen 10.10.20.23 --servidor 10.10.30.10 --dns 10.10.10.20 
+  aplicacion: unidad -> /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil aplicacion --origen 10.10.20.24 --servidor 10.10.30.10 --dns 10.10.10.20 
+  ligero: unidad -> /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil ligero --origen 10.10.20.25 --servidor 10.10.30.10 --dns 10.10.10.20 
+  erratico: unidad -> /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil erratico --origen 10.10.20.26 --servidor 10.10.30.10 --dns 10.10.10.20 
+  ofimatica pgid=8633 vivo=si hijos=2
+  navegacion pgid=8641 vivo=si hijos=2
+  descargas pgid=8649 vivo=si hijos=2
+  aplicacion pgid=8657 vivo=si hijos=2
+  ligero pgid=8665 vivo=si hijos=2
+  erratico pgid=8673 vivo=si hijos=2
+  errores: PASO2: factor_horario fijado en 1.0 (original devolveria 0.036 ahora)
+PASO2: factor_horario fijado en 1.0 (original devolveria 0.036 ahora)
+PASO2: factor_horario fijado en 1.0 (original devolveria 0.036 ahora)
+PASO2: factor_horario fijado en 1.0 (original devolveria 0.036 ahora)
+PASO2: factor_horario fijado en 1.0 (original devolveria 0.036 ahora)
+## conexiones por origen (ss)
+        1 10.10.20.20
+  aplicacion.out: 1 lineas; perfil aplicacion desde 10.10.20.24 -> 10.10.30.10
+  descargas.out: 1 lineas; perfil descargas desde 10.10.20.23 -> 10.10.30.10
+  erratico.out: 1 lineas; perfil erratico desde 10.10.20.26 -> 10.10.30.10
+  ligero.out: 1 lineas; perfil ligero desde 10.10.20.25 -> 10.10.30.10
+  navegacion.out: 1 lineas; perfil navegacion desde 10.10.20.22 -> 10.10.30.10
+  ofimatica.out: 1 lineas; perfil ofimatica desde 10.10.20.21 -> 10.10.30.10
+## fin 2026-11-01T07:26:56.743Z

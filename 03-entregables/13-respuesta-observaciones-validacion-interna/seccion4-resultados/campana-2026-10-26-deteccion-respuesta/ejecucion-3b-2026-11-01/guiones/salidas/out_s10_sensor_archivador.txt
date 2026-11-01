@@ -1,0 +1,14 @@
+## s10 2026-11-01T07:24:32.734Z
+  archivador: 2181af5f8406e3aa4f41a26e24d7ec83bfaf72eee06aa3ee564e2dbba5639eb6
+{"t": 1793517872.7746403, "inode": 663679, "size": 220192406}
+  stats.log inicial copiado (29345834 bytes)
+  motor_decision.log inicio: inodo 671346 tam 15505955
+  archivador PID=1611577 cmdline=bash /home/m4rk/bin/archivar_captura.sh /home/m4rk/cf-3b-20261101T0721Z/archivo-pcap 20 
+  muestreador PID= muestras=
+cat: /home/m4rk/cf-3b-20261101T0721Z/recursos/muestreo.pid: No such file or directory
+bash: line 24: /home/m4rk/cf-3b-20261101T0721Z/recursos/muestras.jsonl: No such file or directory
+  ESTADO.txt: OK: vistos=78 archivados=78, sin fallos  (2026-11-01T07:24:57Z)  ficheros=78
+  primero: 2026-11-01T07:24:32Z OK live-20261101070456.pcap (312530 bytes) sha=5fa849d10a972cdc23cc3e28a80ffbe78282ecec246ac0128c0bf3b8603b17c2
+  | 2026-11-01T07:24:36Z OK live-20261101072400.pcap (477864 bytes) sha=d3103413e03ed1cb9d1dc5b09a6b43235df490b310b26e3b5bc6ef2606b2414a
+  | 2026-11-01T07:24:57Z OK live-20261101072415.pcap (342954 bytes) sha=192507b2b22faf492861f14295a31039691adee6b77794b1db739cee93b3a71b
+## fin 2026-11-01T07:25:02.878Z

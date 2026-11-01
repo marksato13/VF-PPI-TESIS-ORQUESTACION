@@ -1,0 +1,24 @@
+## parar factor1 2026-11-01T10:36:55.883Z
+  ofimatica pgid=8633 TERM
+  navegacion pgid=8641 TERM
+  descargas pgid=8649 TERM
+  aplicacion pgid=8657 TERM
+  ligero pgid=8665 TERM
+  erratico pgid=8673 TERM
+  quedan: 0
+  aplicacion.out: acciones 5000, fallidas 0
+  descargas.out: acciones 1400, fallidas 0
+  erratico.out: acciones 4000, fallidas 0
+  ligero.out: acciones 800, fallidas 0
+  navegacion.out: acciones 7600, fallidas 0
+  ofimatica.out: acciones 3600, fallidas 0
+  generador sin cambios: ae5134a778e66d90f5c3fbcd47323e328f3422cf4ba8d5197649f402c1d4cdc3
+  [2026-11-01T10:36:59.083Z] start cyberflow-lab.target rc=0
+  target: active/disabled
+  cyberflow-lab-ofimatica active NR=0
+  cyberflow-lab-navegacion active NR=0
+  cyberflow-lab-descargas active NR=0
+  cyberflow-lab-aplicacion active NR=0
+  cyberflow-lab-ligero active NR=0
+  cyberflow-lab-erratico active NR=0
+  envoltorios vivos: 0

@@ -1,0 +1,32 @@
+## s40 2026-11-01T10:36:00.106Z
+  archivador PID=1611577 -> TERM (barrido final)
+  archivador rc=0  ESTADO: OK: vistos=844 archivados=844, sin fallos  (2026-11-01T10:36:33Z)
+   | 2026-11-01T10:36:14Z parando: espero 16s a que cierre el ultimo fichero y hago barrido final
+   | 2026-11-01T10:36:31Z OK live-20261101103538.pcap (1715026 bytes) sha=5fba8a01398c1601588a502c310f7117b45f781fcfd8361413eb9bf03f7ed8d6
+   | 2026-11-01T10:36:31Z OK live-20261101103553.pcap (598570 bytes) sha=e33f699784759291625fc97b0bde0306afc595a98da29d1c2c393d68cbce7c4b
+   | 2026-11-01T10:36:33Z FIN OK: vistos=844 archivados=844, sin fallos  (2026-11-01T10:36:33Z)
+  pcaps archivados: 844  tamano: 1,2G
+  FALLO/PERDIDO en archivar.log: 0
+  muestreador 1615401 parado (2265 muestras)
+  motor_decision.log: inodo 671346 (inicio:   motor_decision.log inicio: inodo 671346 tam 15505955)
+  8038c9256520aea95962048b9f1a732b8990d3a899d9468a8f1c99323689321b  /home/m4rk/feed/feed.json
+  b0617035d938e43a5084b4e3d0b3007bd9f3e3a5ebc7d97743b4a818d95fbcc6  /home/m4rk/feed/feed.sig
+  600f0c65d2fe768a1521975d3f2099f87be073f27781e714b1ef3646697746a4  /home/m4rk/feed/estado.json
+  journal motor: 4 lineas, trazas: 0 | captura/suricata: 1 | avisos: 10
+  ppi-motor active NR=0 PID=1289322
+  ppi-motor-capture active NR=0 PID=1375
+  suricata active NR=0 PID=1372
+  ppi-dashboard active NR=0 PID=1379
+  fin scripts/engine/motor_decision.py: OK
+  fin scripts/engine/motor_incremental.py: OK
+  fin scripts/engine/heuristicos.py: OK
+  fin scripts/features/extract_multilayer_v2.py: OK
+  fin scripts/features/extract_multilayer_v3.py: OK
+  fin scripts/engine/feed.py: OK
+  fin configs/features/multilayer-v2.json: OK
+  fin scripts/engine/publicar_feed.py: OK
+  fin scripts/engine/escalada.py: OK
+  fin artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib: OK
+  fin artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json: OK
+  --enforce en argv: ''
+## fin 2026-11-01T10:36:39.181Z

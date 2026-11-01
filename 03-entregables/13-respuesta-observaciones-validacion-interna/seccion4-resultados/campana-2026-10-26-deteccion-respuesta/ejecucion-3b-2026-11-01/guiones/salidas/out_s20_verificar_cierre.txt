@@ -1,0 +1,8 @@
+# Salida de s20_verificar_cierre.sh 1793527325.818114 (sensor, m4rk), transcrita del registro de la sesión: el guion
+# imprime en pantalla y no la guardó en el sensor. Las condiciones 3 y 4 leen ficheros en vivo y no se pueden repetir.
+## s20 2026-11-01T10:05:58.028Z  fin_ultimo=2026-11-01T10:02:05.818Z
+  1) ultimo PCAP OK live-20261101100506.pcap -> inicio+15=2026-11-01T10:05:21.000Z  >= fin+180=2026-11-01T10:05:05.818Z : True
+  2) archivar.log FALLO/PERDIDO: 0 lineas : True []
+  3) EVE ultimo evento 2026-11-01T10:05:57.685Z > fin+180 : True
+  4) motor: window_end maximo 2026-11-01T10:05:50.000Z >= fin+60=2026-11-01T10:03:05.818Z : True
+  RESULTADO 1-4: CUMPLE

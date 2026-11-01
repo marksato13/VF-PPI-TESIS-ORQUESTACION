@@ -1,0 +1,12 @@
+## c00 bastion VM-GESTION 2026-11-01T07:21:23.688Z  [PREPARACION]
+  sensor1 rc=0 cyberflow-sensor m4rk up=up 1 day, 11 hours, 28 minutes load=0.47 0.21 0.13
+  kali rc=0 kali adminatacante up=up 1 day, 11 hours, 29 minutes load=0.00 0.00 0.00
+  srvdmz rc=0 srv-dmz adminsrvdmz up=up 1 day, 12 hours, 17 minutes load=0.00 0.00 0.00
+  clientes rc=0 clientesadmin adminclientes up=up 1 day, 11 hours, 29 minutes load=0.16 0.03 0.01
+  admin rc=0 clientesadmin adminclientes up=up 1 day, 11 hours, 29 minutes load=0.16 0.03 0.01
+## servidor protegido y DNS desde el bastion [PREPARACION 2026-11-01T07:21:27.656Z]
+  http://10.10.30.10/ 200 0.002249s
+  https://10.10.30.10/ 200 0.053479s
+  dig @10.10.10.20 prep3b.lab-ppi -> '10.10.30.10 ' (esperado 10.10.30.10)
+  dig @10.10.10.20 noexiste-1793517687.lab-ppi status: status: NOERROR
+## fin alcance 2026-11-01T07:21:27.800Z

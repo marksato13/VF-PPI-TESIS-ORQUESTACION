@@ -1,0 +1,118 @@
+{
+ "escaneo_sostenido-r2": [
+  "completa",
+  []
+ ],
+ "inundacion_http-r1": [
+  "completa",
+  []
+ ],
+ "dns_inusual-r3": [
+  "degradada",
+  [
+   "suricata: 28 descartes de kernel en el intervalo"
+  ]
+ ],
+ "inundacion_http-r4": [
+  "degradada",
+  [
+   "suricata: 182 descartes de kernel en el intervalo"
+  ]
+ ],
+ "inundacion_http-r2": [
+  "degradada",
+  [
+   "suricata: 111 descartes de kernel en el intervalo"
+  ]
+ ],
+ "inundacion_http-r3": [
+  "degradada",
+  [
+   "suricata: 1146 descartes de kernel en el intervalo"
+  ]
+ ],
+ "escaneo_sostenido-r4": [
+  "completa",
+  []
+ ],
+ "escaneo_sostenido-r5": [
+  "completa",
+  []
+ ],
+ "escaneo_breve-r5": [
+  "completa",
+  []
+ ],
+ "fuerza_bruta_http-r3": [
+  "degradada",
+  [
+   "suricata: 61 descartes de kernel en el intervalo"
+  ]
+ ],
+ "fuerza_bruta_http-r5": [
+  "completa",
+  []
+ ],
+ "dns_inusual-r5": [
+  "degradada",
+  [
+   "suricata: 100 descartes de kernel en el intervalo"
+  ]
+ ],
+ "escaneo_sostenido-r3": [
+  "completa",
+  []
+ ],
+ "dns_inusual-r2": [
+  "completa",
+  []
+ ],
+ "fuerza_bruta_http-r2": [
+  "degradada",
+  [
+   "suricata: 97 descartes de kernel en el intervalo"
+  ]
+ ],
+ "fuerza_bruta_http-r4": [
+  "completa",
+  []
+ ],
+ "dns_inusual-r1": [
+  "completa",
+  []
+ ],
+ "escaneo_breve-r1": [
+  "completa",
+  []
+ ],
+ "escaneo_breve-r4": [
+  "degradada",
+  [
+   "suricata: 58 descartes de kernel en el intervalo"
+  ]
+ ],
+ "escaneo_breve-r3": [
+  "completa",
+  []
+ ],
+ "dns_inusual-r4": [
+  "completa",
+  []
+ ],
+ "fuerza_bruta_http-r1": [
+  "completa",
+  []
+ ],
+ "inundacion_http-r5": [
+  "completa",
+  []
+ ],
+ "escaneo_breve-r2": [
+  "completa",
+  []
+ ],
+ "escaneo_sostenido-r1": [
+  "completa",
+  []
+ ]
+}

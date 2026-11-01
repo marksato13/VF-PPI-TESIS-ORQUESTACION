@@ -1,0 +1,32 @@
+{
+ "campana": "campana-A-repetida-3b-20261101T0721Z",
+ "episodio": "escaneo_sostenido-r1",
+ "periodo": {
+  "inicio": 1793527140.044057,
+  "fin": 1793527415.818114
+ },
+ "origen": "sensor (automatico)",
+ "fuente": "motor_decision.log + secuencia de PCAP archivados",
+ "previa_s": 61.7,
+ "posterior_s": 111.2,
+ "detalle": {
+  "motor_previa_s": 61.7,
+  "motor_posterior_desde_fin_mas_60_s": 51.2,
+  "pcap_previa_s": 896.0,
+  "pcap_posterior_s": 885.2,
+  "hueco_motor_max_s": 20.031142950057983,
+  "analizar_cobertura": {
+   "suficiente": false,
+   "motivo": "motor no continuo (hueco o no cubre el intervalo)",
+   "motor_continuo": false,
+   "anclas_ataque_esperadas": 6,
+   "anclas_ataque_observadas": 6,
+   "hueco_motor_max_s": 20.0,
+   "cubre_inicio": true,
+   "cubre_fin_mas_60": true
+  }
+ },
+ "durante_completa": false,
+ "faltantes": [],
+ "continuidad_sin_huecos": false
+}

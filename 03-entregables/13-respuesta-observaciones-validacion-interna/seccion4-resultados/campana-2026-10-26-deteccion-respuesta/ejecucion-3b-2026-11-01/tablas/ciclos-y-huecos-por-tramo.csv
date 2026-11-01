@@ -1,0 +1,6 @@
+tramo,desde,hasta,ciclos,ciclo_dur_p50_s,ciclo_dur_p95_s,ciclo_dur_max_s,instantes_escritura_decisiones,hueco_escritura_p50_s,hueco_escritura_p95_s,hueco_escritura_max_s,huecos_escritura_>20s(analizador),huecos_>20s_max_s
+"previo (motor activo, antes del control)",2026-11-01T03:14:01Z,2026-11-01T07:32:00Z,1548,0.28,2.23,9.38,1195,10.03,20.07,23.54,208,23.5
+control normal,2026-11-01T07:32:00Z,2026-11-01T08:05:00Z,198,1.17,1.87,2.3,154,10.22,20.39,20.83,21,20.8
+entre control y batería,2026-11-01T08:05:00Z,2026-11-01T08:08:39Z,22,1.28,2.05,2.1,17,10.47,20.2,20.89,1,20.9
+batería (1.er inicio - último fin),2026-11-01T08:08:39Z,2026-11-01T10:02:05.818Z,681,1.65,5.06,10.61,514,10.55,20.41,21.78,79,21.8
+"cierre (fin + espera, hasta el último ciclo copiado)",2026-11-01T10:02:05.818Z,2026-11-01T10:40:00Z,206,1.16,1.91,4.13,157,10.32,20.27,20.97,24,21.0

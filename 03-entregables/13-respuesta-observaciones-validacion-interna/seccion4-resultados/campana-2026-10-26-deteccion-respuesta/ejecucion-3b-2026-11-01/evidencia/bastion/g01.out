@@ -1,0 +1,34 @@
+## g01 2026-11-01T08:05:21.955Z
+## sombra (sensor)
+  ppi-motor active PID=1289322 NR=0 --enforce=0
+## sombra (srv-dmz) y endpoint
+  timer inactive/disabled servicio inactive
+  nft rc=0 inet cyberflow: 0
+## c05 minima 2026-11-01T08:05:22.707Z  [PREPARACION, origen bastion 10.10.10.30, agente cf-preparacion-paso3b-20261101T0721Z]
+  servicio: active/disabled PID=738815
+  [sin credenciales, esperado 401]
+  2026-11-01T08:05:23.433Z 401 t=0.001756
+## registro del servidor (lineas nuevas; sin credenciales)
+  2026-11-01T08:05:23.448549+00:00 10.10.10.30 GET /auth user=- -> 401
+## fin 2026-11-01T08:05:24.785Z
+## relojes (p10b)
+## p10b relojes  inicio=2026-11-01T08:05:24.790Z  referencia=bastion VM-GESTION
+  Reference ID    : C8A00008 (a.ntp.br)
+  System time     : 0.000300134 seconds fast of NTP time
+  RMS offset      : 0.000198255 seconds
+  Root dispersion : 0.000660295 seconds
+  [2026-11-01T08:05:29Z] sensor   mejor desfase=-0.0002 s inc=+-0.0004 s | mediana=-0.0001 s | rango=[-0.0002,+0.0001] | |desfase|<=1 s: SI | NTP yes 10.10.60.1
+  [2026-11-01T08:05:31Z] kali     mejor desfase=-0.0033 s inc=+-0.0006 s | mediana=-0.0033 s | rango=[-0.0036,-0.0028] | |desfase|<=1 s: SI | NTP yes 2.debian.pool.ntp.org
+  [2026-11-01T08:05:33Z] srv-dmz  mejor desfase=+0.0002 s inc=+-0.0005 s | mediana=+0.0002 s | rango=[-0.0003,+0.0002] | |desfase|<=1 s: SI | NTP yes ntp.ubuntu.com
+  [2026-11-01T08:05:36Z] clientes mejor desfase=-0.0004 s inc=+-0.0005 s | mediana=-0.0003 s | rango=[-0.0006,-0.0002] | |desfase|<=1 s: SI | NTP yes ntp.ubuntu.com
+## fin=2026-11-01T08:05:38.928Z
+## lanzamiento en la Kali [ACCESO SSH A KALI 2026-11-01T08:05:38.930Z: lanzar el generador]
+  /home/adminatacante/cf-campana-A/scripts/generar_campana.py: La suma coincide
+  /home/adminatacante/cf-campana-A/scripts/esquema_campana.py: La suma coincide
+  /home/adminatacante/cf-campana-A/escenarios/escenarios.json: La suma coincide
+  comando: python3 -u /home/adminatacante/cf-campana-A/scripts/generar_campana.py --config /home/adminatacante/cf-campana-A/escenarios/escenarios.json --salida-dir /home/adminatacante/cf-3b-20261101T0721Z/corrida --autorizado
+  pid(s): 52683 52687 52689 52690 
+  | AUTORIZADO (lanza tráfico) · 25 episodios · calentamiento 60 s · contexto previo 120 s · observación 90 s
+## fin acceso Kali 2026-11-01T08:05:42.108Z
+  comprobacion programada (PID 148039) para ~08:49:02Z en /home/gadmin/cf-3b-20261101T0721Z/brute-pre-ep10.log
+## fin 2026-11-01T08:05:42.114Z

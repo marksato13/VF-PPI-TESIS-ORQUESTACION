@@ -1,0 +1,20 @@
+## p10b relojes  inicio=2026-11-01T08:05:24.790Z  referencia=bastion VM-GESTION
+  Reference ID    : C8A00008 (a.ntp.br)
+  System time     : 0.000300134 seconds fast of NTP time
+  RMS offset      : 0.000198255 seconds
+  Root dispersion : 0.000660295 seconds
+  [2026-11-01T08:05:29Z] sensor   mejor desfase=-0.0002 s inc=+-0.0004 s | mediana=-0.0001 s | rango=[-0.0002,+0.0001] | |desfase|<=1 s: SI | NTP yes 10.10.60.1
+  [2026-11-01T08:05:31Z] kali     mejor desfase=-0.0033 s inc=+-0.0006 s | mediana=-0.0033 s | rango=[-0.0036,-0.0028] | |desfase|<=1 s: SI | NTP yes 2.debian.pool.ntp.org
+  [2026-11-01T08:05:33Z] srv-dmz  mejor desfase=+0.0002 s inc=+-0.0005 s | mediana=+0.0002 s | rango=[-0.0003,+0.0002] | |desfase|<=1 s: SI | NTP yes ntp.ubuntu.com
+  [2026-11-01T08:05:36Z] clientes mejor desfase=-0.0004 s inc=+-0.0005 s | mediana=-0.0003 s | rango=[-0.0006,-0.0002] | |desfase|<=1 s: SI | NTP yes ntp.ubuntu.com
+## fin=2026-11-01T08:05:38.928Z
+## p10b relojes  inicio=2026-11-01T10:05:44.660Z  referencia=bastion VM-GESTION
+  Reference ID    : C8A00008 (a.ntp.br)
+  System time     : 0.000211446 seconds fast of NTP time
+  RMS offset      : 0.000212725 seconds
+  Root dispersion : 0.000652569 seconds
+  [2026-11-01T10:05:49Z] sensor   mejor desfase=+0.0001 s inc=+-0.0005 s | mediana=+0.0002 s | rango=[+0.0001,+0.0004] | |desfase|<=1 s: SI | NTP yes 10.10.60.1
+  [2026-11-01T10:05:51Z] kali     mejor desfase=-0.0007 s inc=+-0.0005 s | mediana=-0.0007 s | rango=[-0.0008,-0.0005] | |desfase|<=1 s: SI | NTP yes 2.debian.pool.ntp.org
+  [2026-11-01T10:05:53Z] srv-dmz  mejor desfase=+0.0001 s inc=+-0.0002 s | mediana=+0.0001 s | rango=[+0.0001,+0.0018] | |desfase|<=1 s: SI | NTP yes ntp.ubuntu.com
+  [2026-11-01T10:05:55Z] clientes mejor desfase=-0.0002 s inc=+-0.0005 s | mediana=-0.0001 s | rango=[-0.0002,+0.0008] | |desfase|<=1 s: SI | NTP yes ntp.ubuntu.com
+## fin=2026-11-01T10:05:57.473Z
