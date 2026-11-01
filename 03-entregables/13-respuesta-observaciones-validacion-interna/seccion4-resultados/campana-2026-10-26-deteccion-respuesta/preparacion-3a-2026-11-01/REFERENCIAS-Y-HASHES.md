@@ -14,13 +14,13 @@ Todos los sha256 se calculan sobre el contenido con fin de línea LF, tal como l
 
 | Fichero | sha256 |
 |---|---|
-| `scripts/analizar_3b.py` | `bdd44729a3f6e6b6619f5ec6c0671b03ea31704ca7f8813608b5505493316000` |
+| `scripts/analizar_3b.py` | `27e67fd1620762d7ec7cb172ea45465ad6edb7db77cf8d69c7c8102c8167050f` (corrección 3A; en e0ba9e0 era `bdd44729…`) |
 | `scripts/analizar.py` | `71674908e4fc7f938fc9687cf4b7ad2e4c2b77ad35ff20c0c0fcf59ec92c763a` |
 | `scripts/poblacion.py` | `7b140ae42905428e0a2b615c8de88ff9d036c0c7021e2bc096b921597d33511b` |
 | `scripts/calidad_fuentes.py` | `d63ca6e96e8de90aec0ee8cd6274d91f006511248223c48658ad3535b642046d` |
 | `scripts/extraer_evidencia_destino.py` | `48d13aba2082a044a311a1966817bd6ec62be0c3759bbd1618e5f2dd5b3d508c` |
-| `tests/test_analizar_3b.py` | `ae1a366dfea333e6c49f8693f684569fb9c2b2dcbb31ac9f2506a02daeccd23c` |
-| `preparacion-3a-2026-11-01/config-campana-3b.json` | `156867908a9e6853699c456f845c44d0a099c55a3953149cfa5c594b6c3823fc` |
+| `tests/test_analizar_3b.py` | `a1ba06d42b2e15955ef0dfdfb7a77716f5ab9ef6dc17aef6fd382e64a4623db2` (90 comprobaciones; en e0ba9e0 era `ae1a366d…`, 57) |
+| `preparacion-3a-2026-11-01/config-campana-3b.json` | `cbf72fbb0f112e3db5cc3724640ee18fb3d42f1bc5e24680f5af25faf1939d60` (versión 3b-2026-11-01.2; en e0ba9e0 era `15686790…`, 3b-2026-11-01.1) |
 | `config-campana.json` (primera campaña A, sin cambios) | `1642ba310b7f4b665d2f505cd70e8ccbdf2c4c7fe4f38db45a69dbc10976e65b` |
 
 Las mismas cinco herramientas están en el sensor, en `~/cf-paso3a-20261101T0523Z/herramientas3b/`, con estos hashes.
@@ -48,6 +48,36 @@ Las mismas cinco herramientas están en el sensor, en `~/cf-paso3a-20261101T0523
 | Modelo desplegable | `df547da098e51171…` |
 
 Los hashes completos están en `evidencia/sensor/estado-inicial/sha256-implementacion.txt`.
+
+**Procedencia por commit** (corrección 3A, 06:23Z; `evidencia/salidas/out_s11_sensor_codigo.txt` y
+`out_s11b_comparacion_local.txt`; el Sensor1 no es un clon git, así que la comparación se hace en local):
+
+| Fichero | Blob desplegado | Commit de procedencia |
+|---|---|---|
+| `motor_decision.py` | `068c025dc867e753d59167b0e73d9df10db00c64` | `24f8a80` |
+| `motor_incremental.py` | `1197907c0d3f8e1c28001485bb43b1ed5fc12375` | `24f8a80` |
+| `heuristicos.py` | `ec0fe9e870c2f3c98c0cc9140011674df327f1f3` | `24f8a80` (también 6d92ff3) |
+| `feed.py` | `fa30b818f03bf389554559312fc3e596314f3750` | `24f8a80` (también 6d92ff3) |
+| `extract_multilayer_v2.py` | `ec46849dc8454976b056622e334cc35b7cc95d26` | `24f8a80` |
+| `extract_multilayer_v3.py` | `0739e4cda326c640facb5b6d1def1182a1d8b09c` | `24f8a80` |
+| `configs/features/multilayer-v2.json` (sha256 `e032a1a2…`) | `9560ce9e49f569e930dff07f12c3a85a1e7d0a82` | `24f8a80` con CRLF; blob LF `20a89b81…` |
+| `publicar_feed.py` | `bf2b73f49fbbd48df8931540d2ff475403f12d15` | **as-deployed** `f57ca00` = tag `validacion-interna-2026-10-15` (6d92ff3); en 24f8a80 es `f73db5af…` |
+| `escalada.py` | `7bd55de8fbb261e521ebfbe40ad0a9bf04277dfb` | **as-deployed** `f57ca00` = 6d92ff3; en 24f8a80 es `8f260bd0…` |
+| srv-dmz `agente_enforce.py` (sha256 `2985c123…`) | `b769b01cac1cef9c3f1ee5f2ace4d16dc8aabec3` | 6d92ff3; timer y servicio inactive |
+| Manifiesto del modelo | — | sha256 `b3ad680595128189574527208e53058f613822f56f542f914faef6495aa2a9e7` |
+
+Commits completos: `24f8a80e376d89b78454fd16854d2239a1b7d278`, `f57ca00771030296f0d83d60d8a39b4aad1f5a94`,
+`6d92ff3ed7c3573d5def6cb276904501eb5d646a`.
+
+**Herramientas del 3B en el sensor** (`~/cf-paso3a-20261101T0523Z/herramientas3b/`): `analizar_3b.py` = `27e67fd1…`
+(la de e0ba9e0 se conserva como `analizar_3b.e0ba9e0.py`, `bdd44729…`); las otras cuatro, iguales a la tabla de arriba.
+
+**Guion de Mark para logrotate** (`~/cf-paso3a-20261101T0523Z/mark/`):
+
+| Fichero | sha256 |
+|---|---|
+| `04_logrotate_global.sh` (v2, vigente) | `5481d99b1fff5bed7d697017537bfbff35881dfb60a1c9ccb3f21e732e92bfdb` |
+| `04_logrotate_global.v1.sh` (e0ba9e0, devolvía el rc de `tail`; no usar) | `af99e727…` |
 
 ## Clientes legítimos
 
