@@ -1,0 +1,26 @@
+{"evento": "eve_indexado", "lineas": 1175076, "s": 3.2}
+{"evento": "reinicio", "t": 1793264700.0}
+{"evento": "fin", "s": 3218.6}
+	Command being timed: "nice -n 15 /home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cf-p1/herramientas/replay_motor.py --motor /home/m4rk/cf-p1/referencia/scripts/engine/motor_decision.py --pcap-dir /home/m4rk/cf-campana-A-20261029/archivo-pcap --eve /home/m4rk/cf-campana-A-20261029/fuentes/eve.json --desde 2026-10-29T08:55:00Z --hasta 2026-10-29T09:20:00Z --reiniciar-en 2026-10-29T09:05:00Z --salida /home/m4rk/cf-p1/r4-ref-reinicio -- --model-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib --manifest-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json --detector-name if_limpio_2026_10 --schema /home/m4rk/cyberflow/configs/features/multilayer-v2.json --entity-network 10.10.0.0/16 --excluir 10.10.60.11/32,10.10.10.30/32,10.10.60.2/32,10.10.60.3/32,10.10.60.10/32,10.10.60.20/32,10.10.60.21/32,10.10.60.30/32,10.10.60.40/32,10.10.60.41/32,10.10.60.50/32 --excluir-protocolos 112,240 --step-seconds 10 --history-seconds 230"
+	User time (seconds): 3207.98
+	System time (seconds): 10.29
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 53:39.48
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 802924
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 1
+	Minor (reclaiming a frame) page faults: 966773
+	Voluntary context switches: 124
+	Involuntary context switches: 32034
+	Swaps: 0
+	File system inputs: 265152
+	File system outputs: 6784520
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
