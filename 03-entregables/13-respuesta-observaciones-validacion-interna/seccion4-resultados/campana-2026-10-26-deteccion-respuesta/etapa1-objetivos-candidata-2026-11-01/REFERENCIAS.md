@@ -1,4 +1,14 @@
-# Referencias consultadas (Etapa 1, 1-nov-2026)
+# Referencias consultadas (Etapa 1, 1-nov-2026; versión 2)
+
+## HEAD consultado al empezar la corrección (versión 2)
+
+| Repositorio | Rama | HEAD |
+|---|---|---|
+| Documentación (`VF-PPI-TESIS-ORQUESTACION`) | `main` | `2482a4024c730564574c6cc819b0afd02a2a66f7`, la entrega que se corrige |
+| Código (`VF-Sistema-Open-Source-…`) | `main` | `7b275b8bab1c8343e55f40a103ee980dc497620b` (sin cambios desde la versión 1) |
+| Código | `candidato/motor-rendimiento-20261031` | `24f8a80e376d89b78454fd16854d2239a1b7d278` (sin cambios; es el motor desplegado) |
+
+En la versión 2 se consultó además `configs/features/multilayer-v2.json` (en `24f8a80`): 28 características, **12 de ellas L7 del EVE**, y `configs/cyberflow.local.toml` (`esquema = "configs/features/multilayer-v2.json"`).
 
 ## Repositorios y commits
 
@@ -6,7 +16,8 @@
 
 | Commit | Contenido | Uso en esta etapa |
 |---|---|---|
-| `f16b673` (origin/main al empezar) | Revisión 3B: integridad v2, recálculo v2 y diagnósticos | población v2 (15/25), demora A–D, análisis revisado |
+| `2482a40` | Etapa 1, versión 1 | entrega corregida por esta versión (se conserva en Git) |
+| `f16b673` (origin/main al empezar la versión 1) | Revisión 3B: integridad v2, recálculo v2 y diagnósticos | población v2 (15/25), demora A–D, análisis revisado |
 | `191b043` | Criterios v2, escritos antes del reanálisis | cadena de calidad de evidencia (sin cambios) |
 | `67fc1f5`, `b714492` | Paso 3B: ejecución y evidencia byte a byte | marcas, `motor_decision.log.gz`, `ciclos.jsonl`, `control-declarado.json`, feed y estado finales, relojes |
 | `1b35bf6`, `a07d64b` | Paso 3A cerrado | antecedentes del protocolo (inventario, no evaluadas) |

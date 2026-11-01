@@ -1,232 +1,204 @@
-# Etapa 1 · Objetivos y criterios de la candidata
+# Etapa 1 · Objetivos y criterios de la candidata (versión 2)
 
 **Fecha:** 1-nov-2026.
-**Alcance:** solo criterios, diseño de evaluación y documentación. No se implementó ninguna mejora, no se desplegó nada, no se lanzaron ataques ni controles y no se activó el enforcement.
-**Datos usados:** solo los registros ya publicados de la campaña A (3A y 3B) y su revisión (`f16b673`). Las referencias exactas están en [REFERENCIAS.md](REFERENCIAS.md).
 
-> **Estado del protocolo: NO CONGELADO.** Quedan decisiones esenciales abiertas (§7). Los criterios marcados **provisional** no se aplicarán como regla de aprobación mientras Mark no los confirme por escrito **antes** de ver datos nuevos.
+**Corrige** la entrega `2482a40`. Los cambios están en [CAMBIOS-RESPECTO-2482a40.md](CAMBIOS-RESPECTO-2482a40.md).
+
+**Decisiones:** véase la [matriz única D1–D8](DECISIONES.md).
+
+**Alcance:** solo criterios, diseño de la evaluación, simulador offline y documentación. No se modificó el producto desplegado ni ningún servicio, modelo, umbral o regla. No hubo controles, ataques ni campañas, y el agente sigue inactivo.
+
+> **Estado del protocolo de evaluación: NO CONGELADO.** Quedan pendientes esenciales D1, D3 y D6 ([DECISIONES.md](DECISIONES.md)).
 
 ---
 
-## 1. Objetivo operativo
+## 1. Objetivo
 
-Detectar el ataque y **aplicar una respuesta efectiva mientras el ataque sigue activo**.
+**Objetivo del usuario:** mejorar el producto para detectar los ataques y aplicar una respuesta efectiva **mientras siguen activos**, con las menos falsas alarmas posibles y preservando el tráfico legítimo.
 
-Una señal, o una restricción, que llega después del fin del ataque **no cumple** el objetivo, aunque sea correcta. En sombra, en cambio, puede contar como detección tardía.
+**Objetivo de desarrollo:** disponer de evidencia completa y lograr detección y respuesta oportunas en los **25 episodios** de cada campaña.
 
-Este objetivo se descompone en tres preguntas. Cada una se responde por separado y ninguna sustituye a otra:
+- Es una **meta que hay que comprobar**, no un resultado que se pueda garantizar.
+- Todos los fallos, exclusiones y resultados tardíos se conservan y se publican.
+- Los criterios deben reconocer un fallo real; no se ajustan para llegar a 25/25.
 
-| # | Pregunta | Se responde con | Campaña |
+Una señal o una restricción posterior al fin del ataque **no cumple** el objetivo.
+
+### 1.1 Poblaciones (no se mezclan)
+
+| Población | Qué es | n | Uso |
 |---|---|---|---|
-| Q1 | ¿El detector produce, **antes del fin**, una señal atribuible con la acción prevista? | t_det frente a t_fin_programado | A (sombra), repetida con la candidata congelada |
-| Q2 | ¿La cadena **aplica** esa acción en el host protegido antes del fin? | t_apl frente a t_fin_programado | B (respuesta) |
-| Q3 | ¿La acción **produce efecto** sobre el ataque, sin dañar el tráfico legítimo? | t_efecto y transacciones de control | B (respuesta) |
+| **Campaña 3B original** | Campaña A repetida en sombra, ejecutada el 1-nov (`67fc1f5`, `b714492`) | 25 episodios ejecutados | evidencia histórica, sin cambios |
+| **Revisión del 3B** | Reanálisis con los criterios v2 (`191b043`, `f16b673`) | 15 episodios admitidos de los 25 | evidencia histórica, sin cambios |
+| **Simulación de la Etapa 1** | La cadena de respuesta simulada sobre los registros de los 25 episodios (cada fila indica si el episodio está admitido) y sobre el control normal | 25 episodios + control de 33 min | **desarrollo**: dimensiona riesgos bajo supuestos. No es una campaña de respuesta. |
+| **Evaluación independiente de la candidata** | Una campaña A nueva y una campaña B nueva, con la candidata congelada | **25 episodios nuevos por campaña** (5 por escenario) | prueba |
 
-### 1.1 Separación entre la campaña A y la campaña B
+**Unidades distintas, que no se confunden:**
 
-- **Campaña A (sombra).** El agente está inactivo y nadie corta tráfico. Sirve para **comparar detectores** (IF a tres α, heurísticos e híbrido) con el ataque completo a la vista. Es la única que permite medir falsos negativos y la latencia de detección sin que la respuesta altere lo observado.
-- **Campaña B (respuesta).** El agente está activo. Sirve para medir t_apl, t_efecto y el daño colateral.
-  - Un bloqueo corta el tráfico, de modo que después del corte el detector deja de ver el ataque completo. Por eso **la campaña B no sustituye la comparación de detectores**, y sus ventanas posteriores al corte no se usan para evaluar detectores.
-- Los resultados anteriores **se conservan tal cual**: 3A (`1b35bf6`), 3B (`67fc1f5`, `b714492`), criterios v2 (`191b043`) y revisión (`f16b673`). Esta etapa no reescribe ninguna cifra publicada.
-  - El presupuesto temporal y el de falsas alarmas **reutilizan** esos registros como material de desarrollo.
+- **Entidad:** una dirección IP.
+- **Ventana:** un registro entidad × window_end de 10 s, con 60 s de historia. Las ventanas se solapan y **no son ensayos independientes**.
+- **Episodio:** una ejecución del generador. Es la **unidad de ensayo**.
+- **Restricción:** una entrada nft con caducidad. En sombra, **hipotética**.
+
+Por ejemplo, las «3–9 entidades legítimas restringidas» son entidades del **control normal**, no episodios de ataque, y sus restricciones son **hipotéticas** (simuladas, nunca aplicadas).
+
+### 1.2 Campañas A y B
+
+- **Campaña A (sombra):** compara IF, heurísticos e híbrido sobre ataques **completos** y mide la detección oportuna. 25 episodios.
+- **Campaña B (respuesta):** comprueba la aplicación y el efecto de las medidas sobre el tráfico real. 25 episodios.
+  - Un bloqueo corta el ataque, así que **B no sustituye a A** en la comparación de detectores.
+  - Las ventanas posteriores a t_apl no se usan para comparar detectores.
 
 ---
 
-## 2. Marcas temporales
+## 2. Marcas temporales y métricas
 
-Todas las marcas están en UTC y en el reloj de cada host. La incertidumbre de relojes se trata en §2.3.
-
-| Marca | Definición | Fuente | En sombra (A) |
+| Marca | Definición | Fuente | En sombra |
 |---|---|---|---|
-| `t_inicio` | El generador lanza el primer intento del episodio | `marcas.jsonl` (Kali), evento `inicio`, `reloj.pared_utc` | se mide |
-| `t_fin_programado` | Fin del ataque fijado **antes** de ejecutarlo. En los bucles de 90 s (DNS, HTTP, fuerza bruta) es `t_inicio + 90 s`. En nmap, que termina de forma natural, es `t_inicio + D_ref(familia)` (§2.2). | configuración congelada | se calcula |
-| `t_fin_observado` | El generador termina, con su código de salida | `marcas.jsonl`, evento `fin` | se mide |
-| `t_det` | La señal con veredicto (LIMIT/BLOCK, según `_verdicto_de` del publicador desplegado) queda **disponible para consumidores**: el ciclo del motor ha escrito el registro en `motor_decision.log` (`registro_escrito_en` del ciclo; si no se puede enlazar, `logged_at`, declarándolo). | `motor_decision.log` + `ciclos.jsonl` | se mide |
-| `t_apl` | La regla nft que restringe al origen está **cargada en el host protegido** (commit nft correcto). | registro del agente + `nft list set` con marca de tiempo (Etapa 2/4) | **no aplica** |
-| `t_efecto` | Primer instante desde el que el tráfico del ataque deja de producir efecto en el destino: sin respuestas del servicio, o con la tasa limitada. | SPAN/PCAP + EVE (respuestas del destino) + contadores nft | **no aplica** |
+| `t_inicio` | primer intento del generador | `marcas.jsonl` (evento `inicio`) | medida |
+| `t_fin_ref` | horizonte fijado antes de ejecutar: bucles `t_inicio + 90 s`; nmap `t_inicio + D_ref` ([D8](DECISIONES.md)) | configuración | calculada |
+| `t_fin_observado` | fin del generador, con su código de salida | `marcas.jsonl` (evento `fin`) | medida |
+| **`t_fin_eval`** | **`min(t_fin_ref, t_fin_observado)`**. Una referencia fija no convierte en oportuna una actuación posterior al final real. | — | calculada |
+| `t_det` | el registro con veredicto queda **disponible para consumidores** (`registro_escrito_en` del ciclo; si no se puede enlazar, `logged_at`, declarándolo) | motor | medida |
+| `t_apl` | regla cargada en el host (hora y retorno del commit nft, más lectura del set) | agente instrumentado ([D7](DECISIONES.md)) | **no aplica** (en la Etapa 1 solo hay `t_apl_estimada`) |
+| `t_efecto` | primer instante en que el destino deja de responder al origen o la tasa queda limitada, **mientras el generador sigue intentando** | SPAN/EVE, contadores nft y salida del generador | **no aplica** |
 
-**Distinciones obligatorias:**
+Hay que distinguir siempre: **decisión interna**, **disponibilidad** (t_det), **aplicación estimada**, **aplicación real** (t_apl) y **efecto** (t_efecto). La escritura en el feed no prueba la aplicación, y la aplicación no prueba el efecto.
 
-1. **Decisión interna ≠ disponibilidad.** El motor decide en memoria durante el ciclo y la decisión solo existe para el publicador cuando se escribe. t_det es la escritura (`registro_escrito_en`), no `inicio_ciclo` ni `window_end`.
-2. **Escritura ≠ aplicación.** Que el feed contenga la IP no prueba nada en el host. t_apl exige evidencia del host: el código de retorno del commit nft y la lectura del set con su `expires`.
-   - Hoy el agente no registra la hora del commit con precisión suficiente: es trabajo de la Etapa 2.
-3. **Aplicación ≠ efecto.** Una regla cargada puede no afectar al ataque. Le ocurre a un LIMIT de 100 pps frente a un flujo menor, o a un LIMIT en srv-dmz frente a un ataque DNS dirigido a DC1.
-   - t_efecto se mide en el tráfico, no en la configuración.
+**Métricas por episodio:**
 
-### 2.1 Métricas
+- `t_det − t_inicio`;
+- `t_apl − t_det`;
+- `t_apl − t_inicio`;
+- margen `t_fin_eval − t_apl`;
+- `t_efecto − t_inicio`.
 
-| Métrica | Fórmula | Unidad |
-|---|---|---|
-| Latencia de detección | `t_det − t_inicio` | s |
-| Latencia de la cadena | `t_apl − t_det` | s |
-| Latencia de respuesta | `t_apl − t_inicio` | s |
-| **Margen de actuación** | `t_fin_programado − t_apl`. Si es positivo, la respuesta llega con el ataque activo. | s |
-| Tiempo hasta el efecto | `t_efecto − t_inicio` (y `t_efecto − t_apl`) | s |
+Las distribuciones se forman con los **totales de cada episodio**, nunca sumando medianas.
 
-- Cada métrica se calcula **por episodio**. Las distribuciones se construyen con los totales de cada episodio: **nunca sumando medianas de tramos**.
-- En sombra, `t_apl` y `t_efecto` valen «no aplica», nunca 0 ni vacío. Cualquier t_apl de la campaña A es una **estimación** y se publica marcada como tal.
+**Incertidumbre temporal:**
 
-### 2.2 El fin no se redefine por el corte
+- relojes medidos en el 3B: |desfase| ≤ 0,0036 s ± 0,0006 s. Se usa ε = 0,01 s, y una sesión con desfase > 1 s se excluye;
+- más la incertidumbre propia de cada marca.
 
-- En la campaña B, un BLOCK hace que nmap espere *timeouts*, y el generador puede tardar **más** en terminar. Si el fin se tomara del generador, una respuesta tardía parecería oportuna.
-- Por eso el éxito se mide **siempre contra `t_fin_programado`**, que se fija antes de ejecutar:
-  - **Bucles de 90 s:** `t_inicio + 90 s` (configurado en `escenarios.json`).
-  - **nmap:** `D_ref(familia)` = **duración natural mínima** observada en la campaña A (3B).
-    - Escaneo breve: 17,59 s (observados 17,59 / 17,59 / 17,99 / 17,99 / 17,99).
-    - Escaneo sostenido: 65,52 s (observados 65,52 / 65,72 / 65,77 / 66,12 / 66,31).
-    - Se elige la mínima porque es la más exigente. **Estado: provisional.** Alternativas: la mediana, o la duración de la misma repetición en una pasada en sombra.
-- `t_fin_observado` se publica junto al programado, con la **evidencia de intentos continuados** después del corte: SYN del origen en el SPAN sin respuesta del destino, y salida del generador.
-- Un episodio cuyo generador termina **antes** de `t_fin_programado` por un fallo propio (código de salida ≠ 0, herramienta ausente) es un **fallo del experimento**, no del detector (§6).
-
-### 2.3 Incertidumbre de relojes
-
-- **Medida en el 3B** (`relojes-3b.log`): |desfase| ≤ 0,0036 s ± 0,0006 s en el sensor, la Kali, srv-dmz y los clientes, frente al bastión con NTP. Las comparaciones usan ε = 0,01 s.
-- **Regla:** cuando |t_fin_programado − t_apl| ≤ ε + la incertidumbre de la propia marca, el episodio es **indeterminado**.
-  - En la campaña A, la incertidumbre de t_apl es el intervalo [inferior, superior] de la estimación (fase del publicador y arranque del agente). Si ese intervalo contiene el fin, el caso es **indeterminado**.
-  - Un indeterminado no cuenta como éxito ni como fallo y se publica en una fila propia.
-- **Requisito previo de cada sesión:** medición de relojes **antes y después**, con un límite de 1 s (criterio vigente desde el 3A). Un episodio fuera de ese límite se excluye por evidencia, no por resultado.
+Si la marca, con su incertidumbre, no permite ordenar el suceso frente a `t_fin_eval`, el caso es **indeterminado** y se publica como tal. No cuenta como éxito ni como fallo.
 
 ---
 
-## 3. Calidad de la evidencia (criterios previos al análisis)
+## 3. Qué significa cumplir el objetivo en un episodio
 
-Se reutiliza **la cadena v2** (`191b043`, herramientas en `revision-3b-2026-11-01/herramientas/`). No se cambia ninguna tolerancia para aprobar.
+Las cinco condiciones se evalúan **por separado** y se publican todas. El episodio **cumple** solo si se cumplen todas las que aplican a su campaña.
 
-| Elemento | Criterio | Clasificación posible |
-|---|---|---|
-| PCAP | Cada fichero existe, es legible y su hash coincide. Selección por la **regla del motor** (último paquete decodificado), no por la última trama. | verificado / no verificado |
-| EVE | Existe, el hash coincide y el pulso de `stats` es continuo (intervalo 8 s) | verificado / no verificado |
-| Integridad del episodio | Los requisitos de `verificar_integridad_v2.py` | apto / no apto, con un motivo por requisito |
-| Relojes | Antes y después de la sesión, \|desfase\| ≤ 1 s | dentro / fuera |
-| Reinicios | Sin reinicio del motor, de Suricata, de tcpdump ni del agente dentro de [inicio − 230 s, fin + 90 s] (journal) | sin reinicio / con reinicio |
-| Ventanas | Contra el **inventario**: `decidida_a_tiempo`, `decidida_tardia`, `no_evaluada` (evento explícito), `ausente` | conteos por estado |
-| Descartes de Suricata | `kernel_drops` por intervalo de stats que solapa el episodio | **ver §3.1** |
-| Descartes de tcpdump | `dropped by kernel` / `dropped by interface` (SIGUSR1 y cierre) | 0 / > 0 |
-| Cobertura previa | 230 s de historia antes del inicio, dentro del inventario | cubre / no |
-| Cobertura posterior | fin + 90 s dentro del inventario | cubre / no |
-| Reconstrucción | El replay reproduce score, decisión y paquetes. **No** demuestra las 28 características, que no se registran (§3.2). | exacta / difiere, con el campo |
-
-**El hueco > 20 s entre escrituras del motor es solo informativo.** Con el motor incremental, la cadencia de escritura ronda los 20 s incluso sin carga (revisión 3B). La pérdida solo se establece contra el inventario (`ausente`).
-
-### 3.1 «Informar descartes» no equivale a «fuente completa»
-
-Cada episodio con descartes se clasifica, y la clase limita lo que se puede afirmar:
-
-| Clase | Condición | Afirmaciones permitidas |
-|---|---|---|
-| **C0 completa** | 0 descartes de Suricata y de tcpdump en el periodo | todas |
-| **C1 degradada, solo L7** | Hay kernel_drops de Suricata y tcpdump tiene 0, con el PCAP verificado | detección por IF (PCAP) y tiempos de cadena. **No** se afirma ausencia de señal de heurísticos L7 (DNS, HTTP, auth) ni tasa L7 completa. |
-| **C2 degradada, paquetes** | Descartes de tcpdump > 0 | solo afirmaciones positivas («se detectó en t»). Ninguna afirmación de ausencia ni de latencia mínima. |
-| **C3 no evaluable** | Hay hueco de inventario, reinicio o relojes fuera de límite | ninguna sobre el detector. El episodio cuenta como **fallo del experimento**. |
-
-Solo los episodios **C0** forman la población principal. C1 y C2 se publican aparte, con su clase.
-
-### 3.2 Igualdad de score y paquetes ≠ igualdad de características
-
-- La reconstrucción del 3B comparó score, decisión y `packet_count_10s` en 12 667 claves, y 702/702 decisiones de ataque se recalcularon exactas con la v2. Las 28 características **no se registran** en el motor.
-- Esa igualdad es compatible con diferencias en características que no muevan el score.
-- **Para la candidata:** si una mejora de la Etapa 3 altera la extracción, la prueba offline debe comparar **las 28 características** (volcadas por la herramienta de recálculo), no solo el score.
-
-### 3.3 Contabilidad obligatoria de episodios
-
-Se publican siempre cuatro cifras con sus motivos: **planificados, ejecutados, admitidos y excluidos**. En el 3B (referencia):
-
-| | n | Detalle |
-|---|---|---|
-| Planificados | 25 | 5 escenarios × 5 repeticiones, semilla 20261026 |
-| Ejecutados | 25 | 25 con estado `completo` |
-| Admitidos (v2) | 15 | dns r1, r2, r4 · breve r1, r2, r3, r5 · sostenido r2, r3, r4, r5 · fuerza bruta r1, r4, r5 · inundación r5 |
-| Excluidos | 10 | 9 por kernel_drops de Suricata: inund. r1 +11, r2 +111, r3 +1483, r4 +182 · dns r3 +28, r5 +100 · fuerza bruta r2 +97, r3 +61 · breve r4 +58. Y sostenido r1, porque fin + 90 s sale del inventario por 5,8 s. |
-
-La población admitida de la inundación HTTP es **1/5**. Ninguna afirmación sobre esa familia es posible sin corregir antes la captura (Etapa 2).
-
----
-
-## 4. Criterios cuantitativos por familia
-
-### 4.1 Objetivo deseado y evidencia mínima
-
-- **Objetivo deseado** (lo que se busca): la candidata responde **antes del fin** en ≥ 90 % de los episodios de cada familia con punto de aplicación, sin restricciones sobre tráfico legítimo atribuibles a la respuesta.
-- **Evidencia mínima** (lo que basta para afirmarlo): la **cota inferior unilateral de Clopper-Pearson al 95 %** de la proporción de éxitos debe ser **≥ 0,80**.
-  - Se elige 0,80, y no 0,90, porque demostrar 0,90 exige ≥ 29 episodios por familia sin fallos (145 en total) y no cabe en una campaña de laboratorio.
-  - El 0,80 se fija **ahora, antes de medir**. **Estado: provisional, pendiente de Mark (D4).**
-
-Cota inferior (95 %, unilateral) según el número de repeticiones n y de fallos f. Valores calculados, no supuestos:
-
-| n | f = 0 | f = 1 | f = 2 |
-|---|---|---|---|
-| 5 | 0,549 | 0,343 | 0,189 |
-| 10 | 0,741 | 0,606 | 0,493 |
-| 14 | **0,807** | 0,703 | 0,615 |
-| 15 | 0,819 | 0,721 | 0,637 |
-| 20 | 0,861 | 0,784 | 0,717 |
-| 22 | 0,873 | **0,802** | 0,741 |
-| 29 | **0,902** | 0,847 | 0,798 |
-
-**Consecuencia:**
-
-- Con las **5 repeticiones** del diseño actual no se puede demostrar nada mejor que el 55 % ni siquiera con 5/5. Por eso el 3B no confirma la eficacia: solo la describe.
-- **Propuesta (provisional, D4):**
-  - **n = 14** episodios admitidos (C0) por familia. Con 14/14 éxitos queda demostrado ≥ 0,80.
-  - Con un fallo, el criterio no se cumple con 14. Ampliar después de ver el fallo sería cambiar el criterio para aprobar, y está prohibido.
-  - Un diseño en dos etapas («si hay 1 fallo en 14, ejecutar 8 más y exigir ≤ 1 en 22») **se descarta**. Si la proporción real fuera 0,80, aprobaría con probabilidad 0,044 + 0,154 × 0,168 = **0,070**, por encima del 0,05 nominal.
-  - **Alternativa equivalente:** n = 22 fijo con ≤ 1 fallo, que aprobaría con probabilidad **0,048** si la proporción real fuera 0,80. Cuesta 8 episodios más por familia y tolera un fallo. Mark elige una de las dos **antes** de la campaña (D4).
-- **Episodios ejecutados frente a admitidos.** Con la tasa de exclusión del 3B (10/25), 14 admitidos podrían exigir ~23 ejecutados por familia. La Etapa 2 debe bajar los descartes; si no, la campaña B no es viable en una sesión.
-
-### 4.2 Criterio por familia (resumen; detalle en [MATRIZ-ESCENARIOS.md](MATRIZ-ESCENARIOS.md))
-
-| Familia | Éxito | Fallo | Indeterminado | Estado |
+| # | Condición | Se cumple si | En A (sombra) | En B (respuesta) |
 |---|---|---|---|---|
-| Escaneo sostenido | BLOCK aplicado con margen > 0 y efecto (sin SYN-ACK del destino al origen) antes de `t_fin_programado` | t_apl o t_efecto ≥ t_fin, o no hay acción | intervalo o ε cruzan el fin | definido (falta n, D4) |
-| Fuerza bruta HTTP | BLOCK aplicado y sin respuestas 401/200 del servicio al origen antes del fin | ídem | ídem | definido (falta n, D4) |
-| Inundación HTTP | Restricción aplicada y tasa de respuestas HTTP al origen reducida ≥ 50 % frente a los 10 s previos, antes del fin | ídem | ídem | **provisional**: falta decidir la acción (D3) y el umbral de efecto |
-| Escaneo breve | Igual que el sostenido | ídem | ídem | **provisional**: con la arquitectura actual es imposible (§5 del presupuesto). Objetivo pendiente (D2). |
-| DNS inusual | No hay punto de aplicación (el ataque va a DC1 y el agente está en srv-dmz) | — | — | **pendiente (D1)**. Hasta decidirlo, solo detección (Q1). |
+| E1 | **Detección correcta y disponible durante el ataque** | Hay una señal atribuible (paquetes del origen al destino del episodio dentro de la ventana y de [inicio, fin]) **de la regla prevista** ([MATRIZ-ESCENARIOS.md](MATRIZ-ESCENARIOS.md)) con `t_det + ε < t_fin_eval`. Una señal de otra regla (p. ej. `brute_force` durante un escaneo) **no** valida la prevista: se publica aparte como «detección por otra regla», con la comprobación del comportamiento que la originó. | se evalúa | se evalúa (hasta t_apl) |
+| E2 | **Restricción prevista aplicada** | `t_apl` real (evidencia del host) `+ ε < t_fin_eval`, con la acción prevista y limitada al origen | **no aplica** | se evalúa |
+| E3 | **Efecto comprobado mientras el generador sigue intentando** | Desde `t_efecto < t_fin_eval`, las respuestas del destino al origen cesan (BLOCK o denegación DNS) o se reducen según el criterio de la familia (LIMIT), **y** consta que el generador siguió intentándolo después de `t_apl` (SPAN o salida) | **no aplica** | se evalúa |
+| E4 | **Tráfico legítimo de control funcionando** | 0 fallos de transacciones de control atribuibles a una restricción en [t_inicio − 60 s, t_fin_eval + 90 s] | se registra (línea base) | se evalúa |
+| E5 | **Caducidad o retirada verificada** | La restricción caduca o se retira y se verifica que el set no contiene al origen antes del siguiente episodio ([D5](DECISIONES.md)) | **no aplica** | se evalúa |
+
+**Resultados posibles por episodio:**
+
+- **cumple**;
+- **fallo** (se publica qué condición falla);
+- **indeterminado**;
+- **fallo del experimento** (§5).
+
+Una detección posterior al fin **no** cuenta como oportuna. En sombra, E2, E3 y E5 valen «no aplica»: no se inventan ni se convierten en resultados reales.
 
 ---
 
-## 5. Falsas alarmas y daño colateral
+## 4. Diseño de 25 episodios ([D4](DECISIONES.md), decidida)
 
-Véase [PRESUPUESTO-FALSAS-ALARMAS.md](PRESUPUESTO-FALSAS-ALARMAS.md). Resumen de criterios:
+| Escenario | Episodios por campaña |
+|---|---|
+| DNS inusual | 5 |
+| Inundación HTTP | 5 |
+| Escaneo breve | 5 |
+| Escaneo sostenido | 5 |
+| Fuerza bruta HTTP | 5 |
+| **Total** | **25** (campaña A) + **25** (campaña B) |
 
-- Se publican **cuatro medidas separadas**:
-  1. señales sobre tráfico normal;
-  2. propuestas LIMIT/BLOCK del publicador;
-  3. restricciones aplicadas a entidades legítimas (t_apl en el host);
-  4. fallos de transacciones legítimas de control.
-- El DNS (10.10.10.20) **sigue en el denominador** de las señales, aunque el publicador nunca lo restrinja.
-- Los tres α (0,05 / 0,03 / 0,01) siguen siendo **candidatos sin elegir**. Elegir α no corrige los heurísticos: las 88 señales `dns_entropy` sobre el resolvedor no dependen de α.
+- **No** se aumentan automáticamente las repeticiones por familia.
+- La meta es cumplir los 25 episodios de cada campaña según su propósito.
+- **Con 5 por escenario se describe, no se garantiza.** Se publica la proporción de cada familia con su intervalo exacto de Clopper-Pearson **bilateral al 95 %** como medida de la incertidumbre:
 
----
+| Cumplen / 5 | Intervalo 95 % |
+|---|---|
+| 5/5 | 0,478 – 1 |
+| 4/5 | 0,284 – 0,995 |
+| 3/5 | 0,147 – 0,947 |
+| 2/5 | 0,053 – 0,853 |
+| 1/5 | 0,005 – 0,716 |
+| 0/5 | 0 – 0,522 |
 
-## 6. Fallos del experimento frente a fallos del detector
+- Para el total de 25 se puede dar el agregado (25/25 → 0,863 – 1; 24/25 → 0,796 – 0,999), **advirtiendo** que las familias son heterogéneas y que el agregado no describe a ninguna en particular.
+- **No** se afirma una garantía poblacional del 90 % ni ninguna otra que la muestra no respalde.
 
-| Tipo | Ejemplos | Tratamiento |
-|---|---|---|
-| **Fallo del experimento** | Generador con código ≠ 0 o que termina antes de lo programado; herramienta ausente; servicio destino caído antes del inicio; relojes fuera de límite; reinicio de un componente; hueco de inventario; descartes C2/C3; restricción **previa** vigente al inicio (§6.1) | El episodio se **excluye** con su motivo y se **repite** con un identificador nuevo (rN-bis), sin borrar el original. No cuenta en el éxito ni en el fallo. |
-| **Fallo del detector o de la cadena** | Episodio C0 sin señal antes del fin; señal sin publicar; publicada sin aplicar; aplicada sin efecto antes del fin | Cuenta como **fallo**. No se repite para sustituirlo. |
+*Antecedente estadístico, no adoptado:* la versión `2482a40` calculó que demostrar una proporción ≥ 0,80 al 95 % exigiría 14 episodios sin fallo, o 22 con uno, por familia. Esa propuesta **no se adopta** (D4).
 
-Las reglas de exclusión de esta tabla son **las únicas** y no se añaden después de ver resultados.
+**Contabilidad obligatoria por campaña:** planificados, ejecutados, admitidos y excluidos, con un motivo por episodio. Referencia 3B (histórica):
 
-### 6.1 Contaminación entre episodios: hallazgo del presupuesto
-
-- La simulación secuencial del 3B con el código desplegado reproduce exactamente el feed y el estado de escalada reales (`pruebas/test_presupuesto_e2e.py`). Muestra que el origen 10.10.20.30 ya estaba en **nivel 3** de escalada antes del primer episodio, por las pruebas previas del día.
-- Con el agente activo, **24 de los 25 episodios habrían empezado con un BLOCK de 3600 s ya aplicado** (tabla 3 de [resultados/TABLAS-E2E.md](resultados/TABLAS-E2E.md)). En la campaña B no se mediría nada.
-- **Requisito de diseño** (decisión D5): entre episodios, el estado de escalada del origen y los sets nft de srv-dmz deben quedar **vacíos y verificados** antes de `t_inicio`.
-  - Opciones: un procedimiento de retirada humana documentado, o un origen distinto por episodio. **No** vale usar la IP del generador como atajo de detección.
-  - Si al inicio hay una restricción vigente, el episodio es un **fallo del experimento**.
-
----
-
-## 7. Decisiones pendientes (impiden congelar el protocolo)
-
-| Id | Decisión | Opciones | Quién |
+| Planificados | Ejecutados | Admitidos (v2) | Excluidos |
 |---|---|---|---|
-| **D1** | Punto de aplicación para el DNS inusual | (a) agente en DC1 (Windows: requiere otro agente, fuera del alcance actual); (b) respuesta en el pfSense, que contradice la norma de no tocar el cortafuegos; (c) la familia queda **solo de detección** en la campaña B | Mark |
-| **D2** | Objetivo del escaneo breve (≈ 18 s) | (a) mantener «antes del fin» y aceptar que exige cambios de arquitectura (Etapas 2 y 3); (b) redefinirlo como contención de la **reincidencia** (fuera del objetivo operativo, se declararía como tal) | Mark |
-| **D3** | Acción ante la anomalía del IF | (a) LIMIT como hoy, incompatible con cualquier presupuesto de falsas alarmas razonable (§ presupuesto FA); (b) el IF solo señala y la respuesta queda en los heurísticos; (c) LIMIT por persistencia (k de n ventanas) | Mark |
-| **D4** | Evidencia mínima y n | 0,80 al 95 % con n = 14 y ampliación a 22 (propuesta) u otra | Mark |
-| **D5** | Limpieza entre episodios | retirada humana verificada / otro diseño | Mark |
-| **D6** | Presupuesto operativo de falsas alarmas | propuesta provisional en PRESUPUESTO-FALSAS-ALARMAS.md | Mark |
-| **D7** | Activar el agente para la campaña B y añadir `counter` a las reglas nft (medir el efecto) | cambio de producto y de host: sudo de Mark | Mark |
-| **D8** | `D_ref` de nmap: mínima (propuesta) / mediana | — | Mark |
+| 25 | 25 | 15 | 10 |
+
+Los excluidos son 9 por `kernel_drops` de Suricata (inund. r1 +11, r2 +111, r3 +1483, r4 +182; dns r3 +28, r5 +100; fuerza bruta r2 +97, r3 +61; breve r4 +58) y escaneo_sostenido-r1, cuyo fin + 90 s sale del inventario por 5,8 s.
+
+---
+
+## 5. Fallos del experimento y fallos del detector
+
+| Tipo | Ejemplos | Tratamiento (fijado de antemano) |
+|---|---|---|
+| **Fallo del experimento** | generador con código ≠ 0 o que termina antes por un fallo propio; herramienta ausente; destino caído antes del inicio; relojes > 1 s; reinicio de un componente en [inicio − 230 s, fin + 90 s]; hueco de inventario; fuente de clase C2 o C3 (§6); restricción del origen vigente al inicio ([D5](DECISIONES.md)) | El original **se conserva** y se publica con su motivo. Se permite **una** repetición con identificador nuevo (`rN-bis`), en la misma posición del orden aleatorio, y ambos se publican. Si la repetición también falla por el experimento, el escenario queda con menos de 5 admitidos, y así se publica. |
+| **Fallo del detector o de la cadena** | episodio admitido en el que no se cumple E1–E5 | **cuenta como fallo y no se repite.** No se sustituye por un éxito. |
+
+La lista de causas de fallo del experimento es **cerrada**: no se añaden causas después de ver resultados.
+
+---
+
+## 6. Calidad de la evidencia
+
+Se usa la **cadena v2** (`191b043`) sin flexibilizar ninguna tolerancia para admitir 25 episodios. Hay tres dimensiones distintas, que se publican por separado:
+
+1. **Continuidad de las fuentes:** los PCAP se suceden sin hueco; el pulso de stats del EVE es continuo.
+2. **Cobertura del procesamiento:** ventanas requeridas frente al inventario (`decidida_a_tiempo`, `decidida_tardia`, `no_evaluada`, `ausente`), con 230 s de historia previa y fin + 90 s posteriores.
+3. **Calidad de los datos:** descartes de Suricata (`kernel_drops`) y de tcpdump.
+
+El hueco de más de 20 s entre escrituras del motor es **solo informativo**. La pérdida se establece contra el inventario.
+
+### 6.1 Clases por descartes (corregidas)
+
+**El IF depende también del EVE.** De sus 28 características (`configs/features/multilayer-v2.json`), **12 son L7 del EVE**:
+
+- `http_error_ratio_60s`, `dns_nxdomain_ratio_60s`, `tls_session_rate_60s`;
+- `http_request_rate_60s`, `http_method_entropy_60s`, `http_auth_failure_ratio_60s`;
+- `dns_query_rate_60s`, `unique_dns_name_ratio_60s`;
+- `tls_handshake_failure_ratio_60s`, `tls_version_ratio_60s`, `http_status_5xx_ratio_60s`.
+
+Los descartes de Suricata pueden alterar las entradas del IF, además de las de los heurísticos L7.
+
+| Clase | Condición | Qué se puede afirmar | Qué NO |
+|---|---|---|---|
+| **C0 completa** | 0 descartes de Suricata y de tcpdump en el periodo que afecta al episodio | todo lo que permitan las demás dimensiones | — |
+| **C1 EVE degradado** | `kernel_drops` > 0 y tcpdump = 0 | Una **detección observada** se conserva con su limitación («se observó una señal en t con el EVE degradado»). | Ausencia de ataque o de señal; sensibilidad completa; latencia mínima; evaluación completa del IF o de los heurísticos L7; tasas completas de falsas alarmas. **C1 no autoriza la evaluación completa del IF.** |
+| **C2 paquetes degradados** | descartes de tcpdump > 0 | solo las detecciones observadas, con su limitación | todo lo anterior, también para las características L3/L4 |
+| **C3 no evaluable** | hueco de inventario, reinicio o relojes fuera de límite | nada sobre el detector (es un fallo del experimento) | — |
+
+**Afirmaciones sobre características no afectadas:** solo con una justificación **específica**. Por ejemplo, demostrar que ningún intervalo de stats con descartes solapa los 60 s de historia de **esa** ventana. No se generalizan.
+
+**Coincidir con un replay que usa las mismas fuentes no demuestra ausencia de pérdidas:** el replay hereda la pérdida.
+
+**Población principal** de cada campaña: episodios C0 con integridad v2 apta. C1 y C2 se publican aparte, con su clase.
+
+### 6.2 Igualdad de score frente a igualdad de características
+
+El 3B comparó score, decisión y `packet_count_10s`, pero las 28 características no se registran. Cualquier cambio de extracción de las Etapas 2 y 3 debe comparar **las 28 características** en la prueba offline.
+
+---
+
+## 7. Restricciones de este encargo
+
+- No se edita el Word.
+- No se sobrescribe ninguna evidencia histórica: 3A, 3B, la revisión y `2482a40` se conservan en Git.
+- No se cambia el sistema desplegado, no se genera tráfico de ataque y no se activan bloqueos.

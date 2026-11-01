@@ -1,142 +1,130 @@
-# Presupuesto temporal de extremo a extremo
+# Presupuesto temporal de extremo a extremo (versión 2)
 
-**Pregunta:** ¿puede la cadena actual aplicar la respuesta en el host **antes** de `t_fin_programado`? Y si no puede, ¿qué tramo lo impide y en qué etapa se corregiría?
+> **Qué es y qué no es.**
+>
+> - Son **estimaciones bajo supuestos declarados**, calculadas con `herramientas/presupuesto_e2e.py` v2 sobre los registros **de sombra** del 3B.
+> - **No** es una campaña de respuesta: el tráfico se registró sin bloqueo, y la simulación no modela cómo una restricción habría cambiado el ataque, las decisiones posteriores ni el tráfico legítimo.
+> - `t_apl_estimada` no es `t_apl`. `t_efecto` no se estima. En sombra, `t_apl` real y `t_efecto` valen «no aplica».
+>
+> Decisiones relacionadas: [DECISIONES.md](DECISIONES.md) (D2, D7, D8).
 
-**Herramientas** (solo lectura):
+## 1. Cadena, tramos y clase de cada valor
 
-- `herramientas/presupuesto_e2e.py`. Simula la cadena con el **código desplegado extraído literalmente**: `_verdicto_de` del publicador f7bc4c7d y `escalada.procesar` 7d80ab4a.
-- `pruebas/test_presupuesto_e2e.py`, 17 comprobaciones y 0 fallos. Entre ellas, que el simulador reproduce **exactamente** el feed y el estado de escalada finales que dejó el publicador real en sombra durante el 3B.
-- Resultados en `resultados/presupuesto-e2e.json` y [resultados/TABLAS-E2E.md](resultados/TABLAS-E2E.md).
-
----
-
-## 1. Cadena y cadencias
-
-Clases: **M** medido · **C** configurado · **E** estimado · **D** desconocido.
+Clases: **M** medido · **C** configurado · **S** supuesto · **D** desconocido.
 
 | # | Tramo | Mecanismo | Valor | Clase | Referencia |
 |---|---|---|---|---|---|
-| A | Acumulación: del inicio al cierre de la primera ventana con señal | Ventanas de 10 s (paso) sobre historia de 60 s; umbrales de los heurísticos | 0,9 / **7,9** / 23,1 s (mín/med/máx, 25 episodios) | M | `revision-3b/diagnosticos/demora.json` |
-| B | Espera de PCAP: la ventana espera a que el PCAP que la cubre esté cerrado | `tcpdump -G 15`. El motor no decide antes de cerrar el PCAP (`7b275b8`). | 2,0 / **12,0** / 14,0 s | C (−G 15) / M | demora.json; paso del PCAP p50 = 15,0 s (844 ficheros) |
-| C | Espera de ciclo | `--step-seconds 10`; latido p50 10,0 s, máx 11,1 | 0,45 / **1,45** / 10,5 s | C / M | demora.json, ciclos.jsonl |
-| D | Proceso del ciclo hasta la escritura | parseo del PCAP, atribución, filas y puntuación | 1,2 / **2,6** / 7,0 s (en el episodio); ciclo p50 0,68, p99 7,0, máx 10,6 s | M | demora.json |
-| — | **t_det** | `registro_escrito_en` del ciclo | — | M | ciclos.jsonl |
-| E | Espera del publicador | timer `*:*:00/10`, AccuracySec=1s; arranca en :x0,29 | 0–10 s más 0,29 | C / M | `deploy/enforcement/ppi-publicar-feed.timer`; journal del 3B, 972 ejecuciones |
-| F | Publicación: lectura de 120 s, escalada y firma | `publicar_feed.py` | p50 0,598 · máx 0,773 s | M | journal del 3B |
-| G | Relé sensor → bastión → srv | timer `*:*:03/10` en el bastión, `scp` doble | 1,065–1,612 s | C / M (pocas muestras) | `systemctl show` en el bastión |
-| H | Espera del agente | timer `*:*:06/10`, AccuracySec=1s | arranque en :x6 + 0–1 s | C (offset real **D**) | `ppi-enforce-agent.timer` |
-| I | Agente: verificación de firma y lote nft atómico | `agente_enforce.py --aplicar --sudo` | p50 0,173 · máx 0,564 s | M (octubre) | 76 201 ejecuciones, octubre |
-| — | **t_apl** | commit nft | — | **E** en A; **D** hoy (no se registra la hora del commit) | — |
-| J | Activación: del commit al primer paquete descartado | nft (kernel) | ≈ 0, no medido | D | sin `counter` en las reglas |
-| K | Efecto: de la aplicación al cese de las respuestas del destino | depende del ataque (retransmisiones, keep-alive, conexiones abiertas) | — | D | requiere SPAN más contadores (Etapa 2/4) |
+| 1 | **Disponibilidad de paquetes** | `tcpdump -G 15`. El motor no decide una ventana hasta que su PCAP está cerrado (`7b275b8`). | Espera B: 2,0 / 12,0 / 14,0 s (mín/med/máx, 25 episodios); paso del PCAP p50 15,0 s | C / M | `revision-3b/diagnosticos/demora.json` |
+| 2 | **Evidencia suficiente para la regla** | Ventanas de 10 s con historia de 60 s; umbrales de los heurísticos evaluados al construir la ventana | Acumulación A: 0,9 / 7,9 / 23,1 s | M | demora.json |
+| 3 | **Demora de evaluación** | espera de ciclo (`--step-seconds 10`) + proceso | C: 0,45 / 1,45 / 10,5 s · D: 1,2 / 2,6 / 7,0 s; ciclo p50 0,68, p99 7,0, máx 10,6 s | C / M | demora.json, ciclos.jsonl |
+| — | **t_det** | `registro_escrito_en` | — | M | ciclos.jsonl |
+| 4a | Publicación | timer `:x0`, AccuracySec=1s. Arranca en :x0,29; dura p50 0,598, máx 0,773 s. Punto de lectura del registro dentro de la ejecución: **D**. | — | C / M / D | journal del 3B (972 ejecuciones) |
+| 4b | Distribución | relé `:x3` (bastión), doble `scp`; 1,065–1,612 s; offset de arranque **D** (cota de 1 s por AccuracySec) | — | C / M (pocas muestras) / D | `systemctl show` |
+| 4c | Aplicación | agente `:x6`; p50 0,173, máx 0,564 s; offset **D** (cota de 1 s) | — | C / M / D | octubre, 76 201 ejecuciones |
+| 4d | Activación nft (del commit al primer paquete descartado) | kernel | — | **D** | las reglas no tienen `counter` |
+| 5 | **Efecto** (cese de las respuestas del destino mientras el generador sigue) | conexiones abiertas, retransmisiones, tasa | — | **D** | requiere SPAN + contadores (D7) |
 
-**Nota sobre los LIMIT.** Las conexiones TCP ya establecidas no se cortan con un `drop` por origen, salvo que sus paquetes superen la tasa. El efecto de un LIMIT es **desconocido** hasta medirlo.
+## 2. Modelo de la cadena por timers (V0) y supuestos
 
-### 1.1 Tramo E–I con la configuración actual (V0)
+Para un registro escrito en `t_det`:
 
-- El publicador lee el registro en su ejecución :x0. El relé copia el feed en :x3, y el agente lo aplica en :x6 (+0–1 s) más su duración. Por tanto, `t_apl − t_det` = (espera hasta el siguiente :x0) + ~6,2–7,6 s.
-- **Por episodio** (25), con t_det medido:
-  - `t_apl − t_det` ∈ [5,7; 14,8] s en la cota inferior y [7,9; 17,2] s en la superior.
-  - Mediana de la superior: 11,1 s.
-- No es una constante: depende de la fase de t_det respecto a :x0, y por eso se calcula episodio a episodio.
+1. **Publicador.** Se elige el tick `:x0` que lo incluye.
+   - Escenario **favorable**: el publicador lee al **final** de su ejecución (S).
+   - Escenario **alto**: lee al **arrancar** (S).
+   - El punto real es desconocido.
+2. **Relé.** Arranca en el primer `:x3` (+ offset) **posterior al fin de la publicación**. **Consumidor perdido:** si el publicador termina después de que arranque el relé, el relé copia el feed **anterior** y la entrada viaja en el relé siguiente (+10 s).
+3. **Agente.** Arranca en el primer `:x6` (+ offset) **posterior al fin del relé**, con la misma regla de consumidor perdido.
+4. `t_apl_estimada` = arranque del agente + su duración.
 
-### 1.2 Advertencias del código que afectan al presupuesto
+Los dos escenarios:
 
-1. **Ventana del publicador: 120 s.** Una decisión escrita más de 120 s después de su `logged_at` no se publica. No afecta a la primera señal (se publica en ≤ 10 s), pero sí a las **tardías**: en el 3B hubo 655 en el inventario, todas ventanas de 0 paquetes.
-2. **Escalada persistente.** El origen estaba en **nivel 3** desde las pruebas de la madrugada (03:51–03:57). Véase la §5.
-3. **Etiqueta de umbrales.** El servicio pasa `--umbrales 2026-10-06.1` y el código es la `.2`. Gana el código y se emite un aviso en el journal. No altera los tiempos; se corrige en la Etapa 2.
-4. **Comentario desfasado** en `relay-feed.sh` («cada 60 s»). El timer real es de 10 s.
+- **Favorable:** duraciones p50 o mínimas medidas y offsets desconocidos supuestos en 0.
+- **Alto:** máximos **históricos** medidos más las cotas configuradas de 1 s.
 
----
+**No son intervalos de confianza ni límites garantizados.** Un máximo histórico no es el peor caso futuro: un publicador o un relé más lentos podrían perder el consumidor siguiente y sumar 10 s. Las pruebas ensayan ese caso (`pruebas/`, publicador de 4,0 s y relé de 3,5 s).
 
-## 2. Presupuesto por episodio (3B, estimado)
+Con los valores del 3B no se pierde ningún consumidor en ningún episodio. `t_apl_estimada − t_det` por episodio:
 
-La tabla completa está en [resultados/TABLAS-E2E.md](resultados/TABLAS-E2E.md) §1. Resumen por escenario, como distribución de los **totales por episodio**:
+- **favorable:** 5,7–14,8 s;
+- **alto:** 7,9–17,2 s (mediana 11,1 s).
 
-| Escenario | `t_fin_prog` (s) | t_det − t_inicio, mín/med/máx | t_apl − t_inicio (cota sup.), mín/med/máx | V0: antes/indet./después | Margen mínimo (s) |
-|---|---|---|---|---|---|
-| Escaneo sostenido | 65,5–66,3 (natural) | 22,0 / 26,6 / 39,6 | 32,5 / 38,4 / 47,5 | 5/0/0 | 18,3 |
-| Fuerza bruta HTTP | 90 | 18,4 / 23,6 / 25,1 | 28,5 / 32,6 / 35,5 | 5/0/0 | 54,5 |
-| Inundación HTTP | 90 | 24,2 / 25,4 / 29,3 | 32,3 / 42,5 / 45,5 | 5/0/0 | 44,5 |
-| DNS inusual | 90 | 17,2 / 21,9 / 25,9 | 28,5 / 33,5 / 37,6 | 5/0/0 (**sin punto de aplicación**) | 52,4 |
-| **Escaneo breve** | **17,6–18,0** | 16,4 / 28,8 / 39,5 | **28,2 / 40,6 / 50,6** | **0/0/5** | **−32,7 a −10,6** |
+**Clasificación por episodio** (frente a `t_fin_eval`, ε = 0,01 s):
+
+| Clase | Condición | Depende de supuestos |
+|---|---|---|
+| `deteccion_posterior` | t_det **medido** > t_fin_eval | **no** |
+| `despues_del_fin_bajo_supuestos` | incluso la estimación favorable es posterior al fin | sí |
+| `indeterminado` | el fin cae entre la estimación favorable y la alta | sí |
+| `antes_del_fin_bajo_supuestos` | la estimación alta es anterior al fin. **Además** deben caber la activación nft y el efecto, que son desconocidos. | sí: **no certifica oportunidad** |
+
+Las demoras desconocidas **no se suman como cero**. Cada estimación lleva la lista `demoras_desconocidas_no_incluidas`.
+
+**Variantes** (todas estimadas):
+
+- **V1:** cadena por eventos. Publicador, relé y agente se encadenan al escribirse el registro, sin timers, con las mismas duraciones.
+- **V2:** V1 más la decisión inmediata al cierre de la ventana: `t_det = window_end + duración medida del ciclo` (esperas 1 y 3 a cero). Es la mejor cifra posible **con las mismas ventanas y reglas**.
+
+## 3. Resultados por escenario (política actual, α desplegado)
+
+Tabla por episodio en [resultados/TABLAS-E2E.md](resultados/TABLAS-E2E.md) §1 y §1b. Las distribuciones son **por episodio**.
+
+| Escenario | Ejecutados (admitidos v2) | Regla prevista: t_det − t_inicio, mín–máx | V0 con la regla prevista | Primera señal de cualquier regla: V0 / V1 / V2 (antes\*) |
+|---|---|---|---|---|
+| Escaneo sostenido | 5 (4) | 22,0–74,3 s | antes\* 4 · det. posterior 1 (r3) | 5 / 5 / 5 |
+| Fuerza bruta HTTP | 5 (3) | 18,4–25,1 s | antes\* 5 | 5 / 5 / 5 |
+| Inundación HTTP | 5 (1) | 24,2–29,3 s | antes\* 5 (efecto **desconocido**) | 5 / 5 / 5 |
+| DNS inusual | 5 (3) | 17,2–25,9 s | antes\* 5 (**sin punto de aplicación**, D1) | 5 / 5 / 5 |
+| **Escaneo breve** | 5 (4) | **26,2–39,5 s** (fin a 17,6 s) | **det. posterior 5/5** | 0 / 0 / 1 (el 1 lo da `brute_force` mal atribuido) |
+
+«antes\*» = antes del fin bajo supuestos (§2).
+
+## 4. Escaneo breve: limitaciones de la configuración actual
+
+El objetivo está **decidido** ([D2](DECISIONES.md)): detectar y aplicar una respuesta efectiva mientras el escaneo sigue activo, **sin prolongarlo**.
+
+Lo que sigue describe por qué **esta configuración** no lo consigue con los registros del 3B. **No** afirma que detectar escaneos breves sea imposible en general.
+
+Desglose por episodio con la regla prevista (`port_scan`), en segundos desde `t_inicio`; fin evaluado a 17,6 s:
+
+| Episodio | (2) Cierre de la ventana donde la regla tiene evidencia suficiente | (1)+(3) Paquetes disponibles + evaluación, hasta t_det | t_det | (4) Cadena V0 (alto) | t_apl_estimada (alto) | V2: t_apl_estimada (favorable–alto) |
+|---|---|---|---|---|---|---|
+| r1 | 20,6 | +15,8 | 36,4 | +11,7 | 48,2 | 23,8–24,9 |
+| r2 | 18,0 | +8,3 | 26,2 | +9,3 | 35,5 | 22,4–23,6 |
+| r3 | 15,0 | +15,7 | 30,7 | +11,9 | 42,6 | 18,1–19,2 |
+| r4 | 23,0 | +5,8 | 28,8 | +11,8 | 40,6 | 26,1–27,3 |
+| r5 | 23,1 | +16,5 | 39,5 | +11,1 | 50,6 | 26,9–28,1 |
 
 **Lectura:**
 
-- En las familias de 66–90 s, la cadena actual cabe en el presupuesto con margen. Los cuellos de botella son la **aplicación real** (agente inactivo, D7) y el **efecto** (desconocido).
-- En el **escaneo breve no cabe**: incluso t_det (mediana 28,8 s) es posterior al fin (17,6–18,0 s) en 4 de 5 episodios.
-- En la estimación del 3B, el fin de nmap es el natural de cada episodio. Con el `D_ref` mínimo propuesto (65,52 / 17,59 s), las conclusiones no cambian.
+1. **Evidencia suficiente para la regla (tramo 2).**
+   - En 4/5 episodios, la ventana en la que `port_scan` se cumple **cierra después del fin** (18,0–23,1 s).
+   - En r3 cierra a 15,0 s, y aun con esperas nulas (V2) la aplicación estimada (18,1 s) llega después de 17,6 s.
+   - La primera ventana, que contiene entre 0,6 y 8 s de ataque, nunca dio señal.
+   - nmap -T4 hace unos 55 puertos/s, así que la ráfaga de ≥ 200 intentos/30 s se alcanza en pocos segundos. El retraso nace de **cuándo se construye y se decide la ventana**, no del volumen.
+2. **Disponibilidad de paquetes y evaluación (tramos 1 y 3).** Añaden 5,8–16,5 s: espera al cierre del PCAP de 15 s, espera al ciclo de 10 s y proceso.
+3. **Publicación, distribución y aplicación (tramo 4).** Añaden 9,3–11,9 s con timers (alto) y unos 1,8–2,9 s por eventos.
+4. **Efecto (tramo 5).** Desconocido.
+5. **Señal de otra regla.** El `brute_force` de r1 a 16,4 s **no** valida `port_scan`. Hay que comprobar la atribución y el comportamiento que lo originó (MATRIZ, errores de atribución).
 
----
+**Por qué rotar el PCAP más rápido no basta:**
 
-## 3. Variantes: qué arreglaría cada mejora
+- `-G 5` solo reduce el tramo 1.
+- Aunque los tramos 1, 3 y 4 fueran casi nulos (V2), la regla actual tiene la evidencia en ventanas que cierran tarde.
+- Hacen falta las dos cosas a la vez:
+  - **captura y cadena** (Etapa 2): lectura incremental o rotación corta conservando la regla de paquetes decodificados, ciclo por eventos, y publicación, distribución y aplicación por eventos;
+  - **regla temprana** (Etapa 3): `port_scan` evaluado en cuanto el contador supera el umbral con la evidencia parcial disponible, sin esperar al cierre de la ventana y sin usar la IP del generador.
 
-Las variantes son **estimaciones**, recalculadas por episodio con los mismos registros:
+**Comprobación de la Etapa 2:** con los PCAP del 3B, medir por episodio el tiempo hasta la evidencia suficiente y hasta `t_apl_estimada` con el prototipo, frente a 17,59 s y con margen para las demoras desconocidas. Hasta entonces, la viabilidad es **desconocida**.
 
-- **V0:** la cadena actual.
-- **V1:** cadena por eventos. Publicador, relé y agente se encadenan al escribirse el ciclo, sin esperar timers: `t_apl − t_det` ∈ [1,8; 2,9] s, con las duraciones medidas de F, G e I.
-- **V2:** V1 más la decisión **inmediata al cierre de la ventana** (B = C = 0), con la duración medida del ciclo que la decidió. Es la cota inferior con **las mismas ventanas y los mismos heurísticos**.
+## 5. Contaminación entre episodios (simulación secuencial, bajo supuestos)
 
-| Escenario | V0 antes del fin | V1 antes del fin | V2 antes del fin | Ventana con señal cierra antes del fin |
-|---|---|---|---|---|
-| Escaneo sostenido | 5/5 | 5/5 | 5/5 | 5/5 |
-| Fuerza bruta HTTP | 5/5 | 5/5 | 5/5 | 5/5 |
-| Inundación HTTP | 5/5 | 5/5 | 5/5 | 5/5 |
-| DNS inusual | 5/5 | 5/5 | 5/5 | 5/5 |
-| **Escaneo breve** | **0/5** | **0/5** | **1/5** | 3/5 |
+Con la política actual y el estado real de escalada (nivel 3 previo del origen), 24/25 episodios habrían empezado con un **BLOCK hipotético** vigente de unos 3600 s ([TABLAS](resultados/TABLAS-E2E.md) §4).
 
-En el escaneo breve, el único caso de V2 que llega (r1) lo provoca una señal `brute_force` («5 req HTTP»), **no** `port_scan`. Esa señal está mal atribuida al tipo de ataque, y no se debe contar como acierto del detector previsto.
+Es un **riesgo bajo supuestos**: con un bloqueo real, los ataques y las decisiones posteriores habrían sido distintos. Basta para exigir la limpieza verificada de [D5](DECISIONES.md).
 
-### 3.1 ¿Bastaría rotar el PCAP a 5 s (`-G 5`)?
+## 6. Otras advertencias del código
 
-**No.** Cota del peor caso en el escaneo breve, sumando los tramos **del mismo episodio** (no medianas):
-
-| Tramo | Hoy | Con `-G 5` | Con `-G 5` + ciclo por inotify + V1 |
-|---|---|---|---|
-| Cierre de la primera ventana que contiene el inicio (rejilla de 10 s) | 0–10 s | 0–10 s | 0–10 s |
-| Espera de PCAP | 0–15 s | 0–5 s | 0–5 s |
-| Espera de ciclo | 0–10 s | 0–10 s | ~0 s |
-| Proceso del ciclo (M; p99) | ≤ 7,0 s | ≤ 7,0 s | ≤ 7,0 s |
-| Cadena E–I | 5,7–17,2 s | 5,7–17,2 s | 1,8–2,9 s |
-| **Peor caso** | **≈ 59 s** | **≈ 49 s** | **≈ 25 s** |
-| Fin del escaneo breve | 17,6 s | 17,6 s | 17,6 s |
-
-**Además, todo lo anterior supone que la primera ventana ya dispara `port_scan`.** En el 3B **no** ocurrió en ningún episodio:
-
-- La primera ventana (que contiene entre 0,6 y 8 s de ataque) nunca dio señal.
-- La primera señal salió de la **2.ª** ventana en 3/5 episodios (r1, r2, r3; en r1 era `brute_force`) y de la **3.ª** en 2/5 (r4, r5). En estos dos últimos, la ventana cerró 23 s después del inicio, es decir, después del fin.
-
-- Las ráfagas ≥ 200 intentos/30 s se alcanzan en pocos segundos (nmap -T4 hace ~55 puertos/s). La señal se retrasa por **cómo se construyen y deciden las ventanas** (paso de 10 s, historia de 60 s, completitud SYN calculada al cierre) y por la espera a que el PCAP se cierre.
-
-**Incompatibilidad declarada:** con ventanas de 10 s decididas solo tras el cierre del PCAP y una cadena por timers, **no es posible** responder a un escaneo de ~18 s antes de que termine. Mejorarlo exige las tres cosas a la vez:
-
-1. **Etapa 2 (captura y cadena):**
-   - rotación más corta, o lectura incremental del PCAP abierto con la misma regla de «paquetes decodificados» del motor;
-   - ciclo disparado por eventos (inotify) en lugar de por paso fijo;
-   - publicador, relé y agente encadenados por eventos, con push firmado en lugar de tres timers desfasados.
-2. **Etapa 3 (heurísticos):** una regla de escaneo que decida con **evidencia parcial**: un umbral de ráfaga sobre los primeros segundos, evaluado en cuanto el contador lo supera y no al cierre de la ventana. Y siempre sin usar la IP del generador.
-3. **Comprobación:** con 1 y 2, la cota del peor caso debe quedar por debajo de 17,59 − margen. La Etapa 2 debe medir el nuevo presupuesto **por episodio** y no con medianas.
-
-Si D2 se resolviera redefiniendo el objetivo como contención de la **reincidencia**, el escaneo breve saldría del objetivo operativo, y así se declararía.
-
----
-
-## 4. Requisitos de medición para que t_apl y t_efecto dejen de ser estimaciones (Etapa 2)
-
-| Marca | Qué falta | Dónde |
-|---|---|---|
-| t_det | nada: `registro_escrito_en` ya existe | motor |
-| t_pub | hora de lectura y de escritura del feed, con la lista de IPs y la versión | journal del publicador (hoy solo la duración) |
-| t_relay | hora de llegada del feed a srv | relé (hoy, journal no legible para gadmin) |
-| **t_apl** | hora del commit nft con su código de retorno, el **lote aplicado** y una lectura posterior del set con `expires` | agente (hoy solo «aplicado») |
-| **t_efecto** | contadores por regla (`counter`) más la desaparición de respuestas del destino en el SPAN | reglas nft (D7) + herramienta de análisis |
-
----
-
-## 5. Contaminación entre episodios (consecuencia directa del presupuesto)
-
-- La simulación secuencial (tabla 3 de TABLAS-E2E) muestra que, con el agente activo y el estado real, **24/25 episodios del 3B habrían empezado con el origen ya bloqueado**: BLOCK de 3600 s, nivel 3 y revisión humana marcada.
-  - El primer episodio empezó sin BLOCK vigente, pero ya en nivel 3.
-- El origen había alcanzado el nivel 3 en las pruebas de la madrugada (03:51–03:57): `port_scan` → BLOCK al final de una inundación HTTP. Este es otro síntoma del problema de separación de la Etapa 3.
-- En la campaña B, sin limpieza verificada del estado y de los sets entre episodios (D5), **no se mediría nada**. Las restricciones heredadas de un episodio anterior convierten el siguiente en un **fallo del experimento**.
-- La separación actual entre episodios (90 s de observación + 120 s de contexto = 210 s) es menor que el LIMIT de 300 s y que cualquier BLOCK.
+- La ventana de lectura del publicador es de 120 s: las decisiones tardías de más de 120 s no se publican.
+- El servicio pasa `--umbrales 2026-10-06.1` frente al código `.2`; gana el código y se emite un aviso.
+- El comentario de `relay-feed.sh` dice «cada 60 s» y el timer es de 10 s.
+- Todo se corrige en la Etapa 2, en la rama candidata.
