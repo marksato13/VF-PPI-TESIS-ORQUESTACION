@@ -1,0 +1,148 @@
+{
+ "10.10.20.22": {
+  "peticiones": 7018,
+  "max_60s": 85,
+  "fallos_auth_en_max": 0,
+  "ventana_max": "2026-11-01T08:16:40+00:00"
+ },
+ "10.10.20.24": {
+  "peticiones": 6849,
+  "max_60s": 88,
+  "fallos_auth_en_max": 0,
+  "ventana_max": "2026-11-01T08:45:10+00:00"
+ },
+ "10.10.20.23": {
+  "peticiones": 2046,
+  "max_60s": 34,
+  "fallos_auth_en_max": 0,
+  "ventana_max": "2026-11-01T09:18:00+00:00"
+ },
+ "10.10.20.25": {
+  "peticiones": 767,
+  "max_60s": 16,
+  "fallos_auth_en_max": 0,
+  "ventana_max": "2026-11-01T07:29:00+00:00"
+ },
+ "10.10.20.26": {
+  "peticiones": 4184,
+  "max_60s": 117,
+  "fallos_auth_en_max": 0,
+  "ventana_max": "2026-11-01T08:52:00+00:00"
+ },
+ "10.10.20.21": {
+  "peticiones": 4080,
+  "max_60s": 50,
+  "fallos_auth_en_max": 0,
+  "ventana_max": "2026-11-01T09:39:50+00:00"
+ },
+ "10.10.10.30": {
+  "peticiones": 112,
+  "max_60s": 12,
+  "fallos_auth_en_max": 2,
+  "ventana_max": "2026-11-01T08:05:30+00:00"
+ },
+ "10.10.20.30": {
+  "peticiones": 199061,
+  "max_60s": 18386,
+  "fallos_auth_en_max": 0,
+  "ventana_max": "2026-11-01T08:14:30+00:00",
+  "episodios": {
+   "dns_inusual-r1": {
+    "max_60s": 81,
+    "max_fallos_60s": 53
+   },
+   "dns_inusual-r2": {
+    "max_60s": 0,
+    "max_fallos_60s": 0
+   },
+   "dns_inusual-r3": {
+    "max_60s": 0,
+    "max_fallos_60s": 0
+   },
+   "dns_inusual-r4": {
+    "max_60s": 0,
+    "max_fallos_60s": 0
+   },
+   "dns_inusual-r5": {
+    "max_60s": 135,
+    "max_fallos_60s": 82
+   },
+   "escaneo_breve-r1": {
+    "max_60s": 206,
+    "max_fallos_60s": 138
+   },
+   "escaneo_breve-r2": {
+    "max_60s": 59,
+    "max_fallos_60s": 43
+   },
+   "escaneo_breve-r3": {
+    "max_60s": 0,
+    "max_fallos_60s": 0
+   },
+   "escaneo_breve-r4": {
+    "max_60s": 0,
+    "max_fallos_60s": 0
+   },
+   "escaneo_breve-r5": {
+    "max_60s": 0,
+    "max_fallos_60s": 0
+   },
+   "escaneo_sostenido-r1": {
+    "max_60s": 193,
+    "max_fallos_60s": 0
+   },
+   "escaneo_sostenido-r3": {
+    "max_60s": 175,
+    "max_fallos_60s": 134
+   },
+   "escaneo_sostenido-r4": {
+    "max_60s": 47,
+    "max_fallos_60s": 0
+   },
+   "escaneo_sostenido-r5": {
+    "max_60s": 843,
+    "max_fallos_60s": 0
+   },
+   "fuerza_bruta_http-r1": {
+    "max_60s": 8189,
+    "max_fallos_60s": 8176
+   },
+   "fuerza_bruta_http-r2": {
+    "max_60s": 8104,
+    "max_fallos_60s": 8086
+   },
+   "fuerza_bruta_http-r3": {
+    "max_60s": 7957,
+    "max_fallos_60s": 7931
+   },
+   "fuerza_bruta_http-r4": {
+    "max_60s": 7919,
+    "max_fallos_60s": 7881
+   },
+   "fuerza_bruta_http-r5": {
+    "max_60s": 8010,
+    "max_fallos_60s": 7956
+   },
+   "inundacion_http-r1": {
+    "max_60s": 18386,
+    "max_fallos_60s": 0
+   },
+   "inundacion_http-r2": {
+    "max_60s": 18198,
+    "max_fallos_60s": 0
+   },
+   "inundacion_http-r3": {
+    "max_60s": 17595,
+    "max_fallos_60s": 0
+   },
+   "inundacion_http-r4": {
+    "max_60s": 17663,
+    "max_fallos_60s": 0
+   },
+   "inundacion_http-r5": {
+    "max_60s": 18040,
+    "max_fallos_60s": 0
+   }
+  }
+ }
+}

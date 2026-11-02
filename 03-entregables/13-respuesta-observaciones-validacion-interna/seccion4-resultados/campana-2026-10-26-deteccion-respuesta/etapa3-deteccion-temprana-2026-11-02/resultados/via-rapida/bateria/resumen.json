@@ -1,0 +1,290 @@
+{
+ "A1|sin_carga": {
+  "n": 15,
+  "sin_aplicacion": 0,
+  "aplicada_p50_p95_max": [
+   1.451,
+   2.034,
+   2.078
+  ],
+  "primer_descarte_p50_p95_max": [
+   1.526,
+   2.103,
+   2.113
+  ],
+  "descarte_antes_del_ultimo_syn": "15/15",
+  "margen_aplicada_ultimo_syn_min_p05_p50": [
+   2.426,
+   2.459,
+   3.123
+  ],
+  "espera_disponible_p50_max": [
+   0.551,
+   0.912
+  ],
+  "rele_publicada_entregada_p50_max": [
+   0.348,
+   0.843
+  ],
+  "agente_entregada_recibida_p50_max": [
+   0.261,
+   0.294
+  ],
+  "syn_tras_aplicacion_frac_min_p50": [
+   0.797,
+   0.948
+  ]
+ },
+ "A1|carga": {
+  "n": 15,
+  "sin_aplicacion": 0,
+  "aplicada_p50_p95_max": [
+   1.655,
+   2.081,
+   2.222
+  ],
+  "primer_descarte_p50_p95_max": [
+   1.74,
+   2.149,
+   2.32
+  ],
+  "descarte_antes_del_ultimo_syn": "15/15",
+  "margen_aplicada_ultimo_syn_min_p05_p50": [
+   2.3,
+   2.436,
+   3.245
+  ],
+  "espera_disponible_p50_max": [
+   0.456,
+   0.811
+  ],
+  "rele_publicada_entregada_p50_max": [
+   0.579,
+   0.878
+  ],
+  "agente_entregada_recibida_p50_max": [
+   0.296,
+   0.377
+  ],
+  "syn_tras_aplicacion_frac_min_p50": [
+   0.747,
+   0.925
+  ]
+ },
+ "A2|sin_carga": {
+  "n": 15,
+  "sin_aplicacion": 0,
+  "aplicada_p50_p95_max": [
+   1.941,
+   2.699,
+   2.704
+  ],
+  "primer_descarte_p50_p95_max": [
+   2.048,
+   2.765,
+   2.765
+  ],
+  "descarte_antes_del_ultimo_syn": "15/15",
+  "margen_aplicada_ultimo_syn_min_p05_p50": [
+   1.774,
+   1.897,
+   3.018
+  ],
+  "espera_disponible_p50_max": [
+   0.926,
+   1.647
+  ],
+  "rele_publicada_entregada_p50_max": [
+   0.351,
+   0.861
+  ],
+  "agente_entregada_recibida_p50_max": [
+   0.27,
+   0.325
+  ],
+  "syn_tras_aplicacion_frac_min_p50": [
+   0.607,
+   0.902
+  ]
+ },
+ "A2|carga": {
+  "n": 15,
+  "sin_aplicacion": 0,
+  "aplicada_p50_p95_max": [
+   2.092,
+   2.598,
+   2.682
+  ],
+  "primer_descarte_p50_p95_max": [
+   2.168,
+   2.671,
+   2.766
+  ],
+  "descarte_antes_del_ultimo_syn": "15/15",
+  "margen_aplicada_ultimo_syn_min_p05_p50": [
+   2.125,
+   2.191,
+   2.549
+  ],
+  "espera_disponible_p50_max": [
+   1.043,
+   1.436
+  ],
+  "rele_publicada_entregada_p50_max": [
+   0.341,
+   0.865
+  ],
+  "agente_entregada_recibida_p50_max": [
+   0.299,
+   0.349
+  ],
+  "syn_tras_aplicacion_frac_min_p50": [
+   0.722,
+   0.845
+  ]
+ },
+ "B|sin_carga": {
+  "n": 15,
+  "sin_aplicacion": 0,
+  "aplicada_p50_p95_max": [
+   0.825,
+   1.427,
+   1.466
+  ],
+  "primer_descarte_p50_p95_max": [
+   1.047,
+   1.696,
+   1.973
+  ],
+  "descarte_antes_del_ultimo_syn": "15/15",
+  "margen_aplicada_ultimo_syn_min_p05_p50": [
+   3.198,
+   3.391,
+   4.083
+  ],
+  "espera_disponible_p50_max": [
+   0.01,
+   0.025
+  ],
+  "rele_publicada_entregada_p50_max": [
+   0.305,
+   1.005
+  ],
+  "agente_entregada_recibida_p50_max": [
+   0.239,
+   0.471
+  ],
+  "syn_tras_aplicacion_frac_min_p50": [
+   0.948,
+   0.994
+  ]
+ },
+ "B|carga": {
+  "n": 15,
+  "sin_aplicacion": 0,
+  "aplicada_p50_p95_max": [
+   0.934,
+   1.692,
+   1.719
+  ],
+  "primer_descarte_p50_p95_max": [
+   1.058,
+   1.775,
+   1.781
+  ],
+  "descarte_antes_del_ultimo_syn": "15/15",
+  "margen_aplicada_ultimo_syn_min_p05_p50": [
+   2.899,
+   3.246,
+   3.933
+  ],
+  "espera_disponible_p50_max": [
+   0.009,
+   0.025
+  ],
+  "rele_publicada_entregada_p50_max": [
+   0.329,
+   1.015
+  ],
+  "agente_entregada_recibida_p50_max": [
+   0.29,
+   0.559
+  ],
+  "syn_tras_aplicacion_frac_min_p50": [
+   0.874,
+   0.992
+  ]
+ },
+ "C|sin_carga": {
+  "n": 15,
+  "sin_aplicacion": 0,
+  "aplicada_p50_p95_max": [
+   1.52,
+   1.912,
+   1.997
+  ],
+  "primer_descarte_p50_p95_max": [
+   1.543,
+   1.959,
+   2.026
+  ],
+  "descarte_antes_del_ultimo_syn": "15/15",
+  "margen_aplicada_ultimo_syn_min_p05_p50": [
+   2.624,
+   2.852,
+   3.33
+  ],
+  "espera_disponible_p50_max": [
+   0.31,
+   0.934
+  ],
+  "rele_publicada_entregada_p50_max": [
+   0.329,
+   0.818
+  ],
+  "agente_entregada_recibida_p50_max": [
+   0.238,
+   0.363
+  ],
+  "syn_tras_aplicacion_frac_min_p50": [
+   0.823,
+   0.941
+  ]
+ },
+ "C|carga": {
+  "n": 15,
+  "sin_aplicacion": 0,
+  "aplicada_p50_p95_max": [
+   0.978,
+   1.595,
+   1.619
+  ],
+  "primer_descarte_p50_p95_max": [
+   1.13,
+   1.64,
+   1.646
+  ],
+  "descarte_antes_del_ultimo_syn": "15/15",
+  "margen_aplicada_ultimo_syn_min_p05_p50": [
+   2.976,
+   2.99,
+   3.744
+  ],
+  "espera_disponible_p50_max": [
+   0.004,
+   0.022
+  ],
+  "rele_publicada_entregada_p50_max": [
+   0.339,
+   0.864
+  ],
+  "agente_entregada_recibida_p50_max": [
+   0.286,
+   0.351
+  ],
+  "syn_tras_aplicacion_frac_min_p50": [
+   0.925,
+   0.992
+  ]
+ }
+}

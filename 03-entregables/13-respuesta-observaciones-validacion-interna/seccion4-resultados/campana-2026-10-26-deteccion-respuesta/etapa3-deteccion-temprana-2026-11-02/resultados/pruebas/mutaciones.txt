@@ -1,0 +1,10 @@
+# commit 585da7b; guiones/mutar.py
+MUERTA scripts/engine/escaneo_temprano.py :: if n >= self.K and -> if n > self.K and :: 1 failed in 0.18s
+MUERTA scripts/engine/escaneo_temprano.py :: t - t0 < 0.005 -> t - t0 < 0.0 :: 1 failed, 2 passed in 0.18s
+MUERTA scripts/engine/escaneo_temprano.py :: t - par.ultimo_disparo >= self.refractario_s -> True :: 1 failed, 11 passed in 0.19s
+MUERTA scripts/engine/publicar_feed_v2.py :: ev_desde >= prev.get("evidencia_hasta", float("inf")) -> True :: 1 failed, 18 passed in 0.16s
+MUERTA scripts/engine/dns_heuristica.py :: abs(t - prev) < self.copia_s -> False :: 1 failed, 89 passed, 4 skipped in 1.89s
+MUERTA scripts/engine/dns_heuristica.py :: reenvio = i > 0 and t - lst[i - 1] <= self.delta_s -> reenvio = False :: 1 failed, 92 passed, 4 skipped in 1.77s
+MUERTA scripts/engine/http_heuristica.py :: en_cable = j < len(ts) and ts[j] <= t + self.tolerancia_s -> en_cable = True :: 1 failed, 99 passed, 4 skipped in 2.17s
+MUERTA scripts/engine/heuristicos.py :: and up >= u.get("min_unique_dst_port_ratio_burst_30s", 0.0)) -> ) :: 1 failed, 104 passed, 4 skipped in 2.25s
+rc=0

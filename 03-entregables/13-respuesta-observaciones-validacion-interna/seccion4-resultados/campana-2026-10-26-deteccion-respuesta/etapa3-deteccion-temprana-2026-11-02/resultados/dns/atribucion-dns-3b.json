@@ -1,0 +1,50 @@
+{
+ "delta_s": 2.0,
+ "consultas": 9491,
+ "respuestas": 8131,
+ "copias_span_descartadas": 10286,
+ "consultas_de_resolvedores": {
+  "10.10.10.20|propia|NX": 11,
+  "10.10.10.20|propia|ok": 24,
+  "10.10.10.20|reenvio|NX": 2901,
+  "10.10.10.20|reenvio|ok": 45,
+  "10.10.10.21|propia|ok": 2,
+  "10.10.10.21|reenvio|NX": 20,
+  "10.10.10.21|reenvio|ok": 2
+ },
+ "reenvios_por_cliente": {
+  "10.10.20.22": 1212,
+  "10.10.20.26": 544,
+  "10.10.20.21": 458,
+  "10.10.20.24": 349,
+  "10.10.20.25": 273,
+  "10.10.20.23": 45,
+  "10.10.60.50": 41,
+  "10.10.20.30": 40,
+  "10.10.60.10": 6
+ },
+ "propias_por_dominio": {
+  "tailscale.com": 22,
+  "francos-sac.com": 11,
+  "0.160.200.in-addr.arpa": 4
+ },
+ "ventanas_dns_entropy": {
+  "10.10.10.20": {
+   "todas": 385
+  },
+  "10.10.20.30": {
+   "todas": 67,
+   "sin_reenvios": 67
+  }
+ },
+ "clientes_tras_nxdomain_reenviados_en_ventanas_de_dc1": {
+  "10.10.20.22": 3414,
+  "10.10.20.26": 2107,
+  "10.10.20.21": 1302,
+  "10.10.20.24": 1035,
+  "10.10.20.25": 714,
+  "10.10.20.23": 141,
+  "10.10.20.30": 59
+ },
+ "marcas": 0
+}
