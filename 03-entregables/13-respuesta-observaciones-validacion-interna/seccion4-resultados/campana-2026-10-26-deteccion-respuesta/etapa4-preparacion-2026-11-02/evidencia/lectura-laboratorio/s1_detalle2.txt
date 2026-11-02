@@ -1,0 +1,126 @@
+== fecha
+2026-11-02T19:10:13.786Z
+== arranque del proceso (segundos epoch)
+btime=1793389991 clk_tck=100 starttime_ticks=11284951
+ExecMainStartTimestamp=Sun 2026-11-01 03:14:01 UTC
+ExecMainStartTimestampMonotonic=112849526263
+ActiveEnterTimestamp=Sun 2026-11-01 03:14:01 UTC
+== mtime/ctime exactos de los modulos del motor
+1793502840 1793502840 47636 /home/m4rk/cyberflow/scripts/engine/motor_decision.py
+1793502840 1793502840 16858 /home/m4rk/cyberflow/scripts/engine/motor_incremental.py
+1792036108 1792036108 7524 /home/m4rk/cyberflow/scripts/engine/heuristicos.py
+1791649962 1791649962 41603 /home/m4rk/cyberflow/scripts/engine/vista_vivo.py
+1790797943 1790797943 3329 /home/m4rk/cyberflow/scripts/engine/feed.py
+1789673070 1789673142 4114 /home/m4rk/cyberflow/configs/features/multilayer-v2.json
+1792389232 1792389232 4372702 /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib
+1792389232 1792389232 2522 /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json
+== importaciones de motor_decision.py
+51:from __future__ import annotations
+53:import argparse
+54:import collections
+55:import json
+56:import subprocess
+57:import sys
+58:import time
+59:from pathlib import Path
+62:sys.path.insert(0, str(REPO_ROOT / "scripts" / "features"))
+64:import extract_multilayer_v2 as extractor  # noqa: E402
+65:import extract_multilayer_v3 as v3  # noqa: E402  (capa 2 y deduplicacion)
+66:import heuristicos  # noqa: E402  (heuristicos deterministas para el feed de enforcement)
+67:import motor_incremental as incremental  # noqa: E402  (mismo extractor congelado, sin trabajo repetido)
+stat: cannot statx '/home/m4rk/cyberflow/scripts/features/*.py': No such file or directory
+== esquema: finales de linea y tamano
+4114 /home/m4rk/cyberflow/configs/features/multilayer-v2.json
+37
+b64_len=5488
+ew0KICAic2NoZW1hX3ZlcnNpb24iOiAibXVsdGlsYXllci12MiIsDQogICJvYnNlcnZhdGlvbl91bml0IjogImluaXRpYXRvcl9pcF9hdF9jYXVzYWxfd2luZG93X2VuZCIsDQogICJlbWlzc2lvbl9zdGVwX3NlY29uZHMiOiAxMCwNCiAgIm1heGltdW1faGlzdG9yeV9zZWNvbmRzIjogNjAsDQogICJub3RlcyI6ICJDb25zZXJ2YSBsYXMgMTQgZmVhdHVyZXMgZGUgbXVsdGlsYXllci12MSAob3JkZXJzIDEtMTQsIGlkw6ludGljYXMpIHkgYcOxYWRlIDE0IGZlYXR1cmVzIG51ZXZhcyAob3JkZXJzIDE1LTI4KS4gUmVzdWVsdmUgbGEgaW5jb25zaXN0ZW5jaWEgZGUgZG9jcy9mYXNlMDMtZGF0YXNldC8xNjA6IGVsIHBsYW4gdjIgbGlzdGFiYSAxMyBmZWF0dXJlcyBudWV2YXMgeSBtZW5jaW9uYWJhIHVuIHRlY2hvIGRlIDI2OyBlc3RlIGNvbnRyYXRvIGZpamEgMjggZmVhdHVyZXMgdG90YWxlcyAoMTQrMTQpIGHDsWFkaWVuZG8gaHR0cF9zZXJ2ZXJfZXJyb3JfcmF0aW9fNjBzIGNvbW8gb2N0YXZhIGZlYXR1cmUgTDcgbnVldmEuIiwNCiAgImZlYXR1cmVzIjogWw0KICAgIHsib3JkZXIiOiAxLCAibmFtZSI6ICJwYWNrZXRfcmF0ZV8xMHMiLCAibGF5ZXIiOiAiTDMiLCAid2luZG93X3NlY29uZHMiOiAxMCwgInVuaXQiOiAicGFja2V0c19wZXJfc2Vjb25kIiwgInNvdXJjZSI6ICJwY2FwIn0sDQogICAgeyJvcmRlciI6IDIsICJuYW1lIjogImJ5dGVfcmF0ZV8xMHMiLCAibGF5ZXIiOiAiTDMiLCAid2luZG93X3NlY29uZHMiOiAxMCwgInVuaXQiOiAiaXBfYnl0ZXNfcGVyX3NlY29uZCIsICJzb3VyY2UiOiAicGNhcCJ9LA0KICAgIHsib3JkZXIiOiAzLCAibmFtZSI6ICJtZWFuX2lwX2xlbl8xMHMiLCAibGF5ZXIiOiAiTDMiLCAid2luZG93X3NlY29uZHMiOiAxMCwgInVuaXQiOiAiYnl0ZXMiLCAic291cmNlIjogInBjYXAifSwNCiAgICB7Im9yZGVyIjogNCwgIm5hbWUiOiAibGFyZ2VfaXBfcmF0aW9fMTBzIiwgImxheWVyIjogIkwzIiwgIndpbmRvd19zZWNvbmRzIjogMTAsICJ1bml0IjogInJhdGlvIiwgInNvdXJjZSI6ICJwY2FwIn0sDQogICAgeyJvcmRlciI6IDUsICJuYW1lIjogInVuaXF1ZV9kc3RfaXBfcmF0aW9fMzBzIiwgImxheWVyIjogIkwzIiwgIndpbmRvd19zZWNvbmRzIjogMzAsICJ1bml0IjogInJhdGlvIiwgInNvdXJjZSI6ICJwY2FwIn0sDQogICAgeyJvcmRlciI6IDYsICJuYW1lIjogImljbXBfcmF0aW9fMTBzIiwgImxheWVyIjogIkwzIiwgIndpbmRvd19zZWNvbmRzIjogMTAsICJ1bml0IjogInJhdGlvIiwgInNvdXJjZSI6ICJwY2FwIn0sDQogICAgeyJvcmRlciI6IDcsICJuYW1lIjogImZsb3dfYXR0ZW1wdF9yYXRlXzEwcyIsICJsYXllciI6ICJMNCIsICJ3aW5kb3dfc2Vjb25kcyI6IDEwLCAidW5pdCI6ICJhdHRlbXB0c19wZXJfc2Vjb25kIiwgInNvdXJjZSI6ICJwY2FwIn0sDQogICAgeyJvcmRlciI6IDgsICJuYW1lIjogInN5bl9yYXRlXzEwcyIsICJsYXllciI6ICJMNCIsICJ3aW5kb3dfc2Vjb25kcyI6IDEwLCAidW5pdCI6ICJzeW5fcGVyX3NlY29uZCIsICJzb3VyY2UiOiAicGNhcCJ9LA0KICAgIHsib3JkZXIiOiA5LCAibmFtZSI6ICJzeW5fY29tcGxldGlvbl9yYXRpb18xMHMiLCAibGF5ZXIiOiAiTDQiLCAid2luZG93X3NlY29uZHMiOiAxMCwgInVuaXQiOiAicmF0aW8iLCAic291cmNlIjogInBjYXAifSwNCiAgICB7Im9yZGVyIjogMTAsICJuYW1lIjogInJzdF9yYXRpb18xMHMiLCAibGF5ZXIiOiAiTDQiLCAid2luZG93X3NlY29uZHMiOiAxMCwgInVuaXQiOiAicmF0aW8iLCAic291cmNlIjogInBjYXAifSwNCiAgICB7Im9yZGVyIjogMTEsICJuYW1lIjogInVuaXF1ZV9kc3RfcG9ydF9yYXRpb18zMHMiLCAibGF5ZXIiOiAiTDQiLCAid2luZG93X3NlY29uZHMiOiAzMCwgInVuaXQiOiAicmF0aW8iLCAic291cmNlIjogInBjYXAifSwNCiAgICB7Im9yZGVyIjogMTIsICJuYW1lIjogImh0dHBfZXJyb3JfcmF0aW9fNjBzIiwgImxheWVyIjogIkw3IiwgIndpbmRvd19zZWNvbmRzIjogNjAsICJ1bml0IjogInJhdGlvIiwgInNvdXJjZSI6ICJldmUifSwNCiAgICB7Im9yZGVyIjogMTMsICJuYW1lIjogImRuc19ueGRvbWFpbl9yYXRpb182MHMiLCAibGF5ZXIiOiAiTDciLCAid2luZG93X3NlY29uZHMiOiA2MCwgInVuaXQiOiAicmF0aW8iLCAic291cmNlIjogImV2ZSJ9LA0KICAgIHsib3JkZXIiOiAxNCwgIm5hbWUiOiAidGxzX3Nlc3Npb25fcmF0ZV82MHMiLCAibGF5ZXIiOiAiTDciLCAid2luZG93X3NlY29uZHMiOiA2MCwgInVuaXQiOiAic2Vzc2lvbnNfcGVyX3NlY29uZCIsICJzb3VyY2UiOiAiZXZlIn0sDQogICAgeyJvcmRlciI6IDE1LCAibmFtZSI6ICJ0dGxfbWVhbl8xMHMiLCAibGF5ZXIiOiAiTDMiLCAid2luZG93X3NlY29uZHMiOiAxMCwgInVuaXQiOiAiaXBfdHRsX21lYW4iLCAic291cmNlIjogInBjYXAifSwNCiAgICB7Im9yZGVyIjogMTYsICJuYW1lIjogImZyYWdtZW50X3JhdGlvXzEwcyIsICJsYXllciI6ICJMMyIsICJ3aW5kb3dfc2Vjb25kcyI6IDEwLCAidW5pdCI6ICJyYXRpbyIsICJzb3VyY2UiOiAicGNhcCJ9LA0KICAgIHsib3JkZXIiOiAxNywgIm5hbWUiOiAicHJvdG9jb2xfZGl2ZXJzaXR5XzMwcyIsICJsYXllciI6ICJMMyIsICJ3aW5kb3dfc2Vjb25kcyI6IDMwLCAidW5pdCI6ICJyYXRpbyIsICJzb3VyY2UiOiAicGNhcCJ9LA0KICAgIHsib3JkZXIiOiAxOCwgIm5hbWUiOiAidGNwX3JldHJhbnNtaXNzaW9uX3JhdGlvXzEwcyIsICJsYXllciI6ICJMNCIsICJ3aW5kb3dfc2Vjb25kcyI6IDEwLCAidW5pdCI6ICJyYXRpbyIsICJzb3VyY2UiOiAicGNhcCJ9LA0KICAgIHsib3JkZXIiOiAxOSwgIm5hbWUiOiAiZmxvd19kdXJhdGlvbl9tZWFuXzMwcyIsICJsYXllciI6ICJMNCIsICJ3aW5kb3dfc2Vjb25kcyI6IDMwLCAidW5pdCI6ICJzZWNvbmRzIiwgInNvdXJjZSI6ICJwY2FwIn0sDQogICAgeyJvcmRlciI6IDIwLCAibmFtZSI6ICJ0eF9yeF9ieXRlX3JhdGlvXzMwcyIsICJsYXllciI6ICJMNCIsICJ3aW5kb3dfc2Vjb25kcyI6IDMwLCAidW5pdCI6ICJyYXRpbyIsICJzb3VyY2UiOiAicGNhcCJ9LA0KICAgIHsib3JkZXIiOiAyMSwgIm5hbWUiOiAiaHR0cF9yZXF1ZXN0X3JhdGVfNjBzIiwgImxheWVyIjogIkw3IiwgIndpbmRvd19zZWNvbmRzIjogNjAsICJ1bml0IjogInJlcXVlc3RzX3Blcl9zZWNvbmQiLCAic291cmNlIjogImV2ZSJ9LA0KICAgIHsib3JkZXIiOiAyMiwgIm5hbWUiOiAiaHR0cF9tZXRob2RfZW50cm9weV82MHMiLCAibGF5ZXIiOiAiTDciLCAid2luZG93X3NlY29uZHMiOiA2MCwgInVuaXQiOiAiYml0cyIsICJzb3VyY2UiOiAiZXZlIn0sDQogICAgeyJvcmRlciI6IDIzLCAibmFtZSI6ICJodHRwX2F1dGhfZmFpbHVyZV9yYXRpb182MHMiLCAibGF5ZXIiOiAiTDciLCAid2luZG93X3NlY29uZHMiOiA2MCwgInVuaXQiOiAicmF0aW8iLCAic291cmNlIjogImV2ZSJ9LA0KICAgIHsib3JkZXIiOiAyNCwgIm5hbWUiOiAiZG5zX3F1ZXJ5X3JhdGVfNjBzIiwgImxheWVyIjogIkw3IiwgIndpbmRvd19zZWNvbmRzIjogNjAsICJ1bml0IjogInF1ZXJpZXNfcGVyX3NlY29uZCIsICJzb3VyY2UiOiAiZXZlIn0sDQogICAgeyJvcmRlciI6IDI1LCAibmFtZSI6ICJ1bmlxdWVfZG5zX25hbWVfcmF0aW9fNjBzIiwgImxheWVyIjogIkw3IiwgIndpbmRvd19zZWNvbmRzIjogNjAsICJ1bml0IjogInJhdGlvIiwgInNvdXJjZSI6ICJldmUifSwNCiAgICB7Im9yZGVyIjogMjYsICJuYW1lIjogInRsc19oYW5kc2hha2VfZmFpbHVyZV9yYXRpb182MHMiLCAibGF5ZXIiOiAiTDciLCAid2luZG93X3NlY29uZHMiOiA2MCwgInVuaXQiOiAicmF0aW8iLCAic291cmNlIjogImV2ZSJ9LA0KICAgIHsib3JkZXIiOiAyNywgIm5hbWUiOiAidGxzX3ZlcnNpb25fcmF0aW9fNjBzIiwgImxheWVyIjogIkw3IiwgIndpbmRvd19zZWNvbmRzIjogNjAsICJ1bml0IjogInJhdGlvIiwgInNvdXJjZSI6ICJldmUifSwNCiAgICB7Im9yZGVyIjogMjgsICJuYW1lIjogImh0dHBfc3RhdHVzXzV4eF9yYXRpb182MHMiLCAibGF5ZXIiOiAiTDciLCAid2luZG93X3NlY29uZHMiOiA2MCwgInVuaXQiOiAicmF0aW8iLCAic291cmNlIjogImV2ZSJ9DQogIF0NCn0NCg==
+== motor_startup en registros rotados
+{"capture_dir": "/var/lib/ppi-motor-capture", "ciclos_path": "/home/m4rk/cyberflow/logs/_state/ciclos.jsonl", "claves_previas_cargadas": 7490, "detector_name": "if_limpio_2026_10", "entity_network": "10.10.0.0/16", "eve_path": "/var/log/suricata/eve.json", "event": "motor_startup", "excluidas": ["10.10.60.11/32", "10.10.10.30/32", "10.10.60.2/32", "10.10.60.3/32", "10.10.60.10/32", "10.10.60.20/32", "10.10.60.21/32", "10.10.60.30/32", "10.10.60.40/32", "10.10.60.41/32", "10.10.60.50/32"], "history_seconds": 230, "manifest_path": "/home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json", "model_path": "/home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib", "procesamiento": "incremental", "protocolos_excluidos": [112, 240], "step_seconds": 10, "threshold": -0.5693969936322356, "timestamp": 1793502843.227047}
+== _state
+total 15448
+drwxr-xr-x 2 m4rk m4rk     4096 nov  1 03:14 .
+drwxr-x--- 3 m4rk m4rk     4096 nov  2 00:00 ..
+-rw-r--r-- 1 m4rk m4rk 13899034 nov  2 19:10 ciclos.jsonl
+-rw-r--r-- 1 m4rk m4rk  1903330 nov  1 03:13 eve_window.jsonl
+{"decididas": 21, "duracion_s": 0.6564, "entidades": 19, "etapas_s": {"atribucion": 0.1441, "decision_y_registro": 0.0003, "deduplicacion": 0.1955, "eve_lectura": 0.0036, "eve_observaciones": 0.0012, "eve_poda": 0.0002, "expiracion_y_escritura": 0.001, "filas": 0.1029, "filtro_plano_control": 0.0133, "pcap_parseo": 0.0566, "pcap_poda": 0.0716, "puntuacion": 0.0657, "seleccion": 0.0002}, "event": "ciclo", "excluidas_nuevas": 7, "filas_construidas": 26, "fin_ciclo": 1793646605.794687, "flujos_recalculados": 50, "inicio_ciclo": 1793646605.1383078, "lineas_eve_nuevas": 60, "marca_eve": 1793646605.089818, "marca_pcap": 1793646603.768784, "marca_pcap_avanzo": true, "no_elegibles": 0, "no_evaluadas": 0, "observaciones_l7": 477, "observaciones_paquete": 34632, "paquetes_anillo": 78413, "paquetes_deduplicados": 34669, "pcaps_nuevos": 1, "pendientes_nuevas": 5, "puntuadas": 16, "registro_escrito_en": 1793646605.7946672, "registros_escritos": 21, "ventanas_pendientes": 5}
+== suricata stats (ultimo bloque, contadores de captura)
+capture.kernel_packets                        | Total                     | 68297135
+capture.kernel_drops                          | Total                     | 22938
+capture.afpacket.busy_loop_avg                | Total                     | 1
+capture.afpacket.polls                        | Total                     | 38731359
+capture.afpacket.poll_timeout                 | Total                     | 7533268
+capture.afpacket.poll_data                    | Total                     | 31198091
+decoder.pkts                                  | Total                     | 68274247
+decoder.bytes                                 | Total                     | 11619650922
+tcp.reassembly_gap                            | Total                     | 1035409
+Date: 11/2/2026 -- 19:10:09 (uptime: 2d, 23h 14m 48s)
+== suricata stats (bloque de hace ~1 h para el incremento)
+capture.kernel_packets                        | Total                     | 66255033
+capture.kernel_drops                          | Total                     | 19622
+Date: 11/2/2026 -- 18:10:17 (uptime: 2d, 22h 14m 56s)
+== suricata: arranque y version
+    PID                  STARTED CMD
+   1372 vie oct 30 19:55:21 2026 /usr/bin/suricata -D --af-packet -c /etc/suricata/suricata.yaml --pidfile /run/suricata.pid
+This is Suricata version 7.0.3 RELEASE
+614:af-packet:
+615-  - interface: ens37
+616-    checksum-checks: no
+620-    cluster-id: 99
+633-    cluster-type: cluster_flow
+636-    defrag: yes
+159:        - alert:
+179:        - anomaly:
+213:        - http:
+221:        - dns:
+249:        - tls:
+305:        - http2
+309:        - stats:
+314:        - flow
+334:  - http-log:
+344:  - tls-log:
+357:  - tls-store:
+429:  - alert-debug:
+436:  - stats:
+541:  - http-body-data:
+== eve: tipos en el ultimo minuto
+     27 "event_type":"anomaly"
+      1 "event_type":"dhcp"
+   5984 "event_type":"dns"
+   4920 "event_type":"fileinfo"
+  14734 "event_type":"flow"
+   5615 "event_type":"http"
+   1644 "event_type":"ssh"
+    321 "event_type":"stats"
+   1025 "event_type":"tls"
+== piloto-con-dns: ultima fila con esa campana en el dataset
+piloto-con-dns,10.10.60.12,2026-09-30T03:20:50+00:00,60.00000000,True,7,5,7,0,8,
+365680
+total 1394400
+drwxrwxr-x 2 m4rk m4rk       4096 sep 27 01:29 .
+drwxr-xr-x 8 m4rk m4rk       4096 oct 23 19:05 ..
+-rw-r--r-- 1 m4rk m4rk 1306180082 nov  2 19:03 multilayer-v3.csv
+-rw-rw-r-- 1 m4rk m4rk          0 nov  2 19:10 multilayer-v3.csv.lock
+-rw-rw-r-- 1 m4rk m4rk  121626488 sep 27 01:19 multilayer-v3-piloto-sin-dns.csv
+== estado.json (sin claves)
+{"10.10.10.2": {"bloqueos": 0, "ultimo_visto": 1793634200.3988495}, "10.10.10.21": {"bloqueos": 0, "ultimo_visto": 1793646300.4033413}, "10.10.10.3": {"bloqueos": 0, "ultimo_visto": 1793634170.3964918}, "10.10.20.20": {"bloqueos": 0, "ultimo_visto": 1793602620.3935118}, "10.10.20.21": {"bloqueos": 0, "ultimo_visto": 1793646360.3916142}, "10.10.20.22": {"bloqueos": 0, "ultimo_visto": 1793646230.396766}, "10.10.20.23": {"bloqueos": 0, "ultimo_visto": 1793645720.401833}, "10.10.20.24": {"bloqueos": 0, "ultimo_visto": 1793646590.3944747}, "10.10.20.26": {"bloqueos": 0, "ultimo_visto": 1793645780.3996286}, "10.10.40.10": {"bloqueos": 0, "ultimo_visto": 1793644530.400987}, "10.10.50.51": {"bloqueos": 0, "ultimo_visto": 1793646570.390271}, "10.10.50.52": {"bloqueos": 0, "ultimo_visto": 1793646570.390271}, "10.10.60.42": {"bloqueos": 0, "ultimo_visto": 1793637930.3930242}, "10.10.99.8": {"bloque
+== feed.json
+{"entradas": [], "generado": 1793646610.3889441, "umbrales": "2026-10-06.2", "version": 1}
+== feed-v2 / via rapida (no deberian existir)
+ls: cannot access '/home/m4rk/feed-v2': No such file or directory
+fin
+== authorized_keys (solo comentario y opciones, sin la clave)
+opciones=[] tipo=ssh-ed25519 comentario=vm-gestion-to-cyberflow
+== sudo de m4rk sin contrasena (lista, sin ejecutar nada)
+Matching Defaults entries for m4rk on cyberflow-sensor:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin, use_pty
+
+User m4rk may run the following commands on cyberflow-sensor:
+    (ALL : ALL) ALL
+    (root) NOPASSWD: /usr/bin/systemctl is-active *, /usr/bin/systemctl is-enabled *, /usr/bin/systemctl is-failed *, /usr/bin/systemctl show *, /usr/bin/systemctl list-timers --no-pager *, /usr/bin/systemctl status --no-pager *, /usr/bin/journalctl --no-pager *, /usr/sbin/nft list *, /usr/bin/systemctl restart cyberflow-capture-nic ppi-motor-capture ppi-motor ppi-dashboard cyberflow-panel-acceso suricata, /usr/bin/systemctl restart ppi-motor, /usr/bin/systemctl restart ppi-motor-capture, /usr/bin/systemctl restart ppi-dashboard, /usr/bin/systemctl restart cyberflow-panel-acceso, /usr/bin/systemctl restart cyberflow-capture-nic, /usr/bin/systemctl restart suricata, /usr/bin/systemctl start cyberflow-limpieza.service, /usr/bin/systemctl reset-failed *, /usr/bin/wc -l /var/log/suricata/eve.json, /usr/bin/tail /var/log/suricata/eve.json, /usr/bin/tail -n [0-9]* /var/log/suricata/eve.json, /usr/bin/grep * /var/log/suricata/eve.json, /usr/bin/ls -la /var/lib/ppi-motor-capture/, /usr/bin/ls -l /var/lib/ppi-motor-capture/, /usr/bin/du -sh /var/lib/ppi-motor-capture/, /usr/bin/find /var/lib/ppi-motor-capture -maxdepth 1 -name live-*.pcap*
+    (root) NOPASSWD: /usr/local/sbin/cf-capturar
+    (root) NOPASSWD: /usr/bin/systemctl daemon-reload
+    (root) NOPASSWD: /usr/bin/systemctl enable ppi-motor ppi-motor-capture ppi-dashboard cyberflow-limpieza.timer cyberflow-capture-nic cyberflow-panel-acceso
+    (root) NOPASSWD: /usr/bin/systemctl disable ppi-motor ppi-motor-capture ppi-dashboard cyberflow-limpieza.timer cyberflow-capture-nic cyberflow-panel-acceso
+    (root) NOPASSWD: /usr/bin/systemctl start cyberflow-acumular.service, /usr/bin/systemctl enable cyberflow-acumular.timer, /usr/bin/systemctl disable cyberflow-acumular.timer, /usr/bin/systemctl start cyberflow-acumular.timer, /usr/bin/systemctl stop cyberflow-acumular.timer
+== grupos
+uid=1000(m4rk) gid=1000(m4rk) groups=1000(m4rk),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),101(lxd)

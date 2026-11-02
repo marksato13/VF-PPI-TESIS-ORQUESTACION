@@ -1,0 +1,582 @@
+{
+ "campana": "deteccion-respuesta-2026-10-26 / Etapa 4, campana A nueva (4C) y control normal (4B)",
+ "registrado": "2026-11-02, en la preparacion de la Etapa 4, antes de instalar y antes de ejecutar ningun episodio.",
+ "version_config": {
+  "version": "4c-2026-11-02.1",
+  "anterior": "3b-2026-11-01.2",
+  "deriva_de": "preparacion-3a-2026-11-01/config-campana-3b.json (sin modificarla)",
+  "cambios": [
+   "escenarios: escenarios-4c.json (semilla 20261102; resto identico a escenarios/escenarios.json)",
+   "codigo: candidato ec78ca5 instalado por drop-in en /home/m4rk/cyberflow-e4/ec78ca5 (--disparo eventos, _state-e4); el de 24f8a80 pasa a codigo_3b",
+   "estado_operativo_etapa4 sustituye a estado_operativo_3b (sombra con agente v2 sin --aplicar y rele v2 a srv-dmz)",
+   "protocolo_3b.documento apunta a los protocolos de la Etapa 4; cierre >= fin_ultimo + 300 s; anillo de 5 s"
+  ],
+  "sin_cambios": "modelo, escalador, 28 caracteristicas, historia 230 s, umbral desplegado, umbrales 0,05/0,03/0,01, heuristicos, 7 configuraciones, 5 escenarios x 5 repeticiones"
+ },
+ "proposito": "Completar 4.2 (aporte de componentes, campana A de deteccion) y despues 4.4 (respuesta y tiempos, campana B). No sustituye ni modifica aporte-componentes-r2-2026-10-26; es una campana nueva e independiente.",
+ "no_se_toca": "modelo, escalador, umbrales, heuristicos, servicios desplegados y documento Word. No se reentrena ni se recalibra. No se ajusta ningun escenario a la vista de los resultados del detector.",
+ "autorizacion": "laboratorio propio y autorizado. Esta configuracion se versiona ANTES de ejecutar. La campana A se autoriza en una instruccion posterior.",
+ "origen": "10.10.20.30",
+ "modelo": {
+  "detector": "if_limpio_2026_10",
+  "artefacto_desplegado": "artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib",
+  "sha256": "df547da098e51171aa267c8466edc6624bc1bd5c6b602639cc00bd4711a2fd60",
+  "tipo": "sklearn Pipeline (escalador + IsolationForest), congelado, sin reentrenar",
+  "puntuacion": "pipeline.score_samples(X); mayor = mas normal",
+  "regla": "senal IF si score_samples < umbral (estricta), igual que motor_decision.py; sin paquetes en 10 s el IF no se puntua"
+ },
+ "umbrales": {
+  "procedencia": "numpy.quantile(score_samples_validacion_sin_kali, alfa, method='linear') sobre las 65 553 ventanas de validacion (4.1-modelos/calibracion-alfa-2026-10-24, columna validacion_sin_kali_65553). NO se recalibra con los nuevos ataques. (Hasta 2026-10-28.1 este campo decia 'cuantil 1-alfa de -score_samples': es la misma definicion salvo redondeo de 1 ULP; los valores de 0,05 y 0,03 eran y siguen siendo los de la columna canonica en escala score_samples.)",
+  "fuente": {
+   "archivo": "../../4.1-modelos/calibracion-alfa-2026-10-24/umbrales-alfa-precision-completa.json",
+   "columna": "validacion_sin_kali_65553",
+   "claves": {
+    "0.05": "0.050",
+    "0.03": "0.030",
+    "0.01": "0.010"
+   },
+   "sha256_lf": "26bfc6e6c98bc164b27e79daa234bd5dd6f028eb880548914ae184f36bb6753e",
+   "commit": "b9d7e4c",
+   "verificacion": "analizar.py compara por igualdad exacta de float cada umbral de esta config con la fuente (si esta accesible) y aborta si difiere; tests/test_herramientas.py::test_umbral_001_procedencia lo comprueba sobre el repositorio."
+  },
+  "escala": "score_samples (mayor = mas normal). Senal IF si score_samples < umbral, comparacion ESTRICTA (score == umbral no es senal). Se clasifica con el valor completo, nunca con el redondeado.",
+  "escala_anomalia_equivalente": "si se usa puntuacion_anomalia = -score_samples: umbral_anomalia = -umbral (negacion exacta en IEEE-754) y senal si puntuacion_anomalia > umbral_anomalia. Equivalente bit a bit. No se usa un cuantil recalculado sobre la escala de anomalia (para 0,01 daria 0.6223889502095351, 1 ULP distinto de 0.6223889502095352).",
+  "0.05": -0.5694578968203694,
+  "0.03": -0.5898535710336618,
+  "0.01": -0.6223889502095352,
+  "desplegado_referencia": -0.5693969936322356,
+  "distincion_umbral_desplegado": "desplegado_referencia (-0.5693969936322356) = alfa 0,05 sobre la validacion ORIGINAL de 65 633 ventanas; es el que usa el motor en vivo y NO cambia. '0.05' (-0.5694578968203694) = alfa 0,05 recalibrado sobre las 65 553 ventanas sin Kali; solo para analisis derivado. Son valores distintos y ninguno sustituye al otro.",
+  "orden_esperado": "u_0.01 < u_0.03 < u_0.05 (-0.6224 < -0.5899 < -0.5695): con los mismos scores, las senales IF_0.01 estan contenidas en IF_0.03 y estas en IF_0.05.",
+  "evaluacion_de_los_alfa": "Un unico modelo puntua cada ventana una sola vez (score_samples). Los tres umbrales se aplican a ESAS MISMAS puntuaciones: IF_0.05 = score < -0.56945..., IF_0.03 = score < -0.58985..., IF_0.01 = score < -0.62238.... No hay tres modelos ni tres pasadas ni tres campanas; son tres cortes del mismo vector de scores."
+ },
+ "configuraciones_analisis": {
+  "orden": [
+   "IF_0.05",
+   "IF_0.03",
+   "IF_0.01",
+   "HEUR",
+   "HIB_0.05",
+   "HIB_0.03",
+   "HIB_0.01"
+  ],
+  "nota": "mismo trafico, mismas ventanas elegibles, mismas 28 caracteristicas, misma version de heuristicos (2026-10-06.2) y mismo criterio de combinacion (HIB_a = IF_a OR HEUR). HEUR no depende de alfa: se calcula una sola vez. No se cambian reglas para compensar detecciones perdidas."
+ },
+ "caracteristicas_28_orden": [
+  "packet_rate_10s",
+  "byte_rate_10s",
+  "mean_ip_len_10s",
+  "large_ip_ratio_10s",
+  "unique_dst_ip_ratio_30s",
+  "icmp_ratio_10s",
+  "flow_attempt_rate_10s",
+  "syn_rate_10s",
+  "syn_completion_ratio_10s",
+  "rst_ratio_10s",
+  "unique_dst_port_ratio_30s",
+  "http_error_ratio_60s",
+  "dns_nxdomain_ratio_60s",
+  "tls_session_rate_60s",
+  "ttl_mean_10s",
+  "fragment_ratio_10s",
+  "protocol_diversity_30s",
+  "tcp_retransmission_ratio_10s",
+  "flow_duration_mean_30s",
+  "tx_rx_byte_ratio_30s",
+  "http_request_rate_60s",
+  "http_method_entropy_60s",
+  "http_auth_failure_ratio_60s",
+  "dns_query_rate_60s",
+  "unique_dns_name_ratio_60s",
+  "tls_handshake_failure_ratio_60s",
+  "tls_version_ratio_60s",
+  "http_status_5xx_ratio_60s"
+ ],
+ "caracteristicas_nota": "orden = configs/features/multilayer-v2.json por campo 'order' = extract_multilayer_v2.FEATURE_NAMES, como hace motor_decision.py.",
+ "combinacion_real": {
+  "verificada_en": [
+   "motor_decision.py",
+   "publicar_feed.py::_verdicto_de",
+   "escalada.py",
+   "agente_enforce.py"
+  ],
+  "senal_IF": "score_samples < umbral y packet_count_10s > 0",
+  "senal_heuristica": "heuristicos.evaluar(fila) != None, o la regla heredada auth_failure_heuristic del motor (http_request_count_60s>=5 y http_auth_failure_ratio_60s>=0,8)",
+  "senal_hibrida": "senal_IF OR senal_heuristica (lo que publicar_feed convierte en candidato)",
+  "accion_propuesta": "anomalia del modelo -> LIMIT; heuristico -> su accion (port_scan/brute_force=BLOCK, http_abuse/dns_entropy=LIMIT); por IP gana la mas severa (PERMIT<LIMIT<BLOCK). Un LIMIT posterior NO degrada un BLOCK vivo.",
+  "elegibilidad": "ventanas con eligible_training; sin paquetes en 10 s el IF no se puntua (los heuristicos si)",
+  "exclusiones": {
+   "excluir_motor": "pfSense y equipos del perfil de egreso de la VLAN 60 (aplicado en el sensor el 24-oct)",
+   "NUNCA_BLOQUEAR_original_documental": {
+    "valor_en_2026-10-28.3": [
+     "10.10.10.30 (bastion)",
+     "10.10.60.11 (sensor)",
+     "10.10.30.1",
+     "10.10.40.1",
+     "10.10.60.1",
+     "10.10.20.1 (gateways)",
+     "10.10.10.20 (DNS/AD)"
+    ],
+    "nota": "solo documental: ya no se lee para el analisis; su contenido pasa a poblacion.excepciones_respuesta. La lista operativa del publicador (publicar_feed.py en el sensor) no cambia."
+   }
+  },
+  "politica_respuesta": "LIMIT=cyberflow_limitados rate over 100/second drop, timeout 300 s plano; BLOCK=cyberflow_bloqueados drop, escalera 300->1800->3600 s por reincidencia <24 h + revision humana en la 3.a; caducidad por timeout nativo de nftables; salir del feed NO retira la regla, expira por timeout."
+ },
+ "emitidas_vs_derivadas": {
+  "emitidas_en_vivo": "las decisiones ALERT (y las senales heuristicas registradas) que el motor escriba en motor_decision.log durante la campana, con su hora de escritura. analizar.py las lista aparte en emisiones_observadas con registro, componente emisor, decision, logged_at y window_end, modelo/score/umbral REGISTRADOS, relacion con el episodio, atribucion y referencia al log. El emisor y el umbral se toman del registro; si faltan o no identifican la configuracion se declaran desconocidos (no se rellenan ni se deducen del score). No son una configuracion de la Tabla 8.",
+  "derivadas_offline": "IF_0.05, IF_0.03, IF_0.01, HEUR, HIB_0.05, HIB_0.03 y HIB_0.01 recomputadas sobre las puntuaciones/ventanas observadas. Se presentan como ANALISIS DE UMBRALES sobre ventanas observadas, NO como alertas emitidas en vivo.",
+  "umbral_del_motor_en_vivo": "el motor en vivo usa alfa 0,05 (umbral desplegado -0,5693969936). alfa 0,03 y 0,01 son cortes derivados offline sobre las mismas puntuaciones, no emisiones.",
+  "tiempos_de_configuraciones_derivadas": "para LAS SIETE configuraciones (incluida IF_0.05 recalibrada, cuyo umbral -0.5694578968 no es el desplegado -0.5693969936), logged_at es cuando quedo registrada la evidencia usada, no una emision de esa configuracion (campo tiempo_significado en analisis.json). Que un ALERT real del IF desplegado coincida con una clasificacion recalibrada no demuestra que la configuracion recalibrada emitiera. Una clasificacion alternativa tampoco equivale a una accion aplicada.",
+  "latencia_real": "solo desde emisiones_observadas: alerta con componente_emisor=IF_desplegado, umbral registrado == desplegado_referencia (configuracion confirmada), durante el ataque y con atribucion confirmada; latencia = logged_at - inicio del generador.",
+  "cambio_de_campos_2026_10_28_2": "retirado tiempo_es_emision_real (a6dc5ab); base de las configuraciones siempre derivado(...) (antes IF_0.05 'emitido_por_modelo_desplegado' y HEUR 'emitido_ALERT(auth_heredada)'/'registrada_en_vivo'); nuevos tiempo_significado, evidencia_registrada y emisiones_observadas. Detecciones, conteos y cobertura sin cambios."
+ },
+ "campanas": {
+  "A_deteccion_4.2": {
+   "objetivo": "comparar IF 0,05, IF 0,03, IF 0,01, heuristicos, hibrido 0,05, hibrido 0,03 e hibrido 0,01 sobre las mismas ventanas (una sola campana; las 7 configuraciones son cortes del mismo registro)",
+   "modo": "SOMBRA durante todo el 3B: el motor no lleva --enforce, el agente de srv-dmz esta parado y deshabilitado y no existe la tabla nft inet cyberflow; ninguna restriccion altera el trafico",
+   "fuentes": "motor_decision.log en vivo (emitidas) + PCAP continuo + EVE + features/scores por ventana (derivadas)"
+  },
+  "B_respuesta_4.4": {
+   "objetivo": "ataque -> senal -> feed firmado -> agente -> nftables -> efecto -> retirada/caducidad",
+   "modo": "APLICAR, en ensayos separados y posteriores a A",
+   "regla": "no mezclar con A: la respuesta activa modifica el trafico posterior. Una familia por bloque; reiniciar o registrar el estado de la escalera entre bloques."
+  },
+  "historico_primera_A": {
+   "_nota": "HISTORICO de la primera campana A (2026-10-28). NO aplica al 3B.",
+   "precondicion_critica": "el agente de enforcement de srv-dmz (ppi-enforce-agent.timer) esta ACTIVE+ENABLED y el motor emite al feed cada 10 s; el motor NO lleva --enforce (solo emite al feed), verificado 27-oct en evidencia-entorno-2026-10-27/05-modo-sombra.txt. Antes de A, modo SOMBRA por el procedimiento revisado: [srv-dmz] scripts/modo_sombra.sh --ejecutar --motor-verificado (guarda estado, detiene+enmascara el agente, vacia cyberflow_bloqueados/cyberflow_limitados y verifica que quedan SIN elements; fallo-seguro: una consulta nft fallida NO se interpreta como set vacio). Restaurar tras A: scripts/restaurar_enforcement.sh --ejecutar --escalada-revisada (comprobando antes el feed/escalada residual)."
+  }
+ },
+ "escenarios": {
+  "definicion": "etapa4-preparacion-2026-11-02/escenarios-4c.json (copia de escenarios/escenarios.json con semilla nueva)",
+  "repeticiones": 5,
+  "orden": "aleatorizado con semilla fija",
+  "semilla": 20261102,
+  "generador": "scripts/generar_campana.py (seguro por defecto: simula sin --autorizado)",
+  "analizador": "scripts/analizar.py",
+  "nota_duracion": "90 s para DNS e inundacion HTTP; en escaneos se registra la duracion del comando y la actividad efectiva, no se prolonga para asegurar deteccion.",
+  "escenarios_pendientes": "ninguno al 27-oct: los 5 habilitados y verificados en entorno (ver ESTADO-ENTORNO-2026-10-27.md). DNS usa zona local lab-ppi; fuerza bruta usa endpoint 18081/auth (cadena red+Suricata+extractor confirmada).",
+  "sha256_lf": "73c0b204d1e6f8844f23d6ec3c8c30732b5084f2fea3df96d26a2c2a7927aacd",
+  "orden_publicado": "etapa4-preparacion-2026-11-02/ORDEN-4C.md"
+ },
+ "emision_vs_window_end": {
+  "logged_at": "motor_decision.py escribe logged_at = time.time() al construir el registro, dentro del ciclo (producto scripts/engine/motor_decision.py, funcion main(), campo logged_at de los registros 'decision' y 'ventana_no_evaluada'; commit 7b275b8 desplegado el 28-oct; referencia sin numero de linea, que cambia entre versiones) = instante real en que el motor escribio ESE registro. Es la emision real solo de lo que el registro emitio (p.ej. un ALERT del IF desplegado, ver emisiones_observadas); para las configuraciones comparativas derivadas es la disponibilidad de la evidencia usada. El analizador clasifica por logged_at.",
+  "window_end_utc": "cierre de la ventana; NO es la hora de emision y NO se usa para la deteccion operativa.",
+  "ventana_no_evaluada": "evento del motor corregido (7b275b8) cuando una ventana pendiente caduca sin decision (motivo pcap_incompleto o ventana_no_regenerada). Su logged_at es cuando se escribio el evento (puede ser ~170 s despues de window_end); su efecto se juzga por el intervalo (window_end-60, window_end]. No trae score ni decision: no es PERMIT, ni TN/FN, ni alerta. analizar.py lo trata como calidad/cobertura (bloque ventanas_no_evaluadas).",
+  "_nota_3b": "En el 3B el motor es el incremental 24f8a80; la disponibilidad de una ventana es registro_escrito_en del ciclo (ciclos.jsonl), y logged_at solo si no se puede enlazar (protocolo_3b.disponibilidad)"
+ },
+ "historia_y_registros": {
+  "antes_de_cada_episodio_s": 120,
+  "despues_de_cada_episodio_s": 90,
+  "conservar": [
+   "PCAP continuo sin huecos",
+   "EVE completo",
+   "features y scores por ventana",
+   "motor_decision.log integro",
+   "registro del generador en Kali (marcas.jsonl)"
+  ],
+  "campana_B_ademas": [
+   "feed.json y feed.sig por publicacion",
+   "registro del relay",
+   "journal del agente",
+   "nft -j list set cada 2 s"
+  ],
+  "prohibido": "simular historia cambiando fechas; concatenar capturas con huecos",
+  "_nota_3b": "despues_de_cada_episodio_s (90) rige ENTRE episodios. El CIERRE FINAL del archivo es distinto: protocolo_3b.cierre_archivo (>= fin del ultimo episodio + 180 s, prolongado hasta verificar)"
+ },
+ "relojes": {
+  "verificar_en": [
+   "sensor 10.10.60.11",
+   "bastion 10.10.10.30",
+   "Kali 10.10.20.30",
+   "srv-dmz 10.10.30.10"
+  ],
+  "estado_medido_26oct": "bastion sincronizado (chrony, ~1 ms). srv-dmz sincronizado (timesyncd). Sensor: timesyncd ACTIVO apuntando al bastion pero NTPSynchronized=no, desfase -47,55 s (+-0,18). Kali sin medir. Detalle y pasos en RELOJES-DNS.md.",
+  "estado_27oct": "CORREGIDO: sensor sincronizado (NTP=10.10.60.1, +0,18 s), tras abrir FW VLAN60->10.10.60.1:123. Relojes comparables: sensor +0,18, srv-dmz +0,18, Kali +0,07, bastion ref. Evidencia en infra-2026-10-27/.",
+  "correccion_pendiente": "resuelto el 27-oct; conservar medicion antes/despues en infra-2026-10-27/",
+  "marca_de_referencia": "reloj de pared + monotonico en Kali (marcas.jsonl); el inicio/fin de sesion SSH es solo una aproximacion al comando remoto"
+ },
+ "dns": {
+  "estado_medido_26oct": "el resolutor 10.10.10.20 reenvia/recursa a Internet (consulta unica no cacheable devolvio SOA externo). El escenario DNS necesita una zona local reservada; ver RELOJES-DNS.md.",
+  "comprobacion_no_egress": "antes de la campana, capturar en el borde y confirmar cero paquetes 53/udp al exterior para la consulta de prueba"
+ },
+ "evaluabilidad_episodio": {
+  "_nota": "HISTORICO (primera campana A, analizar.py). Para el 3B rigen protocolo_3b y analizar_3b.py.",
+  "requisitos": [
+   "cobertura temporal continua del motor en [inicio, fin+60] y todas las anclas de la Kali durante el ataque",
+   "evidencia de destino (atribucion confirmada) via PCAP/EVE (analizar.py --destinos)",
+   "integridad de fuentes APTA (verificar_integridad.py; analizar.py --integridad)"
+  ],
+  "desconocido_no_es_apto": "si la integridad o el destino no se pueden verificar, el episodio es NO EVALUABLE (no 'sin deteccion')",
+  "tabla8_numerador": "solo detecciones DURANTE con atribucion CONFIRMADA; observadas-sin-confirmar / previas / tardias / ambiguas van a registros complementarios"
+ },
+ "contadores_generador": {
+  "intentos": "iteraciones del bucle (intentos de consulta/peticion). NO son peticiones enviadas ni respuestas.",
+  "peticiones_respuestas_errores_timeouts": "se miden con PCAP / EVE / log del servidor, no con el contador del bucle"
+ },
+ "criterios_evaluacion": {
+  "_nota": "HISTORICO (primera campana A, analizar.py). Para el 3B rigen protocolo_3b y analizar_3b.py.",
+  "durante": "senal atribuible CONFIRMADA emitida entre el inicio y el final del ataque",
+  "posterior": "primera senal atribuible despues del final y hasta +60 s",
+  "sin_deteccion": "observacion completa (contexto suficiente) sin senal atribuible",
+  "no_evaluable": "evidencia insuficiente (p.ej. ventana sin >=60 s de historia real o sin datos hasta +60 s)",
+  "atribucion": "escenario + origen + destino + contexto; NO se cuenta cualquier anomalia de la Kali como deteccion del ataque",
+  "control_normal_min": 30,
+  "ventanas_tabla7": "si se calculan metricas por ventana: etiquetado fijado antes, con limites y ventanas con historia del ataque declarados; se mantienen SEPARADAS de las 65 505 ventanas de la Tabla 7"
+ },
+ "poblacion": {
+  "_nota": "excepciones_respuesta = politica de RESPUESTA (no restringir); NO sacan a la entidad de la poblacion ni borran sus senales. exclusiones_poblacion = fuera del denominador, con justificacion. El motor ya excluye en origen (--excluir) el bastion, el sensor y los equipos de la VLAN 60: esas IP no generan ventanas, por eso no hace falta excluirlas aqui.",
+  "excepciones_respuesta": [
+   {
+    "ip": "10.10.10.30",
+    "nota": "bastion"
+   },
+   {
+    "ip": "10.10.60.11",
+    "nota": "sensor"
+   },
+   {
+    "ip": "10.10.30.1",
+    "nota": "gateway VLAN 30"
+   },
+   {
+    "ip": "10.10.40.1",
+    "nota": "gateway VLAN 40"
+   },
+   {
+    "ip": "10.10.60.1",
+    "nota": "gateway VLAN 60"
+   },
+   {
+    "ip": "10.10.20.1",
+    "nota": "gateway VLAN 20"
+   },
+   {
+    "ip": "10.10.10.20",
+    "nota": "DNS/AD: sigue en la poblacion evaluada (decision 3A)"
+   }
+  ],
+  "exclusiones_poblacion": []
+ },
+ "protocolo_3b": {
+  "documento": "etapa4-preparacion-2026-11-02/PROTOCOLO-4C-CAMPANA-A.md y PROTOCOLO-4B-CONTROL.md",
+  "analizador": "scripts/analizar_3b.py",
+  "historia_s": 230,
+  "paso_s": 10,
+  "horizonte_ventana_s": 60,
+  "puntualidad_limite_s": 60,
+  "borde_fin_inventario_s": 120,
+  "hueco_escritura_informativo_s": 20,
+  "disponibilidad": "registro_escrito_en del ciclo (ciclos.jsonl); si no enlaza, logged_at declarado",
+  "inventario": "replay_motor.py con el motor instalado sobre el PCAP y el EVE archivados; rango window_end en [inicio_archivo + 230, cierre_archivo - 120]; requeridas = claves con decision O ventana_no_evaluada en la referencia (siguen requeridas aunque no se evaluaran)",
+  "ventanas_episodio": "rejilla de 10 s, window_end en (inicio, fin+60) abierto en ambos extremos; requeridas aunque falten en la referencia; sin exclusiones definidas",
+  "observacion_completa": "rango del inventario contiene todas las ventanas requeridas + todas decididas en vivo + calidad_fuentes 'completa' + integridad apta + destino por ventana",
+  "senal_atribuible": "senal de la configuracion + paquetes_en_intervalo_ataque > 0 hacia el destino del episodio",
+  "categorias": [
+   "oportuna",
+   "solo_posterior",
+   "ausencia_con_observacion_suficiente",
+   "no_evaluable"
+  ],
+  "umbral_cobertura_automatico": null,
+  "escenarios": "5 x 5 sin cambios (escenarios/), mismo generador",
+  "configuraciones": [
+   "IF_0.05",
+   "IF_0.03",
+   "IF_0.01",
+   "HEUR",
+   "HIB_0.05",
+   "HIB_0.03",
+   "HIB_0.01"
+  ],
+  "control": "tramo cubierto = [desde, hasta] ∩ rango del inventario (poblacion = requeridas; cotas sobre ellas); tramos fuera del inventario se informan aparte con cobertura no determinable. Requisito: desde >= inicio_archivo + 230 s y hasta <= cierre_archivo - 120 s",
+  "cierre_archivo": {
+   "minimo_s_tras_fin_ultimo_episodio": 300,
+   "calculo": "la ultima ventana requerida tiene window_end < fin_ultimo + 60; el inventario solo es utilizable hasta cierre_archivo - 120; luego cierre_archivo >= fin_ultimo + 60 + 120 = fin_ultimo + 180",
+   "marcas": {
+    "fin_ultimo": "evento 'fin' del ultimo episodio en marcas.jsonl (reloj de pared, UTC)",
+    "inicio_archivo": "inicio (nombre live-YYYYmmddHHMMSS.pcap) del primer PCAP con linea OK en archivar.log",
+    "cierre_archivo": "inicio del ultimo PCAP con linea OK en archivar.log + 15 s"
+   },
+   "verificacion": "ver PROTOCOLO-CAMPANA-A-REPETIDA.md seccion 3 bis",
+   "nota_etapa4": "300 s: 180 s del 3B + 120 s de margen (el ultimo episodio es escaneo_sostenido)"
+  },
+  "rotacion_pcap_s": 5,
+  "calidad_fuentes": "calidad_fuentes.py --duracion-pcap 5",
+  "salud": "SALUD-CAPTURA.md (C0-C3 por periodo con salud_captura.py)"
+ },
+ "codigo_historico_primera_A": {
+  "_nota": "HISTORICO: referencias vigentes en la primera campana A (motor 62a75a1/7b275b8, producto-main 53f919e). NO describen el motor del 3B; se conservan solo como trazabilidad.",
+  "repo": "producto-main",
+  "HEAD_en_preparacion": "53f919ed80dfdde5104efa551eb53557b340a068",
+  "ficheros": {
+   "extract_multilayer_v2.py": {
+    "commit": "2d854a9",
+    "blob_git": "ec46849dc8",
+    "sha256_desplegado_sensor": "7130edae65afefa2fd82a9314e20194adec684f4b2c3c35c2337880d8e636ccb"
+   },
+   "extract_multilayer_v3.py": {
+    "commit": "a6d287a",
+    "blob_git": "0739e4cda3",
+    "sha256_desplegado_sensor": "5adbfbf4845554430a3e8b5a4c00eb1e45c2216cae73532da73d9d3f4898fa7f"
+   },
+   "motor_decision.py": {
+    "commit": "62a75a1",
+    "blob_git": "c918f37961",
+    "sha256_desplegado_sensor": "4c41ec44be0fa0dbfbba14b73a4288a37da5d1b2a1ebcf681e58465c14ac17c6"
+   },
+   "heuristicos.py": {
+    "commit": "2d854a9",
+    "blob_git": "ec0fe9e870",
+    "sha256_desplegado_sensor": "10deb05d22fa0215e5f5f37bc6f05225cda31b806c67051a6584d878e25ed6a2",
+    "version_umbrales": "2026-10-06.2"
+   },
+   "publicar_feed.py": {
+    "commit": "22eb2a8",
+    "blob_git": "f73db5af8e",
+    "sha256_desplegado_sensor": "f7bc4c7d8e7ac0cd958f3936d55a5782285e59509919d82bf2998fbb70acc03d"
+   },
+   "escalada.py": {
+    "commit": "22eb2a8",
+    "blob_git": "8f260bd087"
+   },
+   "feed.py": {
+    "commit": "a6d287a",
+    "blob_git": "fa30b818f0"
+   },
+   "agente_enforce.py": {
+    "commit": "22eb2a8",
+    "blob_git": "755cb24450"
+   }
+  },
+  "nota_hashes": "blob_git = objeto del arbol en producto-main HEAD; sha256_desplegado_sensor = hash del fichero realmente en el sensor (copia del 05-oct en datos/). Deben comprobarse de nuevo contra el sensor justo antes de la campana."
+ },
+ "codigo": {
+  "_nota": "Candidato de la Etapa 4 instalado en sombra (4A). Sha256 del paquete (evidencia/paquete/SHA256SUMS); re-verificar con sha256sum -c en el Sensor1 antes de empezar.",
+  "repo_producto": "github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos",
+  "commit_motor": "ec78ca56a3a8f4bb17fda967a7f0abe0e9a2c742",
+  "rama_motor": "candidato/etapa3-20261102",
+  "herramientas": "acc6588 (scripts/etapa4, deploy/etapa4)",
+  "ruta_sensor": "/home/m4rk/cyberflow-e4/ec78ca5",
+  "argumentos": "deploy/etapa4/unidades/sensor1/ppi-motor.service.d/etapa4.conf",
+  "modelo_manifiesto_esquema": "los de ~/cyberflow (sin cambios: modelo df547da0..., manifiesto b3ad6805..., esquema e032a1a2...)",
+  "cadena_v1_sin_cambios": "publicar_feed.py y escalada.py as-deployed f57ca00",
+  "ficheros_paquete": {
+   "configs/features/descripciones.json": {
+    "sha256": "eb4b552841486b2ac46b10084d438fc99165138efc9df25f49c0cf15eb9d705a",
+    "origen": "ec78ca5"
+   },
+   "configs/features/multilayer-v1.json": {
+    "sha256": "9ce86147ce4d0dab3c789e10edf23f2c7cefd2106b89e493bfafcf3a5ac0e1df",
+    "origen": "ec78ca5"
+   },
+   "configs/features/multilayer-v2.json": {
+    "sha256": "1445ccd4f33f2269a73fb26f36519924525e6018910ebc22dc2005d7163be90d",
+    "origen": "ec78ca5"
+   },
+   "configs/features/multilayer-v3.json": {
+    "sha256": "bf48a79812e51537fc621a41069702b3ca311c1b8c0e48379981f394193f8141",
+    "origen": "ec78ca5"
+   },
+   "scripts/engine/comparar_replays.py": {
+    "sha256": "b09332da4c3fd67cd5450243482351af4849acc5f0553ce97516f995803bf389",
+    "origen": "ec78ca5"
+   },
+   "scripts/engine/dashboard.py": {
+    "sha256": "a49745dd90e34cefcf1147b608f57cdbe15f8c55f82d70a5196044a923fd5cae",
+    "origen": "ec78ca5"
+   },
+   "scripts/engine/detector_rapido.py": {
+    "sha256": "506ae60314a74a320f122383473f9d39d955c4bdeac6422a45620c9c4b26908d",
+    "origen": "ec78ca5"
+   },
+   "scripts/engine/dns_heuristica.py": {
+    "sha256": "7cb83c12cb82ba5580c98dd487358fd0603b394615185430065c629ae7b03608",
+    "origen": "ec78ca5"
+   },
+   "scripts/engine/escalada.py": {
+    "sha256": "0be76d51ab0fc85829c05b7476eebee5950e7c6d7c1d1fec4d8a89675c7c9fe1",
+    "origen": "ec78ca5"
+   },
+   "scripts/engine/escaneo_temprano.py": {
+    "sha256": "92c544737bebd0ff08ef2a452958233ebb0e427909a11396f7e44061359d132d",
+    "origen": "ec78ca5"
+   },
+   "scripts/engine/feed.py": {
+    "sha256": "9aca9ddfd31965455340130a951c7e1fc01673be3a22a0ebd3a617dfceb592ce",
+    "origen": "ec78ca5"
+   },
+   "scripts/engine/heuristicos.py": {
+    "sha256": "5d30ffe6a8156c07954f39752e175becb7bfa0fd21a6119e1e6537b2a1217f68",
+    "origen": "ec78ca5"
+   },
+   "scripts/engine/http_heuristica.py": {
+    "sha256": "a97c98baf2966b4e61a103c2fc566aaed4dfc2afc85d02a4b64cc37ecedf3fdc",
+    "origen": "ec78ca5"
+   },
+   "scripts/engine/motor_decision.py": {
+    "sha256": "b652582dd9ac8ee5754bde9fb1b9cb90bc713575320685232353033014dfc565",
+    "origen": "ec78ca5"
+   },
+   "scripts/engine/motor_incremental.py": {
+    "sha256": "95f3cd2ec46fee01abc1dd6a314c2aa18196fa4900f7625e6a9fdfb7d70146d2",
+    "origen": "ec78ca5"
+   },
+   "scripts/engine/publicar_feed.py": {
+    "sha256": "ea82777c57f336f790f1e64af4471c604bd00e1ed3af75f2f71fba7cf326f808",
+    "origen": "ec78ca5"
+   },
+   "scripts/engine/publicar_feed_v2.py": {
+    "sha256": "5733f17d39bfa5fe667ee13aecd133ea4859834899c5f4f6ea21360ebe4002a2",
+    "origen": "ec78ca5"
+   },
+   "scripts/engine/replay_motor.py": {
+    "sha256": "af43e14147663f9f74c355c73500d559bfed98a1045071cf7e6d31ca84158502",
+    "origen": "ec78ca5"
+   },
+   "scripts/engine/responder_iptables.py": {
+    "sha256": "bda4cffedbd7ab84a5c8b05db816f8340981a5e63d68e3b3fe8e41aa83c83ff8",
+    "origen": "ec78ca5"
+   },
+   "scripts/engine/suricata_a_senal.py": {
+    "sha256": "d6803d4522d94a30d707aaacf4be952a5edcc2d6432678d1c1b110d256e37082",
+    "origen": "ec78ca5"
+   },
+   "scripts/engine/tasa_dns_por_origen.py": {
+    "sha256": "bb218fdcc6e16aebf5eadcd04ea8d371f92765aaa21e68838d791dad48f6803b",
+    "origen": "ec78ca5"
+   },
+   "scripts/engine/trocear_pcap.py": {
+    "sha256": "441999447db8f0d377f7983c125ab42db6c553ffa225b2f92bff4c98b0e1b4b0",
+    "origen": "ec78ca5"
+   },
+   "scripts/engine/vista_vivo.py": {
+    "sha256": "94d3df28ae213be688c453355a6d37511e950308a436ed423480a20673fc2f38",
+    "origen": "ec78ca5"
+   },
+   "scripts/features/README.md": {
+    "sha256": "c5729ac00218d629f0d63a20869e52f822e153b51aecd75c6a9dc4fc19a8c7db",
+    "origen": "ec78ca5"
+   },
+   "scripts/features/acumular_v3.py": {
+    "sha256": "9c35b831453d2107769ca1fe610782b6821b2f164df1f369b3e6b3ef36c41dc8",
+    "origen": "ec78ca5"
+   },
+   "scripts/features/extract_campaign.sh": {
+    "sha256": "92a98afa6a2aab8d578be1201b8ead203bf44641a55b65ff47728bb6aa1d27dc",
+    "origen": "ec78ca5"
+   },
+   "scripts/features/extract_campaign_v2.sh": {
+    "sha256": "489804ea52f8e8b18892fa0fe61d7fc317929e86cfcd429f2404ca3db2824873",
+    "origen": "ec78ca5"
+   },
+   "scripts/features/extract_multilayer.py": {
+    "sha256": "950fe6c49c9eee21f939b2f1032fee1df2c1572923a642c18454fa7dd8205027",
+    "origen": "ec78ca5"
+   },
+   "scripts/features/extract_multilayer_v2.py": {
+    "sha256": "7130edae65afefa2fd82a9314e20194adec684f4b2c3c35c2337880d8e636ccb",
+    "origen": "ec78ca5"
+   },
+   "scripts/features/extract_multilayer_v3.py": {
+    "sha256": "5adbfbf4845554430a3e8b5a4c00eb1e45c2216cae73532da73d9d3f4898fa7f",
+    "origen": "ec78ca5"
+   }
+  }
+ },
+ "codigo_3b": {
+  "_nota": "Motor INCREMENTAL realmente instalado en el Sensor1 (paso 2, 2026-11-01) y sus dependencias. Verificado en la preparacion 3A (2026-11-01 06:23Z, guion s11): blob git del fichero desplegado (git hash-object en el sensor) comparado con el blob del commit en el clon local del repo del producto. Re-verificar los sha256 antes de empezar el 3B.",
+  "repo_producto": "github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos",
+  "commit_motor": "24f8a80e376d89b78454fd16854d2239a1b7d278",
+  "rama_motor": "candidato/motor-rendimiento-20261031",
+  "commit_as_deployed": "f57ca00 (rama master / origin/as-deployed-sensor-20261006; snapshot del Sensor1 del 2026-10-29)",
+  "ficheros_sensor": {
+   "scripts/engine/motor_decision.py": {
+    "origen": "24f8a80",
+    "ultimo_commit": "9b4cf2b",
+    "blob_git": "068c025dc867e753d59167b0e73d9df10db00c64",
+    "sha256": "6c274d9e3529e3fb6971ff38d8c6d586780b718b483ce4e2a5e3a1cfbf25692e",
+    "coincide_con_commit": true
+   },
+   "scripts/engine/motor_incremental.py": {
+    "origen": "24f8a80",
+    "ultimo_commit": "4552d83",
+    "blob_git": "1197907c0d3f8e1c28001485bb43b1ed5fc12375",
+    "sha256": "a403307aa5f76d38d199aef2542350f57eaf5843fdb94b44ec0bd20eaa8ff168",
+    "coincide_con_commit": true
+   },
+   "scripts/engine/heuristicos.py": {
+    "origen": "24f8a80",
+    "ultimo_commit": "2d854a9",
+    "blob_git": "ec0fe9e870c2f3c98c0cc9140011674df327f1f3",
+    "sha256": "10deb05d22fa0215e5f5f37bc6f05225cda31b806c67051a6584d878e25ed6a2",
+    "version_umbrales": "2026-10-06.2",
+    "coincide_con_commit": true
+   },
+   "scripts/features/extract_multilayer_v2.py": {
+    "origen": "24f8a80",
+    "ultimo_commit": "2d854a9",
+    "blob_git": "ec46849dc8454976b056622e334cc35b7cc95d26",
+    "sha256": "7130edae65afefa2fd82a9314e20194adec684f4b2c3c35c2337880d8e636ccb",
+    "coincide_con_commit": true
+   },
+   "scripts/features/extract_multilayer_v3.py": {
+    "origen": "24f8a80",
+    "ultimo_commit": "a6d287a",
+    "blob_git": "0739e4cda326c640facb5b6d1def1182a1d8b09c",
+    "sha256": "5adbfbf4845554430a3e8b5a4c00eb1e45c2216cae73532da73d9d3f4898fa7f",
+    "coincide_con_commit": true
+   },
+   "scripts/engine/feed.py": {
+    "origen": "24f8a80",
+    "ultimo_commit": "a6d287a",
+    "blob_git": "fa30b818f03bf389554559312fc3e596314f3750",
+    "sha256": "b4d36adb3f29b21693eb0cd964515aed42b3965910379616f1af27441793baba",
+    "coincide_con_commit": true
+   },
+   "configs/features/multilayer-v2.json": {
+    "origen": "24f8a80 (contenido)",
+    "blob_git_desplegado": "9560ce9e49f569e930dff07f12c3a85a1e7d0a82",
+    "blob_git_commit": "20a89b8176b689cd3b31668c5c75a0fbdb4b39ca",
+    "sha256": "e032a1a28650d438ae707c93b3045801770b3a069b4395426077af3bbd2b0e33",
+    "coincide_con_commit": "contenido identico salvo fin de linea: el fichero desplegado tiene CRLF (37 lineas); normalizado a LF es byte a byte el blob 20a89b8 y el JSON es igual"
+   },
+   "scripts/engine/publicar_feed.py": {
+    "origen": "f57ca00 (as-deployed; igual que el tag validacion-interna-2026-10-15, 6d92ff3), NO 24f8a80",
+    "blob_git": "bf2b73f49fbbd48df8931540d2ff475403f12d15",
+    "blob_en_24f8a80": "f73db5af8e2949f88ba2bbf23651af7ab3bf7d3a",
+    "sha256": "f7bc4c7d8e7ac0cd958f3936d55a5782285e59509919d82bf2998fbb70acc03d",
+    "nota": "cadena de respuesta; el paso 2 solo instalo el motor y no la toco"
+   },
+   "scripts/engine/escalada.py": {
+    "origen": "f57ca00 (as-deployed; igual que 6d92ff3), NO 24f8a80",
+    "blob_git": "7bd55de8fbb261e521ebfbe40ad0a9bf04277dfb",
+    "blob_en_24f8a80": "8f260bd0874b56809123f0f0ade9c234cb9b6014",
+    "sha256": "7d80ab4a926457efb37f4c6c9778e53eda67a5840ca255ff4504f333ca638479"
+   }
+  },
+  "modelo": {
+   "artefacto": "artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib",
+   "sha256": "df547da098e51171aa267c8466edc6624bc1bd5c6b602639cc00bd4711a2fd60",
+   "manifiesto": "artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json",
+   "manifiesto_sha256": "b3ad680595128189574527208e53058f613822f56f542f914faef6495aa2a9e7"
+  },
+  "srv_dmz_agente_enforce": {
+   "fichero": "/home/adminsrvdmz/enforce/agente_enforce.py",
+   "blob_git": "b769b01cac1cef9c3f1ee5f2ace4d16dc8aabec3",
+   "origen": "tag validacion-interna-2026-10-15 (6d92ff3)",
+   "sha256": "2985c1230a61933b308c84822b35217a1f6a6680a4a03b1bde07f4025778cb63",
+   "estado": "timer y servicio inactive, timer disabled (sombra)"
+  },
+  "argv_motor": "evidencia/sensor/estado-inicial/argv-motor.txt (sin --enforce; --history-seconds 230 --step-seconds 10)"
+ },
+ "estado_operativo_etapa4": {
+  "durante": "sombra: motor sin --enforce; publicador v2 propone; rele v2 entrega a srv-dmz; agente v2 dmz SIN --aplicar; agente v1 disabled/inactive; DC1 sin CyberFlow; LIMIT DNS sin aplicar",
+  "verificar_antes_de_empezar": [
+   "verificar_sensor1.sh",
+   "verificar_bastion.sh",
+   "CON_SUDO=1 verificar_srvdmz.sh <respaldo>",
+   "SALUD-CAPTURA.md §4.1 (I1-I8)"
+  ],
+  "al_terminar": "permanecer en sombra; repetir las verificaciones; copiar feed v1/v2 y estado con hash",
+  "activacion_de_la_respuesta": "pertenece a la preparacion de la campana B, con autorizacion explicita. No forma parte de la Etapa 4."
+ }
+}

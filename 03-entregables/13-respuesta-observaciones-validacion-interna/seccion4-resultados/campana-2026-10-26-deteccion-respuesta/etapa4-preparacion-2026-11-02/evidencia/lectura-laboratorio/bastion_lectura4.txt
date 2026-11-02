@@ -1,0 +1,81 @@
+== cliente: ficheros del laboratorio
+total 36
+drwxrwxr-x 3 adminclientes adminclientes  4096 oct 28 23:17 .
+drwxr-x--- 8 adminclientes adminclientes  4096 nov  1 07:23 ..
+-rw-rw-r-- 1 adminclientes adminclientes  8061 sep 27 02:41 clientes_config.py
+-rw-rw-r-- 1 adminclientes adminclientes 15357 sep 27 02:41 clientes_lab.py
+drwxrwxr-x 2 adminclientes adminclientes  4096 oct 28 23:17 __pycache__
+9aa2e2e02b87225f1513ddce4c377491eb3f170d342d7d8d961612c326224534  clientes_config.py
+ae5134a778e66d90f5c3fbcd47323e328f3422cf4ba8d5197649f402c1d4cdc3  clientes_lab.py
+17:3. CURVA DIARIA. La intensidad varia con la hora. Sin variacion diaria no se
+45:# acciones en hora punta.
+46:PERFILES = {
+84:def factor_horario(ahora: datetime.datetime, forzar_laborable: bool = False) -> float:
+85:    """Curva diaria: laborable activo, noche tranquila, fin de semana flojo.
+87:    ``forzar_laborable`` ignora la caida del fin de semana. Es para ENSAYOS, no
+94:    h = ahora.hour + ahora.minute / 60.0
+105:    if ahora.weekday() >= 5 and not forzar_laborable:
+111:    def __init__(self, origen: str, servidor: str, dns: str, ficheros: str | None,
+125:    def _socket(self, destino: str, puerto: int, espera: float = 5.0) -> socket.socket:
+138:            # descriptores a las horas.
+143:    def _http(self, ruta: str, metodo: str = "GET", cuerpo: bytes | None = None,
+170:    def _consulta_dns(self, nombre: str) -> None:
+187:    def web_pequena(self) -> None:
+190:    def web_media(self) -> None:
+193:    def web_grande(self) -> None:
+196:    def https(self) -> None:
+199:    def dns(self) -> None:
+202:    def dns_inexistente(self) -> None:
+206:    def api_ok(self) -> None:
+209:    def api_post(self) -> None:
+213:    def api_auth(self) -> None:
+216:    def api_404(self) -> None:
+219:    def api_500(self) -> None:
+222:    def api_lento(self) -> None:
+225:    def abandono(self) -> None:
+228:    def puerto_cerrado(self) -> None:
+244:    def ping(self) -> None:
+275:def main() -> int:
+278:    p.add_argument("--perfil", choices=sorted(PERFILES))
+285:    p.add_argument("--intensidad", type=float, default=1.0,
+287:    p.add_argument("--forzar-laborable", action="store_true",
+298:        for nombre, perfil in sorted(PERFILES.items()):
+305:    perfil = PERFILES[args.perfil]
+312:    if args.forzar_laborable:
+315:        # unica prueba, del lado del generador, de que la curva iba forzada.
+316:        print("AVISO: --forzar-laborable activo. El fin de semana se genera con "
+317:              "carga de dia laborable. SOLO PARA ENSAYOS: no uses estos datos "
+332:        ahora = datetime.datetime.now()
+333:        factor = (factor_horario(ahora, args.forzar_laborable)
+334:                  * max(args.intensidad, 0.01))
+343:                factor *= 6.0
+358:        time.sleep(random.expovariate(1.0 / max(perfil["ritmo"] / factor, 0.05)))
+== cliente: config (lineas relevantes)
+# clientes_config.py
+2:"""Genera las unidades systemd de los seis perfiles del laboratorio.
+4:Un perfil por alias: el motor puntua por IP, asi que seis direcciones sobre
+18:quedar a medias sin que nadie lo note.
+30:# El orden importa poco, pero el reparto no: cada perfil va atado a UN alias y
+31:# no se mezclan. Si dos perfiles compartieran origen, el modelo veria una sola
+41:Description=CyberFlow laboratorio - perfil {perfil} desde {origen}
+52:    --perfil {perfil} \\
+61:# conservan: un perfil que muere en silencio durante tres dias es el peor
+75:Description=CyberFlow laboratorio - los seis perfiles de trafico
+79:# los seis perfiles parados y ningun error. Medido asi la primera vez.
+81:# Sin Requires= a proposito: que un perfil falle no debe tumbar a los otros
+100:    forzar = " \\\n    --forzar-laborable" if getattr(args, "forzar_laborable", False) else ""
+101:    for i, perfil in enumerate(PERFILES):
+102:        unidades["cyberflow-lab-%s.service" % perfil] = UNIDAD.format(
+103:            cabecera=cabecera, perfil=perfil, origen=str(base + i),
+136:    # alias estan configurados. Sin ellos, cada perfil arrancaria y moriria al
+157:                   help="primer alias; los seis perfiles usan este y los cinco siguientes")
+164:    p.add_argument("--forzar-laborable", action="store_true",
+165:                   help="genera las unidades con --forzar-laborable. SOLO para "
+182:        print("configuracion valida: %d perfiles desde %s" % (len(PERFILES), args.base))
+210:    print("Ahora:  sudo systemctl daemon-reload")
+fin
+== DC1 10.10.10.20
+VM-AD-DC
+2026-11-02T19:12:58Z
+ls: cannot access '/etc/cyberflow': No such file or directory
+ls: cannot access '/opt/cyberflow': No such file or directory

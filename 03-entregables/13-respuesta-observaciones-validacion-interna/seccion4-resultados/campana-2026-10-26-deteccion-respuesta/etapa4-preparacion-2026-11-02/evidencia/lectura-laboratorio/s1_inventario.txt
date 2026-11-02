@@ -1,0 +1,673 @@
+== fecha
+2026-11-02T19:07:33Z
+cyberflow-sensor
+ 19:07:33 up 2 days, 23:14,  1 user,  load average: 0,11, 0,37, 0,48
+4
+               total        used        free      shared  buff/cache   available
+Mem:            7940        2772        1982           0        3479        5168
+Swap:           4030          95        3935
+Filesystem                         Size  Used Avail Use% Mounted on
+/dev/mapper/ubuntu--vg-ubuntu--lv   37G   22G   13G  64% /
+/dev/mapper/ubuntu--vg-ubuntu--lv   37G   22G   13G  64% /
+/dev/mapper/ubuntu--vg-ubuntu--lv   37G   22G   13G  64% /
+== unidades (cargadas)
+cyberflow-acumular.service     loaded inactive dead    CyberFlow - acumula el dataset extrayendo sobre la marcha
+cyberflow-aprendizaje.service  loaded inactive dead    CyberFlow - reentrenamiento supervisado (lote, deriva y candidato)
+cyberflow-capture-nic.service  loaded active   exited  CyberFlow - prepara ens37 para captura pasiva
+cyberflow-limpieza.service     loaded inactive dead    CyberFlow - poda el anillo de PCAP
+cyberflow-panel-acceso.service loaded active   exited  CyberFlow - acceso al panel: solo 10.10.10.30/32
+ppi-dashboard.service          loaded active   running CyberFlow - panel web de solo lectura
+ppi-motor-capture.service      loaded active   running CyberFlow - buffer en anillo de PCAP para el motor
+ppi-motor.service              loaded active   running CyberFlow - motor de decision (Isolation Forest limpio), modo observacion
+ppi-publicar-feed.service      loaded inactive dead    CyberFlow - publica el feed firmado de acciones (desde las decisiones del motor)
+suricata.service               loaded active   running Suricata IDS/IDP daemon
+cyberflow-acumular.timer       loaded active   waiting CyberFlow - extraccion periodica hacia el dataset
+cyberflow-aprendizaje.timer    loaded active   waiting CyberFlow - reentrenamiento supervisado, cada noche
+cyberflow-limpieza.timer       loaded active   waiting CyberFlow - poda periodica del anillo de PCAP
+ppi-publicar-feed.timer        loaded active   waiting CyberFlow - publicar el feed cada 10 segundos
+== ficheros de unidad
+cyberflow-acumular.service     static  -
+cyberflow-aprendizaje.service  static  -
+cyberflow-capture-nic.service  enabled enabled
+cyberflow-limpieza.service     static  -
+cyberflow-panel-acceso.service enabled enabled
+ppi-dashboard.service          enabled enabled
+ppi-motor-capture.service      enabled enabled
+ppi-motor.service              enabled enabled
+ppi-publicar-feed.service      static  -
+suricata.service               enabled enabled
+cyberflow-acumular.timer       enabled enabled
+cyberflow-aprendizaje.timer    enabled enabled
+cyberflow-limpieza.timer       enabled enabled
+ppi-publicar-feed.timer        enabled enabled
+== timers
+Mon 2026-11-02 19:07:40 UTC       6s Mon 2026-11-02 19:07:30 UTC        3s ago ppi-publicar-feed.timer        ppi-publicar-feed.service
+Mon 2026-11-02 19:10:00 UTC 2min 26s Mon 2026-11-02 19:00:00 UTC      7min ago cyberflow-acumular.timer       cyberflow-acumular.service
+Mon 2026-11-02 19:10:00 UTC 2min 26s Mon 2026-11-02 19:05:00 UTC  2min 33s ago cyberflow-limpieza.timer       cyberflow-limpieza.service
+Tue 2026-11-03 00:30:00 UTC 5h 22min Mon 2026-11-02 00:30:00 UTC       18h ago cyberflow-aprendizaje.timer    cyberflow-aprendizaje.service
+---------------- cyberflow-acumular.service
+MainPID=0
+NRestarts=0
+ExecMainStartTimestamp=Mon 2026-11-02 19:00:00 UTC
+WorkingDirectory=/home/m4rk/cyberflow
+User=m4rk
+Group=m4rk
+ActiveState=inactive
+SubState=dead
+FragmentPath=/etc/systemd/system/cyberflow-acumular.service
+DropInPaths=
+UnitFileState=static
+# /etc/systemd/system/cyberflow-acumular.service
+# Generado por scripts/setup/cyberflow_config.py desde configs/cyberflow.toml
+# NO editar a mano: cualquier cambio se pierde en la siguiente generacion.
+# Para cambiar algo, edita el .toml y vuelve a ejecutar el generador.
+
+[Unit]
+Description=CyberFlow - acumula el dataset extrayendo sobre la marcha
+After=ppi-motor-capture.service suricata.service
+
+[Service]
+Type=oneshot
+User=m4rk
+Group=m4rk
+WorkingDirectory=/home/m4rk/cyberflow
+# El anillo de PCAP solo conserva 15 minutos, pero 20 de las 31
+# variables salen de ahi. Sin esto, al terminar una linea base de 72 h habria
+# registro de decisiones y quince minutos de captura: guardar los paquetes
+# enteros serian ~280 GB y no caben. Se guardan las FILAS, que son ~78 MB.
+# Las exclusiones son las MISMAS que las del motor, y por la misma razon: si
+# el dataset incluyera entidades que el sistema declara fuera de alcance, el
+# modelo se entrenaria sobre un conjunto que no describe lo que luego puntua.
+ExecStart=/home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow/scripts/features/acumular_v3.py \
+    --salida /home/m4rk/cyberflow/artifacts/linea-base/multilayer-v3.csv \
+    --campaign-id linea-base \
+    --capture-dir /var/lib/ppi-motor-capture \
+    --eve /var/log/suricata/eve.json \
+    --excluir 10.10.60.11/32,10.10.10.30/32,10.10.60.2/32,10.10.60.3/32,10.10.60.10/32,10.10.60.20/32,10.10.60.21/32,10.10.60.30/32,10.10.60.40/32,10.10.60.41/32,10.10.60.50/32 \
+    --excluir-protocolos 112,240 \
+    --entity-network 10.10.0.0/16
+StandardOutput=append:/home/m4rk/cyberflow/logs/acumular.log
+StandardError=journal
+NoNewPrivileges=true
+---------------- cyberflow-aprendizaje.service
+MainPID=0
+NRestarts=0
+ExecMainStartTimestamp=Mon 2026-11-02 00:31:18 UTC
+WorkingDirectory=/home/m4rk/cyberflow
+User=m4rk
+Group=m4rk
+ActiveState=inactive
+SubState=dead
+FragmentPath=/etc/systemd/system/cyberflow-aprendizaje.service
+DropInPaths=
+UnitFileState=static
+# /etc/systemd/system/cyberflow-aprendizaje.service
+# Generado por scripts/setup/cyberflow_config.py desde configs/cyberflow.toml
+# NO editar a mano: cualquier cambio se pierde en la siguiente generacion.
+# Para cambiar algo, edita el .toml y vuelve a ejecutar el generador.
+
+[Unit]
+Description=CyberFlow - reentrenamiento supervisado (lote, deriva y candidato)
+After=cyberflow-acumular.service
+
+[Service]
+Type=oneshot
+User=m4rk
+Group=m4rk
+WorkingDirectory=/home/m4rk/cyberflow
+# Prepara y evalua; NUNCA cambia el modelo en uso. Eso es "promover", a mano.
+# Entrenar un Isolation Forest sobre la linea base ocupa CPU un rato: al fondo
+# de la cola para no quitarsela al motor ni a la captura.
+ExecStart=/home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow/scripts/modeling/cyberflow_aprendizaje.py \
+    --config /home/m4rk/cyberflow/configs/cyberflow.local.toml diario
+StandardOutput=append:/home/m4rk/cyberflow/logs/aprendizaje.log
+StandardError=journal
+Nice=19
+IOSchedulingClass=idle
+NoNewPrivileges=true
+---------------- cyberflow-capture-nic.service
+MainPID=0
+NRestarts=0
+ExecMainStartTimestamp=Fri 2026-10-30 19:55:21 UTC
+WorkingDirectory=
+User=
+Group=
+ActiveState=active
+SubState=exited
+FragmentPath=/etc/systemd/system/cyberflow-capture-nic.service
+DropInPaths=
+UnitFileState=enabled
+# /etc/systemd/system/cyberflow-capture-nic.service
+# Generado por scripts/setup/cyberflow_config.py desde configs/cyberflow.toml
+# NO editar a mano: cualquier cambio se pierde en la siguiente generacion.
+# Para cambiar algo, edita el .toml y vuelve a ejecutar el generador.
+
+[Unit]
+Description=CyberFlow - prepara ens37 para captura pasiva
+After=network-online.target
+Wants=network-online.target
+Before=suricata.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+# Sin promiscuo la vNIC filtra el espejo: ninguna trama va dirigida a su MAC.
+ExecStart=/usr/sbin/ip link set ens37 up promisc on
+# GRO/LRO/TSO/GSO recomponen segmentos y falsearian tamano de trama y tasas.
+ExecStart=-/usr/sbin/ethtool -K ens37 gro off lro off tso off gso off
+# Una sonda pasiva no debe emitir.
+ExecStart=-/usr/sbin/sysctl -qw net.ipv6.conf.ens37.disable_ipv6=1
+ExecStop=-/usr/sbin/ip link set ens37 promisc off
+
+[Install]
+WantedBy=multi-user.target
+---------------- cyberflow-limpieza.service
+MainPID=0
+NRestarts=0
+ExecMainStartTimestamp=Mon 2026-11-02 19:05:00 UTC
+WorkingDirectory=
+User=
+Group=
+ActiveState=inactive
+SubState=dead
+FragmentPath=/etc/systemd/system/cyberflow-limpieza.service
+DropInPaths=
+UnitFileState=static
+# /etc/systemd/system/cyberflow-limpieza.service
+# Generado por scripts/setup/cyberflow_config.py desde configs/cyberflow.toml
+# NO editar a mano: cualquier cambio se pierde en la siguiente generacion.
+# Para cambiar algo, edita el .toml y vuelve a ejecutar el generador.
+
+[Unit]
+Description=CyberFlow - poda el anillo de PCAP
+# tcpdump -G rota por tiempo, pero con un nombre con fecha NO reutiliza
+# nombres, asi que nadie borra y el "anillo" crece para siempre. Medido en el
+# sensor de referencia: 6707 ficheros y 403 MB en un dia. Esta es la unica
+# poda que hay -por eso -W no hace falta, ver la unidad de captura-. El motor
+# ya ignora los ficheros viejos por su mtime, asi que esto no cambia lo que
+# analiza: solo impide que el disco se llene.
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/find /var/lib/ppi-motor-capture -maxdepth 1 -name 'live-*.pcap' -mmin +15 -delete
+---------------- cyberflow-panel-acceso.service
+MainPID=0
+NRestarts=0
+ExecMainStartTimestamp=Fri 2026-10-30 19:53:21 UTC
+WorkingDirectory=
+User=
+Group=
+ActiveState=active
+SubState=exited
+FragmentPath=/etc/systemd/system/cyberflow-panel-acceso.service
+DropInPaths=
+UnitFileState=enabled
+# /etc/systemd/system/cyberflow-panel-acceso.service
+# Generado por scripts/setup/cyberflow_config.py desde configs/cyberflow.toml
+# NO editar a mano: cualquier cambio se pierde en la siguiente generacion.
+# Para cambiar algo, edita el .toml y vuelve a ejecutar el generador.
+
+[Unit]
+Description=CyberFlow - acceso al panel: solo 10.10.10.30/32
+# El panel no tiene autenticacion. Si esta unidad falla, ppi-dashboard no
+# arranca (la requiere con Requires=): nunca queda expuesto sin filtro.
+Before=ppi-dashboard.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStartPre=-/usr/sbin/nft delete table inet cyberflow_panel
+ExecStart=/usr/sbin/nft -f /etc/cyberflow/panel-acceso.nft
+ExecStop=-/usr/sbin/nft delete table inet cyberflow_panel
+
+[Install]
+WantedBy=multi-user.target
+---------------- ppi-dashboard.service
+MainPID=1379
+NRestarts=0
+ExecMainStartTimestamp=Fri 2026-10-30 19:55:21 UTC
+WorkingDirectory=/home/m4rk/cyberflow
+User=m4rk
+Group=m4rk
+ActiveState=active
+SubState=running
+FragmentPath=/etc/systemd/system/ppi-dashboard.service
+DropInPaths=
+UnitFileState=enabled
+# /etc/systemd/system/ppi-dashboard.service
+# Generado por scripts/setup/cyberflow_config.py desde configs/cyberflow.toml
+# NO editar a mano: cualquier cambio se pierde en la siguiente generacion.
+# Para cambiar algo, edita el .toml y vuelve a ejecutar el generador.
+
+[Unit]
+Description=CyberFlow - panel web de solo lectura
+After=ppi-motor.service
+Wants=ppi-motor.service
+Requires=cyberflow-panel-acceso.service
+After=cyberflow-panel-acceso.service
+
+[Service]
+Type=simple
+User=m4rk
+Group=m4rk
+WorkingDirectory=/home/m4rk/cyberflow
+ExecStart=/home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow/scripts/engine/dashboard.py \
+    --log-path /home/m4rk/cyberflow/logs/motor_decision.log \
+    --manifest-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json \
+    --detector-name if_limpio_2026_10 \
+    --eve-path /var/log/suricata/eve.json \
+    --schema /home/m4rk/cyberflow/configs/features/multilayer-v2.json \
+    --schema-extra /home/m4rk/cyberflow/configs/features/multilayer-v3.json \
+    --descripciones /home/m4rk/cyberflow/configs/features/descripciones.json \
+    --dataset /home/m4rk/cyberflow/artifacts/linea-base/multilayer-v3.csv \
+    --escenarios /home/m4rk/cyberflow/configs/escenarios.json \
+    --config-toml /home/m4rk/cyberflow/configs/cyberflow.local.toml \
+    --services ppi-motor.service,ppi-motor-capture.service,suricata.service \
+    --calibrado-en-esta-red \
+    --usuarios /etc/cyberflow/usuarios.json \
+    --clave-sesion /etc/cyberflow/clave-sesion \
+    --tls-cert /etc/cyberflow/panel.crt \
+    --tls-key /etc/cyberflow/panel.key \
+    --auditoria /home/m4rk/cyberflow/logs/panel_auditoria.jsonl \
+    --sesion-minutos 480 \
+    --intentos-max 5 \
+    --bloqueo-minutos 15 \
+    --host 10.10.60.11 --port 8788
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+ProtectSystem=strict
+# ProtectSystem=strict deja TODO en solo lectura, /home incluido. El panel no
+# escribia nada y por eso nunca hizo falta, pero el registro de accesos si.
+# Sin esta linea la auditoria fallaria en silencio -y un panel con login cuyo
+# registro no se escribe es peor que uno sin login, porque aparenta rastro-.
+ReadWritePaths=/home/m4rk/cyberflow/logs
+
+[Install]
+WantedBy=multi-user.target
+---------------- ppi-motor-capture.service
+MainPID=1375
+NRestarts=0
+ExecMainStartTimestamp=Fri 2026-10-30 19:55:21 UTC
+WorkingDirectory=
+User=
+Group=
+ActiveState=active
+SubState=running
+FragmentPath=/etc/systemd/system/ppi-motor-capture.service
+DropInPaths=
+UnitFileState=enabled
+# /etc/systemd/system/ppi-motor-capture.service
+# Generado por scripts/setup/cyberflow_config.py desde configs/cyberflow.toml
+# NO editar a mano: cualquier cambio se pierde en la siguiente generacion.
+# Para cambiar algo, edita el .toml y vuelve a ejecutar el generador.
+
+[Unit]
+Description=CyberFlow - buffer en anillo de PCAP para el motor
+After=network-online.target suricata.service cyberflow-capture-nic.service
+Wants=network-online.target
+Requires=cyberflow-capture-nic.service
+
+[Service]
+Type=simple
+# Arranca como root y suelta privilegios con -Z justo tras abrir el socket.
+#
+# SIN -W, a proposito. Con -G, la opcion -W hace que tcpdump SALGA con estado 0
+# al completar esos N ficheros, y systemd lo relanza: medido en el sensor,
+# NRestarts=1458 con reinicios cada 4m02s. Eso costaba dos cosas, las dos
+# invisibles:
+#   - RestartSec deja ~2 s sin capturar en cada relevo: 0,8 % del trafico que
+#     nunca llega al anillo.
+#   - tcpdump con -Z hace chown del PRIMER fichero de cada arranque a
+#     tcpdump:tcpdump; los siguientes los crea ya sin privilegios y heredan el
+#     grupo del directorio setgid. Ese primer fichero NO lo puede leer el
+#     usuario del motor: 1 de cada 16, el 5,55 % de los bytes del anillo,
+#     descartado en silencio.
+# -W tampoco servia para podar: como el nombre lleva fecha, tcpdump no
+# reutiliza ficheros. De eso se encarga cyberflow-limpieza.timer.
+ExecStartPre=/usr/bin/install -d -o tcpdump -g m4rk -m 2750 /var/lib/ppi-motor-capture
+ExecStart=/usr/bin/tcpdump -i ens37 -n -s 0 -U -B 65536 \
+    -Z tcpdump -w /var/lib/ppi-motor-capture/live-%%Y%%m%%d%%H%%M%%S.pcap \
+    -G 15
+UMask=0027
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
+---------------- ppi-motor.service
+MainPID=1289322
+NRestarts=0
+ExecMainStartTimestamp=Sun 2026-11-01 03:14:01 UTC
+WorkingDirectory=/home/m4rk/cyberflow
+User=m4rk
+Group=m4rk
+ActiveState=active
+SubState=running
+FragmentPath=/etc/systemd/system/ppi-motor.service
+DropInPaths=
+UnitFileState=enabled
+# /etc/systemd/system/ppi-motor.service
+# Generado por scripts/setup/cyberflow_config.py desde configs/cyberflow.toml
+# NO editar a mano: cualquier cambio se pierde en la siguiente generacion.
+# Para cambiar algo, edita el .toml y vuelve a ejecutar el generador.
+
+[Unit]
+Description=CyberFlow - motor de decision (Isolation Forest limpio), modo observacion
+After=network-online.target suricata.service ppi-motor-capture.service
+Wants=network-online.target
+Requires=ppi-motor-capture.service
+
+[Service]
+Type=simple
+User=m4rk
+Group=m4rk
+WorkingDirectory=/home/m4rk/cyberflow
+ExecStart=/home/m4rk/cyberflow/.venv/bin/python \
+    /home/m4rk/cyberflow/scripts/engine/motor_decision.py \
+    --eve-path /var/log/suricata/eve.json \
+    --capture-dir /var/lib/ppi-motor-capture \
+    --model-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib \
+    --manifest-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json \
+    --detector-name if_limpio_2026_10 \
+    --schema /home/m4rk/cyberflow/configs/features/multilayer-v2.json \
+    --entity-network 10.10.0.0/16 \
+    --excluir 10.10.60.11/32,10.10.10.30/32,10.10.60.2/32,10.10.60.3/32,10.10.60.10/32,10.10.60.20/32,10.10.60.21/32,10.10.60.30/32,10.10.60.40/32,10.10.60.41/32,10.10.60.50/32 \
+    --excluir-protocolos 112,240 \
+    --log-path /home/m4rk/cyberflow/logs/motor_decision.log \
+    --step-seconds 10 \
+    --history-seconds 230
+Restart=always
+RestartSec=5
+# Las decisiones ya van a su fichero rotado. Dejarlas tambien en stdout las
+# duplicaba en el journal y, desde ahi, en /var/log/syslog: medido, 86.939
+# lineas repetidas y 320 MB entre los dos. Los errores siguen yendo al journal.
+StandardOutput=null
+StandardError=journal
+# Modo observacion: el motor no necesita escalar privilegios nunca.
+NoNewPrivileges=true
+ProtectSystem=strict
+PrivateDevices=true
+ReadWritePaths=/home/m4rk/cyberflow/logs
+ReadOnlyPaths=/var/lib/ppi-motor-capture /var/log/suricata
+
+[Install]
+WantedBy=multi-user.target
+---------------- ppi-publicar-feed.service
+MainPID=0
+NRestarts=0
+ExecMainStartTimestamp=Mon 2026-11-02 19:07:30 UTC
+WorkingDirectory=/home/m4rk/cyberflow
+User=m4rk
+Group=m4rk
+ActiveState=inactive
+SubState=dead
+FragmentPath=/etc/systemd/system/ppi-publicar-feed.service
+DropInPaths=
+UnitFileState=static
+# /etc/systemd/system/ppi-publicar-feed.service
+[Unit]
+Description=CyberFlow - publica el feed firmado de acciones (desde las decisiones del motor)
+After=ppi-motor.service
+Documentation=https://github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos
+
+[Service]
+Type=oneshot
+User=m4rk
+Group=m4rk
+WorkingDirectory=/home/m4rk/cyberflow
+# Lee las decisiones del motor, arma la lista de acciones por IP (modelo->LIMIT,
+# heuristico confirmado->BLOCK, escalera de reincidencia) y la firma (ed25519).
+ExecStart=/home/m4rk/cyberflow/.venv/bin/python scripts/engine/publicar_feed.py \
+    --log logs/motor_decision.log \
+    --estado /home/m4rk/feed/estado.json \
+    --clave-privada artifacts/feed-keys/priv.pem \
+    --salida-feed /home/m4rk/feed/feed.json \
+    --salida-firma /home/m4rk/feed/feed.sig \
+    --ventana-segundos 120 \
+    --umbrales 2026-10-06.1
+# La salida va al journal (journalctl -u ppi-publicar-feed), no a un fichero.
+---------------- suricata.service
+MainPID=1372
+NRestarts=0
+ExecMainStartTimestamp=Fri 2026-10-30 19:55:21 UTC
+WorkingDirectory=
+User=
+Group=
+ActiveState=active
+SubState=running
+FragmentPath=/usr/lib/systemd/system/suricata.service
+DropInPaths=
+UnitFileState=enabled
+# /usr/lib/systemd/system/suricata.service
+[Unit]
+Description=Suricata IDS/IDP daemon
+After=network.target network-online.target
+Requires=network-online.target
+Documentation=man:suricata(8) man:suricatasc(8)
+Documentation=https://suricata.io/documentation/
+
+[Service]
+Type=forking
+#Environment=LD_PRELOAD=/usr/lib/libtcmalloc_minimal.so.4
+PIDFile=/run/suricata.pid
+ExecStart=/usr/bin/suricata -D --af-packet -c /etc/suricata/suricata.yaml --pidfile /run/suricata.pid
+ExecReload=/usr/bin/suricatasc -c reload-rules ; /bin/kill -HUP $MAINPID
+ExecStop=/usr/bin/suricatasc -c shutdown
+Restart=on-failure
+ProtectSystem=full
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target
+---------------- cyberflow-acumular.timer
+ActiveState=active
+SubState=waiting
+FragmentPath=/etc/systemd/system/cyberflow-acumular.timer
+DropInPaths=
+UnitFileState=enabled
+# /etc/systemd/system/cyberflow-acumular.timer
+# Generado por scripts/setup/cyberflow_config.py desde configs/cyberflow.toml
+# NO editar a mano: cualquier cambio se pierde en la siguiente generacion.
+# Para cambiar algo, edita el .toml y vuelve a ejecutar el generador.
+
+[Unit]
+Description=CyberFlow - extraccion periodica hacia el dataset
+
+[Timer]
+# Cada 10 min sobre un anillo de 15 min: el solape cubre lo que cada pasada
+# descarta por los bordes -historia truncada al principio, ventanas a medio
+# llenar al final- y aguanta un retraso puntual sin dejar agujeros.
+# Se usa OnCalendar (reloj de pared), NO OnUnitActiveSec: este ultimo agenda el
+# proximo disparo relativo a la ultima activacion del .service, marca que un
+# reset-failed o un daemon-reload (p.ej. al reinstalar) borra. Sin esa marca el
+# timer queda "active" pero con NextElapse=infinity y no vuelve a dispararse
+# jamas. OnCalendar siempre tiene proximo disparo, sobrevive reinstalar/reiniciar.
+OnCalendar=*:0/10
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+---------------- cyberflow-aprendizaje.timer
+ActiveState=active
+SubState=waiting
+FragmentPath=/etc/systemd/system/cyberflow-aprendizaje.timer
+DropInPaths=
+UnitFileState=enabled
+# /etc/systemd/system/cyberflow-aprendizaje.timer
+# Generado por scripts/setup/cyberflow_config.py desde configs/cyberflow.toml
+# NO editar a mano: cualquier cambio se pierde en la siguiente generacion.
+# Para cambiar algo, edita el .toml y vuelve a ejecutar el generador.
+
+[Unit]
+Description=CyberFlow - reentrenamiento supervisado, cada noche
+
+[Timer]
+# 00:30 UTC: el lote es el dia anterior entero, y la ultima pasada del
+# acumulador (cada 10 min) ya lo ha cerrado.
+OnCalendar=*-*-* 00:30:00 UTC
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+---------------- cyberflow-limpieza.timer
+ActiveState=active
+SubState=waiting
+FragmentPath=/etc/systemd/system/cyberflow-limpieza.timer
+DropInPaths=
+UnitFileState=enabled
+# /etc/systemd/system/cyberflow-limpieza.timer
+# Generado por scripts/setup/cyberflow_config.py desde configs/cyberflow.toml
+# NO editar a mano: cualquier cambio se pierde en la siguiente generacion.
+# Para cambiar algo, edita el .toml y vuelve a ejecutar el generador.
+
+[Unit]
+Description=CyberFlow - poda periodica del anillo de PCAP
+
+[Timer]
+# OnCalendar (reloj de pared), no OnUnitActiveSec: ver la nota del timer de
+# acumulacion. Con OnUnitActiveSec el timer se quedaba sin proximo disparo tras
+# un reinstalar/daemon-reload y el anillo de PCAP dejaba de podarse.
+OnCalendar=*:0/5
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+---------------- ppi-publicar-feed.timer
+ActiveState=active
+SubState=waiting
+FragmentPath=/etc/systemd/system/ppi-publicar-feed.timer
+DropInPaths=
+UnitFileState=enabled
+# /etc/systemd/system/ppi-publicar-feed.timer
+[Unit]
+Description=CyberFlow - publicar el feed cada 10 segundos
+
+[Timer]
+# OnCalendar (no OnUnitActiveSec): este ultimo se quedaba con NextElapse=infinity.
+# Primer paso de la cadena escalonada: publicar :00, relay :03, agente :06.
+OnCalendar=*-*-* *:*:00/10
+AccuracySec=1s
+Persistent=false
+
+[Install]
+WantedBy=timers.target
+== crontab m4rk
+== home
+total 420
+drwxr-x--- 28 m4rk m4rk   4096 nov  1 16:24 .
+drwxr-xr-x  3 root root   4096 sep 16 14:47 ..
+-rw-rw-r--  1 m4rk m4rk 188358 oct  6 07:18  
+-rw-rw-r--  1 m4rk m4rk   1403 oct  2 00:48 08-probar-ntp.py
+-rw-rw-r--  1 m4rk m4rk   5238 oct  5 19:16 20-puntuar-por-ventana.py
+-rw-rw-r--  1 m4rk m4rk   1291 oct 12 04:03 alertas_desplegar.sh
+drwxrwxr-x  4 m4rk m4rk   4096 oct 25 06:35 analisis
+-rw-rw-r--  1 m4rk m4rk   3024 oct 11 05:06 apr_activar.sh
+-rw-rw-r--  1 m4rk m4rk   1138 oct 11 05:37 apr_ataques.sh
+-rw-rw-r--  1 m4rk m4rk   1601 oct 11 04:58 apr_base_nota_l.sh
+-rw-rw-r--  1 m4rk m4rk   1265 oct 11 04:46 apr_desplegar.sh
+-rw-rw-r--  1 m4rk m4rk   1198 oct 11 04:57 apr_inspeccion2.sh
+-rw-rw-r--  1 m4rk m4rk    886 oct 11 04:58 apr_inspeccion3.sh
+-rw-rw-r--  1 m4rk m4rk    685 oct 11 04:56 apr_inspeccion.sh
+-rw-rw-r--  1 m4rk m4rk   1907 oct 11 05:08 apr_unidades.sh
+-rw-rw-r--  1 m4rk m4rk    735 oct 11 04:47 apr_verificar.sh
+-rw-------  1 m4rk m4rk  10604 oct 29 19:15 .bash_history
+-rw-r--r--  1 m4rk m4rk    220 mar 31  2024 .bash_logout
+-rw-r--r--  1 m4rk m4rk   3771 mar 31  2024 .bashrc
+drwxrwxr-x  2 m4rk m4rk   4096 oct 27 16:48 bin
+drwx------  2 m4rk m4rk   4096 sep 16 14:49 .cache
+drwxrwxr-x 11 m4rk m4rk   4096 nov  1 11:25 cf-3b-20261101T0721Z
+drwxrwxr-x  4 m4rk m4rk   4096 nov  1 17:11 cf-3b-revision-20261101
+drwxrwxr-x 10 m4rk m4rk   4096 oct 29 10:40 cf-campana-A-20261029
+drwxrwxr-x  8 m4rk m4rk   4096 oct 28 21:48 cf-deploy
+drwxrwxr-x 14 m4rk m4rk   4096 nov  1 01:46 cf-p1
+drwxrwxr-x 15 m4rk m4rk   4096 nov  1 04:19 cf-paso2-20261101T0254Z
+drwxrwxr-x  9 m4rk m4rk   4096 nov  1 05:44 cf-paso3a-20261101T0523Z
+drwxrwxr-x  3 m4rk m4rk   4096 oct 28 07:05 cf-preflight-20261028
+drwxrwxr-x  8 m4rk m4rk   4096 oct 28 08:44 cf-prep-20261028
+drwxrwxr-x  2 m4rk m4rk   4096 oct 26 22:32 cf-r42
+drwxrwxr-x  9 m4rk m4rk   4096 sep 18 21:12 ci
+-rw-rw-r--  1 m4rk m4rk    872 oct 12 04:20 cmp_desplegar.sh
+-rw-rw-r--  1 m4rk m4rk   1246 sep 30 03:25 congelar.sh
+drwxr-xr-x 13 m4rk m4rk   4096 nov  2 19:07 cyberflow
+drwxrwxr-x  2 m4rk m4rk   4096 oct 19 05:49 cyberflow-ops
+drwxrwxr-x  2 m4rk m4rk   4096 oct 15 04:45 feed
+-rw-rw-r--  1 m4rk m4rk    593 oct 11 05:34 kali_27.sh
+-rw-rw-r--  1 m4rk m4rk   2723 oct 11 05:33 kali_ataques.sh
+-rw-rw-r--  1 m4rk m4rk   1897 oct 11 05:31 kali_explorar.sh
+-rw-rw-r--  1 m4rk m4rk   1239 oct 11 05:39 kali_familias.sh
+-rw-rw-r--  1 m4rk m4rk   1799 oct 11 05:32 kali_oro.sh
+-rw-------  1 m4rk m4rk     20 oct 15 12:40 .lesshst
+drwxrwxr-x  3 m4rk m4rk   4096 sep 23 20:50 .local
+-rw-rw-r--  1 m4rk m4rk    281 oct 12 02:41 muestra_block.sh
+drwxrwxr-x  3 m4rk m4rk   4096 sep 16 15:56 opt
+drwxrwxr-x 15 m4rk m4rk   4096 oct  5 20:47 piloto
+-rw-rw-r--  1 m4rk m4rk    947 oct  6 06:07 ppi-publicar-feed.service
+-rw-rw-r--  1 m4rk m4rk    294 oct  6 06:07 ppi-publicar-feed.timer
+-rw-rw-r--  1 m4rk m4rk    326 oct 15 12:33 ppi-publicar-feed.timer.10s
+-rw-r--r--  1 m4rk m4rk    807 mar 31  2024 .profile
+drwxrwxr-x  3 m4rk m4rk   4096 sep 24 14:34 pruebas-acumulador
+drwxrwxr-x 10 m4rk m4rk   4096 sep 17 22:16 recongelar
+drwxr-xr-x  2 m4rk m4rk   4096 sep 17 23:22 ruedas314
+drwx------  2 m4rk m4rk   4096 sep 16 14:48 .ssh
+-rw-r--r--  1 m4rk m4rk      0 sep 17 18:03 .sudo_as_admin_successful
+drwxrwxr-x  5 m4rk m4rk   4096 sep 18 00:16 venv314
+drwxrwxr-x 10 m4rk m4rk   4096 sep 18 00:17 verif314
+== cyberflow es repo?
+fatal: not a git repository (or any of the parent directories): .git
+fatal: not a git repository (or any of the parent directories): .git
+/home/m4rk/cyberflow:
+total 420
+drwxr-xr-x 13 m4rk m4rk   4096 nov  2 19:07 .
+drwxr-x--- 28 m4rk m4rk   4096 nov  1 16:24 ..
+drwxr-xr-x  5 m4rk m4rk   4096 sep 17 19:24 ansible
+drwxr-xr-x  8 m4rk m4rk   4096 oct 23 19:05 artifacts
+-rw-r--r--  1 m4rk m4rk   1751 sep 17 19:24 CITATION.cff
+drwxr-xr-x  9 m4rk m4rk   4096 oct 24 10:42 configs
+-rw-------  1 m4rk m4rk 326358 oct 15 02:15 cyberflow-vivo-d816mwg1.json
+drwxr-xr-x  2 m4rk m4rk   4096 sep 17 19:24 dashboard
+drwxr-xr-x  4 m4rk m4rk   4096 oct 12 04:20 docs
+-rw-r--r--  1 m4rk m4rk   2228 sep 17 19:24 .gitignore
+-rw-r--r--  1 m4rk m4rk   1237 sep 17 19:24 LICENSE
+-rw-r--r--  1 m4rk m4rk   1882 sep 17 19:24 LICENSE-DATA
+drwxr-x---  3 m4rk m4rk   4096 nov  2 00:00 logs
+-rw-rw-r--  1 m4rk m4rk   1560 oct 15 04:19 panel_sesion.py
+-rw-r--r--  1 m4rk m4rk   5509 sep 17 19:24 README.md
+-rw-r--r--  1 m4rk m4rk   4881 sep 17 19:24 REPLICACION.md
+-rw-r--r--  1 m4rk m4rk    247 sep 17 19:24 requirements-model.txt
+drwxr-xr-x  2 m4rk m4rk   4096 sep 18 00:41 ruedas
+drwxr-xr-x 17 m4rk m4rk   4096 oct 15 11:07 scripts
+-rwxrwxr-x  1 m4rk m4rk    561 oct 15 04:19 start_ps.sh
+drwxr-xr-x  2 m4rk m4rk   4096 sep 17 19:24 tests
+drwxrwxr-x  5 m4rk m4rk   4096 sep 18 00:46 .venv
+drwxr-xr-x  2 m4rk m4rk   4096 sep 17 19:39 wheels
+-rw-r--r--  1 m4rk m4rk   1430 sep 17 19:24 .zenodo.json
+
+/home/m4rk/cyberflow/scripts/engine:
+total 3640
+drwxr-xr-x  3 m4rk m4rk   4096 nov  1 03:14 .
+drwxr-xr-x 17 m4rk m4rk   4096 oct 15 11:07 ..
+-rw-rw-r--  1 m4rk m4rk      4 oct 10 15:39 \
+-rwxr-xr-x  1 m4rk m4rk 558913 oct 28 19:22 dashboard.py
+-rwxr-xr-x  1 m4rk m4rk  42875 sep 23 20:31 dashboard.py.anterior
+-rwxr-xr-x  1 m4rk m4rk 524483 oct 15 11:01 dashboard.py.bak-20261015-110717
+-rwxr-xr-x  1 m4rk m4rk 525140 oct 15 11:07 dashboard.py.bak-20261017-232444
+-rwxr-xr-x  1 m4rk m4rk 525775 oct 17 23:24 dashboard.py.bak-20261017-232728
+-rwxr-xr-x  1 m4rk m4rk 525872 oct 17 23:27 dashboard.py.bak-20261018-220624
+-rwxr-xr-x  1 m4rk m4rk 525946 oct 18 22:06 dashboard.py.bak-20261028-192204
+-rw-rw-r--  1 m4rk m4rk 211291 oct  9 21:58 dashboard.py.candidate-audios
+-rwxr-xr-x  1 m4rk m4rk   3457 oct 15 12:52 escalada.py
+-rw-rw-r--  1 m4rk m4rk   2567 oct 15 12:52 escalada.py.bak-20261015T1252Z
+-rw-rw-r--  1 m4rk m4rk   3329 sep 30 19:52 feed.py
+-rw-rw-r--  1 m4rk m4rk   7524 oct 15 03:48 heuristicos.py
+-rw-rw-r--  1 m4rk m4rk   6273 oct  6 23:52 heuristicos.py.bak-20261006-2
+-rw-rw-r--  1 m4rk m4rk  47636 nov  1 03:14 motor_decision.py
+-rwxr-xr-x  1 m4rk m4rk  28104 sep 23 20:31 motor_decision.py.anterior
+-rw-rw-r--  1 m4rk m4rk  16858 nov  1 03:14 motor_incremental.py
+-rwxr-xr-x  1 m4rk m4rk   7452 oct 15 12:52 publicar_feed.py
+-rw-rw-r--  1 m4rk m4rk   6019 sep 30 19:52 publicar_feed.py.bak-20261010-044944
+-rw-rw-r--  1 m4rk m4rk   7153 oct 15 12:51 publicar_feed.py.bak-20261015T1249Z
+-rw-rw-r--  1 m4rk m4rk   7153 oct 15 12:52 publicar_feed.py.bak-20261015T1252Z
+drwxr-xr-x  2 root root   4096 oct  1 02:48 __pycache__
+-rw-rw-r--  1 m4rk m4rk  41603 oct 10 16:32 vista_vivo.py
+-rw-rw-r--  1 m4rk m4rk  41603 oct 10 16:13 vista_vivo.py.bak-20261010-163242

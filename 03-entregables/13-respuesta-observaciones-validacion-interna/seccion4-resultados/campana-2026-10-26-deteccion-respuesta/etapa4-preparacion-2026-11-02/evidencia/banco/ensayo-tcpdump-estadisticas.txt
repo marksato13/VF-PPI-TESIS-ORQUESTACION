@@ -1,0 +1,33 @@
+2026-11-02T19:37:20.161Z versiones: tcpdump version 4.99.5 libpcap version 1.10.5 (with TPACKET_V3) OpenSSL 3.5.7 9 Jun 2026 64-bit build, 64-bit time_t 
+2026-11-02T19:37:20.170Z kernel: 6.18.54.1-microsoft-standard-WSL2
+2026-11-02T19:37:24.298Z E1 SIGUSR1 #1 enviado (ficheros en el anillo: 3)
+2026-11-02T19:37:27.311Z E1 SIGUSR1 #2 enviado (ficheros en el anillo: 4)
+2026-11-02T19:37:30.322Z E1 SIGUSR1 #3 enviado (ficheros en el anillo: 6)
+2026-11-02T19:37:37.402Z OK   E1 tcpdump sigue vivo tras 4 SIGUSR1
+2026-11-02T19:37:40.423Z E1 ficheros antes/después de la última señal: 8 / 8
+tcpdump: 1060 packets captured, 1600 packets received by filter, 0 packets dropped by kernel
+tcpdump: 3274 packets captured, 3286 packets received by filter, 0 packets dropped by kernel
+tcpdump: 4940 packets captured, 4958 packets received by filter, 0 packets dropped by kernel
+tcpdump: 6622 packets captured, 6622 packets received by filter, 0 packets dropped by kernel
+6622 packets captured
+2026-11-02T19:37:40.540Z OK   E1 hay 4 líneas de SIGUSR1 + 1 final
+2026-11-02T19:37:40.560Z OK   E1 'captured' no decrece entre lecturas
+2026-11-02T19:37:40.567Z OK   E1 la rotación continúa (hay más de 6 ficheros de 2 s)
+2026-11-02T19:37:40.579Z OK   E1 los ficheros del anillo siguen siendo de tcpdump (setuid aplicado)
+2026-11-02T19:37:42.618Z E2 tcpdump PID 93, detector PID 94
+2026-11-02T19:37:50.732Z E2 paquetes_tcp del detector antes/después de SIGUSR1: 1062 / 2182
+2026-11-02T19:37:50.738Z OK   E2 la tubería sigue viva tras SIGUSR1
+2026-11-02T19:37:50.745Z OK   E2 el resumen sigue avanzando
+2026-11-02T19:37:50.754Z OK   E2 la estadística sale por stderr de tcpdump
+tcpdump: 1088 packets captured, 1088 packets received by filter, 0 packets dropped by kernel
+2026-11-02T19:37:58.379Z E5 con tráfico: capturados=4342 detector≈4312; tras drenar: capturados=5760 detector=5760
+2026-11-02T19:37:58.388Z OK   E5 tras drenar, capturados (tcpdump) = paquetes_tcp (detector)
+2026-11-02T19:37:58.398Z E4 NO EJECUTABLE en este banco: el kernel 6.18.54.1-microsoft-standard-WSL2 no expone /proc/<pid>/io; el método se verifica por lectura en Sensor1
+tcpdump: 79 packets captured, 105611 packets received by filter, 105532 packets dropped by kernel
+tcpdump: 129 packets captured, 105709 packets received by filter, 105580 packets dropped by kernel
+129 packets captured
+2026-11-02T19:38:09.667Z OK   E3 hay descartes del kernel con búfer mínimo y lector lento
+2026-11-02T19:38:09.686Z OK   E3 los descartes no decrecen entre lecturas
+2026-11-02T19:38:09.702Z OK   E3 recibidos por el filtro = capturados + descartados (última lectura)
+E3 última lectura: tcpdump: 129 packets captured, 105709 packets received by filter, 105580 packets dropped by kernel
+2026-11-02T19:38:09.723Z RESULTADO: todas las comprobaciones OK

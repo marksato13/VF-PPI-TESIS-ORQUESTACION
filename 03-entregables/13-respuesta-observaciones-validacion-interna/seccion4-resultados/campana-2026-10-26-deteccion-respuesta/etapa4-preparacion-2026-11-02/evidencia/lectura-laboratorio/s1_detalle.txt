@@ -1,0 +1,628 @@
+== fecha
+2026-11-02T19:08:31.938Z
+== proceso ppi-motor
+PID=1289322
+    PID                  STARTED ELAPSED   RSS    VSZ %CPU CMD
+1289322 dom nov  1 03:14:00 2026  143670 1642652 2107156 7.9 /home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow/scripts/engine/motor_decision.py --eve-path /var/log/suricata/eve.json --capture-dir /var/lib/ppi-motor-capture --model-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib --manifest-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json --detector-name if_limpio_2026_10 --schema /home/m4rk/cyberflow/configs/features/multilayer-v2.json --entity-network 10.10.0.0/16 --excluir 10.10.60.11/32,10.10.10.30/32,10.10.60.2/32,10.10.60.3/32,10.10.60.10/32,10.10.60.20/32,10.10.60.21/32,10.10.60.30/32,10.10.60.40/32,10.10.60.41/32,10.10.60.50/32 --excluir-protocolos 112,240 --log-path /home/m4rk/cyberflow/logs/motor_decision.log --step-seconds 10 --history-seconds 230
+exe=/opt/python3.14/bin/python3.14
+cwd=/home/m4rk/cyberflow
+cmdline:
+/home/m4rk/cyberflow/.venv/bin/python
+/home/m4rk/cyberflow/scripts/engine/motor_decision.py
+--eve-path
+/var/log/suricata/eve.json
+--capture-dir
+/var/lib/ppi-motor-capture
+--model-path
+/home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib
+--manifest-path
+/home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json
+--detector-name
+if_limpio_2026_10
+--schema
+/home/m4rk/cyberflow/configs/features/multilayer-v2.json
+--entity-network
+10.10.0.0/16
+--excluir
+10.10.60.11/32,10.10.10.30/32,10.10.60.2/32,10.10.60.3/32,10.10.60.10/32,10.10.60.20/32,10.10.60.21/32,10.10.60.30/32,10.10.60.40/32,10.10.60.41/32,10.10.60.50/32
+--excluir-protocolos
+112,240
+--log-path
+/home/m4rk/cyberflow/logs/motor_decision.log
+--step-seconds
+10
+--history-seconds
+230
+start_utc=
+fds:
+      2 /dev/null
+      1 socket:[3315232]
+      1 0
+threads=7
+== interprete
+/opt/python3.14/bin/python3.14
+date: invalid date ‘dom nov  1 03:14:00 2026’
+3.14.4 sklearn 1.9.0 numpy 2.5.1 joblib 1.5.3
+== ficheros de codigo (sha256, mtime, ctime)
+10a6c4cb5efa19c64d6a0da87e5f0f2619162259da798f4192ea4b6fa021b91a 1789673070 1789673142 configs/campaigns/f1-normal-v1.json
+69a4ed9afbcebe7694a6a91ac9c1aa5d9454f75a67e226d5477391ffb7f8827a 1789673070 1789673142 configs/campaigns/f1-normal-v2.json
+f08dd261653e06390efc0ac84a4000b89abe8f4ce4c1c51519f7a2464f93042e 1789673070 1789673142 configs/campaigns/multilayer-v2-anomalies.json
+e4ecc95e48f65f2ac1b554b96508239e9bde48a7e85d3a3318003f3accce9110 1789673070 1789673142 configs/campaigns/multilayer-v2-normal.json
+5b15774937299f7178be75516cb43efebfa7742c8268332f165285eb17e3167a 1792838564 1792838564 configs/cyberflow.local.toml
+18bd43be231060c7032803a14a06c77e59ae39a658ef734fadeeca31d0a35410 1790472185 1790472185 configs/cyberflow.toml
+41ab334b63692ce3b3d6ca6601923407bfeb53ce1454fda621a09377ff3a6669 1790561639 1790561639 configs/escenarios.json
+eb4b552841486b2ac46b10084d438fc99165138efc9df25f49c0cf15eb9d705a 1790472184 1790472184 configs/features/descripciones.json
+e99d346ecbc3dbb84dacf6d84c63ed9ddf8edee47c17a650d03015305938a33e 1789673070 1789673142 configs/features/multilayer-v1.json
+e032a1a28650d438ae707c93b3045801770b3a069b4395426077af3bbd2b0e33 1789673070 1789673142 configs/features/multilayer-v2.json
+bf48a79812e51537fc621a41069702b3ca311c1b8c0e48379981f394193f8141 1790238371 1790238371 configs/features/multilayer-v3.json
+1a6731ecf27d73305efe16f159f9461f204fb8547f8fd167ce661f0ed29985ea 1789673070 1789673142 configs/server/ppi-api.py
+226b051f16e9c012e24fa7cc59c2e986ef9f6eaa0f93d9f3aa639546a24f8a99 1789673070 1789673142 configs/storage/evidence-v1.json
+a3dcfabece200a74f51afe368a2fe5b271db885376f9851387a6482bf9492a99 1789673070 1789673142 scripts/analysis/compare_frozen_models_metrics.py
+a9383ad391de86fbde7483079b3b01761f9cb61fb538c98c2dc7535f40f9418c 1789673070 1789673142 scripts/analysis/summarize_f1_repetition.py
+716c3a09a74ddd52b3980f9ccaec4de91870cb987eabdf22dca35a7136da493d 1789673070 1789673142 scripts/analysis/verify_if_weighting.py
+b7ff76a5aedcb141de38b2397ace56fc92ba3502cb631a8788e32e71fa843354 1789673070 1789673142 scripts/articulo/generar_mapeo_estructura.py
+77539dd4bb56d742894da82e34d2e57fd4c9aa0d5167148c46f557ee59b4be17 1789673070 1789673142 scripts/articulo/generar_mapeo_secciones.py
+5a996eeb6d5678e27ec194969b2cdc8636c576966c8aa40a20d335b221409e05 1789673070 1789673142 scripts/dataset/audit_multilayer_v2.py
+0807d2d5dd7696d8fe182878ab8ae968b924e430f9fd5e87f2a255e2f1328f15 1789673070 1789673142 scripts/dataset/build_f1_dataset.py
+7ca20886946b8d885c6f08c685d1c757cfb3576f9953ce369a85ef9dfefa4f05 1789673070 1789673142 scripts/dataset/build_multilayer_v2_dataset.py
+683f96693786c86f00ef65162033e08cfe293b25a83f92af65dcf2c1389e946f 1790562306 1790562306 scripts/dataset/detector_alcance.py
+614e7f5ce324a0c4d604ad6dab7933b97bcf591d5ba1e80106dc9e895ecf85c8 1790538231 1790538231 scripts/dataset/particionar_linea_base.py
+a8dcbfbc850376169465939a8a027a8076c0253d5f9504547a7def084e8e315d 1789673070 1789673142 scripts/dataset/run_v2_anomaly_kali.py
+ec97bd6da30f2a1d9c968c75d03ed31bf665bed95978e6ac5141d2bc5c549879 1789673070 1789673142 scripts/dataset/run_v2_anomaly.py
+b07fb57a22eb26cc9667351eb0e1518aeca97d4d808c2154a9070238794214a0 1793215324 1793215324 scripts/engine/dashboard.py
+7d80ab4a926457efb37f4c6c9778e53eda67a5840ca255ff4504f333ca638479 1792068741 1792068741 scripts/engine/escalada.py
+b4d36adb3f29b21693eb0cd964515aed42b3965910379616f1af27441793baba 1790797943 1790797943 scripts/engine/feed.py
+10deb05d22fa0215e5f5f37bc6f05225cda31b806c67051a6584d878e25ed6a2 1792036108 1792036108 scripts/engine/heuristicos.py
+6c274d9e3529e3fb6971ff38d8c6d586780b718b483ce4e2a5e3a1cfbf25692e 1793502840 1793502840 scripts/engine/motor_decision.py
+a403307aa5f76d38d199aef2542350f57eaf5843fdb94b44ec0bd20eaa8ff168 1793502840 1793502840 scripts/engine/motor_incremental.py
+f7bc4c7d8e7ac0cd958f3936d55a5782285e59509919d82bf2998fbb70acc03d 1792068741 1792068741 scripts/engine/publicar_feed.py
+94d3df28ae213be688c453355a6d37511e950308a436ed423480a20673fc2f38 1791649962 1791649962 scripts/engine/vista_vivo.py
+b8eee1f19caae338a399048f7e638d7d20d51be687398ccd67ea3f92113bd60f 1789673070 1789673142 scripts/entregables/calcular_sus.py
+6da7b54b11d1bcb05df4234e81a2989fe2e943e1e573b5632628afdbeb5a8934 1789673070 1789673142 scripts/entregables/_docx_estilo.py
+0987b6196a7f93fc16fb7bfa1fef7fcc593d37f150d8b2db6644ae06a3789ecc 1789673070 1789673142 scripts/entregables/editar_ppi_v3.py
+df6e11db0129b19d402f7347482b1023e29c92a40c1516ca4d848fbfd487194c 1789673070 1789673142 scripts/entregables/generar_cards.py
+30f2b4470f92193be9b9d552d6d5d4dbe46f02bca16e85d0f3094ba5a2c9404f 1789673070 1789673142 scripts/entregables/generar_datasheet.py
+ac746ba64243660992cf9cbdac2100114ea9e4f661556252568176fdf97954ea 1789673070 1789673142 scripts/entregables/generar_diccionario_features.py
+4675747fb679af398cf51fdef3173297cf2e9cc6f2155886237dead4a8cb5e59 1789673070 1789673142 scripts/entregables/generar_evaluacion_critica_word.py
+3fcad2397dff182a645338194de730f417670613a5dce052a997eee93759618d 1789673070 1789673142 scripts/entregables/generar_ficha_word.py
+74f8171b535cfd413fca251159805f04ece1c6926136cfad3cdd1db062efa43a 1789673070 1789673142 scripts/entregables/generar_graficas.py
+13517c7dcea731e3ff27a21276e02b0cda2cd0ae56c69f1cb4f6141ef132fd4f 1789673070 1789673142 scripts/entregables/generar_informe_word.py
+37d1825e27ce95eadf9e385e1f57563a0959246624e20548d9b181497049c9c7 1789673070 1789673142 scripts/entregables/generar_justificacion_revista.py
+8032d2a46683b16c19f7c745355a98e97e1e1d785efce8b68e3deec11bdc8351 1789673070 1789673142 scripts/entregables/generar_matriz_revistas.py
+94e503a006d656f43dd59f83960463d47f8a592cbbd5ca471a32ac3a4148615e 1789673070 1789673142 scripts/entregables/generar_plan_validacion_word.py
+c223dd7922b986f68204429cba4a6bee6c3a1ae74460cbaca19579ccf083102f 1789673070 1789673142 scripts/entregables/_omml.py
+72fb92ad451014522665b878318d3185ce0afbe2846c210660286dbc8dec887c 1789673070 1789673142 scripts/entregables/verificar_consistencia.py
+127392728dd16de10d6d7a385aeb792113ad26971cf7b16ba9e76b6a7c21dbb9 1791778813 1791778813 scripts/evaluacion/comparacion.py
+64f9c6185b77bc38ba603b78d36c9eaf7919beacb013fa506ff60b8e19cc286b 1789673070 1789673142 scripts/f1/run_matrix_profile.py
+f753dac60d3d4eaafcaab857ebe09bae21694e0cce20ac1be8389dbc88e2da86 1789673070 1789673142 scripts/f1/validate_matrix.py
+288ee73f284103deb17af31dd8711e98a0aa05cac9c08103fe76ecedbff35356 1789673070 1789673142 scripts/f6/analyze_f6.py
+72974e828fc492922f52fa98703331813c5c4cd599c7842d50389b1ec36a8292 1789673070 1789673142 scripts/f6/run_f6.py
+9c35b831453d2107769ca1fe610782b6821b2f164df1f369b3e6b3ef36c41dc8 1790472385 1790472385 scripts/features/acumular_v3.py
+950fe6c49c9eee21f939b2f1032fee1df2c1572923a642c18454fa7dd8205027 1792036108 1792036108 scripts/features/extract_multilayer.py
+7130edae65afefa2fd82a9314e20194adec684f4b2c3c35c2337880d8e636ccb 1792036108 1792036108 scripts/features/extract_multilayer_v2.py
+5adbfbf4845554430a3e8b5a4c00eb1e45c2216cae73532da73d9d3f4898fa7f 1790472385 1790472385 scripts/features/extract_multilayer_v3.py
+9aa2e2e02b87225f1513ddce4c377491eb3f170d342d7d8d961612c326224534 1792062437 1792062437 scripts/laboratorio/clientes_config.py
+ae5134a778e66d90f5c3fbcd47323e328f3422cf4ba8d5197649f402c1d4cdc3 1792062437 1792062437 scripts/laboratorio/clientes_lab.py
+9e91d8b8203d0bd62509dbb4169af5fff2a3838b06cebed8ee1e6e15d27d580e 1792062437 1792062437 scripts/laboratorio/servidor_lab.py
+32746e5b701474da72bc0a547023b59dc85ab9e4d40f5c3999d3999d20fef102 1789673070 1789673142 scripts/modeling/calibrate_multilayer_v2_v1.py
+6ccb71b7ba183fa8f24451f29cf5dfc0bf2b94617ec2a2e21bd3919a3dc9eb5a 1789673070 1789673142 scripts/modeling/calibrate_pm_f1_v1.py
+add0abc683ec7837ff4d152978acf2b42535f3c04ab83d04f91832321941e18c 1791697027 1791697027 scripts/modeling/cyberflow_aprendizaje.py
+724d091074d78aa3d19a754ceb43ee717485ef0e44a20389d1abb25d1ed0f99a 1790538230 1790538230 scripts/modeling/entrenar_preliminar.py
+03c025d9b44eb5581623edbff12361d2ea9ce0ee93fdd8988805fc0eb5aab894 1789673070 1789673142 scripts/modeling/experiments/ablacion_multicapa.py
+26cdf8244ce28a64b3dd1aa4164ae0c52897c63b2efb52851638a0f134c7f040 1789673070 1789673142 scripts/modeling/experiments/diagnose_v2_pipeline.py
+d9dc88d38586176339b6e8dc73fd6b80447342d3dd77e225ce0d05eecd080b78 1789673070 1789673142 scripts/modeling/experiments/significancia_modelos.py
+8c5091f93f5399ea43e9e4c102314e55cc64214d50538d4649d2ca5c1aca3812 1789673070 1789673142 scripts/modeling/experiments/validacion_cruzada_estabilidad.py
+cfd38a668c6531fbd8ff4da01a77e4dd41e6fd87a836a7753738ee9950ea9c4b 1789673070 1789673142 scripts/modeling/experiments/verificar_determinismo.py
+23c043ac287860d089e32ec45a3cfe3d66199fa8d126701c2daa9e00f6a1f3f6 1791606268 1791606268 scripts/modeling/promover_preliminar.py
+bc8540e0f64706e182dd42d1bb1a3ba54a52341aafe69a089996547334493af9 1790723669 1790723669 scripts/modeling/puntuar_deteccion.py
+9cbfc36d641100431f97263bffd17c93d2d8fb71a1e7b47cd17ad6b0c178ea6b 1789673070 1789673142 scripts/modeling/train_multilayer_v2.py
+fe9d0309899154b16eab10ef456ac2a97a3eaaa45db08e5887b30bd7fe4c277d 1791605183 1791605183 scripts/modeling/verificar_equivalencia_umbral.py
+b729ade2e8f4733a8c5dde32dda02607767af974464624a93dca81725fb7a7c0 1791695301 1791695301 scripts/setup/cyberflow_config.py
+906e1de0ad6f13cf7c08ab5662fc85cbbd32a53b593fdc41cc8b7a152694b3c8 1790551892 1790551892 scripts/setup/cyberflow_usuarios.py
+f6eb826650ae1536ec19993da759bbb84df74a2f7dfbb2b2fd437a338a5b9453 1791777806 1791777806 scripts/simular_ataque.py
+0d30aa50d697a97ec77fa55a11d1bc958c3bd5d5c885698573bf316668667f77 1789673070 1789673142 scripts/storage/audit_evidence_disk.py
+== artefactos del modelo
+df547da098e51171aa267c8466edc6624bc1bd5c6b602639cc00bd4711a2fd60 4372702 1792389232 artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib
+fb6b8ed2b677056f0c23d267a1d38a988d7d1d993f980b050f0a63665543bbf4 4365277 1792389958 artifacts/preliminar/limpio-2026-10/if_limpio_2026_10.joblib
+cb67b3ee608ad6e79cd8dbda436beaa33086ec9ce0e00a034dee6f8e0c14be8e 1564 1792389958 artifacts/preliminar/limpio-2026-10/if_limpio_2026_10.json
+b3ad680595128189574527208e53058f613822f56f542f914faef6495aa2a9e7 2522 1792389232 artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json
+5ef83b32469238b74eb16c2c2ff422a7757711318c0c77646e67bb966e61b573 149543885 1792389917 artifacts/preliminar/limpio-2026-10/particionado-limpio.csv
+9a4e02645df9484037ba9386c488cc431cba4b8564c3b4892de3c5ed210c579d 4410157 1792389937 artifacts/preliminar/limpio-2026-10/verif_vigente.joblib
+558774cbf24ea38e6d427e883f30b957e885d4d6e446173d412236939d1c25c2 1564 1792389937 artifacts/preliminar/limpio-2026-10/verif_vigente.json
+== manifiesto del modelo (claves y umbral)
+tipo = manifiesto-desplegable
+generado = 2026-10-19T05:53:52.944510+00:00
+detectors.if_limpio_2026_10.kind = isolation_forest_pipeline
+detectors.if_limpio_2026_10.model_path = /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib
+detectors.if_limpio_2026_10.model_sha256 = df547da098e51171aa267c8466edc6624bc1bd5c6b602639cc00bd4711a2fd60
+detectors.if_limpio_2026_10.schema = multilayer-v2.json
+detectors.if_limpio_2026_10.n_features = 28
+detectors.if_limpio_2026_10.features [lista 28 ] ['packet_rate_10s', 'byte_rate_10s', 'mean_ip_len_10s']
+detectors.if_limpio_2026_10.calibration.threshold = -0.5693969936322356
+detectors.if_limpio_2026_10.calibration.comparison = score < threshold
+detectors.if_limpio_2026_10.calibration.score_function = score_samples
+detectors.if_limpio_2026_10.calibration.threshold_decision_function = -0.06939699363223557
+detectors.if_limpio_2026_10.calibration.offset = -0.5
+detectors.if_limpio_2026_10.calibration.alpha = 0.05
+detectors.if_limpio_2026_10.origen.paquete = /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10.joblib
+detectors.if_limpio_2026_10.origen.paquete_sha256 = fb6b8ed2b677056f0c23d267a1d38a988d7d1d993f980b050f0a63665543bbf4
+detectors.if_limpio_2026_10.origen.informe = /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10.json
+detectors.if_limpio_2026_10.origen.informe_sha256 = 9211e041ec6d01508c3a6fe5cf99e221e897a0c24e5f9aa92e5c62365dcffd35
+evaluation.if_limpio_2026_10.threshold_used = -0.5693969936322356
+evaluation.if_limpio_2026_10.validation.fpr = 0.050005
+evaluation.if_limpio_2026_10.test.fpr = 0.045261
+evaluation.if_limpio_2026_10.test.rows = 65421
+evaluation.if_limpio_2026_10.anomalies.detection_rate = None
+evaluation.if_limpio_2026_10.anomalies.kali_real_detection_rate = None
+evaluation.if_limpio_2026_10.anomalies.fuente = None
+runtime.python = 3.14.4
+runtime.scikit_learn = 1.9.0
+runtime.numpy = 2.5.1
+== config local (sin valores sensibles)
+# =====================================================================
+#  CyberFlow - configuracion unica del despliegue
+# ---------------------------------------------------------------------
+#  Todo lo que cambia entre una instalacion y otra vive AQUI. Las unidades
+#  de systemd se generan desde este fichero con:
+#
+#      python3 scripts/setup/cyberflow_config.py --mostrar
+#      sudo python3 scripts/setup/cyberflow_config.py --escribir
+#
+#  Antes existia cableado dentro de los .service: la interfaz ens35, un
+#  filtro BPF con las redes 10.20.0.0/24 y 10.30.0.0/24 del laboratorio, el
+#  usuario useransible y rutas absolutas a /home/useransible. Nada de eso
+#  sobrevivio al primer despliegue en una red distinta.
+# =====================================================================
+
+[captura]
+# Interfaz que recibe el espejo. NO debe tener direccion IP.
+# Identificala por MAC, no por nombre: Linux renumera al anadir adaptadores.
+interfaz = "ens37"
+mac_esperada = "00:0c:29:15:7c:02"
+
+# Buffer en anillo: archivos x segundos = historia disponible.
+# 16 x 15 s = 240 s. --historia_segundos del motor debe ser algo menor.
+anillo_archivos = 16
+anillo_segundos = 15
+directorio = "/var/lib/ppi-motor-capture"
+
+# Cuanto se conserva en disco. tcpdump -G rota por tiempo, pero con un nombre
+# con fecha no reutiliza nombres: -W no borra nada y el anillo crece sin fin
+# (medido: 403 MB en un dia). Un temporizador poda lo mas viejo cada 5 min.
+# Tiene que ser mayor que la duracion del anillo o se borraria historia en uso.
+retener_minutos = 15
+
+# Filtro BPF. Vacio = capturar todo.
+# CUIDADO: sobre tramas etiquetadas 802.1Q un filtro "ip" normal NO casa;
+# hay que escribirlo como "vlan and ip" o el anillo sale vacio en silencio.
+filtro_bpf = ""
+
+[red]
+# Rango del que se extraen las entidades a puntuar.
+red_entidades = "10.10.0.0/16"
+
+# Protocolos que no son trafico de usuarios y no se atribuyen a nadie.
+#   112 = VRRP/CARP. Cada interfaz VLAN del cortafuegos emite un anuncio por
+#         segundo; sin esto, cada una aparece como una entidad con actividad
+#         constante y el modelo la puntua. Medido: 14 de 23 entidades eran eso.
+#   240 = pfsync, la sincronizacion entre los dos cortafuegos.
+# Declarar esta exclusion en la tesis: es una decision de alcance, no un ajuste.
+excluir_protocolos = [112, 240]
+
+# Trafico de gestion del propio despliegue. Se captura igual -para poder
+# medir cuanto se excluyo- pero no se puntua.
+excluir = [
+    "10.10.60.11/32",   # el propio sensor: su SSH cruza el troncal espejado
+    "10.10.10.30/32",   # el bastion, el otro extremo de esa sesion
+    # 24-oct-2026: equipos del perfil de egreso y los dos pfSense. Se capturan
+    # pero no se puntuan ni entran al dataset (misma lista en motor y acumulador).
+    "10.10.60.2/32",   # pfSense-A: el router no es un usuario; ademas nunca debe recibir LIMIT/BLOCK
+    "10.10.60.3/32",   # pfSense-B: idem (112 ALERT y un LIMIT en 48 h antes de excluirlo)
+    "10.10.60.10/32",   # Wazuh: infraestructura del perfil de egreso, fuera del diseno experimental
+    "10.10.60.20/32",   # AAA-01 (perfil de egreso)
+    "10.10.60.21/32",   # AAA-02 (perfil de egreso)
+    "10.10.60.30/32",   # VM-NETOPS (perfil de egreso, futura)
+    "10.10.60.40/32",   # NetBox (perfil de egreso)
+    "10.10.60.41/32",   # GLPI (perfil de egreso)
+    "10.10.60.50/32",   # IdP (perfil de egreso)
+]
+
+[motor]
+detector = "if_limpio_2026_10"
+# "observacion" = puntua y registra, no toca nftables.
+# "bloqueo"     = anade --enforce. Solo tiene sentido si el sensor esta EN EL
+#                 CAMINO del trafico. Con un espejo SPAN no lo esta.
+modo = "observacion"
+
+paso_segundos = 10
+historia_segundos = 230
+umbral = 1.8126087939765134
+
+# false = el umbral viene de otra red. El panel lo advierte y pide tratar las
+# alertas como ruido. Ponlo en true SOLO despues de recalibrar con trafico
+# propio: es lo que separa una demostracion de una medicion.
+calibrado_en_esta_red = true
+bloqueo_segundos = 120
+
+[rutas]
+# Interprete con el que se crea el entorno virtual. Vacio = el instalador
+# busca uno que coincida con la version del manifiesto del modelo y, si no lo
+# encuentra, usa el python3 del sistema avisando.
+# No es un capricho: en scikit-learn 1.7.2 -la version mas alta disponible
+# para Python 3.12- IsolationForest acepta sample_weight y lo ignora en
+# silencio. Ver docs/INSTALACION.md, anexo B.
+python = ""
+
+usuario = "m4rk"
+raiz = "/home/m4rk/cyberflow"
+entorno = ".venv"
+eve = "/var/log/suricata/eve.json"
+modelo = "artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib"
+manifiesto = "artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json"
+esquema = "configs/features/multilayer-v2.json"
+registro = "logs/motor_decision.log"
+
+[panel]
+# Solo escucha en loopback y es de solo lectura. Para verlo desde otra
+# maquina: ssh -L 8788:127.0.0.1:8788 usuario@sensor
+activo = true
+# "127.0.0.1": solo en local; se ve con un tunel SSH (ver-panel.ps1).
+# Otra direccion: expuesto en la red. El panel NO tiene autenticacion, asi que
+# entonces es obligatorio "permitir": el generador crea una regla nftables que
+# solo deja pasar a esos origenes, y el panel no arranca si la regla falla.
+direccion = "10.10.60.11"
+puerto = 8788
+# Si llega por Tailscale a traves de un enrutador de subred, el sensor ve la
+# IP de ESE enrutador, no la del portatil: Tailscale traduce el origen.
+permitir = ["10.10.10.30/32"]
+
+[reentrenamiento]
+# Reentrenamiento SUPERVISADO (docs/APRENDIZAJE.md). Prepara y evalua candidatos
+# cada noche; el modelo en uso solo cambia con "promover", a mano.
+activo = true
+# Particion de la nota L, reconstruida el 2026-10-11 y verificada: mismo sha256
+# (bdf6f641...) que anoto ensayo-if-v2.json, el paquete del modelo desplegado.
+base = "artifacts/aprendizaje/base/particionado-nota-L.csv"
+# Sin ventanas de ataque etiquetadas en esta red todavia: el veredicto quedara en
+# EVALUACION_INCOMPLETA hasta que se anadan (p. ej. las de la Kali, nota M).
+ataques = "artifacts/aprendizaje/ataques/ataques-nota-M.csv"
+excluir_ventanas = ["10.10.20.30@2026-10-15T10:00:00+00:00/2026-10-16T02:00:00+00:00", "10.10.20.30@2026-10-15T02:55:00+00:00/2026-10-15T05:30:00+00:00", "10.10.20.30@2026-09-27T21:35:00+00:00/2026-09-27T22:05:00+00:00", "10.10.20.30@2026-10-12T12:46:00+00:00/2026-10-12T12:49:00+00:00", "10.10.20.30@2026-10-13T22:18:00+00:00/2026-10-13T22:40:00+00:00", "10.10.20.30@2026-10-13T22:55:00+00:00/2026-10-13T23:30:00+00:00"]  # rafaga de la Kali dentro de la linea base (nota S)
+== motor_startup y ultima decision
+total 136412
+drwxr-x---  3 m4rk m4rk     4096 nov  2 00:00 .
+drwxr-xr-x 13 m4rk m4rk     4096 nov  2 19:08 ..
+-rw-r--r--  1 root root  1680211 nov  2 19:03 acumular.log
+-rw-r--r--  1 root root    37969 nov  2 00:32 aprendizaje.log
+-rw-r-----  1 m4rk m4rk 55901589 nov  2 19:08 motor_decision.log
+-rw-r-----  1 m4rk m4rk 64651700 nov  1 23:59 motor_decision.log.1
+-rw-r-----  1 m4rk m4rk  1547071 oct 23 23:59 motor_decision.log.10.gz
+-rw-r-----  1 m4rk m4rk  1574997 oct 22 23:59 motor_decision.log.11.gz
+-rw-r-----  1 m4rk m4rk   320164 oct 21 23:59 motor_decision.log.12.gz
+-rw-r-----  1 m4rk m4rk  1104958 oct 20 19:44 motor_decision.log.13.gz
+-rw-r-----  1 m4rk m4rk  1136336 oct 19 23:59 motor_decision.log.14.gz
+-rw-r-----  1 m4rk m4rk  1504748 oct 31 23:59 motor_decision.log.2.gz
+-rw-r-----  1 m4rk m4rk   413341 oct 30 23:59 motor_decision.log.3.gz
+-rw-r-----  1 m4rk m4rk  2659164 oct 29 21:22 motor_decision.log.4.gz
+-rw-r-----  1 m4rk m4rk  2480386 oct 28 23:59 motor_decision.log.5.gz
+-rw-r-----  1 m4rk m4rk  1209314 oct 27 23:59 motor_decision.log.6.gz
+-rw-r-----  1 m4rk m4rk  1093521 oct 26 23:59 motor_decision.log.7.gz
+-rw-r-----  1 m4rk m4rk  1136806 oct 25 23:59 motor_decision.log.8.gz
+-rw-r-----  1 m4rk m4rk  1113640 oct 24 23:59 motor_decision.log.9.gz
+-rw-r--r--  1 m4rk m4rk    11359 nov  2 17:31 panel_auditoria.jsonl
+drwxr-xr-x  2 m4rk m4rk     4096 nov  1 03:14 _state
+{"decidido_en": 1793646506.2086656, "decision": "PERMIT", "detector_name": "if_limpio_2026_10", "duplicados_espejo": 464859263, "entity_ip": "10.10.60.12", "event": "decision", "excluidas_acumulado": 74104, "heuristico": null, "history_coverage_s": 60.0, "inicio_ciclo": 1793646505.1369994, "logged_at": 1793646506.2087429, "marca_eve": 1793646504.822201, "marca_pcap": 1793646497.99811, "packet_count_10s": 7, "pcaps_ilegibles": 0, "pcaps_ilegibles_motivo": null, "pendiente_desde": 1793646485.1367154, "plano_control_descartado": 142595035, "score": -0.4744671307589474, "threshold": -0.5693969936322356, "window_end_utc": "2026-11-02T19:08:10+00:00"}
+
+claves de la ultima decision:
+['decidido_en', 'decision', 'detector_name', 'duplicados_espejo', 'entity_ip', 'event', 'excluidas_acumulado', 'heuristico', 'history_coverage_s', 'inicio_ciclo', 'logged_at', 'marca_eve', 'marca_pcap', 'packet_count_10s', 'pcaps_ilegibles', 'pcaps_ilegibles_motivo', 'pendiente_desde', 'plano_control_descartado', 'score', 'threshold', 'window_end_utc']
+== estado feed v1
+total 244
+drwxrwxr-x  2 m4rk m4rk   4096 oct 15 04:45 .
+drwxr-x--- 28 m4rk m4rk   4096 nov  1 16:24 ..
+-rw-------  1 m4rk m4rk    946 nov  2 19:08 estado.json
+-rw-rw-r--  1 m4rk m4rk    476 oct 15 03:49 estado.json.bak-20261015-034951
+-rw-------  1 m4rk m4rk    473 oct 15 04:00 estado.json.bak-20261015-040004
+-rw-------  1 m4rk m4rk    473 oct 15 04:03 estado.json.bak-20261015-040312
+-rw-------  1 m4rk m4rk    474 oct 15 04:40 estado.json.bak-20261015-044054
+-rw-rw-r--  1 m4rk m4rk    602 nov  2 19:08 feed.json
+-rw-rw-r--  1 m4rk m4rk     64 nov  2 19:08 feed.sig
+-rw-rw-r--  1 m4rk m4rk 205422 oct  6 06:14 publicar.log
+{'entradas': 3, 'generado': 1793646510.3965993, 'umbrales': '2026-10-06.2', 'version': 1}
+acciones:
+== publicador: ultimo journal
+2026-11-02T19:08:31+00:00 cyberflow-sensor python[3731323]: {"block": 0, "entradas": 3, "limit": 3, "revisar_humano": []}
+2026-11-02T19:08:31+00:00 cyberflow-sensor systemd[1]: ppi-publicar-feed.service: Deactivated successfully.
+2026-11-02T19:08:31+00:00 cyberflow-sensor systemd[1]: Finished ppi-publicar-feed.service - CyberFlow - publica el feed firmado de acciones (desde las decisiones del motor).
+2026-11-02T19:08:31+00:00 cyberflow-sensor systemd[1]: ppi-publicar-feed.service: Consumed 1.450s CPU time.
+== feed-keys (solo metadatos)
+total 16
+drwxrwxr-x 2 m4rk m4rk 4096 sep 30 19:52 .
+drwxr-xr-x 8 m4rk m4rk 4096 oct 23 19:05 ..
+-rw------- 1 m4rk m4rk  119 sep 30 19:52 priv.pem
+-rw-rw-r-- 1 m4rk m4rk  113 sep 30 19:52 pub.pem
+== captura PCAP
+    PID USER                      STARTED CMD
+   1375 tcpdump  vie oct 30 19:55:21 2026 /usr/bin/tcpdump -i ens37 -n -s 0 -U -B 65536 -Z tcpdump -w /var/lib/ppi-motor-capture/live-%Y%m%d%H%M%S.pcap -G 15
+total 72488
+drwxr-s---  2 tcpdump m4rk  278528 nov  2 19:08 .
+drwxr-xr-x 48 root    root    4096 sep 18 00:46 ..
+ficheros=76
+live-20261102190834.pcap
+live-20261102190819.pcap
+live-20261102190804.pcap
+2026-10-30T17:48:30+00:00 cyberflow-sensor systemd[1]: Starting ppi-motor-capture.service - CyberFlow - buffer en anillo de PCAP para el motor...
+2026-10-30T17:48:30+00:00 cyberflow-sensor systemd[1]: Started ppi-motor-capture.service - CyberFlow - buffer en anillo de PCAP para el motor.
+2026-10-30T17:48:30+00:00 cyberflow-sensor tcpdump[1346]: tcpdump: listening on ens37, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+-- Boot 479528a880d64b4bb82f56f5a06c7f18 --
+2026-10-30T19:55:21+00:00 cyberflow-sensor systemd[1]: Starting ppi-motor-capture.service - CyberFlow - buffer en anillo de PCAP para el motor...
+2026-10-30T19:55:21+00:00 cyberflow-sensor systemd[1]: Started ppi-motor-capture.service - CyberFlow - buffer en anillo de PCAP para el motor.
+2026-10-30T19:55:21+00:00 cyberflow-sensor tcpdump[1375]: tcpdump: listening on ens37, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+2026-11-01T10:51:44+00:00 cyberflow-sensor tcpdump[1375]: tcpdump: 26236100 packets captured, 26236446 packets received by filter, 0 packets dropped by kernel
+== tcpdump/libpcap
+tcpdump version 4.99.4
+libpcap version 1.10.4 (with TPACKET_V3)
+OpenSSL 3.0.13 30 Jan 2024
+/usr/bin/tcpdump
+(000) ldh      [12]
+(001) jeq      #0x800           jt 2	jf 4
+(002) ldb      [23]
+(003) jeq      #0x6             jt 23	jf 24
+(004) jeq      #0x86dd          jt 5	jf 10
+(005) ldb      [20]
+(006) jeq      #0x6             jt 23	jf 7
+(007) jeq      #0x2c            jt 8	jf 24
+(008) ldb      [54]
+(009) jeq      #0x6             jt 23	jf 24
+(010) jeq      #0x8100          jt 13	jf 11
+(011) jeq      #0x88a8          jt 13	jf 12
+== interfaz ens37
+3: ens37: <BROADCAST,MULTICAST,PROMISC,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
+    link/ether 00:0c:29:3d:f9:4e brd ff:ff:ff:ff:ff:ff
+    RX:   bytes  packets errors dropped  missed   mcast           
+    11618253924 68267718      0 3596294       0 7201197 
+    RX errors:    length    crc   frame    fifo overrun otherhost
+                       0      0       0       0       0  64569017 
+    TX:   bytes  packets errors dropped carrier collsns           
+            866       11      0       0       0       0 
+    TX errors:   aborted   fifo  window heartbt transns
+                       0      0       0       0       1 
+    altname enp2s5
+68267722 3596294 0 0 0
+NIC statistics:
+     Tx Queue#: 0
+       TSO pkts tx: 0
+       TSO bytes tx: 0
+       ucast pkts tx: 0
+       ucast bytes tx: 0
+       mcast pkts tx: 7
+       mcast bytes tx: 506
+       bcast pkts tx: 0
+       bcast bytes tx: 0
+       pkts tx err: 0
+       pkts tx discard: 0
+       drv dropped tx total: 0
+          too many frags: 0
+          giant hdr: 0
+          hdr err: 0
+          tso: 0
+       ring full: 0
+       pkts linearized: 0
+       hdr cloned: 0
+       giant hdr: 0
+       xdp xmit: 0
+       xdp xmit err: 0
+     Tx Queue#: 1
+       TSO pkts tx: 0
+       TSO bytes tx: 0
+       ucast pkts tx: 0
+       ucast bytes tx: 0
+       mcast pkts tx: 2
+       mcast bytes tx: 180
+       bcast pkts tx: 0
+       bcast bytes tx: 0
+       pkts tx err: 0
+       pkts tx discard: 0
+       drv dropped tx total: 0
+          too many frags: 0
+          giant hdr: 0
+          hdr err: 0
+          tso: 0
+       ring full: 0
+tcp-segmentation-offload: off
+	tx-tcp-segmentation: off
+generic-segmentation-offload: off
+generic-receive-offload: off
+large-receive-offload: off
+rx-vlan-offload: on
+rx-vlan-filter: on [fixed]
+driver: vmxnet3
+version: 1.7.0.0-k-NAPI
+firmware-version: 
+expansion-rom-version: 
+bus-info: 0000:02:05.0
+supports-statistics: yes
+supports-test: no
+supports-eeprom-access: no
+supports-register-dump: yes
+supports-priv-flags: no
+== suricata
+total 2164376
+drwxr-xr-x  2 root root        4096 nov  2 00:00 .
+drwxrwxr-x 11 root syslog      4096 nov  1 00:00 ..
+-rw-r--r--  1 root root   395297954 nov  2 19:08 eve.json
+-rw-r--r--  1 root root    84086784 oct  5 18:50 eve.json.1-2026100600.backup
+-rw-r--r--  1 root root   113516544 oct  9 13:53 eve.json.1-2026101000.backup
+-rw-r--r--  1 root root   138301440 oct 21 19:07 eve.json.1-2026102200.backup
+-rw-r--r--  1 root root   926269440 oct 30 15:50 eve.json.1-2026103100.backup
+-rw-r--r--  1 root root    64185399 nov  2 00:00 eve.json.1.gz
+-rw-r--r--  1 root root    11908848 nov  1 00:00 eve.json.2.gz
+-rw-r--r--  1 root root     4250336 oct 30 23:59 eve.json.3.gz
+-rw-r--r--  1 root root    46753835 oct 28 23:59 eve.json.5.gz
+-rw-r--r--  1 root root    12749245 oct 28 00:00 eve.json.6.gz
+-rw-r--r--  1 root root    13778846 oct 27 00:00 eve.json.7.gz
+-rw-r--r--  1 root root           0 nov  2 00:00 fast.log
+-rw-r--r--  1 root root           0 oct  5 18:50 fast.log.1-2026100600.backup
+-rw-r--r--  1 root root           0 oct  9 13:53 fast.log.1-2026101000.backup
+-rw-r--r--  1 root root           0 oct 21 19:07 fast.log.1-2026102200.backup
+-rw-r--r--  1 root root           0 oct 30 15:50 fast.log.1-2026103100.backup
+-rw-r--r--  1 root root          20 nov  1 00:00 fast.log.1.gz
+-rw-r--r--  1 root root          20 oct 31 00:00 fast.log.2.gz
+-rw-r--r--  1 root root          20 oct 30 15:50 fast.log.3.gz
+-rw-r--r--  1 root root          20 oct 28 00:00 fast.log.5.gz
+-rw-r--r--  1 root root          20 oct 27 00:00 fast.log.6.gz
+-rw-r--r--  1 root root          20 oct 26 00:00 fast.log.7.gz
+-rw-r--r--  1 root root    78993296 nov  2 19:08 stats.log
+-rw-r--r--  1 root root    62914560 oct  5 18:50 stats.log.1-2026100600.backup
+-rw-r--r--  1 root root    80986112 oct  9 13:53 stats.log.1-2026101000.backup
+-rw-r--r--  1 root root    79921152 oct 21 19:07 stats.log.1-2026102200.backup
+-rw-r--r--  1 root root    86529376 oct 30 15:50 stats.log.1-2026103100.backup
+-rw-r--r--  1 root root     3191758 nov  1 23:59 stats.log.1.gz
+-rw-r--r--  1 root root     2774915 oct 31 23:59 stats.log.2.gz
+-rw-r--r--  1 root root      745285 oct 30 23:59 stats.log.3.gz
+-rw-r--r--  1 root root     3287550 oct 28 23:59 stats.log.5.gz
+-rw-r--r--  1 root root     2784584 oct 27 23:59 stats.log.6.gz
+-rw-r--r--  1 root root     2975931 oct 26 23:59 stats.log.7.gz
+-rw-r--r--  1 root root           0 nov  2 00:00 suricata.log
+-rw-r--r--  1 root root           0 oct  5 18:50 suricata.log.1-2026100600.backup
+-rw-r--r--  1 root root           0 oct  9 13:53 suricata.log.1-2026101000.backup
+-rw-r--r--  1 root root           0 oct 21 19:07 suricata.log.1-2026102200.backup
+-rw-r--r--  1 root root           0 oct 30 15:50 suricata.log.1-2026103100.backup
+-rw-r--r--  1 root root          20 nov  1 00:00 suricata.log.1.gz
+-rw-r--r--  1 root root          20 oct 31 00:00 suricata.log.2.gz
+-rw-r--r--  1 root root         794 oct 30 19:55 suricata.log.3.gz
+-rw-r--r--  1 root root          20 oct 28 00:00 suricata.log.5.gz
+-rw-r--r--  1 root root         986 oct 27 07:23 suricata.log.6.gz
+-rw-r--r--  1 root root          20 oct 26 00:00 suricata.log.7.gz
+63:# Global stats configuration
+64:stats:
+65:  enabled: yes
+66:  # The interval field (in seconds) controls the interval at
+67:  # which stats are updated in the log.
+68:  interval: 8
+69:  # Add decode events to stats.
+71:  # Decoder event prefix in stats. Has been 'decoder' before, but that leads
+72:  # to missing events in the eve.stats records. See issue #2225.
+74:  # Add stream events as stats.
+85:      enabled: yes
+91:  - eve-log:
+92:      enabled: yes
+118:      #    enabled: yes ## set enable to yes to enable query pipelining
+146:        enabled: no
+161:            # payload-buffer-size: 4kb # max size of payload buffer to output in eve-log
+178:            enabled: no
+201:            # By default, anomaly logging is enabled. When anomaly
+202:            # logging is enabled, applayer anomaly reporting is
+203:            # also enabled.
+204:            enabled: yes
+215:            # custom allows additional HTTP fields to be included in eve-log.
+230:            # Enable/disable this logger. Default: enabled.
+231:            #enabled: yes
+254:            # custom controls which TLS fields that are included in eve-log
+296:            enabled: yes
+307:            enabled: no
+309:        - stats:
+310:            totals: yes       # stats for all threads merged together
+311:            threads: no       # per thread stats
+335:      enabled: no
+345:      enabled: no  # Log TLS connections.
+349:      #custom: yes       # enabled the custom logging format (defined by customformat)
+358:      enabled: no
+392:      enabled: no
+399:      # If set to a value, ring buffer mode is enabled. Will keep maximum of
+430:      enabled: no
+436:  - stats:
+437:      enabled: yes
+438:      filename: stats.log
+440:      totals: yes       # stats for all threads merged together
+441:      threads: no       # per thread stats
+446:      enabled: no
+463:  # eve-log. If write-fileinfo is set to yes, then each file will have
+472:      enabled: no
+480:      # as a fileinfo record to the main eve-log.
+508:        enabled: no
+529:      enabled: no
+542:      enabled: no
+551:      enabled: no
+584:  # message with the offending stacktrace if enabled.
+591:      enabled: yes
+594:      enabled: yes
+600:      enabled: no
+614:af-packet:
+615:  - interface: ens37
+622:    # This is only supported for Linux kernel > 3.1
+625:    #  * cluster_cpu: all packets treated in kernel by a CPU are sent to the same socket
+635:    # to yes, the kernel will do the needed defragmentation before sending the packets.
+665:    # Choose checksum verification mode for the interface. At the moment
+tcp.reassembly_gap                            | Total                     | 1033699
+== relojes
+               Local time: lun 2026-11-02 19:08:36 UTC
+           Universal time: lun 2026-11-02 19:08:36 UTC
+                 RTC time: lun 2026-11-02 19:08:37
+                Time zone: Etc/UTC (UTC, +0000)
+System clock synchronized: yes
+              NTP service: active
+          RTC in local TZ: no
+SystemNTPServers=10.10.60.1
+FallbackNTPServers=ntp.ubuntu.com
+ServerName=10.10.60.1
+ServerAddress=10.10.60.1
+RootDistanceMaxUSec=5s
+PollIntervalMinUSec=32s
+== logrotate
+total 64
+drwxr-xr-x   2 root root 4096 nov  1 03:13 .
+drwxr-xr-x 111 root root 4096 sep 18 22:39 ..
+-rw-r--r--   1 root root  120 feb  5  2024 alternatives
+-rw-r--r--   1 root root  126 abr 22  2022 apport
+-rw-r--r--   1 root root  173 mar 22  2024 apt
+-rw-r--r--   1 root root   91 ene  4  2024 bootlog
+-rw-r--r--   1 root root  130 feb 16  2025 btmp
+-rw-r--r--   1 root root  144 dic  2  2024 cloud-init
+-rw-r--r--   1 root root  818 nov  1 03:13 cyberflow
+-rw-r--r--   1 root root  112 feb  5  2024 dpkg
+-rw-r--r--   1 root root  248 feb 16  2025 rsyslog
+-rw-r--r--   1 root root  203 sep 18 00:43 suricata
+-rw-r--r--   1 root root  270 feb 16  2025 ubuntu-pro-client
+-rw-r--r--   1 root root  209 feb 16  2025 ufw
+-rw-r--r--   1 root root  235 feb 12  2024 unattended-upgrades
+-rw-r--r--   1 root root  145 feb 16  2025 wtmp
+/var/log/suricata/*.log
+/var/log/suricata/*.json
+{
+	daily
+	maxsize 500M
+	rotate 7
+	missingok
+	compress
+	copytruncate
+	sharedscripts
+	postrotate
+		/bin/kill -HUP $(cat /var/run/suricata.pid)
+	endscript
+}
+# Generado por scripts/setup/cyberflow_config.py. NO editar a mano.
+# El motor escribe una linea JSON por decision y puede producir cientos por
+# minuto. Sin tope, este fichero llena la raiz, y un / lleno tumba la maquina
+# entera, incluido el SSH de gestion.
+#
+# Sin copytruncate a proposito: el motor abre el fichero en modo append en
+# cada escritura y lo cierra, asi que tras renombrarlo escribe en el nuevo sin
+# necesidad de senales ni de reiniciar el servicio. Lo mismo vale para
+# _state/ciclos.jsonl, el registro por ciclo del motor (~0,9 kB por ciclo,
+# ~8 MB al dia con paso de 10 s).
+/home/m4rk/cyberflow/logs/motor_decision.log /home/m4rk/cyberflow/logs/_state/ciclos.jsonl {
+    daily
+    maxsize 200M
+    rotate 14
+    missingok
+    notifempty
+    compress
+    delaycompress
+    create 0640 m4rk m4rk
+}
+== acumulador / campaña
+   3000 linea-base
+campaign_id,entity_ip,window_end_utc,history_coverage_s,eligible_training,packet_count_10s,flow_attempt_count_30s,syn_count_10s,http_request_count_60s,dns_query_count_60s,tcp_data_segment_count_10s,tls_observation_count_60s,native_vlan,arp_request_count_10s,l2_frame_count_30s,packet_rate_10s,byte_ra
+2026-11-02 19:03:12.940546128 +0000 1306180082
+{"apps_previas_descartadas": 333, "duplicados_espejo": 245625, "estado": "ok", "event": "acumular", "eventos_eve": 14557, "filas_en_margen": 1901, "filas_fuera_de_alcance": 651, "filas_generadas": 2726, "filas_nuevas": 1501, "filas_totales": 3023480, "observaciones_capa2": 502650, "paquetes": 503398, "pcaps": 60, "pcaps_ilegibles": 0, "segundos": 180.8, "ventana_s": 901.5}
+{"apps_previas_descartadas": 371, "duplicados_espejo": 251523, "estado": "ok", "event": "acumular", "eventos_eve": 15030, "filas_en_margen": 1543, "filas_fuera_de_alcance": 829, "filas_generadas": 2532, "filas_nuevas": 1079, "filas_totales": 3024559, "observaciones_capa2": 513579, "paquetes": 514386, "pcaps": 60, "pcaps_ilegibles": 0, "segundos": 188.9, "ventana_s": 899.8}
+{"apps_previas_descartadas": 393, "duplicados_espejo": 266076, "estado": "ok", "event": "acumular", "eventos_eve": 15068, "filas_en_margen": 1310, "filas_fuera_de_alcance": 739, "filas_generadas": 2184, "filas_nuevas": 996, "filas_totales": 3025555, "observaciones_capa2": 542619, "paquetes": 543278, "pcaps": 60, "pcaps_ilegibles": 0, "segundos": 192.5, "ventana_s": 899.9}

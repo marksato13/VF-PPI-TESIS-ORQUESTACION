@@ -1,5 +1,11 @@
 # Cierre técnico de la Etapa 3 (2 de noviembre de 2026)
 
+> **Corrección del 2026-11-02.** Donde abajo dice que `main` «sigue siendo `7b275b8`, lo desplegado»: `main` sí es
+> `7b275b8`, pero **lo desplegado no**. Sensor1 ejecuta el motor 24f8a80 con la cadena v1 as-deployed f57ca00, y
+> `~/cyberflow` no es un checkout de git. El `PROCEDIMIENTO-ETAPA4.md` de esta carpeta queda sustituido por
+> [`../etapa4-preparacion-2026-11-02/PROCEDIMIENTO-ETAPA4.md`](../etapa4-preparacion-2026-11-02/PROCEDIMIENTO-ETAPA4.md).
+> El código, las pruebas y los tres arreglos de este cierre no cambian.
+
 **Objetivo de la Etapa 3:** detectar y aplicar una respuesta efectiva mientras el ataque sigue activo, sin restringir injustificadamente a usuarios legítimos.
 
 Este cierre resuelve los tres hallazgos abiertos de `../etapa3-deteccion-temprana-2026-11-02/`, que se conserva sin cambios salvo la corrección de redacción del §5. Todo se hizo en el portátil y en el banco aislado.

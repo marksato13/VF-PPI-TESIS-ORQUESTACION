@@ -1,5 +1,10 @@
 # Matriz del cierre técnico de la Etapa 3
 
+> **Correcciones del 2026-11-02** (preparación de la Etapa 4, [`../etapa4-preparacion-2026-11-02/`](../etapa4-preparacion-2026-11-02/README.md)).
+> El texto de abajo se conserva tal como se publicó; estas notas mandan sobre él:
+> - **§3, punto 1, «commit desplegado (`7b275b8`)»: falso.** Sensor1 ejecuta el motor **24f8a80** (paso 2, 1-nov 03:14 UTC) y la cadena v1 es la instantánea as-deployed **f57ca00**; `~/cyberflow` no es un checkout de git. `main` sí sigue en `7b275b8`, pero no es lo desplegado ([ESTADO-OBSERVADO §1](../etapa4-preparacion-2026-11-02/ESTADO-OBSERVADO-LABORATORIO.md#1-código-en-disco-frente-a-código-cargado)).
+> - **§3, punto 5, «`kernel_drops` = 0 en su resumen»: el resumen de la vía rápida no tiene ese campo** (solo `bloque_hasta`, `paquetes_tcp`, `bytes_pendientes`, `cpu_s`). Los descartes de la vía rápida los da su tcpdump con SIGUSR1, y `bytes_pendientes` no es pérdida ([SALUD-CAPTURA §1](../etapa4-preparacion-2026-11-02/SALUD-CAPTURA.md#1-correcciones-a-lo-publicado-en-el-cierre-de-la-etapa-3)).
+
 Estados:
 
 - **Resuelto:** comprobado en archivos o en el banco.

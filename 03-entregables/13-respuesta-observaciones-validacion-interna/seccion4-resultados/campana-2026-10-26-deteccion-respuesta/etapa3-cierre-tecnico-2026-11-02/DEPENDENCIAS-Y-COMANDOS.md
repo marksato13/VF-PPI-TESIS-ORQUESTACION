@@ -1,5 +1,9 @@
 # Dependencias, commits y comandos del cierre técnico
 
+> **Corrección del 2026-11-02.** «`main`, que sigue siendo `7b275b8`, lo desplegado»: `main` es `7b275b8`, pero lo
+> desplegado en Sensor1 es el motor **24f8a80** con la cadena v1 as-deployed **f57ca00**
+> ([ESTADO-OBSERVADO](../etapa4-preparacion-2026-11-02/ESTADO-OBSERVADO-LABORATORIO.md)).
+
 Todo se ejecutó en el portátil: pruebas, replay y ensayos en el banco Docker aislado (`--network none`). **Ningún comando ha tocado el laboratorio**: no hubo despliegue, reinicios, enforcement, campañas, cambios de modelo o umbrales ni ediciones del Word, y no se intervino en piloto-con-dns.
 
 ## Commits

@@ -1,0 +1,204 @@
+== cliente: unidades de perfil y curva horaria
+---- ofimatica
+[Unit]
+Description=CyberFlow laboratorio - perfil ofimatica desde 10.10.20.21
+After=network-online.target
+Wants=network-online.target
+PartOf=cyberflow-lab.target
+
+[Service]
+Type=simple
+User=adminclientes
+Group=adminclientes
+WorkingDirectory=/home/adminclientes/laboratorio
+ExecStart=/usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py \
+    --perfil ofimatica \
+    --origen 10.10.20.21 \
+    --servidor 10.10.30.10 \
+    --dns 10.10.10.20
+Restart=always
+RestartSec=5
+StandardOutput=null
+StandardError=journal
+NoNewPrivileges=true
+ProtectSystem=strict
+PrivateTmp=true
+
+[Install]
+WantedBy=cyberflow-lab.target
+MainPID=9830
+NRestarts=0
+ActiveEnterTimestamp=Sun 2026-11-01 10:36:59 UTC
+---- navegacion
+[Unit]
+Description=CyberFlow laboratorio - perfil navegacion desde 10.10.20.22
+After=network-online.target
+Wants=network-online.target
+PartOf=cyberflow-lab.target
+
+[Service]
+Type=simple
+User=adminclientes
+Group=adminclientes
+WorkingDirectory=/home/adminclientes/laboratorio
+ExecStart=/usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py \
+    --perfil navegacion \
+    --origen 10.10.20.22 \
+    --servidor 10.10.30.10 \
+    --dns 10.10.10.20
+Restart=always
+RestartSec=5
+StandardOutput=null
+StandardError=journal
+NoNewPrivileges=true
+ProtectSystem=strict
+PrivateTmp=true
+
+[Install]
+WantedBy=cyberflow-lab.target
+MainPID=9829
+NRestarts=0
+ActiveEnterTimestamp=Sun 2026-11-01 10:36:59 UTC
+---- descargas
+[Unit]
+Description=CyberFlow laboratorio - perfil descargas desde 10.10.20.23
+After=network-online.target
+Wants=network-online.target
+PartOf=cyberflow-lab.target
+
+[Service]
+Type=simple
+User=adminclientes
+Group=adminclientes
+WorkingDirectory=/home/adminclientes/laboratorio
+ExecStart=/usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py \
+    --perfil descargas \
+    --origen 10.10.20.23 \
+    --servidor 10.10.30.10 \
+    --dns 10.10.10.20
+Restart=always
+RestartSec=5
+StandardOutput=null
+StandardError=journal
+NoNewPrivileges=true
+ProtectSystem=strict
+PrivateTmp=true
+
+[Install]
+WantedBy=cyberflow-lab.target
+MainPID=9826
+NRestarts=0
+ActiveEnterTimestamp=Sun 2026-11-01 10:36:59 UTC
+---- aplicacion
+[Unit]
+Description=CyberFlow laboratorio - perfil aplicacion desde 10.10.20.24
+After=network-online.target
+Wants=network-online.target
+PartOf=cyberflow-lab.target
+
+[Service]
+Type=simple
+User=adminclientes
+Group=adminclientes
+WorkingDirectory=/home/adminclientes/laboratorio
+ExecStart=/usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py \
+    --perfil aplicacion \
+    --origen 10.10.20.24 \
+    --servidor 10.10.30.10 \
+    --dns 10.10.10.20
+Restart=always
+RestartSec=5
+StandardOutput=null
+StandardError=journal
+NoNewPrivileges=true
+ProtectSystem=strict
+PrivateTmp=true
+
+[Install]
+WantedBy=cyberflow-lab.target
+MainPID=9825
+NRestarts=0
+ActiveEnterTimestamp=Sun 2026-11-01 10:36:59 UTC
+---- ligero
+[Unit]
+Description=CyberFlow laboratorio - perfil ligero desde 10.10.20.25
+After=network-online.target
+Wants=network-online.target
+PartOf=cyberflow-lab.target
+
+[Service]
+Type=simple
+User=adminclientes
+Group=adminclientes
+WorkingDirectory=/home/adminclientes/laboratorio
+ExecStart=/usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py \
+    --perfil ligero \
+    --origen 10.10.20.25 \
+    --servidor 10.10.30.10 \
+    --dns 10.10.10.20
+Restart=always
+RestartSec=5
+StandardOutput=null
+StandardError=journal
+NoNewPrivileges=true
+ProtectSystem=strict
+PrivateTmp=true
+
+[Install]
+WantedBy=cyberflow-lab.target
+MainPID=9828
+NRestarts=0
+ActiveEnterTimestamp=Sun 2026-11-01 10:36:59 UTC
+---- erratico
+[Unit]
+Description=CyberFlow laboratorio - perfil erratico desde 10.10.20.26
+After=network-online.target
+Wants=network-online.target
+PartOf=cyberflow-lab.target
+
+[Service]
+Type=simple
+User=adminclientes
+Group=adminclientes
+WorkingDirectory=/home/adminclientes/laboratorio
+ExecStart=/usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py \
+    --perfil erratico \
+    --origen 10.10.20.26 \
+    --servidor 10.10.30.10 \
+    --dns 10.10.10.20
+Restart=always
+RestartSec=5
+StandardOutput=null
+StandardError=journal
+NoNewPrivileges=true
+ProtectSystem=strict
+PrivateTmp=true
+
+[Install]
+WantedBy=cyberflow-lab.target
+MainPID=9827
+NRestarts=0
+ActiveEnterTimestamp=Sun 2026-11-01 10:36:59 UTC
+[Unit]
+Description=CyberFlow laboratorio - los seis perfiles de trafico
+Wants=cyberflow-lab-ofimatica.service cyberflow-lab-navegacion.service cyberflow-lab-descargas.service cyberflow-lab-aplicacion.service cyberflow-lab-ligero.service cyberflow-lab-erratico.service
+
+[Install]
+WantedBy=multi-user.target
+== cliente: ficheros de configuracion de perfiles (sin secretos)
+# /home/adminclientes/laboratorio/clientes_lab.py ae5134a778e66d90f5c3fbcd47323e328f3422cf4ba8d5197649f402c1d4cdc3
+# /laboratorio/clientes_config.py 
+== sensor1: cf-capturar
+total 12
+drwxr-xr-x  2 root root 4096 oct 23 15:37 .
+drwxr-xr-x 10 root root 4096 feb 16  2025 ..
+-rwxr-xr-x  1 root root   98 oct 23 15:37 cf-capturar
+#!/bin/bash
+exec /usr/bin/timeout "${2:-1800}" /usr/bin/tcpdump -i ens37 -w "$1" host 10.10.20.30
+== DC1 (intento de lectura con llaves existentes)
+-- dcadmin@10.10.10.2
+dcadmin@10.10.10.2: Permission denied (publickey,password,keyboard-interactive).
+-- dcadmin@10.10.10.3
+dcadmin@10.10.10.3: Permission denied (publickey,password,keyboard-interactive).
+-- dcadmin@10.10.10.10
+ssh: connect to host 10.10.10.10 port 22: No route to host
