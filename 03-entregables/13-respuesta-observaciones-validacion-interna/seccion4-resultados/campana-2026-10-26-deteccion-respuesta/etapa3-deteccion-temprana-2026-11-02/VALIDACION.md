@@ -48,7 +48,9 @@ Ventanas del atacante con cada regla, con el episodio ampliado 60 s (`matriz_reg
 | DC1 (10.10.10.20), dns_entropy → LIMIT | 382 | **0** |
 | 10.10.20.22, dns_entropy → LIMIT | 4 | **0** |
 | 10.10.20.26, http_abuse → LIMIT | 6 | **0** |
-| **Total de restricciones heurísticas a legítimos** | **392** | **0** |
+| **Total de ventanas con disparos heurísticos sobre legítimos** | **392** | **0** |
+
+Las cifras son **ventanas** de decisión (entidad × ventana de 10 s) en las que una regla heurística disparó sobre un equipo que no es el atacante. **No** son equipos distintos (son 3: DC1, 10.10.20.22 y 10.10.20.26) ni bloqueos aplicados: en el replay no hay agentes ni nft, y el publicador agruparía ventanas consecutivas en una misma restricción. *Redacción corregida en el cierre técnico (antes: «restricciones heurísticas a legítimos»).*
 
 ## 4. Control (07:32–08:05; 2 622 ventanas; cobertura 1,0)
 

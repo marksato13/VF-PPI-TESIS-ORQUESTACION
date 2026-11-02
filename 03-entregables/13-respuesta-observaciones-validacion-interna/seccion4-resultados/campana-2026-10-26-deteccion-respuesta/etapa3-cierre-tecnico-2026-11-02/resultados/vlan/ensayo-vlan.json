@@ -1,0 +1,1676 @@
+{
+ "filtros": {
+  "sin_filtro": "",
+  "tcp": "tcp",
+  "tcp_o_vlan_tcp": "tcp or (vlan and tcp)"
+ },
+ "kernel": "6.18.54.1-microsoft-standard-WSL2",
+ "muestras": {
+  "escaneo_breve-r1.pcap": {
+   "etiquetada": {
+    "en_vivo": {
+     "sin_filtro": {
+      "deteccion": {
+       "copias_span": 195,
+       "disparos": [
+        [
+         "10.10.20.30",
+         "10.10.30.10",
+         8
+        ]
+       ],
+       "paquetes_syn_rst": 2293,
+       "retransmisiones": 8
+      },
+      "doble_etiqueta": 0,
+      "etiquetadas": 13913,
+      "rst": 124,
+      "senales": [
+       [
+        "10.10.20.30",
+        "10.10.30.10",
+        8
+       ]
+      ],
+      "syn": 2087,
+      "syn_ack": 82,
+      "tcp": 12317,
+      "tcpdump_resumen": [
+       "13924 packets captured",
+       "13924 packets received by filter",
+       "0 packets dropped by kernel"
+      ],
+      "tramas": 13924
+     },
+     "tcp": {
+      "deteccion": {
+       "copias_span": 195,
+       "disparos": [
+        [
+         "10.10.20.30",
+         "10.10.30.10",
+         8
+        ]
+       ],
+       "paquetes_syn_rst": 2293,
+       "retransmisiones": 8
+      },
+      "doble_etiqueta": 0,
+      "etiquetadas": 12317,
+      "rst": 124,
+      "senales": [
+       [
+        "10.10.20.30",
+        "10.10.30.10",
+        8
+       ]
+      ],
+      "syn": 2087,
+      "syn_ack": 82,
+      "tcp": 12317,
+      "tcpdump_resumen": [
+       "12317 packets captured",
+       "12317 packets received by filter",
+       "0 packets dropped by kernel"
+      ],
+      "tramas": 12317
+     },
+     "tcp_o_vlan_tcp": {
+      "deteccion": {
+       "copias_span": 195,
+       "disparos": [
+        [
+         "10.10.20.30",
+         "10.10.30.10",
+         8
+        ]
+       ],
+       "paquetes_syn_rst": 2293,
+       "retransmisiones": 8
+      },
+      "doble_etiqueta": 0,
+      "etiquetadas": 12317,
+      "rst": 124,
+      "senales": [
+       [
+        "10.10.20.30",
+        "10.10.30.10",
+        8
+       ]
+      ],
+      "syn": 2087,
+      "syn_ack": 82,
+      "tcp": 12317,
+      "tcpdump_resumen": [
+       "12317 packets captured",
+       "12317 packets received by filter",
+       "0 packets dropped by kernel"
+      ],
+      "tramas": 12317
+     },
+     "tcpreplay": [
+      "Statistics for network device: vA",
+      "\tSuccessful packets:        13917",
+      "\tFailed packets:            0",
+      "\tTruncated packets:         0",
+      "\tRetried packets (ENOBUFS): 0",
+      "\tRetried packets (EAGAIN):  0"
+     ],
+     "tcpreplay_rc": 0
+    },
+    "fuera_de_linea": {
+     "sin_filtro": {
+      "doble_etiqueta": 0,
+      "etiquetadas": 13913,
+      "rc": 0,
+      "rst": 124,
+      "syn": 2087,
+      "syn_ack": 82,
+      "tcp": 12317,
+      "tramas": 13917
+     },
+     "tcp": {
+      "doble_etiqueta": 0,
+      "etiquetadas": 0,
+      "rc": 0,
+      "rst": 0,
+      "syn": 0,
+      "syn_ack": 0,
+      "tcp": 0,
+      "tramas": 0
+     },
+     "tcp_o_vlan_tcp": {
+      "doble_etiqueta": 0,
+      "etiquetadas": 12317,
+      "rc": 0,
+      "rst": 124,
+      "syn": 2087,
+      "syn_ack": 82,
+      "tcp": 12317,
+      "tramas": 12317
+     }
+    },
+    "muestra": {
+     "doble_etiqueta": 0,
+     "etiquetadas": 13913,
+     "rst": 124,
+     "syn": 2087,
+     "syn_ack": 82,
+     "tcp": 12317,
+     "tramas": 13917
+    },
+    "referencia": {
+     "copias_span": 195,
+     "disparos": [
+      [
+       "10.10.20.30",
+       "10.10.30.10",
+       8
+      ]
+     ],
+     "paquetes_syn_rst": 2293,
+     "retransmisiones": 8
+    }
+   },
+   "sin_etiqueta": {
+    "en_vivo": {
+     "sin_filtro": {
+      "deteccion": {
+       "copias_span": 195,
+       "disparos": [
+        [
+         "10.10.20.30",
+         "10.10.30.10",
+         8
+        ]
+       ],
+       "paquetes_syn_rst": 2293,
+       "retransmisiones": 8
+      },
+      "doble_etiqueta": 0,
+      "etiquetadas": 280,
+      "rst": 124,
+      "senales": [
+       [
+        "10.10.20.30",
+        "10.10.30.10",
+        8
+       ]
+      ],
+      "syn": 2087,
+      "syn_ack": 82,
+      "tcp": 12317,
+      "tcpdump_resumen": [
+       "13924 packets captured",
+       "13924 packets received by filter",
+       "0 packets dropped by kernel"
+      ],
+      "tramas": 13924
+     },
+     "tcp": {
+      "deteccion": {
+       "copias_span": 195,
+       "disparos": [
+        [
+         "10.10.20.30",
+         "10.10.30.10",
+         8
+        ]
+       ],
+       "paquetes_syn_rst": 2293,
+       "retransmisiones": 8
+      },
+      "doble_etiqueta": 0,
+      "etiquetadas": 0,
+      "rst": 124,
+      "senales": [
+       [
+        "10.10.20.30",
+        "10.10.30.10",
+        8
+       ]
+      ],
+      "syn": 2087,
+      "syn_ack": 82,
+      "tcp": 12317,
+      "tcpdump_resumen": [
+       "12317 packets captured",
+       "12317 packets received by filter",
+       "0 packets dropped by kernel"
+      ],
+      "tramas": 12317
+     },
+     "tcp_o_vlan_tcp": {
+      "deteccion": {
+       "copias_span": 195,
+       "disparos": [
+        [
+         "10.10.20.30",
+         "10.10.30.10",
+         8
+        ]
+       ],
+       "paquetes_syn_rst": 2293,
+       "retransmisiones": 8
+      },
+      "doble_etiqueta": 0,
+      "etiquetadas": 0,
+      "rst": 124,
+      "senales": [
+       [
+        "10.10.20.30",
+        "10.10.30.10",
+        8
+       ]
+      ],
+      "syn": 2087,
+      "syn_ack": 82,
+      "tcp": 12317,
+      "tcpdump_resumen": [
+       "12317 packets captured",
+       "12317 packets received by filter",
+       "0 packets dropped by kernel"
+      ],
+      "tramas": 12317
+     },
+     "tcpreplay": [
+      "Statistics for network device: vA",
+      "\tSuccessful packets:        13917",
+      "\tFailed packets:            0",
+      "\tTruncated packets:         0",
+      "\tRetried packets (ENOBUFS): 0",
+      "\tRetried packets (EAGAIN):  0"
+     ],
+     "tcpreplay_rc": 0
+    },
+    "fuera_de_linea": {
+     "sin_filtro": {
+      "doble_etiqueta": 0,
+      "etiquetadas": 280,
+      "rc": 0,
+      "rst": 124,
+      "syn": 2087,
+      "syn_ack": 82,
+      "tcp": 12317,
+      "tramas": 13917
+     },
+     "tcp": {
+      "doble_etiqueta": 0,
+      "etiquetadas": 0,
+      "rc": 0,
+      "rst": 124,
+      "syn": 2087,
+      "syn_ack": 82,
+      "tcp": 12317,
+      "tramas": 12317
+     },
+     "tcp_o_vlan_tcp": {
+      "doble_etiqueta": 0,
+      "etiquetadas": 0,
+      "rc": 0,
+      "rst": 124,
+      "syn": 2087,
+      "syn_ack": 82,
+      "tcp": 12317,
+      "tramas": 12317
+     }
+    },
+    "muestra": {
+     "doble_etiqueta": 0,
+     "etiquetadas": 280,
+     "rst": 124,
+     "syn": 2087,
+     "syn_ack": 82,
+     "tcp": 12317,
+     "tramas": 13917
+    },
+    "referencia": {
+     "copias_span": 195,
+     "disparos": [
+      [
+       "10.10.20.30",
+       "10.10.30.10",
+       8
+      ]
+     ],
+     "paquetes_syn_rst": 2293,
+     "retransmisiones": 8
+    }
+   }
+  },
+  "escaneo_breve-r2.pcap": {
+   "etiquetada": {
+    "en_vivo": {
+     "sin_filtro": {
+      "deteccion": {
+       "copias_span": 234,
+       "disparos": [
+        [
+         "10.10.20.30",
+         "10.10.30.10",
+         8
+        ]
+       ],
+       "paquetes_syn_rst": 2394,
+       "retransmisiones": 22
+      },
+      "doble_etiqueta": 0,
+      "etiquetadas": 27568,
+      "rst": 118,
+      "senales": [
+       [
+        "10.10.20.30",
+        "10.10.30.10",
+        8
+       ]
+      ],
+      "syn": 2148,
+      "syn_ack": 128,
+      "tcp": 25244,
+      "tcpdump_resumen": [
+       "27579 packets captured",
+       "27579 packets received by filter",
+       "0 packets dropped by kernel"
+      ],
+      "tramas": 27579
+     },
+     "tcp": {
+      "deteccion": {
+       "copias_span": 234,
+       "disparos": [
+        [
+         "10.10.20.30",
+         "10.10.30.10",
+         8
+        ]
+       ],
+       "paquetes_syn_rst": 2394,
+       "retransmisiones": 22
+      },
+      "doble_etiqueta": 0,
+      "etiquetadas": 25244,
+      "rst": 118,
+      "senales": [
+       [
+        "10.10.20.30",
+        "10.10.30.10",
+        8
+       ]
+      ],
+      "syn": 2148,
+      "syn_ack": 128,
+      "tcp": 25244,
+      "tcpdump_resumen": [
+       "25244 packets captured",
+       "25244 packets received by filter",
+       "0 packets dropped by kernel"
+      ],
+      "tramas": 25244
+     },
+     "tcp_o_vlan_tcp": {
+      "deteccion": {
+       "copias_span": 234,
+       "disparos": [
+        [
+         "10.10.20.30",
+         "10.10.30.10",
+         8
+        ]
+       ],
+       "paquetes_syn_rst": 2394,
+       "retransmisiones": 22
+      },
+      "doble_etiqueta": 0,
+      "etiquetadas": 25244,
+      "rst": 118,
+      "senales": [
+       [
+        "10.10.20.30",
+        "10.10.30.10",
+        8
+       ]
+      ],
+      "syn": 2148,
+      "syn_ack": 128,
+      "tcp": 25244,
+      "tcpdump_resumen": [
+       "25244 packets captured",
+       "25244 packets received by filter",
+       "0 packets dropped by kernel"
+      ],
+      "tramas": 25244
+     },
+     "tcpreplay": [
+      "Statistics for network device: vA",
+      "\tSuccessful packets:        27572",
+      "\tFailed packets:            0",
+      "\tTruncated packets:         0",
+      "\tRetried packets (ENOBUFS): 0",
+      "\tRetried packets (EAGAIN):  0"
+     ],
+     "tcpreplay_rc": 0
+    },
+    "fuera_de_linea": {
+     "sin_filtro": {
+      "doble_etiqueta": 0,
+      "etiquetadas": 27568,
+      "rc": 0,
+      "rst": 118,
+      "syn": 2148,
+      "syn_ack": 128,
+      "tcp": 25244,
+      "tramas": 27572
+     },
+     "tcp": {
+      "doble_etiqueta": 0,
+      "etiquetadas": 0,
+      "rc": 0,
+      "rst": 0,
+      "syn": 0,
+      "syn_ack": 0,
+      "tcp": 0,
+      "tramas": 0
+     },
+     "tcp_o_vlan_tcp": {
+      "doble_etiqueta": 0,
+      "etiquetadas": 25244,
+      "rc": 0,
+      "rst": 118,
+      "syn": 2148,
+      "syn_ack": 128,
+      "tcp": 25244,
+      "tramas": 25244
+     }
+    },
+    "muestra": {
+     "doble_etiqueta": 0,
+     "etiquetadas": 27568,
+     "rst": 118,
+     "syn": 2148,
+     "syn_ack": 128,
+     "tcp": 25244,
+     "tramas": 27572
+    },
+    "referencia": {
+     "copias_span": 234,
+     "disparos": [
+      [
+       "10.10.20.30",
+       "10.10.30.10",
+       8
+      ]
+     ],
+     "paquetes_syn_rst": 2394,
+     "retransmisiones": 22
+    }
+   },
+   "sin_etiqueta": {
+    "en_vivo": {
+     "sin_filtro": {
+      "deteccion": {
+       "copias_span": 234,
+       "disparos": [
+        [
+         "10.10.20.30",
+         "10.10.30.10",
+         8
+        ]
+       ],
+       "paquetes_syn_rst": 2394,
+       "retransmisiones": 22
+      },
+      "doble_etiqueta": 0,
+      "etiquetadas": 303,
+      "rst": 118,
+      "senales": [
+       [
+        "10.10.20.30",
+        "10.10.30.10",
+        8
+       ]
+      ],
+      "syn": 2148,
+      "syn_ack": 128,
+      "tcp": 25244,
+      "tcpdump_resumen": [
+       "27579 packets captured",
+       "27579 packets received by filter",
+       "0 packets dropped by kernel"
+      ],
+      "tramas": 27579
+     },
+     "tcp": {
+      "deteccion": {
+       "copias_span": 234,
+       "disparos": [
+        [
+         "10.10.20.30",
+         "10.10.30.10",
+         8
+        ]
+       ],
+       "paquetes_syn_rst": 2394,
+       "retransmisiones": 22
+      },
+      "doble_etiqueta": 0,
+      "etiquetadas": 0,
+      "rst": 118,
+      "senales": [
+       [
+        "10.10.20.30",
+        "10.10.30.10",
+        8
+       ]
+      ],
+      "syn": 2148,
+      "syn_ack": 128,
+      "tcp": 25244,
+      "tcpdump_resumen": [
+       "25244 packets captured",
+       "25244 packets received by filter",
+       "0 packets dropped by kernel"
+      ],
+      "tramas": 25244
+     },
+     "tcp_o_vlan_tcp": {
+      "deteccion": {
+       "copias_span": 234,
+       "disparos": [
+        [
+         "10.10.20.30",
+         "10.10.30.10",
+         8
+        ]
+       ],
+       "paquetes_syn_rst": 2394,
+       "retransmisiones": 22
+      },
+      "doble_etiqueta": 0,
+      "etiquetadas": 0,
+      "rst": 118,
+      "senales": [
+       [
+        "10.10.20.30",
+        "10.10.30.10",
+        8
+       ]
+      ],
+      "syn": 2148,
+      "syn_ack": 128,
+      "tcp": 25244,
+      "tcpdump_resumen": [
+       "25244 packets captured",
+       "25244 packets received by filter",
+       "0 packets dropped by kernel"
+      ],
+      "tramas": 25244
+     },
+     "tcpreplay": [
+      "Statistics for network device: vA",
+      "\tSuccessful packets:        27572",
+      "\tFailed packets:            0",
+      "\tTruncated packets:         0",
+      "\tRetried packets (ENOBUFS): 0",
+      "\tRetried packets (EAGAIN):  0"
+     ],
+     "tcpreplay_rc": 0
+    },
+    "fuera_de_linea": {
+     "sin_filtro": {
+      "doble_etiqueta": 0,
+      "etiquetadas": 303,
+      "rc": 0,
+      "rst": 118,
+      "syn": 2148,
+      "syn_ack": 128,
+      "tcp": 25244,
+      "tramas": 27572
+     },
+     "tcp": {
+      "doble_etiqueta": 0,
+      "etiquetadas": 0,
+      "rc": 0,
+      "rst": 118,
+      "syn": 2148,
+      "syn_ack": 128,
+      "tcp": 25244,
+      "tramas": 25244
+     },
+     "tcp_o_vlan_tcp": {
+      "doble_etiqueta": 0,
+      "etiquetadas": 0,
+      "rc": 0,
+      "rst": 118,
+      "syn": 2148,
+      "syn_ack": 128,
+      "tcp": 25244,
+      "tramas": 25244
+     }
+    },
+    "muestra": {
+     "doble_etiqueta": 0,
+     "etiquetadas": 303,
+     "rst": 118,
+     "syn": 2148,
+     "syn_ack": 128,
+     "tcp": 25244,
+     "tramas": 27572
+    },
+    "referencia": {
+     "copias_span": 234,
+     "disparos": [
+      [
+       "10.10.20.30",
+       "10.10.30.10",
+       8
+      ]
+     ],
+     "paquetes_syn_rst": 2394,
+     "retransmisiones": 22
+    }
+   }
+  },
+  "escaneo_breve-r3.pcap": {
+   "etiquetada": {
+    "en_vivo": {
+     "sin_filtro": {
+      "deteccion": {
+       "copias_span": 166,
+       "disparos": [
+        [
+         "10.10.20.30",
+         "10.10.30.10",
+         8
+        ]
+       ],
+       "paquetes_syn_rst": 2289,
+       "retransmisiones": 22
+      },
+      "doble_etiqueta": 0,
+      "etiquetadas": 7889,
+      "rst": 84,
+      "senales": [
+       [
+        "10.10.20.30",
+        "10.10.30.10",
+        8
+       ]
+      ],
+      "syn": 2113,
+      "syn_ack": 92,
+      "tcp": 6459,
+      "tcpdump_resumen": [
+       "7900 packets captured",
+       "7900 packets received by filter",
+       "0 packets dropped by kernel"
+      ],
+      "tramas": 7900
+     },
+     "tcp": {
+      "deteccion": {
+       "copias_span": 166,
+       "disparos": [
+        [
+         "10.10.20.30",
+         "10.10.30.10",
+         8
+        ]
+       ],
+       "paquetes_syn_rst": 2289,
+       "retransmisiones": 22
+      },
+      "doble_etiqueta": 0,
+      "etiquetadas": 6459,
+      "rst": 84,
+      "senales": [
+       [
+        "10.10.20.30",
+        "10.10.30.10",
+        8
+       ]
+      ],
+      "syn": 2113,
+      "syn_ack": 92,
+      "tcp": 6459,
+      "tcpdump_resumen": [
+       "6459 packets captured",
+       "6459 packets received by filter",
+       "0 packets dropped by kernel"
+      ],
+      "tramas": 6459
+     },
+     "tcp_o_vlan_tcp": {
+      "deteccion": {
+       "copias_span": 166,
+       "disparos": [
+        [
+         "10.10.20.30",
+         "10.10.30.10",
+         8
+        ]
+       ],
+       "paquetes_syn_rst": 2289,
+       "retransmisiones": 22
+      },
+      "doble_etiqueta": 0,
+      "etiquetadas": 6459,
+      "rst": 84,
+      "senales": [
+       [
+        "10.10.20.30",
+        "10.10.30.10",
+        8
+       ]
+      ],
+      "syn": 2113,
+      "syn_ack": 92,
+      "tcp": 6459,
+      "tcpdump_resumen": [
+       "6459 packets captured",
+       "6459 packets received by filter",
+       "0 packets dropped by kernel"
+      ],
+      "tramas": 6459
+     },
+     "tcpreplay": [
+      "Statistics for network device: vA",
+      "\tSuccessful packets:        7893",
+      "\tFailed packets:            0",
+      "\tTruncated packets:         0",
+      "\tRetried packets (ENOBUFS): 0",
+      "\tRetried packets (EAGAIN):  0"
+     ],
+     "tcpreplay_rc": 0
+    },
+    "fuera_de_linea": {
+     "sin_filtro": {
+      "doble_etiqueta": 0,
+      "etiquetadas": 7889,
+      "rc": 0,
+      "rst": 84,
+      "syn": 2113,
+      "syn_ack": 92,
+      "tcp": 6459,
+      "tramas": 7893
+     },
+     "tcp": {
+      "doble_etiqueta": 0,
+      "etiquetadas": 0,
+      "rc": 0,
+      "rst": 0,
+      "syn": 0,
+      "syn_ack": 0,
+      "tcp": 0,
+      "tramas": 0
+     },
+     "tcp_o_vlan_tcp": {
+      "doble_etiqueta": 0,
+      "etiquetadas": 6459,
+      "rc": 0,
+      "rst": 84,
+      "syn": 2113,
+      "syn_ack": 92,
+      "tcp": 6459,
+      "tramas": 6459
+     }
+    },
+    "muestra": {
+     "doble_etiqueta": 0,
+     "etiquetadas": 7889,
+     "rst": 84,
+     "syn": 2113,
+     "syn_ack": 92,
+     "tcp": 6459,
+     "tramas": 7893
+    },
+    "referencia": {
+     "copias_span": 166,
+     "disparos": [
+      [
+       "10.10.20.30",
+       "10.10.30.10",
+       8
+      ]
+     ],
+     "paquetes_syn_rst": 2289,
+     "retransmisiones": 22
+    }
+   },
+   "sin_etiqueta": {
+    "en_vivo": {
+     "sin_filtro": {
+      "deteccion": {
+       "copias_span": 166,
+       "disparos": [
+        [
+         "10.10.20.30",
+         "10.10.30.10",
+         8
+        ]
+       ],
+       "paquetes_syn_rst": 2289,
+       "retransmisiones": 22
+      },
+      "doble_etiqueta": 0,
+      "etiquetadas": 280,
+      "rst": 84,
+      "senales": [
+       [
+        "10.10.20.30",
+        "10.10.30.10",
+        8
+       ]
+      ],
+      "syn": 2113,
+      "syn_ack": 92,
+      "tcp": 6459,
+      "tcpdump_resumen": [
+       "7900 packets captured",
+       "7900 packets received by filter",
+       "0 packets dropped by kernel"
+      ],
+      "tramas": 7900
+     },
+     "tcp": {
+      "deteccion": {
+       "copias_span": 166,
+       "disparos": [
+        [
+         "10.10.20.30",
+         "10.10.30.10",
+         8
+        ]
+       ],
+       "paquetes_syn_rst": 2289,
+       "retransmisiones": 22
+      },
+      "doble_etiqueta": 0,
+      "etiquetadas": 0,
+      "rst": 84,
+      "senales": [
+       [
+        "10.10.20.30",
+        "10.10.30.10",
+        8
+       ]
+      ],
+      "syn": 2113,
+      "syn_ack": 92,
+      "tcp": 6459,
+      "tcpdump_resumen": [
+       "6459 packets captured",
+       "6459 packets received by filter",
+       "0 packets dropped by kernel"
+      ],
+      "tramas": 6459
+     },
+     "tcp_o_vlan_tcp": {
+      "deteccion": {
+       "copias_span": 166,
+       "disparos": [
+        [
+         "10.10.20.30",
+         "10.10.30.10",
+         8
+        ]
+       ],
+       "paquetes_syn_rst": 2289,
+       "retransmisiones": 22
+      },
+      "doble_etiqueta": 0,
+      "etiquetadas": 0,
+      "rst": 84,
+      "senales": [
+       [
+        "10.10.20.30",
+        "10.10.30.10",
+        8
+       ]
+      ],
+      "syn": 2113,
+      "syn_ack": 92,
+      "tcp": 6459,
+      "tcpdump_resumen": [
+       "6459 packets captured",
+       "6459 packets received by filter",
+       "0 packets dropped by kernel"
+      ],
+      "tramas": 6459
+     },
+     "tcpreplay": [
+      "Statistics for network device: vA",
+      "\tSuccessful packets:        7893",
+      "\tFailed packets:            0",
+      "\tTruncated packets:         0",
+      "\tRetried packets (ENOBUFS): 0",
+      "\tRetried packets (EAGAIN):  0"
+     ],
+     "tcpreplay_rc": 0
+    },
+    "fuera_de_linea": {
+     "sin_filtro": {
+      "doble_etiqueta": 0,
+      "etiquetadas": 280,
+      "rc": 0,
+      "rst": 84,
+      "syn": 2113,
+      "syn_ack": 92,
+      "tcp": 6459,
+      "tramas": 7893
+     },
+     "tcp": {
+      "doble_etiqueta": 0,
+      "etiquetadas": 0,
+      "rc": 0,
+      "rst": 84,
+      "syn": 2113,
+      "syn_ack": 92,
+      "tcp": 6459,
+      "tramas": 6459
+     },
+     "tcp_o_vlan_tcp": {
+      "doble_etiqueta": 0,
+      "etiquetadas": 0,
+      "rc": 0,
+      "rst": 84,
+      "syn": 2113,
+      "syn_ack": 92,
+      "tcp": 6459,
+      "tramas": 6459
+     }
+    },
+    "muestra": {
+     "doble_etiqueta": 0,
+     "etiquetadas": 280,
+     "rst": 84,
+     "syn": 2113,
+     "syn_ack": 92,
+     "tcp": 6459,
+     "tramas": 7893
+    },
+    "referencia": {
+     "copias_span": 166,
+     "disparos": [
+      [
+       "10.10.20.30",
+       "10.10.30.10",
+       8
+      ]
+     ],
+     "paquetes_syn_rst": 2289,
+     "retransmisiones": 22
+    }
+   }
+  },
+  "escaneo_breve-r4.pcap": {
+   "etiquetada": {
+    "en_vivo": {
+     "sin_filtro": {
+      "deteccion": {
+       "copias_span": 126,
+       "disparos": [
+        [
+         "10.10.20.30",
+         "10.10.30.10",
+         8
+        ]
+       ],
+       "paquetes_syn_rst": 2228,
+       "retransmisiones": 15
+      },
+      "doble_etiqueta": 0,
+      "etiquetadas": 12737,
+      "rst": 48,
+      "senales": [
+       [
+        "10.10.20.30",
+        "10.10.30.10",
+        8
+       ]
+      ],
+      "syn": 2096,
+      "syn_ack": 84,
+      "tcp": 11131,
+      "tcpdump_resumen": [
+       "12748 packets captured",
+       "12748 packets received by filter",
+       "0 packets dropped by kernel"
+      ],
+      "tramas": 12748
+     },
+     "tcp": {
+      "deteccion": {
+       "copias_span": 126,
+       "disparos": [
+        [
+         "10.10.20.30",
+         "10.10.30.10",
+         8
+        ]
+       ],
+       "paquetes_syn_rst": 2228,
+       "retransmisiones": 15
+      },
+      "doble_etiqueta": 0,
+      "etiquetadas": 11131,
+      "rst": 48,
+      "senales": [
+       [
+        "10.10.20.30",
+        "10.10.30.10",
+        8
+       ]
+      ],
+      "syn": 2096,
+      "syn_ack": 84,
+      "tcp": 11131,
+      "tcpdump_resumen": [
+       "11131 packets captured",
+       "11131 packets received by filter",
+       "0 packets dropped by kernel"
+      ],
+      "tramas": 11131
+     },
+     "tcp_o_vlan_tcp": {
+      "deteccion": {
+       "copias_span": 126,
+       "disparos": [
+        [
+         "10.10.20.30",
+         "10.10.30.10",
+         8
+        ]
+       ],
+       "paquetes_syn_rst": 2228,
+       "retransmisiones": 15
+      },
+      "doble_etiqueta": 0,
+      "etiquetadas": 11131,
+      "rst": 48,
+      "senales": [
+       [
+        "10.10.20.30",
+        "10.10.30.10",
+        8
+       ]
+      ],
+      "syn": 2096,
+      "syn_ack": 84,
+      "tcp": 11131,
+      "tcpdump_resumen": [
+       "11131 packets captured",
+       "11131 packets received by filter",
+       "0 packets dropped by kernel"
+      ],
+      "tramas": 11131
+     },
+     "tcpreplay": [
+      "Statistics for network device: vA",
+      "\tSuccessful packets:        12741",
+      "\tFailed packets:            0",
+      "\tTruncated packets:         0",
+      "\tRetried packets (ENOBUFS): 0",
+      "\tRetried packets (EAGAIN):  0"
+     ],
+     "tcpreplay_rc": 0
+    },
+    "fuera_de_linea": {
+     "sin_filtro": {
+      "doble_etiqueta": 0,
+      "etiquetadas": 12737,
+      "rc": 0,
+      "rst": 48,
+      "syn": 2096,
+      "syn_ack": 84,
+      "tcp": 11131,
+      "tramas": 12741
+     },
+     "tcp": {
+      "doble_etiqueta": 0,
+      "etiquetadas": 0,
+      "rc": 0,
+      "rst": 0,
+      "syn": 0,
+      "syn_ack": 0,
+      "tcp": 0,
+      "tramas": 0
+     },
+     "tcp_o_vlan_tcp": {
+      "doble_etiqueta": 0,
+      "etiquetadas": 11131,
+      "rc": 0,
+      "rst": 48,
+      "syn": 2096,
+      "syn_ack": 84,
+      "tcp": 11131,
+      "tramas": 11131
+     }
+    },
+    "muestra": {
+     "doble_etiqueta": 0,
+     "etiquetadas": 12737,
+     "rst": 48,
+     "syn": 2096,
+     "syn_ack": 84,
+     "tcp": 11131,
+     "tramas": 12741
+    },
+    "referencia": {
+     "copias_span": 126,
+     "disparos": [
+      [
+       "10.10.20.30",
+       "10.10.30.10",
+       8
+      ]
+     ],
+     "paquetes_syn_rst": 2228,
+     "retransmisiones": 15
+    }
+   },
+   "sin_etiqueta": {
+    "en_vivo": {
+     "sin_filtro": {
+      "deteccion": {
+       "copias_span": 126,
+       "disparos": [
+        [
+         "10.10.20.30",
+         "10.10.30.10",
+         8
+        ]
+       ],
+       "paquetes_syn_rst": 2228,
+       "retransmisiones": 15
+      },
+      "doble_etiqueta": 0,
+      "etiquetadas": 303,
+      "rst": 48,
+      "senales": [
+       [
+        "10.10.20.30",
+        "10.10.30.10",
+        8
+       ]
+      ],
+      "syn": 2096,
+      "syn_ack": 84,
+      "tcp": 11131,
+      "tcpdump_resumen": [
+       "12748 packets captured",
+       "12748 packets received by filter",
+       "0 packets dropped by kernel"
+      ],
+      "tramas": 12748
+     },
+     "tcp": {
+      "deteccion": {
+       "copias_span": 126,
+       "disparos": [
+        [
+         "10.10.20.30",
+         "10.10.30.10",
+         8
+        ]
+       ],
+       "paquetes_syn_rst": 2228,
+       "retransmisiones": 15
+      },
+      "doble_etiqueta": 0,
+      "etiquetadas": 0,
+      "rst": 48,
+      "senales": [
+       [
+        "10.10.20.30",
+        "10.10.30.10",
+        8
+       ]
+      ],
+      "syn": 2096,
+      "syn_ack": 84,
+      "tcp": 11131,
+      "tcpdump_resumen": [
+       "11131 packets captured",
+       "11131 packets received by filter",
+       "0 packets dropped by kernel"
+      ],
+      "tramas": 11131
+     },
+     "tcp_o_vlan_tcp": {
+      "deteccion": {
+       "copias_span": 126,
+       "disparos": [
+        [
+         "10.10.20.30",
+         "10.10.30.10",
+         8
+        ]
+       ],
+       "paquetes_syn_rst": 2228,
+       "retransmisiones": 15
+      },
+      "doble_etiqueta": 0,
+      "etiquetadas": 0,
+      "rst": 48,
+      "senales": [
+       [
+        "10.10.20.30",
+        "10.10.30.10",
+        8
+       ]
+      ],
+      "syn": 2096,
+      "syn_ack": 84,
+      "tcp": 11131,
+      "tcpdump_resumen": [
+       "11131 packets captured",
+       "11131 packets received by filter",
+       "0 packets dropped by kernel"
+      ],
+      "tramas": 11131
+     },
+     "tcpreplay": [
+      "Statistics for network device: vA",
+      "\tSuccessful packets:        12741",
+      "\tFailed packets:            0",
+      "\tTruncated packets:         0",
+      "\tRetried packets (ENOBUFS): 0",
+      "\tRetried packets (EAGAIN):  0"
+     ],
+     "tcpreplay_rc": 0
+    },
+    "fuera_de_linea": {
+     "sin_filtro": {
+      "doble_etiqueta": 0,
+      "etiquetadas": 303,
+      "rc": 0,
+      "rst": 48,
+      "syn": 2096,
+      "syn_ack": 84,
+      "tcp": 11131,
+      "tramas": 12741
+     },
+     "tcp": {
+      "doble_etiqueta": 0,
+      "etiquetadas": 0,
+      "rc": 0,
+      "rst": 48,
+      "syn": 2096,
+      "syn_ack": 84,
+      "tcp": 11131,
+      "tramas": 11131
+     },
+     "tcp_o_vlan_tcp": {
+      "doble_etiqueta": 0,
+      "etiquetadas": 0,
+      "rc": 0,
+      "rst": 48,
+      "syn": 2096,
+      "syn_ack": 84,
+      "tcp": 11131,
+      "tramas": 11131
+     }
+    },
+    "muestra": {
+     "doble_etiqueta": 0,
+     "etiquetadas": 303,
+     "rst": 48,
+     "syn": 2096,
+     "syn_ack": 84,
+     "tcp": 11131,
+     "tramas": 12741
+    },
+    "referencia": {
+     "copias_span": 126,
+     "disparos": [
+      [
+       "10.10.20.30",
+       "10.10.30.10",
+       8
+      ]
+     ],
+     "paquetes_syn_rst": 2228,
+     "retransmisiones": 15
+    }
+   }
+  },
+  "escaneo_breve-r5.pcap": {
+   "etiquetada": {
+    "en_vivo": {
+     "sin_filtro": {
+      "deteccion": {
+       "copias_span": 164,
+       "disparos": [
+        [
+         "10.10.20.30",
+         "10.10.30.10",
+         8
+        ]
+       ],
+       "paquetes_syn_rst": 2276,
+       "retransmisiones": 21
+      },
+      "doble_etiqueta": 0,
+      "etiquetadas": 10842,
+      "rst": 88,
+      "senales": [
+       [
+        "10.10.20.30",
+        "10.10.30.10",
+        8
+       ]
+      ],
+      "syn": 2104,
+      "syn_ack": 84,
+      "tcp": 9368,
+      "tcpdump_resumen": [
+       "10853 packets captured",
+       "10853 packets received by filter",
+       "0 packets dropped by kernel"
+      ],
+      "tramas": 10853
+     },
+     "tcp": {
+      "deteccion": {
+       "copias_span": 164,
+       "disparos": [
+        [
+         "10.10.20.30",
+         "10.10.30.10",
+         8
+        ]
+       ],
+       "paquetes_syn_rst": 2276,
+       "retransmisiones": 21
+      },
+      "doble_etiqueta": 0,
+      "etiquetadas": 9368,
+      "rst": 88,
+      "senales": [
+       [
+        "10.10.20.30",
+        "10.10.30.10",
+        8
+       ]
+      ],
+      "syn": 2104,
+      "syn_ack": 84,
+      "tcp": 9368,
+      "tcpdump_resumen": [
+       "9368 packets captured",
+       "9368 packets received by filter",
+       "0 packets dropped by kernel"
+      ],
+      "tramas": 9368
+     },
+     "tcp_o_vlan_tcp": {
+      "deteccion": {
+       "copias_span": 164,
+       "disparos": [
+        [
+         "10.10.20.30",
+         "10.10.30.10",
+         8
+        ]
+       ],
+       "paquetes_syn_rst": 2276,
+       "retransmisiones": 21
+      },
+      "doble_etiqueta": 0,
+      "etiquetadas": 9368,
+      "rst": 88,
+      "senales": [
+       [
+        "10.10.20.30",
+        "10.10.30.10",
+        8
+       ]
+      ],
+      "syn": 2104,
+      "syn_ack": 84,
+      "tcp": 9368,
+      "tcpdump_resumen": [
+       "9368 packets captured",
+       "9368 packets received by filter",
+       "0 packets dropped by kernel"
+      ],
+      "tramas": 9368
+     },
+     "tcpreplay": [
+      "Statistics for network device: vA",
+      "\tSuccessful packets:        10846",
+      "\tFailed packets:            0",
+      "\tTruncated packets:         0",
+      "\tRetried packets (ENOBUFS): 0",
+      "\tRetried packets (EAGAIN):  0"
+     ],
+     "tcpreplay_rc": 0
+    },
+    "fuera_de_linea": {
+     "sin_filtro": {
+      "doble_etiqueta": 0,
+      "etiquetadas": 10842,
+      "rc": 0,
+      "rst": 88,
+      "syn": 2104,
+      "syn_ack": 84,
+      "tcp": 9368,
+      "tramas": 10846
+     },
+     "tcp": {
+      "doble_etiqueta": 0,
+      "etiquetadas": 0,
+      "rc": 0,
+      "rst": 0,
+      "syn": 0,
+      "syn_ack": 0,
+      "tcp": 0,
+      "tramas": 0
+     },
+     "tcp_o_vlan_tcp": {
+      "doble_etiqueta": 0,
+      "etiquetadas": 9368,
+      "rc": 0,
+      "rst": 88,
+      "syn": 2104,
+      "syn_ack": 84,
+      "tcp": 9368,
+      "tramas": 9368
+     }
+    },
+    "muestra": {
+     "doble_etiqueta": 0,
+     "etiquetadas": 10842,
+     "rst": 88,
+     "syn": 2104,
+     "syn_ack": 84,
+     "tcp": 9368,
+     "tramas": 10846
+    },
+    "referencia": {
+     "copias_span": 164,
+     "disparos": [
+      [
+       "10.10.20.30",
+       "10.10.30.10",
+       8
+      ]
+     ],
+     "paquetes_syn_rst": 2276,
+     "retransmisiones": 21
+    }
+   },
+   "sin_etiqueta": {
+    "en_vivo": {
+     "sin_filtro": {
+      "deteccion": {
+       "copias_span": 164,
+       "disparos": [
+        [
+         "10.10.20.30",
+         "10.10.30.10",
+         8
+        ]
+       ],
+       "paquetes_syn_rst": 2276,
+       "retransmisiones": 21
+      },
+      "doble_etiqueta": 0,
+      "etiquetadas": 286,
+      "rst": 88,
+      "senales": [
+       [
+        "10.10.20.30",
+        "10.10.30.10",
+        8
+       ]
+      ],
+      "syn": 2104,
+      "syn_ack": 84,
+      "tcp": 9368,
+      "tcpdump_resumen": [
+       "10853 packets captured",
+       "10853 packets received by filter",
+       "0 packets dropped by kernel"
+      ],
+      "tramas": 10853
+     },
+     "tcp": {
+      "deteccion": {
+       "copias_span": 164,
+       "disparos": [
+        [
+         "10.10.20.30",
+         "10.10.30.10",
+         8
+        ]
+       ],
+       "paquetes_syn_rst": 2276,
+       "retransmisiones": 21
+      },
+      "doble_etiqueta": 0,
+      "etiquetadas": 0,
+      "rst": 88,
+      "senales": [
+       [
+        "10.10.20.30",
+        "10.10.30.10",
+        8
+       ]
+      ],
+      "syn": 2104,
+      "syn_ack": 84,
+      "tcp": 9368,
+      "tcpdump_resumen": [
+       "9368 packets captured",
+       "9368 packets received by filter",
+       "0 packets dropped by kernel"
+      ],
+      "tramas": 9368
+     },
+     "tcp_o_vlan_tcp": {
+      "deteccion": {
+       "copias_span": 164,
+       "disparos": [
+        [
+         "10.10.20.30",
+         "10.10.30.10",
+         8
+        ]
+       ],
+       "paquetes_syn_rst": 2276,
+       "retransmisiones": 21
+      },
+      "doble_etiqueta": 0,
+      "etiquetadas": 0,
+      "rst": 88,
+      "senales": [
+       [
+        "10.10.20.30",
+        "10.10.30.10",
+        8
+       ]
+      ],
+      "syn": 2104,
+      "syn_ack": 84,
+      "tcp": 9368,
+      "tcpdump_resumen": [
+       "9368 packets captured",
+       "9368 packets received by filter",
+       "0 packets dropped by kernel"
+      ],
+      "tramas": 9368
+     },
+     "tcpreplay": [
+      "Statistics for network device: vA",
+      "\tSuccessful packets:        10846",
+      "\tFailed packets:            0",
+      "\tTruncated packets:         0",
+      "\tRetried packets (ENOBUFS): 0",
+      "\tRetried packets (EAGAIN):  0"
+     ],
+     "tcpreplay_rc": 0
+    },
+    "fuera_de_linea": {
+     "sin_filtro": {
+      "doble_etiqueta": 0,
+      "etiquetadas": 286,
+      "rc": 0,
+      "rst": 88,
+      "syn": 2104,
+      "syn_ack": 84,
+      "tcp": 9368,
+      "tramas": 10846
+     },
+     "tcp": {
+      "doble_etiqueta": 0,
+      "etiquetadas": 0,
+      "rc": 0,
+      "rst": 88,
+      "syn": 2104,
+      "syn_ack": 84,
+      "tcp": 9368,
+      "tramas": 9368
+     },
+     "tcp_o_vlan_tcp": {
+      "doble_etiqueta": 0,
+      "etiquetadas": 0,
+      "rc": 0,
+      "rst": 88,
+      "syn": 2104,
+      "syn_ack": 84,
+      "tcp": 9368,
+      "tramas": 9368
+     }
+    },
+    "muestra": {
+     "doble_etiqueta": 0,
+     "etiquetadas": 286,
+     "rst": 88,
+     "syn": 2104,
+     "syn_ack": 84,
+     "tcp": 9368,
+     "tramas": 10846
+    },
+    "referencia": {
+     "copias_span": 164,
+     "disparos": [
+      [
+       "10.10.20.30",
+       "10.10.30.10",
+       8
+      ]
+     ],
+     "paquetes_syn_rst": 2276,
+     "retransmisiones": 21
+    }
+   }
+  }
+ },
+ "tcpdump_version": [
+  "tcpdump version 4.99.5",
+  "libpcap version 1.10.5 (with TPACKET_V3)",
+  "OpenSSL 3.5.7 9 Jun 2026",
+  "64-bit build, 64-bit time_t"
+ ]
+}

@@ -1,0 +1,166 @@
+{
+ "C|sin_carga": {
+  "n": 15,
+  "sin_aplicacion": 0,
+  "aplicada_p50_p95_max": [
+   1.458,
+   1.654,
+   1.83
+  ],
+  "primer_descarte_p50_p95_max": [
+   2.547,
+   2.702,
+   2.712
+  ],
+  "descarte_antes_del_ultimo_syn": "15/15",
+  "margen_aplicada_ultimo_syn_min_p05_p50": [
+   3.002,
+   3.054,
+   3.344
+  ],
+  "espera_disponible_p50_max": [
+   0.309,
+   0.87
+  ],
+  "rele_publicada_entregada_p50_max": [
+   0.08,
+   0.822
+  ],
+  "agente_entregada_recibida_p50_max": [
+   0.182,
+   0.264
+  ],
+  "syn_tras_aplicacion_frac_min_p50": [
+   0.914,
+   0.948
+  ],
+  "confirmadas": "15/15",
+  "vlan": [
+   "conservada"
+  ],
+  "tramos_p50_p95_max": {
+   "evidencia_a_emision": [
+    0.309,
+    0.87,
+    0.87
+   ],
+   "disponible_a_emision": [
+    0.0,
+    0.0,
+    0.001
+   ],
+   "emision_a_publicacion": [
+    0.208,
+    0.253,
+    0.257
+   ],
+   "publicacion_a_entrega": [
+    0.08,
+    0.648,
+    0.822
+   ],
+   "entrega_a_aplicacion": [
+    0.274,
+    0.371,
+    0.372
+   ],
+   "aplicacion_a_confirmacion": [
+    0.047,
+    0.062,
+    0.076
+   ],
+   "aplicacion_a_primer_descarte": [
+    0.971,
+    1.251,
+    1.309
+   ],
+   "primer_descarte_a_ultimo_syn": [
+    2.313,
+    3.63,
+    3.649
+   ]
+  }
+ },
+ "C|carga": {
+  "n": 15,
+  "sin_aplicacion": 0,
+  "aplicada_p50_p95_max": [
+   0.918,
+   1.593,
+   1.597
+  ],
+  "primer_descarte_p50_p95_max": [
+   1.337,
+   2.713,
+   2.726
+  ],
+  "descarte_antes_del_ultimo_syn": "15/15",
+  "margen_aplicada_ultimo_syn_min_p05_p50": [
+   2.904,
+   2.908,
+   3.887
+  ],
+  "espera_disponible_p50_max": [
+   0.006,
+   0.024
+  ],
+  "rele_publicada_entregada_p50_max": [
+   0.334,
+   0.856
+  ],
+  "agente_entregada_recibida_p50_max": [
+   0.256,
+   0.365
+  ],
+  "syn_tras_aplicacion_frac_min_p50": [
+   0.899,
+   0.992
+  ],
+  "confirmadas": "15/15",
+  "vlan": [
+   "conservada"
+  ],
+  "tramos_p50_p95_max": {
+   "evidencia_a_emision": [
+    0.006,
+    0.024,
+    0.024
+   ],
+   "disponible_a_emision": [
+    0.0,
+    0.0,
+    0.001
+   ],
+   "emision_a_publicacion": [
+    0.121,
+    0.236,
+    0.237
+   ],
+   "publicacion_a_entrega": [
+    0.334,
+    0.852,
+    0.856
+   ],
+   "entrega_a_aplicacion": [
+    0.38,
+    0.476,
+    0.506
+   ],
+   "aplicacion_a_confirmacion": [
+    0.065,
+    0.075,
+    0.078
+   ],
+   "aplicacion_a_primer_descarte": [
+    0.662,
+    1.196,
+    1.293
+   ],
+   "primer_descarte_a_ultimo_syn": [
+    3.154,
+    3.718,
+    3.733
+   ]
+  }
+ }
+}

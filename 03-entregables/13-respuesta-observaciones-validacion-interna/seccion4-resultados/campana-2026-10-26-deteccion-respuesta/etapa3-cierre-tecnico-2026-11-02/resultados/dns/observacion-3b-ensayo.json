@@ -1,0 +1,240 @@
+{
+ "ficheros": [
+  "C:\\Users\\markp\\AppData\\Local\\Temp\\claude\\C--Users-markp-Desktop-PY-MEGATRON-PY---PERSONAL-TESIS\\51c74eee-a71d-4dd3-9ea4-b614ec3c2579\\scratchpad\\datos3b\\copias\\eve-segmento.json"
+ ],
+ "excluidos": [
+  "10.10.20.30"
+ ],
+ "utc_offset_h": -5.0,
+ "cubeta": {
+  "tasa_por_s": 0.5,
+  "rafaga": 18.0,
+  "solo": "udp dport 53"
+ },
+ "copias_espejo_descartadas": 10286,
+ "criterio": {
+  "P1": "0 consultas UDP/53 legitimas descartadas por la cubeta candidata en ningun origen y dia, con el origen limitado por error todo el dia (peor caso)",
+  "P2": "aviso (no rechazo): origen-dia con b(0,5) > 2/3 de la rafaga candidata (margen < 1,5x)",
+  "P3": "cobertura: >= 7 dias consecutivos con >= 5 laborables; sin huecos de EVE > 5 min (se comprueba aparte con la continuidad del EVE y kernel_drops)"
+ },
+ "resumen": {
+  "dias": [
+   "2026-11-01"
+  ],
+  "origenes": 17,
+  "consultas_udp": 4046,
+  "consultas_tcp": 0,
+  "origenes_con_tcp53": [],
+  "P1_cumple": true,
+  "P1_incumplimientos": [],
+  "P2_avisos": []
+ },
+ "por_dia": {
+  "2026-11-01": {
+   "10.10.10.1": {
+    "udp": 0,
+    "tcp": 0,
+    "max_1s": 0,
+    "max_10s": 0,
+    "max_60s": 0,
+    "b_minima": 0.0,
+    "descartes_simulados": 0,
+    "nxdomain": 2932,
+    "servfail": 0,
+    "otros_errores": 0
+   },
+   "10.10.20.21": {
+    "udp": 571,
+    "tcp": 0,
+    "max_1s": 3,
+    "max_10s": 5,
+    "max_60s": 11,
+    "b_minima": 3.39,
+    "descartes_simulados": 0,
+    "nxdomain": 0,
+    "servfail": 0,
+    "otros_errores": 0
+   },
+   "10.10.20.22": {
+    "udp": 1446,
+    "tcp": 0,
+    "max_1s": 3,
+    "max_10s": 7,
+    "max_60s": 19,
+    "b_minima": 3.22,
+    "descartes_simulados": 0,
+    "nxdomain": 0,
+    "servfail": 0,
+    "otros_errores": 0
+   },
+   "10.10.20.23": {
+    "udp": 58,
+    "tcp": 0,
+    "max_1s": 2,
+    "max_10s": 2,
+    "max_60s": 3,
+    "b_minima": 1.92,
+    "descartes_simulados": 0,
+    "nxdomain": 0,
+    "servfail": 0,
+    "otros_errores": 0
+   },
+   "10.10.20.24": {
+    "udp": 431,
+    "tcp": 0,
+    "max_1s": 2,
+    "max_10s": 5,
+    "max_60s": 9,
+    "b_minima": 2.42,
+    "descartes_simulados": 0,
+    "nxdomain": 0,
+    "servfail": 0,
+    "otros_errores": 0
+   },
+   "10.10.20.25": {
+    "udp": 332,
+    "tcp": 0,
+    "max_1s": 2,
+    "max_10s": 4,
+    "max_60s": 8,
+    "b_minima": 2.47,
+    "descartes_simulados": 0,
+    "nxdomain": 0,
+    "servfail": 0,
+    "otros_errores": 0
+   },
+   "10.10.20.26": {
+    "udp": 664,
+    "tcp": 0,
+    "max_1s": 3,
+    "max_10s": 8,
+    "max_60s": 19,
+    "b_minima": 3.5,
+    "descartes_simulados": 0,
+    "nxdomain": 0,
+    "servfail": 0,
+    "otros_errores": 0
+   },
+   "10.10.30.10": {
+    "udp": 0,
+    "tcp": 0,
+    "max_1s": 0,
+    "max_10s": 0,
+    "max_60s": 0,
+    "b_minima": 0.0,
+    "descartes_simulados": 0,
+    "nxdomain": 0,
+    "servfail": 0,
+    "otros_errores": 0
+   },
+   "10.10.40.10": {
+    "udp": 15,
+    "tcp": 0,
+    "max_1s": 5,
+    "max_10s": 5,
+    "max_60s": 5,
+    "b_minima": 5.0,
+    "descartes_simulados": 0,
+    "nxdomain": 0,
+    "servfail": 0,
+    "otros_errores": 0
+   },
+   "10.10.50.51": {
+    "udp": 80,
+    "tcp": 0,
+    "max_1s": 9,
+    "max_10s": 9,
+    "max_60s": 9,
+    "b_minima": 8.97,
+    "descartes_simulados": 0,
+    "nxdomain": 12,
+    "servfail": 0,
+    "otros_errores": 0
+   },
+   "10.10.50.52": {
+    "udp": 81,
+    "tcp": 0,
+    "max_1s": 9,
+    "max_10s": 9,
+    "max_60s": 9,
+    "b_minima": 8.97,
+    "descartes_simulados": 0,
+    "nxdomain": 6,
+    "servfail": 0,
+    "otros_errores": 0
+   },
+   "10.10.60.10": {
+    "udp": 6,
+    "tcp": 0,
+    "max_1s": 2,
+    "max_10s": 2,
+    "max_60s": 2,
+    "b_minima": 2.0,
+    "descartes_simulados": 0,
+    "nxdomain": 0,
+    "servfail": 0,
+    "otros_errores": 0
+   },
+   "10.10.60.20": {
+    "udp": 81,
+    "tcp": 0,
+    "max_1s": 9,
+    "max_10s": 9,
+    "max_60s": 9,
+    "b_minima": 8.97,
+    "descartes_simulados": 0,
+    "nxdomain": 14,
+    "servfail": 0,
+    "otros_errores": 0
+   },
+   "10.10.60.21": {
+    "udp": 71,
+    "tcp": 0,
+    "max_1s": 9,
+    "max_10s": 9,
+    "max_60s": 9,
+    "b_minima": 8.97,
+    "descartes_simulados": 0,
+    "nxdomain": 4,
+    "servfail": 0,
+    "otros_errores": 0
+   },
+   "10.10.60.40": {
+    "udp": 82,
+    "tcp": 0,
+    "max_1s": 9,
+    "max_10s": 9,
+    "max_60s": 9,
+    "b_minima": 8.97,
+    "descartes_simulados": 0,
+    "nxdomain": 6,
+    "servfail": 0,
+    "otros_errores": 0
+   },
+   "10.10.60.41": {
+    "udp": 87,
+    "tcp": 0,
+    "max_1s": 9,
+    "max_10s": 9,
+    "max_60s": 9,
+    "b_minima": 8.97,
+    "descartes_simulados": 0,
+    "nxdomain": 7,
+    "servfail": 0,
+    "otros_errores": 0
+   },
+   "10.10.60.50": {
+    "udp": 41,
+    "tcp": 0,
+    "max_1s": 2,
+    "max_10s": 3,
+    "max_60s": 5,
+    "b_minima": 2.0,
+    "descartes_simulados": 0,
+    "nxdomain": 0,
+    "servfail": 1,
+    "otros_errores": 0
+   }
+  }
+ }
+}
