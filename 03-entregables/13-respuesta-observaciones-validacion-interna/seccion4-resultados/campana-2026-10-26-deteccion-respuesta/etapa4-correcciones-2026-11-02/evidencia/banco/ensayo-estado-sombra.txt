@@ -1,0 +1,55 @@
+2026-11-02T21:40:01.901Z python: Python 3.13.5; estado_sombra: VERSION = "2026-11-02.1"
+2026-11-02T21:40:02.448Z S1 patrón antiguo (pgrep -af | grep -c --aplicar dentro de bash -c) = 1 con 0 agentes aplicando
+2026-11-02T21:40:02.452Z OK    S1 regresión reproducida: el patrón antiguo se contaba a sí mismo
+comprobacion agente_enforce --aplicar
+estado=sombra alcance=completo agentes=1 con_aplicar=0 tablas_cyberflow=0 eventos_aplicacion=0
+rc_remoto=0
+2026-11-02T21:40:02.653Z OK    S1 sombra con la comprobación por SSH simulado (rc=0)
+comprobacion agente_enforce --aplicar
+estado=aplicando alcance=completo agentes=2 con_aplicar=1 tablas_cyberflow=0 eventos_aplicacion=0
+  indicios_aplicacion: 1 agente(s) en ejecución con --aplicar
+rc_remoto=1
+2026-11-02T21:40:03.360Z OK    S2 agente v1 real con --aplicar bajo sh -c (rc=1)
+comprobacion agente_enforce --aplicar
+estado=aplicando alcance=completo agentes=2 con_aplicar=1 tablas_cyberflow=0 eventos_aplicacion=0
+  indicios_aplicacion: 1 agente(s) en ejecución con --aplicar
+rc_remoto=1
+2026-11-02T21:40:04.040Z OK    S3 agente v2 con --aplicar=si (rc=1)
+comprobacion agente_enforce --aplicar
+estado=desconocido alcance=completo agentes=1 con_aplicar=0 tablas_cyberflow=? eventos_aplicacion=?
+  lecturas_fallidas: nft: nft list tables rc=1 sudo: a password is required
+  lecturas_fallidas: traza: traza no legible (/var/lib/cyberflow/agente/traza.jsonl) rc=1 sudo: a password is required
+rc_remoto=2
+2026-11-02T21:40:04.213Z OK    S4 sudo -n falla: desconocido, no cero (rc=2)
+comprobacion agente_enforce --aplicar
+estado=desconocido alcance=completo agentes=1 con_aplicar=0 tablas_cyberflow=? eventos_aplicacion=0
+  lecturas_fallidas: nft: nft list tables rc=1 netlink: Error: Operation not permitted
+rc_remoto=2
+2026-11-02T21:40:04.411Z OK    S5 nft falla: desconocido (rc=2)
+comprobacion agente_enforce --aplicar
+estado=desconocido alcance=completo agentes=1 con_aplicar=0 tablas_cyberflow=0 eventos_aplicacion=?
+  lecturas_fallidas: traza: traza no legible (/var/lib/cyberflow/agente/traza.jsonl) rc=1 cat: No such file or directory
+rc_remoto=2
+2026-11-02T21:40:04.590Z OK    S6 traza ausente: desconocido (rc=2)
+comprobacion agente_enforce --aplicar
+estado=desconocido alcance=completo agentes=1 con_aplicar=0 tablas_cyberflow=0 eventos_aplicacion=0
+  lecturas_fallidas: ppi-enforce-agent.timer: systemctl rc=1 Failed to connect to bus
+  lecturas_fallidas: ppi-enforce-agent.service: systemctl rc=1 Failed to connect to bus
+  lecturas_fallidas: ppi-enforce-agent-v2-dmz.service: systemctl rc=1 Failed to connect to bus
+rc_remoto=2
+2026-11-02T21:40:04.796Z OK    S7 systemctl falla: desconocido (rc=2)
+comprobacion agente_enforce --aplicar
+estado=aplicando alcance=completo agentes=1 con_aplicar=0 tablas_cyberflow=1 eventos_aplicacion=0
+  indicios_aplicacion: tabla(s) nft cyberflow: inet cyberflow_dmz
+rc_remoto=1
+2026-11-02T21:40:04.981Z OK    S8 tabla cyberflow_dmz (rc=1)
+comprobacion agente_enforce --aplicar
+estado=aplicando alcance=completo agentes=1 con_aplicar=0 tablas_cyberflow=0 eventos_aplicacion=1
+  indicios_aplicacion: 1 evento(s) 'aplicacion' en la traza
+rc_remoto=1
+2026-11-02T21:40:05.177Z OK    S9 evento aplicacion en la traza (rc=1)
+Warning: Permanently added '[127.0.0.1]:2222' (ED25519) to the list of known hosts.
+comprobacion agente_enforce --aplicar
+estado=sombra alcance=completo agentes=1 con_aplicar=0 tablas_cyberflow=0 eventos_aplicacion=0
+2026-11-02T21:40:06.025Z OK    S10 SSH real a localhost (rc=0)
+2026-11-02T21:40:06.030Z RESULTADO: todas las comprobaciones OK

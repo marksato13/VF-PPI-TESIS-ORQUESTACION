@@ -26,6 +26,24 @@ Ningún otro script de análisis cambia: `analizar.py`, `analizar_3b.py`, `pobla
 Sin cambios en esta tanda: `candidato/etapa3-20261102` sigue en `acc6588` (herramientas de la Etapa 4 sobre `ec78ca5`);
 no se fusiona en `main` (`7b275b8`).
 
+## Correcciones del 2026-11-02 (tarde), posteriores a d3464bf
+
+Detalle completo en [etapa4-correcciones-2026-11-02](../etapa4-correcciones-2026-11-02/README.md). Aquí, solo lo que
+cambia dentro de esta carpeta:
+
+| Fichero | Cambio |
+|---|---|
+| `SALUD-CAPTURA.md` | Versión `.2` de `salud_captura.py` (`f9cf801`); cobertura SIGUSR1 con tolerancia 30 + 2 s (§2.1); nota de implementación de P1–P5/X1–X3 y lectura de X1 sobre los 25 planificados (§4.2) |
+| `PROTOCOLO-4C-CAMPANA-A.md` | §5.2 copia `scripts-4c/` a la Kali y c03 con seis hashes; §5.5 `g01` con el respaldo de srv-dmz, `estado_sombra.py`, vigía, permiso y canal de control persistente (sustituye «ningún acceso a la Kali»); §5.6 `rc=3` = cancelada |
+| `PROCEDIMIENTO-ETAPA4.md`, `README.md` | Herramientas `f9cf801`, rama en `3a9f26b`, paquete con 85 ficheros |
+| `ORDEN-4C.md` | El orden lo calcula `plan_orden`, igual en `c586d813…` y en `99e6bdae…` (no cambia) |
+| `evidencia/paquete/` | `SHA256SUMS` y `.sha256` del paquete reconstruido (`426de9de…`) |
+| `guiones/g01`, `b20`, `c03`, `r4`, `s50` | Compuerta, canal de control, rc 3, propagación de errores y ejecución parcial verificable |
+| `MANIFIESTO.sha256` | Regenerado |
+
+`config-campana-4c.json` (`f177d9bb…`, campo informativo `herramientas: acc6588`) **no** se toca: su hash está fijado
+en `herramientas-e4.sha256`, en ORDEN-4C y en PROTOCOLO-4B, y el campo no interviene en ningún cálculo.
+
 ## Lo que no cambia
 
 Modelo, escalador, 28 características, umbrales, reglas de detección, los tres arreglos de la Etapa 3, el Word, el

@@ -1,0 +1,195 @@
+## l1 cyberflow-sensor m4rk 2026-11-02T21:59:38.124Z
+== procesos con argumentos (cyberflow, acumulador, campaña, piloto, generador, captura)
+   1372       1 root     vie oct 30 19:55:21 2026 /usr/bin/suricata -D --af-packet -c /etc/suricata/suricata.yaml --pidfile /run/suricata.pid
+   1375       1 tcpdump  vie oct 30 19:55:21 2026 /usr/bin/tcpdump -i ens37 -n -s 0 -U -B 65536 -Z tcpdump -w /var/lib/ppi-motor-capture/live-%Y%m%d%H%M%S.pcap -G 15
+   1379       1 m4rk     vie oct 30 19:55:21 2026 /home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow/scripts/engine/dashboard.py --log-path /home/m4rk/cyberflow/logs/motor_decision.log --manifest-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json --detector-name if_limpio_2026_10 --eve-path /var/log/suricata/eve.json --schema /home/m4rk/cyberflow/
+1289322       1 m4rk     dom nov  1 03:14:00 2026 /home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow/scripts/engine/motor_decision.py --eve-path /var/log/suricata/eve.json --capture-dir /var/lib/ppi-motor-capture --model-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib --manifest-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10
+== unidades ppi-*/cyberflow*/cf-* (todas las cargadas) y timers
+UNIT                           LOAD   ACTIVE   SUB     DESCRIPTION
+cyberflow-acumular.service     loaded inactive dead    CyberFlow - acumula el dataset extrayendo sobre la marcha
+cyberflow-aprendizaje.service  loaded inactive dead    CyberFlow - reentrenamiento supervisado (lote, deriva y candidato)
+cyberflow-capture-nic.service  loaded active   exited  CyberFlow - prepara ens37 para captura pasiva
+cyberflow-limpieza.service     loaded inactive dead    CyberFlow - poda el anillo de PCAP
+cyberflow-panel-acceso.service loaded active   exited  CyberFlow - acceso al panel: solo 10.10.10.30/32
+ppi-dashboard.service          loaded active   running CyberFlow - panel web de solo lectura
+ppi-motor-capture.service      loaded active   running CyberFlow - buffer en anillo de PCAP para el motor
+ppi-motor.service              loaded active   running CyberFlow - motor de decision (Isolation Forest limpio), modo observacion
+ppi-publicar-feed.service      loaded inactive dead    CyberFlow - publica el feed firmado de acciones (desde las decisiones del motor)
+cyberflow-acumular.timer       loaded active   waiting CyberFlow - extraccion periodica hacia el dataset
+cyberflow-aprendizaje.timer    loaded active   waiting CyberFlow - reentrenamiento supervisado, cada noche
+cyberflow-limpieza.timer       loaded active   waiting CyberFlow - poda periodica del anillo de PCAP
+ppi-publicar-feed.timer        loaded active   waiting CyberFlow - publicar el feed cada 10 segundos
+
+Legend: LOAD   → Reflects whether the unit definition was properly loaded.
+        ACTIVE → The high-level unit activation state, i.e. generalization of SUB.
+        SUB    → The low-level unit activation state, values depend on unit type.
+
+13 loaded units listed.
+To show all installed unit files use 'systemctl list-unit-files'.
+NEXT                            LEFT LAST                               PASSED UNIT                           ACTIVATES
+Mon 2026-11-02 21:59:40 UTC       1s Mon 2026-11-02 21:59:30 UTC        7s ago ppi-publicar-feed.timer        ppi-publicar-feed.service
+Mon 2026-11-02 22:00:00 UTC      21s Mon 2026-11-02 21:50:00 UTC      9min ago cyberflow-acumular.timer       cyberflow-acumular.service
+Mon 2026-11-02 22:00:00 UTC      21s Mon 2026-11-02 21:55:00 UTC  4min 37s ago cyberflow-limpieza.timer       cyberflow-limpieza.service
+Tue 2026-11-03 00:00:00 UTC  2h 0min Mon 2026-11-02 00:00:00 UTC       21h ago logrotate.timer                logrotate.service
+Tue 2026-11-03 00:30:00 UTC 2h 30min Mon 2026-11-02 00:30:00 UTC       21h ago cyberflow-aprendizaje.timer    cyberflow-aprendizaje.service
+== ExecStart de las unidades del acumulador / dataset (lectura de systemctl cat, sin sudo)
+  cyberflow-acumular.service: ExecStart=/home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow/scripts/features/acumular_v3.py \
+  cyberflow-acumular.service:     --campaign-id linea-base \
+  cyberflow-aprendizaje.service: ExecStart=/home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow/scripts/modeling/cyberflow_aprendizaje.py \
+  cyberflow-capture-nic.service: ExecStart=/usr/sbin/ip link set ens37 up promisc on
+  cyberflow-capture-nic.service: ExecStart=-/usr/sbin/ethtool -K ens37 gro off lro off tso off gso off
+  cyberflow-capture-nic.service: ExecStart=-/usr/sbin/sysctl -qw net.ipv6.conf.ens37.disable_ipv6=1
+  cyberflow-limpieza.service: ExecStart=/usr/bin/find /var/lib/ppi-motor-capture -maxdepth 1 -name 'live-*.pcap' -mmin +15 -delete
+  cyberflow-panel-acceso.service: ExecStartPre=-/usr/sbin/nft delete table inet cyberflow_panel
+  cyberflow-panel-acceso.service: ExecStart=/usr/sbin/nft -f /etc/cyberflow/panel-acceso.nft
+  ppi-dashboard.service: ExecStart=/home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow/scripts/engine/dashboard.py \
+  ppi-motor-capture.service: ExecStartPre=/usr/bin/install -d -o tcpdump -g m4rk -m 2750 /var/lib/ppi-motor-capture
+  ppi-motor-capture.service: ExecStart=/usr/bin/tcpdump -i ens37 -n -s 0 -U -B 65536 \
+  ppi-motor.service: ExecStart=/home/m4rk/cyberflow/.venv/bin/python \
+  ppi-publicar-feed.service: ExecStart=/home/m4rk/cyberflow/.venv/bin/python scripts/engine/publicar_feed.py \
+== cron del usuario y de sistema (lectura)
+  total 20
+  drwxr-xr-x   2 root root 4096 feb 16  2025 .
+  drwxr-xr-x 111 root root 4096 sep 18 22:39 ..
+  -rw-r--r--   1 root root  201 abr  8  2024 e2scrub_all
+  -rw-r--r--   1 root root  102 feb 16  2025 .placeholder
+  -rw-r--r--   1 root root  396 feb 16  2025 sysstat
+== dataset multilayer-v3.csv: tamaño, mtime, última fila y etiquetas de las últimas 5000 filas
+  1314232585 B mtime=2026-11-02 21:51:59.256643110 +0000
+  última: linea-base,10.10.60.12,2026-11-02T21:49:20+00:00,60.00000000,True,5,9,5,0,8,0,0,60,1,16,0.50000000,30.40000000,60.800000
+     5000 linea-base
+  última fila piloto-con-dns: piloto-con-dns,10.10.60.12,2026-09-30T03:20:50+00:00,60.00000000,True,7,5,7,0,8,
+== ficheros escritos en las últimas 24 h bajo artifacts/ y logs/ (los 30 más recientes)
+  2026-11-02T21:59 64289719 /home/m4rk/cyberflow/logs/motor_decision.log
+  2026-11-02T21:59 14885784 /home/m4rk/cyberflow/logs/_state/ciclos.jsonl
+  2026-11-02T21:52 1686566 /home/m4rk/cyberflow/logs/acumular.log
+  2026-11-02T21:51 1314232585 /home/m4rk/cyberflow/artifacts/linea-base/multilayer-v3.csv
+  2026-11-02T21:50 0 /home/m4rk/cyberflow/artifacts/linea-base/multilayer-v3.csv.lock
+  2026-11-02T17:31 11359 /home/m4rk/cyberflow/logs/panel_auditoria.jsonl
+  2026-11-02T00:32 6682 /home/m4rk/cyberflow/artifacts/aprendizaje/deriva.jsonl
+  2026-11-02T00:32 43880217 /home/m4rk/cyberflow/artifacts/aprendizaje/lotes/lote-20261101.csv
+  2026-11-02T00:32 37969 /home/m4rk/cyberflow/logs/aprendizaje.log
+  2026-11-02T00:32 22964 /home/m4rk/cyberflow/artifacts/aprendizaje/registro.jsonl
+  2026-11-01T23:59 64651700 /home/m4rk/cyberflow/logs/motor_decision.log.1
+== ¿algún fichero o proceso menciona piloto-con-dns fuera del dataset? (configs, unidades de usuario)
+  /home/m4rk/cyberflow/configs/cyberflow.toml
+== Suricata: stats.log (actual y rotados legibles), serie de kernel_drops con su hora
+  /var/log/suricata/stats.log.1 no legible
+  -- /var/log/suricata/stats.log (90862276 B, mtime 2026-11-02 21:59:38.899154843 +0000)
+  incremento 11/2/2026 09:23:33 +239 (acum 13564)
+  incremento 11/2/2026 09:30:29 +53 (acum 13617)
+  incremento 11/2/2026 09:32:45 +256 (acum 13873)
+  incremento 11/2/2026 09:35:33 +229 (acum 14102)
+  incremento 11/2/2026 09:39:57 +46 (acum 14148)
+  incremento 11/2/2026 09:40:21 +38 (acum 14186)
+  incremento 11/2/2026 09:44:45 +143 (acum 14329)
+  incremento 11/2/2026 09:45:33 +4 (acum 14333)
+  incremento 11/2/2026 10:11:18 +298 (acum 14631)
+  incremento 11/2/2026 10:21:34 +76 (acum 14707)
+  incremento 11/2/2026 10:49:34 +33 (acum 14740)
+  incremento 11/2/2026 10:51:18 +163 (acum 14903)
+  incremento 11/2/2026 11:04:46 +125 (acum 15028)
+  incremento 11/2/2026 11:18:22 +109 (acum 15137)
+  incremento 11/2/2026 11:21:18 +217 (acum 15354)
+  incremento 11/2/2026 11:24:38 +158 (acum 15512)
+  incremento 11/2/2026 11:31:34 +63 (acum 15575)
+  incremento 11/2/2026 11:41:18 +29 (acum 15604)
+  incremento 11/2/2026 11:41:50 +20 (acum 15624)
+  incremento 11/2/2026 11:52:06 +14 (acum 15638)
+  incremento 11/2/2026 11:53:58 +210 (acum 15848)
+  incremento 11/2/2026 12:10:22 +257 (acum 16105)
+  incremento 11/2/2026 12:15:18 +315 (acum 16420)
+  incremento 11/2/2026 13:00:07 +51 (acum 16471)
+  incremento 11/2/2026 13:00:55 +508 (acum 16979)
+  incremento 11/2/2026 13:05:59 +160 (acum 17139)
+  incremento 11/2/2026 13:31:35 +282 (acum 17421)
+  incremento 11/2/2026 13:39:43 +334 (acum 17755)
+  incremento 11/2/2026 13:55:19 +147 (acum 17902)
+  incremento 11/2/2026 14:03:51 +62 (acum 17964)
+  incremento 11/2/2026 14:45:43 +3 (acum 17967)
+  incremento 11/2/2026 15:14:56 +59 (acum 18026)
+  incremento 11/2/2026 15:50:40 +3 (acum 18029)
+  incremento 11/2/2026 15:52:08 +198 (acum 18227)
+  incremento 11/2/2026 16:04:16 +26 (acum 18253)
+  incremento 11/2/2026 16:16:00 +67 (acum 18320)
+  incremento 11/2/2026 16:52:08 +295 (acum 18615)
+  incremento 11/2/2026 16:52:32 +33 (acum 18648)
+  incremento 11/2/2026 17:26:01 +92 (acum 18740)
+  incremento 11/2/2026 17:31:13 +98 (acum 18838)
+  incremento 11/2/2026 17:35:21 +60 (acum 18898)
+  incremento 11/2/2026 17:41:45 +93 (acum 18991)
+  incremento 11/2/2026 17:43:05 +112 (acum 19103)
+  incremento 11/2/2026 18:02:25 +196 (acum 19299)
+  incremento 11/2/2026 18:03:21 +323 (acum 19622)
+  incremento 11/2/2026 18:10:33 +371 (acum 19993)
+  incremento 11/2/2026 18:11:53 +524 (acum 20517)
+  incremento 11/2/2026 18:15:13 +15 (acum 20532)
+  incremento 11/2/2026 18:16:41 +5 (acum 20537)
+  incremento 11/2/2026 18:20:17 +285 (acum 20822)
+  incremento 11/2/2026 18:20:41 +169 (acum 20991)
+  incremento 11/2/2026 18:35:05 +492 (acum 21483)
+  incremento 11/2/2026 18:42:33 +871 (acum 22354)
+  incremento 11/2/2026 18:45:13 +113 (acum 22467)
+  incremento 11/2/2026 18:51:21 +125 (acum 22592)
+  incremento 11/2/2026 18:51:29 +326 (acum 22918)
+  incremento 11/2/2026 18:53:05 +20 (acum 22938)
+  incremento 11/2/2026 19:10:25 +24 (acum 22962)
+  incremento 11/2/2026 19:57:14 +12 (acum 22974)
+  última 11/2/2026 21:59:38 22974
+  total 2222148
+  drwxr-xr-x  2 root root        4096 nov  2 00:00 .
+  drwxrwxr-x 11 root syslog      4096 nov  1 00:00 ..
+  -rw-r--r--  1 root root   442586619 nov  2 21:59 eve.json
+  -rw-r--r--  1 root root    84086784 oct  5 18:50 eve.json.1-2026100600.backup
+  -rw-r--r--  1 root root   113516544 oct  9 13:53 eve.json.1-2026101000.backup
+  -rw-r--r--  1 root root   138301440 oct 21 19:07 eve.json.1-2026102200.backup
+  -rw-r--r--  1 root root   926269440 oct 30 15:50 eve.json.1-2026103100.backup
+  -rw-r--r--  1 root root    64185399 nov  2 00:00 eve.json.1.gz
+  -rw-r--r--  1 root root    11908848 nov  1 00:00 eve.json.2.gz
+  -rw-r--r--  1 root root     4250336 oct 30 23:59 eve.json.3.gz
+  -rw-r--r--  1 root root    46753835 oct 28 23:59 eve.json.5.gz
+  -rw-r--r--  1 root root    12749245 oct 28 00:00 eve.json.6.gz
+  -rw-r--r--  1 root root    13778846 oct 27 00:00 eve.json.7.gz
+  -rw-r--r--  1 root root           0 nov  2 00:00 fast.log
+  -rw-r--r--  1 root root           0 oct  5 18:50 fast.log.1-2026100600.backup
+  -rw-r--r--  1 root root           0 oct  9 13:53 fast.log.1-2026101000.backup
+  -rw-r--r--  1 root root           0 oct 21 19:07 fast.log.1-2026102200.backup
+  -rw-r--r--  1 root root           0 oct 30 15:50 fast.log.1-2026103100.backup
+  -rw-r--r--  1 root root          20 nov  1 00:00 fast.log.1.gz
+== Suricata: configuración relevante legible (af-packet, hilos, rotación de eve)
+  311:            threads: no       # per thread stats
+  441:      threads: no       # per thread stats
+  615:  - interface: ens37
+  633:    cluster-type: cluster_flow
+  690:  - interface: default
+  697:  - interface: default
+  752:    - interface: 0000:3b:00.0 # PCIe address of the NIC port
+  756:      threads: auto
+  790:    - interface: default
+  791:      threads: auto
+  808:  - interface: eth0
+  835:  - interface: default
+  1904:    buffer-size: 18432
+  1941: - interface: eth2
+  1978: - interface: default
+  1983:  - interface: eth0
+  1986:    threads: auto
+  2001:    cluster-type: cluster_flow
+  2028:  - interface: default
+  logrotate: /var/log/suricata/*.log
+  logrotate: /var/log/suricata/*.json
+  logrotate: {
+  logrotate: 	daily
+  logrotate: 	maxsize 500M
+  logrotate: 	rotate 7
+  logrotate: 	missingok
+  logrotate: 	compress
+  logrotate: 	copytruncate
+  logrotate: 	sharedscripts
+  logrotate: 	postrotate
+  logrotate: 		/bin/kill -HUP $(cat /var/run/suricata.pid)
+  logrotate: 	endscript
+  logrotate: }
+  NRestarts=0
+  ActiveEnterTimestamp=Fri 2026-10-30 19:55:21 UTC
+## fin 2026-11-02T21:59:41.771Z

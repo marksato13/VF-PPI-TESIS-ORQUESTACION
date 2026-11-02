@@ -2,7 +2,7 @@
 
 Fijado el **2026-11-02**, antes de instalar la 4A y antes de cualquier control (4B) o campaña (4C). Lo que aquí se fija **no se ajusta a la vista de los resultados**. Si algo obliga a apartarse, se para, se documenta la desviación y se decide antes de seguir.
 
-Herramienta: `scripts/etapa4/salud_captura.py` (VERSION `2026-11-02.1`) de la rama `candidato/etapa3-20261102` @ `acc6588`. En el Sensor1 queda, tras la fase 1 de la 4A, en `/home/m4rk/cyberflow-e4/ec78ca5/scripts/etapa4/salud_captura.py`. Solo lee. Un campo que no se puede leer queda `null` con su `motivo`: **nunca se escribe 0 en su lugar**.
+Herramienta: `scripts/etapa4/salud_captura.py` (VERSION `2026-11-02.2`) de la rama `candidato/etapa3-20261102` @ `f9cf801` (la `.1` de `acc6588` daba C0 con cobertura SIGUSR1 incompleta: corregido, ver [etapa4-correcciones-2026-11-02](../etapa4-correcciones-2026-11-02/README.md)). En el Sensor1 queda, tras la fase 1 de la 4A, en `/home/m4rk/cyberflow-e4/ec78ca5/scripts/etapa4/salud_captura.py`. Solo lee. Un campo que no se puede leer queda `null` con su `motivo`: **nunca se escribe 0 en su lugar**.
 
 ## 1. Correcciones a lo publicado en el cierre de la Etapa 3
 
@@ -22,7 +22,7 @@ Herramienta: `scripts/etapa4/salud_captura.py` (VERSION `2026-11-02.1`) de la ra
 | Contador | Línea `C packets captured, R packets received by filter, D packets dropped by kernel` del propio tcpdump |
 | Obtención | `cf-tcpdump-estadisticas.timer` (cada 30 s, `OnCalendar=*:*:00/30`) ejecuta `systemctl kill --kill-whom=main --signal=SIGUSR1 ppi-motor-capture.service`. Hace falta root porque tcpdump corre como `tcpdump` tras `-Z`. La línea va al journal de la unidad. Se exporta con `sudo -n journalctl -u ppi-motor-capture -o short-iso-precise` (m4rk tiene NOPASSWD para `journalctl`) |
 | Unidades | Paquetes. Acumulados desde el arranque de **ese** proceso (PID) |
-| Muestreo | Cada 30 s. Se exige una lectura a ≤ 30 s antes del inicio y otra a ≤ 30 s después del fin de cada periodo (cota conservadora) |
+| Muestreo | Cada 30 s (`AccuracySec=1s`). **Cobertura exigida** (versión `.2`): una lectura en [inicio − 32 s, inicio], otra en [fin, fin + 32 s], ningún hueco entre lecturas consecutivas > **30 + 2 s** (periodo del timer más su tolerancia), un único PID en todo el tramo y contadores válidos (enteros ≥ 0, capturados ≤ recibidos) y no decrecientes dentro del PID. Las lecturas sin hora o sin PID no cuentan. Si falta cualquiera de esas condiciones la clase es **C3** (cobertura insuficiente), nunca C0. Ejemplo reproducido: periodo [10, 110] con lecturas solo en 0 y 120 → C3 (hueco de 120 s) |
 | Incremento | `D(fin) − D(inicio)` del **mismo PID** = paquetes que el kernel descartó en el socket de tcpdump en el periodo |
 | Reinicio | Cambio de PID (el contador empieza en 0). Un periodo que contiene un cambio de PID es **C3** |
 | Lectura correcta | Con D = 0, `R > C` son paquetes en el búfer (en vuelo), **no pérdida**. Banco E3: `R = C + D` al terminar |
@@ -132,6 +132,8 @@ Se evalúan sobre los **30 min anteriores**, con las muestras de `salud_captura.
 | P4 | `D` > 0 en el tcpdump del anillo (C2), o sin lectura SIGUSR1 > 90 s (C3) |
 | P5 | Tres episodios **consecutivos** en C1: se pausa para diagnosticar Suricata. No cambia su clasificación |
 
+**Implementación (2026-11-02, corrección del defecto 3).** Estas condiciones las evalúa `scripts/etapa4/vigia_4c.py` (rama candidata @ `f9cf801`) cada 60 s, y el generador de la Kali (`scripts-4c/generar_campana.py`, `99e6bdae…`) no lanza un episodio sin un permiso `continuar` vigente del vigía (válido 150 s, con el nonce de la corrida). Sin lectura de una fuente, la condición correspondiente se da por cumplida (pausa): **una medida ausente nunca vale como limpia**. P2 usa el desfase que mide el propio vigía en cada ronda contra el bastión (sensor y srv-dmz con una lectura de reloj por SSH; la Kali en el mismo intercambio del permiso); un desfase cuya cota de medida supera 1 s cuenta como no medible y pausa. P4 «sin lectura > 90 s» es el umbral `sin_sigusr1`. Detalle y pruebas: [etapa4-correcciones-2026-11-02](../etapa4-correcciones-2026-11-02/TABLA-CORRECCIONES.md).
+
 **Reanudar** solo tras ≥ 5 min seguidos sin ninguna condición de pausa. Si hubo reinicio del motor, además ≥ 230 s de historia. El episodio que se lanza después es el **siguiente del orden publicado**; no se repite ni se reordena.
 
 **Cancelar.** La campaña o el control se cancela y no se reanuda:
@@ -141,6 +143,8 @@ Se evalúan sobre los **30 min anteriores**, con las muestras de `salud_captura.
 | X1 | Más del 20 % de los episodios ejecutados en C2 o C3 (DISEÑO v3) |
 | X2 | Cualquier evento `aplicacion` en la traza del agente, o cualquier cambio del ruleset nft respecto al respaldo (salvo contadores) |
 | X3 | Tráfico de ataque hacia un destino fuera de la lista blanca del escenario |
+
+Lectura de X1 que aplica el vigía: se cancela en cuanto el número de episodios en C2 o C3 supera el 20 % de los **25 planificados** (más de 5), es decir, cuando la regla ya no puede cumplirse aunque los restantes salieran limpios. Contar sobre los «ejecutados» cancelaría por un solo episodio C2 al principio (1 de 1 = 100 %). Se fija aquí, antes de ejecutar. X2 lo detecta `estado_sombra.py` (srv-dmz, cada 300 s y en `g01`); X3, los eventos de EVE del origen Kali a destinos fuera de `10.10.10.20` y `10.10.30.10`.
 
 ### 4.3 Qué es evaluable
 

@@ -4,7 +4,7 @@
 
 **Código que se instala:** `ec78ca5` (`ec78ca56a3a8f4bb17fda967a7f0abe0e9a2c742`), sin cambios.
 
-**Herramientas:** `acc6588` de la rama `candidato/etapa3-20261102`. Solo añaden `scripts/etapa4/`, `deploy/etapa4/` y pruebas, y `paquete_candidata.sh` aborta si el código difiere de ec78ca5.
+**Herramientas:** `f9cf801` de la rama `candidato/etapa3-20261102` (corrige los cuatro defectos de `acc6588`, ver [etapa4-correcciones-2026-11-02](../etapa4-correcciones-2026-11-02/README.md); la rama está en `3a9f26b`, que solo cambia pruebas). Solo añaden `scripts/etapa4/`, `deploy/etapa4/` y pruebas, y `paquete_candidata.sh` aborta si el código difiere de ec78ca5.
 
 **Qué no cambia:**
 
@@ -79,13 +79,13 @@ diff <(grep -v VERSION-ETAPA4 /c/Users/markp/cf-e4-paquete/SHA256SUMS) \
 ```
 
 - **Esperado:**
-  - `git status` vacío y los dos hashes iguales (`acc6588…`, o un descendiente que solo toque herramientas);
-  - el guion termina con `ficheros: 82`;
+  - `git status` vacío y los dos hashes iguales (`3a9f26b…`, o un descendiente que solo toque herramientas o pruebas);
+  - el guion termina con `ficheros: 85`;
   - `diff` sin salida. La única línea que cambia en cada construcción es `VERSION-ETAPA4` (lleva la hora): por eso el sha256 del `.tar.gz` no se compara con el de la preparación, y sí el de cada fichero.
 - **Parada:**
   - `PARADA: el código difiere de ec78ca5…`;
   - cualquier diferencia en `diff`;
-  - `HEAD` distinto de `acc6588` **sin** una nota de cambios publicada que lo explique.
+  - `HEAD` distinto de `3a9f26b` **sin** una nota de cambios publicada que lo explique.
 
 ## 2. Traslado a los tres hosts
 

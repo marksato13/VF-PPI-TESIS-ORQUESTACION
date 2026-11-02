@@ -1,0 +1,21 @@
+## s50 corregido (1759669216e34d6f…)
+OK    S1 ejecución correcta 4c: rc=0, SHA256SUMS «COMPLETO», sin PARCIAL
+OK    S2 sin REANUDAR y con análisis existente: PARAR (rc=2)
+OK    S3 reanudar con una salida OK alterada: PARAR (rc=2), no se reutiliza ni se sobrescribe
+OK    S4 fallo inducido en el paso 4 (Python sale con 1): rc=1
+OK    S4 dependientes 5, 6, c y 9 omitidos; independientes 7 y 8 hechos
+OK    S4 manifiesto PARCIAL etiquetado y SIN SHA256SUMS completo; salidas parciales conservadas
+OK    S5 reanudación tras corregir: rc=0, pasos OK reutilizados y verificados, el 4 repetido, COMPLETO
+OK    S5 las salidas del intento fallido quedan apartadas en .fallidos/ (no se sobrescriben)
+OK    S6 excepción de Python en a1: rc=1; a2, a3, b y 7 omitidos; c (no usa la salud) hecho; resultado PARCIAL
+OK    S7 orden fallida dentro de una sustitución (inicio.json ausente) en el paso 3: rc=1, 5 omitido
+OK    S8 ejecución correcta 4b: rc=0 y COMPLETO
+## r4 corregido
+OK    R1 guion remoto rc=0 -> r4 rc=0 y línea final '## r4 rc=0'
+OK    R2 guion remoto rc=3 (en el sensor, a través del bastión) -> r4 rc=3
+OK    R3 fallo de conexión SSH (255) -> r4 rc=255
+OK    R4 cadena completa r4 -> bastión -> sensor -> s50 con paso fallido: rc=1 en el portátil
+## versiones anteriores (d3464bf): el defecto
+OK    V1 s50 anterior con el paso 4 fallido: rc=0 y SHA256SUMS escrito como si estuviera completo (defecto reproducido)
+OK    V2 r4 anterior con el guion remoto rc=3: devuelve 0 (el de tee) (defecto reproducido)
+RESULTADO: todas las comprobaciones OK
