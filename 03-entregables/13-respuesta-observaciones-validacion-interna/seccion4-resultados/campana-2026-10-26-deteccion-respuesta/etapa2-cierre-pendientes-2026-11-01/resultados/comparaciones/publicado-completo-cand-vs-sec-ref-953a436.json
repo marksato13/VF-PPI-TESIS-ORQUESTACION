@@ -1,0 +1,35 @@
+{
+ "a": "C:/Users/markp/AppData/Local/Temp/claude/C--Users-markp-Desktop-PY-MEGATRON-PY---PERSONAL-TESIS/51c74eee-a71d-4dd3-9ea4-b614ec3c2579/scratchpad/replay/completo-cand-e5-eventos",
+ "b": "C:/Users/markp/AppData/Local/Temp/claude/C--Users-markp-Desktop-PY-MEGATRON-PY---PERSONAL-TESIS/51c74eee-a71d-4dd3-9ea4-b614ec3c2579/scratchpad/replay/sec-ref-953a436",
+ "rango": [
+  "",
+  "9999"
+ ],
+ "claves": {
+  "a": 12740,
+  "b": 12740,
+  "union": 12740
+ },
+ "estados_a": {
+  "decision": 12726,
+  "no_evaluada:ventana_no_regenerada": 14
+ },
+ "estados_b": {
+  "decision": 12726,
+  "no_evaluada:ventana_no_regenerada": 14
+ },
+ "transiciones_a_b": {},
+ "iguales": 12740,
+ "vectores_comparables": 9607,
+ "vectores_distintos": 0,
+ "scores_distintos": 0,
+ "decisiones_comparables": 12726,
+ "decisiones_distintas": 0,
+ "detector_o_reglas_distintos": 0,
+ "ejemplos": {
+  "vectores": [],
+  "decisiones": [],
+  "reglas": [],
+  "transiciones": []
+ }
+}

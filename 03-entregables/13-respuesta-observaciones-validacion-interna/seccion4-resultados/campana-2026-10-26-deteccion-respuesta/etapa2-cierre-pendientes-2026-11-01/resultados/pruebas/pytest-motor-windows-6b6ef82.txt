@@ -1,0 +1,31 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.3, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\markp\AppData\Local\Python\pythoncore-3.14-64\python.exe
+rootdir: C:\Users\markp\Desktop\PY-MEGATRON\PY - PERSONAL\TESIS\CYBERFLOW\producto-etapa2
+plugins: anyio-4.13.0, platformdirs-4.12.1, cov-7.1.0
+collecting ... collected 22 items
+
+tests/test_motor_incremental.py::Deduplicacion::test_anillo_deslizante_igual_a_la_global PASSED [  4%]
+tests/test_motor_incremental.py::Deduplicacion::test_copia_que_llega_en_el_fichero_siguiente PASSED [  9%]
+tests/test_motor_incremental.py::Deduplicacion::test_deslizar_igual_a_la_global_con_atribucion PASSED [ 13%]
+tests/test_motor_incremental.py::Atribucion::test_anillo_deslizante_igual_a_la_global PASSED [ 18%]
+tests/test_motor_incremental.py::Atribucion::test_cambio_de_propietario_al_podar_el_syn PASSED [ 22%]
+tests/test_motor_incremental.py::FilasPendientes::test_anclas_de_entidad_excluida PASSED [ 27%]
+tests/test_motor_incremental.py::FilasPendientes::test_fila_de_ancla_igual_a_build_rows_global_del_horizonte PASSED [ 31%]
+tests/test_motor_incremental.py::FilasPendientes::test_igual_a_build_rows_global_desde_la_primera_ancla_no_puntuada PASSED [ 36%]
+tests/test_motor_incremental.py::Eve::test_por_linea_igual_que_el_volcado PASSED [ 40%]
+tests/test_motor_incremental.py::PuntuacionPorLotes::test_lote_igual_a_una_llamada_por_fila PASSED [ 45%]
+tests/test_motor_incremental.py::TiemposDeRegistro::test_logged_at_antes_del_write_y_disponibilidad_despues PASSED [ 50%]
+tests/test_motor_incremental.py::ExtremoAExtremo::test_escenario_sintetico_con_reinicio PASSED [ 54%]
+tests/test_motor_incremental.py::HorizontePorVentana::test_misma_fila_con_cualquier_cadencia_retraso_o_reinicio PASSED [ 59%]
+tests/test_motor_incremental.py::ContabilidadPendientes::test_cancelaciones_justificadas_y_sin_perdidas 
+tests/test_motor_incremental.py::ContabilidadPendientes::test_cancelaciones_justificadas_y_sin_perdidas PASSED [ 63%]
+tests/test_motor_incremental.py::ResolucionPendientesUnidad::test_limites_de_la_regla_de_registro PASSED [ 68%]
+tests/test_motor_incremental.py::ResolucionPendientesUnidad::test_registro_de_cancelacion_con_evidencia PASSED [ 72%]
+tests/test_motor_completitud.py::VentanaCompleta::test_cubierta_por_los_cerrados PASSED [ 77%]
+tests/test_motor_completitud.py::VentanaCompleta::test_paquetes_aun_en_el_fichero_activo PASSED [ 81%]
+tests/test_motor_completitud.py::VentanaCompleta::test_sin_pcap_cerrado_no_esta_completa PASSED [ 86%]
+tests/test_motor_completitud.py::ClavesYaRegistradas::test_carga_decisiones_y_no_evaluadas_y_omite_lo_demas PASSED [ 90%]
+tests/test_motor_completitud.py::ClavesYaRegistradas::test_cola_recortada_descarta_la_primera_linea_partida PASSED [ 95%]
+tests/test_motor_completitud.py::ClavesYaRegistradas::test_registro_inexistente PASSED [100%]
+
+=================== 22 passed, 2 subtests passed in 31.32s ====================

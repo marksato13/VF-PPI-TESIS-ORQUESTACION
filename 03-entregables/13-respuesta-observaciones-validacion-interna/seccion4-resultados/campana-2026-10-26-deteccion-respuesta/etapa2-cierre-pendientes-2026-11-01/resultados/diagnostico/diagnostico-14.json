@@ -1,0 +1,738 @@
+[
+ {
+  "entidad": "10.10.50.52",
+  "fin_ventana": "2026-11-01T09:24:40+00:00",
+  "alta_pendiente_anterior": "09:23:51.187",
+  "expiro_anterior": "09:24:41.026",
+  "motivo_anterior": "ventana_no_regenerada",
+  "alta_pendiente_corregido": "09:23:51.237",
+  "motivo_alta": "contenido de E en (A-60, A] segun la atribucion de la ultima ancla tratada",
+  "horizonte_alta": {
+   "corte": "09:20:00.000",
+   "obs_pcap_E_60s": 14,
+   "obs_pcap_E_30s": 8,
+   "paquetes_de_E_atribuidos_a": {},
+   "flujos_activos": 1,
+   "inicio_flujos_min": "09:20:09.647",
+   "primer_emisor": [
+    "10.10.50.52"
+   ]
+  },
+  "horizonte_propio": {
+   "corte": "09:20:50.000",
+   "obs_pcap_E_60s": 0,
+   "obs_pcap_E_30s": 0,
+   "paquetes_de_E_atribuidos_a": {
+    "10.10.60.10": 14
+   },
+   "flujos_activos": 1,
+   "inicio_flujos_min": "09:20:50.000",
+   "primer_emisor": [
+    "10.10.60.10"
+   ]
+  },
+  "obs_eve_E_60s": 0,
+  "cambio_propietario": true,
+  "propietario_excluido": true,
+  "estado_regla_causal": "no_registrable",
+  "estado_corregido": "cancelada",
+  "coincide_motor": true
+ },
+ {
+  "entidad": "10.10.30.10",
+  "fin_ventana": "2026-11-01T09:26:50+00:00",
+  "alta_pendiente_anterior": "09:26:41.221",
+  "expiro_anterior": "09:26:51.047",
+  "motivo_anterior": "ventana_no_regenerada",
+  "alta_pendiente_corregido": "09:26:41.232",
+  "motivo_alta": "contenido de E en (A-60, A] segun la atribucion de la ultima ancla tratada",
+  "horizonte_alta": {
+   "corte": "09:22:50.000",
+   "obs_pcap_E_60s": 10,
+   "obs_pcap_E_30s": 10,
+   "paquetes_de_E_atribuidos_a": {
+    "10.10.10.30": 396,
+    "10.10.20.21": 362,
+    "10.10.20.22": 7043,
+    "10.10.20.23": 5667,
+    "10.10.20.24": 259,
+    "10.10.20.25": 24,
+    "10.10.20.26": 651
+   },
+   "flujos_activos": 93,
+   "inicio_flujos_min": "09:22:50.010",
+   "primer_emisor": [
+    "10.10.10.30",
+    "10.10.20.21",
+    "10.10.20.22",
+    "10.10.20.23",
+    "10.10.20.24",
+    "10.10.20.25",
+    "10.10.20.26",
+    "10.10.30.10"
+   ]
+  },
+  "horizonte_propio": {
+   "corte": "09:23:00.000",
+   "obs_pcap_E_60s": 0,
+   "obs_pcap_E_30s": 0,
+   "paquetes_de_E_atribuidos_a": {
+    "10.10.10.30": 396,
+    "10.10.20.21": 362,
+    "10.10.20.22": 7043,
+    "10.10.20.23": 5667,
+    "10.10.20.24": 269,
+    "10.10.20.25": 24,
+    "10.10.20.26": 651
+   },
+   "flujos_activos": 93,
+   "inicio_flujos_min": "09:25:50.630",
+   "primer_emisor": [
+    "10.10.10.30",
+    "10.10.20.21",
+    "10.10.20.22",
+    "10.10.20.23",
+    "10.10.20.24",
+    "10.10.20.25",
+    "10.10.20.26"
+   ]
+  },
+  "obs_eve_E_60s": 0,
+  "cambio_propietario": true,
+  "propietario_excluido": false,
+  "estado_regla_causal": "no_registrable",
+  "estado_corregido": "cancelada",
+  "coincide_motor": true
+ },
+ {
+  "entidad": "10.10.30.10",
+  "fin_ventana": "2026-11-01T09:27:00+00:00",
+  "alta_pendiente_anterior": "09:26:41.221",
+  "expiro_anterior": "09:27:01.121",
+  "motivo_anterior": "ventana_no_regenerada",
+  "alta_pendiente_corregido": "09:26:41.232",
+  "motivo_alta": "contenido de E en (A-60, A] segun la atribucion de la ultima ancla tratada",
+  "horizonte_alta": {
+   "corte": "09:22:50.000",
+   "obs_pcap_E_60s": 10,
+   "obs_pcap_E_30s": 10,
+   "paquetes_de_E_atribuidos_a": {
+    "10.10.10.30": 396,
+    "10.10.20.21": 381,
+    "10.10.20.22": 6181,
+    "10.10.20.23": 4281,
+    "10.10.20.24": 220,
+    "10.10.20.25": 22,
+    "10.10.20.26": 619
+   },
+   "flujos_activos": 83,
+   "inicio_flujos_min": "09:22:50.010",
+   "primer_emisor": [
+    "10.10.10.30",
+    "10.10.20.21",
+    "10.10.20.22",
+    "10.10.20.23",
+    "10.10.20.24",
+    "10.10.20.25",
+    "10.10.20.26",
+    "10.10.30.10"
+   ]
+  },
+  "horizonte_propio": {
+   "corte": "09:23:10.000",
+   "obs_pcap_E_60s": 0,
+   "obs_pcap_E_30s": 0,
+   "paquetes_de_E_atribuidos_a": {
+    "10.10.10.30": 396,
+    "10.10.20.21": 381,
+    "10.10.20.22": 6181,
+    "10.10.20.23": 4281,
+    "10.10.20.24": 230,
+    "10.10.20.25": 22,
+    "10.10.20.26": 619
+   },
+   "flujos_activos": 83,
+   "inicio_flujos_min": "09:26:00.628",
+   "primer_emisor": [
+    "10.10.10.30",
+    "10.10.20.21",
+    "10.10.20.22",
+    "10.10.20.23",
+    "10.10.20.24",
+    "10.10.20.25",
+    "10.10.20.26"
+   ]
+  },
+  "obs_eve_E_60s": 0,
+  "cambio_propietario": true,
+  "propietario_excluido": false,
+  "estado_regla_causal": "no_registrable",
+  "estado_corregido": "cancelada",
+  "coincide_motor": true
+ },
+ {
+  "entidad": "10.10.30.10",
+  "fin_ventana": "2026-11-01T09:27:10+00:00",
+  "alta_pendiente_anterior": "09:26:41.221",
+  "expiro_anterior": "09:27:11.155",
+  "motivo_anterior": "ventana_no_regenerada",
+  "alta_pendiente_corregido": "09:26:41.232",
+  "motivo_alta": "contenido de E en (A-60, A] segun la atribucion de la ultima ancla tratada",
+  "horizonte_alta": {
+   "corte": "09:22:50.000",
+   "obs_pcap_E_60s": 10,
+   "obs_pcap_E_30s": 5,
+   "paquetes_de_E_atribuidos_a": {
+    "10.10.10.30": 398,
+    "10.10.20.21": 349,
+    "10.10.20.22": 7769,
+    "10.10.20.23": 3277,
+    "10.10.20.24": 231,
+    "10.10.20.25": 32,
+    "10.10.20.26": 2310
+   },
+   "flujos_activos": 88,
+   "inicio_flujos_min": "09:22:50.010",
+   "primer_emisor": [
+    "10.10.10.30",
+    "10.10.20.21",
+    "10.10.20.22",
+    "10.10.20.23",
+    "10.10.20.24",
+    "10.10.20.25",
+    "10.10.20.26",
+    "10.10.30.10"
+   ]
+  },
+  "horizonte_propio": {
+   "corte": "09:23:20.000",
+   "obs_pcap_E_60s": 0,
+   "obs_pcap_E_30s": 0,
+   "paquetes_de_E_atribuidos_a": {
+    "10.10.10.30": 398,
+    "10.10.20.21": 349,
+    "10.10.20.22": 7769,
+    "10.10.20.23": 3277,
+    "10.10.20.24": 241,
+    "10.10.20.25": 32,
+    "10.10.20.26": 2310
+   },
+   "flujos_activos": 88,
+   "inicio_flujos_min": "09:26:10.171",
+   "primer_emisor": [
+    "10.10.10.30",
+    "10.10.20.21",
+    "10.10.20.22",
+    "10.10.20.23",
+    "10.10.20.24",
+    "10.10.20.25",
+    "10.10.20.26"
+   ]
+  },
+  "obs_eve_E_60s": 0,
+  "cambio_propietario": true,
+  "propietario_excluido": false,
+  "estado_regla_causal": "no_registrable",
+  "estado_corregido": "cancelada",
+  "coincide_motor": true
+ },
+ {
+  "entidad": "10.10.30.10",
+  "fin_ventana": "2026-11-01T09:27:20+00:00",
+  "alta_pendiente_anterior": "09:26:41.221",
+  "expiro_anterior": "09:27:21.028",
+  "motivo_anterior": "ventana_no_regenerada",
+  "alta_pendiente_corregido": "09:26:41.232",
+  "motivo_alta": "contenido de E en (A-60, A] segun la atribucion de la ultima ancla tratada",
+  "horizonte_alta": {
+   "corte": "09:22:50.000",
+   "obs_pcap_E_60s": 10,
+   "obs_pcap_E_30s": 0,
+   "paquetes_de_E_atribuidos_a": {
+    "10.10.10.30": 398,
+    "10.10.20.21": 351,
+    "10.10.20.22": 10107,
+    "10.10.20.23": 3797,
+    "10.10.20.24": 252,
+    "10.10.20.25": 32,
+    "10.10.20.26": 1701
+   },
+   "flujos_activos": 88,
+   "inicio_flujos_min": "09:22:50.010",
+   "primer_emisor": [
+    "10.10.10.30",
+    "10.10.20.21",
+    "10.10.20.22",
+    "10.10.20.23",
+    "10.10.20.24",
+    "10.10.20.25",
+    "10.10.20.26",
+    "10.10.30.10"
+   ]
+  },
+  "horizonte_propio": {
+   "corte": "09:23:30.000",
+   "obs_pcap_E_60s": 0,
+   "obs_pcap_E_30s": 0,
+   "paquetes_de_E_atribuidos_a": {
+    "10.10.10.30": 398,
+    "10.10.20.21": 351,
+    "10.10.20.22": 10107,
+    "10.10.20.23": 3797,
+    "10.10.20.24": 262,
+    "10.10.20.25": 32,
+    "10.10.20.26": 1701
+   },
+   "flujos_activos": 88,
+   "inicio_flujos_min": "09:26:20.222",
+   "primer_emisor": [
+    "10.10.10.30",
+    "10.10.20.21",
+    "10.10.20.22",
+    "10.10.20.23",
+    "10.10.20.24",
+    "10.10.20.25",
+    "10.10.20.26"
+   ]
+  },
+  "obs_eve_E_60s": 0,
+  "cambio_propietario": true,
+  "propietario_excluido": false,
+  "estado_regla_causal": "no_registrable",
+  "estado_corregido": "cancelada",
+  "coincide_motor": true
+ },
+ {
+  "entidad": "10.10.30.10",
+  "fin_ventana": "2026-11-01T09:27:30+00:00",
+  "alta_pendiente_anterior": "09:26:41.221",
+  "expiro_anterior": "09:27:31.094",
+  "motivo_anterior": "ventana_no_regenerada",
+  "alta_pendiente_corregido": "09:26:41.232",
+  "motivo_alta": "contenido de E en (A-60, A] segun la atribucion de la ultima ancla tratada",
+  "horizonte_alta": {
+   "corte": "09:22:50.000",
+   "obs_pcap_E_60s": 10,
+   "obs_pcap_E_30s": 0,
+   "paquetes_de_E_atribuidos_a": {
+    "10.10.10.30": 398,
+    "10.10.20.21": 140,
+    "10.10.20.22": 12746,
+    "10.10.20.23": 1906,
+    "10.10.20.24": 265,
+    "10.10.20.25": 34,
+    "10.10.20.26": 1703
+   },
+   "flujos_activos": 88,
+   "inicio_flujos_min": "09:22:50.010",
+   "primer_emisor": [
+    "10.10.10.30",
+    "10.10.20.21",
+    "10.10.20.22",
+    "10.10.20.23",
+    "10.10.20.24",
+    "10.10.20.25",
+    "10.10.20.26",
+    "10.10.30.10"
+   ]
+  },
+  "horizonte_propio": {
+   "corte": "09:23:40.000",
+   "obs_pcap_E_60s": 0,
+   "obs_pcap_E_30s": 0,
+   "paquetes_de_E_atribuidos_a": {
+    "10.10.10.30": 398,
+    "10.10.20.21": 140,
+    "10.10.20.22": 12746,
+    "10.10.20.23": 1906,
+    "10.10.20.24": 275,
+    "10.10.20.25": 34,
+    "10.10.20.26": 1703
+   },
+   "flujos_activos": 88,
+   "inicio_flujos_min": "09:26:30.170",
+   "primer_emisor": [
+    "10.10.10.30",
+    "10.10.20.21",
+    "10.10.20.22",
+    "10.10.20.23",
+    "10.10.20.24",
+    "10.10.20.25",
+    "10.10.20.26"
+   ]
+  },
+  "obs_eve_E_60s": 0,
+  "cambio_propietario": true,
+  "propietario_excluido": false,
+  "estado_regla_causal": "no_registrable",
+  "estado_corregido": "cancelada",
+  "coincide_motor": true
+ },
+ {
+  "entidad": "10.10.30.10",
+  "fin_ventana": "2026-11-01T09:27:40+00:00",
+  "alta_pendiente_anterior": "09:26:41.221",
+  "expiro_anterior": "09:27:41.080",
+  "motivo_anterior": "ventana_no_regenerada",
+  "alta_pendiente_corregido": "09:26:41.232",
+  "motivo_alta": "contenido de E en (A-60, A] segun la atribucion de la ultima ancla tratada",
+  "horizonte_alta": {
+   "corte": "09:22:50.000",
+   "obs_pcap_E_60s": 5,
+   "obs_pcap_E_30s": 0,
+   "paquetes_de_E_atribuidos_a": {
+    "10.10.10.30": 400,
+    "10.10.20.21": 141,
+    "10.10.20.22": 11241,
+    "10.10.20.23": 1854,
+    "10.10.20.24": 214,
+    "10.10.20.25": 22,
+    "10.10.20.26": 1705
+   },
+   "flujos_activos": 86,
+   "inicio_flujos_min": "09:22:50.010",
+   "primer_emisor": [
+    "10.10.10.30",
+    "10.10.20.21",
+    "10.10.20.22",
+    "10.10.20.23",
+    "10.10.20.24",
+    "10.10.20.25",
+    "10.10.20.26",
+    "10.10.30.10"
+   ]
+  },
+  "horizonte_propio": {
+   "corte": "09:23:50.000",
+   "obs_pcap_E_60s": 0,
+   "obs_pcap_E_30s": 0,
+   "paquetes_de_E_atribuidos_a": {
+    "10.10.10.30": 400,
+    "10.10.20.21": 141,
+    "10.10.20.22": 11241,
+    "10.10.20.23": 1854,
+    "10.10.20.24": 219,
+    "10.10.20.25": 22,
+    "10.10.20.26": 1705
+   },
+   "flujos_activos": 86,
+   "inicio_flujos_min": "09:26:39.998",
+   "primer_emisor": [
+    "10.10.10.30",
+    "10.10.20.21",
+    "10.10.20.22",
+    "10.10.20.23",
+    "10.10.20.24",
+    "10.10.20.25",
+    "10.10.20.26"
+   ]
+  },
+  "obs_eve_E_60s": 0,
+  "cambio_propietario": true,
+  "propietario_excluido": false,
+  "estado_regla_causal": "no_registrable",
+  "estado_corregido": "cancelada",
+  "coincide_motor": true
+ },
+ {
+  "entidad": "10.10.10.21",
+  "fin_ventana": "2026-11-01T09:28:30+00:00",
+  "alta_pendiente_anterior": "09:27:51.206",
+  "expiro_anterior": "09:28:31.188",
+  "motivo_anterior": "ventana_no_regenerada",
+  "alta_pendiente_corregido": "09:27:51.069",
+  "motivo_alta": "contenido de E en (A-60, A] segun la atribucion de la ultima ancla tratada",
+  "horizonte_alta": {
+   "corte": "09:24:00.000",
+   "obs_pcap_E_60s": 9,
+   "obs_pcap_E_30s": 6,
+   "paquetes_de_E_atribuidos_a": {
+    "10.10.40.10": 2,
+    "10.10.60.40": 2
+   },
+   "flujos_activos": 3,
+   "inicio_flujos_min": "09:24:08.045",
+   "primer_emisor": [
+    "10.10.10.21",
+    "10.10.40.10",
+    "10.10.60.40"
+   ]
+  },
+  "horizonte_propio": {
+   "corte": "09:24:40.000",
+   "obs_pcap_E_60s": 0,
+   "obs_pcap_E_30s": 0,
+   "paquetes_de_E_atribuidos_a": {
+    "10.10.40.10": 2,
+    "10.10.60.10": 9,
+    "10.10.60.40": 2
+   },
+   "flujos_activos": 3,
+   "inicio_flujos_min": "09:24:40.006",
+   "primer_emisor": [
+    "10.10.40.10",
+    "10.10.60.10",
+    "10.10.60.40"
+   ]
+  },
+  "obs_eve_E_60s": 0,
+  "cambio_propietario": true,
+  "propietario_excluido": false,
+  "estado_regla_causal": "no_registrable",
+  "estado_corregido": "cancelada",
+  "coincide_motor": true
+ },
+ {
+  "entidad": "10.10.10.21",
+  "fin_ventana": "2026-11-01T09:34:30+00:00",
+  "alta_pendiente_anterior": "09:33:51.007",
+  "expiro_anterior": "09:34:31.028",
+  "motivo_anterior": "ventana_no_regenerada",
+  "alta_pendiente_corregido": "09:33:51.006",
+  "motivo_alta": "contenido de E en (A-60, A] segun la atribucion de la ultima ancla tratada",
+  "horizonte_alta": {
+   "corte": "09:30:00.000",
+   "obs_pcap_E_60s": 9,
+   "obs_pcap_E_30s": 6,
+   "paquetes_de_E_atribuidos_a": {},
+   "flujos_activos": 1,
+   "inicio_flujos_min": "09:30:08.064",
+   "primer_emisor": [
+    "10.10.10.21"
+   ]
+  },
+  "horizonte_propio": {
+   "corte": "09:30:40.000",
+   "obs_pcap_E_60s": 0,
+   "obs_pcap_E_30s": 0,
+   "paquetes_de_E_atribuidos_a": {
+    "10.10.60.10": 9
+   },
+   "flujos_activos": 1,
+   "inicio_flujos_min": "09:30:40.035",
+   "primer_emisor": [
+    "10.10.60.10"
+   ]
+  },
+  "obs_eve_E_60s": 0,
+  "cambio_propietario": true,
+  "propietario_excluido": true,
+  "estado_regla_causal": "no_registrable",
+  "estado_corregido": "cancelada",
+  "coincide_motor": true
+ },
+ {
+  "entidad": "10.10.10.21",
+  "fin_ventana": "2026-11-01T09:36:00+00:00",
+  "alta_pendiente_anterior": "09:35:11.156",
+  "expiro_anterior": "09:36:01.015",
+  "motivo_anterior": "ventana_no_regenerada",
+  "alta_pendiente_corregido": "09:35:11.014",
+  "motivo_alta": "contenido de E en (A-60, A] segun la atribucion de la ultima ancla tratada",
+  "horizonte_alta": {
+   "corte": "09:31:20.000",
+   "obs_pcap_E_60s": 14,
+   "obs_pcap_E_30s": 3,
+   "paquetes_de_E_atribuidos_a": {
+    "10.10.60.41": 30
+   },
+   "flujos_activos": 6,
+   "inicio_flujos_min": "09:31:28.016",
+   "primer_emisor": [
+    "10.10.10.21",
+    "10.10.60.41"
+   ]
+  },
+  "horizonte_propio": {
+   "corte": "09:32:10.000",
+   "obs_pcap_E_60s": 0,
+   "obs_pcap_E_30s": 0,
+   "paquetes_de_E_atribuidos_a": {
+    "10.10.60.10": 14,
+    "10.10.60.41": 30
+   },
+   "flujos_activos": 6,
+   "inicio_flujos_min": "09:32:10.001",
+   "primer_emisor": [
+    "10.10.60.10",
+    "10.10.60.41"
+   ]
+  },
+  "obs_eve_E_60s": 0,
+  "cambio_propietario": true,
+  "propietario_excluido": true,
+  "estado_regla_causal": "no_registrable",
+  "estado_corregido": "cancelada",
+  "coincide_motor": true
+ },
+ {
+  "entidad": "10.10.10.21",
+  "fin_ventana": "2026-11-01T09:41:00+00:00",
+  "alta_pendiente_anterior": "09:40:11.241",
+  "expiro_anterior": "09:41:01.138",
+  "motivo_anterior": "ventana_no_regenerada",
+  "alta_pendiente_corregido": "09:40:11.204",
+  "motivo_alta": "contenido de E en (A-60, A] segun la atribucion de la ultima ancla tratada",
+  "horizonte_alta": {
+   "corte": "09:36:20.000",
+   "obs_pcap_E_60s": 9,
+   "obs_pcap_E_30s": 3,
+   "paquetes_de_E_atribuidos_a": {},
+   "flujos_activos": 1,
+   "inicio_flujos_min": "09:36:28.100",
+   "primer_emisor": [
+    "10.10.10.21"
+   ]
+  },
+  "horizonte_propio": {
+   "corte": "09:37:10.000",
+   "obs_pcap_E_60s": 0,
+   "obs_pcap_E_30s": 0,
+   "paquetes_de_E_atribuidos_a": {
+    "10.10.60.10": 9
+   },
+   "flujos_activos": 1,
+   "inicio_flujos_min": "09:37:10.011",
+   "primer_emisor": [
+    "10.10.60.10"
+   ]
+  },
+  "obs_eve_E_60s": 0,
+  "cambio_propietario": true,
+  "propietario_excluido": true,
+  "estado_regla_causal": "no_registrable",
+  "estado_corregido": "cancelada",
+  "coincide_motor": true
+ },
+ {
+  "entidad": "10.10.10.21",
+  "fin_ventana": "2026-11-01T09:46:00+00:00",
+  "alta_pendiente_anterior": "09:45:11.135",
+  "expiro_anterior": "09:46:01.081",
+  "motivo_anterior": "ventana_no_regenerada",
+  "alta_pendiente_corregido": "09:45:11.160",
+  "motivo_alta": "contenido de E en (A-60, A] segun la atribucion de la ultima ancla tratada",
+  "horizonte_alta": {
+   "corte": "09:41:20.000",
+   "obs_pcap_E_60s": 9,
+   "obs_pcap_E_30s": 3,
+   "paquetes_de_E_atribuidos_a": {
+    "10.10.40.10": 2,
+    "10.10.60.40": 2
+   },
+   "flujos_activos": 3,
+   "inicio_flujos_min": "09:41:28.070",
+   "primer_emisor": [
+    "10.10.10.21",
+    "10.10.40.10",
+    "10.10.60.40"
+   ]
+  },
+  "horizonte_propio": {
+   "corte": "09:42:10.000",
+   "obs_pcap_E_60s": 0,
+   "obs_pcap_E_30s": 0,
+   "paquetes_de_E_atribuidos_a": {
+    "10.10.40.10": 2,
+    "10.10.60.10": 9,
+    "10.10.60.40": 2
+   },
+   "flujos_activos": 3,
+   "inicio_flujos_min": "09:42:10.021",
+   "primer_emisor": [
+    "10.10.40.10",
+    "10.10.60.10",
+    "10.10.60.40"
+   ]
+  },
+  "obs_eve_E_60s": 0,
+  "cambio_propietario": true,
+  "propietario_excluido": false,
+  "estado_regla_causal": "no_registrable",
+  "estado_corregido": "cancelada",
+  "coincide_motor": true
+ },
+ {
+  "entidad": "10.10.10.21",
+  "fin_ventana": "2026-11-01T09:56:30+00:00",
+  "alta_pendiente_anterior": "09:55:51.122",
+  "expiro_anterior": "09:56:31.139",
+  "motivo_anterior": "ventana_no_regenerada",
+  "alta_pendiente_corregido": "09:55:51.076",
+  "motivo_alta": "contenido de E en (A-60, A] segun la atribucion de la ultima ancla tratada",
+  "horizonte_alta": {
+   "corte": "09:52:00.000",
+   "obs_pcap_E_60s": 9,
+   "obs_pcap_E_30s": 6,
+   "paquetes_de_E_atribuidos_a": {},
+   "flujos_activos": 1,
+   "inicio_flujos_min": "09:52:08.180",
+   "primer_emisor": [
+    "10.10.10.21"
+   ]
+  },
+  "horizonte_propio": {
+   "corte": "09:52:40.000",
+   "obs_pcap_E_60s": 0,
+   "obs_pcap_E_30s": 0,
+   "paquetes_de_E_atribuidos_a": {
+    "10.10.60.10": 9
+   },
+   "flujos_activos": 1,
+   "inicio_flujos_min": "09:52:48.116",
+   "primer_emisor": [
+    "10.10.60.10"
+   ]
+  },
+  "obs_eve_E_60s": 0,
+  "cambio_propietario": true,
+  "propietario_excluido": true,
+  "estado_regla_causal": "no_registrable",
+  "estado_corregido": "cancelada",
+  "coincide_motor": true
+ },
+ {
+  "entidad": "10.10.10.21",
+  "fin_ventana": "2026-11-01T10:02:30+00:00",
+  "alta_pendiente_anterior": "10:01:51.142",
+  "expiro_anterior": "10:02:31.196",
+  "motivo_anterior": "ventana_no_regenerada",
+  "alta_pendiente_corregido": "10:01:51.108",
+  "motivo_alta": "contenido de E en (A-60, A] segun la atribucion de la ultima ancla tratada",
+  "horizonte_alta": {
+   "corte": "09:58:00.000",
+   "obs_pcap_E_60s": 18,
+   "obs_pcap_E_30s": 15,
+   "paquetes_de_E_atribuidos_a": {
+    "10.10.40.10": 2
+   },
+   "flujos_activos": 2,
+   "inicio_flujos_min": "09:58:08.171",
+   "primer_emisor": [
+    "10.10.10.21",
+    "10.10.40.10"
+   ]
+  },
+  "horizonte_propio": {
+   "corte": "09:58:40.000",
+   "obs_pcap_E_60s": 0,
+   "obs_pcap_E_30s": 0,
+   "paquetes_de_E_atribuidos_a": {
+    "10.10.40.10": 2,
+    "10.10.60.10": 18
+   },
+   "flujos_activos": 2,
+   "inicio_flujos_min": "09:58:48.148",
+   "primer_emisor": [
+    "10.10.40.10",
+    "10.10.60.10"
+   ]
+  },
+  "obs_eve_E_60s": 0,
+  "cambio_propietario": true,
+  "propietario_excluido": false,
+  "estado_regla_causal": "no_registrable",
+  "estado_corregido": "cancelada",
+  "coincide_motor": true
+ }
+]

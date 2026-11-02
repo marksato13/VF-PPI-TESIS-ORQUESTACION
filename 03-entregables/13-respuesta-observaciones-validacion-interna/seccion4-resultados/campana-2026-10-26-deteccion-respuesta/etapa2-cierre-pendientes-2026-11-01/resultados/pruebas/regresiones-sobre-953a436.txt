@@ -1,0 +1,216 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.3, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\markp\AppData\Local\Python\pythoncore-3.14-64\python.exe
+rootdir: C:\Users\markp\AppData\Local\Temp\w953
+plugins: anyio-4.13.0, platformdirs-4.12.1, cov-7.1.0
+collecting ... collected 14 items
+
+tests/test_motor_incremental.py::Deduplicacion::test_anillo_deslizante_igual_a_la_global PASSED [  7%]
+tests/test_motor_incremental.py::Deduplicacion::test_copia_que_llega_en_el_fichero_siguiente PASSED [ 14%]
+tests/test_motor_incremental.py::Atribucion::test_anillo_deslizante_igual_a_la_global PASSED [ 21%]
+tests/test_motor_incremental.py::Atribucion::test_cambio_de_propietario_al_podar_el_syn PASSED [ 28%]
+tests/test_motor_incremental.py::FilasPendientes::test_anclas_de_entidad_excluida PASSED [ 35%]
+tests/test_motor_incremental.py::FilasPendientes::test_igual_a_build_rows_global_desde_la_primera_ancla_no_puntuada PASSED [ 42%]
+tests/test_motor_incremental.py::Eve::test_por_linea_igual_que_el_volcado PASSED [ 50%]
+tests/test_motor_incremental.py::PuntuacionPorLotes::test_lote_igual_a_una_llamada_por_fila PASSED [ 57%]
+tests/test_motor_incremental.py::TiemposDeRegistro::test_logged_at_antes_del_write_y_disponibilidad_despues PASSED [ 64%]
+tests/test_motor_incremental.py::ExtremoAExtremo::test_escenario_sintetico_con_reinicio FAILED [ 71%]
+tests/test_motor_incremental.py::HorizontePorVentana::test_misma_fila_con_cualquier_cadencia_retraso_o_reinicio PASSED [ 78%]
+tests/test_motor_incremental.py::ContabilidadPendientes::test_cancelaciones_justificadas_y_sin_perdidas 
+tests/test_motor_incremental.py::ContabilidadPendientes::test_cancelaciones_justificadas_y_sin_perdidas PASSED [ 85%]
+tests/test_motor_incremental.py::ResolucionPendientesUnidad::test_limites_de_la_regla_de_registro PASSED [ 92%]
+tests/test_motor_incremental.py::ResolucionPendientesUnidad::test_registro_de_cancelacion_con_evidencia FAILED [100%]
+
+================================== FAILURES ===================================
+____________ ExtremoAExtremo.test_escenario_sintetico_con_reinicio ____________
+
+self = <test_motor_incremental.ExtremoAExtremo testMethod=test_escenario_sintetico_con_reinicio>
+
+    def test_escenario_sintetico_con_reinicio(self):
+        try:
+            import joblib
+            import numpy as np
+            from sklearn.ensemble import IsolationForest
+            from sklearn.pipeline import make_pipeline
+            from sklearn.preprocessing import StandardScaler
+        except ImportError:  # pragma: no cover
+            self.skipTest("sin scikit-learn")
+        import replay_motor
+        with tempfile.TemporaryDirectory() as d:
+            tmp = Path(d)
+            t0 = 1_793_260_800
+            capt, eve = escenario(tmp, t0)
+            pipe = make_pipeline(StandardScaler(), IsolationForest(n_estimators=50, random_state=0))
+            pipe.fit(np.random.default_rng(1).normal(size=(500, 28)))
+            modelo = tmp / "m" / "modelo.joblib"
+            modelo.parent.mkdir()
+            joblib.dump(pipe, modelo)
+            (tmp / "m" / "manifest.json").write_text(json.dumps({"detectors": {"if_prueba": {"calibration": {
+                "comparison": "score < threshold", "threshold": -0.55}}}}), encoding="utf-8")
+            salida = tmp / "salida"
+            verif = tmp / "verificacion.jsonl"
+            sys.argv = ["replay_motor.py", "--motor", str(RAIZ / "scripts/engine/motor_decision.py"),
+                        "--pcap-dir", str(capt), "--eve", str(eve), "--desde", str(t0 + 10),
+                        "--hasta", str(t0 + 440), "--reiniciar-en", str(t0 + 330), "--salida", str(salida), "--",
+                        "--model-path", str(modelo), "--manifest-path", str(tmp / "m" / "manifest.json"),
+                        "--detector-name", "if_prueba", "--entity-network", "10.10.0.0/16",
+                        "--excluir", "10.10.60.11/32", "--excluir-protocolos", "112,240",
+                        "--step-seconds", "10", "--history-seconds", "90",
+                        "--verificar-equivalencia", str(verif)]
+            self.assertEqual(replay_motor.main(), 0)
+            comprobaciones = [json.loads(x) for x in verif.read_text(encoding="utf-8").splitlines()]
+            registro = [json.loads(x) for x in (salida / "motor_decision.log").read_text(encoding="utf-8").splitlines()]
+            ciclos = [json.loads(x) for x in (salida / "_state" / "ciclos.jsonl").read_text(encoding="utf-8").splitlines()]
+    
+        malos = [c for c in comprobaciones if not c["ok"]]
+        self.assertEqual(malos, [], json.dumps(malos[:2]))
+        self.assertGreater(len(comprobaciones), 30)
+        decisiones = [r for r in registro if r["event"] == "decision"]
+        no_evaluadas = [r for r in registro if r["event"] == "ventana_no_evaluada"]
+        claves = [(r["entity_ip"], r["window_end_utc"]) for r in decisiones + no_evaluadas]
+        # sin decisiones duplicadas, tampoco a traves del reinicio
+        self.assertEqual(len(claves), len(set(claves)))
+        self.assertEqual(sum(r["event"] == "motor_startup" for r in registro), 2)
+        # el hueco de PCAP deja ventanas que expiran como pcap_incompleto, sin convertirlas en trafico normal
+        self.assertTrue(any(r["motivo"] == "pcap_incompleto" for r in no_evaluadas))
+        # la entidad solo L7 se decide por el heuristico, nunca con el modelo sin paquetes
+        l7 = [r for r in decisiones if r["entity_ip"] == "10.10.20.24"]
+        self.assertTrue(l7 and all(r["score"] is None for r in l7))
+        self.assertTrue(any(r["detector_name"] == "auth_failure_heuristic" for r in l7))
+        # la excluida no se decide pero se cuenta; la de fuera de la red no aparece
+        self.assertFalse(any(r["entity_ip"] in ("10.10.60.11", "192.168.5.5") for r in decisiones))
+        self.assertGreater(max(r["excluidas_acumulado"] for r in decisiones), 0)
+        # ventanas que quedaron pendientes y se decidieron despues
+        self.assertTrue(any(r["pendiente_desde"] is not None for r in decisiones))
+        # el servidor del flujo largo aparece como entidad cuando la poda cambia el propietario
+        self.assertTrue(any(r["entity_ip"] == "10.10.30.10" for r in decisiones))
+        # instrumentacion: un registro por ciclo con sus etapas y conteos
+        # horizonte por ventana: una comprobacion por ancla tratada, en orden y sin repetir
+        # (tambien a traves del reinicio, que reanuda desde la ultima ventana registrada)
+        anclas = [c["ancla"] for c in comprobaciones]
+        self.assertEqual(anclas, sorted(set(anclas)))
+        self.assertTrue(all(c["horizonte_s"] == 90 for c in comprobaciones))
+        self.assertTrue(all("historial_completo" in r and r["horizonte_s"] == 90 for r in decisiones))
+        # tras el reinicio el horizonte se recupera del anillo y de eve.json
+        arranques = [r for r in registro if r["event"] == "motor_startup"]
+        self.assertIsNotNone(arranques[1]["ancla_reanudada"])
+        self.assertGreater(arranques[1]["recuperacion_eve"].get("lineas", 0), 0)
+        self.assertTrue(all({"inicio_ciclo", "fin_ciclo", "duracion_s", "etapas_s", "marca_pcap", "marca_eve",
+                             "decididas", "ventanas_pendientes", "no_evaluadas", "registro_escrito_en",
+                             "registros_escritos"} <= set(c) for c in ciclos))
+        # tiempos de registro: decidir <= escribir <= disponible, y el ciclo cuenta lo que escribio
+        self.assertTrue(all(r["decidido_en"] <= r["logged_at"] for r in decisiones + no_evaluadas))
+        # pendientes que nunca debieron existir: se cancelan con evidencia, no expiran como
+        # ventana_no_regenerada (el flujo largo cambia de propietario al podar su SYN)
+        canceladas = [r for r in registro if r["event"] == "pendiente_cancelada"]
+>       self.assertFalse(any(r["motivo"] == "ventana_no_regenerada" for r in no_evaluadas))
+E       AssertionError: True is not false
+
+tests\test_motor_incremental.py:473: AssertionError
+---------------------------- Captured stdout call -----------------------------
+{"ancla_reanudada": null, "capture_dir": "C:\\Users\\markp\\AppData\\Local\\Temp\\tmp9pvz2bc1\\pcap", "ciclos_path": "C:\\Users\\markp\\AppData\\Local\\Temp\\tmp9pvz2bc1\\salida\\_state\\ciclos.jsonl", "claves_previas_cargadas": 0, "detector_name": "if_prueba", "disparo": "periodico", "entity_network": "10.10.0.0/16", "eve_path": "C:\\Users\\markp\\AppData\\Local\\Temp\\tmp9pvz2bc1\\eve.json", "event": "motor_startup", "excluidas": ["10.10.60.11/32"], "history_seconds": 90, "horizonte": "por_ventana", "hueco_arranque": null, "manifest_path": "C:\\Users\\markp\\AppData\\Local\\Temp\\tmp9pvz2bc1\\m\\manifest.json", "model_path": "C:\\Users\\markp\\AppData\\Local\\Temp\\tmp9pvz2bc1\\m\\modelo.joblib", "procesamiento": "incremental", "protocolos_excluidos": [112, 240], "recuperacion_eve": {"completa": false, "lineas": 5, "pedido_desde": 1793260720.0}, "sondeo_segundos": 0.25, "step_seconds": 10, "threshold": -0.55, "timestamp": 1793260810.0}
+{"ciclo_n": 7, "decidido_en": 1793260880.0, "decision": "ALERT", "decision_id": "10.10.20.24|2026-10-29T08:01:10+00:00", "detector_name": "auth_failure_heuristic", "disparo": "periodo", "duplicados_espejo": 227, "entity_ip": "10.10.20.24", "event": "decision", "excluidas_acumulado": 6, "heuristico": {"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}, "heuristicos": [{"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}], "historial_completo": false, "history_coverage_s": 60.0, "horizonte_s": 90, "inicio_ciclo": 1793260880.0, "logged_at": 1793260880.0, "marca_eve": 1793260878.5, "marca_pcap": 1793260872.476405, "packet_count_10s": 0, "pcaps_ilegibles": 0, "pcaps_ilegibles_motivo": null, "pendiente_desde": 1793260820.0, "plano_control_descartado": 0, "score": null, "threshold": -0.55, "window_end_utc": "2026-10-29T08:01:10+00:00"}
+{"ciclo_n": 8, "decidido_en": 1793260890.0, "decision": "ALERT", "decision_id": "10.10.20.24|2026-10-29T08:01:20+00:00", "detector_name": "auth_failure_heuristic", "disparo": "periodo", "duplicados_espejo": 318, "entity_ip": "10.10.20.24", "event": "decision", "excluidas_acumulado": 7, "heuristico": {"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}, "heuristicos": [{"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}], "historial_completo": false, "history_coverage_s": 60.0, "horizonte_s": 90, "inicio_ciclo": 1793260890.0, "logged_at": 1793260890.0, "marca_eve": 1793260888.5, "marca_pcap": 1793260889.0, "packet_count_10s": 0, "pcaps_ilegibles": 0, "pcaps_ilegibles_motivo": null, "pendiente_desde": 1793260830.0, "plano_control_descartado": 0, "score": null, "threshold": -0.55, "window_end_utc": "2026-10-29T08:01:20+00:00"}
+{"ciclo_n": 10, "decidido_en": 1793260910.0, "decision": "ALERT", "decision_id": "10.10.20.24|2026-10-29T08:01:30+00:00", "detector_name": "auth_failure_heuristic", "disparo": "periodo", "duplicados_espejo": 412, "entity_ip": "10.10.20.24", "event": "decision", "excluidas_acumulado": 8, "heuristico": {"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}, "heuristicos": [{"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}], "historial_completo": false, "history_coverage_s": 60.0, "horizonte_s": 90, "inicio_ciclo": 1793260910.0, "logged_at": 1793260910.0, "marca_eve": 1793260908.5, "marca_pcap": 1793260904.3, "packet_count_10s": 0, "pcaps_ilegibles": 0, "pcaps_ilegibles_motivo": null, "pendiente_desde": 1793260840.0, "plano_control_descartado": 0, "score": null, "threshold": -0.55, "window_end_utc": "2026-10-29T08:01:30+00:00"}
+{"ciclo_n": 10, "decidido_en": 1793260910.0, "decision": "ALERT", "decision_id": "10.10.20.24|2026-10-29T08:01:40+00:00", "detector_name": "auth_failure_heuristic", "disparo": "periodo", "duplicados_espejo": 412, "entity_ip": "10.10.20.24", "event": "decision", "excluidas_acumulado": 9, "heuristico": {"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}, "heuristicos": [{"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}], "historial_completo": true, "history_coverage_s": 60.0, "horizonte_s": 90, "inicio_ciclo": 1793260910.0, "logged_at": 1793260910.0, "marca_eve": 1793260908.5, "marca_pcap": 1793260904.3, "packet_count_10s": 0, "pcaps_ilegibles": 0, "pcaps_ilegibles_motivo": null, "pendiente_desde": 1793260850.0, "plano_control_descartado": 0, "score": null, "threshold": -0.55, "window_end_utc": "2026-10-29T08:01:40+00:00"}
+{"ciclo_n": 11, "decidido_en": 1793260920.0, "decision": "ALERT", "decision_id": "10.10.20.24|2026-10-29T08:01:50+00:00", "detector_name": "auth_failure_heuristic", "disparo": "periodo", "duplicados_espejo": 512, "entity_ip": "10.10.20.24", "event": "decision", "excluidas_acumulado": 10, "heuristico": {"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}, "heuristicos": [{"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}], "historial_completo": true, "history_coverage_s": 60.0, "horizonte_s": 90, "inicio_ciclo": 1793260920.0, "logged_at": 1793260920.0, "marca_eve": 1793260918.5, "marca_pcap": 1793260917.202543, "packet_count_10s": 0, "pcaps_ilegibles": 0, "pcaps_ilegibles_motivo": null, "pendiente_desde": 1793260860.0, "plano_control_descartado": 0, "score": null, "threshold": -0.55, "window_end_utc": "2026-10-29T08:01:50+00:00"}
+{"ciclo_n": 13, "decidido_en": 1793260940.0, "decision": "ALERT", "decision_id": "10.10.20.24|2026-10-29T08:02:00+00:00", "detector_name": "auth_failure_heuristic", "disparo": "periodo", "duplicados_espejo": 606, "entity_ip": "10.10.20.24", "event": "decision", "excluidas_acumulado": 11, "heuristico": {"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}, "heuristicos": [{"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}], "historial_completo": true, "history_coverage_s": 60.0, "horizonte_s": 90, "inicio_ciclo": 1793260940.0, "logged_at": 1793260940.0, "marca_eve": 1793260938.5, "marca_pcap": 1793260932.972086, "packet_count_10s": 0, "pcaps_ilegibles": 0, "pcaps_ilegibles_motivo": null, "pendiente_desde": 1793260870.0, "plano_control_descartado": 0, "score": null, "threshold": -0.55, "window_end_utc": "2026-10-29T08:02:00+00:00"}
+{"ciclo_n": 13, "decidido_en": 1793260940.0, "decision": "ALERT", "decision_id": "10.10.20.24|2026-10-29T08:02:10+00:00", "detector_name": "auth_failure_heuristic", "disparo": "periodo", "duplicados_espejo": 606, "entity_ip": "10.10.20.24", "event": "decision", "excluidas_acumulado": 12, "heuristico": {"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}, "heuristicos": [{"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}], "historial_completo": true, "history_coverage_s": 60.0, "horizonte_s": 90, "inicio_ciclo": 1793260940.0, "logged_at": 1793260940.0, "marca_eve": 1793260938.5, "marca_pcap": 1793260932.972086, "packet_count_10s": 0, "pcaps_ilegibles": 0, "pcaps_ilegibles_motivo": null, "pendiente_desde": 1793260880.0, "plano_control_descartado": 0, "score": null, "threshold": -0.55, "window_end_utc": "2026-10-29T08:02:10+00:00"}
+{"ciclo_n": 14, "decidido_en": 1793260950.0, "decision": "ALERT", "decision_id": "10.10.20.24|2026-10-29T08:02:20+00:00", "detector_name": "auth_failure_heuristic", "disparo": "periodo", "duplicados_espejo": 705, "entity_ip": "10.10.20.24", "event": "decision", "excluidas_acumulado": 13, "heuristico": {"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}, "heuristicos": [{"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}], "historial_completo": true, "history_coverage_s": 60.0, "horizonte_s": 90, "inicio_ciclo": 1793260950.0, "logged_at": 1793260950.0, "marca_eve": 1793260948.5, "marca_pcap": 1793260948.3, "packet_count_10s": 0, "pcaps_ilegibles": 0, "pcaps_ilegibles_motivo": null, "pendiente_desde": 1793260890.0, "plano_control_descartado": 0, "score": null, "threshold": -0.55, "window_end_utc": "2026-10-29T08:02:20+00:00"}
+{"ciclo_n": 16, "decidido_en": 1793260970.0, "decision": "ALERT", "decision_id": "10.10.20.24|2026-10-29T08:02:30+00:00", "detector_name": "auth_failure_heuristic", "disparo": "periodo", "duplicados_espejo": 798, "entity_ip": "10.10.20.24", "event": "decision", "excluidas_acumulado": 14, "heuristico": {"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}, "heuristicos": [{"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}], "historial_completo": true, "history_coverage_s": 60.0, "horizonte_s": 90, "inicio_ciclo": 1793260970.0, "logged_at": 1793260970.0, "marca_eve": 1793260968.5, "marca_pcap": 1793260963.013303, "packet_count_10s": 0, "pcaps_ilegibles": 0, "pcaps_ilegibles_motivo": null, "pendiente_desde": 1793260900.0, "plano_control_descartado": 0, "score": null, "threshold": -0.55, "window_end_utc": "2026-10-29T08:02:30+00:00"}
+{"ciclo_n": 16, "decidido_en": 1793260970.0, "decision": "ALERT", "decision_id": "10.10.20.24|2026-10-29T08:02:40+00:00", "detector_name": "auth_failure_heuristic", "disparo": "periodo", "duplicados_espejo": 798, "entity_ip": "10.10.20.24", "event": "decision", "excluidas_acumulado": 15, "heuristico": {"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}, "heuristicos": [{"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}], "historial_completo": true, "history_coverage_s": 60.0, "horizonte_s": 90, "inicio_ciclo": 1793260970.0, "logged_at": 1793260970.0, "marca_eve": 1793260968.5, "marca_pcap": 1793260963.013303, "packet_count_10s": 0, "pcaps_ilegibles": 0, "pcaps_ilegibles_motivo": null, "pendiente_desde": 1793260910.0, "plano_control_descartado": 0, "score": null, "threshold": -0.55, "window_end_utc": "2026-10-29T08:02:40+00:00"}
+{"ciclo_n": 17, "decidido_en": 1793260980.0, "decision": "ALERT", "decision_id": "10.10.20.24|2026-10-29T08:02:50+00:00", "detector_name": "auth_failure_heuristic", "disparo": "periodo", "duplicados_espejo": 897, "entity_ip": "10.10.20.24", "event": "decision", "excluidas_acumulado": 16, "heuristico": {"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}, "heuristicos": [{"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}], "historial_completo": true, "history_coverage_s": 60.0, "horizonte_s": 90, "inicio_ciclo": 1793260980.0, "logged_at": 1793260980.0, "marca_eve": 1793260978.5, "marca_pcap": 1793260977.710268, "packet_count_10s": 0, "pcaps_ilegibles": 0, "pcaps_ilegibles_motivo": null, "pendiente_desde": 1793260920.0, "plano_control_descartado": 0, "score": null, "threshold": -0.55, "window_end_utc": "2026-10-29T08:02:50+00:00"}
+{"ciclo_n": 19, "decidido_en": 1793261000.0, "decision": "ALERT", "decision_id": "10.10.20.24|2026-10-29T08:03:00+00:00", "detector_name": "auth_failure_heuristic", "disparo": "periodo", "duplicados_espejo": 990, "entity_ip": "10.10.20.24", "event": "decision", "excluidas_acumulado": 17, "heuristico": {"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}, "heuristicos": [{"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}], "historial_completo": true, "history_coverage_s": 60.0, "horizonte_s": 90, "inicio_ciclo": 1793261000.0, "logged_at": 1793261000.0, "marca_eve": 1793260998.5, "marca_pcap": 1793260994.0, "packet_count_10s": 0, "pcaps_ilegibles": 0, "pcaps_ilegibles_motivo": null, "pendiente_desde": 1793260930.0, "plano_control_descartado": 0, "score": null, "threshold": -0.55, "window_end_utc": "2026-10-29T08:03:00+00:00"}
+{"ciclo_n": 19, "decidido_en": 1793261000.0, "decision": "ALERT", "decision_id": "10.10.20.24|2026-10-29T08:03:10+00:00", "detector_name": "auth_failure_heuristic", "disparo": "periodo", "duplicados_espejo": 990, "entity_ip": "10.10.20.24", "event": "decision", "excluidas_acumulado": 18, "heuristico": {"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}, "heuristicos": [{"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}], "historial_completo": true, "history_coverage_s": 60.0, "horizonte_s": 90, "inicio_ciclo": 1793261000.0, "logged_at": 1793261000.0, "marca_eve": 1793260998.5, "marca_pcap": 1793260994.0, "packet_count_10s": 0, "pcaps_ilegibles": 0, "pcaps_ilegibles_motivo": null, "pendiente_desde": 1793260940.0, "plano_control_descartado": 0, "score": null, "threshold": -0.55, "window_end_utc": "2026-10-29T08:03:10+00:00"}
+{"ciclo_n": 29, "decidido_en": 1793261100.0, "decision": "ALERT", "decision_id": "10.10.20.24|2026-10-29T08:04:20+00:00", "detector_name": "auth_failure_heuristic", "disparo": "periodo", "duplicados_espejo": 999, "entity_ip": "10.10.20.24", "event": "decision", "excluidas_acumulado": 25, "heuristico": {"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}, "heuristicos": [{"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}], "historial_completo": true, "history_coverage_s": 60.0, "horizonte_s": 90, "inicio_ciclo": 1793261100.0, "logged_at": 1793261100.0, "marca_eve": 1793261098.5, "marca_pcap": 1793261099.0, "packet_count_10s": 0, "pcaps_ilegibles": 0, "pcaps_ilegibles_motivo": null, "pendiente_desde": 1793261010.0, "plano_control_descartado": 0, "score": null, "threshold": -0.55, "window_end_utc": "2026-10-29T08:04:20+00:00"}
+{"ciclo_n": 29, "decidido_en": 1793261100.0, "decision": "ALERT", "decision_id": "10.10.20.24|2026-10-29T08:04:30+00:00", "detector_name": "auth_failure_heuristic", "disparo": "periodo", "duplicados_espejo": 999, "entity_ip": "10.10.20.24", "event": "decision", "excluidas_acumulado": 25, "heuristico": {"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}, "heuristicos": [{"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}], "historial_completo": true, "history_coverage_s": 60.0, "horizonte_s": 90, "inicio_ciclo": 1793261100.0, "logged_at": 1793261100.0, "marca_eve": 1793261098.5, "marca_pcap": 1793261099.0, "packet_count_10s": 0, "pcaps_ilegibles": 0, "pcaps_ilegibles_motivo": null, "pendiente_desde": 1793261020.0, "plano_control_descartado": 0, "score": null, "threshold": -0.55, "window_end_utc": "2026-10-29T08:04:30+00:00"}
+{"ciclo_n": 29, "decidido_en": 1793261100.0, "decision": "ALERT", "decision_id": "10.10.20.24|2026-10-29T08:04:40+00:00", "detector_name": "auth_failure_heuristic", "disparo": "periodo", "duplicados_espejo": 999, "entity_ip": "10.10.20.24", "event": "decision", "excluidas_acumulado": 25, "heuristico": {"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}, "heuristicos": [{"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}], "historial_completo": true, "history_coverage_s": 60.0, "horizonte_s": 90, "inicio_ciclo": 1793261100.0, "logged_at": 1793261100.0, "marca_eve": 1793261098.5, "marca_pcap": 1793261099.0, "packet_count_10s": 0, "pcaps_ilegibles": 0, "pcaps_ilegibles_motivo": null, "pendiente_desde": 1793261030.0, "plano_control_descartado": 0, "score": null, "threshold": -0.55, "window_end_utc": "2026-10-29T08:04:40+00:00"}
+{"ciclo_n": 29, "decidido_en": 1793261100.0, "decision": "ALERT", "decision_id": "10.10.20.24|2026-10-29T08:04:50+00:00", "detector_name": "auth_failure_heuristic", "disparo": "periodo", "duplicados_espejo": 999, "entity_ip": "10.10.20.24", "event": "decision", "excluidas_acumulado": 25, "heuristico": {"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}, "heuristicos": [{"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}], "historial_completo": true, "history_coverage_s": 60.0, "horizonte_s": 90, "inicio_ciclo": 1793261100.0, "logged_at": 1793261100.0, "marca_eve": 1793261098.5, "marca_pcap": 1793261099.0, "packet_count_10s": 0, "pcaps_ilegibles": 0, "pcaps_ilegibles_motivo": null, "pendiente_desde": 1793261040.0, "plano_control_descartado": 0, "score": null, "threshold": -0.55, "window_end_utc": "2026-10-29T08:04:50+00:00"}
+{"ciclo_n": 31, "decidido_en": 1793261120.0, "decision": "ALERT", "decision_id": "10.10.20.24|2026-10-29T08:05:00+00:00", "detector_name": "auth_failure_heuristic", "disparo": "periodo", "duplicados_espejo": 1023, "entity_ip": "10.10.20.24", "event": "decision", "excluidas_acumulado": 25, "heuristico": {"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}, "heuristicos": [{"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}], "historial_completo": true, "history_coverage_s": 60.0, "horizonte_s": 90, "inicio_ciclo": 1793261120.0, "logged_at": 1793261120.0, "marca_eve": 1793261118.5, "marca_pcap": 1793261113.3, "packet_count_10s": 0, "pcaps_ilegibles": 0, "pcaps_ilegibles_motivo": null, "pendiente_desde": 1793261050.0, "plano_control_descartado": 0, "score": null, "threshold": -0.55, "window_end_utc": "2026-10-29T08:05:00+00:00"}
+{"ciclo_n": 31, "decidido_en": 1793261120.0, "decision": "ALERT", "decision_id": "10.10.20.24|2026-10-29T08:05:10+00:00", "detector_name": "auth_failure_heuristic", "disparo": "periodo", "duplicados_espejo": 1023, "entity_ip": "10.10.20.24", "event": "decision", "excluidas_acumulado": 26, "heuristico": {"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}, "heuristicos": [{"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}], "historial_completo": true, "history_coverage_s": 60.0, "horizonte_s": 90, "inicio_ciclo": 1793261120.0, "logged_at": 1793261120.0, "marca_eve": 1793261118.5, "marca_pcap": 1793261113.3, "packet_count_10s": 0, "pcaps_ilegibles": 0, "pcaps_ilegibles_motivo": null, "pendiente_desde": 1793261060.0, "plano_control_descartado": 0, "score": null, "threshold": -0.55, "window_end_utc": "2026-10-29T08:05:10+00:00"}
+{"ancla_reanudada": 1793261110.0, "capture_dir": "C:\\Users\\markp\\AppData\\Local\\Temp\\tmp9pvz2bc1\\pcap", "ciclos_path": "C:\\Users\\markp\\AppData\\Local\\Temp\\tmp9pvz2bc1\\salida\\_state\\ciclos.jsonl", "claves_previas_cargadas": 77, "detector_name": "if_prueba", "disparo": "periodico", "entity_network": "10.10.0.0/16", "eve_path": "C:\\Users\\markp\\AppData\\Local\\Temp\\tmp9pvz2bc1\\eve.json", "event": "motor_startup", "excluidas": ["10.10.60.11/32"], "history_seconds": 90, "horizonte": "por_ventana", "hueco_arranque": null, "manifest_path": "C:\\Users\\markp\\AppData\\Local\\Temp\\tmp9pvz2bc1\\m\\manifest.json", "model_path": "C:\\Users\\markp\\AppData\\Local\\Temp\\tmp9pvz2bc1\\m\\modelo.joblib", "procesamiento": "incremental", "protocolos_excluidos": [112, 240], "recuperacion_eve": {"completa": true, "lineas": 65, "pedido_desde": 1793261030.0}, "sondeo_segundos": 0.25, "step_seconds": 10, "threshold": -0.55, "timestamp": 1793261130.0}
+{"ciclo_n": 0, "decidido_en": 1793261130.0, "decision": "ALERT", "decision_id": "10.10.20.24|2026-10-29T08:05:20+00:00", "detector_name": "auth_failure_heuristic", "disparo": "arranque", "duplicados_espejo": 39, "entity_ip": "10.10.20.24", "event": "decision", "excluidas_acumulado": 0, "heuristico": {"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}, "heuristicos": [{"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}], "historial_completo": true, "history_coverage_s": 60.0, "horizonte_s": 90, "inicio_ciclo": 1793261130.0, "logged_at": 1793261130.0, "marca_eve": 1793261128.5, "marca_pcap": 1793261127.462318, "packet_count_10s": 0, "pcaps_ilegibles": 0, "pcaps_ilegibles_motivo": null, "pendiente_desde": null, "plano_control_descartado": 0, "score": null, "threshold": -0.55, "window_end_utc": "2026-10-29T08:05:20+00:00"}
+{"ciclo_n": 2, "decidido_en": 1793261150.0, "decision": "ALERT", "decision_id": "10.10.20.24|2026-10-29T08:05:30+00:00", "detector_name": "auth_failure_heuristic", "disparo": "periodo", "duplicados_espejo": 93, "entity_ip": "10.10.20.24", "event": "decision", "excluidas_acumulado": 1, "heuristico": {"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}, "heuristicos": [{"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}], "historial_completo": true, "history_coverage_s": 60.0, "horizonte_s": 90, "inicio_ciclo": 1793261150.0, "logged_at": 1793261150.0, "marca_eve": 1793261148.5, "marca_pcap": 1793261142.972704, "packet_count_10s": 0, "pcaps_ilegibles": 0, "pcaps_ilegibles_motivo": null, "pendiente_desde": 1793261130.0, "plano_control_descartado": 0, "score": null, "threshold": -0.55, "window_end_utc": "2026-10-29T08:05:30+00:00"}
+{"ciclo_n": 2, "decidido_en": 1793261150.0, "decision": "ALERT", "decision_id": "10.10.20.24|2026-10-29T08:05:40+00:00", "detector_name": "auth_failure_heuristic", "disparo": "periodo", "duplicados_espejo": 93, "entity_ip": "10.10.20.24", "event": "decision", "excluidas_acumulado": 2, "heuristico": {"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}, "heuristicos": [{"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}], "historial_completo": true, "history_coverage_s": 60.0, "horizonte_s": 90, "inicio_ciclo": 1793261150.0, "logged_at": 1793261150.0, "marca_eve": 1793261148.5, "marca_pcap": 1793261142.972704, "packet_count_10s": 0, "pcaps_ilegibles": 0, "pcaps_ilegibles_motivo": null, "pendiente_desde": 1793261130.0, "plano_control_descartado": 0, "score": null, "threshold": -0.55, "window_end_utc": "2026-10-29T08:05:40+00:00"}
+{"ciclo_n": 3, "decidido_en": 1793261160.0, "decision": "ALERT", "decision_id": "10.10.20.24|2026-10-29T08:05:50+00:00", "detector_name": "auth_failure_heuristic", "disparo": "periodo", "duplicados_espejo": 162, "entity_ip": "10.10.20.24", "event": "decision", "excluidas_acumulado": 3, "heuristico": {"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}, "heuristicos": [{"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}], "historial_completo": true, "history_coverage_s": 60.0, "horizonte_s": 90, "inicio_ciclo": 1793261160.0, "logged_at": 1793261160.0, "marca_eve": 1793261158.5, "marca_pcap": 1793261157.57425, "packet_count_10s": 0, "pcaps_ilegibles": 0, "pcaps_ilegibles_motivo": null, "pendiente_desde": 1793261130.0, "plano_control_descartado": 0, "score": null, "threshold": -0.55, "window_end_utc": "2026-10-29T08:05:50+00:00"}
+{"ciclo_n": 5, "decidido_en": 1793261180.0, "decision": "ALERT", "decision_id": "10.10.20.24|2026-10-29T08:06:00+00:00", "detector_name": "auth_failure_heuristic", "disparo": "periodo", "duplicados_espejo": 246, "entity_ip": "10.10.20.24", "event": "decision", "excluidas_acumulado": 4, "heuristico": {"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}, "heuristicos": [{"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}], "historial_completo": true, "history_coverage_s": 60.0, "horizonte_s": 90, "inicio_ciclo": 1793261180.0, "logged_at": 1793261180.0, "marca_eve": 1793261178.5, "marca_pcap": 1793261172.290646, "packet_count_10s": 0, "pcaps_ilegibles": 0, "pcaps_ilegibles_motivo": null, "pendiente_desde": 1793261130.0, "plano_control_descartado": 0, "score": null, "threshold": -0.55, "window_end_utc": "2026-10-29T08:06:00+00:00"}
+{"ciclo_n": 5, "decidido_en": 1793261180.0, "decision": "ALERT", "decision_id": "10.10.20.24|2026-10-29T08:06:10+00:00", "detector_name": "auth_failure_heuristic", "disparo": "periodo", "duplicados_espejo": 246, "entity_ip": "10.10.20.24", "event": "decision", "excluidas_acumulado": 5, "heuristico": {"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}, "heuristicos": [{"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}], "historial_completo": true, "history_coverage_s": 60.0, "horizonte_s": 90, "inicio_ciclo": 1793261180.0, "logged_at": 1793261180.0, "marca_eve": 1793261178.5, "marca_pcap": 1793261172.290646, "packet_count_10s": 0, "pcaps_ilegibles": 0, "pcaps_ilegibles_motivo": null, "pendiente_desde": 1793261130.0, "plano_control_descartado": 0, "score": null, "threshold": -0.55, "window_end_utc": "2026-10-29T08:06:10+00:00"}
+{"ciclo_n": 6, "decidido_en": 1793261190.0, "decision": "ALERT", "decision_id": "10.10.20.24|2026-10-29T08:06:20+00:00", "detector_name": "auth_failure_heuristic", "disparo": "periodo", "duplicados_espejo": 345, "entity_ip": "10.10.20.24", "event": "decision", "excluidas_acumulado": 6, "heuristico": {"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}, "heuristicos": [{"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}], "historial_completo": true, "history_coverage_s": 60.0, "horizonte_s": 90, "inicio_ciclo": 1793261190.0, "logged_at": 1793261190.0, "marca_eve": 1793261188.5, "marca_pcap": 1793261187.915485, "packet_count_10s": 0, "pcaps_ilegibles": 0, "pcaps_ilegibles_motivo": null, "pendiente_desde": 1793261130.0, "plano_control_descartado": 0, "score": null, "threshold": -0.55, "window_end_utc": "2026-10-29T08:06:20+00:00"}
+{"ciclo_n": 8, "decidido_en": 1793261210.0, "decision": "ALERT", "decision_id": "10.10.20.24|2026-10-29T08:06:30+00:00", "detector_name": "auth_failure_heuristic", "disparo": "periodo", "duplicados_espejo": 438, "entity_ip": "10.10.20.24", "event": "decision", "excluidas_acumulado": 7, "heuristico": {"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}, "heuristicos": [{"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}], "historial_completo": true, "history_coverage_s": 60.0, "horizonte_s": 90, "inicio_ciclo": 1793261210.0, "logged_at": 1793261210.0, "marca_eve": 1793261208.5, "marca_pcap": 1793261202.063406, "packet_count_10s": 0, "pcaps_ilegibles": 0, "pcaps_ilegibles_motivo": null, "pendiente_desde": 1793261140.0, "plano_control_descartado": 0, "score": null, "threshold": -0.55, "window_end_utc": "2026-10-29T08:06:30+00:00"}
+{"ciclo_n": 8, "decidido_en": 1793261210.0, "decision": "ALERT", "decision_id": "10.10.20.24|2026-10-29T08:06:40+00:00", "detector_name": "auth_failure_heuristic", "disparo": "periodo", "duplicados_espejo": 438, "entity_ip": "10.10.20.24", "event": "decision", "excluidas_acumulado": 8, "heuristico": {"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}, "heuristicos": [{"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}], "historial_completo": true, "history_coverage_s": 60.0, "horizonte_s": 90, "inicio_ciclo": 1793261210.0, "logged_at": 1793261210.0, "marca_eve": 1793261208.5, "marca_pcap": 1793261202.063406, "packet_count_10s": 0, "pcaps_ilegibles": 0, "pcaps_ilegibles_motivo": null, "pendiente_desde": 1793261150.0, "plano_control_descartado": 0, "score": null, "threshold": -0.55, "window_end_utc": "2026-10-29T08:06:40+00:00"}
+{"ciclo_n": 9, "decidido_en": 1793261220.0, "decision": "ALERT", "decision_id": "10.10.20.24|2026-10-29T08:06:50+00:00", "detector_name": "auth_failure_heuristic", "disparo": "periodo", "duplicados_espejo": 537, "entity_ip": "10.10.20.24", "event": "decision", "excluidas_acumulado": 9, "heuristico": {"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}, "heuristicos": [{"accion": "BLOCK", "heuristico": "brute_force", "motivo": "30 req HTTP/60s con 100% de fallo de auth"}], "historial_completo": true, "history_coverage_s": 60.0, "horizonte_s": 90, "inicio_ciclo": 1793261220.0, "logged_at": 1793261220.0, "marca_eve": 1793261218.5, "marca_pcap": 1793261217.823879, "packet_count_10s": 0, "pcaps_ilegibles": 0, "pcaps_ilegibles_motivo": null, "pendiente_desde": 1793261160.0, "plano_control_descartado": 0, "score": null, "threshold": -0.55, "window_end_utc": "2026-10-29T08:06:50+00:00"}
+---------------------------- Captured stderr call -----------------------------
+{"evento": "eve_indexado", "lineas": 462, "s": 0.0}
+{"evento": "arranque_motor", "t": 1793260810.0}
+{"evento": "reinicio", "t": 1793261130.0}
+{"evento": "arranque_motor", "t": 1793261130.0}
+{"evento": "fin", "s": 1.3, "rss_mb": 176.3, "pico_mb": 176.3}
+_ ContabilidadPendientes.test_cancelaciones_justificadas_y_sin_perdidas (configuracion='eventos-retraso') _
+
+self = <test_motor_incremental.ContabilidadPendientes testMethod=test_cancelaciones_justificadas_y_sin_perdidas>
+
+    def test_cancelaciones_justificadas_y_sin_perdidas(self):
+        import datetime as dt
+        iso = lambda a: dt.datetime.fromtimestamp(a, dt.timezone.utc).isoformat()  # noqa: E731
+        epoch = lambda s: dt.datetime.fromisoformat(s).timestamp()  # noqa: E731
+        with tempfile.TemporaryDirectory() as d:
+            tmp = Path(d)
+            capt, eve, paquetes = self.escenario(tmp)
+            for nombre, extra_arnes, extra_motor in (
+                    ("eventos-retraso", ["--retraso-cierre", "3"], ["--disparo", "eventos"]),
+                    ("periodico", [], ["--disparo", "periodico"])):
+                registro = self.correr(tmp, capt, eve, nombre, extra_arnes, extra_motor)
+                with self.subTest(configuracion=nombre):
+>                   self.comprobar(registro, paquetes, iso, epoch)
+
+tests\test_motor_incremental.py:672: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_motor_incremental.py:678: in comprobar
+    self.assertFalse(any(r["motivo"] == "ventana_no_regenerada" for r in noev.values()))
+E   AssertionError: True is not false
+_ ContabilidadPendientes.test_cancelaciones_justificadas_y_sin_perdidas (configuracion='periodico') _
+
+self = <test_motor_incremental.ContabilidadPendientes testMethod=test_cancelaciones_justificadas_y_sin_perdidas>
+
+    def test_cancelaciones_justificadas_y_sin_perdidas(self):
+        import datetime as dt
+        iso = lambda a: dt.datetime.fromtimestamp(a, dt.timezone.utc).isoformat()  # noqa: E731
+        epoch = lambda s: dt.datetime.fromisoformat(s).timestamp()  # noqa: E731
+        with tempfile.TemporaryDirectory() as d:
+            tmp = Path(d)
+            capt, eve, paquetes = self.escenario(tmp)
+            for nombre, extra_arnes, extra_motor in (
+                    ("eventos-retraso", ["--retraso-cierre", "3"], ["--disparo", "eventos"]),
+                    ("periodico", [], ["--disparo", "periodico"])):
+                registro = self.correr(tmp, capt, eve, nombre, extra_arnes, extra_motor)
+                with self.subTest(configuracion=nombre):
+>                   self.comprobar(registro, paquetes, iso, epoch)
+
+tests\test_motor_incremental.py:672: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_motor_incremental.py:678: in comprobar
+    self.assertFalse(any(r["motivo"] == "ventana_no_regenerada" for r in noev.values()))
+E   AssertionError: True is not false
+____ ResolucionPendientesUnidad.test_registro_de_cancelacion_con_evidencia ____
+
+self = <test_motor_incremental.ResolucionPendientesUnidad testMethod=test_registro_de_cancelacion_con_evidencia>
+
+    def test_registro_de_cancelacion_con_evidencia(self):
+        rnd = random.Random(3)
+        a = 2000
+        obs = v2.attribute_packets(sorted([
+            paquete(rnd, a - 20, "10.10.30.11", "10.10.20.22", sport=22, dport=42000, flags=0x18),
+            paquete(rnd, a - 10, "10.10.30.11", "10.10.20.22", sport=22, dport=42000, flags=0x18)],
+            key=lambda p: p.timestamp), RED)
+>       r = inc.registro_cancelacion(("10.10.20.22", inc.clave_ventana(a)), a, a - 230, obs, [], 1990.0,
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+                                     {"corte_incorporacion": a - 240, "obs_pcap_incorporacion": 2,
+                                      "obs_eve_incorporacion": 0}, 1995.0, 1996.0)
+E       AttributeError: module 'motor_incremental' has no attribute 'registro_cancelacion'
+
+tests\test_motor_incremental.py:731: AttributeError
+=========================== short test summary info ===========================
+FAILED tests/test_motor_incremental.py::ExtremoAExtremo::test_escenario_sintetico_con_reinicio
+SUBFAILED(configuracion='eventos-retraso') tests/test_motor_incremental.py::ContabilidadPendientes::test_cancelaciones_justificadas_y_sin_perdidas
+SUBFAILED(configuracion='periodico') tests/test_motor_incremental.py::ContabilidadPendientes::test_cancelaciones_justificadas_y_sin_perdidas
+FAILED tests/test_motor_incremental.py::ResolucionPendientesUnidad::test_registro_de_cancelacion_con_evidencia
+======================== 4 failed, 12 passed in 19.27s ========================
