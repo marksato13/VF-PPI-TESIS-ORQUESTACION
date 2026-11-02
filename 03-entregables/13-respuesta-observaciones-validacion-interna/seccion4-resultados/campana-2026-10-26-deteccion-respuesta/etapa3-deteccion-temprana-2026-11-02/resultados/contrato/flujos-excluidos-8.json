@@ -1,0 +1,215 @@
+[
+ {
+  "entidad": "10.10.50.52",
+  "fin_ventana": "2026-11-01T09:24:40+00:00",
+  "flujos_con_excluidas": [
+   {
+    "otro": "10.10.60.10",
+    "proto": "tcp",
+    "puerto_E": 57005,
+    "puerto_otro": 1514,
+    "servicio": "wazuh",
+    "tramas_60s_E_a_otro": 16,
+    "tramas_60s_otro_a_E": 12,
+    "primera_trama_flujo_s_antes_de_A": 1795.4,
+    "empezo_antes_del_horizonte_230s": true
+   }
+  ]
+ },
+ {
+  "entidad": "10.10.10.21",
+  "fin_ventana": "2026-11-01T09:28:30+00:00",
+  "flujos_con_excluidas": [
+   {
+    "otro": "10.10.60.10",
+    "proto": "tcp",
+    "puerto_E": 39061,
+    "puerto_otro": 1514,
+    "servicio": "wazuh",
+    "tramas_60s_E_a_otro": 12,
+    "tramas_60s_otro_a_E": 6,
+    "primera_trama_flujo_s_antes_de_A": 2030.2,
+    "empezo_antes_del_horizonte_230s": true
+   },
+   {
+    "otro": "10.10.60.40",
+    "proto": "udp",
+    "puerto_E": 123,
+    "puerto_otro": 56210,
+    "servicio": "ntp",
+    "tramas_60s_E_a_otro": 2,
+    "tramas_60s_otro_a_E": 2,
+    "primera_trama_flujo_s_antes_de_A": 22.5,
+    "empezo_antes_del_horizonte_230s": false
+   }
+  ]
+ },
+ {
+  "entidad": "10.10.10.21",
+  "fin_ventana": "2026-11-01T09:34:30+00:00",
+  "flujos_con_excluidas": [
+   {
+    "otro": "10.10.60.10",
+    "proto": "tcp",
+    "puerto_E": 39061,
+    "puerto_otro": 1514,
+    "servicio": "wazuh",
+    "tramas_60s_E_a_otro": 12,
+    "tramas_60s_otro_a_E": 6,
+    "primera_trama_flujo_s_antes_de_A": 2390.2,
+    "empezo_antes_del_horizonte_230s": true
+   }
+  ]
+ },
+ {
+  "entidad": "10.10.10.21",
+  "fin_ventana": "2026-11-01T09:36:00+00:00",
+  "flujos_con_excluidas": [
+   {
+    "otro": "10.10.60.10",
+    "proto": "tcp",
+    "puerto_E": 39061,
+    "puerto_otro": 1514,
+    "servicio": "wazuh",
+    "tramas_60s_E_a_otro": 16,
+    "tramas_60s_otro_a_E": 12,
+    "primera_trama_flujo_s_antes_de_A": 2480.2,
+    "empezo_antes_del_horizonte_230s": true
+   },
+   {
+    "otro": "10.10.60.41",
+    "proto": "tcp",
+    "puerto_E": 88,
+    "puerto_otro": 56340,
+    "servicio": "kerberos",
+    "tramas_60s_E_a_otro": 8,
+    "tramas_60s_otro_a_E": 12,
+    "primera_trama_flujo_s_antes_de_A": 58.9,
+    "empezo_antes_del_horizonte_230s": false
+   },
+   {
+    "otro": "10.10.60.41",
+    "proto": "tcp",
+    "puerto_E": 88,
+    "puerto_otro": 56352,
+    "servicio": "kerberos",
+    "tramas_60s_E_a_otro": 8,
+    "tramas_60s_otro_a_E": 12,
+    "primera_trama_flujo_s_antes_de_A": 58.9,
+    "empezo_antes_del_horizonte_230s": false
+   },
+   {
+    "otro": "10.10.60.41",
+    "proto": "tcp",
+    "puerto_E": 389,
+    "puerto_otro": 47354,
+    "servicio": "ldap",
+    "tramas_60s_E_a_otro": 4,
+    "tramas_60s_otro_a_E": 8,
+    "primera_trama_flujo_s_antes_de_A": 514.0,
+    "empezo_antes_del_horizonte_230s": true
+   },
+   {
+    "otro": "10.10.60.41",
+    "proto": "udp",
+    "puerto_E": 88,
+    "puerto_otro": 46681,
+    "servicio": "kerberos",
+    "tramas_60s_E_a_otro": 2,
+    "tramas_60s_otro_a_E": 2,
+    "primera_trama_flujo_s_antes_de_A": 58.9,
+    "empezo_antes_del_horizonte_230s": false
+   },
+   {
+    "otro": "10.10.60.41",
+    "proto": "udp",
+    "puerto_E": 88,
+    "puerto_otro": 33324,
+    "servicio": "kerberos",
+    "tramas_60s_E_a_otro": 2,
+    "tramas_60s_otro_a_E": 2,
+    "primera_trama_flujo_s_antes_de_A": 58.9,
+    "empezo_antes_del_horizonte_230s": false
+   }
+  ]
+ },
+ {
+  "entidad": "10.10.10.21",
+  "fin_ventana": "2026-11-01T09:41:00+00:00",
+  "flujos_con_excluidas": [
+   {
+    "otro": "10.10.60.10",
+    "proto": "tcp",
+    "puerto_E": 39061,
+    "puerto_otro": 1514,
+    "servicio": "wazuh",
+    "tramas_60s_E_a_otro": 12,
+    "tramas_60s_otro_a_E": 6,
+    "primera_trama_flujo_s_antes_de_A": 2780.2,
+    "empezo_antes_del_horizonte_230s": true
+   }
+  ]
+ },
+ {
+  "entidad": "10.10.10.21",
+  "fin_ventana": "2026-11-01T09:46:00+00:00",
+  "flujos_con_excluidas": [
+   {
+    "otro": "10.10.60.10",
+    "proto": "tcp",
+    "puerto_E": 39061,
+    "puerto_otro": 1514,
+    "servicio": "wazuh",
+    "tramas_60s_E_a_otro": 12,
+    "tramas_60s_otro_a_E": 6,
+    "primera_trama_flujo_s_antes_de_A": 3080.2,
+    "empezo_antes_del_horizonte_230s": true
+   },
+   {
+    "otro": "10.10.60.40",
+    "proto": "udp",
+    "puerto_E": 123,
+    "puerto_otro": 48164,
+    "servicio": "ntp",
+    "tramas_60s_E_a_otro": 2,
+    "tramas_60s_otro_a_E": 2,
+    "primera_trama_flujo_s_antes_de_A": 33.3,
+    "empezo_antes_del_horizonte_230s": false
+   }
+  ]
+ },
+ {
+  "entidad": "10.10.10.21",
+  "fin_ventana": "2026-11-01T09:56:30+00:00",
+  "flujos_con_excluidas": [
+   {
+    "otro": "10.10.60.10",
+    "proto": "tcp",
+    "puerto_E": 39061,
+    "puerto_otro": 1514,
+    "servicio": "wazuh",
+    "tramas_60s_E_a_otro": 12,
+    "tramas_60s_otro_a_E": 6,
+    "primera_trama_flujo_s_antes_de_A": 3710.2,
+    "empezo_antes_del_horizonte_230s": true
+   }
+  ]
+ },
+ {
+  "entidad": "10.10.10.21",
+  "fin_ventana": "2026-11-01T10:02:30+00:00",
+  "flujos_con_excluidas": [
+   {
+    "otro": "10.10.60.10",
+    "proto": "tcp",
+    "puerto_E": 39061,
+    "puerto_otro": 1514,
+    "servicio": "wazuh",
+    "tramas_60s_E_a_otro": 20,
+    "tramas_60s_otro_a_E": 16,
+    "primera_trama_flujo_s_antes_de_A": 4070.2,
+    "empezo_antes_del_horizonte_230s": true
+   }
+  ]
+ }
+]

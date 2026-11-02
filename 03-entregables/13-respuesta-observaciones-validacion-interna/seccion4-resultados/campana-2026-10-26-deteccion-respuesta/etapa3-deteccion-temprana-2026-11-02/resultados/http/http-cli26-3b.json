@@ -1,0 +1,972 @@
+[
+ {
+  "inicio": "2026-11-01T07:26:19.350497+00:00",
+  "fin": "2026-11-01T07:31:01.872391+00:00",
+  "duracion_s": 282.5,
+  "peticiones": 230,
+  "episodios": [
+   "ninguno"
+  ],
+  "destino": [
+   [
+    "10.10.30.10",
+    230
+   ]
+  ],
+  "puerto": [
+   [
+    80,
+    230
+   ]
+  ],
+  "metodo": [
+   [
+    "GET",
+    230
+   ]
+  ],
+  "url": [
+   [
+    "/estatico/2048k",
+    52
+   ],
+   [
+    "/estatico/16k",
+    46
+   ],
+   [
+    "/api/ok",
+    44
+   ]
+  ],
+  "estado": [
+   [
+    200,
+    230
+   ]
+  ],
+  "agente": [
+   [
+    null,
+    230
+   ]
+  ]
+ },
+ {
+  "inicio": "2026-11-01T07:31:43.273485+00:00",
+  "fin": "2026-11-01T07:33:35.029787+00:00",
+  "duracion_s": 111.8,
+  "peticiones": 24,
+  "episodios": [
+   "ninguno"
+  ],
+  "destino": [
+   [
+    "10.10.30.10",
+    24
+   ]
+  ],
+  "puerto": [
+   [
+    80,
+    24
+   ]
+  ],
+  "metodo": [
+   [
+    "GET",
+    24
+   ]
+  ],
+  "url": [
+   [
+    "/estatico/2048k",
+    8
+   ],
+   [
+    "/estatico/4k",
+    8
+   ],
+   [
+    "/estatico/1024k",
+    4
+   ]
+  ],
+  "estado": [
+   [
+    200,
+    24
+   ]
+  ],
+  "agente": [
+   [
+    null,
+    24
+   ]
+  ]
+ },
+ {
+  "inicio": "2026-11-01T07:34:10.360889+00:00",
+  "fin": "2026-11-01T08:19:18.154940+00:00",
+  "duracion_s": 2707.8,
+  "peticiones": 1424,
+  "episodios": [
+   "escaneo_sostenido-r2",
+   "inundacion_http-r1",
+   "dns_inusual-r3"
+  ],
+  "destino": [
+   [
+    "10.10.30.10",
+    1424
+   ]
+  ],
+  "puerto": [
+   [
+    80,
+    1424
+   ]
+  ],
+  "metodo": [
+   [
+    "GET",
+    1422
+   ],
+   [
+    null,
+    2
+   ]
+  ],
+  "url": [
+   [
+    "/api/ok",
+    365
+   ],
+   [
+    "/estatico/2048k",
+    310
+   ],
+   [
+    "/",
+    181
+   ]
+  ],
+  "estado": [
+   [
+    200,
+    1420
+   ],
+   [
+    null,
+    4
+   ]
+  ],
+  "agente": [
+   [
+    null,
+    1424
+   ]
+  ]
+ },
+ {
+  "inicio": "2026-11-01T08:20:01.589160+00:00",
+  "fin": "2026-11-01T08:47:04.152041+00:00",
+  "duracion_s": 1622.6,
+  "peticiones": 680,
+  "episodios": [
+   "inundacion_http-r4",
+   "inundacion_http-r2",
+   "inundacion_http-r3",
+   "escaneo_sostenido-r4",
+   "escaneo_sostenido-r5"
+  ],
+  "destino": [
+   [
+    "10.10.30.10",
+    680
+   ]
+  ],
+  "puerto": [
+   [
+    80,
+    680
+   ]
+  ],
+  "metodo": [
+   [
+    "GET",
+    674
+   ],
+   [
+    null,
+    6
+   ]
+  ],
+  "url": [
+   [
+    "/api/ok",
+    169
+   ],
+   [
+    "/estatico/2048k",
+    130
+   ],
+   [
+    "/estatico/16k",
+    95
+   ]
+  ],
+  "estado": [
+   [
+    200,
+    674
+   ],
+   [
+    null,
+    6
+   ]
+  ],
+  "agente": [
+   [
+    null,
+    680
+   ]
+  ]
+ },
+ {
+  "inicio": "2026-11-01T08:48:00.171534+00:00",
+  "fin": "2026-11-01T08:53:19.562468+00:00",
+  "duracion_s": 319.4,
+  "peticiones": 240,
+  "episodios": [
+   "fuerza_bruta_http-r3"
+  ],
+  "destino": [
+   [
+    "10.10.30.10",
+    240
+   ]
+  ],
+  "puerto": [
+   [
+    80,
+    240
+   ]
+  ],
+  "metodo": [
+   [
+    "GET",
+    240
+   ]
+  ],
+  "url": [
+   [
+    "/estatico/2048k",
+    46
+   ],
+   [
+    "/",
+    44
+   ],
+   [
+    "/api/ok",
+    44
+   ]
+  ],
+  "estado": [
+   [
+    200,
+    236
+   ],
+   [
+    null,
+    4
+   ]
+  ],
+  "agente": [
+   [
+    null,
+    240
+   ]
+  ]
+ },
+ {
+  "inicio": "2026-11-01T08:53:53.072186+00:00",
+  "fin": "2026-11-01T09:00:09.179164+00:00",
+  "duracion_s": 376.1,
+  "peticiones": 174,
+  "episodios": [
+   "fuerza_bruta_http-r5"
+  ],
+  "destino": [
+   [
+    "10.10.30.10",
+    174
+   ]
+  ],
+  "puerto": [
+   [
+    80,
+    174
+   ]
+  ],
+  "metodo": [
+   [
+    "GET",
+    171
+   ],
+   [
+    null,
+    3
+   ]
+  ],
+  "url": [
+   [
+    "/estatico/2048k",
+    42
+   ],
+   [
+    "/api/ok",
+    32
+   ],
+   [
+    "/estatico/4k",
+    30
+   ]
+  ],
+  "estado": [
+   [
+    200,
+    174
+   ]
+  ],
+  "agente": [
+   [
+    null,
+    174
+   ]
+  ]
+ },
+ {
+  "inicio": "2026-11-01T09:01:22.969123+00:00",
+  "fin": "2026-11-01T09:06:32.084016+00:00",
+  "duracion_s": 309.1,
+  "peticiones": 172,
+  "episodios": [
+   "dns_inusual-r5",
+   "escaneo_sostenido-r3"
+  ],
+  "destino": [
+   [
+    "10.10.30.10",
+    172
+   ]
+  ],
+  "puerto": [
+   [
+    80,
+    172
+   ]
+  ],
+  "metodo": [
+   [
+    "GET",
+    172
+   ]
+  ],
+  "url": [
+   [
+    "/api/ok",
+    44
+   ],
+   [
+    "/estatico/2048k",
+    29
+   ],
+   [
+    "/estatico/4k",
+    25
+   ]
+  ],
+  "estado": [
+   [
+    200,
+    172
+   ]
+  ],
+  "agente": [
+   [
+    null,
+    172
+   ]
+  ]
+ },
+ {
+  "inicio": "2026-11-01T09:07:04.896129+00:00",
+  "fin": "2026-11-01T09:08:22.843085+00:00",
+  "duracion_s": 77.9,
+  "peticiones": 20,
+  "episodios": [
+   "escaneo_sostenido-r3"
+  ],
+  "destino": [
+   [
+    "10.10.30.10",
+    20
+   ]
+  ],
+  "puerto": [
+   [
+    80,
+    20
+   ]
+  ],
+  "metodo": [
+   [
+    "GET",
+    20
+   ]
+  ],
+  "url": [
+   [
+    "/estatico/4k",
+    6
+   ],
+   [
+    "/estatico/2048k",
+    5
+   ],
+   [
+    "/",
+    2
+   ]
+  ],
+  "estado": [
+   [
+    200,
+    20
+   ]
+  ],
+  "agente": [
+   [
+    null,
+    20
+   ]
+  ]
+ },
+ {
+  "inicio": "2026-11-01T09:08:58.325612+00:00",
+  "fin": "2026-11-01T09:17:24.813532+00:00",
+  "duracion_s": 506.5,
+  "peticiones": 145,
+  "episodios": [
+   "dns_inusual-r2",
+   "fuerza_bruta_http-r2"
+  ],
+  "destino": [
+   [
+    "10.10.30.10",
+    145
+   ]
+  ],
+  "puerto": [
+   [
+    80,
+    145
+   ]
+  ],
+  "metodo": [
+   [
+    "GET",
+    144
+   ],
+   [
+    null,
+    1
+   ]
+  ],
+  "url": [
+   [
+    "/estatico/2048k",
+    37
+   ],
+   [
+    "/api/ok",
+    28
+   ],
+   [
+    "/estatico/16k",
+    22
+   ]
+  ],
+  "estado": [
+   [
+    200,
+    144
+   ],
+   [
+    null,
+    1
+   ]
+  ],
+  "agente": [
+   [
+    null,
+    145
+   ]
+  ]
+ },
+ {
+  "inicio": "2026-11-01T09:17:57.423793+00:00",
+  "fin": "2026-11-01T09:26:18.001153+00:00",
+  "duracion_s": 500.6,
+  "peticiones": 236,
+  "episodios": [
+   "fuerza_bruta_http-r4",
+   "dns_inusual-r1"
+  ],
+  "destino": [
+   [
+    "10.10.30.10",
+    236
+   ]
+  ],
+  "puerto": [
+   [
+    80,
+    236
+   ]
+  ],
+  "metodo": [
+   [
+    "GET",
+    235
+   ],
+   [
+    null,
+    1
+   ]
+  ],
+  "url": [
+   [
+    "/estatico/2048k",
+    47
+   ],
+   [
+    "/api/ok",
+    47
+   ],
+   [
+    "/estatico/16k",
+    42
+   ]
+  ],
+  "estado": [
+   [
+    200,
+    234
+   ],
+   [
+    null,
+    2
+   ]
+  ],
+  "agente": [
+   [
+    null,
+    236
+   ]
+  ]
+ },
+ {
+  "inicio": "2026-11-01T09:26:55.122099+00:00",
+  "fin": "2026-11-01T09:27:03.610338+00:00",
+  "duracion_s": 8.5,
+  "peticiones": 6,
+  "episodios": [
+   "dns_inusual-r1"
+  ],
+  "destino": [
+   [
+    "10.10.30.10",
+    6
+   ]
+  ],
+  "puerto": [
+   [
+    80,
+    6
+   ]
+  ],
+  "metodo": [
+   [
+    "GET",
+    6
+   ]
+  ],
+  "url": [
+   [
+    "/",
+    2
+   ],
+   [
+    "/api/ok",
+    2
+   ],
+   [
+    "/estatico/4096k",
+    2
+   ]
+  ],
+  "estado": [
+   [
+    200,
+    6
+   ]
+  ],
+  "agente": [
+   [
+    null,
+    6
+   ]
+  ]
+ },
+ {
+  "inicio": "2026-11-01T09:27:40.765328+00:00",
+  "fin": "2026-11-01T09:38:53.632139+00:00",
+  "duracion_s": 672.9,
+  "peticiones": 251,
+  "episodios": [
+   "escaneo_breve-r1",
+   "escaneo_breve-r4",
+   "escaneo_breve-r3"
+  ],
+  "destino": [
+   [
+    "10.10.30.10",
+    251
+   ]
+  ],
+  "puerto": [
+   [
+    80,
+    251
+   ]
+  ],
+  "metodo": [
+   [
+    "GET",
+    251
+   ]
+  ],
+  "url": [
+   [
+    "/api/ok",
+    60
+   ],
+   [
+    "/estatico/2048k",
+    47
+   ],
+   [
+    "/estatico/16k",
+    38
+   ]
+  ],
+  "estado": [
+   [
+    200,
+    247
+   ],
+   [
+    null,
+    4
+   ]
+  ],
+  "agente": [
+   [
+    null,
+    251
+   ]
+  ]
+ },
+ {
+  "inicio": "2026-11-01T09:39:27.595906+00:00",
+  "fin": "2026-11-01T09:43:43.405513+00:00",
+  "duracion_s": 255.8,
+  "peticiones": 119,
+  "episodios": [
+   "dns_inusual-r4"
+  ],
+  "destino": [
+   [
+    "10.10.30.10",
+    119
+   ]
+  ],
+  "puerto": [
+   [
+    80,
+    119
+   ]
+  ],
+  "metodo": [
+   [
+    "GET",
+    119
+   ]
+  ],
+  "url": [
+   [
+    "/api/ok",
+    39
+   ],
+   [
+    "/estatico/2048k",
+    30
+   ],
+   [
+    "/estatico/16k",
+    18
+   ]
+  ],
+  "estado": [
+   [
+    200,
+    119
+   ]
+  ],
+  "agente": [
+   [
+    null,
+    119
+   ]
+  ]
+ },
+ {
+  "inicio": "2026-11-01T09:44:19.519283+00:00",
+  "fin": "2026-11-01T09:48:18.885505+00:00",
+  "duracion_s": 239.4,
+  "peticiones": 87,
+  "episodios": [
+   "fuerza_bruta_http-r1"
+  ],
+  "destino": [
+   [
+    "10.10.30.10",
+    87
+   ]
+  ],
+  "puerto": [
+   [
+    80,
+    87
+   ]
+  ],
+  "metodo": [
+   [
+    "GET",
+    87
+   ]
+  ],
+  "url": [
+   [
+    "/api/ok",
+    34
+   ],
+   [
+    "/estatico/16k",
+    18
+   ],
+   [
+    "/estatico/4k",
+    10
+   ]
+  ],
+  "estado": [
+   [
+    200,
+    85
+   ],
+   [
+    null,
+    2
+   ]
+  ],
+  "agente": [
+   [
+    null,
+    87
+   ]
+  ]
+ },
+ {
+  "inicio": "2026-11-01T09:48:59.427768+00:00",
+  "fin": "2026-11-01T10:02:29.650906+00:00",
+  "duracion_s": 810.2,
+  "peticiones": 339,
+  "episodios": [
+   "inundacion_http-r5",
+   "escaneo_breve-r2",
+   "escaneo_sostenido-r1"
+  ],
+  "destino": [
+   [
+    "10.10.30.10",
+    339
+   ]
+  ],
+  "puerto": [
+   [
+    80,
+    339
+   ]
+  ],
+  "metodo": [
+   [
+    "GET",
+    337
+   ],
+   [
+    null,
+    2
+   ]
+  ],
+  "url": [
+   [
+    "/api/ok",
+    91
+   ],
+   [
+    "/estatico/2048k",
+    62
+   ],
+   [
+    "/",
+    58
+   ]
+  ],
+  "estado": [
+   [
+    200,
+    338
+   ],
+   [
+    null,
+    1
+   ]
+  ],
+  "agente": [
+   [
+    null,
+    339
+   ]
+  ]
+ },
+ {
+  "inicio": "2026-11-01T10:03:01.827015+00:00",
+  "fin": "2026-11-01T10:05:16.870562+00:00",
+  "duracion_s": 135.0,
+  "peticiones": 35,
+  "episodios": [
+   "ninguno"
+  ],
+  "destino": [
+   [
+    "10.10.30.10",
+    35
+   ]
+  ],
+  "puerto": [
+   [
+    80,
+    35
+   ]
+  ],
+  "metodo": [
+   [
+    "GET",
+    31
+   ],
+   [
+    null,
+    4
+   ]
+  ],
+  "url": [
+   [
+    "/estatico/2048k",
+    9
+   ],
+   [
+    "/api/ok",
+    6
+   ],
+   [
+    "/estatico/4k",
+    6
+   ]
+  ],
+  "estado": [
+   [
+    200,
+    32
+   ],
+   [
+    null,
+    3
+   ]
+  ],
+  "agente": [
+   [
+    null,
+    35
+   ]
+  ]
+ },
+ {
+  "inicio": "2026-11-01T10:05:49.127037+00:00",
+  "fin": "2026-11-01T10:05:49.127063+00:00",
+  "duracion_s": 0.0,
+  "peticiones": 2,
+  "episodios": [
+   "ninguno"
+  ],
+  "destino": [
+   [
+    "10.10.30.10",
+    2
+   ]
+  ],
+  "puerto": [
+   [
+    80,
+    2
+   ]
+  ],
+  "metodo": [
+   [
+    "GET",
+    2
+   ]
+  ],
+  "url": [
+   [
+    "/api/ok",
+    2
+   ]
+  ],
+  "estado": [
+   [
+    200,
+    2
+   ]
+  ],
+  "agente": [
+   [
+    null,
+    2
+   ]
+  ]
+ }
+]

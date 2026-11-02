@@ -1,0 +1,750 @@
+{
+ "version_vista": "2026-11-02.1",
+ "copias_espejo": 10286,
+ "combinaciones": {
+  "n>=20,unicos>=0.45": {
+   "episodios": {
+    "dns_inusual-r1": {
+     "primera_s_desde_inicio": 10.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 79.4,
+     "ventanas": 14
+    },
+    "dns_inusual-r2": {
+     "primera_s_desde_inicio": 10.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 79.0,
+     "ventanas": 14
+    },
+    "dns_inusual-r3": {
+     "primera_s_desde_inicio": 14.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 75.2,
+     "ventanas": 13
+    },
+    "dns_inusual-r4": {
+     "primera_s_desde_inicio": 17.4,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 72.1,
+     "ventanas": 13
+    },
+    "dns_inusual-r5": {
+     "primera_s_desde_inicio": 16.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 74.4,
+     "ventanas": 13
+    }
+   },
+   "detectados": 5,
+   "antes_del_fin": 5,
+   "ventanas_legitimas": 0,
+   "entidades_legitimas": {},
+   "atacante_fuera_de_episodios": 0
+  },
+  "n>=20,unicos>=0.8": {
+   "episodios": {
+    "dns_inusual-r1": {
+     "primera_s_desde_inicio": 10.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 79.4,
+     "ventanas": 14
+    },
+    "dns_inusual-r2": {
+     "primera_s_desde_inicio": 10.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 79.0,
+     "ventanas": 14
+    },
+    "dns_inusual-r3": {
+     "primera_s_desde_inicio": 14.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 75.2,
+     "ventanas": 13
+    },
+    "dns_inusual-r4": {
+     "primera_s_desde_inicio": 17.4,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 72.1,
+     "ventanas": 13
+    },
+    "dns_inusual-r5": {
+     "primera_s_desde_inicio": 16.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 74.4,
+     "ventanas": 13
+    }
+   },
+   "detectados": 5,
+   "antes_del_fin": 5,
+   "ventanas_legitimas": 0,
+   "entidades_legitimas": {},
+   "atacante_fuera_de_episodios": 0
+  },
+  "n>=20,unicos>=0.9": {
+   "episodios": {
+    "dns_inusual-r1": {
+     "primera_s_desde_inicio": 10.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 79.4,
+     "ventanas": 14
+    },
+    "dns_inusual-r2": {
+     "primera_s_desde_inicio": 10.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 79.0,
+     "ventanas": 14
+    },
+    "dns_inusual-r3": {
+     "primera_s_desde_inicio": 14.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 75.2,
+     "ventanas": 13
+    },
+    "dns_inusual-r4": {
+     "primera_s_desde_inicio": 17.4,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 72.1,
+     "ventanas": 13
+    },
+    "dns_inusual-r5": {
+     "primera_s_desde_inicio": 16.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 74.4,
+     "ventanas": 13
+    }
+   },
+   "detectados": 5,
+   "antes_del_fin": 5,
+   "ventanas_legitimas": 0,
+   "entidades_legitimas": {},
+   "atacante_fuera_de_episodios": 0
+  },
+  "n>=25,unicos>=0.45": {
+   "episodios": {
+    "dns_inusual-r1": {
+     "primera_s_desde_inicio": 10.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 79.4,
+     "ventanas": 13
+    },
+    "dns_inusual-r2": {
+     "primera_s_desde_inicio": 20.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 69.0,
+     "ventanas": 12
+    },
+    "dns_inusual-r3": {
+     "primera_s_desde_inicio": 14.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 75.2,
+     "ventanas": 13
+    },
+    "dns_inusual-r4": {
+     "primera_s_desde_inicio": 17.4,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 72.1,
+     "ventanas": 13
+    },
+    "dns_inusual-r5": {
+     "primera_s_desde_inicio": 16.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 74.4,
+     "ventanas": 13
+    }
+   },
+   "detectados": 5,
+   "antes_del_fin": 5,
+   "ventanas_legitimas": 0,
+   "entidades_legitimas": {},
+   "atacante_fuera_de_episodios": 0
+  },
+  "n>=25,unicos>=0.8": {
+   "episodios": {
+    "dns_inusual-r1": {
+     "primera_s_desde_inicio": 10.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 79.4,
+     "ventanas": 13
+    },
+    "dns_inusual-r2": {
+     "primera_s_desde_inicio": 20.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 69.0,
+     "ventanas": 12
+    },
+    "dns_inusual-r3": {
+     "primera_s_desde_inicio": 14.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 75.2,
+     "ventanas": 13
+    },
+    "dns_inusual-r4": {
+     "primera_s_desde_inicio": 17.4,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 72.1,
+     "ventanas": 13
+    },
+    "dns_inusual-r5": {
+     "primera_s_desde_inicio": 16.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 74.4,
+     "ventanas": 13
+    }
+   },
+   "detectados": 5,
+   "antes_del_fin": 5,
+   "ventanas_legitimas": 0,
+   "entidades_legitimas": {},
+   "atacante_fuera_de_episodios": 0
+  },
+  "n>=25,unicos>=0.9": {
+   "episodios": {
+    "dns_inusual-r1": {
+     "primera_s_desde_inicio": 10.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 79.4,
+     "ventanas": 13
+    },
+    "dns_inusual-r2": {
+     "primera_s_desde_inicio": 20.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 69.0,
+     "ventanas": 12
+    },
+    "dns_inusual-r3": {
+     "primera_s_desde_inicio": 14.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 75.2,
+     "ventanas": 13
+    },
+    "dns_inusual-r4": {
+     "primera_s_desde_inicio": 17.4,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 72.1,
+     "ventanas": 13
+    },
+    "dns_inusual-r5": {
+     "primera_s_desde_inicio": 16.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 74.4,
+     "ventanas": 13
+    }
+   },
+   "detectados": 5,
+   "antes_del_fin": 5,
+   "ventanas_legitimas": 0,
+   "entidades_legitimas": {},
+   "atacante_fuera_de_episodios": 0
+  },
+  "n>=30,unicos>=0.45": {
+   "episodios": {
+    "dns_inusual-r1": {
+     "primera_s_desde_inicio": 20.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 69.4,
+     "ventanas": 12
+    },
+    "dns_inusual-r2": {
+     "primera_s_desde_inicio": 20.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 69.0,
+     "ventanas": 12
+    },
+    "dns_inusual-r3": {
+     "primera_s_desde_inicio": 14.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 75.2,
+     "ventanas": 13
+    },
+    "dns_inusual-r4": {
+     "primera_s_desde_inicio": 17.4,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 72.1,
+     "ventanas": 12
+    },
+    "dns_inusual-r5": {
+     "primera_s_desde_inicio": 16.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 74.4,
+     "ventanas": 13
+    }
+   },
+   "detectados": 5,
+   "antes_del_fin": 5,
+   "ventanas_legitimas": 0,
+   "entidades_legitimas": {},
+   "atacante_fuera_de_episodios": 0
+  },
+  "n>=30,unicos>=0.8": {
+   "episodios": {
+    "dns_inusual-r1": {
+     "primera_s_desde_inicio": 20.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 69.4,
+     "ventanas": 12
+    },
+    "dns_inusual-r2": {
+     "primera_s_desde_inicio": 20.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 69.0,
+     "ventanas": 12
+    },
+    "dns_inusual-r3": {
+     "primera_s_desde_inicio": 14.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 75.2,
+     "ventanas": 13
+    },
+    "dns_inusual-r4": {
+     "primera_s_desde_inicio": 17.4,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 72.1,
+     "ventanas": 12
+    },
+    "dns_inusual-r5": {
+     "primera_s_desde_inicio": 16.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 74.4,
+     "ventanas": 13
+    }
+   },
+   "detectados": 5,
+   "antes_del_fin": 5,
+   "ventanas_legitimas": 0,
+   "entidades_legitimas": {},
+   "atacante_fuera_de_episodios": 0
+  },
+  "n>=30,unicos>=0.9": {
+   "episodios": {
+    "dns_inusual-r1": {
+     "primera_s_desde_inicio": 20.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 69.4,
+     "ventanas": 12
+    },
+    "dns_inusual-r2": {
+     "primera_s_desde_inicio": 20.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 69.0,
+     "ventanas": 12
+    },
+    "dns_inusual-r3": {
+     "primera_s_desde_inicio": 14.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 75.2,
+     "ventanas": 13
+    },
+    "dns_inusual-r4": {
+     "primera_s_desde_inicio": 17.4,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 72.1,
+     "ventanas": 12
+    },
+    "dns_inusual-r5": {
+     "primera_s_desde_inicio": 16.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 74.4,
+     "ventanas": 13
+    }
+   },
+   "detectados": 5,
+   "antes_del_fin": 5,
+   "ventanas_legitimas": 0,
+   "entidades_legitimas": {},
+   "atacante_fuera_de_episodios": 0
+  },
+  "n>=40,unicos>=0.45": {
+   "episodios": {
+    "dns_inusual-r1": {
+     "primera_s_desde_inicio": 20.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 69.4,
+     "ventanas": 12
+    },
+    "dns_inusual-r2": {
+     "primera_s_desde_inicio": 20.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 69.0,
+     "ventanas": 12
+    },
+    "dns_inusual-r3": {
+     "primera_s_desde_inicio": 24.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 65.2,
+     "ventanas": 11
+    },
+    "dns_inusual-r4": {
+     "primera_s_desde_inicio": 17.4,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 72.1,
+     "ventanas": 12
+    },
+    "dns_inusual-r5": {
+     "primera_s_desde_inicio": 26.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 64.4,
+     "ventanas": 11
+    }
+   },
+   "detectados": 5,
+   "antes_del_fin": 5,
+   "ventanas_legitimas": 0,
+   "entidades_legitimas": {},
+   "atacante_fuera_de_episodios": 0
+  },
+  "n>=40,unicos>=0.8": {
+   "episodios": {
+    "dns_inusual-r1": {
+     "primera_s_desde_inicio": 20.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 69.4,
+     "ventanas": 12
+    },
+    "dns_inusual-r2": {
+     "primera_s_desde_inicio": 20.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 69.0,
+     "ventanas": 12
+    },
+    "dns_inusual-r3": {
+     "primera_s_desde_inicio": 24.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 65.2,
+     "ventanas": 11
+    },
+    "dns_inusual-r4": {
+     "primera_s_desde_inicio": 17.4,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 72.1,
+     "ventanas": 12
+    },
+    "dns_inusual-r5": {
+     "primera_s_desde_inicio": 26.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 64.4,
+     "ventanas": 11
+    }
+   },
+   "detectados": 5,
+   "antes_del_fin": 5,
+   "ventanas_legitimas": 0,
+   "entidades_legitimas": {},
+   "atacante_fuera_de_episodios": 0
+  },
+  "n>=40,unicos>=0.9": {
+   "episodios": {
+    "dns_inusual-r1": {
+     "primera_s_desde_inicio": 20.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 69.4,
+     "ventanas": 12
+    },
+    "dns_inusual-r2": {
+     "primera_s_desde_inicio": 20.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 69.0,
+     "ventanas": 12
+    },
+    "dns_inusual-r3": {
+     "primera_s_desde_inicio": 24.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 65.2,
+     "ventanas": 11
+    },
+    "dns_inusual-r4": {
+     "primera_s_desde_inicio": 17.4,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 72.1,
+     "ventanas": 12
+    },
+    "dns_inusual-r5": {
+     "primera_s_desde_inicio": 26.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 64.4,
+     "ventanas": 11
+    }
+   },
+   "detectados": 5,
+   "antes_del_fin": 5,
+   "ventanas_legitimas": 0,
+   "entidades_legitimas": {},
+   "atacante_fuera_de_episodios": 0
+  },
+  "n>=50,unicos>=0.45": {
+   "episodios": {
+    "dns_inusual-r1": {
+     "primera_s_desde_inicio": 30.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 59.4,
+     "ventanas": 10
+    },
+    "dns_inusual-r2": {
+     "primera_s_desde_inicio": 30.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 59.0,
+     "ventanas": 10
+    },
+    "dns_inusual-r3": {
+     "primera_s_desde_inicio": 24.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 65.2,
+     "ventanas": 11
+    },
+    "dns_inusual-r4": {
+     "primera_s_desde_inicio": 27.4,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 62.1,
+     "ventanas": 11
+    },
+    "dns_inusual-r5": {
+     "primera_s_desde_inicio": 26.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 64.4,
+     "ventanas": 11
+    }
+   },
+   "detectados": 5,
+   "antes_del_fin": 5,
+   "ventanas_legitimas": 0,
+   "entidades_legitimas": {},
+   "atacante_fuera_de_episodios": 0
+  },
+  "n>=50,unicos>=0.8": {
+   "episodios": {
+    "dns_inusual-r1": {
+     "primera_s_desde_inicio": 30.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 59.4,
+     "ventanas": 10
+    },
+    "dns_inusual-r2": {
+     "primera_s_desde_inicio": 30.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 59.0,
+     "ventanas": 10
+    },
+    "dns_inusual-r3": {
+     "primera_s_desde_inicio": 24.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 65.2,
+     "ventanas": 11
+    },
+    "dns_inusual-r4": {
+     "primera_s_desde_inicio": 27.4,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 62.1,
+     "ventanas": 11
+    },
+    "dns_inusual-r5": {
+     "primera_s_desde_inicio": 26.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 64.4,
+     "ventanas": 11
+    }
+   },
+   "detectados": 5,
+   "antes_del_fin": 5,
+   "ventanas_legitimas": 0,
+   "entidades_legitimas": {},
+   "atacante_fuera_de_episodios": 0
+  },
+  "n>=50,unicos>=0.9": {
+   "episodios": {
+    "dns_inusual-r1": {
+     "primera_s_desde_inicio": 30.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 59.4,
+     "ventanas": 10
+    },
+    "dns_inusual-r2": {
+     "primera_s_desde_inicio": 30.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 59.0,
+     "ventanas": 10
+    },
+    "dns_inusual-r3": {
+     "primera_s_desde_inicio": 24.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 65.2,
+     "ventanas": 11
+    },
+    "dns_inusual-r4": {
+     "primera_s_desde_inicio": 27.4,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 62.1,
+     "ventanas": 11
+    },
+    "dns_inusual-r5": {
+     "primera_s_desde_inicio": 26.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 64.4,
+     "ventanas": 11
+    }
+   },
+   "detectados": 5,
+   "antes_del_fin": 5,
+   "ventanas_legitimas": 0,
+   "entidades_legitimas": {},
+   "atacante_fuera_de_episodios": 0
+  },
+  "n>=60,unicos>=0.45": {
+   "episodios": {
+    "dns_inusual-r1": {
+     "primera_s_desde_inicio": 30.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 59.4,
+     "ventanas": 10
+    },
+    "dns_inusual-r2": {
+     "primera_s_desde_inicio": 30.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 59.0,
+     "ventanas": 10
+    },
+    "dns_inusual-r3": {
+     "primera_s_desde_inicio": 34.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 55.2,
+     "ventanas": 9
+    },
+    "dns_inusual-r4": {
+     "primera_s_desde_inicio": 27.4,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 62.1,
+     "ventanas": 10
+    },
+    "dns_inusual-r5": {
+     "primera_s_desde_inicio": 26.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 64.4,
+     "ventanas": 10
+    }
+   },
+   "detectados": 5,
+   "antes_del_fin": 5,
+   "ventanas_legitimas": 0,
+   "entidades_legitimas": {},
+   "atacante_fuera_de_episodios": 0
+  },
+  "n>=60,unicos>=0.8": {
+   "episodios": {
+    "dns_inusual-r1": {
+     "primera_s_desde_inicio": 30.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 59.4,
+     "ventanas": 10
+    },
+    "dns_inusual-r2": {
+     "primera_s_desde_inicio": 30.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 59.0,
+     "ventanas": 10
+    },
+    "dns_inusual-r3": {
+     "primera_s_desde_inicio": 34.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 55.2,
+     "ventanas": 9
+    },
+    "dns_inusual-r4": {
+     "primera_s_desde_inicio": 27.4,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 62.1,
+     "ventanas": 10
+    },
+    "dns_inusual-r5": {
+     "primera_s_desde_inicio": 26.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 64.4,
+     "ventanas": 10
+    }
+   },
+   "detectados": 5,
+   "antes_del_fin": 5,
+   "ventanas_legitimas": 0,
+   "entidades_legitimas": {},
+   "atacante_fuera_de_episodios": 0
+  },
+  "n>=60,unicos>=0.9": {
+   "episodios": {
+    "dns_inusual-r1": {
+     "primera_s_desde_inicio": 30.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 59.4,
+     "ventanas": 10
+    },
+    "dns_inusual-r2": {
+     "primera_s_desde_inicio": 30.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 59.0,
+     "ventanas": 10
+    },
+    "dns_inusual-r3": {
+     "primera_s_desde_inicio": 34.9,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 55.2,
+     "ventanas": 9
+    },
+    "dns_inusual-r4": {
+     "primera_s_desde_inicio": 27.4,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 62.1,
+     "ventanas": 10
+    },
+    "dns_inusual-r5": {
+     "primera_s_desde_inicio": 26.0,
+     "antes_del_fin": true,
+     "margen_s_hasta_fin": 64.4,
+     "ventanas": 10
+    }
+   },
+   "detectados": 5,
+   "antes_del_fin": 5,
+   "ventanas_legitimas": 0,
+   "entidades_legitimas": {},
+   "atacante_fuera_de_episodios": 0
+  }
+ },
+ "peor_legitimo_consultas_60s": [
+  19,
+  "10.10.20.26",
+  1793522160
+ ],
+ "resolvedores_reenvios_excluidos_max": {
+  "10.10.10.20": 38,
+  "10.10.10.21": 2
+ },
+ "resolvedores_propias_max": {
+  "10.10.10.20": 4,
+  "10.10.10.21": 1
+ },
+ "regla_vigente_replay": {
+  "episodios": {
+   "dns_inusual-r1": {
+    "primera_s_desde_inicio": 10.9,
+    "margen_s_hasta_fin": 79.4
+   },
+   "dns_inusual-r2": {
+    "primera_s_desde_inicio": 10.0,
+    "margen_s_hasta_fin": 79.0
+   },
+   "dns_inusual-r3": {
+    "primera_s_desde_inicio": 4.9,
+    "margen_s_hasta_fin": 85.2
+   },
+   "dns_inusual-r4": {
+    "primera_s_desde_inicio": 7.4,
+    "margen_s_hasta_fin": 82.1
+   },
+   "dns_inusual-r5": {
+    "primera_s_desde_inicio": 6.0,
+    "margen_s_hasta_fin": 84.4
+   }
+  },
+  "ventanas_por_entidad": {
+   "10.10.10.20": 382,
+   "10.10.20.22": 4,
+   "10.10.20.30": 72
+  }
+ }
+}

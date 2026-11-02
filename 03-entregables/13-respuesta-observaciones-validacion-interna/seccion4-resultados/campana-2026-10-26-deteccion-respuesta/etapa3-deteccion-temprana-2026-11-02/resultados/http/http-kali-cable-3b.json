@@ -1,0 +1,304 @@
+[
+ {
+  "inicio": "2026-11-01T08:13:15.506360+00:00",
+  "fin": "2026-11-01T08:15:50.411178+00:00",
+  "peticiones_eve": 27419,
+  "episodios": [
+   "inundacion_http-r1"
+  ],
+  "puerto": 80,
+  "paquetes_cable": 28632,
+  "syn_cable": 28632,
+  "primeros_s": [
+   0.018,
+   0.018,
+   0.022
+  ]
+ },
+ {
+  "inicio": "2026-11-01T08:23:15.286811+00:00",
+  "fin": "2026-11-01T08:25:52.754959+00:00",
+  "peticiones_eve": 26594,
+  "episodios": [
+   "inundacion_http-r4"
+  ],
+  "puerto": 80,
+  "paquetes_cable": 28248,
+  "syn_cable": 28248,
+  "primeros_s": [
+   0.01,
+   0.01,
+   0.012
+  ]
+ },
+ {
+  "inicio": "2026-11-01T08:28:15.121983+00:00",
+  "fin": "2026-11-01T08:30:53.810407+00:00",
+  "peticiones_eve": 27337,
+  "episodios": [
+   "inundacion_http-r2"
+  ],
+  "puerto": 80,
+  "paquetes_cable": 28266,
+  "syn_cable": 28266,
+  "primeros_s": [
+   0.01,
+   0.01,
+   0.012
+  ]
+ },
+ {
+  "inicio": "2026-11-01T08:33:15.065198+00:00",
+  "fin": "2026-11-01T08:35:54.028129+00:00",
+  "peticiones_eve": 26295,
+  "episodios": [
+   "inundacion_http-r3"
+  ],
+  "puerto": 80,
+  "paquetes_cable": 28616,
+  "syn_cable": 28616,
+  "primeros_s": [
+   0.015,
+   0.015,
+   0.017
+  ]
+ },
+ {
+  "inicio": "2026-11-01T08:38:25.530174+00:00",
+  "fin": "2026-11-01T08:38:31.532885+00:00",
+  "peticiones_eve": 7,
+  "episodios": [
+   "escaneo_sostenido-r4"
+  ],
+  "puerto": 80,
+  "paquetes_cable": 4,
+  "syn_cable": 2,
+  "primeros_s": [
+   2.897,
+   2.897,
+   2.898
+  ]
+ },
+ {
+  "inicio": "2026-11-01T08:38:51.447883+00:00",
+  "fin": "2026-11-01T08:38:51.489349+00:00",
+  "peticiones_eve": 2,
+  "episodios": [
+   "escaneo_sostenido-r4"
+  ],
+  "puerto": 80,
+  "paquetes_cable": 0,
+  "syn_cable": 0,
+  "primeros_s": []
+ },
+ {
+  "inicio": "2026-11-01T08:39:07.374234+00:00",
+  "fin": "2026-11-01T08:39:37.942343+00:00",
+  "peticiones_eve": 45,
+  "episodios": [
+   "escaneo_sostenido-r4"
+  ],
+  "puerto": 80,
+  "paquetes_cable": 0,
+  "syn_cable": 0,
+  "primeros_s": []
+ },
+ {
+  "inicio": "2026-11-01T08:43:16.067855+00:00",
+  "fin": "2026-11-01T08:44:53.146228+00:00",
+  "peticiones_eve": 976,
+  "episodios": [
+   "escaneo_sostenido-r5"
+  ],
+  "puerto": 80,
+  "paquetes_cable": 0,
+  "syn_cable": 0,
+  "primeros_s": []
+ },
+ {
+  "inicio": "2026-11-01T08:51:14.942848+00:00",
+  "fin": "2026-11-01T08:53:52.465498+00:00",
+  "peticiones_eve": 12248,
+  "episodios": [
+   "fuerza_bruta_http-r3"
+  ],
+  "puerto": 18081,
+  "paquetes_cable": 12800,
+  "syn_cable": 12800,
+  "primeros_s": [
+   0.012,
+   0.013,
+   0.028
+  ]
+ },
+ {
+  "inicio": "2026-11-01T08:56:14.049300+00:00",
+  "fin": "2026-11-01T08:58:52.401181+00:00",
+  "peticiones_eve": 12426,
+  "episodios": [
+   "fuerza_bruta_http-r5"
+  ],
+  "puerto": 18081,
+  "paquetes_cable": 12794,
+  "syn_cable": 12794,
+  "primeros_s": [
+   0.013,
+   0.013,
+   0.027
+  ]
+ },
+ {
+  "inicio": "2026-11-01T09:01:20.963311+00:00",
+  "fin": "2026-11-01T09:02:51.706841+00:00",
+  "peticiones_eve": 196,
+  "episodios": [
+   "dns_inusual-r5"
+  ],
+  "puerto": 18081,
+  "paquetes_cable": 0,
+  "syn_cable": 0,
+  "primeros_s": []
+ },
+ {
+  "inicio": "2026-11-01T09:06:17.081997+00:00",
+  "fin": "2026-11-01T09:07:48.296782+00:00",
+  "peticiones_eve": 220,
+  "episodios": [
+   "escaneo_sostenido-r3"
+  ],
+  "puerto": 18081,
+  "paquetes_cable": 4,
+  "syn_cable": 2,
+  "primeros_s": [
+   38.591,
+   38.591,
+   38.592
+  ]
+ },
+ {
+  "inicio": "2026-11-01T09:15:49.058624+00:00",
+  "fin": "2026-11-01T09:18:28.310823+00:00",
+  "peticiones_eve": 12453,
+  "episodios": [
+   "fuerza_bruta_http-r2"
+  ],
+  "puerto": 18081,
+  "paquetes_cable": 12858,
+  "syn_cable": 12858,
+  "primeros_s": [
+   0.012,
+   0.012,
+   0.026
+  ]
+ },
+ {
+  "inicio": "2026-11-01T09:20:49.076147+00:00",
+  "fin": "2026-11-01T09:23:28.391915+00:00",
+  "peticiones_eve": 12292,
+  "episodios": [
+   "fuerza_bruta_http-r4"
+  ],
+  "puerto": 18081,
+  "paquetes_cable": 12838,
+  "syn_cable": 12838,
+  "primeros_s": [
+   0.013,
+   0.013,
+   0.027
+  ]
+ },
+ {
+  "inicio": "2026-11-01T09:25:51.983507+00:00",
+  "fin": "2026-11-01T09:27:25.668632+00:00",
+  "peticiones_eve": 113,
+  "episodios": [
+   "dns_inusual-r1"
+  ],
+  "puerto": 18081,
+  "paquetes_cable": 0,
+  "syn_cable": 0,
+  "primeros_s": []
+ },
+ {
+  "inicio": "2026-11-01T09:30:53.065537+00:00",
+  "fin": "2026-11-01T09:32:27.830649+00:00",
+  "peticiones_eve": 317,
+  "episodios": [
+   "escaneo_breve-r1"
+  ],
+  "puerto": 18081,
+  "paquetes_cable": 0,
+  "syn_cable": 0,
+  "primeros_s": []
+ },
+ {
+  "inicio": "2026-11-01T09:47:12.076837+00:00",
+  "fin": "2026-11-01T09:49:49.788843+00:00",
+  "peticiones_eve": 12458,
+  "episodios": [
+   "fuerza_bruta_http-r1"
+  ],
+  "puerto": 18081,
+  "paquetes_cable": 12720,
+  "syn_cable": 12720,
+  "primeros_s": [
+   0.013,
+   0.013,
+   0.027
+  ]
+ },
+ {
+  "inicio": "2026-11-01T09:52:12.106235+00:00",
+  "fin": "2026-11-01T09:54:49.973606+00:00",
+  "peticiones_eve": 27030,
+  "episodios": [
+   "inundacion_http-r5"
+  ],
+  "puerto": 80,
+  "paquetes_cable": 28574,
+  "syn_cable": 28574,
+  "primeros_s": [
+   0.014,
+   0.014,
+   0.025
+  ]
+ },
+ {
+  "inicio": "2026-11-01T09:57:21.523452+00:00",
+  "fin": "2026-11-01T09:58:50.172477+00:00",
+  "peticiones_eve": 101,
+  "episodios": [
+   "escaneo_breve-r2"
+  ],
+  "puerto": 18081,
+  "paquetes_cable": 0,
+  "syn_cable": 0,
+  "primeros_s": []
+ },
+ {
+  "inicio": "2026-11-01T10:01:15.894475+00:00",
+  "fin": "2026-11-01T10:01:15.894810+00:00",
+  "peticiones_eve": 2,
+  "episodios": [
+   "escaneo_sostenido-r1"
+  ],
+  "puerto": 80,
+  "paquetes_cable": 1,
+  "syn_cable": 1,
+  "primeros_s": [
+   0.0
+  ]
+ },
+ {
+  "inicio": "2026-11-01T10:02:13.396603+00:00",
+  "fin": "2026-11-01T10:03:51.791152+00:00",
+  "peticiones_eve": 530,
+  "episodios": [
+   "ninguno"
+  ],
+  "puerto": 80,
+  "paquetes_cable": 0,
+  "syn_cable": 0,
+  "primeros_s": []
+ }
+]

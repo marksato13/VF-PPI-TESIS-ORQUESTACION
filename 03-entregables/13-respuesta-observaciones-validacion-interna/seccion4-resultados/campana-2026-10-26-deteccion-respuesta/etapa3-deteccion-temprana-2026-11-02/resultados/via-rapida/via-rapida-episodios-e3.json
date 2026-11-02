@@ -1,0 +1,578 @@
+{
+ "parametros": {
+  "marcas": "C:/Users/markp/AppData/Local/Temp/claude/C--Users-markp-Desktop-PY-MEGATRON-PY---PERSONAL-TESIS/51c74eee-a71d-4dd3-9ea4-b614ec3c2579/scratchpad/datos3b/marcas.jsonl",
+  "analisis": "C:/Users/markp/AppData/Local/Temp/claude/C--Users-markp-Desktop-PY-MEGATRON-PY---PERSONAL-TESIS/51c74eee-a71d-4dd3-9ea4-b614ec3c2579/scratchpad/e3res/analisis-3b-e3-b1ee393-e5-eventos/analisis-3b.json",
+  "rapidas": "C:/Users/markp/AppData/Local/Temp/claude/C--Users-markp-Desktop-PY-MEGATRON-PY---PERSONAL-TESIS/51c74eee-a71d-4dd3-9ea4-b614ec3c2579/scratchpad/e3/rapido-3b-k8.jsonl",
+  "salida": "C:/Users/markp/AppData/Local/Temp/claude/C--Users-markp-Desktop-PY-MEGATRON-PY---PERSONAL-TESIS/51c74eee-a71d-4dd3-9ea4-b614ec3c2579/scratchpad/e3res/via-rapida-episodios-e3-b1ee393-e5-eventos.json",
+  "atacante": "10.10.20.30",
+  "retraso_rapida": 0.0,
+  "ampliacion": 60.0,
+  "control": "2026-11-01T07:32:00Z,2026-11-01T08:05:00Z"
+ },
+ "episodios": [
+  {
+   "episodio": "escaneo_sostenido-r2",
+   "principal": true,
+   "inicio_utc": 1793520519.147371,
+   "fin_utc": 1793520585.453144,
+   "rapidas": [
+    {
+     "id": "f18c9b6d8be81693",
+     "t_evidencia": 1793520532.390526,
+     "puertos_fallidos": 8
+    }
+   ],
+   "rapida_desde_inicio_s": 13.243,
+   "rapida_antes_del_fin_s": 53.063,
+   "RAPIDA": "oportuna",
+   "HEUR+R": "oportuna",
+   "HIB_0.05+R": "oportuna",
+   "HIB_0.03+R": "oportuna",
+   "HIB_0.01+R": "oportuna",
+   "HEUR": "oportuna",
+   "HIB_0.05": "oportuna",
+   "HIB_0.03": "oportuna",
+   "HIB_0.01": "oportuna"
+  },
+  {
+   "episodio": "inundacion_http-r1",
+   "principal": false,
+   "inicio_utc": 1793520795.455787,
+   "fin_utc": 1793520885.049884,
+   "rapidas": [],
+   "rapida_desde_inicio_s": null,
+   "rapida_antes_del_fin_s": null,
+   "RAPIDA": "sin_senal_rapida",
+   "HEUR+R": "oportuna",
+   "HIB_0.05+R": "oportuna",
+   "HIB_0.03+R": "oportuna",
+   "HIB_0.01+R": "oportuna",
+   "HEUR": "oportuna",
+   "HIB_0.05": "oportuna",
+   "HIB_0.03": "oportuna",
+   "HIB_0.01": "oportuna"
+  },
+  {
+   "episodio": "dns_inusual-r3",
+   "principal": false,
+   "inicio_utc": 1793521095.052535,
+   "fin_utc": 1793521185.2392,
+   "rapidas": [],
+   "rapida_desde_inicio_s": null,
+   "rapida_antes_del_fin_s": null,
+   "RAPIDA": "sin_senal_rapida",
+   "HEUR+R": "oportuna",
+   "HIB_0.05+R": "oportuna",
+   "HIB_0.03+R": "oportuna",
+   "HIB_0.01+R": "oportuna",
+   "HEUR": "oportuna",
+   "HIB_0.05": "oportuna",
+   "HIB_0.03": "oportuna",
+   "HIB_0.01": "oportuna"
+  },
+  {
+   "episodio": "inundacion_http-r4",
+   "principal": false,
+   "inicio_utc": 1793521395.240858,
+   "fin_utc": 1793521485.066324,
+   "rapidas": [],
+   "rapida_desde_inicio_s": null,
+   "rapida_antes_del_fin_s": null,
+   "RAPIDA": "sin_senal_rapida",
+   "HEUR+R": "oportuna",
+   "HIB_0.05+R": "oportuna",
+   "HIB_0.03+R": "oportuna",
+   "HIB_0.01+R": "oportuna",
+   "HEUR": "oportuna",
+   "HIB_0.05": "oportuna",
+   "HIB_0.03": "oportuna",
+   "HIB_0.01": "oportuna"
+  },
+  {
+   "episodio": "inundacion_http-r2",
+   "principal": false,
+   "inicio_utc": 1793521695.068368,
+   "fin_utc": 1793521785.029547,
+   "rapidas": [],
+   "rapida_desde_inicio_s": null,
+   "rapida_antes_del_fin_s": null,
+   "RAPIDA": "sin_senal_rapida",
+   "HEUR+R": "oportuna",
+   "HIB_0.05+R": "oportuna",
+   "HIB_0.03+R": "oportuna",
+   "HIB_0.01+R": "oportuna",
+   "HEUR": "oportuna",
+   "HIB_0.05": "oportuna",
+   "HIB_0.03": "oportuna",
+   "HIB_0.01": "oportuna"
+  },
+  {
+   "episodio": "inundacion_http-r3",
+   "principal": false,
+   "inicio_utc": 1793521995.031997,
+   "fin_utc": 1793522085.080583,
+   "rapidas": [],
+   "rapida_desde_inicio_s": null,
+   "rapida_antes_del_fin_s": null,
+   "RAPIDA": "sin_senal_rapida",
+   "HEUR+R": "oportuna",
+   "HIB_0.05+R": "oportuna",
+   "HIB_0.03+R": "oportuna",
+   "HIB_0.01+R": "oportuna",
+   "HEUR": "oportuna",
+   "HIB_0.05": "oportuna",
+   "HIB_0.03": "oportuna",
+   "HIB_0.01": "oportuna"
+  },
+  {
+   "episodio": "escaneo_sostenido-r4",
+   "principal": true,
+   "inicio_utc": 1793522295.082926,
+   "fin_utc": 1793522361.201814,
+   "rapidas": [
+    {
+     "id": "17f203c3d02d17ab",
+     "t_evidencia": 1793522308.331172,
+     "puertos_fallidos": 8
+    }
+   ],
+   "rapida_desde_inicio_s": 13.248,
+   "rapida_antes_del_fin_s": 52.871,
+   "RAPIDA": "oportuna",
+   "HEUR+R": "oportuna",
+   "HIB_0.05+R": "oportuna",
+   "HIB_0.03+R": "oportuna",
+   "HIB_0.01+R": "oportuna",
+   "HEUR": "oportuna",
+   "HIB_0.05": "oportuna",
+   "HIB_0.03": "oportuna",
+   "HIB_0.01": "oportuna"
+  },
+  {
+   "episodio": "escaneo_sostenido-r5",
+   "principal": true,
+   "inicio_utc": 1793522571.203365,
+   "fin_utc": 1793522636.927014,
+   "rapidas": [
+    {
+     "id": "41a1e71ca9776efc",
+     "t_evidencia": 1793522584.435065,
+     "puertos_fallidos": 8
+    }
+   ],
+   "rapida_desde_inicio_s": 13.232,
+   "rapida_antes_del_fin_s": 52.492,
+   "RAPIDA": "oportuna",
+   "HEUR+R": "oportuna",
+   "HIB_0.05+R": "oportuna",
+   "HIB_0.03+R": "oportuna",
+   "HIB_0.01+R": "oportuna",
+   "HEUR": "oportuna",
+   "HIB_0.05": "oportuna",
+   "HIB_0.03": "oportuna",
+   "HIB_0.01": "oportuna"
+  },
+  {
+   "episodio": "escaneo_breve-r5",
+   "principal": true,
+   "inicio_utc": 1793522846.92905,
+   "fin_utc": 1793522864.917133,
+   "rapidas": [
+    {
+     "id": "352aee41b4a453eb",
+     "t_evidencia": 1793522860.171186,
+     "puertos_fallidos": 8
+    }
+   ],
+   "rapida_desde_inicio_s": 13.242,
+   "rapida_antes_del_fin_s": 4.746,
+   "RAPIDA": "oportuna",
+   "HEUR+R": "oportuna",
+   "HIB_0.05+R": "oportuna",
+   "HIB_0.03+R": "oportuna",
+   "HIB_0.01+R": "oportuna",
+   "HEUR": "solo_posterior",
+   "HIB_0.05": "solo_posterior",
+   "HIB_0.03": "solo_posterior",
+   "HIB_0.01": "solo_posterior"
+  },
+  {
+   "episodio": "fuerza_bruta_http-r3",
+   "principal": false,
+   "inicio_utc": 1793523074.919485,
+   "fin_utc": 1793523164.02606,
+   "rapidas": [],
+   "rapida_desde_inicio_s": null,
+   "rapida_antes_del_fin_s": null,
+   "RAPIDA": "sin_senal_rapida",
+   "HEUR+R": "oportuna",
+   "HIB_0.05+R": "oportuna",
+   "HIB_0.03+R": "oportuna",
+   "HIB_0.01+R": "oportuna",
+   "HEUR": "oportuna",
+   "HIB_0.05": "oportuna",
+   "HIB_0.03": "oportuna",
+   "HIB_0.01": "oportuna"
+  },
+  {
+   "episodio": "fuerza_bruta_http-r5",
+   "principal": true,
+   "inicio_utc": 1793523374.028399,
+   "fin_utc": 1793523464.034807,
+   "rapidas": [],
+   "rapida_desde_inicio_s": null,
+   "rapida_antes_del_fin_s": null,
+   "RAPIDA": "sin_senal_rapida",
+   "HEUR+R": "oportuna",
+   "HIB_0.05+R": "oportuna",
+   "HIB_0.03+R": "oportuna",
+   "HIB_0.01+R": "oportuna",
+   "HEUR": "oportuna",
+   "HIB_0.05": "oportuna",
+   "HIB_0.03": "oportuna",
+   "HIB_0.01": "oportuna"
+  },
+  {
+   "episodio": "dns_inusual-r5",
+   "principal": false,
+   "inicio_utc": 1793523674.036963,
+   "fin_utc": 1793523764.428064,
+   "rapidas": [],
+   "rapida_desde_inicio_s": null,
+   "rapida_antes_del_fin_s": null,
+   "RAPIDA": "sin_senal_rapida",
+   "HEUR+R": "oportuna",
+   "HIB_0.05+R": "oportuna",
+   "HIB_0.03+R": "oportuna",
+   "HIB_0.01+R": "oportuna",
+   "HEUR": "oportuna",
+   "HIB_0.05": "oportuna",
+   "HIB_0.03": "oportuna",
+   "HIB_0.01": "oportuna"
+  },
+  {
+   "episodio": "escaneo_sostenido-r3",
+   "principal": true,
+   "inicio_utc": 1793523974.430077,
+   "fin_utc": 1793524039.952266,
+   "rapidas": [
+    {
+     "id": "215bcc4a4164f6e9",
+     "t_evidencia": 1793523987.674494,
+     "puertos_fallidos": 8
+    }
+   ],
+   "rapida_desde_inicio_s": 13.244,
+   "rapida_antes_del_fin_s": 52.278,
+   "RAPIDA": "oportuna",
+   "HEUR+R": "oportuna",
+   "HIB_0.05+R": "oportuna",
+   "HIB_0.03+R": "oportuna",
+   "HIB_0.01+R": "oportuna",
+   "HEUR": "oportuna",
+   "HIB_0.05": "oportuna",
+   "HIB_0.03": "oportuna",
+   "HIB_0.01": "oportuna"
+  },
+  {
+   "episodio": "dns_inusual-r2",
+   "principal": true,
+   "inicio_utc": 1793524249.954571,
+   "fin_utc": 1793524339.037243,
+   "rapidas": [],
+   "rapida_desde_inicio_s": null,
+   "rapida_antes_del_fin_s": null,
+   "RAPIDA": "sin_senal_rapida",
+   "HEUR+R": "oportuna",
+   "HIB_0.05+R": "oportuna",
+   "HIB_0.03+R": "oportuna",
+   "HIB_0.01+R": "oportuna",
+   "HEUR": "oportuna",
+   "HIB_0.05": "oportuna",
+   "HIB_0.03": "oportuna",
+   "HIB_0.01": "oportuna"
+  },
+  {
+   "episodio": "fuerza_bruta_http-r2",
+   "principal": false,
+   "inicio_utc": 1793524549.039,
+   "fin_utc": 1793524639.052861,
+   "rapidas": [],
+   "rapida_desde_inicio_s": null,
+   "rapida_antes_del_fin_s": null,
+   "RAPIDA": "sin_senal_rapida",
+   "HEUR+R": "oportuna",
+   "HIB_0.05+R": "oportuna",
+   "HIB_0.03+R": "oportuna",
+   "HIB_0.01+R": "oportuna",
+   "HEUR": "oportuna",
+   "HIB_0.05": "oportuna",
+   "HIB_0.03": "oportuna",
+   "HIB_0.01": "oportuna"
+  },
+  {
+   "episodio": "fuerza_bruta_http-r4",
+   "principal": true,
+   "inicio_utc": 1793524849.055095,
+   "fin_utc": 1793524939.059245,
+   "rapidas": [],
+   "rapida_desde_inicio_s": null,
+   "rapida_antes_del_fin_s": null,
+   "RAPIDA": "sin_senal_rapida",
+   "HEUR+R": "oportuna",
+   "HIB_0.05+R": "oportuna",
+   "HIB_0.03+R": "oportuna",
+   "HIB_0.01+R": "oportuna",
+   "HEUR": "oportuna",
+   "HIB_0.05": "oportuna",
+   "HIB_0.03": "oportuna",
+   "HIB_0.01": "oportuna"
+  },
+  {
+   "episodio": "dns_inusual-r1",
+   "principal": true,
+   "inicio_utc": 1793525149.061441,
+   "fin_utc": 1793525239.391017,
+   "rapidas": [],
+   "rapida_desde_inicio_s": null,
+   "rapida_antes_del_fin_s": null,
+   "RAPIDA": "sin_senal_rapida",
+   "HEUR+R": "oportuna",
+   "HIB_0.05+R": "oportuna",
+   "HIB_0.03+R": "oportuna",
+   "HIB_0.01+R": "oportuna",
+   "HEUR": "oportuna",
+   "HIB_0.05": "oportuna",
+   "HIB_0.03": "oportuna",
+   "HIB_0.01": "oportuna"
+  },
+  {
+   "episodio": "escaneo_breve-r1",
+   "principal": true,
+   "inicio_utc": 1793525449.393459,
+   "fin_utc": 1793525466.98183,
+   "rapidas": [
+    {
+     "id": "abdc7c595d6a0a42",
+     "t_evidencia": 1793525462.622064,
+     "puertos_fallidos": 8
+    }
+   ],
+   "rapida_desde_inicio_s": 13.229,
+   "rapida_antes_del_fin_s": 4.36,
+   "RAPIDA": "oportuna",
+   "HEUR+R": "oportuna",
+   "HIB_0.05+R": "oportuna",
+   "HIB_0.03+R": "oportuna",
+   "HIB_0.01+R": "oportuna",
+   "HEUR": "solo_posterior",
+   "HIB_0.05": "oportuna",
+   "HIB_0.03": "oportuna",
+   "HIB_0.01": "solo_posterior"
+  },
+  {
+   "episodio": "escaneo_breve-r4",
+   "principal": false,
+   "inicio_utc": 1793525676.983786,
+   "fin_utc": 1793525694.972803,
+   "rapidas": [
+    {
+     "id": "9534333e5c695429",
+     "t_evidencia": 1793525690.227694,
+     "puertos_fallidos": 8
+    }
+   ],
+   "rapida_desde_inicio_s": 13.244,
+   "rapida_antes_del_fin_s": 4.745,
+   "RAPIDA": "oportuna",
+   "HEUR+R": "oportuna",
+   "HIB_0.05+R": "oportuna",
+   "HIB_0.03+R": "oportuna",
+   "HIB_0.01+R": "oportuna",
+   "HEUR": "solo_posterior",
+   "HIB_0.05": "solo_posterior",
+   "HIB_0.03": "solo_posterior",
+   "HIB_0.01": "solo_posterior"
+  },
+  {
+   "episodio": "escaneo_breve-r3",
+   "principal": true,
+   "inicio_utc": 1793525904.974659,
+   "fin_utc": 1793525922.56615,
+   "rapidas": [
+    {
+     "id": "25f98c76c04a4f3b",
+     "t_evidencia": 1793525918.208618,
+     "puertos_fallidos": 8
+    }
+   ],
+   "rapida_desde_inicio_s": 13.234,
+   "rapida_antes_del_fin_s": 4.358,
+   "RAPIDA": "oportuna",
+   "HEUR+R": "oportuna",
+   "HIB_0.05+R": "oportuna",
+   "HIB_0.03+R": "oportuna",
+   "HIB_0.01+R": "oportuna",
+   "HEUR": "oportuna",
+   "HIB_0.05": "oportuna",
+   "HIB_0.03": "oportuna",
+   "HIB_0.01": "oportuna"
+  },
+  {
+   "episodio": "dns_inusual-r4",
+   "principal": true,
+   "inicio_utc": 1793526132.568917,
+   "fin_utc": 1793526222.051632,
+   "rapidas": [],
+   "rapida_desde_inicio_s": null,
+   "rapida_antes_del_fin_s": null,
+   "RAPIDA": "sin_senal_rapida",
+   "HEUR+R": "oportuna",
+   "HIB_0.05+R": "oportuna",
+   "HIB_0.03+R": "oportuna",
+   "HIB_0.01+R": "oportuna",
+   "HEUR": "oportuna",
+   "HIB_0.05": "oportuna",
+   "HIB_0.03": "oportuna",
+   "HIB_0.01": "oportuna"
+  },
+  {
+   "episodio": "fuerza_bruta_http-r1",
+   "principal": true,
+   "inicio_utc": 1793526432.053669,
+   "fin_utc": 1793526522.06229,
+   "rapidas": [],
+   "rapida_desde_inicio_s": null,
+   "rapida_antes_del_fin_s": null,
+   "RAPIDA": "sin_senal_rapida",
+   "HEUR+R": "oportuna",
+   "HIB_0.05+R": "oportuna",
+   "HIB_0.03+R": "oportuna",
+   "HIB_0.01+R": "oportuna",
+   "HEUR": "oportuna",
+   "HIB_0.05": "oportuna",
+   "HIB_0.03": "oportuna",
+   "HIB_0.01": "oportuna"
+  },
+  {
+   "episodio": "inundacion_http-r5",
+   "principal": true,
+   "inicio_utc": 1793526732.06441,
+   "fin_utc": 1793526822.052518,
+   "rapidas": [],
+   "rapida_desde_inicio_s": null,
+   "rapida_antes_del_fin_s": null,
+   "RAPIDA": "sin_senal_rapida",
+   "HEUR+R": "oportuna",
+   "HIB_0.05+R": "oportuna",
+   "HIB_0.03+R": "oportuna",
+   "HIB_0.01+R": "oportuna",
+   "HEUR": "oportuna",
+   "HIB_0.05": "oportuna",
+   "HIB_0.03": "oportuna",
+   "HIB_0.01": "oportuna"
+  },
+  {
+   "episodio": "escaneo_breve-r2",
+   "principal": true,
+   "inicio_utc": 1793527032.054408,
+   "fin_utc": 1793527050.041878,
+   "rapidas": [
+    {
+     "id": "e93ee79940a5a00b",
+     "t_evidencia": 1793527045.303946,
+     "puertos_fallidos": 8
+    }
+   ],
+   "rapida_desde_inicio_s": 13.25,
+   "rapida_antes_del_fin_s": 4.738,
+   "RAPIDA": "oportuna",
+   "HEUR+R": "oportuna",
+   "HIB_0.05+R": "oportuna",
+   "HIB_0.03+R": "oportuna",
+   "HIB_0.01+R": "oportuna",
+   "HEUR": "solo_posterior",
+   "HIB_0.05": "solo_posterior",
+   "HIB_0.03": "solo_posterior",
+   "HIB_0.01": "solo_posterior"
+  },
+  {
+   "episodio": "escaneo_sostenido-r1",
+   "principal": false,
+   "inicio_utc": 1793527260.044057,
+   "fin_utc": 1793527325.818114,
+   "rapidas": [
+    {
+     "id": "5566b3678168d318",
+     "t_evidencia": 1793527273.292087,
+     "puertos_fallidos": 8
+    }
+   ],
+   "rapida_desde_inicio_s": 13.248,
+   "rapida_antes_del_fin_s": 52.526,
+   "RAPIDA": "oportuna",
+   "HEUR+R": "oportuna",
+   "HIB_0.05+R": "oportuna",
+   "HIB_0.03+R": "oportuna",
+   "HIB_0.01+R": "oportuna",
+   "HEUR": "oportuna",
+   "HIB_0.05": "oportuna",
+   "HIB_0.03": "oportuna",
+   "HIB_0.01": "oportuna"
+  }
+ ],
+ "resumen": {
+  "RAPIDA": {
+   "oportuna": 8,
+   "fuera:sin_senal_rapida": 8,
+   "sin_senal_rapida": 7,
+   "fuera:oportuna": 2
+  },
+  "HEUR+R": {
+   "oportuna": 15,
+   "fuera:oportuna": 10
+  },
+  "HIB_0.05+R": {
+   "oportuna": 15,
+   "fuera:oportuna": 10
+  },
+  "HIB_0.03+R": {
+   "oportuna": 15,
+   "fuera:oportuna": 10
+  },
+  "HIB_0.01+R": {
+   "oportuna": 15,
+   "fuera:oportuna": 10
+  },
+  "HEUR": {
+   "oportuna": 12,
+   "fuera:oportuna": 9,
+   "solo_posterior": 3,
+   "fuera:solo_posterior": 1
+  },
+  "HIB_0.05": {
+   "oportuna": 13,
+   "fuera:oportuna": 9,
+   "solo_posterior": 2,
+   "fuera:solo_posterior": 1
+  },
+  "HIB_0.03": {
+   "oportuna": 13,
+   "fuera:oportuna": 9,
+   "solo_posterior": 2,
+   "fuera:solo_posterior": 1
+  },
+  "HIB_0.01": {
+   "oportuna": 12,
+   "fuera:oportuna": 9,
+   "solo_posterior": 3,
+   "fuera:solo_posterior": 1
+  }
+ },
+ "control": {
+  "senales_rapidas": 0,
+  "pares": []
+ },
+ "senales_rapidas_total": 10,
+ "senales_rapidas_fuera_del_atacante": 0
+}

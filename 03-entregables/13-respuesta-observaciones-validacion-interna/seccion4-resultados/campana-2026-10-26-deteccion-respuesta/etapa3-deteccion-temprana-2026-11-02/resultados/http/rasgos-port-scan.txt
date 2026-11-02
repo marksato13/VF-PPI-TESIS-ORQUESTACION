@@ -1,0 +1,76 @@
+ventana | packet_count_10s | unique_dst_port_ratio_30s | syn_completion_ratio_10s | motivo
+2026-11-01T08:09:00+00:00 | 5644 | 0.998 | 0.00 | 5626 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:09:10+00:00 | 10088 | 0.999 | 0.00 | 15687 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:09:20+00:00 | 12128 | 0.999 | 0.00 | 27793 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:09:30+00:00 | 13744 | 0.999 | 0.00 | 35895 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:09:40+00:00 | 15353 | 1.000 | 0.00 | 41160 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:09:50+00:00 | 8737 | 1.000 | 0.00 | 37778 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:10:00+00:00 | 0 | sin vector | - | 24056 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:10:10+00:00 | 0 | sin vector | - | 8725 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:15:00+00:00 | 0 | sin vector | - | 1032 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:15:10+00:00 | 0 | sin vector | - | 558 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:25:00+00:00 | 0 | sin vector | - | 1752 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:25:10+00:00 | 0 | sin vector | - | 649 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:30:00+00:00 | 0 | sin vector | - | 1210 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:30:10+00:00 | 0 | sin vector | - | 466 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:35:00+00:00 | 0 | sin vector | - | 577 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:38:30+00:00 | 510 | 0.990 | 0.01 | 503 intentos/30s a muchos puertos, 1% completados
+2026-11-01T08:38:40+00:00 | 8791 | 0.999 | 0.00 | 9272 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:38:50+00:00 | 11144 | 0.999 | 0.00 | 20389 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:39:00+00:00 | 12800 | 0.999 | 0.00 | 32671 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:39:10+00:00 | 14604 | 0.999 | 0.00 | 38482 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:39:20+00:00 | 16137 | 1.000 | 0.00 | 43470 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:39:30+00:00 | 1718 | 1.000 | 0.00 | 32405 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:39:40+00:00 | 0 | sin vector | - | 17825 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:39:50+00:00 | 0 | sin vector | - | 1715 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:43:10+00:00 | 3670 | 0.998 | 0.00 | 3656 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:43:20+00:00 | 9826 | 0.999 | 0.00 | 13461 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:43:30+00:00 | 11830 | 0.999 | 0.00 | 25261 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:43:40+00:00 | 13752 | 0.999 | 0.00 | 35342 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:43:50+00:00 | 15401 | 0.999 | 0.00 | 40912 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:44:00+00:00 | 11221 | 1.000 | 0.00 | 40311 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:44:10+00:00 | 0 | sin vector | - | 26580 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:44:20+00:00 | 0 | sin vector | - | 11205 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:47:50+00:00 | 2022 | 0.499 | 0.00 | 2006 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:48:00+00:00 | 0 | sin vector | - | 2001 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:48:10+00:00 | 0 | sin vector | - | 2000 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:53:00+00:00 | 0 | sin vector | - | 732 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:58:00+00:00 | 0 | sin vector | - | 556 intentos/30s a muchos puertos, 0% completados
+2026-11-01T08:58:10+00:00 | 0 | sin vector | - | 224 intentos/30s a muchos puertos, 0% completados
+2026-11-01T09:06:30+00:00 | 1124 | 0.996 | 0.00 | 1117 intentos/30s a muchos puertos, 0% completados
+2026-11-01T09:06:40+00:00 | 8951 | 0.999 | 0.00 | 10044 intentos/30s a muchos puertos, 0% completados
+2026-11-01T09:06:50+00:00 | 11327 | 0.999 | 0.00 | 21344 intentos/30s a muchos puertos, 0% completados
+2026-11-01T09:07:00+00:00 | 13266 | 0.999 | 0.00 | 33471 intentos/30s a muchos puertos, 0% completados
+2026-11-01T09:07:10+00:00 | 14822 | 0.999 | 0.00 | 39343 intentos/30s a muchos puertos, 0% completados
+2026-11-01T09:07:20+00:00 | 16218 | 1.000 | 0.00 | 44231 intentos/30s a muchos puertos, 0% completados
+2026-11-01T09:07:30+00:00 | 0 | sin vector | - | 30992 intentos/30s a muchos puertos, 0% completados
+2026-11-01T09:07:40+00:00 | 0 | sin vector | - | 16193 intentos/30s a muchos puertos, 0% completados
+2026-11-01T09:17:30+00:00 | 0 | sin vector | - | 1069 intentos/30s a muchos puertos, 0% completados
+2026-11-01T09:17:40+00:00 | 0 | sin vector | - | 539 intentos/30s a muchos puertos, 0% completados
+2026-11-01T09:22:30+00:00 | 0 | sin vector | - | 874 intentos/30s a muchos puertos, 0% completados
+2026-11-01T09:22:40+00:00 | 0 | sin vector | - | 437 intentos/30s a muchos puertos, 0% completados
+2026-11-01T09:31:10+00:00 | 2024 | 0.499 | 0.00 | 2007 intentos/30s a muchos puertos, 0% completados
+2026-11-01T09:31:20+00:00 | 0 | sin vector | - | 2002 intentos/30s a muchos puertos, 0% completados
+2026-11-01T09:31:30+00:00 | 0 | sin vector | - | 2001 intentos/30s a muchos puertos, 0% completados
+2026-11-01T09:35:00+00:00 | 2021 | 0.499 | 0.00 | 2006 intentos/30s a muchos puertos, 0% completados
+2026-11-01T09:35:10+00:00 | 0 | sin vector | - | 2001 intentos/30s a muchos puertos, 0% completados
+2026-11-01T09:35:20+00:00 | 0 | sin vector | - | 2000 intentos/30s a muchos puertos, 0% completados
+2026-11-01T09:38:40+00:00 | 369 | 0.513 | 0.01 | 351 intentos/30s a muchos puertos, 1% completados
+2026-11-01T09:38:50+00:00 | 1662 | 0.499 | 0.00 | 2007 intentos/30s a muchos puertos, 0% completados
+2026-11-01T09:39:00+00:00 | 0 | sin vector | - | 2002 intentos/30s a muchos puertos, 0% completados
+2026-11-01T09:39:10+00:00 | 0 | sin vector | - | 1656 intentos/30s a muchos puertos, 0% completados
+2026-11-01T09:49:00+00:00 | 0 | sin vector | - | 604 intentos/30s a muchos puertos, 0% completados
+2026-11-01T09:54:00+00:00 | 0 | sin vector | - | 707 intentos/30s a muchos puertos, 0% completados
+2026-11-01T09:54:10+00:00 | 0 | sin vector | - | 240 intentos/30s a muchos puertos, 0% completados
+2026-11-01T09:57:30+00:00 | 2024 | 0.499 | 0.00 | 2006 intentos/30s a muchos puertos, 0% completados
+2026-11-01T09:57:40+00:00 | 0 | sin vector | - | 2006 intentos/30s a muchos puertos, 0% completados
+2026-11-01T09:57:50+00:00 | 0 | sin vector | - | 2000 intentos/30s a muchos puertos, 0% completados
+2026-11-01T10:01:20+00:00 | 4652 | 0.998 | 0.00 | 4637 intentos/30s a muchos puertos, 0% completados
+2026-11-01T10:01:30+00:00 | 10095 | 0.999 | 0.00 | 14708 intentos/30s a muchos puertos, 0% completados
+2026-11-01T10:01:40+00:00 | 12217 | 0.999 | 0.00 | 26896 intentos/30s a muchos puertos, 0% completados
+2026-11-01T10:01:50+00:00 | 13821 | 0.999 | 0.00 | 36065 intentos/30s a muchos puertos, 0% completados
+2026-11-01T10:02:00+00:00 | 15442 | 1.000 | 0.00 | 41415 intentos/30s a muchos puertos, 0% completados
+2026-11-01T10:02:10+00:00 | 9471 | 1.000 | 0.00 | 38676 intentos/30s a muchos puertos, 0% completados
+2026-11-01T10:02:20+00:00 | 0 | sin vector | - | 24876 intentos/30s a muchos puertos, 0% completados
+2026-11-01T10:02:30+00:00 | 0 | sin vector | - | 9455 intentos/30s a muchos puertos, 0% completados
+# con vector: 37; cumplen unique_dst_port_ratio_30s >= 0.1: 37; sin vector (ventanas sin paquetes): 37

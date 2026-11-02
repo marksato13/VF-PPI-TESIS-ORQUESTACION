@@ -1,0 +1,29 @@
+{
+ "matriz_atacante_escenario_x_regla": {
+  "dns_inusual": {
+   "dns_entropy": 62,
+   "IF_ALERT": 19
+  },
+  "escaneo_breve": {
+   "port_scan": 16,
+   "IF_ALERT": 7
+  },
+  "escaneo_sostenido": {
+   "port_scan": 41,
+   "IF_ALERT": 32
+  },
+  "fuera": {
+   "IF_ALERT": 34
+  },
+  "fuerza_bruta_http": {
+   "brute_force": 75,
+   "IF_ALERT": 75
+  },
+  "inundacion_http": {
+   "http_abuse": 75,
+   "IF_ALERT": 50
+  }
+ },
+ "legitimos_por_entidad_regla": {},
+ "legitimos": []
+}
