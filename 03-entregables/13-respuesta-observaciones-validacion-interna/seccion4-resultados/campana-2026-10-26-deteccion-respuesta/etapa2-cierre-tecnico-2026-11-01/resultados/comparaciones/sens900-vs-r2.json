@@ -1,0 +1,440 @@
+{
+ "desde": 1793522760.0,
+ "hasta": 1793523840.0,
+ "referencia": "cierre-r2-e15-periodico",
+ "runs": {
+  "cierre-r2-e15-periodico": {
+   "arranques": 1,
+   "ciclo_s": {
+    "max": 69.179,
+    "media": 3.687,
+    "n": 144,
+    "p50": 2.728,
+    "p90": 7.465
+   },
+   "decisiones": 1441,
+   "duplicados": 0,
+   "episodios": {
+    "dns_inusual-r5": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 29.1,
+      "ventana_desde_inicio_s": 16.0
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 29.1,
+      "ventana_desde_inicio_s": 16.0
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 29.1,
+      "ventana_desde_inicio_s": 16.0
+     },
+     "regla_dns_entropy": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 29.1,
+      "ventana_desde_inicio_s": 6.0
+     }
+    },
+    "escaneo_breve-r5": {
+     "IF_0.01": {
+      "estado": "ausente"
+     },
+     "IF_0.03": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 40.4,
+      "ventana_desde_inicio_s": 23.1
+     },
+     "IF_0.05": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 40.4,
+      "ventana_desde_inicio_s": 23.1
+     },
+     "regla_port_scan": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 40.4,
+      "ventana_desde_inicio_s": 23.1
+     }
+    },
+    "fuerza_bruta_http-r3": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 26.5,
+      "ventana_desde_inicio_s": 5.1
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 26.5,
+      "ventana_desde_inicio_s": 5.1
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 26.5,
+      "ventana_desde_inicio_s": 5.1
+     },
+     "regla_brute_force": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 26.5,
+      "ventana_desde_inicio_s": 5.1
+     }
+    },
+    "fuerza_bruta_http-r5": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 27.8,
+      "ventana_desde_inicio_s": 6.0
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 27.8,
+      "ventana_desde_inicio_s": 6.0
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 27.8,
+      "ventana_desde_inicio_s": 6.0
+     },
+     "regla_brute_force": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 27.8,
+      "ventana_desde_inicio_s": 6.0
+     }
+    }
+   },
+   "historial_completo": {
+    "True": 1441
+   },
+   "latencia_s": {
+    "max": 28.367,
+    "media": 16.383,
+    "n": 1441,
+    "p50": 16.704,
+    "p90": 23.264
+   },
+   "memoria_pico_mb": 839.3,
+   "no_evaluadas": 0
+  },
+  "sens-sens900-e15-periodico": {
+   "arranques": 1,
+   "ciclo_s": {
+    "max": 709.801,
+    "media": 697.702,
+    "n": 2,
+    "p50": 685.602,
+    "p90": 709.801
+   },
+   "decisiones": 894,
+   "duplicados": 0,
+   "episodios": {
+    "dns_inusual-r5": {
+     "IF_0.01": {
+      "estado": "no_evaluable"
+     },
+     "IF_0.03": {
+      "estado": "no_evaluable"
+     },
+     "IF_0.05": {
+      "estado": "no_evaluable"
+     },
+     "regla_dns_entropy": {
+      "estado": "no_evaluable"
+     }
+    },
+    "escaneo_breve-r5": {
+     "IF_0.01": {
+      "estado": "ausente"
+     },
+     "IF_0.03": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 1278.9,
+      "ventana_desde_inicio_s": 23.1
+     },
+     "IF_0.05": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 1278.9,
+      "ventana_desde_inicio_s": 23.1
+     },
+     "regla_port_scan": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 1278.9,
+      "ventana_desde_inicio_s": 23.1
+     }
+    },
+    "fuerza_bruta_http-r3": {
+     "IF_0.01": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 1050.9,
+      "ventana_desde_inicio_s": 5.1
+     },
+     "IF_0.03": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 1050.9,
+      "ventana_desde_inicio_s": 5.1
+     },
+     "IF_0.05": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 1050.9,
+      "ventana_desde_inicio_s": 5.1
+     },
+     "regla_brute_force": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 1050.9,
+      "ventana_desde_inicio_s": 5.1
+     }
+    },
+    "fuerza_bruta_http-r5": {
+     "IF_0.01": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 751.8,
+      "ventana_desde_inicio_s": 6.0
+     },
+     "IF_0.03": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 751.8,
+      "ventana_desde_inicio_s": 6.0
+     },
+     "IF_0.05": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 751.8,
+      "ventana_desde_inicio_s": 6.0
+     },
+     "regla_brute_force": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 751.8,
+      "ventana_desde_inicio_s": 6.0
+     }
+    }
+   },
+   "frente_a_referencia": {
+    "clases_iguales_por_alfa": {
+     "0.01": 879,
+     "0.03": 876,
+     "0.05": 840
+    },
+    "comunes": 894,
+    "decision_o_detector_distintos": 54,
+    "duplicados_otro": 0,
+    "duplicados_ref": 0,
+    "ejemplos_solo_otro": [],
+    "ejemplos_solo_ref": [
+     [
+      "10.10.10.1",
+      "2026-11-01T08:57:30+00:00"
+     ],
+     [
+      "10.10.10.1",
+      "2026-11-01T08:57:40+00:00"
+     ],
+     [
+      "10.10.10.1",
+      "2026-11-01T08:57:50+00:00"
+     ],
+     [
+      "10.10.10.1",
+      "2026-11-01T08:58:00+00:00"
+     ],
+     [
+      "10.10.10.1",
+      "2026-11-01T08:58:10+00:00"
+     ],
+     [
+      "10.10.10.1",
+      "2026-11-01T08:58:20+00:00"
+     ],
+     [
+      "10.10.10.1",
+      "2026-11-01T08:58:30+00:00"
+     ],
+     [
+      "10.10.10.1",
+      "2026-11-01T08:58:40+00:00"
+     ]
+    ],
+    "ejemplos_vectores_distintos": [
+     {
+      "caracteristicas": [
+       "packet_rate_10s",
+       "byte_rate_10s",
+       "mean_ip_len_10s",
+       "unique_dst_ip_ratio_30s",
+       "flow_attempt_rate_10s",
+       "protocol_diversity_30s",
+       "flow_duration_mean_30s",
+       "tx_rx_byte_ratio_30s"
+      ],
+      "clave": [
+       "10.10.10.1",
+       "2026-11-01T08:52:00+00:00"
+      ],
+      "historial_otro": true,
+      "historial_ref": true
+     },
+     {
+      "caracteristicas": [
+       "unique_dst_ip_ratio_30s",
+       "protocol_diversity_30s",
+       "flow_duration_mean_30s",
+       "tx_rx_byte_ratio_30s"
+      ],
+      "clave": [
+       "10.10.10.1",
+       "2026-11-01T08:52:20+00:00"
+      ],
+      "historial_otro": true,
+      "historial_ref": true
+     },
+     {
+      "caracteristicas": [
+       "flow_duration_mean_30s"
+      ],
+      "clave": [
+       "10.10.10.20",
+       "2026-11-01T08:46:00+00:00"
+      ],
+      "historial_otro": true,
+      "historial_ref": true
+     },
+     {
+      "caracteristicas": [
+       "flow_duration_mean_30s"
+      ],
+      "clave": [
+       "10.10.10.20",
+       "2026-11-01T08:46:10+00:00"
+      ],
+      "historial_otro": true,
+      "historial_ref": true
+     },
+     {
+      "caracteristicas": [
+       "flow_duration_mean_30s"
+      ],
+      "clave": [
+       "10.10.10.20",
+       "2026-11-01T08:46:20+00:00"
+      ],
+      "historial_otro": true,
+      "historial_ref": true
+     },
+     {
+      "caracteristicas": [
+       "flow_duration_mean_30s"
+      ],
+      "clave": [
+       "10.10.10.20",
+       "2026-11-01T08:46:30+00:00"
+      ],
+      "historial_otro": true,
+      "historial_ref": true
+     },
+     {
+      "caracteristicas": [
+       "flow_duration_mean_30s"
+      ],
+      "clave": [
+       "10.10.10.20",
+       "2026-11-01T08:46:40+00:00"
+      ],
+      "historial_otro": true,
+      "historial_ref": true
+     },
+     {
+      "caracteristicas": [
+       "flow_duration_mean_30s"
+      ],
+      "clave": [
+       "10.10.10.20",
+       "2026-11-01T08:46:50+00:00"
+      ],
+      "historial_otro": true,
+      "historial_ref": true
+     },
+     {
+      "caracteristicas": [
+       "flow_duration_mean_30s"
+      ],
+      "clave": [
+       "10.10.10.20",
+       "2026-11-01T08:47:00+00:00"
+      ],
+      "historial_otro": true,
+      "historial_ref": true
+     },
+     {
+      "caracteristicas": [
+       "flow_duration_mean_30s"
+      ],
+      "clave": [
+       "10.10.10.20",
+       "2026-11-01T08:47:10+00:00"
+      ],
+      "historial_otro": true,
+      "historial_ref": true
+     }
+    ],
+    "historial_en_vectores_distintos": {
+     "True/True": 279
+    },
+    "por_caracteristica": {
+     "byte_rate_10s": 2,
+     "flow_attempt_rate_10s": 22,
+     "flow_duration_mean_30s": 279,
+     "mean_ip_len_10s": 2,
+     "packet_rate_10s": 2,
+     "protocol_diversity_30s": 5,
+     "tx_rx_byte_ratio_30s": 5,
+     "unique_dst_ip_ratio_30s": 51,
+     "unique_dst_port_ratio_30s": 49
+    },
+    "reglas_distintas": 0,
+    "score_dif_max": 0.06524972195206558,
+    "scores_comparados": 894,
+    "scores_distintos": 279,
+    "solo_otro": 0,
+    "solo_ref": 547,
+    "vectores_comparados": 676,
+    "vectores_distintos": 279
+   },
+   "historial_completo": {
+    "True": 894
+   },
+   "latencia_s": {
+    "max": 1365.868,
+    "media": 1027.78,
+    "n": 894,
+    "p50": 1015.868,
+    "p90": 1295.868
+   },
+   "memoria_pico_mb": 3343.1,
+   "no_evaluadas": 0
+  }
+ },
+ "tolerancia": "0 (bit a bit)"
+}

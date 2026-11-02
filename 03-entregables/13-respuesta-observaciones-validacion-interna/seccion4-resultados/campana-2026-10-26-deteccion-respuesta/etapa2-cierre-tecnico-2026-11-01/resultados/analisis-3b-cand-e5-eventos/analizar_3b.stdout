@@ -1,0 +1,228 @@
+{
+ "tabla_principal": {
+  "Escaneo sostenido": {
+   "poblacion_principal": [
+    "escaneo_sostenido-r2",
+    "escaneo_sostenido-r4",
+    "escaneo_sostenido-r5",
+    "escaneo_sostenido-r3"
+   ],
+   "fuera_de_poblacion": [
+    "escaneo_sostenido-r1"
+   ],
+   "IF_0.05": {
+    "oportuna": 4,
+    "fuera:oportuna": 1
+   },
+   "IF_0.03": {
+    "oportuna": 4,
+    "fuera:oportuna": 1
+   },
+   "IF_0.01": {
+    "oportuna": 4,
+    "fuera:oportuna": 1
+   },
+   "HEUR": {
+    "oportuna": 4,
+    "fuera:oportuna": 1
+   },
+   "HIB_0.05": {
+    "oportuna": 4,
+    "fuera:oportuna": 1
+   },
+   "HIB_0.03": {
+    "oportuna": 4,
+    "fuera:oportuna": 1
+   },
+   "HIB_0.01": {
+    "oportuna": 4,
+    "fuera:oportuna": 1
+   },
+   "emisiones_oportunas_episodios": 4
+  },
+  "Inundación HTTP": {
+   "poblacion_principal": [
+    "inundacion_http-r5"
+   ],
+   "fuera_de_poblacion": [
+    "inundacion_http-r1",
+    "inundacion_http-r4",
+    "inundacion_http-r2",
+    "inundacion_http-r3"
+   ],
+   "IF_0.05": {
+    "fuera:oportuna": 4,
+    "oportuna": 1
+   },
+   "IF_0.03": {
+    "fuera:oportuna": 4,
+    "oportuna": 1
+   },
+   "IF_0.01": {
+    "fuera:oportuna": 4,
+    "oportuna": 1
+   },
+   "HEUR": {
+    "fuera:oportuna": 4,
+    "oportuna": 1
+   },
+   "HIB_0.05": {
+    "fuera:oportuna": 4,
+    "oportuna": 1
+   },
+   "HIB_0.03": {
+    "fuera:oportuna": 4,
+    "oportuna": 1
+   },
+   "HIB_0.01": {
+    "fuera:oportuna": 4,
+    "oportuna": 1
+   },
+   "emisiones_oportunas_episodios": 1
+  },
+  "DNS inusual": {
+   "poblacion_principal": [
+    "dns_inusual-r2",
+    "dns_inusual-r1",
+    "dns_inusual-r4"
+   ],
+   "fuera_de_poblacion": [
+    "dns_inusual-r3",
+    "dns_inusual-r5"
+   ],
+   "IF_0.05": {
+    "fuera:no_evaluable": 1,
+    "fuera:oportuna": 1,
+    "ausencia_con_observacion_suficiente": 2,
+    "oportuna": 1
+   },
+   "IF_0.03": {
+    "fuera:no_evaluable": 1,
+    "fuera:oportuna": 1,
+    "ausencia_con_observacion_suficiente": 2,
+    "oportuna": 1
+   },
+   "IF_0.01": {
+    "fuera:no_evaluable": 1,
+    "fuera:oportuna": 1,
+    "ausencia_con_observacion_suficiente": 2,
+    "oportuna": 1
+   },
+   "HEUR": {
+    "fuera:oportuna": 2,
+    "oportuna": 3
+   },
+   "HIB_0.05": {
+    "fuera:oportuna": 2,
+    "oportuna": 3
+   },
+   "HIB_0.03": {
+    "fuera:oportuna": 2,
+    "oportuna": 3
+   },
+   "HIB_0.01": {
+    "fuera:oportuna": 2,
+    "oportuna": 3
+   },
+   "emisiones_oportunas_episodios": 3
+  },
+  "Escaneo breve": {
+   "poblacion_principal": [
+    "escaneo_breve-r5",
+    "escaneo_breve-r1",
+    "escaneo_breve-r3",
+    "escaneo_breve-r2"
+   ],
+   "fuera_de_poblacion": [
+    "escaneo_breve-r4"
+   ],
+   "IF_0.05": {
+    "solo_posterior": 3,
+    "oportuna": 1,
+    "fuera:solo_posterior": 1
+   },
+   "IF_0.03": {
+    "solo_posterior": 3,
+    "oportuna": 1,
+    "fuera:solo_posterior": 1
+   },
+   "IF_0.01": {
+    "ausencia_con_observacion_suficiente": 2,
+    "solo_posterior": 2,
+    "fuera:no_evaluable": 1
+   },
+   "HEUR": {
+    "solo_posterior": 3,
+    "oportuna": 1,
+    "fuera:solo_posterior": 1
+   },
+   "HIB_0.05": {
+    "solo_posterior": 3,
+    "oportuna": 1,
+    "fuera:solo_posterior": 1
+   },
+   "HIB_0.03": {
+    "solo_posterior": 3,
+    "oportuna": 1,
+    "fuera:solo_posterior": 1
+   },
+   "HIB_0.01": {
+    "solo_posterior": 3,
+    "oportuna": 1,
+    "fuera:solo_posterior": 1
+   },
+   "emisiones_oportunas_episodios": 1
+  },
+  "Fuerza bruta HTTP": {
+   "poblacion_principal": [
+    "fuerza_bruta_http-r5",
+    "fuerza_bruta_http-r4",
+    "fuerza_bruta_http-r1"
+   ],
+   "fuera_de_poblacion": [
+    "fuerza_bruta_http-r3",
+    "fuerza_bruta_http-r2"
+   ],
+   "IF_0.05": {
+    "fuera:oportuna": 2,
+    "oportuna": 3
+   },
+   "IF_0.03": {
+    "fuera:oportuna": 2,
+    "oportuna": 3
+   },
+   "IF_0.01": {
+    "fuera:oportuna": 2,
+    "oportuna": 3
+   },
+   "HEUR": {
+    "fuera:oportuna": 2,
+    "oportuna": 3
+   },
+   "HIB_0.05": {
+    "fuera:oportuna": 2,
+    "oportuna": 3
+   },
+   "HIB_0.03": {
+    "fuera:oportuna": 2,
+    "oportuna": 3
+   },
+   "HIB_0.01": {
+    "fuera:oportuna": 2,
+    "oportuna": 3
+   },
+   "emisiones_oportunas_episodios": 3
+  }
+ },
+ "inventario": {
+  "requeridas": 12223,
+  "estados": {
+   "decidida_a_tiempo": 12209,
+   "decidida_tardia": 0,
+   "no_evaluada": 14,
+   "ausente": 0
+  },
+  "solo_en_vivo": 0,
+  "cobertura_total": 0.998855
+ }
+}

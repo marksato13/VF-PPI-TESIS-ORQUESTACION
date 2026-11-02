@@ -1,0 +1,13 @@
+{
+ "casos": {
+  "S1_transporte_ssh_real": "PASA",
+  "S2_nologin_no_admite_comando_forzado": "PASA",
+  "S3_comando_forzado_rechaza_otras": "PASA",
+  "S4_permisos": "PASA",
+  "S5_agente_python_I_en_sombra": "PASA",
+  "S6_sudoers": "PASA",
+  "S7_perfil_fijo": "PASA",
+  "S8_systemd_analyze": "PASA"
+ },
+ "pasa": true
+}

@@ -1,0 +1,19 @@
+PASA S1_transporte_ssh_real pareja identica en /var/lib/cyberflow/feed
+PASA S2_nologin_no_admite_comando_forzado "nologin": {"error": "ssh
+PASA S3_comando_forzado_rechaza_otras 5 ordenes en cffeed + lectura de la clave privada en m4rk
+PASA S4_permisos feed 640 cffeed:cfagente; cfagente lee y no modifica feed, codigo, clave ni perfil
+PASA S5_agente_python_I_en_sombra {"ajenas": 0, "estado": "aceptado", "operaciones": 1, "rechazadas": 0, "secuencia": 1}
+PASA S6_sudoers solo el helper sin argumentos; cffeed sin sudo
+PASA S7_perfil_fijo sudo: unable to resolve host 4d769dbf68d3: Temporary failure in name resolution
+{"ok": false, "rechazo": "perfil_no_autorizado"}
+PASA S8_systemd_analyze rele y agentes sin ningun aviso; publicador: solo falta el venv de Sensor1 (pendiente en vivo)
+{
+ "S1_transporte_ssh_real": "PASA",
+ "S2_nologin_no_admite_comando_forzado": "PASA",
+ "S3_comando_forzado_rechaza_otras": "PASA",
+ "S4_permisos": "PASA",
+ "S5_agente_python_I_en_sombra": "PASA",
+ "S6_sudoers": "PASA",
+ "S7_perfil_fijo": "PASA",
+ "S8_systemd_analyze": "PASA"
+}

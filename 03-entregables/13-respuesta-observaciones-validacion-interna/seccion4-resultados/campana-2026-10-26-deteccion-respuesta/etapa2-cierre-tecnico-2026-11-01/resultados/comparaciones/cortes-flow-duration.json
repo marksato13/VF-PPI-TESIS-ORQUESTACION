@@ -1,0 +1,28 @@
+{
+ "feature_index": 18,
+ "preprocesado": [
+  "StandardScaler"
+ ],
+ "StandardScaler.scale_": 74.3768354411945,
+ "StandardScaler.mean_": 10.110500251394125,
+ "StandardScaler.var_": 5531.913650246527,
+ "n_arboles": 500,
+ "n_cortes": 2183,
+ "corte_min_s": 9.587239580000073e-05,
+ "corte_max_s": 957.6249660833918,
+ "percentiles_cortes_s": {
+  "50": 0.6327413146502678,
+  "90": 586.925441214297,
+  "99": 882.0530745836294
+ },
+ "cortes_ge": {
+  "60": 675,
+  "120": 597,
+  "180": 538,
+  "200": 522,
+  "220": 509,
+  "228": 500,
+  "230": 498
+ },
+ "max_samples": 256
+}

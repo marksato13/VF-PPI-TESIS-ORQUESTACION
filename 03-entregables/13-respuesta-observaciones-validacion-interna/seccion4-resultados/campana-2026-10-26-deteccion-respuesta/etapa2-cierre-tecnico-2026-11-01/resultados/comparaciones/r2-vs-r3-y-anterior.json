@@ -1,0 +1,699 @@
+{
+ "desde": 1793522460.0,
+ "hasta": 1793523840.0,
+ "referencia": "cierre-r2-e15-periodico",
+ "runs": {
+  "cierre-r2-e15-periodico": {
+   "arranques": 1,
+   "ciclo_s": {
+    "max": 69.179,
+    "media": 3.687,
+    "n": 144,
+    "p50": 2.728,
+    "p90": 7.465
+   },
+   "decisiones": 1842,
+   "duplicados": 0,
+   "episodios": {
+    "dns_inusual-r5": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 29.1,
+      "ventana_desde_inicio_s": 16.0
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 29.1,
+      "ventana_desde_inicio_s": 16.0
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 29.1,
+      "ventana_desde_inicio_s": 16.0
+     },
+     "regla_dns_entropy": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 29.1,
+      "ventana_desde_inicio_s": 6.0
+     }
+    },
+    "escaneo_breve-r5": {
+     "IF_0.01": {
+      "estado": "ausente"
+     },
+     "IF_0.03": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 40.4,
+      "ventana_desde_inicio_s": 23.1
+     },
+     "IF_0.05": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 40.4,
+      "ventana_desde_inicio_s": 23.1
+     },
+     "regla_port_scan": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 40.4,
+      "ventana_desde_inicio_s": 23.1
+     }
+    },
+    "escaneo_sostenido-r5": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 35.6,
+      "ventana_desde_inicio_s": 18.8
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 35.6,
+      "ventana_desde_inicio_s": 18.8
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 35.6,
+      "ventana_desde_inicio_s": 18.8
+     },
+     "regla_port_scan": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 35.6,
+      "ventana_desde_inicio_s": 18.8
+     }
+    },
+    "fuerza_bruta_http-r3": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 26.5,
+      "ventana_desde_inicio_s": 5.1
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 26.5,
+      "ventana_desde_inicio_s": 5.1
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 26.5,
+      "ventana_desde_inicio_s": 5.1
+     },
+     "regla_brute_force": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 26.5,
+      "ventana_desde_inicio_s": 5.1
+     }
+    },
+    "fuerza_bruta_http-r5": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 27.8,
+      "ventana_desde_inicio_s": 6.0
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 27.8,
+      "ventana_desde_inicio_s": 6.0
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 27.8,
+      "ventana_desde_inicio_s": 6.0
+     },
+     "regla_brute_force": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 27.8,
+      "ventana_desde_inicio_s": 6.0
+     }
+    }
+   },
+   "historial_completo": {
+    "True": 1842
+   },
+   "latencia_s": {
+    "max": 28.367,
+    "media": 16.139,
+    "n": 1842,
+    "p50": 16.625,
+    "p90": 23.07
+   },
+   "memoria_pico_mb": 839.3,
+   "no_evaluadas": 0
+  },
+  "cierre-r3-e5-periodico": {
+   "arranques": 1,
+   "ciclo_s": {
+    "max": 55.555,
+    "media": 3.542,
+    "n": 146,
+    "p50": 2.679,
+    "p90": 5.04
+   },
+   "decisiones": 1842,
+   "duplicados": 0,
+   "episodios": {
+    "dns_inusual-r5": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 25.4,
+      "ventana_desde_inicio_s": 16.0
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 25.4,
+      "ventana_desde_inicio_s": 16.0
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 25.4,
+      "ventana_desde_inicio_s": 16.0
+     },
+     "regla_dns_entropy": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 14.5,
+      "ventana_desde_inicio_s": 6.0
+     }
+    },
+    "escaneo_breve-r5": {
+     "IF_0.01": {
+      "estado": "ausente"
+     },
+     "IF_0.03": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 32.0,
+      "ventana_desde_inicio_s": 23.1
+     },
+     "IF_0.05": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 32.0,
+      "ventana_desde_inicio_s": 23.1
+     },
+     "regla_port_scan": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 32.0,
+      "ventana_desde_inicio_s": 23.1
+     }
+    },
+    "escaneo_sostenido-r5": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 28.5,
+      "ventana_desde_inicio_s": 18.8
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 28.5,
+      "ventana_desde_inicio_s": 18.8
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 28.5,
+      "ventana_desde_inicio_s": 18.8
+     },
+     "regla_port_scan": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 28.5,
+      "ventana_desde_inicio_s": 18.8
+     }
+    },
+    "fuerza_bruta_http-r3": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 15.1,
+      "ventana_desde_inicio_s": 5.1
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 15.1,
+      "ventana_desde_inicio_s": 5.1
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 15.1,
+      "ventana_desde_inicio_s": 5.1
+     },
+     "regla_brute_force": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 15.1,
+      "ventana_desde_inicio_s": 5.1
+     }
+    },
+    "fuerza_bruta_http-r5": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 16.0,
+      "ventana_desde_inicio_s": 6.0
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 16.0,
+      "ventana_desde_inicio_s": 6.0
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 16.0,
+      "ventana_desde_inicio_s": 6.0
+     },
+     "regla_brute_force": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 16.0,
+      "ventana_desde_inicio_s": 6.0
+     }
+    }
+   },
+   "frente_a_referencia": {
+    "clases_iguales_por_alfa": {
+     "0.01": 1842,
+     "0.03": 1842,
+     "0.05": 1842
+    },
+    "comunes": 1842,
+    "decision_o_detector_distintos": 0,
+    "duplicados_otro": 0,
+    "duplicados_ref": 0,
+    "ejemplos_solo_otro": [],
+    "ejemplos_solo_ref": [],
+    "ejemplos_vectores_distintos": [],
+    "historial_en_vectores_distintos": {},
+    "por_caracteristica": {},
+    "reglas_distintas": 0,
+    "score_dif_max": 0.0,
+    "scores_comparados": 1842,
+    "scores_distintos": 0,
+    "solo_otro": 0,
+    "solo_ref": 0,
+    "vectores_comparados": 1400,
+    "vectores_distintos": 0
+   },
+   "historial_completo": {
+    "True": 1842
+   },
+   "latencia_s": {
+    "max": 15.728,
+    "media": 10.001,
+    "n": 1842,
+    "p50": 9.541,
+    "p90": 11.825
+   },
+   "memoria_pico_mb": 832.0,
+   "no_evaluadas": 0
+  },
+  "tramo-r2-e15-periodico": {
+   "arranques": 1,
+   "ciclo_s": {
+    "max": 8.494,
+    "media": 1.149,
+    "n": 150,
+    "p50": 0.925,
+    "p90": 2.086
+   },
+   "decisiones": 1904,
+   "duplicados": 0,
+   "episodios": {
+    "dns_inusual-r5": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": null,
+      "registro_desde_inicio_s": 28.6,
+      "ventana_desde_inicio_s": 16.0
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": null,
+      "registro_desde_inicio_s": 28.6,
+      "ventana_desde_inicio_s": 16.0
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": null,
+      "registro_desde_inicio_s": 28.6,
+      "ventana_desde_inicio_s": 16.0
+     },
+     "regla_dns_entropy": {
+      "estado": "durante",
+      "historial_completo": null,
+      "registro_desde_inicio_s": 28.6,
+      "ventana_desde_inicio_s": 6.0
+     }
+    },
+    "escaneo_breve-r5": {
+     "IF_0.01": {
+      "estado": "ausente"
+     },
+     "IF_0.03": {
+      "estado": "despues",
+      "historial_completo": null,
+      "registro_desde_inicio_s": 45.5,
+      "ventana_desde_inicio_s": 23.1
+     },
+     "IF_0.05": {
+      "estado": "despues",
+      "historial_completo": null,
+      "registro_desde_inicio_s": 45.5,
+      "ventana_desde_inicio_s": 23.1
+     },
+     "regla_port_scan": {
+      "estado": "despues",
+      "historial_completo": null,
+      "registro_desde_inicio_s": 45.5,
+      "ventana_desde_inicio_s": 23.1
+     }
+    },
+    "escaneo_sostenido-r5": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": null,
+      "registro_desde_inicio_s": 31.7,
+      "ventana_desde_inicio_s": 18.8
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": null,
+      "registro_desde_inicio_s": 31.7,
+      "ventana_desde_inicio_s": 18.8
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": null,
+      "registro_desde_inicio_s": 31.7,
+      "ventana_desde_inicio_s": 18.8
+     },
+     "regla_port_scan": {
+      "estado": "durante",
+      "historial_completo": null,
+      "registro_desde_inicio_s": 31.7,
+      "ventana_desde_inicio_s": 18.8
+     }
+    },
+    "fuerza_bruta_http-r3": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": null,
+      "registro_desde_inicio_s": 28.8,
+      "ventana_desde_inicio_s": 5.1
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": null,
+      "registro_desde_inicio_s": 28.8,
+      "ventana_desde_inicio_s": 5.1
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": null,
+      "registro_desde_inicio_s": 28.8,
+      "ventana_desde_inicio_s": 5.1
+     },
+     "regla_brute_force": {
+      "estado": "durante",
+      "historial_completo": null,
+      "registro_desde_inicio_s": 28.8,
+      "ventana_desde_inicio_s": 5.1
+     }
+    },
+    "fuerza_bruta_http-r5": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": null,
+      "registro_desde_inicio_s": 29.6,
+      "ventana_desde_inicio_s": 6.0
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": null,
+      "registro_desde_inicio_s": 29.6,
+      "ventana_desde_inicio_s": 6.0
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": null,
+      "registro_desde_inicio_s": 29.6,
+      "ventana_desde_inicio_s": 6.0
+     },
+     "regla_brute_force": {
+      "estado": "durante",
+      "historial_completo": null,
+      "registro_desde_inicio_s": 29.6,
+      "ventana_desde_inicio_s": 6.0
+     }
+    }
+   },
+   "frente_a_referencia": {
+    "clases_iguales_por_alfa": {
+     "0.01": 1808,
+     "0.03": 1808,
+     "0.05": 1808
+    },
+    "comunes": 1808,
+    "decision_o_detector_distintos": 1,
+    "duplicados_otro": 0,
+    "duplicados_ref": 0,
+    "ejemplos_solo_otro": [
+     [
+      "10.10.10.1",
+      "2026-11-01T08:42:20+00:00"
+     ],
+     [
+      "10.10.10.1",
+      "2026-11-01T08:42:30+00:00"
+     ],
+     [
+      "10.10.10.1",
+      "2026-11-01T08:42:40+00:00"
+     ],
+     [
+      "10.10.10.1",
+      "2026-11-01T08:42:50+00:00"
+     ],
+     [
+      "10.10.10.1",
+      "2026-11-01T08:43:00+00:00"
+     ],
+     [
+      "10.10.10.1",
+      "2026-11-01T08:43:10+00:00"
+     ],
+     [
+      "10.10.10.1",
+      "2026-11-01T08:43:20+00:00"
+     ],
+     [
+      "10.10.10.1",
+      "2026-11-01T08:43:30+00:00"
+     ]
+    ],
+    "ejemplos_solo_ref": [
+     [
+      "10.10.10.1",
+      "2026-11-01T08:45:10+00:00"
+     ],
+     [
+      "10.10.10.1",
+      "2026-11-01T08:45:20+00:00"
+     ],
+     [
+      "10.10.10.1",
+      "2026-11-01T08:45:30+00:00"
+     ],
+     [
+      "10.10.10.1",
+      "2026-11-01T08:45:40+00:00"
+     ],
+     [
+      "10.10.10.1",
+      "2026-11-01T08:45:50+00:00"
+     ],
+     [
+      "10.10.10.1",
+      "2026-11-01T08:53:30+00:00"
+     ],
+     [
+      "10.10.10.1",
+      "2026-11-01T08:53:40+00:00"
+     ],
+     [
+      "10.10.10.1",
+      "2026-11-01T08:53:50+00:00"
+     ]
+    ],
+    "ejemplos_vectores_distintos": [
+     {
+      "caracteristicas": [
+       "flow_duration_mean_30s"
+      ],
+      "clave": [
+       "10.10.10.20",
+       "2026-11-01T08:41:10+00:00"
+      ],
+      "historial_otro": null,
+      "historial_ref": true
+     },
+     {
+      "caracteristicas": [
+       "flow_duration_mean_30s"
+      ],
+      "clave": [
+       "10.10.10.20",
+       "2026-11-01T08:41:20+00:00"
+      ],
+      "historial_otro": null,
+      "historial_ref": true
+     },
+     {
+      "caracteristicas": [
+       "flow_duration_mean_30s"
+      ],
+      "clave": [
+       "10.10.10.20",
+       "2026-11-01T08:41:50+00:00"
+      ],
+      "historial_otro": null,
+      "historial_ref": true
+     },
+     {
+      "caracteristicas": [
+       "flow_duration_mean_30s"
+      ],
+      "clave": [
+       "10.10.10.20",
+       "2026-11-01T08:42:20+00:00"
+      ],
+      "historial_otro": null,
+      "historial_ref": true
+     },
+     {
+      "caracteristicas": [
+       "flow_duration_mean_30s"
+      ],
+      "clave": [
+       "10.10.10.20",
+       "2026-11-01T08:42:50+00:00"
+      ],
+      "historial_otro": null,
+      "historial_ref": true
+     },
+     {
+      "caracteristicas": [
+       "flow_duration_mean_30s"
+      ],
+      "clave": [
+       "10.10.10.20",
+       "2026-11-01T08:43:50+00:00"
+      ],
+      "historial_otro": null,
+      "historial_ref": true
+     },
+     {
+      "caracteristicas": [
+       "flow_duration_mean_30s"
+      ],
+      "clave": [
+       "10.10.10.20",
+       "2026-11-01T08:44:50+00:00"
+      ],
+      "historial_otro": null,
+      "historial_ref": true
+     },
+     {
+      "caracteristicas": [
+       "flow_duration_mean_30s"
+      ],
+      "clave": [
+       "10.10.10.20",
+       "2026-11-01T08:45:40+00:00"
+      ],
+      "historial_otro": null,
+      "historial_ref": true
+     },
+     {
+      "caracteristicas": [
+       "flow_duration_mean_30s"
+      ],
+      "clave": [
+       "10.10.10.20",
+       "2026-11-01T08:45:50+00:00"
+      ],
+      "historial_otro": null,
+      "historial_ref": true
+     },
+     {
+      "caracteristicas": [
+       "flow_duration_mean_30s"
+      ],
+      "clave": [
+       "10.10.10.20",
+       "2026-11-01T08:46:10+00:00"
+      ],
+      "historial_otro": null,
+      "historial_ref": true
+     }
+    ],
+    "historial_en_vectores_distintos": {
+     "True/None": 170
+    },
+    "por_caracteristica": {
+     "flow_attempt_rate_10s": 1,
+     "flow_duration_mean_30s": 170,
+     "unique_dst_ip_ratio_30s": 3,
+     "unique_dst_port_ratio_30s": 3
+    },
+    "reglas_distintas": 0,
+    "score_dif_max": 0.020817704433481188,
+    "scores_comparados": 1808,
+    "scores_distintos": 152,
+    "solo_otro": 96,
+    "solo_ref": 34,
+    "vectores_comparados": 1400,
+    "vectores_distintos": 170
+   },
+   "historial_completo": {
+    "None": 1904
+   },
+   "latencia_s": {
+    "max": 234.862,
+    "media": 23.5,
+    "n": 1904,
+    "p50": 14.117,
+    "p90": 24.862
+   },
+   "memoria_pico_mb": 863.5,
+   "no_evaluadas": 0
+  }
+ },
+ "tolerancia": "0 (bit a bit)"
+}

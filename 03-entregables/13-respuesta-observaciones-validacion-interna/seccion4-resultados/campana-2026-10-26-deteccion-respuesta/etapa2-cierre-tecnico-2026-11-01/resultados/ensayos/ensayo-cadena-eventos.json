@@ -1,0 +1,271 @@
+{
+ "decision_repetida_genero_nuevos": 0,
+ "estado_nft": "comment \"id:49cbda7cf5e6a345\",\n\t\t\t     10.10.20.105 counter packets 0 bytes 0 timeout 4m43s expires 3m54s572ms comment \"id:8b2540da817ead52\",\n\t\t\t     10.10.20.107 counter packets 0 bytes 0 timeout 4m51s expires 4m2s572ms comment \"id:3b6b05ac1cc1d0ca\",\n\t\t\t     10.10.20.109 counter packets 0 bytes 0 timeout 4m59s expires 4m10s572ms comment \"id:68686b2100692c3f\",\n\t\t\t     10.10.20.111 counter packets 0 bytes 0 timeout 4m55s expires 4m18s252ms comment \"id:13b8832f3d626caa\",\n\t\t\t     10.10.20.113 counter packets 0 bytes 0 timeout 4m39s expires 4m25s904ms comment \"id:3562ae148eb5f3ca\",\n\t\t\t     10.10.20.115 counter packets 0 bytes 0 timeout 4m47s expires 4m33s904ms comment \"id:674ee164606fd2b5\",\n\t\t\t     10.10.20.117 counter packets 0 bytes 0 timeout 4m55s expires 4m41s904ms comment \"id:e3e4e7bc2e9df3db\",\n\t\t\t     10.10.20.119 counter packets 0 bytes 0 timeout 4m59s expires 4m49s720ms comment \"id:3fc72d9b315864e2\" }\n\t}\n\n\tset tasa_origen {\n\t\ttype ipv4_addr\n\t\tsize 65535\n\t\tflags dynamic,timeout\n\t\ttimeout 1m\n\t}\n\n\tset descartes_limite {\n\t\ttype ipv4_addr\n\t\tsize 65535\n\t\tflags dynamic,timeout\n\t\tcounter\n\t\ttimeout 1h2m\n\t}\n\n\tchain entrada {\n\t\ttype filter hook input priority filter - 10; policy accept;\n\t\tmeta l4proto { tcp, udp } th dport 53 ip saddr @bloqueados counter packets 0 bytes 0 drop\n\t\tmeta l4proto { tcp, udp } th dport 53 ip saddr @limitados update @tasa_origen { ip saddr limit rate over 5/second burst 10 packets } update @descartes_limite { ip saddr } counter packets 0 bytes 0 drop\n\t}\n}\n",
+ "eventos": [
+  {
+   "aplicado": 0.974,
+   "confirmado": 1.063,
+   "decision_id": "10.10.20.100|2026-11-01T10:00:00+00:00",
+   "destino": "srv-dmz",
+   "entregado": 0.187,
+   "id": "49496a6e89013542",
+   "leido": 0.149,
+   "publicado": 0.171,
+   "recibido": 0.618
+  },
+  {
+   "aplicado": 12.734,
+   "confirmado": 12.795,
+   "decision_id": "10.10.20.101|2026-11-01T10:00:10+00:00",
+   "destino": "dc1",
+   "entregado": 12.377,
+   "id": "88e54530841558df",
+   "leido": 0.18,
+   "publicado": 0.191,
+   "recibido": 12.604
+  },
+  {
+   "aplicado": 0.628,
+   "confirmado": 0.667,
+   "decision_id": "10.10.20.102|2026-11-01T10:00:20+00:00",
+   "destino": "srv-dmz",
+   "entregado": 0.278,
+   "id": "1b6191fddc842f10",
+   "leido": 0.199,
+   "publicado": 0.212,
+   "recibido": 0.559
+  },
+  {
+   "aplicado": 4.733,
+   "confirmado": 4.794,
+   "decision_id": "10.10.20.103|2026-11-01T10:00:30+00:00",
+   "destino": "dc1",
+   "entregado": 4.375,
+   "id": "49cbda7cf5e6a345",
+   "leido": 0.222,
+   "publicado": 0.233,
+   "recibido": 4.603
+  },
+  {
+   "aplicado": 0.606,
+   "confirmado": 0.669,
+   "decision_id": "10.10.20.104|2026-11-01T10:00:40+00:00",
+   "destino": "srv-dmz",
+   "entregado": 0.374,
+   "id": "78b22ad696d198b3",
+   "leido": 0.242,
+   "publicado": 0.252,
+   "recibido": 0.469
+  },
+  {
+   "aplicado": 1.056,
+   "confirmado": 1.128,
+   "decision_id": "10.10.20.105|2026-11-01T10:00:50+00:00",
+   "destino": "dc1",
+   "entregado": 0.425,
+   "id": "8b2540da817ead52",
+   "leido": 0.012,
+   "publicado": 0.023,
+   "recibido": 0.856
+  },
+  {
+   "aplicado": 0.88,
+   "confirmado": 0.986,
+   "decision_id": "10.10.20.106|2026-11-01T10:01:00+00:00",
+   "destino": "srv-dmz",
+   "entregado": 0.483,
+   "id": "e7b59bf1af30d8e9",
+   "leido": 0.035,
+   "publicado": 0.048,
+   "recibido": 0.635
+  },
+  {
+   "aplicado": 1.038,
+   "confirmado": 1.093,
+   "decision_id": "10.10.20.107|2026-11-01T10:01:10+00:00",
+   "destino": "dc1",
+   "entregado": 0.521,
+   "id": "3b6b05ac1cc1d0ca",
+   "leido": 0.059,
+   "publicado": 0.071,
+   "recibido": 0.926
+  },
+  {
+   "aplicado": 1.017,
+   "confirmado": 1.066,
+   "decision_id": "10.10.20.108|2026-11-01T10:01:20+00:00",
+   "destino": "srv-dmz",
+   "entregado": 0.577,
+   "id": "de5e9b80661d31fc",
+   "leido": 0.081,
+   "publicado": 0.094,
+   "recibido": 0.818
+  },
+  {
+   "aplicado": 1.658,
+   "confirmado": 1.821,
+   "decision_id": "10.10.20.109|2026-11-01T10:01:30+00:00",
+   "destino": "dc1",
+   "entregado": 0.615,
+   "id": "68686b2100692c3f",
+   "leido": 0.104,
+   "publicado": 0.111,
+   "recibido": 0.792
+  },
+  {
+   "aplicado": 1.732,
+   "confirmado": 2.008,
+   "decision_id": "10.10.20.110|2026-11-01T10:01:40+00:00",
+   "destino": "srv-dmz",
+   "entregado": 0.69,
+   "id": "d2634cea41067884",
+   "leido": 0.123,
+   "publicado": 0.153,
+   "recibido": 1.052
+  },
+  {
+   "aplicado": 1.557,
+   "confirmado": 1.648,
+   "decision_id": "10.10.20.111|2026-11-01T10:01:50+00:00",
+   "destino": "dc1",
+   "entregado": 1.032,
+   "id": "13b8832f3d626caa",
+   "leido": 0.195,
+   "publicado": 0.205,
+   "recibido": 1.385
+  },
+  {
+   "aplicado": 1.376,
+   "confirmado": 1.459,
+   "decision_id": "10.10.20.112|2026-11-01T10:02:00+00:00",
+   "destino": "srv-dmz",
+   "entregado": 1.071,
+   "id": "a44684e5dbaccf83",
+   "leido": 0.215,
+   "publicado": 0.222,
+   "recibido": 1.219
+  },
+  {
+   "aplicado": 1.691,
+   "confirmado": 1.929,
+   "decision_id": "10.10.20.113|2026-11-01T10:02:10+00:00",
+   "destino": "dc1",
+   "entregado": 1.134,
+   "id": "3562ae148eb5f3ca",
+   "leido": 0.23,
+   "publicado": 0.242,
+   "recibido": 1.454
+  },
+  {
+   "aplicado": 0.751,
+   "confirmado": 0.802,
+   "decision_id": "10.10.20.114|2026-11-01T10:02:20+00:00",
+   "destino": "srv-dmz",
+   "entregado": 0.175,
+   "id": "e4aa0deba692edcb",
+   "leido": 0.002,
+   "publicado": 0.018,
+   "recibido": 0.639
+  },
+  {
+   "aplicado": 0.82,
+   "confirmado": 0.874,
+   "decision_id": "10.10.20.115|2026-11-01T10:02:30+00:00",
+   "destino": "dc1",
+   "entregado": 0.229,
+   "id": "674ee164606fd2b5",
+   "leido": 0.029,
+   "publicado": 0.04,
+   "recibido": 0.673
+  },
+  {
+   "aplicado": 0.611,
+   "confirmado": 0.661,
+   "decision_id": "10.10.20.116|2026-11-01T10:02:40+00:00",
+   "destino": "srv-dmz",
+   "entregado": 0.268,
+   "id": "3aacf744e1d2bcfd",
+   "leido": 0.05,
+   "publicado": 0.065,
+   "recibido": 0.449
+  },
+  {
+   "aplicado": 0.681,
+   "confirmado": 0.729,
+   "decision_id": "10.10.20.117|2026-11-01T10:02:50+00:00",
+   "destino": "dc1",
+   "entregado": 0.317,
+   "id": "e3e4e7bc2e9df3db",
+   "leido": 0.076,
+   "publicado": 0.083,
+   "recibido": 0.571
+  },
+  {
+   "aplicado": 0.709,
+   "confirmado": 0.773,
+   "decision_id": "10.10.20.118|2026-11-01T10:03:00+00:00",
+   "destino": "srv-dmz",
+   "entregado": 0.379,
+   "id": "9fcec3700188b706",
+   "leido": 0.094,
+   "publicado": 0.108,
+   "recibido": 0.573
+  },
+  {
+   "aplicado": 0.741,
+   "confirmado": 0.8,
+   "decision_id": "10.10.20.119|2026-11-01T10:03:10+00:00",
+   "destino": "dc1",
+   "entregado": 0.418,
+   "id": "3fc72d9b315864e2",
+   "leido": 0.126,
+   "publicado": 0.135,
+   "recibido": 0.571
+  }
+ ],
+ "pasa": true,
+ "rechazos_agentes": {
+  "dmz": [],
+  "dns": []
+ },
+ "rele_errores": 18,
+ "rele_reintento_dc1_ok": true,
+ "resumen_s_desde_logged_at": {
+  "aplicado": {
+   "max": 12.734,
+   "media": 1.8,
+   "n": 20,
+   "p50": 1.017
+  },
+  "confirmado": {
+   "max": 12.795,
+   "media": 1.888,
+   "n": 20,
+   "p50": 1.066
+  },
+  "entregado": {
+   "max": 12.377,
+   "media": 1.296,
+   "n": 20,
+   "p50": 0.483
+  },
+  "leido": {
+   "max": 0.242,
+   "media": 0.121,
+   "n": 20,
+   "p50": 0.123
+  },
+  "publicado": {
+   "max": 0.252,
+   "media": 0.134,
+   "n": 20,
+   "p50": 0.135
+  },
+  "recibido": {
+   "max": 12.604,
+   "media": 1.573,
+   "n": 20,
+   "p50": 0.792
+  }
+ }
+}
