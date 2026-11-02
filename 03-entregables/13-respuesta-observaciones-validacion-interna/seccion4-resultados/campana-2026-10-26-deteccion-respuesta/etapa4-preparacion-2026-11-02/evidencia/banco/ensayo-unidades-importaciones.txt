@@ -1,0 +1,41 @@
+systemd: systemd 257 (257.13-1~deb13u1); python: Python 3.13.5
+--- ppi-motor.service
+
+OK    U1 systemd-analyze verify ppi-motor.service sin avisos
+--- ppi-motor-capture.service
+
+OK    U1 systemd-analyze verify ppi-motor-capture.service sin avisos
+--- ppi-publicar-feed-v2.service
+
+OK    U1 systemd-analyze verify ppi-publicar-feed-v2.service sin avisos
+--- ppi-via-rapida@ens37.service
+
+OK    U1 systemd-analyze verify ppi-via-rapida@ens37.service sin avisos
+--- cf-tcpdump-estadisticas.service
+
+OK    U1 systemd-analyze verify cf-tcpdump-estadisticas.service sin avisos
+--- cf-tcpdump-estadisticas.timer
+
+OK    U1 systemd-analyze verify cf-tcpdump-estadisticas.timer sin avisos
+--- ppi-relay-eventos.service
+
+OK    U1 systemd-analyze verify ppi-relay-eventos.service sin avisos
+--- ppi-enforce-agent-v2-dmz.service
+
+OK    U1 systemd-analyze verify ppi-enforce-agent-v2-dmz.service sin avisos
+motor: ['/home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow-e4/ec78ca5/scripts/engine/motor_decision.py --eve-path /var/log/suricata/eve.json --capture-dir /var/lib/ppi-motor-capture --model-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib --manifest-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json --detector-name if_limpio_2026_10 --schema /home/m4rk/cyberflow/configs/features/multilayer-v2.json --entity-network 10.10.0.0/16 --excluir 10.10.60.11/32,10.10.10.30/32,10.10.60.2/32,10.10.60.3/32,10.10.60.10/32,10.10.60.20/32,10.10.60.21/32,10.10.60.30/32,10.10.60.40/32,10.10.60.41/32,10.10.60.50/32 --excluir-protocolos 112,240 --log-path /home/m4rk/cyberflow/logs/motor_decision.log --state-dir /home/m4rk/cyberflow/logs/_state-e4 --step-seconds 10 --history-seconds 230 --disparo eventos']
+captura: ['/usr/bin/tcpdump -i ens37 -n -s 0 -U -B 65536 -Z tcpdump -w /var/lib/ppi-motor-capture/live-%%Y%%m%%d%%H%%M%%S.pcap -G 5']
+U2 OK
+OK    U2 ExecStart efectivo: candidato, mismos argumentos de detección, -G 5
+motor_decision: 6 módulos del candidato: engine/dns_heuristica.py engine/heuristicos.py engine/http_heuristica.py engine/motor_incremental.py features/extract_multilayer_v2.py features/extract_multilayer_v3.py 
+publicar_feed_v2: 3 módulos del candidato: engine/escalada.py engine/feed.py engine/heuristicos.py 
+detector_rapido: 1 módulos del candidato: engine/escaneo_temprano.py 
+OK importaciones
+OK    U3 importaciones desde el candidato con la disposición de Sensor1
+motor_decision: 6 módulos del candidato: engine/dns_heuristica.py engine/heuristicos.py engine/http_heuristica.py engine/motor_incremental.py features/extract_multilayer_v2.py features/extract_multilayer_v3.py 
+# code object from /home/m4rk/cyberflow/scripts/engine/escalada.py
+# code object from /home/m4rk/cyberflow/scripts/engine/feed.py
+# code object from /home/m4rk/cyberflow/scripts/engine/heuristicos.py
+PARADA publicar_feed_v2 carga código de /home/m4rk/cyberflow/scripts
+OK    U3 detecta código viejo si entra en sys.path (PARADA esperada)
+RESULTADO: todas las comprobaciones OK

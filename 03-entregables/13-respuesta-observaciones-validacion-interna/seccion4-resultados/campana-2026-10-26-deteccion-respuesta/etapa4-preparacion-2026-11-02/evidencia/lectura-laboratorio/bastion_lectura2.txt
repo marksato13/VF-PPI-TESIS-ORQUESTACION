@@ -1,0 +1,103 @@
+== rele: guion (enmascarado)
+#!/usr/bin/env bash
+set -uo pipefail
+mkdir -p ~/relay
+scp -o BatchMode=yes -o ConnectTimeout=10 -i ~/.ssh/cyberflow-to-sensor \
+  m4rk@10.10.60.11:/home/m4rk/feed/feed.json m4rk@10.10.60.11:/home/m4rk/feed/feed.sig ~/relay/ 2>/dev/null || exit 0
+scp -o BatchMode=yes -o ConnectTimeout=10 -i ~/.ssh/cyberflow-to-srv \
+  ~/relay/feed.json ~/relay/feed.sig adminsrvdmz@10.10.30.10:/home/adminsrvdmz/enforce/ 2>/dev/null
+total 16
+drwxrwxr-x  2 gadmin gadmin 4096 Sep 30 15:01 .
+drwx------ 34 gadmin gadmin 4096 Nov  2 11:07 ..
+-rw-rw-r--  1 gadmin gadmin   84 Nov  2 14:11 feed.json
+-rw-rw-r--  1 gadmin gadmin   64 Nov  2 14:11 feed.sig
+-rw-rw-r--  1 gadmin gadmin    0 Sep 30 15:01 relay.log
+2026-11-02 14:11:54.428238965 -0500 /home/gadmin/relay/feed.json
+total  124
+drwxr-xr-x gadmin .
+drwx------ gadmin ..
+-rw-r--r-- gadmin authorized_keys
+-rw------- gadmin config
+-rw------- gadmin config.antes-swexport
+-rw------- gadmin cyberflow-to-atacante
+-rw-r--r-- gadmin cyberflow-to-atacante.pub
+-rw------- gadmin cyberflow-to-clientes
+-rw-r--r-- gadmin cyberflow-to-clientes.pub
+-rw------- gadmin cyberflow-to-sensor
+-rw-r--r-- gadmin cyberflow-to-sensor.pub
+-rw------- gadmin cyberflow-to-srv
+-rw-r--r-- gadmin cyberflow-to-srv.pub
+-rw------- gadmin francos-red-export
+-rw-r--r-- gadmin francos-red-export.pub
+-rw------- gadmin id_ed25519
+-rw-r--r-- gadmin id_ed25519.pub
+-rw------- gadmin known_hosts
+-rw------- gadmin known_hosts.old
+
+== srvdmz: fechas
+2026-10-15 21:32:35.827510530 +0000 10453 /home/adminsrvdmz/enforce/agente_enforce.py
+2026-10-15 12:56:51.306530483 +0000 7742 /home/adminsrvdmz/enforce/agente_enforce.py.bak-20261015T1255Z
+2026-10-15 21:26:02.163522994 +0000 7645 /home/adminsrvdmz/enforce/agente_enforce.py.bak-20261015T2033Z
+2026-11-02 19:11:56.050518529 +0000 84 /home/adminsrvdmz/enforce/feed.json
+2026-09-30 20:00:16.691781715 +0000 3329 /home/adminsrvdmz/enforce/feed.py
+2026-11-02 19:11:56.052518541 +0000 64 /home/adminsrvdmz/enforce/feed.sig
+2026-09-30 20:00:16.691781715 +0000 113 /home/adminsrvdmz/enforce/pub.pem
+2026-09-30 20:01:01.678905394 +0000 4096 /home/adminsrvdmz/enforce/__pycache__
+2026-10-06 06:15:01.537767439 +0000 265280 /home/adminsrvdmz/enforce/shadow.log
+2026-09-30 20:01:01.678905394 +0000 4957 /home/adminsrvdmz/enforce/__pycache__/feed.cpython-312.pyc
+LastTriggerUSec=
+ActiveState=inactive
+UnitFileState=disabled
+InactiveEnterTimestamp=
+ActiveState=inactive
+UnitFileState=disabled
+InactiveEnterTimestamp=
+[Unit]
+Description=CyberFlow - agente de enforcement en el host protegido (verifica feed, aplica nftables)
+Documentation=https://github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos
+
+[Service]
+Type=oneshot
+User=adminsrvdmz
+Group=adminsrvdmz
+ExecStart=/usr/bin/python3 /home/adminsrvdmz/enforce/agente_enforce.py \
+    --feed /home/adminsrvdmz/enforce/feed.json \
+    --firma /home/adminsrvdmz/enforce/feed.sig \
+    --clave-publica /home/adminsrvdmz/enforce/pub.pem \
+    --aplicar --sudo
+-rwxr-xr-x  1 root root   60 oct 23 15:38 cf-nft-mostrar
+ls: cannot access '/etc/cyberflow': No such file or directory
+ls: cannot access '/opt/cyberflow': No such file or directory
+fin
+
+== cliente (admin 10.10.20.20): perfiles
+clientesadmin
+2026-11-02T19:12:04Z
+ 19:12:04 up 2 days, 23:19,  1 user,  load average: 0,00, 0,00, 0,00
+cyberflow-lab-aplicacion.service loaded active running CyberFlow laboratorio - perfil aplicacion desde 10.10.20.24
+cyberflow-lab-descargas.service  loaded active running CyberFlow laboratorio - perfil descargas desde 10.10.20.23
+cyberflow-lab-erratico.service   loaded active running CyberFlow laboratorio - perfil erratico desde 10.10.20.26
+cyberflow-lab-ligero.service     loaded active running CyberFlow laboratorio - perfil ligero desde 10.10.20.25
+cyberflow-lab-navegacion.service loaded active running CyberFlow laboratorio - perfil navegacion desde 10.10.20.22
+cyberflow-lab-ofimatica.service  loaded active running CyberFlow laboratorio - perfil ofimatica desde 10.10.20.21
+cyberflow-lab.target             loaded active active  CyberFlow laboratorio - los seis perfiles de trafico
+cyberflow-lab-aplicacion.service disabled enabled
+cyberflow-lab-descargas.service  disabled enabled
+cyberflow-lab-erratico.service   disabled enabled
+cyberflow-lab-ligero.service     disabled enabled
+cyberflow-lab-navegacion.service disabled enabled
+cyberflow-lab-ofimatica.service  disabled enabled
+cyberflow-lab.target             disabled enabled
+Wants=cyberflow-lab-ligero.service cyberflow-lab-erratico.service cyberflow-lab-ofimatica.service cyberflow-lab-navegacion.service cyberflow-lab-descargas.service cyberflow-lab-aplicacion.service
+ActiveState=active
+UnitFileState=disabled
+ActiveEnterTimestamp=Sun 2026-11-01 10:36:59 UTC
+           Universal time: lun 2026-11-02 19:12:04 UTC
+                Time zone: Etc/UTC (UTC, +0000)
+System clock synchronized: yes
+
+== kali: solo estado
+kali
+ 14:12:04 up 2 days, 23:19,  1 user,  load average: 0,00, 0,00, 0,00
+165932 zsh -c hostname; uptime; pgrep -a -f "nmap|hydra|dnsperf|hping|gobuster|ab |wrk|curl" | head -5; echo fin
+fin

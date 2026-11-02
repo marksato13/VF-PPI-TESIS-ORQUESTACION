@@ -1,0 +1,934 @@
+{
+ "commits": [
+  "24f8a80",
+  "7b275b8",
+  "origin/as-deployed-sensor-20261006",
+  "ec78ca5"
+ ],
+ "ficheros": [
+  {
+   "ruta": "configs/campaigns/f1-normal-v1.json",
+   "sha256": "10a6c4cb5efa19c64d6a0da87e5f0f2619162259da798f4192ea4b6fa021b91a",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "configs/campaigns/f1-normal-v2.json",
+   "sha256": "69a4ed9afbcebe7694a6a91ac9c1aa5d9454f75a67e226d5477391ffb7f8827a",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "configs/campaigns/multilayer-v2-anomalies.json",
+   "sha256": "f08dd261653e06390efc0ac84a4000b89abe8f4ce4c1c51519f7a2464f93042e",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "configs/campaigns/multilayer-v2-normal.json",
+   "sha256": "e4ecc95e48f65f2ac1b554b96508239e9bde48a7e85d3a3318003f3accce9110",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "configs/cyberflow.local.toml",
+   "sha256": "5b15774937299f7178be75516cb43efebfa7742c8268332f165285eb17e3167a",
+   "mtime": 1792838564,
+   "ctime": 1792838564,
+   "commits": {
+    "24f8a80": "igual",
+    "7b275b8": "igual",
+    "origin/as-deployed-sensor-20261006": "igual",
+    "ec78ca5": "igual"
+   }
+  },
+  {
+   "ruta": "configs/cyberflow.toml",
+   "sha256": "18bd43be231060c7032803a14a06c77e59ae39a658ef734fadeeca31d0a35410",
+   "mtime": 1790472185,
+   "ctime": 1790472185,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "igual",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "configs/escenarios.json",
+   "sha256": "41ab334b63692ce3b3d6ca6601923407bfeb53ce1454fda621a09377ff3a6669",
+   "mtime": 1790561639,
+   "ctime": 1790561639,
+   "commits": {
+    "24f8a80": "igual",
+    "7b275b8": "igual",
+    "origin/as-deployed-sensor-20261006": "igual",
+    "ec78ca5": "igual"
+   }
+  },
+  {
+   "ruta": "configs/features/descripciones.json",
+   "sha256": "eb4b552841486b2ac46b10084d438fc99165138efc9df25f49c0cf15eb9d705a",
+   "mtime": 1790472184,
+   "ctime": 1790472184,
+   "commits": {
+    "24f8a80": "igual",
+    "7b275b8": "igual",
+    "origin/as-deployed-sensor-20261006": "igual",
+    "ec78ca5": "igual"
+   }
+  },
+  {
+   "ruta": "configs/features/multilayer-v1.json",
+   "sha256": "e99d346ecbc3dbb84dacf6d84c63ed9ddf8edee47c17a650d03015305938a33e",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "configs/features/multilayer-v2.json",
+   "sha256": "e032a1a28650d438ae707c93b3045801770b3a069b4395426077af3bbd2b0e33",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "configs/features/multilayer-v3.json",
+   "sha256": "bf48a79812e51537fc621a41069702b3ca311c1b8c0e48379981f394193f8141",
+   "mtime": 1790238371,
+   "ctime": 1790238371,
+   "commits": {
+    "24f8a80": "igual",
+    "7b275b8": "igual",
+    "origin/as-deployed-sensor-20261006": "igual",
+    "ec78ca5": "igual"
+   }
+  },
+  {
+   "ruta": "configs/server/ppi-api.py",
+   "sha256": "1a6731ecf27d73305efe16f159f9461f204fb8547f8fd167ce661f0ed29985ea",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "configs/storage/evidence-v1.json",
+   "sha256": "226b051f16e9c012e24fa7cc59c2e986ef9f6eaa0f93d9f3aa639546a24f8a99",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/analysis/compare_frozen_models_metrics.py",
+   "sha256": "a3dcfabece200a74f51afe368a2fe5b271db885376f9851387a6482bf9492a99",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/analysis/summarize_f1_repetition.py",
+   "sha256": "a9383ad391de86fbde7483079b3b01761f9cb61fb538c98c2dc7535f40f9418c",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/analysis/verify_if_weighting.py",
+   "sha256": "716c3a09a74ddd52b3980f9ccaec4de91870cb987eabdf22dca35a7136da493d",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/articulo/generar_mapeo_estructura.py",
+   "sha256": "b7ff76a5aedcb141de38b2397ace56fc92ba3502cb631a8788e32e71fa843354",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/articulo/generar_mapeo_secciones.py",
+   "sha256": "77539dd4bb56d742894da82e34d2e57fd4c9aa0d5167148c46f557ee59b4be17",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/dataset/audit_multilayer_v2.py",
+   "sha256": "5a996eeb6d5678e27ec194969b2cdc8636c576966c8aa40a20d335b221409e05",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/dataset/build_f1_dataset.py",
+   "sha256": "0807d2d5dd7696d8fe182878ab8ae968b924e430f9fd5e87f2a255e2f1328f15",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/dataset/build_multilayer_v2_dataset.py",
+   "sha256": "7ca20886946b8d885c6f08c685d1c757cfb3576f9953ce369a85ef9dfefa4f05",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/dataset/detector_alcance.py",
+   "sha256": "683f96693786c86f00ef65162033e08cfe293b25a83f92af65dcf2c1389e946f",
+   "mtime": 1790562306,
+   "ctime": 1790562306,
+   "commits": {
+    "24f8a80": "igual",
+    "7b275b8": "igual",
+    "origin/as-deployed-sensor-20261006": "igual",
+    "ec78ca5": "igual"
+   }
+  },
+  {
+   "ruta": "scripts/dataset/particionar_linea_base.py",
+   "sha256": "614e7f5ce324a0c4d604ad6dab7933b97bcf591d5ba1e80106dc9e895ecf85c8",
+   "mtime": 1790538231,
+   "ctime": 1790538231,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "igual",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/dataset/run_v2_anomaly_kali.py",
+   "sha256": "a8dcbfbc850376169465939a8a027a8076c0253d5f9504547a7def084e8e315d",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/dataset/run_v2_anomaly.py",
+   "sha256": "ec97bd6da30f2a1d9c968c75d03ed31bf665bed95978e6ac5141d2bc5c549879",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/engine/dashboard.py",
+   "sha256": "b07fb57a22eb26cc9667351eb0e1518aeca97d4d808c2154a9070238794214a0",
+   "mtime": 1793215324,
+   "ctime": 1793215324,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "igual",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/engine/escalada.py",
+   "sha256": "7d80ab4a926457efb37f4c6c9778e53eda67a5840ca255ff4504f333ca638479",
+   "mtime": 1792068741,
+   "ctime": 1792068741,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "igual",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/engine/feed.py",
+   "sha256": "b4d36adb3f29b21693eb0cd964515aed42b3965910379616f1af27441793baba",
+   "mtime": 1790797943,
+   "ctime": 1790797943,
+   "commits": {
+    "24f8a80": "igual",
+    "7b275b8": "igual",
+    "origin/as-deployed-sensor-20261006": "igual",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/engine/heuristicos.py",
+   "sha256": "10deb05d22fa0215e5f5f37bc6f05225cda31b806c67051a6584d878e25ed6a2",
+   "mtime": 1792036108,
+   "ctime": 1792036108,
+   "commits": {
+    "24f8a80": "igual",
+    "7b275b8": "igual",
+    "origin/as-deployed-sensor-20261006": "igual",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/engine/motor_decision.py",
+   "sha256": "6c274d9e3529e3fb6971ff38d8c6d586780b718b483ce4e2a5e3a1cfbf25692e",
+   "mtime": 1793502840,
+   "ctime": 1793502840,
+   "commits": {
+    "24f8a80": "igual",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/engine/motor_incremental.py",
+   "sha256": "a403307aa5f76d38d199aef2542350f57eaf5843fdb94b44ec0bd20eaa8ff168",
+   "mtime": 1793502840,
+   "ctime": 1793502840,
+   "commits": {
+    "24f8a80": "igual",
+    "7b275b8": "ausente",
+    "origin/as-deployed-sensor-20261006": "ausente",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/engine/publicar_feed.py",
+   "sha256": "f7bc4c7d8e7ac0cd958f3936d55a5782285e59509919d82bf2998fbb70acc03d",
+   "mtime": 1792068741,
+   "ctime": 1792068741,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "igual",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/engine/vista_vivo.py",
+   "sha256": "94d3df28ae213be688c453355a6d37511e950308a436ed423480a20673fc2f38",
+   "mtime": 1791649962,
+   "ctime": 1791649962,
+   "commits": {
+    "24f8a80": "igual",
+    "7b275b8": "igual",
+    "origin/as-deployed-sensor-20261006": "igual",
+    "ec78ca5": "igual"
+   }
+  },
+  {
+   "ruta": "scripts/entregables/calcular_sus.py",
+   "sha256": "b8eee1f19caae338a399048f7e638d7d20d51be687398ccd67ea3f92113bd60f",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/entregables/_docx_estilo.py",
+   "sha256": "6da7b54b11d1bcb05df4234e81a2989fe2e943e1e573b5632628afdbeb5a8934",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/entregables/editar_ppi_v3.py",
+   "sha256": "0987b6196a7f93fc16fb7bfa1fef7fcc593d37f150d8b2db6644ae06a3789ecc",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/entregables/generar_cards.py",
+   "sha256": "df6e11db0129b19d402f7347482b1023e29c92a40c1516ca4d848fbfd487194c",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/entregables/generar_datasheet.py",
+   "sha256": "30f2b4470f92193be9b9d552d6d5d4dbe46f02bca16e85d0f3094ba5a2c9404f",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/entregables/generar_diccionario_features.py",
+   "sha256": "ac746ba64243660992cf9cbdac2100114ea9e4f661556252568176fdf97954ea",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/entregables/generar_evaluacion_critica_word.py",
+   "sha256": "4675747fb679af398cf51fdef3173297cf2e9cc6f2155886237dead4a8cb5e59",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/entregables/generar_ficha_word.py",
+   "sha256": "3fcad2397dff182a645338194de730f417670613a5dce052a997eee93759618d",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/entregables/generar_graficas.py",
+   "sha256": "74f8171b535cfd413fca251159805f04ece1c6926136cfad3cdd1db062efa43a",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/entregables/generar_informe_word.py",
+   "sha256": "13517c7dcea731e3ff27a21276e02b0cda2cd0ae56c69f1cb4f6141ef132fd4f",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/entregables/generar_justificacion_revista.py",
+   "sha256": "37d1825e27ce95eadf9e385e1f57563a0959246624e20548d9b181497049c9c7",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/entregables/generar_matriz_revistas.py",
+   "sha256": "8032d2a46683b16c19f7c745355a98e97e1e1d785efce8b68e3deec11bdc8351",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/entregables/generar_plan_validacion_word.py",
+   "sha256": "94e503a006d656f43dd59f83960463d47f8a592cbbd5ca471a32ac3a4148615e",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/entregables/_omml.py",
+   "sha256": "c223dd7922b986f68204429cba4a6bee6c3a1ae74460cbaca19579ccf083102f",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/entregables/verificar_consistencia.py",
+   "sha256": "72fb92ad451014522665b878318d3185ce0afbe2846c210660286dbc8dec887c",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/evaluacion/comparacion.py",
+   "sha256": "127392728dd16de10d6d7a385aeb792113ad26971cf7b16ba9e76b6a7c21dbb9",
+   "mtime": 1791778813,
+   "ctime": 1791778813,
+   "commits": {
+    "24f8a80": "igual",
+    "7b275b8": "igual",
+    "origin/as-deployed-sensor-20261006": "igual",
+    "ec78ca5": "igual"
+   }
+  },
+  {
+   "ruta": "scripts/f1/run_matrix_profile.py",
+   "sha256": "64f9c6185b77bc38ba603b78d36c9eaf7919beacb013fa506ff60b8e19cc286b",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/f1/validate_matrix.py",
+   "sha256": "f753dac60d3d4eaafcaab857ebe09bae21694e0cce20ac1be8389dbc88e2da86",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/f6/analyze_f6.py",
+   "sha256": "288ee73f284103deb17af31dd8711e98a0aa05cac9c08103fe76ecedbff35356",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/f6/run_f6.py",
+   "sha256": "72974e828fc492922f52fa98703331813c5c4cd599c7842d50389b1ec36a8292",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/features/acumular_v3.py",
+   "sha256": "9c35b831453d2107769ca1fe610782b6821b2f164df1f369b3e6b3ef36c41dc8",
+   "mtime": 1790472385,
+   "ctime": 1790472385,
+   "commits": {
+    "24f8a80": "igual",
+    "7b275b8": "igual",
+    "origin/as-deployed-sensor-20261006": "igual",
+    "ec78ca5": "igual"
+   }
+  },
+  {
+   "ruta": "scripts/features/extract_multilayer.py",
+   "sha256": "950fe6c49c9eee21f939b2f1032fee1df2c1572923a642c18454fa7dd8205027",
+   "mtime": 1792036108,
+   "ctime": 1792036108,
+   "commits": {
+    "24f8a80": "igual",
+    "7b275b8": "igual",
+    "origin/as-deployed-sensor-20261006": "igual",
+    "ec78ca5": "igual"
+   }
+  },
+  {
+   "ruta": "scripts/features/extract_multilayer_v2.py",
+   "sha256": "7130edae65afefa2fd82a9314e20194adec684f4b2c3c35c2337880d8e636ccb",
+   "mtime": 1792036108,
+   "ctime": 1792036108,
+   "commits": {
+    "24f8a80": "igual",
+    "7b275b8": "igual",
+    "origin/as-deployed-sensor-20261006": "igual",
+    "ec78ca5": "igual"
+   }
+  },
+  {
+   "ruta": "scripts/features/extract_multilayer_v3.py",
+   "sha256": "5adbfbf4845554430a3e8b5a4c00eb1e45c2216cae73532da73d9d3f4898fa7f",
+   "mtime": 1790472385,
+   "ctime": 1790472385,
+   "commits": {
+    "24f8a80": "igual",
+    "7b275b8": "igual",
+    "origin/as-deployed-sensor-20261006": "igual",
+    "ec78ca5": "igual"
+   }
+  },
+  {
+   "ruta": "scripts/laboratorio/clientes_config.py",
+   "sha256": "9aa2e2e02b87225f1513ddce4c377491eb3f170d342d7d8d961612c326224534",
+   "mtime": 1792062437,
+   "ctime": 1792062437,
+   "commits": {
+    "24f8a80": "igual",
+    "7b275b8": "igual",
+    "origin/as-deployed-sensor-20261006": "igual",
+    "ec78ca5": "igual"
+   }
+  },
+  {
+   "ruta": "scripts/laboratorio/clientes_lab.py",
+   "sha256": "ae5134a778e66d90f5c3fbcd47323e328f3422cf4ba8d5197649f402c1d4cdc3",
+   "mtime": 1792062437,
+   "ctime": 1792062437,
+   "commits": {
+    "24f8a80": "igual",
+    "7b275b8": "igual",
+    "origin/as-deployed-sensor-20261006": "igual",
+    "ec78ca5": "igual"
+   }
+  },
+  {
+   "ruta": "scripts/laboratorio/servidor_lab.py",
+   "sha256": "9e91d8b8203d0bd62509dbb4169af5fff2a3838b06cebed8ee1e6e15d27d580e",
+   "mtime": 1792062437,
+   "ctime": 1792062437,
+   "commits": {
+    "24f8a80": "igual",
+    "7b275b8": "igual",
+    "origin/as-deployed-sensor-20261006": "igual",
+    "ec78ca5": "igual"
+   }
+  },
+  {
+   "ruta": "scripts/modeling/calibrate_multilayer_v2_v1.py",
+   "sha256": "32746e5b701474da72bc0a547023b59dc85ab9e4d40f5c3999d3999d20fef102",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/modeling/calibrate_pm_f1_v1.py",
+   "sha256": "6ccb71b7ba183fa8f24451f29cf5dfc0bf2b94617ec2a2e21bd3919a3dc9eb5a",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/modeling/cyberflow_aprendizaje.py",
+   "sha256": "add0abc683ec7837ff4d152978acf2b42535f3c04ab83d04f91832321941e18c",
+   "mtime": 1791697027,
+   "ctime": 1791697027,
+   "commits": {
+    "24f8a80": "igual",
+    "7b275b8": "igual",
+    "origin/as-deployed-sensor-20261006": "igual",
+    "ec78ca5": "igual"
+   }
+  },
+  {
+   "ruta": "scripts/modeling/entrenar_preliminar.py",
+   "sha256": "724d091074d78aa3d19a754ceb43ee717485ef0e44a20389d1abb25d1ed0f99a",
+   "mtime": 1790538230,
+   "ctime": 1790538230,
+   "commits": {
+    "24f8a80": "igual",
+    "7b275b8": "igual",
+    "origin/as-deployed-sensor-20261006": "igual",
+    "ec78ca5": "igual"
+   }
+  },
+  {
+   "ruta": "scripts/modeling/experiments/ablacion_multicapa.py",
+   "sha256": "03c025d9b44eb5581623edbff12361d2ea9ce0ee93fdd8988805fc0eb5aab894",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/modeling/experiments/diagnose_v2_pipeline.py",
+   "sha256": "26cdf8244ce28a64b3dd1aa4164ae0c52897c63b2efb52851638a0f134c7f040",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/modeling/experiments/significancia_modelos.py",
+   "sha256": "d9dc88d38586176339b6e8dc73fd6b80447342d3dd77e225ce0d05eecd080b78",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/modeling/experiments/validacion_cruzada_estabilidad.py",
+   "sha256": "8c5091f93f5399ea43e9e4c102314e55cc64214d50538d4649d2ca5c1aca3812",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/modeling/experiments/verificar_determinismo.py",
+   "sha256": "cfd38a668c6531fbd8ff4da01a77e4dd41e6fd87a836a7753738ee9950ea9c4b",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/modeling/promover_preliminar.py",
+   "sha256": "23c043ac287860d089e32ec45a3cfe3d66199fa8d126701c2daa9e00f6a1f3f6",
+   "mtime": 1791606268,
+   "ctime": 1791606268,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "igual",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/modeling/puntuar_deteccion.py",
+   "sha256": "bc8540e0f64706e182dd42d1bb1a3ba54a52341aafe69a089996547334493af9",
+   "mtime": 1790723669,
+   "ctime": 1790723669,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "igual",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/modeling/train_multilayer_v2.py",
+   "sha256": "9cbfc36d641100431f97263bffd17c93d2d8fb71a1e7b47cd17ad6b0c178ea6b",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/modeling/verificar_equivalencia_umbral.py",
+   "sha256": "fe9d0309899154b16eab10ef456ac2a97a3eaaa45db08e5887b30bd7fe4c277d",
+   "mtime": 1791605183,
+   "ctime": 1791605183,
+   "commits": {
+    "24f8a80": "igual",
+    "7b275b8": "igual",
+    "origin/as-deployed-sensor-20261006": "igual",
+    "ec78ca5": "igual"
+   }
+  },
+  {
+   "ruta": "scripts/setup/cyberflow_config.py",
+   "sha256": "b729ade2e8f4733a8c5dde32dda02607767af974464624a93dca81725fb7a7c0",
+   "mtime": 1791695301,
+   "ctime": 1791695301,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "igual",
+    "origin/as-deployed-sensor-20261006": "igual",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/setup/cyberflow_usuarios.py",
+   "sha256": "906e1de0ad6f13cf7c08ab5662fc85cbbd32a53b593fdc41cc8b7a152694b3c8",
+   "mtime": 1790551892,
+   "ctime": 1790551892,
+   "commits": {
+    "24f8a80": "igual",
+    "7b275b8": "igual",
+    "origin/as-deployed-sensor-20261006": "igual",
+    "ec78ca5": "igual"
+   }
+  },
+  {
+   "ruta": "scripts/simular_ataque.py",
+   "sha256": "f6eb826650ae1536ec19993da759bbb84df74a2f7dfbb2b2fd437a338a5b9453",
+   "mtime": 1791777806,
+   "ctime": 1791777806,
+   "commits": {
+    "24f8a80": "igual",
+    "7b275b8": "igual",
+    "origin/as-deployed-sensor-20261006": "igual",
+    "ec78ca5": "distinto"
+   }
+  },
+  {
+   "ruta": "scripts/storage/audit_evidence_disk.py",
+   "sha256": "0d30aa50d697a97ec77fa55a11d1bc958c3bd5d5c885698573bf316668667f77",
+   "mtime": 1789673070,
+   "ctime": 1789673142,
+   "commits": {
+    "24f8a80": "distinto",
+    "7b275b8": "distinto",
+    "origin/as-deployed-sensor-20261006": "distinto",
+    "ec78ca5": "distinto"
+   }
+  }
+ ]
+}

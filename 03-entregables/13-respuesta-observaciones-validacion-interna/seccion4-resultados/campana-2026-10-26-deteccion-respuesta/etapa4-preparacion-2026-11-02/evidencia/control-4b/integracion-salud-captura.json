@@ -1,0 +1,106 @@
+{
+ "detector": {
+  "motivos_por_clase": {
+   "insuficiente": {
+    "ninguna muestra anterior o igual al inicio del periodo": 1
+   }
+  },
+  "no_evaluadas_por_clase": {
+   "C0": 0,
+   "C1": 0,
+   "C2": 0,
+   "C3": 0,
+   "insuficiente": 0,
+   "sin_medida": 0
+  },
+  "por_clase": {
+   "insuficiente": {
+    "nota": "excluida de toda tasa (SALUD-CAPTURA §4.3)",
+    "ventanas": 1
+   }
+  },
+  "ventanas_decididas": 1,
+  "ventanas_no_evaluadas": 0,
+  "ventanas_por_clase": {
+   "C0": 0,
+   "C1": 0,
+   "C2": 0,
+   "C3": 0,
+   "insuficiente": 1,
+   "sin_medida": 0
+  }
+ },
+ "duplicados": 0,
+ "fuentes": {
+  "config": {
+   "archivo": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\orquestacion-limpio\\03-entregables\\13-respuesta-observaciones-validacion-interna\\seccion4-resultados\\campana-2026-10-26-deteccion-respuesta\\preparacion-3a-2026-11-01\\config-campana-3b.json",
+   "sha256": "cbf72fbb0f112e3db5cc3724640ee18fb3d42f1bc5e24680f5af25faf1939d60"
+  },
+  "incrementos": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\orquestacion-limpio\\03-entregables\\13-respuesta-observaciones-validacion-interna\\seccion4-resultados\\campana-2026-10-26-deteccion-respuesta\\etapa4-preparacion-2026-11-02\\evidencia\\salud-en-vivo\\salud_incrementos_vivo.jsonl",
+  "motor": {
+   "archivo": "C:\\Users\\markp\\AppData\\Local\\Temp\\claude\\C--Users-markp-Desktop-PY-MEGATRON-PY---PERSONAL-TESIS\\51c74eee-a71d-4dd3-9ea4-b614ec3c2579\\scratchpad\\c4b\\motor-sint.log",
+   "sha256": "9a61b2cdf5a241ea91546792368e5602b557cd9fb3e5fb71562d34778a6dc03a"
+  },
+  "salud_captura": {
+   "archivo": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\producto-etapa3\\scripts\\etapa4\\salud_captura.py",
+   "sha256": "498bc1d4fdca0303bd9c2c32f179ebc2214c5322956b7eb20c75ee11a99b7a6f",
+   "version": "2026-11-02.1"
+  },
+  "tcpdump_anillo": "C:\\Users\\markp\\AppData\\Local\\Temp\\claude\\C--Users-markp-Desktop-PY-MEGATRON-PY---PERSONAL-TESIS\\51c74eee-a71d-4dd3-9ea4-b614ec3c2579\\scratchpad\\c4b\\vacio.log",
+  "tcpdump_via": "C:\\Users\\markp\\AppData\\Local\\Temp\\claude\\C--Users-markp-Desktop-PY-MEGATRON-PY---PERSONAL-TESIS\\51c74eee-a71d-4dd3-9ea4-b614ec3c2579\\scratchpad\\c4b\\vacio.log"
+ },
+ "incidencias_motor": [
+  "motor:1 (C:\\Users\\markp\\AppData\\Local\\Temp\\claude\\C--Users-markp-Desktop-PY-MEGATRON-PY---PERSONAL-TESIS\\51c74eee-a71d-4dd3-9ea4-b614ec3c2579\\scratchpad\\c4b\\motor-sint.log): falta la clave 'threshold'; registro conservado, umbral registrado desconocido"
+ ],
+ "intervalo_utc": [
+  "2026-11-02T19:25:00+00:00",
+  "2026-11-02T19:26:00+00:00"
+ ],
+ "poblacion": {
+  "conversion": [],
+  "en_ambas_listas": [],
+  "excepciones_respuesta": [
+   {
+    "ip": "10.10.10.30/32",
+    "nota": "bastion"
+   },
+   {
+    "ip": "10.10.60.11/32",
+    "nota": "sensor"
+   },
+   {
+    "ip": "10.10.30.1/32",
+    "nota": "gateway VLAN 30"
+   },
+   {
+    "ip": "10.10.40.1/32",
+    "nota": "gateway VLAN 40"
+   },
+   {
+    "ip": "10.10.60.1/32",
+    "nota": "gateway VLAN 60"
+   },
+   {
+    "ip": "10.10.20.1/32",
+    "nota": "gateway VLAN 20"
+   },
+   {
+    "ip": "10.10.10.20/32",
+    "nota": "DNS/AD: sigue en la poblacion evaluada (decision 3A)"
+   }
+  ],
+  "exclusiones_poblacion": [],
+  "formato": "nuevo(poblacion)",
+  "significado": {
+   "excepciones_respuesta": "no reciben restricciones; SIGUEN en la población evaluada y sus señales del detector cuentan (una excepción de bloqueo no borra una señal)",
+   "exclusiones_poblacion": "fuera del denominador de la evaluación, cada una con justificación"
+  }
+ },
+ "seleccion": "ventanas con window_end_utc en [desde, hasta] (ambos incluidos), deduplicadas como analizar.py; clase de la ventana = clase de [w − 60, w]",
+ "umbrales": {
+  "0.01": -0.6223889502095352,
+  "0.03": -0.5898535710336618,
+  "0.05": -0.5694578968203694
+ },
+ "version": "2026-11-02.1"
+}

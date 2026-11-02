@@ -89,16 +89,17 @@ def leer_archivador(path) -> dict:
     return {"inicios": sorted(set(inicios)), "fallos": fallos}
 
 
-def continuidad(arch: dict, desde, hasta) -> dict:
+def continuidad(arch: dict, desde, hasta, duracion: float = DURACION_PCAP_S) -> dict:
     """¿Los ficheros archivados cubren [desde, hasta] sin huecos? Se juzga por el inicio que lleva el nombre
-    (ficheros de 15 s); un hueco > 15 s + tolerancia entre inicios consecutivos es pérdida de archivo."""
+    (ficheros de `duracion` s: 15 hasta el 3B, 5 con la rotación de la Etapa 4); un hueco > duracion +
+    tolerancia entre inicios consecutivos es pérdida de archivo."""
     ini = arch["inicios"]
-    dentro = [t for t in ini if desde - DURACION_PCAP_S - TOL_PCAP_S <= t <= hasta]
+    dentro = [t for t in ini if desde - duracion - TOL_PCAP_S <= t <= hasta]
     if not dentro:
         return {"continuo": False, "motivo": "ningún PCAP archivado cubre el intervalo"}
-    huecos = [(a, b) for a, b in zip(dentro, dentro[1:]) if b - a > DURACION_PCAP_S + TOL_PCAP_S]
+    huecos = [(a, b) for a, b in zip(dentro, dentro[1:]) if b - a > duracion + TOL_PCAP_S]
     cubre_ini = dentro[0] <= desde
-    cubre_fin = dentro[-1] + DURACION_PCAP_S >= hasta
+    cubre_fin = dentro[-1] + duracion >= hasta
     fallos = [f for f in arch["fallos"] if desde - 60 <= an.ep_iso(f.split()[0]) <= hasta + 120]
     ok = cubre_ini and cubre_fin and not huecos and not fallos
     return {"continuo": ok, "ficheros": len(dentro), "cubre_inicio": cubre_ini, "cubre_fin": cubre_fin,
@@ -122,12 +123,12 @@ def leer_muestras(path) -> list:
     return sorted(out)
 
 
-def calidad_episodio(ep, serie, arch, muestras, margen=MARGEN_S) -> dict:
+def calidad_episodio(ep, serie, arch, muestras, margen=MARGEN_S, duracion=DURACION_PCAP_S) -> dict:
     if ep.get("fin_ep") is None:
         return {"estado": "insuficiente", "motivos": ["episodio sin fin"]}
     desde, hasta = ep["inicio_ep"] - margen, ep["fin_ep"] + margen
     sur = delta_stats(serie, desde, hasta) if serie else {"medido": False, "motivo": "sin stats.log"}
-    con = continuidad(arch, desde, hasta) if arch else {"continuo": False, "motivo": "sin registro del archivador"}
+    con = continuidad(arch, desde, hasta, duracion) if arch else {"continuo": False, "motivo": "sin registro del archivador"}
     itf = {"medido": False, "motivo": "sin muestras"}
     if muestras:
         a = [m for m in muestras if m[0] <= desde]
@@ -160,15 +161,17 @@ def main() -> int:
     ap.add_argument("--archivador", type=Path)
     ap.add_argument("--muestras", type=Path)
     ap.add_argument("--margen", type=float, default=MARGEN_S)
+    ap.add_argument("--duracion-pcap", type=float, default=DURACION_PCAP_S,
+                    help="rotación del anillo en s (-G): 15 hasta el 3B; 5 en la Etapa 4")
     ap.add_argument("--salida", required=True, type=Path)
     a = ap.parse_args()
     eps, inc = an.leer_marcas(a.marcas)
     serie = leer_stats(a.stats) if a.stats else []
     arch = leer_archivador(a.archivador) if a.archivador else None
     mu = leer_muestras(a.muestras) if a.muestras else []
-    res = {eid: calidad_episodio(ep, serie, arch, mu, a.margen) for eid, ep in eps.items()}
+    res = {eid: calidad_episodio(ep, serie, arch, mu, a.margen, a.duracion_pcap) for eid, ep in eps.items()}
     a.salida.write_text(json.dumps({
-        "definicion": __doc__.split("Uso (")[0].strip(), "margen_s": a.margen,
+        "definicion": __doc__.split("Uso (")[0].strip(), "margen_s": a.margen, "duracion_pcap_s": a.duracion_pcap,
         "fuentes": {"stats": [str(p) for p in a.stats], "archivador": str(a.archivador) if a.archivador else None,
                     "muestras": str(a.muestras) if a.muestras else None, "muestras_stats": len(serie)},
         "incidencias_marcas": inc, "episodios": res}, ensure_ascii=False, indent=1), encoding="utf-8")

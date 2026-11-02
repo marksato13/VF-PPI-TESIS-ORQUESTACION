@@ -1,0 +1,217 @@
+{
+ "orden": [
+  "inundacion_http-r4",
+  "fuerza_bruta_http-r4",
+  "dns_inusual-r1",
+  "fuerza_bruta_http-r3",
+  "dns_inusual-r3",
+  "inundacion_http-r3",
+  "fuerza_bruta_http-r1",
+  "escaneo_breve-r4",
+  "escaneo_sostenido-r5",
+  "fuerza_bruta_http-r5",
+  "escaneo_breve-r2",
+  "fuerza_bruta_http-r2",
+  "escaneo_sostenido-r2",
+  "dns_inusual-r4",
+  "escaneo_breve-r5",
+  "inundacion_http-r2",
+  "inundacion_http-r1",
+  "escaneo_sostenido-r3",
+  "escaneo_sostenido-r1",
+  "dns_inusual-r2",
+  "inundacion_http-r5",
+  "dns_inusual-r5",
+  "escaneo_breve-r3",
+  "escaneo_breve-r1",
+  "escaneo_sostenido-r4"
+ ],
+ "plan_estimado": [
+  {
+   "n": 1,
+   "episodio": "inundacion_http-r4",
+   "inicio_rel_s": 180,
+   "fin_rel_s": 270
+  },
+  {
+   "n": 2,
+   "episodio": "fuerza_bruta_http-r4",
+   "inicio_rel_s": 480,
+   "fin_rel_s": 570
+  },
+  {
+   "n": 3,
+   "episodio": "dns_inusual-r1",
+   "inicio_rel_s": 780,
+   "fin_rel_s": 870
+  },
+  {
+   "n": 4,
+   "episodio": "fuerza_bruta_http-r3",
+   "inicio_rel_s": 1080,
+   "fin_rel_s": 1169
+  },
+  {
+   "n": 5,
+   "episodio": "dns_inusual-r3",
+   "inicio_rel_s": 1379,
+   "fin_rel_s": 1469
+  },
+  {
+   "n": 6,
+   "episodio": "inundacion_http-r3",
+   "inicio_rel_s": 1679,
+   "fin_rel_s": 1769
+  },
+  {
+   "n": 7,
+   "episodio": "fuerza_bruta_http-r1",
+   "inicio_rel_s": 1979,
+   "fin_rel_s": 2069
+  },
+  {
+   "n": 8,
+   "episodio": "escaneo_breve-r4",
+   "inicio_rel_s": 2279,
+   "fin_rel_s": 2297
+  },
+  {
+   "n": 9,
+   "episodio": "escaneo_sostenido-r5",
+   "inicio_rel_s": 2507,
+   "fin_rel_s": 2573
+  },
+  {
+   "n": 10,
+   "episodio": "fuerza_bruta_http-r5",
+   "inicio_rel_s": 2783,
+   "fin_rel_s": 2873
+  },
+  {
+   "n": 11,
+   "episodio": "escaneo_breve-r2",
+   "inicio_rel_s": 3083,
+   "fin_rel_s": 3100
+  },
+  {
+   "n": 12,
+   "episodio": "fuerza_bruta_http-r2",
+   "inicio_rel_s": 3310,
+   "fin_rel_s": 3400
+  },
+  {
+   "n": 13,
+   "episodio": "escaneo_sostenido-r2",
+   "inicio_rel_s": 3610,
+   "fin_rel_s": 3676
+  },
+  {
+   "n": 14,
+   "episodio": "dns_inusual-r4",
+   "inicio_rel_s": 3886,
+   "fin_rel_s": 3976
+  },
+  {
+   "n": 15,
+   "episodio": "escaneo_breve-r5",
+   "inicio_rel_s": 4186,
+   "fin_rel_s": 4204
+  },
+  {
+   "n": 16,
+   "episodio": "inundacion_http-r2",
+   "inicio_rel_s": 4414,
+   "fin_rel_s": 4504
+  },
+  {
+   "n": 17,
+   "episodio": "inundacion_http-r1",
+   "inicio_rel_s": 4714,
+   "fin_rel_s": 4804
+  },
+  {
+   "n": 18,
+   "episodio": "escaneo_sostenido-r3",
+   "inicio_rel_s": 5014,
+   "fin_rel_s": 5079
+  },
+  {
+   "n": 19,
+   "episodio": "escaneo_sostenido-r1",
+   "inicio_rel_s": 5289,
+   "fin_rel_s": 5355
+  },
+  {
+   "n": 20,
+   "episodio": "dns_inusual-r2",
+   "inicio_rel_s": 5565,
+   "fin_rel_s": 5655
+  },
+  {
+   "n": 21,
+   "episodio": "inundacion_http-r5",
+   "inicio_rel_s": 5865,
+   "fin_rel_s": 5955
+  },
+  {
+   "n": 22,
+   "episodio": "dns_inusual-r5",
+   "inicio_rel_s": 6165,
+   "fin_rel_s": 6255
+  },
+  {
+   "n": 23,
+   "episodio": "escaneo_breve-r3",
+   "inicio_rel_s": 6465,
+   "fin_rel_s": 6483
+  },
+  {
+   "n": 24,
+   "episodio": "escaneo_breve-r1",
+   "inicio_rel_s": 6693,
+   "fin_rel_s": 6711
+  },
+  {
+   "n": 25,
+   "episodio": "escaneo_sostenido-r4",
+   "inicio_rel_s": 6921,
+   "fin_rel_s": 6986
+  }
+ ],
+ "duracion_por_escenario_3b": {
+  "dns_inusual": {
+   "n": 5,
+   "media_s": 89.9,
+   "min_s": 89.1,
+   "max_s": 90.4
+  },
+  "escaneo_breve": {
+   "n": 5,
+   "media_s": 17.8,
+   "min_s": 17.6,
+   "max_s": 18.0
+  },
+  "escaneo_sostenido": {
+   "n": 5,
+   "media_s": 65.9,
+   "min_s": 65.5,
+   "max_s": 66.3
+  },
+  "fuerza_bruta_http": {
+   "n": 5,
+   "media_s": 89.8,
+   "min_s": 89.1,
+   "max_s": 90.0
+  },
+  "inundacion_http": {
+   "n": 5,
+   "media_s": 89.9,
+   "min_s": 89.6,
+   "max_s": 90.0
+  }
+ },
+ "bateria_3b_real_s": 6986.7,
+ "bateria_4c_estimada_s": 6986.5,
+ "bateria_4c_estimada_h": 1.94,
+ "nota": "60 s de calentamiento + 120 s de contexto antes de cada episodio + 90 s de observación entre episodios"
+}

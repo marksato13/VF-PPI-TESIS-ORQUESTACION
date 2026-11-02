@@ -1,0 +1,364 @@
+{
+ "detector": {
+  "motivos_por_clase": {
+   "sin_medida": {
+    "sin datos de salud": 2644
+   }
+  },
+  "no_evaluadas_por_clase": {
+   "C0": 0,
+   "C1": 0,
+   "C2": 0,
+   "C3": 0,
+   "insuficiente": 0,
+   "sin_medida": 0
+  },
+  "por_clase": {
+   "sin_medida": {
+    "emisiones_reales": {
+     "alert_por_detector": {
+      "if_limpio_2026_10": 396
+     },
+     "alert_total": 396
+    },
+    "heuristicos": {
+     "auth_failure_heuristic_alert_heredada": 0,
+     "por_regla": {
+      "dns_entropy": 88,
+      "http_abuse": 4
+     }
+    },
+    "if_y_configuraciones": {
+     "HEUR": {
+      "falsas_alarmas": 92,
+      "tasa": 0.034796
+     },
+     "HIB_0.01": {
+      "falsas_alarmas": 171,
+      "tasa": 0.064675
+     },
+     "HIB_0.03": {
+      "falsas_alarmas": 336,
+      "tasa": 0.12708
+     },
+     "HIB_0.05": {
+      "falsas_alarmas": 466,
+      "tasa": 0.176248
+     },
+     "IF_0.01": {
+      "falsas_alarmas": 83,
+      "tasa": 0.031392
+     },
+     "IF_0.03": {
+      "falsas_alarmas": 254,
+      "tasa": 0.096067
+     },
+     "IF_0.05": {
+      "falsas_alarmas": 395,
+      "tasa": 0.149395
+     },
+     "ventanas": 2644
+    },
+    "por_entidad": {
+     "10.10.10.1": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 75
+     },
+     "10.10.10.20": {
+      "HEUR": 88,
+      "HIB_0.01": 88,
+      "HIB_0.03": 92,
+      "HIB_0.05": 97,
+      "IF_0.01": 1,
+      "IF_0.03": 10,
+      "IF_0.05": 26,
+      "ventanas": 199
+     },
+     "10.10.10.21": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 2,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 2,
+      "ventanas": 199
+     },
+     "10.10.10.51": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 2
+     },
+     "10.10.20.20": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 1
+     },
+     "10.10.20.21": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 4,
+      "HIB_0.05": 17,
+      "IF_0.01": 0,
+      "IF_0.03": 4,
+      "IF_0.05": 17,
+      "ventanas": 199
+     },
+     "10.10.20.22": {
+      "HEUR": 0,
+      "HIB_0.01": 50,
+      "HIB_0.03": 128,
+      "HIB_0.05": 171,
+      "IF_0.01": 50,
+      "IF_0.03": 128,
+      "IF_0.05": 171,
+      "ventanas": 199
+     },
+     "10.10.20.23": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 1,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 1,
+      "ventanas": 199
+     },
+     "10.10.20.24": {
+      "HEUR": 0,
+      "HIB_0.01": 9,
+      "HIB_0.03": 74,
+      "HIB_0.05": 124,
+      "IF_0.01": 9,
+      "IF_0.03": 74,
+      "IF_0.05": 124,
+      "ventanas": 199
+     },
+     "10.10.20.25": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 199
+     },
+     "10.10.20.26": {
+      "HEUR": 4,
+      "HIB_0.01": 24,
+      "HIB_0.03": 36,
+      "HIB_0.05": 46,
+      "IF_0.01": 23,
+      "IF_0.03": 36,
+      "IF_0.05": 46,
+      "ventanas": 199
+     },
+     "10.10.20.30": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 1
+     },
+     "10.10.30.10": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 13
+     },
+     "10.10.40.10": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 1,
+      "HIB_0.05": 1,
+      "IF_0.01": 0,
+      "IF_0.03": 1,
+      "IF_0.05": 1,
+      "ventanas": 199
+     },
+     "10.10.50.51": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 1,
+      "HIB_0.05": 4,
+      "IF_0.01": 0,
+      "IF_0.03": 1,
+      "IF_0.05": 4,
+      "ventanas": 199
+     },
+     "10.10.50.52": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 3,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 3,
+      "ventanas": 199
+     },
+     "10.10.60.12": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 199
+     },
+     "10.10.99.10": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 37
+     },
+     "10.10.99.2": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 32
+     },
+     "10.10.99.5": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 32
+     },
+     "10.10.99.7": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 32
+     },
+     "10.10.99.8": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 31
+     }
+    }
+   }
+  },
+  "ventanas_decididas": 2644,
+  "ventanas_no_evaluadas": 0,
+  "ventanas_por_clase": {
+   "C0": 0,
+   "C1": 0,
+   "C2": 0,
+   "C3": 0,
+   "insuficiente": 0,
+   "sin_medida": 2644
+  }
+ },
+ "duplicados": 0,
+ "fuentes": {
+  "config": {
+   "archivo": "C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\orquestacion-limpio\\03-entregables\\13-respuesta-observaciones-validacion-interna\\seccion4-resultados\\campana-2026-10-26-deteccion-respuesta\\preparacion-3a-2026-11-01\\config-campana-3b.json",
+   "sha256": "cbf72fbb0f112e3db5cc3724640ee18fb3d42f1bc5e24680f5af25faf1939d60"
+  },
+  "incrementos": null,
+  "motor": {
+   "archivo": "C:\\Users\\markp\\AppData\\Local\\Temp\\claude\\C--Users-markp-Desktop-PY-MEGATRON-PY---PERSONAL-TESIS\\51c74eee-a71d-4dd3-9ea4-b614ec3c2579\\scratchpad\\c4b\\motor.log",
+   "sha256": "bf51f308dfa0bd66bbb782a540a154df90642d5d35d92e92fe60457e01919501"
+  },
+  "salud_captura": null,
+  "tcpdump_anillo": null,
+  "tcpdump_via": null
+ },
+ "incidencias_motor": [],
+ "intervalo_utc": [
+  "2026-11-01T07:32:00+00:00",
+  "2026-11-01T08:05:00+00:00"
+ ],
+ "poblacion": {
+  "conversion": [],
+  "en_ambas_listas": [],
+  "excepciones_respuesta": [
+   {
+    "ip": "10.10.10.30/32",
+    "nota": "bastion"
+   },
+   {
+    "ip": "10.10.60.11/32",
+    "nota": "sensor"
+   },
+   {
+    "ip": "10.10.30.1/32",
+    "nota": "gateway VLAN 30"
+   },
+   {
+    "ip": "10.10.40.1/32",
+    "nota": "gateway VLAN 40"
+   },
+   {
+    "ip": "10.10.60.1/32",
+    "nota": "gateway VLAN 60"
+   },
+   {
+    "ip": "10.10.20.1/32",
+    "nota": "gateway VLAN 20"
+   },
+   {
+    "ip": "10.10.10.20/32",
+    "nota": "DNS/AD: sigue en la poblacion evaluada (decision 3A)"
+   }
+  ],
+  "exclusiones_poblacion": [],
+  "formato": "nuevo(poblacion)",
+  "significado": {
+   "excepciones_respuesta": "no reciben restricciones; SIGUEN en la población evaluada y sus señales del detector cuentan (una excepción de bloqueo no borra una señal)",
+   "exclusiones_poblacion": "fuera del denominador de la evaluación, cada una con justificación"
+  }
+ },
+ "seleccion": "ventanas con window_end_utc en [desde, hasta] (ambos incluidos), deduplicadas como analizar.py; clase de la ventana = clase de [w − 60, w]",
+ "umbrales": {
+  "0.01": -0.6223889502095352,
+  "0.03": -0.5898535710336618,
+  "0.05": -0.5694578968203694
+ },
+ "version": "2026-11-02.1"
+}

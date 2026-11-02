@@ -1,5 +1,11 @@
 # Procedimiento de instalación, comprobación y reversión (cierre técnico de la Etapa 3; NO ejecutado)
 
+> **SUSTITUIDO el 2026-11-02 — no usar.** Partía de dos afirmaciones falsas: que Sensor1 ejecuta `7b275b8` (ejecuta
+> el motor 24f8a80 con la cadena v1 as-deployed f57ca00) y que `~/cyberflow` es un checkout de git (no lo es, así que
+> `git switch` no instala ni revierte nada). El procedimiento vigente, con respaldo y reversión que no dependen de
+> git, es [`../etapa4-preparacion-2026-11-02/PROCEDIMIENTO-ETAPA4.md`](../etapa4-preparacion-2026-11-02/PROCEDIMIENTO-ETAPA4.md).
+> Se conserva sin otros cambios como registro.
+
 > **No autorizado.** Nada de este procedimiento se ha ejecutado. Solo se ejecutará si Mark autoriza la Etapa 4. Los pasos con `sudo` llevan contraseña, así que los ejecuta Mark.
 >
 > **Sustituye** a `../etapa3-deteccion-temprana-2026-11-02/PROCEDIMIENTO-ETAPA4.md`, que se conserva sin cambios. Lo que sigue igual se cita, no se repite. La base de la Etapa 2 (`../etapa2-cierre-tecnico-2026-11-01/PROCEDIMIENTO-INSTALACION-REVERSION.md`, pasos 0, 2, 3 y 4) sigue valiendo.
