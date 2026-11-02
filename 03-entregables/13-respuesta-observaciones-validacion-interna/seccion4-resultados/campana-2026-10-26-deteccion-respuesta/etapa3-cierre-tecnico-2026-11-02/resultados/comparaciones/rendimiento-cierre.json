@@ -1,0 +1,1275 @@
+{
+ "replay": "C:/Users/markp/AppData/Local/Temp/claude/C--Users-markp-Desktop-PY-MEGATRON-PY---PERSONAL-TESIS/51c74eee-a71d-4dd3-9ea4-b614ec3c2579/scratchpad/replay/cierre-49a29db-e5-eventos",
+ "segmentos": {
+  "normal": {
+   "ciclos": 396,
+   "pared_s": {
+    "p50": 0.241,
+    "p95": 0.578,
+    "max": 0.842,
+    "n_gt_10": 0,
+    "n_gt_20": 0
+   },
+   "cpu_s": {
+    "p50": 0.234,
+    "p95": 0.547,
+    "max": 0.844
+   },
+   "etapas_motor_s": {
+    "decision_y_registro": {
+     "p50": 0.0,
+     "p95": 0.001,
+     "max": 0.001,
+     "suma": 0.06
+    },
+    "eve_lectura": {
+     "p50": 0.003,
+     "p95": 0.005,
+     "max": 0.011,
+     "suma": 1.21
+    },
+    "eve_poda": {
+     "p50": 0.0,
+     "p95": 0.001,
+     "max": 0.002,
+     "suma": 0.1
+    },
+    "expiracion_y_escritura": {
+     "p50": 0.001,
+     "p95": 0.002,
+     "max": 0.002,
+     "suma": 0.24
+    },
+    "filtro_plano_control": {
+     "p50": 0.011,
+     "p95": 0.027,
+     "max": 0.063,
+     "suma": 5.24
+    },
+    "pcap_parseo": {
+     "p50": 0.03,
+     "p95": 0.105,
+     "max": 0.28,
+     "suma": 15.14
+    },
+    "pcap_poda": {
+     "p50": 0.033,
+     "p95": 0.081,
+     "max": 0.201,
+     "suma": 15.81
+    },
+    "pendientes": {
+     "p50": 0.009,
+     "p95": 0.019,
+     "max": 0.053,
+     "suma": 3.88
+    },
+    "puntuacion": {
+     "p50": 0.028,
+     "p95": 0.041,
+     "max": 0.066,
+     "suma": 5.63
+    },
+    "ventanas_por_ancla": {
+     "p50": 0.118,
+     "p95": 0.384,
+     "max": 0.613,
+     "suma": 54.38
+    }
+   },
+   "decididas_por_ciclo_max": 19,
+   "retraso_decision_s": {
+    "n": 2609,
+    "p50": 1.499,
+    "p95": 1.791,
+    "max": 2.009
+   },
+   "pendientes": {
+    "max": 96,
+    "al_final": 67
+   },
+   "memoria_mb": {
+    "rss_max": 502.0,
+    "pico": 511.4,
+    "privada_max": 1312.3
+   },
+   "equipo": {
+    "cpu_sistema_pct_p50": 11.4,
+    "cpu_sistema_pct_max": 65.5,
+    "mem_carga_pct_max": 76,
+    "mem_disponible_mb_min": 7472,
+    "confirmada_mb_max": 39979,
+    "limite_confirmacion_mb": 68471
+   },
+   "no_evaluadas": {},
+   "canceladas": 0
+  },
+  "inundacion_http-r1": {
+   "ciclos": 18,
+   "pared_s": {
+    "p50": 1.937,
+    "p95": 3.608,
+    "max": 3.608,
+    "n_gt_10": 0,
+    "n_gt_20": 0
+   },
+   "cpu_s": {
+    "p50": 1.906,
+    "p95": 3.562,
+    "max": 3.562
+   },
+   "etapas_motor_s": {
+    "decision_y_registro": {
+     "p50": 0.0,
+     "p95": 0.001,
+     "max": 0.001,
+     "suma": 0.0
+    },
+    "eve_lectura": {
+     "p50": 0.14,
+     "p95": 0.204,
+     "max": 0.204,
+     "suma": 2.52
+    },
+    "eve_poda": {
+     "p50": 0.003,
+     "p95": 0.01,
+     "max": 0.01,
+     "suma": 0.07
+    },
+    "expiracion_y_escritura": {
+     "p50": 0.001,
+     "p95": 0.002,
+     "max": 0.002,
+     "suma": 0.01
+    },
+    "filtro_plano_control": {
+     "p50": 0.048,
+     "p95": 0.08,
+     "max": 0.08,
+     "suma": 0.89
+    },
+    "pcap_parseo": {
+     "p50": 0.313,
+     "p95": 0.846,
+     "max": 0.846,
+     "suma": 6.22
+    },
+    "pcap_poda": {
+     "p50": 0.124,
+     "p95": 0.19,
+     "max": 0.19,
+     "suma": 2.25
+    },
+    "pendientes": {
+     "p50": 0.146,
+     "p95": 0.223,
+     "max": 0.223,
+     "suma": 2.47
+    },
+    "puntuacion": {
+     "p50": 0.03,
+     "p95": 0.04,
+     "max": 0.04,
+     "suma": 0.26
+    },
+    "ventanas_por_ancla": {
+     "p50": 1.258,
+     "p95": 2.628,
+     "max": 2.628,
+     "suma": 19.32
+    }
+   },
+   "decididas_por_ciclo_max": 14,
+   "retraso_decision_s": {
+    "n": 123,
+    "p50": 3.973,
+    "p95": 4.813,
+    "max": 4.813
+   },
+   "pendientes": {
+    "max": 77,
+    "al_final": 68
+   },
+   "memoria_mb": {
+    "rss_max": 1083.9,
+    "pico": 1092.6,
+    "privada_max": 1897.3
+   },
+   "equipo": {
+    "cpu_sistema_pct_p50": 13.4,
+    "cpu_sistema_pct_max": 21.6,
+    "mem_carga_pct_max": 69,
+    "mem_disponible_mb_min": 9937,
+    "confirmada_mb_max": 37288,
+    "limite_confirmacion_mb": 68471
+   },
+   "no_evaluadas": {},
+   "canceladas": 0
+  },
+  "recuperacion-r1": {
+   "ciclos": 24,
+   "pared_s": {
+    "p50": 1.119,
+    "p95": 2.108,
+    "max": 2.285,
+    "n_gt_10": 0,
+    "n_gt_20": 0
+   },
+   "cpu_s": {
+    "p50": 1.109,
+    "p95": 2.062,
+    "max": 2.266
+   },
+   "etapas_motor_s": {
+    "decision_y_registro": {
+     "p50": 0.0,
+     "p95": 0.001,
+     "max": 0.001,
+     "suma": 0.0
+    },
+    "eve_lectura": {
+     "p50": 0.041,
+     "p95": 0.077,
+     "max": 0.13,
+     "suma": 0.84
+    },
+    "eve_poda": {
+     "p50": 0.005,
+     "p95": 0.009,
+     "max": 0.009,
+     "suma": 0.12
+    },
+    "expiracion_y_escritura": {
+     "p50": 0.001,
+     "p95": 0.002,
+     "max": 0.003,
+     "suma": 0.02
+    },
+    "filtro_plano_control": {
+     "p50": 0.065,
+     "p95": 0.08,
+     "max": 0.083,
+     "suma": 1.54
+    },
+    "pcap_parseo": {
+     "p50": 0.046,
+     "p95": 0.121,
+     "max": 0.267,
+     "suma": 1.37
+    },
+    "pcap_poda": {
+     "p50": 0.163,
+     "p95": 0.217,
+     "max": 0.234,
+     "suma": 3.74
+    },
+    "pendientes": {
+     "p50": 0.087,
+     "p95": 0.169,
+     "max": 0.18,
+     "suma": 2.39
+    },
+    "puntuacion": {
+     "p50": 0.035,
+     "p95": 0.054,
+     "max": 0.054,
+     "suma": 0.43
+    },
+    "ventanas_por_ancla": {
+     "p50": 0.643,
+     "p95": 1.514,
+     "max": 1.935,
+     "suma": 14.05
+    }
+   },
+   "decididas_por_ciclo_max": 13,
+   "retraso_decision_s": {
+    "n": 154,
+    "p50": 2.524,
+    "p95": 3.321,
+    "max": 3.321
+   },
+   "pendientes": {
+    "max": 71,
+    "al_final": 62
+   },
+   "memoria_mb": {
+    "rss_max": 1154.6,
+    "pico": 1161.7,
+    "privada_max": 1969.2
+   },
+   "equipo": {
+    "cpu_sistema_pct_p50": 11.7,
+    "cpu_sistema_pct_max": 15.3,
+    "mem_carga_pct_max": 69,
+    "mem_disponible_mb_min": 9821,
+    "confirmada_mb_max": 37436,
+    "limite_confirmacion_mb": 68471
+   },
+   "no_evaluadas": {},
+   "canceladas": 0
+  },
+  "inundacion_http-r2": {
+   "ciclos": 18,
+   "pared_s": {
+    "p50": 1.348,
+    "p95": 2.332,
+    "max": 2.332,
+    "n_gt_10": 0,
+    "n_gt_20": 0
+   },
+   "cpu_s": {
+    "p50": 1.344,
+    "p95": 2.25,
+    "max": 2.25
+   },
+   "etapas_motor_s": {
+    "decision_y_registro": {
+     "p50": 0.0,
+     "p95": 0.001,
+     "max": 0.001,
+     "suma": 0.0
+    },
+    "eve_lectura": {
+     "p50": 0.11,
+     "p95": 0.176,
+     "max": 0.176,
+     "suma": 1.96
+    },
+    "eve_poda": {
+     "p50": 0.002,
+     "p95": 0.007,
+     "max": 0.007,
+     "suma": 0.04
+    },
+    "expiracion_y_escritura": {
+     "p50": 0.001,
+     "p95": 0.002,
+     "max": 0.002,
+     "suma": 0.01
+    },
+    "filtro_plano_control": {
+     "p50": 0.028,
+     "p95": 0.04,
+     "max": 0.04,
+     "suma": 0.53
+    },
+    "pcap_parseo": {
+     "p50": 0.232,
+     "p95": 0.268,
+     "max": 0.268,
+     "suma": 4.02
+    },
+    "pcap_poda": {
+     "p50": 0.078,
+     "p95": 0.17,
+     "max": 0.17,
+     "suma": 1.59
+    },
+    "pendientes": {
+     "p50": 0.072,
+     "p95": 0.108,
+     "max": 0.108,
+     "suma": 1.21
+    },
+    "puntuacion": {
+     "p50": 0.027,
+     "p95": 0.032,
+     "max": 0.032,
+     "suma": 0.24
+    },
+    "ventanas_por_ancla": {
+     "p50": 0.879,
+     "p95": 1.697,
+     "max": 1.697,
+     "suma": 12.36
+    }
+   },
+   "decididas_por_ciclo_max": 14,
+   "retraso_decision_s": {
+    "n": 119,
+    "p50": 3.124,
+    "p95": 3.385,
+    "max": 3.385
+   },
+   "pendientes": {
+    "max": 76,
+    "al_final": 69
+   },
+   "memoria_mb": {
+    "rss_max": 1121.4,
+    "pico": 1161.7,
+    "privada_max": 1934.5
+   },
+   "equipo": {
+    "cpu_sistema_pct_p50": 11.4,
+    "cpu_sistema_pct_max": 14.1,
+    "mem_carga_pct_max": 69,
+    "mem_disponible_mb_min": 9803,
+    "confirmada_mb_max": 37400,
+    "limite_confirmacion_mb": 68471
+   },
+   "no_evaluadas": {},
+   "canceladas": 0
+  },
+  "recuperacion-r2": {
+   "ciclos": 24,
+   "pared_s": {
+    "p50": 0.777,
+    "p95": 1.205,
+    "max": 1.499,
+    "n_gt_10": 0,
+    "n_gt_20": 0
+   },
+   "cpu_s": {
+    "p50": 0.75,
+    "p95": 1.156,
+    "max": 1.484
+   },
+   "etapas_motor_s": {
+    "decision_y_registro": {
+     "p50": 0.0,
+     "p95": 0.001,
+     "max": 0.001,
+     "suma": 0.0
+    },
+    "eve_lectura": {
+     "p50": 0.028,
+     "p95": 0.038,
+     "max": 0.114,
+     "suma": 0.56
+    },
+    "eve_poda": {
+     "p50": 0.002,
+     "p95": 0.005,
+     "max": 0.007,
+     "suma": 0.06
+    },
+    "expiracion_y_escritura": {
+     "p50": 0.001,
+     "p95": 0.001,
+     "max": 0.001,
+     "suma": 0.01
+    },
+    "filtro_plano_control": {
+     "p50": 0.04,
+     "p95": 0.077,
+     "max": 0.082,
+     "suma": 1.11
+    },
+    "pcap_parseo": {
+     "p50": 0.031,
+     "p95": 0.22,
+     "max": 0.384,
+     "suma": 1.42
+    },
+    "pcap_poda": {
+     "p50": 0.104,
+     "p95": 0.236,
+     "max": 0.238,
+     "suma": 2.86
+    },
+    "pendientes": {
+     "p50": 0.055,
+     "p95": 0.084,
+     "max": 0.09,
+     "suma": 1.4
+    },
+    "puntuacion": {
+     "p50": 0.024,
+     "p95": 0.036,
+     "max": 0.036,
+     "suma": 0.31
+    },
+    "ventanas_por_ancla": {
+     "p50": 0.51,
+     "p95": 0.851,
+     "max": 1.047,
+     "suma": 8.95
+    }
+   },
+   "decididas_por_ciclo_max": 14,
+   "retraso_decision_s": {
+    "n": 161,
+    "p50": 2.042,
+    "p95": 2.545,
+    "max": 2.545
+   },
+   "pendientes": {
+    "max": 73,
+    "al_final": 64
+   },
+   "memoria_mb": {
+    "rss_max": 1084.8,
+    "pico": 1161.7,
+    "privada_max": 1898.2
+   },
+   "equipo": {
+    "cpu_sistema_pct_p50": 11.1,
+    "cpu_sistema_pct_max": 17.4,
+    "mem_carga_pct_max": 69,
+    "mem_disponible_mb_min": 9838,
+    "confirmada_mb_max": 37387,
+    "limite_confirmacion_mb": 68471
+   },
+   "no_evaluadas": {},
+   "canceladas": 0
+  },
+  "inundacion_http-r3": {
+   "ciclos": 18,
+   "pared_s": {
+    "p50": 1.196,
+    "p95": 2.645,
+    "max": 2.645,
+    "n_gt_10": 0,
+    "n_gt_20": 0
+   },
+   "cpu_s": {
+    "p50": 1.172,
+    "p95": 2.609,
+    "max": 2.609
+   },
+   "etapas_motor_s": {
+    "decision_y_registro": {
+     "p50": 0.0,
+     "p95": 0.0,
+     "max": 0.0,
+     "suma": 0.0
+    },
+    "eve_lectura": {
+     "p50": 0.107,
+     "p95": 0.134,
+     "max": 0.134,
+     "suma": 1.87
+    },
+    "eve_poda": {
+     "p50": 0.002,
+     "p95": 0.009,
+     "max": 0.009,
+     "suma": 0.04
+    },
+    "expiracion_y_escritura": {
+     "p50": 0.001,
+     "p95": 0.002,
+     "max": 0.002,
+     "suma": 0.01
+    },
+    "filtro_plano_control": {
+     "p50": 0.028,
+     "p95": 0.049,
+     "max": 0.049,
+     "suma": 0.54
+    },
+    "pcap_parseo": {
+     "p50": 0.252,
+     "p95": 0.562,
+     "max": 0.562,
+     "suma": 5.05
+    },
+    "pcap_poda": {
+     "p50": 0.084,
+     "p95": 0.184,
+     "max": 0.184,
+     "suma": 1.55
+    },
+    "pendientes": {
+     "p50": 0.086,
+     "p95": 0.194,
+     "max": 0.194,
+     "suma": 1.41
+    },
+    "puntuacion": {
+     "p50": 0.026,
+     "p95": 0.03,
+     "max": 0.03,
+     "suma": 0.23
+    },
+    "ventanas_por_ancla": {
+     "p50": 0.58,
+     "p95": 1.862,
+     "max": 1.862,
+     "suma": 11.98
+    }
+   },
+   "decididas_por_ciclo_max": 13,
+   "retraso_decision_s": {
+    "n": 117,
+    "p50": 2.99,
+    "p95": 3.761,
+    "max": 3.761
+   },
+   "pendientes": {
+    "max": 72,
+    "al_final": 67
+   },
+   "memoria_mb": {
+    "rss_max": 1121.1,
+    "pico": 1161.7,
+    "privada_max": 1933.6
+   },
+   "equipo": {
+    "cpu_sistema_pct_p50": 11.2,
+    "cpu_sistema_pct_max": 15.1,
+    "mem_carga_pct_max": 69,
+    "mem_disponible_mb_min": 9882,
+    "confirmada_mb_max": 37294,
+    "limite_confirmacion_mb": 68471
+   },
+   "no_evaluadas": {},
+   "canceladas": 0
+  },
+  "recuperacion-r3": {
+   "ciclos": 24,
+   "pared_s": {
+    "p50": 0.716,
+    "p95": 1.476,
+    "max": 1.819,
+    "n_gt_10": 0,
+    "n_gt_20": 0
+   },
+   "cpu_s": {
+    "p50": 0.703,
+    "p95": 1.453,
+    "max": 1.797
+   },
+   "etapas_motor_s": {
+    "decision_y_registro": {
+     "p50": 0.0,
+     "p95": 0.0,
+     "max": 0.0,
+     "suma": 0.0
+    },
+    "eve_lectura": {
+     "p50": 0.03,
+     "p95": 0.043,
+     "max": 0.104,
+     "suma": 0.58
+    },
+    "eve_poda": {
+     "p50": 0.002,
+     "p95": 0.005,
+     "max": 0.009,
+     "suma": 0.07
+    },
+    "expiracion_y_escritura": {
+     "p50": 0.001,
+     "p95": 0.002,
+     "max": 0.002,
+     "suma": 0.02
+    },
+    "filtro_plano_control": {
+     "p50": 0.043,
+     "p95": 0.049,
+     "max": 0.053,
+     "suma": 1.02
+    },
+    "pcap_parseo": {
+     "p50": 0.039,
+     "p95": 0.182,
+     "max": 0.203,
+     "suma": 1.27
+    },
+    "pcap_poda": {
+     "p50": 0.099,
+     "p95": 0.13,
+     "max": 0.134,
+     "suma": 2.48
+    },
+    "pendientes": {
+     "p50": 0.052,
+     "p95": 0.089,
+     "max": 0.11,
+     "suma": 1.42
+    },
+    "puntuacion": {
+     "p50": 0.024,
+     "p95": 0.033,
+     "max": 0.033,
+     "suma": 0.31
+    },
+    "ventanas_por_ancla": {
+     "p50": 0.485,
+     "p95": 1.114,
+     "max": 1.427,
+     "suma": 9.76
+    }
+   },
+   "decididas_por_ciclo_max": 13,
+   "retraso_decision_s": {
+    "n": 156,
+    "p50": 2.081,
+    "p95": 3.062,
+    "max": 3.062
+   },
+   "pendientes": {
+    "max": 71,
+    "al_final": 60
+   },
+   "memoria_mb": {
+    "rss_max": 1123.6,
+    "pico": 1161.7,
+    "privada_max": 1936.9
+   },
+   "equipo": {
+    "cpu_sistema_pct_p50": 13.9,
+    "cpu_sistema_pct_max": 21.6,
+    "mem_carga_pct_max": 69,
+    "mem_disponible_mb_min": 9848,
+    "confirmada_mb_max": 37439,
+    "limite_confirmacion_mb": 68471
+   },
+   "no_evaluadas": {},
+   "canceladas": 0
+  },
+  "inundacion_http-r4": {
+   "ciclos": 18,
+   "pared_s": {
+    "p50": 0.905,
+    "p95": 2.011,
+    "max": 2.011,
+    "n_gt_10": 0,
+    "n_gt_20": 0
+   },
+   "cpu_s": {
+    "p50": 0.906,
+    "p95": 1.969,
+    "max": 1.969
+   },
+   "etapas_motor_s": {
+    "decision_y_registro": {
+     "p50": 0.0,
+     "p95": 0.0,
+     "max": 0.0,
+     "suma": 0.0
+    },
+    "eve_lectura": {
+     "p50": 0.109,
+     "p95": 0.146,
+     "max": 0.146,
+     "suma": 1.87
+    },
+    "eve_poda": {
+     "p50": 0.001,
+     "p95": 0.003,
+     "max": 0.003,
+     "suma": 0.03
+    },
+    "expiracion_y_escritura": {
+     "p50": 0.001,
+     "p95": 0.002,
+     "max": 0.002,
+     "suma": 0.01
+    },
+    "filtro_plano_control": {
+     "p50": 0.025,
+     "p95": 0.041,
+     "max": 0.041,
+     "suma": 0.43
+    },
+    "pcap_parseo": {
+     "p50": 0.226,
+     "p95": 0.443,
+     "max": 0.443,
+     "suma": 4.31
+    },
+    "pcap_poda": {
+     "p50": 0.061,
+     "p95": 0.135,
+     "max": 0.135,
+     "suma": 1.07
+    },
+    "pendientes": {
+     "p50": 0.069,
+     "p95": 0.141,
+     "max": 0.141,
+     "suma": 1.09
+    },
+    "puntuacion": {
+     "p50": 0.025,
+     "p95": 0.035,
+     "max": 0.035,
+     "suma": 0.24
+    },
+    "ventanas_por_ancla": {
+     "p50": 0.361,
+     "p95": 1.383,
+     "max": 1.383,
+     "suma": 9.52
+    }
+   },
+   "decididas_por_ciclo_max": 13,
+   "retraso_decision_s": {
+    "n": 117,
+    "p50": 2.745,
+    "p95": 3.183,
+    "max": 3.183
+   },
+   "pendientes": {
+    "max": 71,
+    "al_final": 65
+   },
+   "memoria_mb": {
+    "rss_max": 1084.5,
+    "pico": 1161.7,
+    "privada_max": 1898.2
+   },
+   "equipo": {
+    "cpu_sistema_pct_p50": 11.1,
+    "cpu_sistema_pct_max": 23.7,
+    "mem_carga_pct_max": 69,
+    "mem_disponible_mb_min": 9906,
+    "confirmada_mb_max": 37408,
+    "limite_confirmacion_mb": 68471
+   },
+   "no_evaluadas": {},
+   "canceladas": 0
+  },
+  "recuperacion-r4": {
+   "ciclos": 24,
+   "pared_s": {
+    "p50": 0.796,
+    "p95": 1.049,
+    "max": 1.728,
+    "n_gt_10": 0,
+    "n_gt_20": 0
+   },
+   "cpu_s": {
+    "p50": 0.734,
+    "p95": 1.047,
+    "max": 1.719
+   },
+   "etapas_motor_s": {
+    "decision_y_registro": {
+     "p50": 0.0,
+     "p95": 0.001,
+     "max": 0.001,
+     "suma": 0.0
+    },
+    "eve_lectura": {
+     "p50": 0.028,
+     "p95": 0.044,
+     "max": 0.085,
+     "suma": 0.53
+    },
+    "eve_poda": {
+     "p50": 0.002,
+     "p95": 0.005,
+     "max": 0.005,
+     "suma": 0.06
+    },
+    "expiracion_y_escritura": {
+     "p50": 0.001,
+     "p95": 0.001,
+     "max": 0.001,
+     "suma": 0.01
+    },
+    "filtro_plano_control": {
+     "p50": 0.037,
+     "p95": 0.063,
+     "max": 0.064,
+     "suma": 0.95
+    },
+    "pcap_parseo": {
+     "p50": 0.031,
+     "p95": 0.092,
+     "max": 0.324,
+     "suma": 1.14
+    },
+    "pcap_poda": {
+     "p50": 0.077,
+     "p95": 0.129,
+     "max": 0.143,
+     "suma": 2.04
+    },
+    "pendientes": {
+     "p50": 0.051,
+     "p95": 0.096,
+     "max": 0.097,
+     "suma": 1.39
+    },
+    "puntuacion": {
+     "p50": 0.027,
+     "p95": 0.038,
+     "max": 0.038,
+     "suma": 0.32
+    },
+    "ventanas_por_ancla": {
+     "p50": 0.531,
+     "p95": 0.777,
+     "max": 1.412,
+     "suma": 8.77
+    }
+   },
+   "decididas_por_ciclo_max": 14,
+   "retraso_decision_s": {
+    "n": 168,
+    "p50": 2.009,
+    "p95": 2.814,
+    "max": 2.814
+   },
+   "pendientes": {
+    "max": 76,
+    "al_final": 58
+   },
+   "memoria_mb": {
+    "rss_max": 1132.1,
+    "pico": 1161.7,
+    "privada_max": 1945.0
+   },
+   "equipo": {
+    "cpu_sistema_pct_p50": 10.9,
+    "cpu_sistema_pct_max": 15.4,
+    "mem_carga_pct_max": 69,
+    "mem_disponible_mb_min": 9804,
+    "confirmada_mb_max": 37407,
+    "limite_confirmacion_mb": 68471
+   },
+   "no_evaluadas": {},
+   "canceladas": 0
+  },
+  "inundacion_http-r5": {
+   "ciclos": 18,
+   "pared_s": {
+    "p50": 1.173,
+    "p95": 2.23,
+    "max": 2.23,
+    "n_gt_10": 0,
+    "n_gt_20": 0
+   },
+   "cpu_s": {
+    "p50": 1.156,
+    "p95": 2.141,
+    "max": 2.141
+   },
+   "etapas_motor_s": {
+    "decision_y_registro": {
+     "p50": 0.0,
+     "p95": 0.0,
+     "max": 0.0,
+     "suma": 0.0
+    },
+    "eve_lectura": {
+     "p50": 0.102,
+     "p95": 0.31,
+     "max": 0.31,
+     "suma": 2.19
+    },
+    "eve_poda": {
+     "p50": 0.002,
+     "p95": 0.004,
+     "max": 0.004,
+     "suma": 0.03
+    },
+    "expiracion_y_escritura": {
+     "p50": 0.001,
+     "p95": 0.001,
+     "max": 0.001,
+     "suma": 0.01
+    },
+    "filtro_plano_control": {
+     "p50": 0.024,
+     "p95": 0.042,
+     "max": 0.042,
+     "suma": 0.46
+    },
+    "pcap_parseo": {
+     "p50": 0.235,
+     "p95": 0.391,
+     "max": 0.391,
+     "suma": 4.24
+    },
+    "pcap_poda": {
+     "p50": 0.063,
+     "p95": 0.084,
+     "max": 0.084,
+     "suma": 1.12
+    },
+    "pendientes": {
+     "p50": 0.071,
+     "p95": 0.133,
+     "max": 0.133,
+     "suma": 1.18
+    },
+    "puntuacion": {
+     "p50": 0.026,
+     "p95": 0.032,
+     "max": 0.032,
+     "suma": 0.24
+    },
+    "ventanas_por_ancla": {
+     "p50": 0.785,
+     "p95": 1.582,
+     "max": 1.582,
+     "suma": 11.03
+    }
+   },
+   "decididas_por_ciclo_max": 15,
+   "retraso_decision_s": {
+    "n": 122,
+    "p50": 2.759,
+    "p95": 3.36,
+    "max": 3.36
+   },
+   "pendientes": {
+    "max": 76,
+    "al_final": 76
+   },
+   "memoria_mb": {
+    "rss_max": 1105.3,
+    "pico": 1161.7,
+    "privada_max": 1918.0
+   },
+   "equipo": {
+    "cpu_sistema_pct_p50": 12.9,
+    "cpu_sistema_pct_max": 17.7,
+    "mem_carga_pct_max": 72,
+    "mem_disponible_mb_min": 8730,
+    "confirmada_mb_max": 39290,
+    "limite_confirmacion_mb": 68471
+   },
+   "no_evaluadas": {},
+   "canceladas": 0
+  },
+  "recuperacion-r5": {
+   "ciclos": 24,
+   "pared_s": {
+    "p50": 0.684,
+    "p95": 1.2,
+    "max": 1.231,
+    "n_gt_10": 0,
+    "n_gt_20": 0
+   },
+   "cpu_s": {
+    "p50": 0.656,
+    "p95": 1.156,
+    "max": 1.203
+   },
+   "etapas_motor_s": {
+    "decision_y_registro": {
+     "p50": 0.0,
+     "p95": 0.001,
+     "max": 0.001,
+     "suma": 0.0
+    },
+    "eve_lectura": {
+     "p50": 0.026,
+     "p95": 0.043,
+     "max": 0.047,
+     "suma": 0.47
+    },
+    "eve_poda": {
+     "p50": 0.002,
+     "p95": 0.005,
+     "max": 0.006,
+     "suma": 0.06
+    },
+    "expiracion_y_escritura": {
+     "p50": 0.001,
+     "p95": 0.001,
+     "max": 0.002,
+     "suma": 0.01
+    },
+    "filtro_plano_control": {
+     "p50": 0.037,
+     "p95": 0.046,
+     "max": 0.053,
+     "suma": 0.93
+    },
+    "pcap_parseo": {
+     "p50": 0.03,
+     "p95": 0.082,
+     "max": 0.388,
+     "suma": 1.12
+    },
+    "pcap_poda": {
+     "p50": 0.082,
+     "p95": 0.101,
+     "max": 0.104,
+     "suma": 2.03
+    },
+    "pendientes": {
+     "p50": 0.055,
+     "p95": 0.082,
+     "max": 0.087,
+     "suma": 1.37
+    },
+    "puntuacion": {
+     "p50": 0.025,
+     "p95": 0.036,
+     "max": 0.036,
+     "suma": 0.32
+    },
+    "ventanas_por_ancla": {
+     "p50": 0.454,
+     "p95": 0.757,
+     "max": 0.917,
+     "suma": 7.91
+    }
+   },
+   "decididas_por_ciclo_max": 15,
+   "retraso_decision_s": {
+    "n": 168,
+    "p50": 1.953,
+    "p95": 2.301,
+    "max": 2.301
+   },
+   "pendientes": {
+    "max": 80,
+    "al_final": 60
+   },
+   "memoria_mb": {
+    "rss_max": 1136.6,
+    "pico": 1161.7,
+    "privada_max": 1949.3
+   },
+   "equipo": {
+    "cpu_sistema_pct_p50": 12.2,
+    "cpu_sistema_pct_max": 29.7,
+    "mem_carga_pct_max": 72,
+    "mem_disponible_mb_min": 8728,
+    "confirmada_mb_max": 39316,
+    "limite_confirmacion_mb": 68471
+   },
+   "no_evaluadas": {},
+   "canceladas": 0
+  }
+ },
+ "criterio": {
+  "normal": {
+   "R1": true,
+   "R2": true,
+   "R4": true,
+   "R4_detalle": {
+    "no_evaluadas_rendimiento": 0,
+    "ausentes": null
+   }
+  },
+  "inundacion_http-r1": {
+   "R1": true,
+   "R2": true,
+   "R4": true,
+   "R4_detalle": {
+    "no_evaluadas_rendimiento": 0,
+    "ausentes": null
+   }
+  },
+  "recuperacion-r1": {
+   "R1": true,
+   "R2": true,
+   "R4": true,
+   "R4_detalle": {
+    "no_evaluadas_rendimiento": 0,
+    "ausentes": null
+   },
+   "R3": true,
+   "R3_detalle": {
+    "umbral_retraso_s": 6.791,
+    "vuelve_en_s": 0.0,
+    "pendientes_al_final": 62,
+    "pendientes_max_normal": 96
+   }
+  },
+  "inundacion_http-r2": {
+   "R1": true,
+   "R2": true,
+   "R4": true,
+   "R4_detalle": {
+    "no_evaluadas_rendimiento": 0,
+    "ausentes": null
+   }
+  },
+  "recuperacion-r2": {
+   "R1": true,
+   "R2": true,
+   "R4": true,
+   "R4_detalle": {
+    "no_evaluadas_rendimiento": 0,
+    "ausentes": null
+   },
+   "R3": true,
+   "R3_detalle": {
+    "umbral_retraso_s": 6.791,
+    "vuelve_en_s": 0.0,
+    "pendientes_al_final": 64,
+    "pendientes_max_normal": 96
+   }
+  },
+  "inundacion_http-r3": {
+   "R1": true,
+   "R2": true,
+   "R4": true,
+   "R4_detalle": {
+    "no_evaluadas_rendimiento": 0,
+    "ausentes": null
+   }
+  },
+  "recuperacion-r3": {
+   "R1": true,
+   "R2": true,
+   "R4": true,
+   "R4_detalle": {
+    "no_evaluadas_rendimiento": 0,
+    "ausentes": null
+   },
+   "R3": true,
+   "R3_detalle": {
+    "umbral_retraso_s": 6.791,
+    "vuelve_en_s": 0.0,
+    "pendientes_al_final": 60,
+    "pendientes_max_normal": 96
+   }
+  },
+  "inundacion_http-r4": {
+   "R1": true,
+   "R2": true,
+   "R4": true,
+   "R4_detalle": {
+    "no_evaluadas_rendimiento": 0,
+    "ausentes": null
+   }
+  },
+  "recuperacion-r4": {
+   "R1": true,
+   "R2": true,
+   "R4": true,
+   "R4_detalle": {
+    "no_evaluadas_rendimiento": 0,
+    "ausentes": null
+   },
+   "R3": true,
+   "R3_detalle": {
+    "umbral_retraso_s": 6.791,
+    "vuelve_en_s": 0.0,
+    "pendientes_al_final": 58,
+    "pendientes_max_normal": 96
+   }
+  },
+  "inundacion_http-r5": {
+   "R1": true,
+   "R2": true,
+   "R4": true,
+   "R4_detalle": {
+    "no_evaluadas_rendimiento": 0,
+    "ausentes": null
+   }
+  },
+  "recuperacion-r5": {
+   "R1": true,
+   "R2": true,
+   "R4": true,
+   "R4_detalle": {
+    "no_evaluadas_rendimiento": 0,
+    "ausentes": null
+   },
+   "R3": true,
+   "R3_detalle": {
+    "umbral_retraso_s": 6.791,
+    "vuelve_en_s": 0.0,
+    "pendientes_al_final": 60,
+    "pendientes_max_normal": 96
+   }
+  }
+ },
+ "cumple_todo": true
+}

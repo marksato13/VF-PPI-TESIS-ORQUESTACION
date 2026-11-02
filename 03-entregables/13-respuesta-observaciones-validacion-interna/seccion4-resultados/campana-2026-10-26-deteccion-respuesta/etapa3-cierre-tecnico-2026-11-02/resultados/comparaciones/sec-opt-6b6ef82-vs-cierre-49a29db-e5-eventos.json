@@ -1,0 +1,79 @@
+{
+ "a": "C:/Users/markp/AppData/Local/Temp/claude/C--Users-markp-Desktop-PY-MEGATRON-PY---PERSONAL-TESIS/51c74eee-a71d-4dd3-9ea4-b614ec3c2579/scratchpad/replay/sec-opt-6b6ef82",
+ "b": "C:/Users/markp/AppData/Local/Temp/claude/C--Users-markp-Desktop-PY-MEGATRON-PY---PERSONAL-TESIS/51c74eee-a71d-4dd3-9ea4-b614ec3c2579/scratchpad/replay/cierre-49a29db-e5-eventos",
+ "rango": [
+  "",
+  "9999"
+ ],
+ "claves": {
+  "a": 12773,
+  "b": 12773,
+  "union": 12773
+ },
+ "estados_a": {
+  "no_evaluada:no_elegible": 33,
+  "decision": 12726,
+  "cancelada": 14
+ },
+ "estados_b": {
+  "no_evaluada:no_elegible": 33,
+  "decision": 12726,
+  "cancelada": 14
+ },
+ "transiciones_a_b": {},
+ "iguales": 12773,
+ "vectores_comparables": 9607,
+ "vectores_distintos": 0,
+ "scores_distintos": 0,
+ "decisiones_comparables": 12726,
+ "decisiones_distintas": 36,
+ "detector_o_reglas_distintos": 677,
+ "ejemplos": {
+  "vectores": [],
+  "decisiones": [
+   [
+    "10.10.20.30",
+    "2026-11-01T08:53:50+00:00"
+   ],
+   [
+    "10.10.20.30",
+    "2026-11-01T08:54:00+00:00"
+   ],
+   [
+    "10.10.20.30",
+    "2026-11-01T08:54:10+00:00"
+   ],
+   [
+    "10.10.20.30",
+    "2026-11-01T08:54:20+00:00"
+   ],
+   [
+    "10.10.20.30",
+    "2026-11-01T08:54:30+00:00"
+   ]
+  ],
+  "reglas": [
+   [
+    "10.10.10.20",
+    "2026-11-01T07:27:30+00:00"
+   ],
+   [
+    "10.10.10.20",
+    "2026-11-01T07:27:40+00:00"
+   ],
+   [
+    "10.10.10.20",
+    "2026-11-01T07:27:50+00:00"
+   ],
+   [
+    "10.10.10.20",
+    "2026-11-01T07:28:00+00:00"
+   ],
+   [
+    "10.10.10.20",
+    "2026-11-01T07:28:10+00:00"
+   ]
+  ],
+  "transiciones": []
+ }
+}

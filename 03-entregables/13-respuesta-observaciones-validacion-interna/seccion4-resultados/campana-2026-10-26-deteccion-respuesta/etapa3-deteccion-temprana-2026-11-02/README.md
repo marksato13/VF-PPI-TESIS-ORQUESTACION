@@ -32,7 +32,7 @@ Rama `candidato/etapa3-20261102`, commit **`585da7b`**. Pruebas: 626 pasan y 1 s
 
 **Efecto en conjunto** (replay completo frente a `6b6ef82`; [VALIDACION.md](VALIDACION.md)):
 
-- **Restricciones heurísticas a legítimos:** 392 → **0**.
+- **Ventanas con disparos heurísticos sobre legítimos:** 392 → **0** (382 de DC1, 4 de 10.10.20.22 y 6 de 10.10.20.26). Son **ventanas** de decisión, no equipos distintos ni bloqueos aplicados. *Redacción corregida en el cierre técnico; antes decía «restricciones».*
 - **Control:** HEUR 92 → **0**. HIB queda igual que el IF (395/254/83).
 - **Población principal (15/25):**
   - con HEUR + vía rápida y con HIB + vía rápida (los 3 α), **15/15 con señal antes del fin**;

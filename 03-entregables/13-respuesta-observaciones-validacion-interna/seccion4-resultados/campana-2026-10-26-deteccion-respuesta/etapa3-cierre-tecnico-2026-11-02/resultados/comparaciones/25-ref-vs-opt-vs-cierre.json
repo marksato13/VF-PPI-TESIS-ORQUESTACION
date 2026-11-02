@@ -1,0 +1,2231 @@
+{
+ "episodios": [
+  {
+   "episodio": "escaneo_sostenido-r2",
+   "vivo_revisado": {
+    "principal": true,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 23.8,
+    "primera_HEUR_s": 23.8
+   },
+   "replay_ref": {
+    "principal": true,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 23.9,
+    "primera_HEUR_s": 23.9
+   },
+   "replay_cand": {
+    "principal": true,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 23.1,
+    "primera_HEUR_s": 23.1
+   }
+  },
+  {
+   "episodio": "inundacion_http-r1",
+   "vivo_revisado": {
+    "principal": false,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 8.3,
+    "primera_HEUR_s": 8.3
+   },
+   "replay_ref": {
+    "principal": false,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 8.4,
+    "primera_HEUR_s": 8.4
+   },
+   "replay_cand": {
+    "principal": false,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 7.5,
+    "primera_HEUR_s": 7.5
+   }
+  },
+  {
+   "episodio": "dns_inusual-r3",
+   "vivo_revisado": {
+    "principal": false,
+    "IF_0.05": "no_evaluable",
+    "IF_0.03": "no_evaluable",
+    "IF_0.01": "no_evaluable",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": null,
+    "primera_HEUR_s": 7.4
+   },
+   "replay_ref": {
+    "principal": false,
+    "IF_0.05": "no_evaluable",
+    "IF_0.03": "no_evaluable",
+    "IF_0.01": "no_evaluable",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": null,
+    "primera_HEUR_s": 7.5
+   },
+   "replay_cand": {
+    "principal": false,
+    "IF_0.05": "no_evaluable",
+    "IF_0.03": "no_evaluable",
+    "IF_0.01": "no_evaluable",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": null,
+    "primera_HEUR_s": 16.6
+   }
+  },
+  {
+   "episodio": "inundacion_http-r4",
+   "vivo_revisado": {
+    "principal": false,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 8.3,
+    "primera_HEUR_s": 8.3
+   },
+   "replay_ref": {
+    "principal": false,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 8.1,
+    "primera_HEUR_s": 8.1
+   },
+   "replay_cand": {
+    "principal": false,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 6.9,
+    "primera_HEUR_s": 6.9
+   }
+  },
+  {
+   "episodio": "inundacion_http-r2",
+   "vivo_revisado": {
+    "principal": false,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 9.3,
+    "primera_HEUR_s": 9.3
+   },
+   "replay_ref": {
+    "principal": false,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 8.9,
+    "primera_HEUR_s": 8.9
+   },
+   "replay_cand": {
+    "principal": false,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 7.3,
+    "primera_HEUR_s": 7.3
+   }
+  },
+  {
+   "episodio": "inundacion_http-r3",
+   "vivo_revisado": {
+    "principal": false,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 9.1,
+    "primera_HEUR_s": 9.1
+   },
+   "replay_ref": {
+    "principal": false,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 8.7,
+    "primera_HEUR_s": 8.7
+   },
+   "replay_cand": {
+    "principal": false,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 7.3,
+    "primera_HEUR_s": 7.3
+   }
+  },
+  {
+   "episodio": "escaneo_sostenido-r4",
+   "vivo_revisado": {
+    "principal": true,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 18.3,
+    "primera_HEUR_s": 18.3
+   },
+   "replay_ref": {
+    "principal": true,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 17.4,
+    "primera_HEUR_s": 17.4
+   },
+   "replay_cand": {
+    "principal": true,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 16.6,
+    "primera_HEUR_s": 16.6
+   }
+  },
+  {
+   "episodio": "escaneo_sostenido-r5",
+   "vivo_revisado": {
+    "principal": true,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 21.4,
+    "primera_HEUR_s": 21.4
+   },
+   "replay_ref": {
+    "principal": true,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 21.6,
+    "primera_HEUR_s": 21.6
+   },
+   "replay_cand": {
+    "principal": true,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 20.5,
+    "primera_HEUR_s": 20.5
+   }
+  },
+  {
+   "episodio": "escaneo_breve-r5",
+   "vivo_revisado": {
+    "principal": true,
+    "IF_0.05": "solo_posterior",
+    "IF_0.03": "solo_posterior",
+    "IF_0.01": "ausencia_con_observacion_suficiente",
+    "HEUR": "solo_posterior",
+    "HIB_0.05": "solo_posterior",
+    "HIB_0.03": "solo_posterior",
+    "HIB_0.01": "solo_posterior",
+    "primera_IF_0.05_s": 25.5,
+    "primera_HEUR_s": 25.5
+   },
+   "replay_ref": {
+    "principal": true,
+    "IF_0.05": "solo_posterior",
+    "IF_0.03": "solo_posterior",
+    "IF_0.01": "ausencia_con_observacion_suficiente",
+    "HEUR": "solo_posterior",
+    "HIB_0.05": "solo_posterior",
+    "HIB_0.03": "solo_posterior",
+    "HIB_0.01": "solo_posterior",
+    "primera_IF_0.05_s": 25.3,
+    "primera_HEUR_s": 25.3
+   },
+   "replay_cand": {
+    "principal": true,
+    "IF_0.05": "solo_posterior",
+    "IF_0.03": "solo_posterior",
+    "IF_0.01": "ausencia_con_observacion_suficiente",
+    "HEUR": "solo_posterior",
+    "HIB_0.05": "solo_posterior",
+    "HIB_0.03": "solo_posterior",
+    "HIB_0.01": "solo_posterior",
+    "primera_IF_0.05_s": 24.9,
+    "primera_HEUR_s": 24.9
+   }
+  },
+  {
+   "episodio": "fuerza_bruta_http-r3",
+   "vivo_revisado": {
+    "principal": false,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 10.7,
+    "primera_HEUR_s": 10.7
+   },
+   "replay_ref": {
+    "principal": false,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 7.8,
+    "primera_HEUR_s": 7.8
+   },
+   "replay_cand": {
+    "principal": false,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 7.7,
+    "primera_HEUR_s": 7.7
+   }
+  },
+  {
+   "episodio": "fuerza_bruta_http-r5",
+   "vivo_revisado": {
+    "principal": true,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 9.8,
+    "primera_HEUR_s": 9.8
+   },
+   "replay_ref": {
+    "principal": true,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 8.9,
+    "primera_HEUR_s": 8.9
+   },
+   "replay_cand": {
+    "principal": true,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 8.2,
+    "primera_HEUR_s": 8.2
+   }
+  },
+  {
+   "episodio": "dns_inusual-r5",
+   "vivo_revisado": {
+    "principal": false,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 18.4,
+    "primera_HEUR_s": 8.2
+   },
+   "replay_ref": {
+    "principal": false,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 18.1,
+    "primera_HEUR_s": 8.2
+   },
+   "replay_cand": {
+    "principal": false,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 17.9,
+    "primera_HEUR_s": 17.9
+   }
+  },
+  {
+   "episodio": "escaneo_sostenido-r3",
+   "vivo_revisado": {
+    "principal": true,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 9.3,
+    "primera_HEUR_s": 19.4
+   },
+   "replay_ref": {
+    "principal": true,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 7.6,
+    "primera_HEUR_s": 17.7
+   },
+   "replay_cand": {
+    "principal": true,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 7.4,
+    "primera_HEUR_s": 17.7
+   }
+  },
+  {
+   "episodio": "dns_inusual-r2",
+   "vivo_revisado": {
+    "principal": true,
+    "IF_0.05": "ausencia_con_observacion_suficiente",
+    "IF_0.03": "ausencia_con_observacion_suficiente",
+    "IF_0.01": "ausencia_con_observacion_suficiente",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": null,
+    "primera_HEUR_s": 12.3
+   },
+   "replay_ref": {
+    "principal": true,
+    "IF_0.05": "ausencia_con_observacion_suficiente",
+    "IF_0.03": "ausencia_con_observacion_suficiente",
+    "IF_0.01": "ausencia_con_observacion_suficiente",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": null,
+    "primera_HEUR_s": 12.1
+   },
+   "replay_cand": {
+    "principal": true,
+    "IF_0.05": "ausencia_con_observacion_suficiente",
+    "IF_0.03": "ausencia_con_observacion_suficiente",
+    "IF_0.01": "ausencia_con_observacion_suficiente",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": null,
+    "primera_HEUR_s": 22.0
+   }
+  },
+  {
+   "episodio": "fuerza_bruta_http-r2",
+   "vivo_revisado": {
+    "principal": false,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 3.2,
+    "primera_HEUR_s": 3.2
+   },
+   "replay_ref": {
+    "principal": false,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 3.3,
+    "primera_HEUR_s": 3.3
+   },
+   "replay_cand": {
+    "principal": false,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 2.9,
+    "primera_HEUR_s": 2.9
+   }
+  },
+  {
+   "episodio": "fuerza_bruta_http-r4",
+   "vivo_revisado": {
+    "principal": true,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 4.3,
+    "primera_HEUR_s": 4.3
+   },
+   "replay_ref": {
+    "principal": true,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 3.3,
+    "primera_HEUR_s": 3.3
+   },
+   "replay_cand": {
+    "principal": true,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 2.5,
+    "primera_HEUR_s": 2.5
+   }
+  },
+  {
+   "episodio": "dns_inusual-r1",
+   "vivo_revisado": {
+    "principal": true,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 13.5,
+    "primera_HEUR_s": 13.5
+   },
+   "replay_ref": {
+    "principal": true,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 13.2,
+    "primera_HEUR_s": 13.2
+   },
+   "replay_cand": {
+    "principal": true,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 12.8,
+    "primera_HEUR_s": 22.6
+   }
+  },
+  {
+   "episodio": "escaneo_breve-r1",
+   "vivo_revisado": {
+    "principal": true,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "solo_posterior",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 13.9,
+    "primera_HEUR_s": 13.9
+   },
+   "replay_ref": {
+    "principal": true,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "solo_posterior",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 12.6,
+    "primera_HEUR_s": 12.6
+   },
+   "replay_cand": {
+    "principal": true,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "solo_posterior",
+    "HEUR": "solo_posterior",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "solo_posterior",
+    "primera_IF_0.05_s": 12.0,
+    "primera_HEUR_s": 22.1
+   }
+  },
+  {
+   "episodio": "escaneo_breve-r4",
+   "vivo_revisado": {
+    "principal": false,
+    "IF_0.05": "solo_posterior",
+    "IF_0.03": "solo_posterior",
+    "IF_0.01": "no_evaluable",
+    "HEUR": "solo_posterior",
+    "HIB_0.05": "solo_posterior",
+    "HIB_0.03": "solo_posterior",
+    "HIB_0.01": "solo_posterior",
+    "primera_IF_0.05_s": 25.6,
+    "primera_HEUR_s": 25.6
+   },
+   "replay_ref": {
+    "principal": false,
+    "IF_0.05": "solo_posterior",
+    "IF_0.03": "solo_posterior",
+    "IF_0.01": "no_evaluable",
+    "HEUR": "solo_posterior",
+    "HIB_0.05": "solo_posterior",
+    "HIB_0.03": "solo_posterior",
+    "HIB_0.01": "solo_posterior",
+    "primera_IF_0.05_s": 25.0,
+    "primera_HEUR_s": 25.0
+   },
+   "replay_cand": {
+    "principal": false,
+    "IF_0.05": "solo_posterior",
+    "IF_0.03": "solo_posterior",
+    "IF_0.01": "no_evaluable",
+    "HEUR": "solo_posterior",
+    "HIB_0.05": "solo_posterior",
+    "HIB_0.03": "solo_posterior",
+    "HIB_0.01": "solo_posterior",
+    "primera_IF_0.05_s": 24.6,
+    "primera_HEUR_s": 24.6
+   }
+  },
+  {
+   "episodio": "escaneo_breve-r3",
+   "vivo_revisado": {
+    "principal": true,
+    "IF_0.05": "solo_posterior",
+    "IF_0.03": "solo_posterior",
+    "IF_0.01": "ausencia_con_observacion_suficiente",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 27.4,
+    "primera_HEUR_s": 17.4
+   },
+   "replay_ref": {
+    "principal": true,
+    "IF_0.05": "solo_posterior",
+    "IF_0.03": "solo_posterior",
+    "IF_0.01": "ausencia_con_observacion_suficiente",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 26.9,
+    "primera_HEUR_s": 16.9
+   },
+   "replay_cand": {
+    "principal": true,
+    "IF_0.05": "solo_posterior",
+    "IF_0.03": "solo_posterior",
+    "IF_0.01": "ausencia_con_observacion_suficiente",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 26.4,
+    "primera_HEUR_s": 16.4
+   }
+  },
+  {
+   "episodio": "dns_inusual-r4",
+   "vivo_revisado": {
+    "principal": true,
+    "IF_0.05": "ausencia_con_observacion_suficiente",
+    "IF_0.03": "ausencia_con_observacion_suficiente",
+    "IF_0.01": "ausencia_con_observacion_suficiente",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": null,
+    "primera_HEUR_s": 9.6
+   },
+   "replay_ref": {
+    "principal": true,
+    "IF_0.05": "ausencia_con_observacion_suficiente",
+    "IF_0.03": "ausencia_con_observacion_suficiente",
+    "IF_0.01": "ausencia_con_observacion_suficiente",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": null,
+    "primera_HEUR_s": 9.8
+   },
+   "replay_cand": {
+    "principal": true,
+    "IF_0.05": "ausencia_con_observacion_suficiente",
+    "IF_0.03": "ausencia_con_observacion_suficiente",
+    "IF_0.01": "ausencia_con_observacion_suficiente",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": null,
+    "primera_HEUR_s": 19.0
+   }
+  },
+  {
+   "episodio": "fuerza_bruta_http-r1",
+   "vivo_revisado": {
+    "principal": true,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 10.8,
+    "primera_HEUR_s": 10.8
+   },
+   "replay_ref": {
+    "principal": true,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 10.9,
+    "primera_HEUR_s": 10.9
+   },
+   "replay_cand": {
+    "principal": true,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 9.8,
+    "primera_HEUR_s": 9.8
+   }
+  },
+  {
+   "episodio": "inundacion_http-r5",
+   "vivo_revisado": {
+    "principal": true,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 11.9,
+    "primera_HEUR_s": 11.9
+   },
+   "replay_ref": {
+    "principal": true,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 11.7,
+    "primera_HEUR_s": 11.7
+   },
+   "replay_cand": {
+    "principal": true,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 10.3,
+    "primera_HEUR_s": 10.3
+   }
+  },
+  {
+   "episodio": "escaneo_breve-r2",
+   "vivo_revisado": {
+    "principal": true,
+    "IF_0.05": "solo_posterior",
+    "IF_0.03": "solo_posterior",
+    "IF_0.01": "solo_posterior",
+    "HEUR": "solo_posterior",
+    "HIB_0.05": "solo_posterior",
+    "HIB_0.03": "solo_posterior",
+    "HIB_0.01": "solo_posterior",
+    "primera_IF_0.05_s": 21.4,
+    "primera_HEUR_s": 21.4
+   },
+   "replay_ref": {
+    "principal": true,
+    "IF_0.05": "solo_posterior",
+    "IF_0.03": "solo_posterior",
+    "IF_0.01": "solo_posterior",
+    "HEUR": "solo_posterior",
+    "HIB_0.05": "solo_posterior",
+    "HIB_0.03": "solo_posterior",
+    "HIB_0.01": "solo_posterior",
+    "primera_IF_0.05_s": 21.0,
+    "primera_HEUR_s": 21.0
+   },
+   "replay_cand": {
+    "principal": true,
+    "IF_0.05": "solo_posterior",
+    "IF_0.03": "solo_posterior",
+    "IF_0.01": "solo_posterior",
+    "HEUR": "solo_posterior",
+    "HIB_0.05": "solo_posterior",
+    "HIB_0.03": "solo_posterior",
+    "HIB_0.01": "solo_posterior",
+    "primera_IF_0.05_s": 19.8,
+    "primera_HEUR_s": 19.8
+   }
+  },
+  {
+   "episodio": "escaneo_sostenido-r1",
+   "vivo_revisado": {
+    "principal": false,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 24.1,
+    "primera_HEUR_s": 24.1
+   },
+   "replay_ref": {
+    "principal": false,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 22.5,
+    "primera_HEUR_s": 22.5
+   },
+   "replay_cand": {
+    "principal": false,
+    "IF_0.05": "oportuna",
+    "IF_0.03": "oportuna",
+    "IF_0.01": "oportuna",
+    "HEUR": "oportuna",
+    "HIB_0.05": "oportuna",
+    "HIB_0.03": "oportuna",
+    "HIB_0.01": "oportuna",
+    "primera_IF_0.05_s": 21.8,
+    "primera_HEUR_s": 21.8
+   }
+  }
+ ],
+ "diferencias": {
+  "vivo_vs_cand": [
+   [
+    "escaneo_breve-r1",
+    "HEUR",
+    "oportuna",
+    "solo_posterior"
+   ],
+   [
+    "escaneo_breve-r1",
+    "HIB_0.01",
+    "oportuna",
+    "solo_posterior"
+   ]
+  ],
+  "ref_vs_cand": [
+   [
+    "escaneo_breve-r1",
+    "HEUR",
+    "oportuna",
+    "solo_posterior"
+   ],
+   [
+    "escaneo_breve-r1",
+    "HIB_0.01",
+    "oportuna",
+    "solo_posterior"
+   ]
+  ]
+ },
+ "poblacion": {
+  "vivo_revisado": {
+   "formato": "nuevo(poblacion)",
+   "excepciones_respuesta": [
+    {
+     "ip": "10.10.10.30/32",
+     "nota": "bastion"
+    },
+    {
+     "ip": "10.10.60.11/32",
+     "nota": "sensor"
+    },
+    {
+     "ip": "10.10.30.1/32",
+     "nota": "gateway VLAN 30"
+    },
+    {
+     "ip": "10.10.40.1/32",
+     "nota": "gateway VLAN 40"
+    },
+    {
+     "ip": "10.10.60.1/32",
+     "nota": "gateway VLAN 60"
+    },
+    {
+     "ip": "10.10.20.1/32",
+     "nota": "gateway VLAN 20"
+    },
+    {
+     "ip": "10.10.10.20/32",
+     "nota": "DNS/AD: sigue en la poblacion evaluada (decision 3A)"
+    }
+   ],
+   "exclusiones_poblacion": [],
+   "conversion": [],
+   "significado": {
+    "excepciones_respuesta": "no reciben restricciones; SIGUEN en la población evaluada y sus señales del detector cuentan (una excepción de bloqueo no borra una señal)",
+    "exclusiones_poblacion": "fuera del denominador de la evaluación, cada una con justificación"
+   },
+   "en_ambas_listas": []
+  },
+  "replay_ref": {
+   "formato": "nuevo(poblacion)",
+   "excepciones_respuesta": [
+    {
+     "ip": "10.10.10.30/32",
+     "nota": "bastion"
+    },
+    {
+     "ip": "10.10.60.11/32",
+     "nota": "sensor"
+    },
+    {
+     "ip": "10.10.30.1/32",
+     "nota": "gateway VLAN 30"
+    },
+    {
+     "ip": "10.10.40.1/32",
+     "nota": "gateway VLAN 40"
+    },
+    {
+     "ip": "10.10.60.1/32",
+     "nota": "gateway VLAN 60"
+    },
+    {
+     "ip": "10.10.20.1/32",
+     "nota": "gateway VLAN 20"
+    },
+    {
+     "ip": "10.10.10.20/32",
+     "nota": "DNS/AD: sigue en la poblacion evaluada (decision 3A)"
+    }
+   ],
+   "exclusiones_poblacion": [],
+   "conversion": [],
+   "significado": {
+    "excepciones_respuesta": "no reciben restricciones; SIGUEN en la población evaluada y sus señales del detector cuentan (una excepción de bloqueo no borra una señal)",
+    "exclusiones_poblacion": "fuera del denominador de la evaluación, cada una con justificación"
+   },
+   "en_ambas_listas": []
+  },
+  "replay_cand": {
+   "formato": "nuevo(poblacion)",
+   "excepciones_respuesta": [
+    {
+     "ip": "10.10.10.30/32",
+     "nota": "bastion"
+    },
+    {
+     "ip": "10.10.60.11/32",
+     "nota": "sensor"
+    },
+    {
+     "ip": "10.10.30.1/32",
+     "nota": "gateway VLAN 30"
+    },
+    {
+     "ip": "10.10.40.1/32",
+     "nota": "gateway VLAN 40"
+    },
+    {
+     "ip": "10.10.60.1/32",
+     "nota": "gateway VLAN 60"
+    },
+    {
+     "ip": "10.10.20.1/32",
+     "nota": "gateway VLAN 20"
+    },
+    {
+     "ip": "10.10.10.20/32",
+     "nota": "DNS/AD: sigue en la poblacion evaluada (decision 3A)"
+    }
+   ],
+   "exclusiones_poblacion": [],
+   "conversion": [],
+   "significado": {
+    "excepciones_respuesta": "no reciben restricciones; SIGUEN en la población evaluada y sus señales del detector cuentan (una excepción de bloqueo no borra una señal)",
+    "exclusiones_poblacion": "fuera del denominador de la evaluación, cada una con justificación"
+   },
+   "en_ambas_listas": []
+  }
+ },
+ "control_normal": {
+  "vivo_revisado": {
+   "intervalo_declarado_utc": [
+    "2026-11-01T07:32:00+00:00",
+    "2026-11-01T08:05:00+00:00"
+   ],
+   "historico_fpr_control": {
+    "ventanas": 2622,
+    "denominador": 2622,
+    "desde": "2026-11-01T07:32:00+00:00",
+    "hasta": "2026-11-01T08:05:00+00:00",
+    "seleccion": "población por ventana: window_end_utc en [desde, hasta] con AMBOS extremos incluidos, el mismo campo e intervalo para decisiones y eventos ventana_no_evaluada, y las mismas exclusiones de población JUSTIFICADAS (poblacion.py; las excepciones de respuesta, p. ej. el DNS, NO se excluyen). Claves entity_ip|window_end únicas: decisiones deduplicadas (leer_motor), no evaluadas duplicadas contadas una vez y, en conflicto, prevalece la decisión. Una decisión escrita después de 'hasta' cuenta si su ventana pertenece al control; logged_at no se altera.",
+    "decisiones_escritas_tras_hasta": 12,
+    "ventanas_no_evaluadas": 0,
+    "ventanas_no_evaluadas_por_motivo": {},
+    "cobertura_entre_registradas": 1.0,
+    "cobertura_entre_registradas_significado": "evaluadas / (evaluadas + no evaluadas explícitas): solo sobre las ventanas que dejaron algún registro; sin inventario independiente de ventanas esperadas NO garantiza que no falten registros",
+    "inventario_esperado": "no disponible: no se informan claves esperadas sin registro ni cobertura total del control",
+    "denominador_significado": "ventanas con decisión registrada (evaluadas); las ventanas no evaluadas no son TN, FP ni FN y una decisión ausente no es PERMIT: las tasas se leen junto a la cobertura",
+    "IF_0.05": {
+     "falsas_alarmas": 395,
+     "tasa": 0.150648
+    },
+    "IF_0.03": {
+     "falsas_alarmas": 254,
+     "tasa": 0.096873
+    },
+    "IF_0.01": {
+     "falsas_alarmas": 83,
+     "tasa": 0.031655
+    },
+    "HEUR": {
+     "falsas_alarmas": 92,
+     "tasa": 0.035088
+    },
+    "HIB_0.05": {
+     "falsas_alarmas": 466,
+     "tasa": 0.177727
+    },
+    "HIB_0.03": {
+     "falsas_alarmas": 336,
+     "tasa": 0.128146
+    },
+    "HIB_0.01": {
+     "falsas_alarmas": 171,
+     "tasa": 0.065217
+    }
+   },
+   "umbral_cobertura": "no se adopta un umbral automático (p. ej. 90 %): la tasa se publica con su cobertura y sus cotas",
+   "tramo_cubierto": {
+    "intervalo_utc": [
+     "2026-11-01T07:32:00+00:00",
+     "2026-11-01T08:05:00+00:00"
+    ],
+    "requeridas": 2622,
+    "decididas": 2622,
+    "sin_decision": 0,
+    "sin_decision_por_estado": {},
+    "no_evaluadas_en_referencia": 0,
+    "cobertura_total": 1.0,
+    "solo_en_vivo_fuera_del_denominador": 0,
+    "IF_0.05": {
+     "falsas_alarmas": 395,
+     "tasa_entre_decididas": 0.150648,
+     "cotas_sobre_requeridas": {
+      "min": 0.150648,
+      "max": 0.150648
+     }
+    },
+    "IF_0.03": {
+     "falsas_alarmas": 254,
+     "tasa_entre_decididas": 0.096873,
+     "cotas_sobre_requeridas": {
+      "min": 0.096873,
+      "max": 0.096873
+     }
+    },
+    "IF_0.01": {
+     "falsas_alarmas": 83,
+     "tasa_entre_decididas": 0.031655,
+     "cotas_sobre_requeridas": {
+      "min": 0.031655,
+      "max": 0.031655
+     }
+    },
+    "HEUR": {
+     "falsas_alarmas": 92,
+     "tasa_entre_decididas": 0.035088,
+     "cotas_sobre_requeridas": {
+      "min": 0.035088,
+      "max": 0.035088
+     }
+    },
+    "HIB_0.05": {
+     "falsas_alarmas": 466,
+     "tasa_entre_decididas": 0.177727,
+     "cotas_sobre_requeridas": {
+      "min": 0.177727,
+      "max": 0.177727
+     }
+    },
+    "HIB_0.03": {
+     "falsas_alarmas": 336,
+     "tasa_entre_decididas": 0.128146,
+     "cotas_sobre_requeridas": {
+      "min": 0.128146,
+      "max": 0.128146
+     }
+    },
+    "HIB_0.01": {
+     "falsas_alarmas": 171,
+     "tasa_entre_decididas": 0.065217,
+     "cotas_sobre_requeridas": {
+      "min": 0.065217,
+      "max": 0.065217
+     }
+    },
+    "regla": "denominador de las cotas = requeridas del tramo; las sin decisión no se suponen negativas ni positivas"
+   },
+   "tramos_sin_inventario": [],
+   "control_dentro_del_inventario": true,
+   "por_entidad": {
+    "10.10.10.1": {
+     "ventanas": 49,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.10.20": {
+     "ventanas": 199,
+     "IF_0.05": 26,
+     "IF_0.03": 10,
+     "IF_0.01": 1,
+     "HEUR": 88,
+     "HIB_0.05": 97,
+     "HIB_0.03": 92,
+     "HIB_0.01": 88,
+     "excepcion_respuesta": true
+    },
+    "10.10.10.21": {
+     "ventanas": 199,
+     "IF_0.05": 2,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 2,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.10.51": {
+     "ventanas": 12,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.20.20": {
+     "ventanas": 6,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.20.21": {
+     "ventanas": 199,
+     "IF_0.05": 17,
+     "IF_0.03": 4,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 17,
+     "HIB_0.03": 4,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.20.22": {
+     "ventanas": 199,
+     "IF_0.05": 171,
+     "IF_0.03": 128,
+     "IF_0.01": 50,
+     "HEUR": 0,
+     "HIB_0.05": 171,
+     "HIB_0.03": 128,
+     "HIB_0.01": 50,
+     "excepcion_respuesta": false
+    },
+    "10.10.20.23": {
+     "ventanas": 199,
+     "IF_0.05": 1,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 1,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.20.24": {
+     "ventanas": 199,
+     "IF_0.05": 124,
+     "IF_0.03": 74,
+     "IF_0.01": 9,
+     "HEUR": 0,
+     "HIB_0.05": 124,
+     "HIB_0.03": 74,
+     "HIB_0.01": 9,
+     "excepcion_respuesta": false
+    },
+    "10.10.20.25": {
+     "ventanas": 199,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.20.26": {
+     "ventanas": 199,
+     "IF_0.05": 46,
+     "IF_0.03": 36,
+     "IF_0.01": 23,
+     "HEUR": 4,
+     "HIB_0.05": 46,
+     "HIB_0.03": 36,
+     "HIB_0.01": 24,
+     "excepcion_respuesta": false
+    },
+    "10.10.20.30": {
+     "ventanas": 6,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.30.10": {
+     "ventanas": 12,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.40.10": {
+     "ventanas": 199,
+     "IF_0.05": 1,
+     "IF_0.03": 1,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 1,
+     "HIB_0.03": 1,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.50.51": {
+     "ventanas": 199,
+     "IF_0.05": 4,
+     "IF_0.03": 1,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 4,
+     "HIB_0.03": 1,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.50.52": {
+     "ventanas": 199,
+     "IF_0.05": 3,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 3,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.60.12": {
+     "ventanas": 199,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.99.10": {
+     "ventanas": 38,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.99.2": {
+     "ventanas": 28,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.99.5": {
+     "ventanas": 28,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.99.7": {
+     "ventanas": 28,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.99.8": {
+     "ventanas": 27,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    }
+   },
+   "por_entidad_nota": "ventanas decididas en vivo en todo el intervalo declarado"
+  },
+  "replay_ref": {
+   "intervalo_declarado_utc": [
+    "2026-11-01T07:32:00+00:00",
+    "2026-11-01T08:05:00+00:00"
+   ],
+   "historico_fpr_control": {
+    "ventanas": 2622,
+    "denominador": 2622,
+    "desde": "2026-11-01T07:32:00+00:00",
+    "hasta": "2026-11-01T08:05:00+00:00",
+    "seleccion": "población por ventana: window_end_utc en [desde, hasta] con AMBOS extremos incluidos, el mismo campo e intervalo para decisiones y eventos ventana_no_evaluada, y las mismas exclusiones de población JUSTIFICADAS (poblacion.py; las excepciones de respuesta, p. ej. el DNS, NO se excluyen). Claves entity_ip|window_end únicas: decisiones deduplicadas (leer_motor), no evaluadas duplicadas contadas una vez y, en conflicto, prevalece la decisión. Una decisión escrita después de 'hasta' cuenta si su ventana pertenece al control; logged_at no se altera.",
+    "decisiones_escritas_tras_hasta": 12,
+    "ventanas_no_evaluadas": 0,
+    "ventanas_no_evaluadas_por_motivo": {},
+    "cobertura_entre_registradas": 1.0,
+    "cobertura_entre_registradas_significado": "evaluadas / (evaluadas + no evaluadas explícitas): solo sobre las ventanas que dejaron algún registro; sin inventario independiente de ventanas esperadas NO garantiza que no falten registros",
+    "inventario_esperado": "no disponible: no se informan claves esperadas sin registro ni cobertura total del control",
+    "denominador_significado": "ventanas con decisión registrada (evaluadas); las ventanas no evaluadas no son TN, FP ni FN y una decisión ausente no es PERMIT: las tasas se leen junto a la cobertura",
+    "IF_0.05": {
+     "falsas_alarmas": 395,
+     "tasa": 0.150648
+    },
+    "IF_0.03": {
+     "falsas_alarmas": 254,
+     "tasa": 0.096873
+    },
+    "IF_0.01": {
+     "falsas_alarmas": 83,
+     "tasa": 0.031655
+    },
+    "HEUR": {
+     "falsas_alarmas": 92,
+     "tasa": 0.035088
+    },
+    "HIB_0.05": {
+     "falsas_alarmas": 466,
+     "tasa": 0.177727
+    },
+    "HIB_0.03": {
+     "falsas_alarmas": 336,
+     "tasa": 0.128146
+    },
+    "HIB_0.01": {
+     "falsas_alarmas": 171,
+     "tasa": 0.065217
+    }
+   },
+   "umbral_cobertura": "no se adopta un umbral automático (p. ej. 90 %): la tasa se publica con su cobertura y sus cotas",
+   "tramo_cubierto": {
+    "intervalo_utc": [
+     "2026-11-01T07:32:00+00:00",
+     "2026-11-01T08:05:00+00:00"
+    ],
+    "requeridas": 2622,
+    "decididas": 2622,
+    "sin_decision": 0,
+    "sin_decision_por_estado": {},
+    "no_evaluadas_en_referencia": 0,
+    "cobertura_total": 1.0,
+    "solo_en_vivo_fuera_del_denominador": 0,
+    "IF_0.05": {
+     "falsas_alarmas": 395,
+     "tasa_entre_decididas": 0.150648,
+     "cotas_sobre_requeridas": {
+      "min": 0.150648,
+      "max": 0.150648
+     }
+    },
+    "IF_0.03": {
+     "falsas_alarmas": 254,
+     "tasa_entre_decididas": 0.096873,
+     "cotas_sobre_requeridas": {
+      "min": 0.096873,
+      "max": 0.096873
+     }
+    },
+    "IF_0.01": {
+     "falsas_alarmas": 83,
+     "tasa_entre_decididas": 0.031655,
+     "cotas_sobre_requeridas": {
+      "min": 0.031655,
+      "max": 0.031655
+     }
+    },
+    "HEUR": {
+     "falsas_alarmas": 92,
+     "tasa_entre_decididas": 0.035088,
+     "cotas_sobre_requeridas": {
+      "min": 0.035088,
+      "max": 0.035088
+     }
+    },
+    "HIB_0.05": {
+     "falsas_alarmas": 466,
+     "tasa_entre_decididas": 0.177727,
+     "cotas_sobre_requeridas": {
+      "min": 0.177727,
+      "max": 0.177727
+     }
+    },
+    "HIB_0.03": {
+     "falsas_alarmas": 336,
+     "tasa_entre_decididas": 0.128146,
+     "cotas_sobre_requeridas": {
+      "min": 0.128146,
+      "max": 0.128146
+     }
+    },
+    "HIB_0.01": {
+     "falsas_alarmas": 171,
+     "tasa_entre_decididas": 0.065217,
+     "cotas_sobre_requeridas": {
+      "min": 0.065217,
+      "max": 0.065217
+     }
+    },
+    "regla": "denominador de las cotas = requeridas del tramo; las sin decisión no se suponen negativas ni positivas"
+   },
+   "tramos_sin_inventario": [],
+   "control_dentro_del_inventario": true,
+   "por_entidad": {
+    "10.10.10.1": {
+     "ventanas": 49,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.10.20": {
+     "ventanas": 199,
+     "IF_0.05": 26,
+     "IF_0.03": 10,
+     "IF_0.01": 1,
+     "HEUR": 88,
+     "HIB_0.05": 97,
+     "HIB_0.03": 92,
+     "HIB_0.01": 88,
+     "excepcion_respuesta": true
+    },
+    "10.10.10.21": {
+     "ventanas": 199,
+     "IF_0.05": 2,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 2,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.10.51": {
+     "ventanas": 12,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.20.20": {
+     "ventanas": 6,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.20.21": {
+     "ventanas": 199,
+     "IF_0.05": 17,
+     "IF_0.03": 4,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 17,
+     "HIB_0.03": 4,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.20.22": {
+     "ventanas": 199,
+     "IF_0.05": 171,
+     "IF_0.03": 128,
+     "IF_0.01": 50,
+     "HEUR": 0,
+     "HIB_0.05": 171,
+     "HIB_0.03": 128,
+     "HIB_0.01": 50,
+     "excepcion_respuesta": false
+    },
+    "10.10.20.23": {
+     "ventanas": 199,
+     "IF_0.05": 1,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 1,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.20.24": {
+     "ventanas": 199,
+     "IF_0.05": 124,
+     "IF_0.03": 74,
+     "IF_0.01": 9,
+     "HEUR": 0,
+     "HIB_0.05": 124,
+     "HIB_0.03": 74,
+     "HIB_0.01": 9,
+     "excepcion_respuesta": false
+    },
+    "10.10.20.25": {
+     "ventanas": 199,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.20.26": {
+     "ventanas": 199,
+     "IF_0.05": 46,
+     "IF_0.03": 36,
+     "IF_0.01": 23,
+     "HEUR": 4,
+     "HIB_0.05": 46,
+     "HIB_0.03": 36,
+     "HIB_0.01": 24,
+     "excepcion_respuesta": false
+    },
+    "10.10.20.30": {
+     "ventanas": 6,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.30.10": {
+     "ventanas": 12,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.40.10": {
+     "ventanas": 199,
+     "IF_0.05": 1,
+     "IF_0.03": 1,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 1,
+     "HIB_0.03": 1,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.50.51": {
+     "ventanas": 199,
+     "IF_0.05": 4,
+     "IF_0.03": 1,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 4,
+     "HIB_0.03": 1,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.50.52": {
+     "ventanas": 199,
+     "IF_0.05": 3,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 3,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.60.12": {
+     "ventanas": 199,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.99.10": {
+     "ventanas": 38,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.99.2": {
+     "ventanas": 28,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.99.5": {
+     "ventanas": 28,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.99.7": {
+     "ventanas": 28,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.99.8": {
+     "ventanas": 27,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    }
+   },
+   "por_entidad_nota": "ventanas decididas en vivo en todo el intervalo declarado"
+  },
+  "replay_cand": {
+   "intervalo_declarado_utc": [
+    "2026-11-01T07:32:00+00:00",
+    "2026-11-01T08:05:00+00:00"
+   ],
+   "historico_fpr_control": {
+    "ventanas": 2622,
+    "denominador": 2622,
+    "desde": "2026-11-01T07:32:00+00:00",
+    "hasta": "2026-11-01T08:05:00+00:00",
+    "seleccion": "población por ventana: window_end_utc en [desde, hasta] con AMBOS extremos incluidos, el mismo campo e intervalo para decisiones y eventos ventana_no_evaluada, y las mismas exclusiones de población JUSTIFICADAS (poblacion.py; las excepciones de respuesta, p. ej. el DNS, NO se excluyen). Claves entity_ip|window_end únicas: decisiones deduplicadas (leer_motor), no evaluadas duplicadas contadas una vez y, en conflicto, prevalece la decisión. Una decisión escrita después de 'hasta' cuenta si su ventana pertenece al control; logged_at no se altera.",
+    "decisiones_escritas_tras_hasta": 12,
+    "ventanas_no_evaluadas": 0,
+    "ventanas_no_evaluadas_por_motivo": {},
+    "cobertura_entre_registradas": 1.0,
+    "cobertura_entre_registradas_significado": "evaluadas / (evaluadas + no evaluadas explícitas): solo sobre las ventanas que dejaron algún registro; sin inventario independiente de ventanas esperadas NO garantiza que no falten registros",
+    "inventario_esperado": "no disponible: no se informan claves esperadas sin registro ni cobertura total del control",
+    "denominador_significado": "ventanas con decisión registrada (evaluadas); las ventanas no evaluadas no son TN, FP ni FN y una decisión ausente no es PERMIT: las tasas se leen junto a la cobertura",
+    "IF_0.05": {
+     "falsas_alarmas": 395,
+     "tasa": 0.150648
+    },
+    "IF_0.03": {
+     "falsas_alarmas": 254,
+     "tasa": 0.096873
+    },
+    "IF_0.01": {
+     "falsas_alarmas": 83,
+     "tasa": 0.031655
+    },
+    "HEUR": {
+     "falsas_alarmas": 0,
+     "tasa": 0.0
+    },
+    "HIB_0.05": {
+     "falsas_alarmas": 395,
+     "tasa": 0.150648
+    },
+    "HIB_0.03": {
+     "falsas_alarmas": 254,
+     "tasa": 0.096873
+    },
+    "HIB_0.01": {
+     "falsas_alarmas": 83,
+     "tasa": 0.031655
+    }
+   },
+   "umbral_cobertura": "no se adopta un umbral automático (p. ej. 90 %): la tasa se publica con su cobertura y sus cotas",
+   "tramo_cubierto": {
+    "intervalo_utc": [
+     "2026-11-01T07:32:00+00:00",
+     "2026-11-01T08:05:00+00:00"
+    ],
+    "requeridas": 2622,
+    "decididas": 2622,
+    "sin_decision": 0,
+    "sin_decision_por_estado": {},
+    "no_evaluadas_en_referencia": 0,
+    "cobertura_total": 1.0,
+    "solo_en_vivo_fuera_del_denominador": 0,
+    "IF_0.05": {
+     "falsas_alarmas": 395,
+     "tasa_entre_decididas": 0.150648,
+     "cotas_sobre_requeridas": {
+      "min": 0.150648,
+      "max": 0.150648
+     }
+    },
+    "IF_0.03": {
+     "falsas_alarmas": 254,
+     "tasa_entre_decididas": 0.096873,
+     "cotas_sobre_requeridas": {
+      "min": 0.096873,
+      "max": 0.096873
+     }
+    },
+    "IF_0.01": {
+     "falsas_alarmas": 83,
+     "tasa_entre_decididas": 0.031655,
+     "cotas_sobre_requeridas": {
+      "min": 0.031655,
+      "max": 0.031655
+     }
+    },
+    "HEUR": {
+     "falsas_alarmas": 0,
+     "tasa_entre_decididas": 0.0,
+     "cotas_sobre_requeridas": {
+      "min": 0.0,
+      "max": 0.0
+     }
+    },
+    "HIB_0.05": {
+     "falsas_alarmas": 395,
+     "tasa_entre_decididas": 0.150648,
+     "cotas_sobre_requeridas": {
+      "min": 0.150648,
+      "max": 0.150648
+     }
+    },
+    "HIB_0.03": {
+     "falsas_alarmas": 254,
+     "tasa_entre_decididas": 0.096873,
+     "cotas_sobre_requeridas": {
+      "min": 0.096873,
+      "max": 0.096873
+     }
+    },
+    "HIB_0.01": {
+     "falsas_alarmas": 83,
+     "tasa_entre_decididas": 0.031655,
+     "cotas_sobre_requeridas": {
+      "min": 0.031655,
+      "max": 0.031655
+     }
+    },
+    "regla": "denominador de las cotas = requeridas del tramo; las sin decisión no se suponen negativas ni positivas"
+   },
+   "tramos_sin_inventario": [],
+   "control_dentro_del_inventario": true,
+   "por_entidad": {
+    "10.10.10.1": {
+     "ventanas": 49,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.10.20": {
+     "ventanas": 199,
+     "IF_0.05": 26,
+     "IF_0.03": 10,
+     "IF_0.01": 1,
+     "HEUR": 0,
+     "HIB_0.05": 26,
+     "HIB_0.03": 10,
+     "HIB_0.01": 1,
+     "excepcion_respuesta": true
+    },
+    "10.10.10.21": {
+     "ventanas": 199,
+     "IF_0.05": 2,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 2,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.10.51": {
+     "ventanas": 12,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.20.20": {
+     "ventanas": 6,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.20.21": {
+     "ventanas": 199,
+     "IF_0.05": 17,
+     "IF_0.03": 4,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 17,
+     "HIB_0.03": 4,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.20.22": {
+     "ventanas": 199,
+     "IF_0.05": 171,
+     "IF_0.03": 128,
+     "IF_0.01": 50,
+     "HEUR": 0,
+     "HIB_0.05": 171,
+     "HIB_0.03": 128,
+     "HIB_0.01": 50,
+     "excepcion_respuesta": false
+    },
+    "10.10.20.23": {
+     "ventanas": 199,
+     "IF_0.05": 1,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 1,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.20.24": {
+     "ventanas": 199,
+     "IF_0.05": 124,
+     "IF_0.03": 74,
+     "IF_0.01": 9,
+     "HEUR": 0,
+     "HIB_0.05": 124,
+     "HIB_0.03": 74,
+     "HIB_0.01": 9,
+     "excepcion_respuesta": false
+    },
+    "10.10.20.25": {
+     "ventanas": 199,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.20.26": {
+     "ventanas": 199,
+     "IF_0.05": 46,
+     "IF_0.03": 36,
+     "IF_0.01": 23,
+     "HEUR": 0,
+     "HIB_0.05": 46,
+     "HIB_0.03": 36,
+     "HIB_0.01": 23,
+     "excepcion_respuesta": false
+    },
+    "10.10.20.30": {
+     "ventanas": 6,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.30.10": {
+     "ventanas": 12,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.40.10": {
+     "ventanas": 199,
+     "IF_0.05": 1,
+     "IF_0.03": 1,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 1,
+     "HIB_0.03": 1,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.50.51": {
+     "ventanas": 199,
+     "IF_0.05": 4,
+     "IF_0.03": 1,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 4,
+     "HIB_0.03": 1,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.50.52": {
+     "ventanas": 199,
+     "IF_0.05": 3,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 3,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.60.12": {
+     "ventanas": 199,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.99.10": {
+     "ventanas": 38,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.99.2": {
+     "ventanas": 28,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.99.5": {
+     "ventanas": 28,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.99.7": {
+     "ventanas": 28,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    },
+    "10.10.99.8": {
+     "ventanas": 27,
+     "IF_0.05": 0,
+     "IF_0.03": 0,
+     "IF_0.01": 0,
+     "HEUR": 0,
+     "HIB_0.05": 0,
+     "HIB_0.03": 0,
+     "HIB_0.01": 0,
+     "excepcion_respuesta": false
+    }
+   },
+   "por_entidad_nota": "ventanas decididas en vivo en todo el intervalo declarado"
+  }
+ }
+}

@@ -1,0 +1,1152 @@
+{
+ "registros": {
+  "referencia": "C:/Users/markp/AppData/Local/Temp/claude/C--Users-markp-Desktop-PY-MEGATRON-PY---PERSONAL-TESIS/51c74eee-a71d-4dd3-9ea4-b614ec3c2579/scratchpad/replay/e3-b1ee393-e5-eventos/motor_decision.log",
+  "nuevo": "C:/Users/markp/AppData/Local/Temp/claude/C--Users-markp-Desktop-PY-MEGATRON-PY---PERSONAL-TESIS/51c74eee-a71d-4dd3-9ea4-b614ec3c2579/scratchpad/replay/cierre-49a29db-e5-eventos/motor_decision.log"
+ },
+ "decisiones": {
+  "referencia": 12726,
+  "nuevo": 12726,
+  "comunes": 12726
+ },
+ "scores_distintos": 0,
+ "cambios_de_decision_final": 36,
+ "transiciones": {
+  "ALERT/auth_failure_heuristic -> PERMIT/no_live_packets_heuristic": 36
+ },
+ "cambios_por_entidad": {
+  "10.10.20.30": 36
+ },
+ "cambios_con_if_puro_distinto_de_la_final_nueva": 0,
+ "referencia_auth_failure": 61,
+ "referencia_auth_failure_sin_evidencia_valida": 36,
+ "nuevo_auth_failure": 25,
+ "nuevo_senal_historica_no_autorizada": 91,
+ "feed": {
+  "referencia_585da7b": {
+   "eventos_por_tipo_y_regla": {
+    "escalada|port_scan": 1,
+    "mantenida|auth_failure_heuristic": 48,
+    "mantenida|brute_force": 65,
+    "mantenida|dns_entropy": 50,
+    "mantenida|http_abuse": 65,
+    "mantenida|port_scan": 36,
+    "nueva|dns_entropy": 5,
+    "nueva|http_abuse": 2,
+    "nueva|port_scan": 1,
+    "renovada|auth_failure_heuristic": 13,
+    "renovada|brute_force": 10,
+    "renovada|dns_entropy": 7,
+    "renovada|http_abuse": 8,
+    "renovada|port_scan": 19
+   },
+   "restricciones_creadas_o_renovadas": 66,
+   "por_regla": {
+    "port_scan": 21,
+    "http_abuse": 10,
+    "dns_entropy": 12,
+    "brute_force": 10,
+    "auth_failure_heuristic": 13
+   },
+   "auth_failure_ips": {
+    "10.10.20.30": 13
+   },
+   "auth_failure_eventos": [
+    {
+     "ip": "10.10.20.30",
+     "tipo": "renovada",
+     "window_end_utc": "2026-11-01T08:53:20+00:00",
+     "accion": "BLOCK",
+     "hasta": 1793526802
+    },
+    {
+     "ip": "10.10.20.30",
+     "tipo": "renovada",
+     "window_end_utc": "2026-11-01T08:54:20+00:00",
+     "accion": "BLOCK",
+     "hasta": 1793526862
+    },
+    {
+     "ip": "10.10.20.30",
+     "tipo": "renovada",
+     "window_end_utc": "2026-11-01T08:58:20+00:00",
+     "accion": "BLOCK",
+     "hasta": 1793527102
+    },
+    {
+     "ip": "10.10.20.30",
+     "tipo": "renovada",
+     "window_end_utc": "2026-11-01T08:59:20+00:00",
+     "accion": "BLOCK",
+     "hasta": 1793527162
+    },
+    {
+     "ip": "10.10.20.30",
+     "tipo": "renovada",
+     "window_end_utc": "2026-11-01T09:08:40+00:00",
+     "accion": "BLOCK",
+     "hasta": 1793527722
+    },
+    {
+     "ip": "10.10.20.30",
+     "tipo": "renovada",
+     "window_end_utc": "2026-11-01T09:17:50+00:00",
+     "accion": "BLOCK",
+     "hasta": 1793528272
+    },
+    {
+     "ip": "10.10.20.30",
+     "tipo": "renovada",
+     "window_end_utc": "2026-11-01T09:18:50+00:00",
+     "accion": "BLOCK",
+     "hasta": 1793528332
+    },
+    {
+     "ip": "10.10.20.30",
+     "tipo": "renovada",
+     "window_end_utc": "2026-11-01T09:22:50+00:00",
+     "accion": "BLOCK",
+     "hasta": 1793528572
+    },
+    {
+     "ip": "10.10.20.30",
+     "tipo": "renovada",
+     "window_end_utc": "2026-11-01T09:23:50+00:00",
+     "accion": "BLOCK",
+     "hasta": 1793528632
+    },
+    {
+     "ip": "10.10.20.30",
+     "tipo": "renovada",
+     "window_end_utc": "2026-11-01T09:28:10+00:00",
+     "accion": "BLOCK",
+     "hasta": 1793528892
+    },
+    {
+     "ip": "10.10.20.30",
+     "tipo": "renovada",
+     "window_end_utc": "2026-11-01T09:33:20+00:00",
+     "accion": "BLOCK",
+     "hasta": 1793529202
+    },
+    {
+     "ip": "10.10.20.30",
+     "tipo": "renovada",
+     "window_end_utc": "2026-11-01T09:49:20+00:00",
+     "accion": "BLOCK",
+     "hasta": 1793530162
+    },
+    {
+     "ip": "10.10.20.30",
+     "tipo": "renovada",
+     "window_end_utc": "2026-11-01T09:50:20+00:00",
+     "accion": "BLOCK",
+     "hasta": 1793530222
+    }
+   ]
+  },
+  "nuevo": {
+   "eventos_por_tipo_y_regla": {
+    "escalada|port_scan": 1,
+    "mantenida|auth_failure_heuristic": 20,
+    "mantenida|brute_force": 65,
+    "mantenida|dns_entropy": 50,
+    "mantenida|http_abuse": 65,
+    "mantenida|port_scan": 36,
+    "nueva|dns_entropy": 5,
+    "nueva|http_abuse": 2,
+    "nueva|port_scan": 1,
+    "renovada|auth_failure_heuristic": 5,
+    "renovada|brute_force": 10,
+    "renovada|dns_entropy": 7,
+    "renovada|http_abuse": 8,
+    "renovada|port_scan": 19
+   },
+   "restricciones_creadas_o_renovadas": 58,
+   "por_regla": {
+    "port_scan": 21,
+    "http_abuse": 10,
+    "dns_entropy": 12,
+    "brute_force": 10,
+    "auth_failure_heuristic": 5
+   },
+   "auth_failure_ips": {
+    "10.10.20.30": 5
+   },
+   "auth_failure_eventos": [
+    {
+     "ip": "10.10.20.30",
+     "tipo": "renovada",
+     "window_end_utc": "2026-11-01T08:53:20+00:00",
+     "accion": "BLOCK",
+     "hasta": 1793526802
+    },
+    {
+     "ip": "10.10.20.30",
+     "tipo": "renovada",
+     "window_end_utc": "2026-11-01T08:58:20+00:00",
+     "accion": "BLOCK",
+     "hasta": 1793527102
+    },
+    {
+     "ip": "10.10.20.30",
+     "tipo": "renovada",
+     "window_end_utc": "2026-11-01T09:17:50+00:00",
+     "accion": "BLOCK",
+     "hasta": 1793528272
+    },
+    {
+     "ip": "10.10.20.30",
+     "tipo": "renovada",
+     "window_end_utc": "2026-11-01T09:22:50+00:00",
+     "accion": "BLOCK",
+     "hasta": 1793528572
+    },
+    {
+     "ip": "10.10.20.30",
+     "tipo": "renovada",
+     "window_end_utc": "2026-11-01T09:49:20+00:00",
+     "accion": "BLOCK",
+     "hasta": 1793530162
+    }
+   ]
+  }
+ },
+ "cambios": [
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T08:53:50+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 375
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T08:54:00+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 344
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T08:54:10+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 289
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T08:54:20+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 221
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T08:54:30+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 163
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T08:54:40+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 70
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T08:54:50+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 6
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T08:58:50+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 378
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T08:59:00+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 312
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T08:59:10+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 262
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T08:59:20+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 214
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T08:59:30+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 158
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T09:08:40+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 20
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T09:18:20+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 281
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T09:18:30+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 263
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T09:18:40+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 213
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T09:18:50+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 168
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T09:19:00+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 111
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T09:19:10+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 58
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T09:19:20+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 19
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T09:23:20+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 392
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T09:23:30+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 378
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T09:23:40+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 316
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T09:23:50+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 267
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T09:24:00+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 206
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T09:24:10+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 120
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T09:24:20+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 33
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T09:28:10+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 8
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T09:33:20+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 16
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T09:49:50+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 193
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T09:50:00+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 165
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T09:50:10+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 134
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T09:50:20+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 107
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T09:50:30+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 74
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T09:50:40+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 34
+   }
+  },
+  {
+   "entidad": "10.10.20.30",
+   "ventana": "2026-11-01T09:57:50+00:00",
+   "referencia": [
+    "ALERT",
+    "auth_failure_heuristic"
+   ],
+   "nuevo": [
+    "PERMIT",
+    "no_live_packets_heuristic"
+   ],
+   "score_ref": null,
+   "score_nuevo": null,
+   "if_puro": null,
+   "decision_if_nuevo": null,
+   "auth_failure": {
+    "autoriza": false,
+    "historico": true,
+    "vista": false
+   },
+   "http_vista": {
+    "httph_fallo_auth_ratio_60s": 0.0,
+    "httph_peticiones_60s": 0,
+    "httph_tardios_excluidos_60s": 26
+   }
+  }
+ ]
+}

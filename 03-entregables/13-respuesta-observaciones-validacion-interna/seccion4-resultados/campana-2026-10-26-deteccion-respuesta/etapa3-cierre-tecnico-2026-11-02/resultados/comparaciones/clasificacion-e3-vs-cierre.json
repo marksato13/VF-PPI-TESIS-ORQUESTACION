@@ -1,0 +1,83 @@
+{
+ "configuraciones": [
+  "IF_0.05",
+  "IF_0.03",
+  "IF_0.01",
+  "HEUR",
+  "HIB_0.05",
+  "HIB_0.03",
+  "HIB_0.01"
+ ],
+ "campos": [
+  "categoria",
+  "senales_atribuibles",
+  "oportunas",
+  "senales_no_atribuibles"
+ ],
+ "diferencias": [
+  [
+   "dns_inusual-r1",
+   "HEUR",
+   {
+    "categoria": "oportuna",
+    "senales_atribuibles": 13,
+    "oportunas": 7,
+    "senales_no_atribuibles": []
+   },
+   {
+    "categoria": "oportuna",
+    "senales_atribuibles": 12,
+    "oportunas": 7,
+    "senales_no_atribuibles": []
+   }
+  ],
+  [
+   "dns_inusual-r1",
+   "HIB_0.05",
+   {
+    "categoria": "oportuna",
+    "senales_atribuibles": 14,
+    "oportunas": 8,
+    "senales_no_atribuibles": []
+   },
+   {
+    "categoria": "oportuna",
+    "senales_atribuibles": 13,
+    "oportunas": 8,
+    "senales_no_atribuibles": []
+   }
+  ],
+  [
+   "dns_inusual-r1",
+   "HIB_0.03",
+   {
+    "categoria": "oportuna",
+    "senales_atribuibles": 14,
+    "oportunas": 8,
+    "senales_no_atribuibles": []
+   },
+   {
+    "categoria": "oportuna",
+    "senales_atribuibles": 13,
+    "oportunas": 8,
+    "senales_no_atribuibles": []
+   }
+  ],
+  [
+   "dns_inusual-r1",
+   "HIB_0.01",
+   {
+    "categoria": "oportuna",
+    "senales_atribuibles": 14,
+    "oportunas": 8,
+    "senales_no_atribuibles": []
+   },
+   {
+    "categoria": "oportuna",
+    "senales_atribuibles": 13,
+    "oportunas": 8,
+    "senales_no_atribuibles": []
+   }
+  ]
+ ]
+}

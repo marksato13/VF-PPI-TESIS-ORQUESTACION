@@ -1,0 +1,12 @@
+== pruebas nuevas en Linux
+..............                                                           [100%]
+14 passed in 5.18s
+== ensayo VLAN (captura)
+escaneo_breve-r4.pcap sin_etiqueta {"tcp": [2096, 84, 48, 1], "tcp_o_vlan_tcp": [2096, 84, 48, 1], "sin_filtro": [2096, 84, 48, 1]}
+escaneo_breve-r5.pcap etiquetada {"tcp": [2104, 84, 88, 1], "tcp_o_vlan_tcp": [2104, 84, 88, 1], "sin_filtro": [2104, 84, 88, 1]}
+escaneo_breve-r5.pcap sin_etiqueta {"tcp": [2104, 84, 88, 1], "tcp_o_vlan_tcp": [2104, 84, 88, 1], "sin_filtro": [2104, 84, 88, 1]}
+== C sin VLAN (escaso + carga) x3
+30 /out/bateria-c/ensayo-via-rapida.jsonl
+== C con VLAN conservada (escaso + carga) x3
+30 /out/bateria-c-vlan/ensayo-via-rapida.jsonl
+FIN

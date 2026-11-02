@@ -1,0 +1,23 @@
+== 585da7b (ficheros corregidos revertidos) + pruebas nuevas
+FAILED tests/test_detector_rapido_flujo.py::LecturaContinua::test_rafaga_completa_en_una_escritura_con_tuberia_abierta
+FAILED tests/test_detector_rapido_flujo.py::AnalizadorIncremental::test_equivale_al_lector_de_fichero_con_cualquier_troceo
+FAILED tests/test_detector_rapido_flujo.py::AnalizadorIncremental::test_no_pcap
+FAILED tests/test_detector_rapido_flujo.py::AnalizadorIncremental::test_registro_incompleto_queda_pendiente
+FAILED tests/test_auth_failure_vista.py::Publicador::test_solo_http_tardio_ni_nueva_ni_renovacion
+FAILED tests/test_auth_failure_vista.py::Publicador::test_valida_y_tardia_mezcladas_solo_la_valida_justifica
+FAILED tests/test_auth_failure_vista.py::RecorridoCompleto::test_del_registro_del_motor_a_las_entradas_del_feed
+7 failed, 5 passed in 7.12s
+== correccion + pruebas nuevas
+............                                                             [100%]
+12 passed in 4.16s
+== suite completa (correccion)
+........................................................................ [ 11%]
+.....................................................................s.. [ 22%]
+........................................................................ [ 33%]
+........................................................................ [ 45%]
+........................................................................ [ 56%]
+........................................................................ [ 67%]
+........................................................................ [ 78%]
+........................................................................ [ 90%]
+................................................................         [100%]
+639 passed, 1 skipped in 30.06s
