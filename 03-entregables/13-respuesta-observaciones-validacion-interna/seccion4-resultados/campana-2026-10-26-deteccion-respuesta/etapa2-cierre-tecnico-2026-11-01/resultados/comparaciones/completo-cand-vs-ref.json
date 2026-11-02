@@ -1,0 +1,1312 @@
+{
+ "desde": 1793518140.0,
+ "hasta": 1793527440.0,
+ "referencia": "completo-ref-orig15-periodico",
+ "runs": {
+  "completo-cand-e5-eventos": {
+   "arranques": 1,
+   "ciclo_s": {
+    "max": 23.144,
+    "media": 1.678,
+    "n": 1906,
+    "p50": 1.182,
+    "p90": 3.616
+   },
+   "decisiones": 12212,
+   "duplicados": 0,
+   "episodios": {
+    "dns_inusual-r1": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 14.2,
+      "ventana_desde_inicio_s": 10.9
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 14.2,
+      "ventana_desde_inicio_s": 10.9
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 14.2,
+      "ventana_desde_inicio_s": 10.9
+     },
+     "regla_dns_entropy": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 14.2,
+      "ventana_desde_inicio_s": 10.9
+     }
+    },
+    "dns_inusual-r2": {
+     "IF_0.01": {
+      "estado": "ausente"
+     },
+     "IF_0.03": {
+      "estado": "ausente"
+     },
+     "IF_0.05": {
+      "estado": "ausente"
+     },
+     "regla_dns_entropy": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 13.3,
+      "ventana_desde_inicio_s": 10.0
+     }
+    },
+    "dns_inusual-r3": {
+     "IF_0.01": {
+      "estado": "ausente"
+     },
+     "IF_0.03": {
+      "estado": "ausente"
+     },
+     "IF_0.05": {
+      "estado": "ausente"
+     },
+     "regla_dns_entropy": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 7.6,
+      "ventana_desde_inicio_s": 4.9
+     }
+    },
+    "dns_inusual-r4": {
+     "IF_0.01": {
+      "estado": "ausente"
+     },
+     "IF_0.03": {
+      "estado": "ausente"
+     },
+     "IF_0.05": {
+      "estado": "ausente"
+     },
+     "regla_dns_entropy": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 11.1,
+      "ventana_desde_inicio_s": 7.4
+     }
+    },
+    "dns_inusual-r5": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 19.0,
+      "ventana_desde_inicio_s": 16.0
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 19.0,
+      "ventana_desde_inicio_s": 16.0
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 19.0,
+      "ventana_desde_inicio_s": 16.0
+     },
+     "regla_dns_entropy": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 9.2,
+      "ventana_desde_inicio_s": 6.0
+     }
+    },
+    "escaneo_breve-r1": {
+     "IF_0.01": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 23.5,
+      "ventana_desde_inicio_s": 20.6
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 13.5,
+      "ventana_desde_inicio_s": 10.6
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 13.5,
+      "ventana_desde_inicio_s": 10.6
+     },
+     "regla_port_scan": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 23.5,
+      "ventana_desde_inicio_s": 20.6
+     }
+    },
+    "escaneo_breve-r2": {
+     "IF_0.01": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 22.8,
+      "ventana_desde_inicio_s": 17.9
+     },
+     "IF_0.03": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 22.8,
+      "ventana_desde_inicio_s": 17.9
+     },
+     "IF_0.05": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 22.8,
+      "ventana_desde_inicio_s": 17.9
+     },
+     "regla_port_scan": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 22.8,
+      "ventana_desde_inicio_s": 17.9
+     }
+    },
+    "escaneo_breve-r3": {
+     "IF_0.01": {
+      "estado": "ausente"
+     },
+     "IF_0.03": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 27.7,
+      "ventana_desde_inicio_s": 25.0
+     },
+     "IF_0.05": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 27.7,
+      "ventana_desde_inicio_s": 25.0
+     },
+     "regla_port_scan": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 17.8,
+      "ventana_desde_inicio_s": 15.0
+     }
+    },
+    "escaneo_breve-r4": {
+     "IF_0.01": {
+      "estado": "ausente"
+     },
+     "IF_0.03": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 25.6,
+      "ventana_desde_inicio_s": 23.0
+     },
+     "IF_0.05": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 25.6,
+      "ventana_desde_inicio_s": 23.0
+     },
+     "regla_port_scan": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 25.6,
+      "ventana_desde_inicio_s": 23.0
+     }
+    },
+    "escaneo_breve-r5": {
+     "IF_0.01": {
+      "estado": "ausente"
+     },
+     "IF_0.03": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 26.1,
+      "ventana_desde_inicio_s": 23.1
+     },
+     "IF_0.05": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 26.1,
+      "ventana_desde_inicio_s": 23.1
+     },
+     "regla_port_scan": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 26.1,
+      "ventana_desde_inicio_s": 23.1
+     }
+    },
+    "escaneo_sostenido-r1": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 23.9,
+      "ventana_desde_inicio_s": 20.0
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 23.9,
+      "ventana_desde_inicio_s": 20.0
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 23.9,
+      "ventana_desde_inicio_s": 20.0
+     },
+     "regla_port_scan": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 23.9,
+      "ventana_desde_inicio_s": 20.0
+     }
+    },
+    "escaneo_sostenido-r2": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 24.2,
+      "ventana_desde_inicio_s": 20.9
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 24.2,
+      "ventana_desde_inicio_s": 20.9
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 24.2,
+      "ventana_desde_inicio_s": 20.9
+     },
+     "regla_port_scan": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 24.2,
+      "ventana_desde_inicio_s": 20.9
+     }
+    },
+    "escaneo_sostenido-r3": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 8.5,
+      "ventana_desde_inicio_s": 5.6
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 8.5,
+      "ventana_desde_inicio_s": 5.6
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 8.5,
+      "ventana_desde_inicio_s": 5.6
+     },
+     "regla_port_scan": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 17.9,
+      "ventana_desde_inicio_s": 15.6
+     }
+    },
+    "escaneo_sostenido-r4": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 30.4,
+      "ventana_desde_inicio_s": 24.9
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 30.4,
+      "ventana_desde_inicio_s": 24.9
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 19.3,
+      "ventana_desde_inicio_s": 14.9
+     },
+     "regla_port_scan": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 19.3,
+      "ventana_desde_inicio_s": 14.9
+     }
+    },
+    "escaneo_sostenido-r5": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 22.5,
+      "ventana_desde_inicio_s": 18.8
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 22.5,
+      "ventana_desde_inicio_s": 18.8
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 22.5,
+      "ventana_desde_inicio_s": 18.8
+     },
+     "regla_port_scan": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 22.5,
+      "ventana_desde_inicio_s": 18.8
+     }
+    },
+    "fuerza_bruta_http-r1": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 11.5,
+      "ventana_desde_inicio_s": 7.9
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 11.5,
+      "ventana_desde_inicio_s": 7.9
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 11.5,
+      "ventana_desde_inicio_s": 7.9
+     },
+     "regla_brute_force": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 11.5,
+      "ventana_desde_inicio_s": 7.9
+     }
+    },
+    "fuerza_bruta_http-r2": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 4.2,
+      "ventana_desde_inicio_s": 1.0
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 4.2,
+      "ventana_desde_inicio_s": 1.0
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 4.2,
+      "ventana_desde_inicio_s": 1.0
+     },
+     "regla_brute_force": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 4.2,
+      "ventana_desde_inicio_s": 1.0
+     }
+    },
+    "fuerza_bruta_http-r3": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 9.2,
+      "ventana_desde_inicio_s": 5.1
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 9.2,
+      "ventana_desde_inicio_s": 5.1
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 9.2,
+      "ventana_desde_inicio_s": 5.1
+     },
+     "regla_brute_force": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 9.2,
+      "ventana_desde_inicio_s": 5.1
+     }
+    },
+    "fuerza_bruta_http-r4": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 4.3,
+      "ventana_desde_inicio_s": 0.9
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 4.3,
+      "ventana_desde_inicio_s": 0.9
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 4.3,
+      "ventana_desde_inicio_s": 0.9
+     },
+     "regla_brute_force": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 4.3,
+      "ventana_desde_inicio_s": 0.9
+     }
+    },
+    "fuerza_bruta_http-r5": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 10.0,
+      "ventana_desde_inicio_s": 6.0
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 10.0,
+      "ventana_desde_inicio_s": 6.0
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 10.0,
+      "ventana_desde_inicio_s": 6.0
+     },
+     "regla_brute_force": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 10.0,
+      "ventana_desde_inicio_s": 6.0
+     }
+    },
+    "inundacion_http-r1": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 9.2,
+      "ventana_desde_inicio_s": 4.5
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 9.2,
+      "ventana_desde_inicio_s": 4.5
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 9.2,
+      "ventana_desde_inicio_s": 4.5
+     },
+     "regla_http_abuse": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 9.2,
+      "ventana_desde_inicio_s": 4.5
+     }
+    },
+    "inundacion_http-r2": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 11.7,
+      "ventana_desde_inicio_s": 4.9
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 11.7,
+      "ventana_desde_inicio_s": 4.9
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 11.7,
+      "ventana_desde_inicio_s": 4.9
+     },
+     "regla_http_abuse": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 11.7,
+      "ventana_desde_inicio_s": 4.9
+     }
+    },
+    "inundacion_http-r3": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 10.0,
+      "ventana_desde_inicio_s": 5.0
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 10.0,
+      "ventana_desde_inicio_s": 5.0
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 10.0,
+      "ventana_desde_inicio_s": 5.0
+     },
+     "regla_http_abuse": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 10.0,
+      "ventana_desde_inicio_s": 5.0
+     }
+    },
+    "inundacion_http-r4": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 9.0,
+      "ventana_desde_inicio_s": 4.8
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 9.0,
+      "ventana_desde_inicio_s": 4.8
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 9.0,
+      "ventana_desde_inicio_s": 4.8
+     },
+     "regla_http_abuse": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 9.0,
+      "ventana_desde_inicio_s": 4.8
+     }
+    },
+    "inundacion_http-r5": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 13.1,
+      "ventana_desde_inicio_s": 7.9
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 13.1,
+      "ventana_desde_inicio_s": 7.9
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 13.1,
+      "ventana_desde_inicio_s": 7.9
+     },
+     "regla_http_abuse": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 13.1,
+      "ventana_desde_inicio_s": 7.9
+     }
+    }
+   },
+   "frente_a_referencia": {
+    "clases_iguales_por_alfa": {
+     "0.01": 12212,
+     "0.03": 12212,
+     "0.05": 12212
+    },
+    "comunes": 12226,
+    "decision_o_detector_distintos": 0,
+    "duplicados_otro": 0,
+    "duplicados_ref": 0,
+    "ejemplos_solo_otro": [],
+    "ejemplos_solo_ref": [],
+    "ejemplos_vectores_distintos": [],
+    "historial_en_vectores_distintos": {},
+    "por_caracteristica": {},
+    "reglas_distintas": 0,
+    "score_dif_max": 0.0,
+    "scores_comparados": 12212,
+    "scores_distintos": 0,
+    "solo_otro": 0,
+    "solo_ref": 0,
+    "vectores_comparados": 9244,
+    "vectores_distintos": 0
+   },
+   "historial_completo": {
+    "True": 12212
+   },
+   "latencia_s": {
+    "max": 37.766,
+    "media": 4.196,
+    "n": 12212,
+    "p50": 3.387,
+    "p90": 6.177
+   },
+   "memoria_pico_mb": 1218.2,
+   "no_evaluadas": 14
+  },
+  "completo-ref-orig15-periodico": {
+   "arranques": 1,
+   "ciclo_s": {
+    "max": 24.511,
+    "media": 2.942,
+    "n": 952,
+    "p50": 2.399,
+    "p90": 6.207
+   },
+   "decisiones": 12212,
+   "duplicados": 0,
+   "episodios": {
+    "dns_inusual-r1": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 27.2,
+      "ventana_desde_inicio_s": 10.9
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 27.2,
+      "ventana_desde_inicio_s": 10.9
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 27.2,
+      "ventana_desde_inicio_s": 10.9
+     },
+     "regla_dns_entropy": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 27.2,
+      "ventana_desde_inicio_s": 10.9
+     }
+    },
+    "dns_inusual-r2": {
+     "IF_0.01": {
+      "estado": "ausente"
+     },
+     "IF_0.03": {
+      "estado": "ausente"
+     },
+     "IF_0.05": {
+      "estado": "ausente"
+     },
+     "regla_dns_entropy": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 22.4,
+      "ventana_desde_inicio_s": 10.0
+     }
+    },
+    "dns_inusual-r3": {
+     "IF_0.01": {
+      "estado": "ausente"
+     },
+     "IF_0.03": {
+      "estado": "ausente"
+     },
+     "IF_0.05": {
+      "estado": "ausente"
+     },
+     "regla_dns_entropy": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 24.3,
+      "ventana_desde_inicio_s": 4.9
+     }
+    },
+    "dns_inusual-r4": {
+     "IF_0.01": {
+      "estado": "ausente"
+     },
+     "IF_0.03": {
+      "estado": "ausente"
+     },
+     "IF_0.05": {
+      "estado": "ausente"
+     },
+     "regla_dns_entropy": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 34.2,
+      "ventana_desde_inicio_s": 7.4
+     }
+    },
+    "dns_inusual-r5": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 27.7,
+      "ventana_desde_inicio_s": 16.0
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 27.7,
+      "ventana_desde_inicio_s": 16.0
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 27.7,
+      "ventana_desde_inicio_s": 16.0
+     },
+     "regla_dns_entropy": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 27.7,
+      "ventana_desde_inicio_s": 6.0
+     }
+    },
+    "escaneo_breve-r1": {
+     "IF_0.01": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 34.9,
+      "ventana_desde_inicio_s": 20.6
+     },
+     "IF_0.03": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 25.6,
+      "ventana_desde_inicio_s": 10.6
+     },
+     "IF_0.05": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 25.6,
+      "ventana_desde_inicio_s": 10.6
+     },
+     "regla_port_scan": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 34.9,
+      "ventana_desde_inicio_s": 20.6
+     }
+    },
+    "escaneo_breve-r2": {
+     "IF_0.01": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 36.6,
+      "ventana_desde_inicio_s": 17.9
+     },
+     "IF_0.03": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 36.6,
+      "ventana_desde_inicio_s": 17.9
+     },
+     "IF_0.05": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 36.6,
+      "ventana_desde_inicio_s": 17.9
+     },
+     "regla_port_scan": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 36.6,
+      "ventana_desde_inicio_s": 17.9
+     }
+    },
+    "escaneo_breve-r3": {
+     "IF_0.01": {
+      "estado": "ausente"
+     },
+     "IF_0.03": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 50.7,
+      "ventana_desde_inicio_s": 25.0
+     },
+     "IF_0.05": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 50.7,
+      "ventana_desde_inicio_s": 25.0
+     },
+     "regla_port_scan": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 29.0,
+      "ventana_desde_inicio_s": 15.0
+     }
+    },
+    "escaneo_breve-r4": {
+     "IF_0.01": {
+      "estado": "ausente"
+     },
+     "IF_0.03": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 38.0,
+      "ventana_desde_inicio_s": 23.0
+     },
+     "IF_0.05": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 38.0,
+      "ventana_desde_inicio_s": 23.0
+     },
+     "regla_port_scan": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 38.0,
+      "ventana_desde_inicio_s": 23.0
+     }
+    },
+    "escaneo_breve-r5": {
+     "IF_0.01": {
+      "estado": "ausente"
+     },
+     "IF_0.03": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 43.3,
+      "ventana_desde_inicio_s": 23.1
+     },
+     "IF_0.05": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 43.3,
+      "ventana_desde_inicio_s": 23.1
+     },
+     "regla_port_scan": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 43.3,
+      "ventana_desde_inicio_s": 23.1
+     }
+    },
+    "escaneo_sostenido-r1": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 49.6,
+      "ventana_desde_inicio_s": 20.0
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 49.6,
+      "ventana_desde_inicio_s": 20.0
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 49.6,
+      "ventana_desde_inicio_s": 20.0
+     },
+     "regla_port_scan": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 49.6,
+      "ventana_desde_inicio_s": 20.0
+     }
+    },
+    "escaneo_sostenido-r2": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 28.8,
+      "ventana_desde_inicio_s": 20.9
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 28.8,
+      "ventana_desde_inicio_s": 20.9
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 28.8,
+      "ventana_desde_inicio_s": 20.9
+     },
+     "regla_port_scan": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 28.8,
+      "ventana_desde_inicio_s": 20.9
+     }
+    },
+    "escaneo_sostenido-r3": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 29.1,
+      "ventana_desde_inicio_s": 5.6
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 29.1,
+      "ventana_desde_inicio_s": 5.6
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 29.1,
+      "ventana_desde_inicio_s": 5.6
+     },
+     "regla_port_scan": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 29.1,
+      "ventana_desde_inicio_s": 15.6
+     }
+    },
+    "escaneo_sostenido-r4": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 40.9,
+      "ventana_desde_inicio_s": 24.9
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 40.9,
+      "ventana_desde_inicio_s": 24.9
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 30.6,
+      "ventana_desde_inicio_s": 14.9
+     },
+     "regla_port_scan": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 30.6,
+      "ventana_desde_inicio_s": 14.9
+     }
+    },
+    "escaneo_sostenido-r5": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 37.7,
+      "ventana_desde_inicio_s": 18.8
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 37.7,
+      "ventana_desde_inicio_s": 18.8
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 37.7,
+      "ventana_desde_inicio_s": 18.8
+     },
+     "regla_port_scan": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 37.7,
+      "ventana_desde_inicio_s": 18.8
+     }
+    },
+    "fuerza_bruta_http-r1": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 35.3,
+      "ventana_desde_inicio_s": 7.9
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 35.3,
+      "ventana_desde_inicio_s": 7.9
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 35.3,
+      "ventana_desde_inicio_s": 7.9
+     },
+     "regla_brute_force": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 35.3,
+      "ventana_desde_inicio_s": 7.9
+     }
+    },
+    "fuerza_bruta_http-r2": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 26.2,
+      "ventana_desde_inicio_s": 1.0
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 26.2,
+      "ventana_desde_inicio_s": 1.0
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 26.2,
+      "ventana_desde_inicio_s": 1.0
+     },
+     "regla_brute_force": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 26.2,
+      "ventana_desde_inicio_s": 1.0
+     }
+    },
+    "fuerza_bruta_http-r3": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 25.7,
+      "ventana_desde_inicio_s": 5.1
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 25.7,
+      "ventana_desde_inicio_s": 5.1
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 25.7,
+      "ventana_desde_inicio_s": 5.1
+     },
+     "regla_brute_force": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 25.7,
+      "ventana_desde_inicio_s": 5.1
+     }
+    },
+    "fuerza_bruta_http-r4": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 24.7,
+      "ventana_desde_inicio_s": 0.9
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 24.7,
+      "ventana_desde_inicio_s": 0.9
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 24.7,
+      "ventana_desde_inicio_s": 0.9
+     },
+     "regla_brute_force": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 24.7,
+      "ventana_desde_inicio_s": 0.9
+     }
+    },
+    "fuerza_bruta_http-r5": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 28.2,
+      "ventana_desde_inicio_s": 6.0
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 28.2,
+      "ventana_desde_inicio_s": 6.0
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 28.2,
+      "ventana_desde_inicio_s": 6.0
+     },
+     "regla_brute_force": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 28.2,
+      "ventana_desde_inicio_s": 6.0
+     }
+    },
+    "inundacion_http-r1": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 26.1,
+      "ventana_desde_inicio_s": 4.5
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 26.1,
+      "ventana_desde_inicio_s": 4.5
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 26.1,
+      "ventana_desde_inicio_s": 4.5
+     },
+     "regla_http_abuse": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 26.1,
+      "ventana_desde_inicio_s": 4.5
+     }
+    },
+    "inundacion_http-r2": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 32.7,
+      "ventana_desde_inicio_s": 4.9
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 32.7,
+      "ventana_desde_inicio_s": 4.9
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 32.7,
+      "ventana_desde_inicio_s": 4.9
+     },
+     "regla_http_abuse": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 32.7,
+      "ventana_desde_inicio_s": 4.9
+     }
+    },
+    "inundacion_http-r3": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 35.5,
+      "ventana_desde_inicio_s": 5.0
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 35.5,
+      "ventana_desde_inicio_s": 5.0
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 35.5,
+      "ventana_desde_inicio_s": 5.0
+     },
+     "regla_http_abuse": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 35.5,
+      "ventana_desde_inicio_s": 5.0
+     }
+    },
+    "inundacion_http-r4": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 25.8,
+      "ventana_desde_inicio_s": 4.8
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 25.8,
+      "ventana_desde_inicio_s": 4.8
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 25.8,
+      "ventana_desde_inicio_s": 4.8
+     },
+     "regla_http_abuse": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 25.8,
+      "ventana_desde_inicio_s": 4.8
+     }
+    },
+    "inundacion_http-r5": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 40.1,
+      "ventana_desde_inicio_s": 7.9
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 40.1,
+      "ventana_desde_inicio_s": 7.9
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 40.1,
+      "ventana_desde_inicio_s": 7.9
+     },
+     "regla_http_abuse": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 40.1,
+      "ventana_desde_inicio_s": 7.9
+     }
+    }
+   },
+   "historial_completo": {
+    "True": 12212
+   },
+   "latencia_s": {
+    "max": 54.251,
+    "media": 17.369,
+    "n": 12212,
+    "p50": 15.989,
+    "p90": 26.436
+   },
+   "memoria_pico_mb": 1223.0,
+   "no_evaluadas": 14
+  }
+ },
+ "tolerancia": "0 (bit a bit)"
+}

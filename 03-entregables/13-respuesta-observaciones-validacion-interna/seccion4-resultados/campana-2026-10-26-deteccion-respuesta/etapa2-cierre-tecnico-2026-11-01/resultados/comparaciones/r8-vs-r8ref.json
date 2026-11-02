@@ -1,0 +1,390 @@
+{
+ "desde": 1793522040.0,
+ "hasta": 1793523840.0,
+ "referencia": "cierre8-r8ref-e5-eventos",
+ "runs": {
+  "cierre8-r8-e5-eventos-reinicios": {
+   "arranques": 7,
+   "ciclo_s": {
+    "max": 27.96,
+    "media": 1.76,
+    "n": 404,
+    "p50": 1.168,
+    "p90": 3.716
+   },
+   "decisiones": 2378,
+   "duplicados": 0,
+   "episodios": {
+    "dns_inusual-r5": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 19.8,
+      "ventana_desde_inicio_s": 16.0
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 19.8,
+      "ventana_desde_inicio_s": 16.0
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 19.8,
+      "ventana_desde_inicio_s": 16.0
+     },
+     "regla_dns_entropy": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 9.7,
+      "ventana_desde_inicio_s": 6.0
+     }
+    },
+    "escaneo_breve-r5": {
+     "IF_0.01": {
+      "estado": "ausente"
+     },
+     "IF_0.03": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 28.1,
+      "ventana_desde_inicio_s": 23.1
+     },
+     "IF_0.05": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 28.1,
+      "ventana_desde_inicio_s": 23.1
+     },
+     "regla_port_scan": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 28.1,
+      "ventana_desde_inicio_s": 23.1
+     }
+    },
+    "escaneo_sostenido-r4": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 29.5,
+      "ventana_desde_inicio_s": 24.9
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 29.5,
+      "ventana_desde_inicio_s": 24.9
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 18.7,
+      "ventana_desde_inicio_s": 14.9
+     },
+     "regla_port_scan": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 18.7,
+      "ventana_desde_inicio_s": 14.9
+     }
+    },
+    "escaneo_sostenido-r5": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 23.3,
+      "ventana_desde_inicio_s": 18.8
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 23.3,
+      "ventana_desde_inicio_s": 18.8
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 23.3,
+      "ventana_desde_inicio_s": 18.8
+     },
+     "regla_port_scan": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 23.3,
+      "ventana_desde_inicio_s": 18.8
+     }
+    },
+    "fuerza_bruta_http-r3": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 9.1,
+      "ventana_desde_inicio_s": 5.1
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 9.1,
+      "ventana_desde_inicio_s": 5.1
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 9.1,
+      "ventana_desde_inicio_s": 5.1
+     },
+     "regla_brute_force": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 9.1,
+      "ventana_desde_inicio_s": 5.1
+     }
+    },
+    "fuerza_bruta_http-r5": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 9.9,
+      "ventana_desde_inicio_s": 6.0
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 9.9,
+      "ventana_desde_inicio_s": 6.0
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 9.9,
+      "ventana_desde_inicio_s": 6.0
+     },
+     "regla_brute_force": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 9.9,
+      "ventana_desde_inicio_s": 6.0
+     }
+    }
+   },
+   "frente_a_referencia": {
+    "clases_iguales_por_alfa": {
+     "0.01": 2378,
+     "0.03": 2378,
+     "0.05": 2378
+    },
+    "comunes": 2378,
+    "decision_o_detector_distintos": 0,
+    "duplicados_otro": 0,
+    "duplicados_ref": 0,
+    "ejemplos_solo_otro": [],
+    "ejemplos_solo_ref": [],
+    "ejemplos_vectores_distintos": [],
+    "historial_en_vectores_distintos": {},
+    "por_caracteristica": {},
+    "reglas_distintas": 0,
+    "score_dif_max": 0.0,
+    "scores_comparados": 2378,
+    "scores_distintos": 0,
+    "solo_otro": 0,
+    "solo_ref": 0,
+    "vectores_comparados": 1822,
+    "vectores_distintos": 0
+   },
+   "historial_completo": {
+    "True": 2378
+   },
+   "latencia_s": {
+    "max": 47.852,
+    "media": 6.199,
+    "n": 2378,
+    "p50": 4.275,
+    "p90": 6.991
+   },
+   "memoria_pico_mb": 1141.4,
+   "no_evaluadas": 0
+  },
+  "cierre8-r8ref-e5-eventos": {
+   "arranques": 1,
+   "ciclo_s": {
+    "max": 15.155,
+    "media": 2.193,
+    "n": 411,
+    "p50": 1.493,
+    "p90": 4.657
+   },
+   "decisiones": 2378,
+   "duplicados": 0,
+   "episodios": {
+    "dns_inusual-r5": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 20.0,
+      "ventana_desde_inicio_s": 16.0
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 20.0,
+      "ventana_desde_inicio_s": 16.0
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 20.0,
+      "ventana_desde_inicio_s": 16.0
+     },
+     "regla_dns_entropy": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 9.9,
+      "ventana_desde_inicio_s": 6.0
+     }
+    },
+    "escaneo_breve-r5": {
+     "IF_0.01": {
+      "estado": "ausente"
+     },
+     "IF_0.03": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 27.5,
+      "ventana_desde_inicio_s": 23.1
+     },
+     "IF_0.05": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 27.5,
+      "ventana_desde_inicio_s": 23.1
+     },
+     "regla_port_scan": {
+      "estado": "despues",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 27.5,
+      "ventana_desde_inicio_s": 23.1
+     }
+    },
+    "escaneo_sostenido-r4": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 29.9,
+      "ventana_desde_inicio_s": 24.9
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 29.9,
+      "ventana_desde_inicio_s": 24.9
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 19.8,
+      "ventana_desde_inicio_s": 14.9
+     },
+     "regla_port_scan": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 19.8,
+      "ventana_desde_inicio_s": 14.9
+     }
+    },
+    "escaneo_sostenido-r5": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 23.4,
+      "ventana_desde_inicio_s": 18.8
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 23.4,
+      "ventana_desde_inicio_s": 18.8
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 23.4,
+      "ventana_desde_inicio_s": 18.8
+     },
+     "regla_port_scan": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 23.4,
+      "ventana_desde_inicio_s": 18.8
+     }
+    },
+    "fuerza_bruta_http-r3": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 11.0,
+      "ventana_desde_inicio_s": 5.1
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 11.0,
+      "ventana_desde_inicio_s": 5.1
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 11.0,
+      "ventana_desde_inicio_s": 5.1
+     },
+     "regla_brute_force": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 11.0,
+      "ventana_desde_inicio_s": 5.1
+     }
+    },
+    "fuerza_bruta_http-r5": {
+     "IF_0.01": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 11.8,
+      "ventana_desde_inicio_s": 6.0
+     },
+     "IF_0.03": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 11.8,
+      "ventana_desde_inicio_s": 6.0
+     },
+     "IF_0.05": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 11.8,
+      "ventana_desde_inicio_s": 6.0
+     },
+     "regla_brute_force": {
+      "estado": "durante",
+      "historial_completo": true,
+      "registro_desde_inicio_s": 11.8,
+      "ventana_desde_inicio_s": 6.0
+     }
+    }
+   },
+   "historial_completo": {
+    "True": 2378
+   },
+   "latencia_s": {
+    "max": 26.048,
+    "media": 6.162,
+    "n": 2378,
+    "p50": 5.332,
+    "p90": 8.488
+   },
+   "memoria_pico_mb": 1135.8,
+   "no_evaluadas": 0
+  }
+ },
+ "tolerancia": "0 (bit a bit)"
+}

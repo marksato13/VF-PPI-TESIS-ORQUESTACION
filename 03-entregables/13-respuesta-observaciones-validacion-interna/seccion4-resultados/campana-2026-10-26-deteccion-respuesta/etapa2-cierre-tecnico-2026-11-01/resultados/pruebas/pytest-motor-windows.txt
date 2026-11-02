@@ -1,0 +1,28 @@
+commit 953a436
+python 3.14.3 sklearn 1.9.0 numpy 2.5.1
+pytest via python 3.14.3
+============================= test session starts =============================
+platform win32 -- Python 3.14.3, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\markp\AppData\Local\Python\pythoncore-3.14-64\python.exe
+rootdir: C:\Users\markp\Desktop\PY-MEGATRON\PY - PERSONAL\TESIS\CYBERFLOW\producto-etapa2
+plugins: anyio-4.13.0, platformdirs-4.12.1, cov-7.1.0
+collecting ... collected 17 items
+
+tests/test_motor_incremental.py::Deduplicacion::test_anillo_deslizante_igual_a_la_global PASSED [  5%]
+tests/test_motor_incremental.py::Deduplicacion::test_copia_que_llega_en_el_fichero_siguiente PASSED [ 11%]
+tests/test_motor_incremental.py::Atribucion::test_anillo_deslizante_igual_a_la_global PASSED [ 17%]
+tests/test_motor_incremental.py::Atribucion::test_cambio_de_propietario_al_podar_el_syn PASSED [ 23%]
+tests/test_motor_incremental.py::FilasPendientes::test_anclas_de_entidad_excluida PASSED [ 29%]
+tests/test_motor_incremental.py::FilasPendientes::test_igual_a_build_rows_global_desde_la_primera_ancla_no_puntuada PASSED [ 35%]
+tests/test_motor_incremental.py::Eve::test_por_linea_igual_que_el_volcado PASSED [ 41%]
+tests/test_motor_incremental.py::PuntuacionPorLotes::test_lote_igual_a_una_llamada_por_fila PASSED [ 47%]
+tests/test_motor_incremental.py::TiemposDeRegistro::test_logged_at_antes_del_write_y_disponibilidad_despues PASSED [ 52%]
+tests/test_motor_incremental.py::ExtremoAExtremo::test_escenario_sintetico_con_reinicio PASSED [ 58%]
+tests/test_motor_incremental.py::HorizontePorVentana::test_misma_fila_con_cualquier_cadencia_retraso_o_reinicio PASSED [ 64%]
+tests/test_motor_completitud.py::VentanaCompleta::test_cubierta_por_los_cerrados PASSED [ 70%]
+tests/test_motor_completitud.py::VentanaCompleta::test_paquetes_aun_en_el_fichero_activo PASSED [ 76%]
+tests/test_motor_completitud.py::VentanaCompleta::test_sin_pcap_cerrado_no_esta_completa PASSED [ 82%]
+tests/test_motor_completitud.py::ClavesYaRegistradas::test_carga_decisiones_y_no_evaluadas_y_omite_lo_demas PASSED [ 88%]
+tests/test_motor_completitud.py::ClavesYaRegistradas::test_cola_recortada_descarta_la_primera_linea_partida PASSED [ 94%]
+tests/test_motor_completitud.py::ClavesYaRegistradas::test_registro_inexistente PASSED [100%]
+
+============================= 17 passed in 28.09s =============================
