@@ -9,25 +9,38 @@
 #  4) relojes (p10b) añadidos a relojes-4c.log y copia al sensor (copias/relojes-4c.log)
 #  5) traza del relé v2 (~/relay-v2/traza.jsonl) al sensor (copias/traza-rele.jsonl) SOLO si ya pasó fin_ultimo + 300 s;
 #     si no, avisa y se repite este guion después (las copias 1-4 se rehacen idénticas).
-# Resultado esperado: "generador rc=0", tres sha256 iguales, "fin_ultimo=<epoch>", relojes sin "desfase|<=1 s: NO".
-# Parada: generador sin terminar o rc != 0, marcas con sha256 distinto, ya existe la copia con otro sha256.
+# Resultado esperado: "generador rc=0" (o rc=3 = cancelada por el vigía, que también se cierra y se publica), tres
+# sha256 iguales, "fin_ultimo=<epoch>", relojes sin "desfase|<=1 s: NO", "vigía terminado" y el canal cerrado.
+# Parada: generador sin terminar o rc distinto de 0/3, marcas con sha256 distinto, ya existe la copia con otro sha256,
+# vigía aún vivo.
 set -u
 B=$HOME/cf-e4/4c; K=/home/adminatacante/cf-e4-4c; C=/home/m4rk/cf-e4/4c/copias
 [ -f "$B/control-declarado.json" ] || { echo "PARAR: no hay control 4c declarado en $B"; exit 2; }
+# mismo canal de control que g01 (si sigue abierto se reutiliza; si no, se abre uno y queda anotado)
+CTL="-o BatchMode=yes -o ControlMaster=auto -o ControlPath=$B/vigia/ctl-kali -o ControlPersist=60"
 echo "## b20-e4 $(date -u +%FT%T.%3NZ)"
 echo "## [ACCESO SSH A KALI $(date -u +%FT%T.%3NZ): lectura del fin del generador]" | tee -a "$B/accesos-kali.log"
-R=$(ssh -n -o BatchMode=yes kali "cat $K/generador.rc 2>/dev/null; cat $K/terminado.txt 2>/dev/null; sha256sum $K/corrida/marcas.jsonl 2>/dev/null | cut -c1-64; pgrep -fc 'generar_campana.py --config'")
+R=$(ssh -n $CTL kali "cat $K/generador.rc 2>/dev/null; cat $K/terminado.txt 2>/dev/null; sha256sum $K/corrida/marcas.jsonl 2>/dev/null | cut -c1-64; pgrep -fc 'generar_campana.py --config'")
 echo "## fin acceso Kali $(date -u +%FT%T.%3NZ)" | tee -a "$B/accesos-kali.log"
 RC=$(sed -n 1p <<< "$R"); TERM_=$(sed -n 2p <<< "$R"); HK=$(sed -n 3p <<< "$R"); NG=$(sed -n 4p <<< "$R")
 echo "  generador rc=$RC terminado=$TERM_ procesos=$NG marcas sha256=$HK"
-[ "$RC" = 0 ] && [ "$NG" = 0 ] && [ -n "$HK" ] || { echo "PARAR: el generador no ha terminado con rc=0"; exit 2; }
+case "$RC" in
+  0) ;;
+  3) echo "  AVISO: batería CANCELADA por el vigía (ver cancelacion en marcas.jsonl y vigia.jsonl); se cierra igual" ;;
+  *) echo "PARAR: el generador no ha terminado con rc=0 ni rc=3"; exit 2 ;;
+esac
+[ "$NG" = 0 ] && [ -n "$HK" ] || { echo "PARAR: el generador sigue vivo o no hay marcas"; exit 2; }
+VP=$(cat "$B/vigia/vigia.pid" 2>/dev/null)
+if [ -n "$VP" ] && kill -0 "$VP" 2>/dev/null; then echo "PARAR: el vigía (PID $VP) sigue vivo"; exit 2; fi
+echo "  vigía terminado: $(tail -1 "$B/vigia/vigia.jsonl" | cut -c1-200)"
 if [ -e "$B/corrida/marcas.jsonl" ]; then
   [ "$(sha256sum "$B/corrida/marcas.jsonl" | cut -c1-64)" = "$HK" ] || { echo "PARAR: ya hay otra corrida copiada"; exit 2; }
 else
   mkdir -p "$B/corrida"
-  ssh -n -o BatchMode=yes kali "cd $K/corrida && tar cf - ." | tar xf - -C "$B/corrida"
-  ssh -n -o BatchMode=yes kali "cat $K/comando.txt $K/lanzado.txt $K/terminado.txt $K/generador.rc" > "$B/generador-meta.txt"
+  ssh -n $CTL kali "cd $K/corrida && tar cf - ." | tar xf - -C "$B/corrida"
+  ssh -n $CTL kali "cat $K/comando.txt $K/lanzado.txt $K/terminado.txt $K/generador.rc $K/permiso.json" > "$B/generador-meta.txt"
 fi
+ssh -O exit -o ControlPath="$B/vigia/ctl-kali" kali 2>/dev/null && echo "  canal de control con la Kali cerrado $(date -u +%FT%T.%3NZ)" | tee -a "$B/accesos-kali.log"
 HB=$(sha256sum "$B/corrida/marcas.jsonl" | cut -c1-64)
 ssh -o BatchMode=yes sensor1 "mkdir -p $C && cat > $C/marcas.jsonl" < "$B/corrida/marcas.jsonl"
 HS=$(ssh -n -o BatchMode=yes sensor1 "sha256sum $C/marcas.jsonl | cut -c1-64")

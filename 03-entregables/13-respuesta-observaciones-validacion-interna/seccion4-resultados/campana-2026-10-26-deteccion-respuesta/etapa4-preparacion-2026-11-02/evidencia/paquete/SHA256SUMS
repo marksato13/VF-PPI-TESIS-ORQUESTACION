@@ -1,4 +1,4 @@
-d73589a8107afde6a4bdbf749faf2d2a7ce17d9fd7ab30c306f05fc6029c438e *./VERSION-ETAPA4
+86984c07ad6f41b2abee1ffded97f7d59b45a3911aaaff58b269d14bcc9b14f9 *./VERSION-ETAPA4
 eb4b552841486b2ac46b10084d438fc99165138efc9df25f49c0cf15eb9d705a *./configs/features/descripciones.json
 9ce86147ce4d0dab3c789e10edf23f2c7cefd2106b89e493bfafcf3a5ac0e1df *./configs/features/multilayer-v1.json
 1445ccd4f33f2269a73fb26f36519924525e6018910ebc22dc2005d7163be90d *./configs/features/multilayer-v2.json
@@ -20,7 +20,8 @@ d7003f3ad2cf282d0869c0f9ba4598775157a6bbeca034d3dbdfc12209738142 *./deploy/enfor
 82165bee0e68031f1a7765624203fad4d8a7cd1db44016bc582b69585fca950f *./deploy/enforcement/ppi-relay-feed.timer
 23ce77b79f17b1aec3a4d86f77d32bbd7d1fe23c467e572b707758d34042ea4b *./deploy/enforcement/relay-feed.sh
 e24aefb23121cd546a5d1fc6135328b18221bec172645bb9526ec6970a3a810f *./deploy/enforcement/relay_eventos.py
-cdcd3b161dd61fd10b3a53c13ebf1da35f955e14cdb972390ff0909dfc7d19e4 *./deploy/etapa4/README.md
+2362cebf3e6e7ae65c4911b3d3939287d12ce8d62702a28a36f01c4518a9c999 *./deploy/etapa4/README.md
+816b7e5c317907f25758e4876847926e67fed3e430a99dbde04341af3ae3a866 *./deploy/etapa4/banco/ensayo_estado_sombra.sh
 32fe6b2cfe39c4ef384564d58be53faca4c6eaebfbd5e12b0515807aa96733f9 *./deploy/etapa4/banco/ensayo_tcpdump_estadisticas.sh
 1d7e35e9b642b572a15373814269b9005143063af9eae73b7e024b6a6aeab978 *./deploy/etapa4/banco/ensayo_unidades_importaciones.sh
 6e7c16f5c4f054cf003b0cdbff88a38ef863974d508907d1c766b044d5614f66 *./deploy/etapa4/banco/observado-sensor1/ppi-motor-capture.service
@@ -35,10 +36,11 @@ a8445d7ca5c6f82e65d73451d1831acd152b1670f3ed72115b3d2bf1baf7a558 *./deploy/etapa
 72b2835ff83053bed9a2feebc7869bde803f05ee0cf0336bee1eb91b64f8c0ed *./deploy/etapa4/sensor1/respaldo_sensor1.sh
 4017f4d3e3131ab84c38f7befd2a5dce98dd9586edf87e6e587f847701ce99f1 *./deploy/etapa4/sensor1/revertir_sensor1.sh
 789d74b365b5ea0db928b10cef6d8ef1d08b891a450f4cfe1b017bb5ce50b819 *./deploy/etapa4/sensor1/verificar_sensor1.sh
+8a1417bf2467019dd85367efd27734bed03f2a7c83a4d860807b0a0d290ff50e *./deploy/etapa4/srvdmz/estado_sombra.py
 9970c463927a15ab89a55e0df41980b5dc8a3ba5a86c024f765e638f1e4f3866 *./deploy/etapa4/srvdmz/instalar_srvdmz_sombra.sh
 941c7bd67e138a5402822c8edbb3b687cb762152ce819bed7098c6d3dfeaad1b *./deploy/etapa4/srvdmz/respaldo_srvdmz.sh
 5a68e425eef0771ce1676ebffef669a888d10a92acf7337a8ec3684e2367da09 *./deploy/etapa4/srvdmz/revertir_srvdmz.sh
-fcfda3d8639b3f2d2a83e08e0b4636714967917caa9ed40efa4be0abdf29e5a4 *./deploy/etapa4/srvdmz/verificar_srvdmz.sh
+6eba07c11f3d3c051a4895853580dc58bf301dd0ffebf2ba3ecd724afae120a5 *./deploy/etapa4/srvdmz/verificar_srvdmz.sh
 ae5b85f10b8c9a92fe3b5a4587af361934ec81e3bc106cb871cdf41c29f26c48 *./deploy/etapa4/unidades/bastion/ppi-relay-eventos.service
 d6fea4ce1bdf6eebbf9adfe6852486de5df83bdf6c65c14266ba1aacfd89ec23 *./deploy/etapa4/unidades/sensor1/cf-tcpdump-estadisticas.service
 79ee3f8d4bba580a8f44029daad87185fe015b829300df9cae540c8b05d89e6e *./deploy/etapa4/unidades/sensor1/cf-tcpdump-estadisticas.timer
@@ -71,8 +73,9 @@ d6803d4522d94a30d707aaacf4be952a5edcc2d6432678d1c1b110d256e37082 *./scripts/engi
 bb218fdcc6e16aebf5eadcd04ea8d371f92765aaa21e68838d791dad48f6803b *./scripts/engine/tasa_dns_por_origen.py
 441999447db8f0d377f7983c125ab42db6c553ffa225b2f92bff4c98b0e1b4b0 *./scripts/engine/trocear_pcap.py
 94d3df28ae213be688c453355a6d37511e950308a436ed423480a20673fc2f38 *./scripts/engine/vista_vivo.py
-498bc1d4fdca0303bd9c2c32f179ebc2214c5322956b7eb20c75ee11a99b7a6f *./scripts/etapa4/salud_captura.py
+0ed014cc7d06dee187142768797af7e9f6bcdbe905f0d935dd6be392442594ef *./scripts/etapa4/salud_captura.py
 bfa29d483af7cd4134762008107c5aa85e40ac07febf578da3750f2c621cd8e4 *./scripts/etapa4/trafico_observado.py
+622608302a4b8ad6624cae10cfd312132c0626db06f65f96b23b4cd74177753d *./scripts/etapa4/vigia_4c.py
 c5729ac00218d629f0d63a20869e52f822e153b51aecd75c6a9dc4fc19a8c7db *./scripts/features/README.md
 9c35b831453d2107769ca1fe610782b6821b2f164df1f369b3e6b3ef36c41dc8 *./scripts/features/acumular_v3.py
 92a98afa6a2aab8d578be1201b8ead203bf44641a55b65ff47728bb6aa1d27dc *./scripts/features/extract_campaign.sh

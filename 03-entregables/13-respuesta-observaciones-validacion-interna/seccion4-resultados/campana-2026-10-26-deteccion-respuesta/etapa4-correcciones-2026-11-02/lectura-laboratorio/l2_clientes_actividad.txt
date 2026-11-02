@@ -1,0 +1,31 @@
+## l2 clientesadmin adminclientes 2026-11-02T21:59:44.864Z
+== procesos de los perfiles (argumentos completos)
+   1091       1 root     vie oct 30 19:52:16 2026 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+   9825       1 admincl+ dom nov  1 10:36:59 2026 /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil aplicacion --origen 10.10.20.24 --servidor 10.10.30.10 --dns 10.10.10.20
+   9826       1 admincl+ dom nov  1 10:36:59 2026 /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil descargas --origen 10.10.20.23 --servidor 10.10.30.10 --dns 10.10.10.20
+   9827       1 admincl+ dom nov  1 10:36:59 2026 /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil erratico --origen 10.10.20.26 --servidor 10.10.30.10 --dns 10.10.10.20
+   9828       1 admincl+ dom nov  1 10:36:59 2026 /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil ligero --origen 10.10.20.25 --servidor 10.10.30.10 --dns 10.10.10.20
+   9829       1 admincl+ dom nov  1 10:36:59 2026 /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil navegacion --origen 10.10.20.22 --servidor 10.10.30.10 --dns 10.10.10.20
+   9830       1 admincl+ dom nov  1 10:36:59 2026 /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil ofimatica --origen 10.10.20.21 --servidor 10.10.30.10 --dns 10.10.10.20
+== unidades y timers relacionados
+UNIT                             LOAD   ACTIVE SUB     DESCRIPTION
+cyberflow-lab-aplicacion.service loaded active running CyberFlow laboratorio - perfil aplicacion desde 10.10.20.24
+cyberflow-lab-descargas.service  loaded active running CyberFlow laboratorio - perfil descargas desde 10.10.20.23
+cyberflow-lab-erratico.service   loaded active running CyberFlow laboratorio - perfil erratico desde 10.10.20.26
+cyberflow-lab-ligero.service     loaded active running CyberFlow laboratorio - perfil ligero desde 10.10.20.25
+cyberflow-lab-navegacion.service loaded active running CyberFlow laboratorio - perfil navegacion desde 10.10.20.22
+cyberflow-lab-ofimatica.service  loaded active running CyberFlow laboratorio - perfil ofimatica desde 10.10.20.21
+cyberflow-lab.target             loaded active active  CyberFlow laboratorio - los seis perfiles de trafico
+
+Legend: LOAD   → Reflects whether the unit definition was properly loaded.
+        ACTIVE → The high-level unit activation state, i.e. generalization of SUB.
+        SUB    → The low-level unit activation state, values depend on unit type.
+
+7 loaded units listed.
+To show all installed unit files use 'systemctl list-unit-files'.
+NEXT                           LEFT LAST                               PASSED UNIT                           ACTIVATES
+== cron
+  user: no crontab for adminclientes
+== menciones de piloto-con-dns en el home (sin datos binarios)
+== ficheros escritos en las últimas 24 h en el home (20 más recientes)
+## fin 2026-11-02T21:59:44.922Z

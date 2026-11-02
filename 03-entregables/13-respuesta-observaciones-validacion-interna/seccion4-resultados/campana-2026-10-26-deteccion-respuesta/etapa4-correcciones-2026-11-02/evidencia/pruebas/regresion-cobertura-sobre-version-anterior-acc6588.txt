@@ -1,0 +1,142 @@
+# tests/test_etapa4_salud_cobertura.py contra salud_captura.py 2026-11-02.1 (acc6588, sha256 3bc16a0547b64c72a0947c4a22c7e17d78aa6a533be728131aa8e6c14674aad0)
+============================= test session starts =============================
+platform win32 -- Python 3.14.3, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\markp\AppData\Local\Python\pythoncore-3.14-64\python.exe
+rootdir: C:\Users\markp\Desktop\PY-MEGATRON\PY - PERSONAL\TESIS\CYBERFLOW\producto-etapa3
+plugins: anyio-4.13.0, platformdirs-4.12.1, cov-7.1.0
+collecting ... collected 17 items
+
+tests/test_etapa4_salud_cobertura.py::test_regresion_caso_reproducido_dos_lecturas_lejanas FAILED [  5%]
+tests/test_etapa4_salud_cobertura.py::test_regresion_extremo_inicial_lejano FAILED [ 11%]
+tests/test_etapa4_salud_cobertura.py::test_regresion_extremo_final_lejano FAILED [ 17%]
+tests/test_etapa4_salud_cobertura.py::test_regresion_hueco_interior FAILED [ 23%]
+tests/test_etapa4_salud_cobertura.py::test_regresion_cambio_de_pid_dentro FAILED [ 29%]
+tests/test_etapa4_salud_cobertura.py::test_regresion_fuentes_mezcladas FAILED [ 35%]
+tests/test_etapa4_salud_cobertura.py::test_regresion_contador_que_decrece FAILED [ 41%]
+tests/test_etapa4_salud_cobertura.py::test_regresion_contador_invalido FAILED [ 47%]
+tests/test_etapa4_salud_cobertura.py::test_cobertura_valida_c0 PASSED    [ 52%]
+tests/test_etapa4_salud_cobertura.py::test_cobertura_valida_con_tolerancia_declarada PASSED [ 58%]
+tests/test_etapa4_salud_cobertura.py::test_cobertura_valida_c2_con_descartes PASSED [ 64%]
+tests/test_etapa4_salud_cobertura.py::test_lectura_exacta_en_los_extremos PASSED [ 70%]
+tests/test_etapa4_salud_cobertura.py::test_hueco_justo_por_encima_de_la_tolerancia FAILED [ 76%]
+tests/test_etapa4_salud_cobertura.py::test_sin_lecturas_no_es_c0 PASSED  [ 82%]
+tests/test_etapa4_salud_cobertura.py::test_lecturas_sin_hora_no_cuentan PASSED [ 88%]
+tests/test_etapa4_salud_cobertura.py::test_cli_journal_ilegible_para SKIPPED [ 94%]
+tests/test_etapa4_salud_cobertura.py::test_cli_separa_anillo_y_via SKIPPED [100%]
+
+================================== FAILURES ===================================
+____________ test_regresion_caso_reproducido_dos_lecturas_lejanas _____________
+
+    def test_regresion_caso_reproducido_dos_lecturas_lejanas():
+        """Caso del encargo: muestras cada 10 s, SIGUSR1 solo en t=0 y t=120, periodo [10, 110] -> NO C0."""
+        r = clase([_td(0), _td(120)], 10, 110)
+>       assert r["clase"] == "C3", r
+E       AssertionError: {'acotado_por': [10, 110], 'clase': 'C0', 'info': {'motor_retraso_pcap_max_s': None, 'suricata': {'descartes': 0, 'intervalos': 10, 'paquetes': 10000}, 'tcpdump': {'1375': {'descartados_kernel': 0, 'desde': 0, 'hasta': 120}}, 'via_rapida': {'antiguedad_max_s': None, 'medida': False}}, 'motivos': [], ...}
+E       assert 'C0' == 'C3'
+E         
+E         - C3
+E         + C0
+
+tests\test_etapa4_salud_cobertura.py:55: AssertionError
+____________________ test_regresion_extremo_inicial_lejano ____________________
+
+    def test_regresion_extremo_inicial_lejano():
+        # lecturas cada 30 s dentro, pero la que acota el inicio está 60 s antes
+        r = clase([_td(-50), _td(40), _td(70), _td(100), _td(130)], 10, 110)
+>       assert r["clase"] == "C3" and any("inicio" in m or "hueco" in m for m in r["motivos"])
+E       AssertionError: assert ('C0' == 'C3'
+E         
+E         - C3
+E         + C0)
+
+tests\test_etapa4_salud_cobertura.py:62: AssertionError
+_____________________ test_regresion_extremo_final_lejano _____________________
+
+    def test_regresion_extremo_final_lejano():
+        r = clase([_td(0), _td(30), _td(60), _td(90), _td(180)], 10, 110)
+>       assert r["clase"] == "C3" and any("fin" in m or "hueco" in m for m in r["motivos"])
+E       AssertionError: assert ('C0' == 'C3'
+E         
+E         - C3
+E         + C0)
+
+tests\test_etapa4_salud_cobertura.py:67: AssertionError
+________________________ test_regresion_hueco_interior ________________________
+
+    def test_regresion_hueco_interior():
+        # extremos bien, pero falta una lectura en medio (60 s entre 30 y 90)
+        r = clase([_td(0), _td(30), _td(90), _td(120)], 10, 110)
+>       assert r["clase"] == "C3" and any("hueco" in m for m in r["motivos"])
+E       AssertionError: assert ('C0' == 'C3'
+E         
+E         - C3
+E         + C0)
+
+tests\test_etapa4_salud_cobertura.py:73: AssertionError
+_____________________ test_regresion_cambio_de_pid_dentro _____________________
+
+    def test_regresion_cambio_de_pid_dentro():
+        # tcpdump reinició a mitad: el PID 1375 acota el inicio y el 2000 el fin
+        td = [_td(0), _td(30), _td(60, pid=2000, c=5), _td(90, pid=2000, c=6), _td(120, pid=2000, c=7)]
+        r = clase(td, 10, 110)
+>       assert r["clase"] == "C3" and any("PID" in m for m in r["motivos"])
+E       AssertionError: assert ('C3' == 'C3'
+E         
+E           C3 and False)
+E        +  where False = any(<generator object test_regresion_cambio_de_pid_dentro.<locals>.<genexpr> at 0x0000011A4A51ADC0>)
+
+tests\test_etapa4_salud_cobertura.py:80: AssertionError
+______________________ test_regresion_fuentes_mezcladas _______________________
+
+    def test_regresion_fuentes_mezcladas():
+        # anillo (PID 1375) y vía rápida (PID 4242) en el mismo log: la vía no puede tapar el hueco del anillo
+        td = [_td(0), _td(120)] + [_td(t, pid=4242) for t in (0, 30, 60, 90, 120)]
+>       assert clase(td, 10, 110)["clase"] == "C3"
+E       AssertionError: assert 'C0' == 'C3'
+E         
+E         - C3
+E         + C0
+
+tests\test_etapa4_salud_cobertura.py:86: AssertionError
+_____________________ test_regresion_contador_que_decrece _____________________
+
+    def test_regresion_contador_que_decrece():
+        td = [_td(0, c=500), _td(30, c=400), _td(60, c=600), _td(90, c=700), _td(120, c=800)]
+        r = clase(td, 10, 110)
+>       assert r["clase"] == "C3" and any("decrece" in m for m in r["motivos"])
+E       AssertionError: assert ('C0' == 'C3'
+E         
+E         - C3
+E         + C0)
+
+tests\test_etapa4_salud_cobertura.py:92: AssertionError
+______________________ test_regresion_contador_invalido _______________________
+
+    def test_regresion_contador_invalido():
+        td = [_td(0), _td(30, c=900, r=10), _td(60), _td(90), _td(120)]
+        r = clase(td, 10, 110)
+>       assert r["clase"] == "C3" and any("inválid" in m for m in r["motivos"])
+E       AssertionError: assert ('C0' == 'C3'
+E         
+E         - C3
+E         + C0)
+
+tests\test_etapa4_salud_cobertura.py:98: AssertionError
+________________ test_hueco_justo_por_encima_de_la_tolerancia _________________
+
+    def test_hueco_justo_por_encima_de_la_tolerancia():
+>       lim = CRIT["tcpdump_periodo_s"] + CRIT["tcpdump_tolerancia_s"]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'tcpdump_periodo_s'
+
+tests\test_etapa4_salud_cobertura.py:130: KeyError
+=========================== short test summary info ===========================
+FAILED tests/test_etapa4_salud_cobertura.py::test_regresion_caso_reproducido_dos_lecturas_lejanas
+FAILED tests/test_etapa4_salud_cobertura.py::test_regresion_extremo_inicial_lejano
+FAILED tests/test_etapa4_salud_cobertura.py::test_regresion_extremo_final_lejano
+FAILED tests/test_etapa4_salud_cobertura.py::test_regresion_hueco_interior - ...
+FAILED tests/test_etapa4_salud_cobertura.py::test_regresion_cambio_de_pid_dentro
+FAILED tests/test_etapa4_salud_cobertura.py::test_regresion_fuentes_mezcladas
+FAILED tests/test_etapa4_salud_cobertura.py::test_regresion_contador_que_decrece
+FAILED tests/test_etapa4_salud_cobertura.py::test_regresion_contador_invalido
+FAILED tests/test_etapa4_salud_cobertura.py::test_hueco_justo_por_encima_de_la_tolerancia
+=================== 9 failed, 6 passed, 2 skipped in 0.22s ====================

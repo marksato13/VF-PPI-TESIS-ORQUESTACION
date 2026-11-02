@@ -1,0 +1,122 @@
+## l3 cyberflow-sensor 2026-11-02T22:00:17.338Z
+== cyberflow.toml: líneas que mencionan piloto-con-dns, con 3 de contexto
+  106-# carga forzada- y rota tambien el fichero de arriba. Sin esto, dos capturas
+  107-# que no son comparables quedan mezcladas bajo el mismo nombre y no hay forma
+  108-# de separarlas despues.
+  109:campana = "piloto-con-dns"
+  110-
+  111-[panel]
+  112-# Expuesto en la VLAN de gestion y de solo lectura. Desde el bastion se abre
+== unidades: acumulador y aprendizaje completos
+  
+  [Unit]
+  Description=CyberFlow - acumula el dataset extrayendo sobre la marcha
+  After=ppi-motor-capture.service suricata.service
+  
+  [Service]
+  Type=oneshot
+  User=m4rk
+  Group=m4rk
+  WorkingDirectory=/home/m4rk/cyberflow
+  ExecStart=/home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow/scripts/features/acumular_v3.py \
+      --salida /home/m4rk/cyberflow/artifacts/linea-base/multilayer-v3.csv \
+      --campaign-id linea-base \
+      --capture-dir /var/lib/ppi-motor-capture \
+      --eve /var/log/suricata/eve.json \
+      --excluir 10.10.60.11/32,10.10.10.30/32,10.10.60.2/32,10.10.60.3/32,10.10.60.10/32,10.10.60.20/32,10.10.60.21/32,10.10.60.30/32,10.10.60.40/32,10.10.60.41/32,10.10.60.50/32 \
+      --excluir-protocolos 112,240 \
+      --entity-network 10.10.0.0/16
+  StandardOutput=append:/home/m4rk/cyberflow/logs/acumular.log
+  StandardError=journal
+  NoNewPrivileges=true
+  
+  
+  [Unit]
+  Description=CyberFlow - reentrenamiento supervisado (lote, deriva y candidato)
+  After=cyberflow-acumular.service
+  
+  [Service]
+  Type=oneshot
+  User=m4rk
+  Group=m4rk
+  WorkingDirectory=/home/m4rk/cyberflow
+  ExecStart=/home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow/scripts/modeling/cyberflow_aprendizaje.py \
+      --config /home/m4rk/cyberflow/configs/cyberflow.local.toml diario
+  StandardOutput=append:/home/m4rk/cyberflow/logs/aprendizaje.log
+  StandardError=journal
+  Nice=19
+  IOSchedulingClass=idle
+  NoNewPrivileges=true
+== acumular.log: últimas 8 líneas
+  {"apps_previas_descartadas": 207, "duplicados_espejo": 81367, "estado": "ok", "event": "acumular", "eventos_eve": 6912, "filas_en_margen": 1556, "filas_fuera_de_alcance": 657, "filas_generadas": 2354, "filas_nuevas": 1191, "filas_totales": 3036279, "observaciones_capa2": 176572, "paquetes": 178176, 
+  {"apps_previas_descartadas": 130, "duplicados_espejo": 82941, "estado": "ok", "event": "acumular", "eventos_eve": 6768, "filas_en_margen": 1486, "filas_fuera_de_alcance": 721, "filas_generadas": 2343, "filas_nuevas": 1138, "filas_totales": 3037417, "observaciones_capa2": 179859, "paquetes": 181592, 
+  {"apps_previas_descartadas": 202, "duplicados_espejo": 84686, "estado": "ok", "event": "acumular", "eventos_eve": 6811, "filas_en_margen": 1495, "filas_fuera_de_alcance": 689, "filas_generadas": 2314, "filas_nuevas": 1175, "filas_totales": 3038592, "observaciones_capa2": 203223, "paquetes": 227504, 
+  {"apps_previas_descartadas": 144, "duplicados_espejo": 98742, "estado": "ok", "event": "acumular", "eventos_eve": 6996, "filas_en_margen": 1486, "filas_fuera_de_alcance": 686, "filas_generadas": 2318, "filas_nuevas": 1116, "filas_totales": 3039708, "observaciones_capa2": 242947, "paquetes": 277538, 
+  {"apps_previas_descartadas": 163, "duplicados_espejo": 83657, "estado": "ok", "event": "acumular", "eventos_eve": 7064, "filas_en_margen": 1438, "filas_fuera_de_alcance": 734, "filas_generadas": 2301, "filas_nuevas": 1094, "filas_totales": 3040802, "observaciones_capa2": 206862, "paquetes": 235226, 
+  {"apps_previas_descartadas": 118, "duplicados_espejo": 98907, "estado": "ok", "event": "acumular", "eventos_eve": 7259, "filas_en_margen": 1509, "filas_fuera_de_alcance": 765, "filas_generadas": 2399, "filas_nuevas": 1113, "filas_totales": 3041915, "observaciones_capa2": 240344, "paquetes": 271715, 
+  {"apps_previas_descartadas": 236, "duplicados_espejo": 97415, "estado": "ok", "event": "acumular", "eventos_eve": 7056, "filas_en_margen": 1433, "filas_fuera_de_alcance": 640, "filas_generadas": 2219, "filas_nuevas": 1088, "filas_totales": 3043003, "observaciones_capa2": 251083, "paquetes": 289304, 
+  {"apps_previas_descartadas": 129, "duplicados_espejo": 109689, "estado": "ok", "event": "acumular", "eventos_eve": 6868, "filas_en_margen": 1540, "filas_fuera_de_alcance": 661, "filas_generadas": 2323, "filas_nuevas": 1182, "filas_totales": 3044185, "observaciones_capa2": 263893, "paquetes": 296727,
+== aprendizaje: última entrada del registro (¿despliega algo?)
+  {"anterior": "ff3ab92c00182468cbba80b343aab7e9f430275722d0f7e26b23007e0543c243", "dia": "2026-11-01", "estado": "rechazado", "fichero": "lote-20261101.csv", "filas": {"atipicas": 0, "contaminadas": 47927, "entrada": 149837, "no_elegibles": 0, "salida": 101910}, "generado": "2026-11-02T00:32:35+00:00", "ips_marcadas": ["10.10.10.2", "10.10.10.20", "10.10.10.21", "10.10.10.3", "10.10.20.20", "10.10.20.21", "10.10.20.22", "10.10.20.23", "10.10.20.24", "10.10.20.26", "10.10.20.30", "10.10.40.10", "10.10.50.51", "10.10.50.52", "10.10.60.42"], "origen": {"dataset": "/home/m4rk/cyberflow/artifacts/li
+== Suricata stats.log: primera fecha, incrementos de kernel_drops por hora y por minuto de la hora
+  primera: Date: 11/2/2026 -- 00:00:01 (uptime: 2d, 04h 04m 40s)
+  eventos con incremento: 77  descartes: 13324
+  -- por hora (fecha hora: descartes)
+   11/2/2026 00: 463
+   11/2/2026 08: 728
+   11/2/2026 09: 3492
+   11/2/2026 10: 570
+   11/2/2026 11: 945
+   11/2/2026 12: 572
+   11/2/2026 13: 1482
+   11/2/2026 14: 65
+   11/2/2026 15: 260
+   11/2/2026 16: 421
+   11/2/2026 17: 455
+   11/2/2026 18: 3835
+   11/2/2026 19: 36
+  -- por minuto de la hora (mm: descartes)
+   00: 1291
+   02: 423
+   03: 385
+   04: 878
+   05: 423
+   06: 246
+   07: 150
+   08: 43
+   10: 669
+   11: 822
+   14: 59
+   15: 330
+   16: 72
+   18: 109
+   20: 771
+   21: 293
+   22: 96
+   23: 239
+   24: 158
+   26: 92
+   30: 53
+   31: 443
+   32: 256
+   33: 254
+   35: 781
+   39: 380
+   40: 55
+   41: 142
+   42: 871
+   43: 112
+   44: 143
+   45: 120
+   46: 56
+   49: 33
+   50: 3
+   51: 614
+   52: 540
+   53: 230
+   55: 531
+   57: 12
+   59: 146
+== kernel_packets al principio y al final del fichero (proporción de descartes)
+  paquetes 39030462 -> 71503140, descartes 9650 -> 22974, proporción del tramo 0.04103%
+## fin 2026-11-02T22:00:18.741Z

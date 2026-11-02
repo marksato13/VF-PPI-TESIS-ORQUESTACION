@@ -87,12 +87,16 @@ en [PROCEDIMIENTO §5.1](PROCEDIMIENTO-ETAPA4.md#51-servicios-versión-cargada-f
 `[LAPTOP Git Bash → BASTIÓN gadmin]` → lo ejecuto yo.
 
 ```
-scp -i ~/.ssh/id_ed25519 "$P/etapa4-preparacion-2026-11-02/escenarios-4c.json" gadmin@10.10.10.30:cf-e4/
-ssh -i ~/.ssh/id_ed25519 gadmin@10.10.10.30 'sha256sum ~/cf-e4/escenarios-4c.json && scp -o BatchMode=yes ~/cf-e4/escenarios-4c.json kali:cf-campana-A/escenarios/escenarios-4c.json && echo "[ACCESO SSH A KALI $(date -u +%FT%T.%3NZ): copia de escenarios-4c.json]" >> ~/cf-e4/accesos-kali-preparacion.log'
+scp -i ~/.ssh/id_ed25519 "$P/etapa4-preparacion-2026-11-02/escenarios-4c.json" "$P"/scripts-4c/{generar_campana.py,esquema_campana.py} gadmin@10.10.10.30:cf-e4/
+ssh -i ~/.ssh/id_ed25519 gadmin@10.10.10.30 'cd ~/cf-e4 && sha256sum escenarios-4c.json generar_campana.py esquema_campana.py && scp -o BatchMode=yes escenarios-4c.json kali:cf-campana-A/escenarios/escenarios-4c.json && ssh -o BatchMode=yes kali "mkdir -p cf-campana-A/scripts-4c" && scp -o BatchMode=yes generar_campana.py esquema_campana.py kali:cf-campana-A/scripts-4c/ && echo "[ACCESO SSH A KALI $(date -u +%FT%T.%3NZ): copia de escenarios-4c.json y scripts-4c/]" >> ~/cf-e4/accesos-kali-preparacion.log'
 bash "$G/r4.sh" c03_kali_e4.sh kali
 ```
 
-- **Esperado:** sha256 `73c0b204…` en el bastión; c03 con cuatro `OK`, `procesos de carga: 0`, `generadores: 0`,
+El generador con compuerta (2026-11-02, corrección del defecto 3) va a `~/cf-campana-A/scripts-4c/`, al lado del
+anterior, que no se toca (`scripts/`, `c586d813…`, el de la 3B). En el repositorio está en `scripts-4c/`.
+
+- **Esperado:** en el bastión, sha256 `73c0b204…` (escenarios-4c), `99e6bdae…` (generador con compuerta) y
+  `e762e604…` (esquema); c03 con **seis** `OK`, `permisos previos: 0`, `procesos de carga: 0`, `generadores: 0`,
   `NTPSynchronized=yes`.
 - **Parada:** cualquier `FAILED` o `PARAR`.
 
@@ -159,22 +163,47 @@ Sin accesos a la Kali ni a srv-dmz.
 `[LAPTOP Git Bash → BASTIÓN gadmin → SENSOR1, SRV-DMZ, KALI]` → lo ejecuto yo, después de `HASTA`.
 
 ```
-bash "$G/r4.sh" g01_lanzar_bateria_e4.sh bastion <HASTA_ISO>
+bash "$G/r4.sh" g01_lanzar_bateria_e4.sh bastion <HASTA_ISO> <RESPALDO_SRVDMZ>
 ```
 
-- **Esperado:** sombra demostrada en sensor (`candidato=1 enforce=0`) y srv-dmz (`aplicar_en_procesos=0
-  tablas_cyberflow=0 eventos_aplicacion=0`), 401 del endpoint, relojes sin `desfase|<=1 s: NO`,
-  `comando: …escenarios-4c.json…` y un PID.
+`<RESPALDO_SRVDMZ>` es el directorio `srvdmz-<UTC>` del respaldo de la 4A (PROCEDIMIENTO §3): `estado_sombra.py`
+compara contra él el ruleset nft y las unidades.
+
+- **Esperado:** sombra demostrada en sensor (`candidato=1 enforce=0`) y en srv-dmz con
+  `estado_sombra.py --alcance completo` = `estado=sombra` (rc 0; rc 1 aplicando, 2 desconocido o 3 no conforme
+  paran), 401 del endpoint, relojes sin `desfase|<=1 s: NO`, seis `OK` de hashes en la Kali, `vigía PID … primer
+  permiso: continuar … kali_rc 0`, `comando: …scripts-4c/generar_campana.py…escenarios-4c.json…--permiso…--nonce…`
+  y un PID del generador.
 - **Parada:** cualquier `PARAR`.
 
-Durante la batería (≈ 1 h 56 min): `[BASTIÓN gadmin]` → lo ejecuto yo, lectura cada 10 min de
-`tail -3 ~/cf-e4/4c/vigilancia.log`. **Ningún** acceso a la Kali hasta `b20`; cualquier acceso se anota en
-`accesos-kali.log`.
+**Vigilancia efectiva (cambio frente al 3B, defecto 3 de las correcciones).** El vigía (`vigia_4c.py bucle`, en el
+bastión) evalúa P1–P5 y X1–X3 cada 60 s con `vigia_4c.py sensor` (solo lectura en Sensor1) y `estado_sombra.py`
+(srv-dmz, cada 300 s), y escribe en la Kali un permiso con el nonce de esta corrida, válido 150 s. El generador
+comprueba el permiso antes del contexto y justo antes de lanzar cada episodio:
+
+- **pausa:** el episodio en curso termina; el siguiente no empieza hasta que el vigía vuelve a `continuar`
+  (≥ 300 s limpios y ≥ 230 s de historia del motor); tras la pausa se rehace el contexto y se sigue **en el mismo
+  orden**, sin repetir ni saltar episodios;
+- **cancelación:** no empieza ningún episodio más; el generador termina con rc 3 y anota la causa en
+  `marcas.jsonl` (`cancelacion`) y el vigía en `vigia.jsonl`;
+- **fallo cerrado:** sin lectura, pausa; sin canal o con el vigía caído, el permiso caduca (150 s) y el generador
+  pausa; tras 1 800 s sin permiso válido se cancela solo. Un permiso de otra corrida (otro nonce) o emitido antes
+  del arranque del generador no vale.
+
+Esto **sustituye** la regla del 3B «ningún acceso a la Kali hasta `b20`»: hay **una** conexión SSH persistente
+(ControlMaster `~/cf-e4/4c/vigia/ctl-kali`) abierta por `g01` y cerrada por `b20`; cada uso (lanzamiento y cada
+permiso) queda en `accesos-kali.log`. Los paquetes Kali↔bastión de ese canal alimentan las ventanas de la Kali en
+el motor (`--excluir` solo quita las ventanas de la entidad excluida): se publica el volumen del canal junto a los
+resultados.
+
+Durante la batería (≈ 1 h 56 min, más las pausas): `[BASTIÓN gadmin]` → lo ejecuto yo, lectura cada 10 min de
+`tail -3 ~/cf-e4/4c/vigilancia.log` y `tail -1 ~/cf-e4/4c/vigia/vigia.jsonl`.
 
 - **Pausa (P1–P5)** y **cancelación (X1–X3)**: [SALUD-CAPTURA §4.2](SALUD-CAPTURA.md#42-durante). Una pausa no
   reordena ni repite episodios: los afectados se clasifican con su clase de salud.
-- **X2** (un evento `aplicacion` o un cambio del ruleset nft) cancela la 4C y activa la reversión
-  ([PROCEDIMIENTO §7](PROCEDIMIENTO-ETAPA4.md#7-reversión)).
+- **X2** (un evento `aplicacion` o un cambio del ruleset nft) cancela la 4C (`reversion_necesaria` en
+  `vigia.jsonl`) y activa la reversión ([PROCEDIMIENTO §7](PROCEDIMIENTO-ETAPA4.md#7-reversión)), que ejecuta una
+  persona: el vigía no revierte nada.
 
 ### 5.6 Fin de la batería y cierre
 
@@ -185,8 +214,9 @@ Durante la batería (≈ 1 h 56 min): `[BASTIÓN gadmin]` → lo ejecuto yo, lec
 bash "$G/r4.sh" b20_fin_bateria_e4.sh bastion
 ```
 
-- **Esperado:** `generador rc=0`, tres sha256 de `marcas.jsonl` iguales (Kali, bastión, sensor), `fin_ultimo=<epoch>`,
-  `relojes-4c.log` copiado a `~/cf-e4/4c/copias/`.
+- **Esperado:** `generador rc=0` (o `rc=3` con `AVISO: batería CANCELADA`: se cierra igual y se publica como
+  cancelada, con su causa), `vigía terminado`, canal de control cerrado, tres sha256 de `marcas.jsonl` iguales
+  (Kali, bastión, sensor), `fin_ultimo=<epoch>`, `relojes-4c.log` copiado a `~/cf-e4/4c/copias/`.
 - Si aún no han pasado 300 s desde `fin_ultimo`, la traza del relé no se copia: se repite `b20` después de la hora
   que indica (las copias anteriores se rehacen idénticas o para con `PARAR`).
 - **Parada:** `PARAR`.

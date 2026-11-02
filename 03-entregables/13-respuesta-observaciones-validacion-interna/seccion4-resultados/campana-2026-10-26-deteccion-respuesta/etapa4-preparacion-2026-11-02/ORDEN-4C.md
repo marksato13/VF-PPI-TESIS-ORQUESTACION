@@ -11,7 +11,7 @@
 | Semilla | `20261102` (regla fijada antes de calcular el orden: la fecha de la preparación; el 3B usó `20261026`) |
 | Configuración | [`escenarios-4c.json`](escenarios-4c.json), sha256 (bytes LF, los mismos de GitHub) `73c0b204d1e6f8844f23d6ec3c8c30732b5084f2fea3df96d26a2c2a7927aacd` |
 | Diferencia con el 3B | solo `semilla`, `_campana` y `_nota_4c`. Escenarios, parámetros, origen `10.10.20.30`, lista blanca y tiempos 60/120/90 son los de `escenarios/escenarios.json` (sha256 `67798012…`) |
-| Cálculo del orden | `generar_campana.plan_orden` (el mismo código que ejecuta la Kali, sha256 `c586d813…`), por [`evidencia/lectura-laboratorio/orden_4c.py`](evidencia/lectura-laboratorio/orden_4c.py) |
+| Cálculo del orden | `generar_campana.plan_orden` (sha256 `c586d813…`; la función es idéntica en el generador con compuerta `scripts-4c/generar_campana.py`, `99e6bdae…`, que es el que ejecuta la Kali en la 4C: el orden no cambia), por [`evidencia/lectura-laboratorio/orden_4c.py`](evidencia/lectura-laboratorio/orden_4c.py) |
 | Configuración de análisis | [`config-campana-4c.json`](config-campana-4c.json), sha256 `f177d9bb18c2b9c93f3829f6ffd60a65a81e42d598d3b587719f0d3a1f2da5f9` |
 | Diseño | 5 escenarios × 5 repeticiones = 25 episodios; 7 configuraciones derivadas (IF a α 0,05 / 0,03 / 0,01, HEUR, HIB a los tres α) y la vía rápida **aparte** |
 

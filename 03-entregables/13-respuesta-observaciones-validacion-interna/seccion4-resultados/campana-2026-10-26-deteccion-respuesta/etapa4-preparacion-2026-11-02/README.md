@@ -11,7 +11,7 @@
 | Qué | Versión | Comprobado |
 |---|---|---|
 | Código que se instalaría | `ec78ca5` (`ec78ca56a3a8f4bb17fda967a7f0abe0e9a2c742`), rama `candidato/etapa3-20261102`, sin cambios | sin commits posteriores en el código del producto |
-| Herramientas de la Etapa 4 (producto) | `acc6588` (`acc6588d7ab34f91f01c46e734d55d64c0bf5ccf`) en la misma rama: solo `scripts/etapa4/`, `deploy/etapa4/` y pruebas | `git ls-remote` = `acc6588…` |
+| Herramientas de la Etapa 4 (producto) | `f9cf801` (`f9cf8017302bdcc75f126c0e8568f10e9114175e`) en la misma rama, sobre `acc6588`: solo `scripts/etapa4/`, `deploy/etapa4/` y pruebas. La rama está en `3a9f26b` (`3a9f26b1e9c0c511da8719056c48deda646ff971`), que solo cambia pruebas. Correcciones: [etapa4-correcciones-2026-11-02](../etapa4-correcciones-2026-11-02/README.md) | `git ls-remote` = `3a9f26b…` |
 | Documentación de partida | `4adfdf2` (cierre técnico de la Etapa 3) en `main` | |
 | Entrega de partida | `../etapa3-cierre-tecnico-2026-11-02/` | corregida en este cierre (§4) |
 | Lo desplegado hoy en Sensor1 | motor **24f8a80** + cadena v1 as-deployed **f57ca00**; `~/cyberflow` **no** es un checkout | [ESTADO-OBSERVADO](ESTADO-OBSERVADO-LABORATORIO.md) |
@@ -76,6 +76,11 @@ Ninguna se da por cumplida con lo visto el 2-nov; se comprueban el día de la in
 | C13 | Kali sin procesos de ataque y relojes sincronizados (desfase ≤ 0,1 s al empezar) | lectura del día |
 
 ## 6. ¿Se puede pedir la ejecución de la Etapa 4?
+
+> **Actualización 2026-11-02 (tarde).** Se corrigieron cuatro defectos de las herramientas (cobertura SIGUSR1, estado de
+> sombra de srv-dmz, pausas y cancelaciones efectivas, propagación de errores en `s50`/`r4`), y `piloto-con-dns` resultó
+> ser una etiqueta histórica (su condición de §5 queda satisfecha por lectura, sin pregunta a Mark). Conclusión vigente y pendientes en vivo:
+> [etapa4-correcciones-2026-11-02](../etapa4-correcciones-2026-11-02/README.md#3-conclusión).
 
 Está **lista para solicitarse la 4A**, no para ejecutarse sin más: el procedimiento, la reversión y los protocolos
 están cerrados y probados offline, pero la instalación exige antes C1–C5 (dos de ellas solo las puede resolver Mark:
