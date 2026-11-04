@@ -1,0 +1,18 @@
+ppi-enforce-agent.timer inactive disabled 
+ppi-enforce-agent.service 0 inactive static 
+ppi-enforce-agent-v2-dmz.service 1525584 active enabled 
+/usr/bin/python3 -I /opt/cyberflow/agente-v2/agente_enforce_v2.py --perfil dmz --feed /var/lib/cyberflow/feed/feed.json --firma /var/lib/cyberflow/feed/feed.sig --clave-publica /opt/cyberflow/agente-v2/pub.pem --estado /var/lib/cyberflow/agente/estado.json --traza /var/lib/cyberflow/agente/traza.jsonl --helper sudo -n /usr/local/sbin/cf-nft-helper --seguir 
+total 416
+drwxrwxr-x  3 adminsrvdmz adminsrvdmz   4096 2026-11-04 06:12:05.116004659 +0000 .
+drwxr-x--- 11 adminsrvdmz adminsrvdmz   4096 2026-11-04 01:56:01.570574251 +0000 ..
+-rw-rw-r--  1 adminsrvdmz adminsrvdmz   6429 2026-11-03 04:46:03.785622335 +0000 acuse_aplicacion.py
+-rw-rw-r--  1 adminsrvdmz adminsrvdmz  14406 2026-11-04 06:12:05.116004659 +0000 acuse-historial.json
+-rwxrwxr-x  1 adminsrvdmz adminsrvdmz  20390 2026-11-03 08:42:43.506929072 +0000 agente_enforce.py
+-rw-rw-r--  1 adminsrvdmz adminsrvdmz   7742 2026-10-15 12:56:51.306530483 +0000 agente_enforce.py.bak-20261015T1255Z
+-rwxr-xr-x  1 adminsrvdmz adminsrvdmz   7645 2026-10-15 21:26:02.163522994 +0000 agente_enforce.py.bak-20261015T2033Z
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  -
+nov 04 06:13:25 srv-dmz sudo[1692143]: pam_unix(sudo:session): session closed for user root
+nov 04 06:13:44 srv-dmz sudo[1692160]: cfagente : PWD=/ ; USER=root ; COMMAND=/usr/local/sbin/cf-nft-helper
+nov 04 06:13:44 srv-dmz sudo[1692160]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=996)
+nov 04 06:13:45 srv-dmz sudo[1692160]: pam_unix(sudo:session): session closed for user root
+ningún proceso con --aplicar/--enforce

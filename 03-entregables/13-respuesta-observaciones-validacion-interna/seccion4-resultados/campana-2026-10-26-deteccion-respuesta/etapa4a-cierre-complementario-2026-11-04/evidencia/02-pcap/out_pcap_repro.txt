@@ -1,0 +1,60 @@
+tcpdump version 4.99.4
+libpcap version 1.10.4 (with TPACKET_V3)
+uid=101(tcpdump) gid=103(tcpdump) groups=103(tcpdump)
+uid=1000(m4rk) gid=1000(m4rk) groups=1000(m4rk)
+===== 1) unidad actual (root + -Z tcpdump)
+total 20
+-rw-r----- 1 tcpdump tcpdump   24 05:49:39 live-20261104054939.pcap
+-rw-r----- 1 tcpdump m4rk     936 05:49:40 live-20261104054940.pcap
+-rw-r----- 1 tcpdump m4rk    1164 05:49:41 live-20261104054941.pcap
+-rw-r----- 1 tcpdump m4rk    1164 05:49:42 live-20261104054942.pcap
+-rw-r----- 1 tcpdump m4rk    1164 05:49:43 live-20261104054943.pcap
+--- llamadas relevantes del arranque (en orden):
+20:472   setgid(0)                         = 0
+21:472   setuid(0)                         = 0
+23:472   openat(AT_FDCWD, "/var/lib/ppi-motor-capture/live-20261104054939.pcap", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 5
+26:472   chown("/var/lib/ppi-motor-capture/live-20261104054939.pcap", 101, 103) = 0
+30:472   setgroups(1, [103])               = 0
+31:472   setgid(103)                       = 0
+32:472   setuid(101)                       = 0
+34:472   openat(AT_FDCWD, "/var/lib/ppi-motor-capture/live-20261104054940.pcap", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 5
+36:472   openat(AT_FDCWD, "/var/lib/ppi-motor-capture/live-20261104054941.pcap", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 5
+38:472   openat(AT_FDCWD, "/var/lib/ppi-motor-capture/live-20261104054942.pcap", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 5
+40:472   openat(AT_FDCWD, "/var/lib/ppi-motor-capture/live-20261104054943.pcap", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 5
+--- ¿m4rk puede leer cada fichero?
+ILEGIBLE  live-20261104054939.pcap
+legible   live-20261104054940.pcap
+legible   live-20261104054941.pcap
+legible   live-20261104054942.pcap
+legible   live-20261104054943.pcap
+===== 2) corrección propuesta: ExecStartPost (root) que devuelve el grupo del directorio al primer fichero
+primer_pcap: grupo corregido en /var/lib/ppi-motor-capture/live-20261104054944.pcap
+ExecStartPost rc=0
+total 20
+-rw-r----- 1 tcpdump m4rk   24 05:49:44 live-20261104054944.pcap
+-rw-r----- 1 tcpdump m4rk 1848 05:49:45 live-20261104054945.pcap
+-rw-r----- 1 tcpdump m4rk 2304 05:49:46 live-20261104054946.pcap
+-rw-r----- 1 tcpdump m4rk 2304 05:49:47 live-20261104054947.pcap
+-rw-r----- 1 tcpdump m4rk 1164 05:49:48 live-20261104054948.pcap
+legible   live-20261104054944.pcap
+legible   live-20261104054945.pcap
+legible   live-20261104054946.pcap
+legible   live-20261104054947.pcap
+legible   live-20261104054948.pcap
+--- PCAP válidos (tcpdump -r como m4rk):
+live-20261104054944.pcap: 0 paquetes
+live-20261104054945.pcap: 16 paquetes
+live-20261104054946.pcap: 20 paquetes
+live-20261104054947.pcap: 20 paquetes
+live-20261104054948.pcap: 10 paquetes
+--- permisos y propietarios finales:
+tcpdump:m4rk 2750 /var/lib/ppi-motor-capture
+tcpdump:m4rk 640 live-20261104054944.pcap
+tcpdump:m4rk 640 live-20261104054945.pcap
+tcpdump:m4rk 640 live-20261104054946.pcap
+tcpdump:m4rk 640 live-20261104054947.pcap
+tcpdump:m4rk 640 live-20261104054948.pcap
+===== 3) caso límite: sin tráfico el primer fichero se crea igual (lo crea tcpdump al arrancar)
+primer_pcap: grupo corregido en /var/lib/ppi-motor-capture/live-20261104054948.pcap
+ExecStartPost rc=0
+tcpdump:m4rk 640 live-20261104054948.pcap

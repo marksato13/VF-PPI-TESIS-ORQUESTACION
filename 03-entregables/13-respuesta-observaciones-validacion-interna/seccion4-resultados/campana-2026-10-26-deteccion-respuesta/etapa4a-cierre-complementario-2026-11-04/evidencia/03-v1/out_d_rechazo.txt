@@ -1,0 +1,14 @@
+rechazos en todo el fichero: 1 de 932 ; primera linea 02:18:51.568
+06:25:27.176 recepcion aceptado  sec 762 mtime_feed 06:25:27.060 gen 06:25:26.153
+06:25:46.786 recepcion aceptado  sec 763 mtime_feed 06:25:46.317 gen 06:25:46.201
+06:26:06.889 recepcion aceptado  sec 764 mtime_feed 06:26:06.631 gen 06:26:06.251
+06:26:26.990 rechazo None firma_invalida sec None mtime_feed None gen None
+06:26:27.504 recepcion aceptado  sec 765 mtime_feed 06:26:26.960 gen 06:26:26.303
+06:26:47.608 recepcion aceptado  sec 766 mtime_feed 06:26:47.309 gen 06:26:46.355
+06:27:06.717 recepcion aceptado  sec 767 mtime_feed 06:27:06.521 gen 06:27:06.404
+2026-11-04T06:26:27.511014+00:00 srv-dmz sudo[1693049]: cfagente : PWD=/ ; USER=root ; COMMAND=/usr/local/sbin/cf-nft-helper
+total 16
+drwxr-s--- 2 cffeed cfagente 4096 2026-11-04 07:29:36.862725545 +0000 .
+drwxr-xr-x 5 root   root     4096 2026-11-04 02:18:46.741699586 +0000 ..
+-rw-r----- 1 cffeed cfagente  147 2026-11-04 07:29:36.843725429 +0000 feed.json
+-rw-r----- 1 cffeed cfagente   64 2026-11-04 07:29:36.825725319 +0000 feed.sig

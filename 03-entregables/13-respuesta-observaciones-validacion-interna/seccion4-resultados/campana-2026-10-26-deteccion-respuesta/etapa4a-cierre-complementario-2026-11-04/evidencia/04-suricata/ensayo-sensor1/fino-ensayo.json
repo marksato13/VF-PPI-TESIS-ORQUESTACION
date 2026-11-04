@@ -1,0 +1,69 @@
+{
+ "desde": 1793773615.0,
+ "hasta": 1793777215.0,
+ "muestras": 3599,
+ "cobertura": {
+  "primera": 1793773615.685,
+  "ultima": 1793777214.26,
+  "margen_inicio_s": 0.68,
+  "margen_fin_s": 0.74,
+  "hueco_max_s": 1.01
+ },
+ "muestras_con_errores": 0,
+ "pids_suricata": [
+  1708643
+ ],
+ "nic_incrementos": {
+  "rx_packets": 1195056,
+  "rx_dropped": 50505,
+  "rx_missed_errors": 0,
+  "rx_fifo_errors": 0
+ },
+ "softnet_incrementos": {
+  "dropped": 0,
+  "time_squeeze": 169
+ },
+ "suricata_cpu_hilo_mas_cargado_pct": {
+  "p50": 1.0,
+  "p95": 2.0,
+  "max": 5.0
+ },
+ "suricata_cpu_por_tipo_max_pct": {
+  "CS": 1.0,
+  "CW": 1.0,
+  "FM": 2.0,
+  "FR": 1.0,
+  "Suricata-Main": 2.0,
+  "US": 1.0,
+  "W": 5.0
+ },
+ "host_softirq_pct": {
+  "p95": 0.5,
+  "max": 2.3
+ },
+ "host_iowait_pct": {
+  "p95": 0.0,
+  "max": 0.5
+ },
+ "disco_ms_en_es_por_s": {
+  "p95": 2.0,
+  "max": 13.0
+ },
+ "mem_disponible_min_kb": 5227052,
+ "suricata_rss_max_kb": 172860,
+ "suricata_rss_inicio_fin_kb": [
+  167740,
+  172860
+ ],
+ "eve_parada_max_s": 5.0,
+ "eve_parada_max_termina_en": 1793777053.233,
+ "pares_no_legibles": {
+  "nic": 0,
+  "suricata": 0,
+  "cpu": 0,
+  "softnet": 0,
+  "disco": 0,
+  "mem": 0,
+  "eve": 0
+ }
+}

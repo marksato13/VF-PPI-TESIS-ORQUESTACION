@@ -1,0 +1,51 @@
+== cierre4a fase B  inicio 2026-11-04T06:16:51Z  host cyberflow-sensor
+== integridad de las herramientas
+CRITERIOS-ENSAYO-ANILLO.md: OK
+cf-primer-pcap.sh: OK
+cierre4a_sensor1.sh: OK
+clasificar_periodo.py: OK
+comparar_suricata.py: OK
+ensayo_clasificar_periodo.py: OK
+etapa4-primer-pcap.conf: OK
+modo-panel-v2.conf: OK
+muestreo_fino.py: OK
+revertir_cierre4a.sh: OK
+== B0 estado y respaldo previo de Suricata
+This is Suricata version 7.0.3 RELEASE
+PID 1372
+8e084b7dd9dbc9a1873ba479ce3861047a534742e0daf75c607d018c555efa04  /etc/suricata/suricata.yaml
+8e084b7dd9dbc9a1873ba479ce3861047a534742e0daf75c607d018c555efa04  /home/m4rk/cf-e4/cierre4a/sudo-B-20261104T061651Z/suricata.yaml.antes
+8e084b7dd9dbc9a1873ba479ce3861047a534742e0daf75c607d018c555efa04  /etc/suricata/suricata.yaml.respaldo-cierre4a-20261104T061651Z
+Date: 11/4/2026 -- 06:16:45 (uptime: 4d, 10h 21m 24s)
+capture.kernel_packets                        | Total                     | 138216135
+capture.kernel_drops                          | Total                     | 82529
+== B1 anillo real ANTES (mapeos mmap de los sockets AF_PACKET)
+mapeos_socket=4 bytes=3407872 MiB=3.2
+== B2 candidato: SOLO ring-size: 16384 en el bloque de ens37
+615a616
+>     ring-size: 16384   # cierre 4A 4-nov-2026: único cambio del ensayo
+af-packet.0.interface = ens37
+af-packet.0.ring-size = 16384
+af-packet.0.checksum-checks = no
+af-packet.0.cluster-id = 99
+af-packet.0.cluster-type = cluster_flow
+af-packet.0.defrag = yes
+== B3 suricata -T del candidato (código de salida real, sin tubería)
+rc_test_candidato=0
+Info: logopenfile: stats output device (regular) initialized: stats.log
+Warning: detect: 1 rule files specified, but no rules were loaded!
+Info: threshold-config: Threshold config parsed: 0 rule(s) found
+Info: detect: 0 signatures processed. 0 are IP-only rules, 0 are inspecting packet payload, 0 inspect application layer, 0 are decoder event only
+Notice: suricata: Configuration provided was successfully loaded. Exiting.
+== B4 instalar y volver a probar la ruta real
+rc_test_instalado=0
+0962ce68b565c237ded37313f578e1a1b05229206741e76f7d3a2daaa6e694d0  /etc/suricata/suricata.yaml
+== B5 reinicio de Suricata
+active
+PID nuevo 1708643
+mapeos_socket=4 bytes=107479040 MiB=102.5
+[1708618 - Suricata-Main] 2026-11-04 06:16:52 Warning: detect: 1 rule files specified, but no rules were loaded!
+[1708623 - Suricata-Main] 2026-11-04 06:16:52 Warning: detect: 1 rule files specified, but no rules were loaded!
+[1708643 - Suricata-Main] 2026-11-04 06:16:55 Warning: detect: 1 rule files specified, but no rules were loaded!
+MemAvailable:    6973116 kB
+== fin fase B 2026-11-04T06:17:12Z  evidencia en /home/m4rk/cf-e4/cierre4a/sudo-B-20261104T061651Z

@@ -1,0 +1,117 @@
+ventana 1793773615 1793777215 (06:26:55–07:26:55); ahora 07:28:04
+== Suricata: proceso, reinicios y errores
+MainPID=1708643
+NRestarts=0
+ExecMainStartTimestamp=Wed 2026-11-04 06:16:54 UTC
+ActiveState=active
+[1708618 - Suricata-Main] 2026-11-04 06:16:52 Info: suricata: Setting engine mode to IDS mode by default
+[1708623 - Suricata-Main] 2026-11-04 06:16:52 Info: suricata: Setting engine mode to IDS mode by default
+[1372 - Suricata-Main] 2026-11-04 06:16:52 Notice: suricata: Signal Received.  Stopping engine.
+[1708640 - Suricata-Main] 2026-11-04 06:16:54 Info: suricata: Setting engine mode to IDS mode by default
+[1708643 - Suricata-Main] 2026-11-04 06:16:55 Notice: threads: Threads created -> W: 4 FM: 1 FR: 1   Engine started.
+== Suricata: ventana del ensayo (eve stats) y calentamiento
+4A (eve)                 eve stats bloques=451 interv=450 hueco_max=8.0 reinicios=0 cobertura_s=3600.4 paq=936761 desc=7 por_M=7.473 episodios=[('03:05:47', 5766, 7)] rafagas=11 p50/p95/max=1856/4306/7168 pps_max=895.9 flujos=7845 grandes=63 pk_grandes=88747
+   srv-dmz por cliente: {'10.10.10.30': (1461, 82098), '10.10.20.22': (471, 84062), '10.10.20.23': (108, 69246), '10.10.20.26': (111, 19191), '10.10.20.21': (242, 7334), '10.10.20.24': (413, 4784)}
+calentamiento            eve stats bloques=74 interv=73 hueco_max=8.0 reinicios=0 cobertura_s=584.1 paq=173380 desc=0 por_M=0.0 episodios=[] rafagas=5 p50/p95/max=1467/5253/14169 pps_max=1770.9 flujos=1049 grandes=20 pk_grandes=37312
+   srv-dmz por cliente: {'10.10.20.22': (83, 22206), '10.10.20.23': (24, 11210), '10.10.20.26': (24, 6144), '10.10.20.24': (60, 710), '10.10.20.21': (36, 708), '10.10.20.25': (8, 122)}
+ensayo ring-size 16384   eve stats bloques=450 interv=449 hueco_max=8.0 reinicios=0 cobertura_s=3592.4 paq=1193578 desc=0 por_M=0.0 episodios=[] rafagas=68 p50/p95/max=1477/7437/19406 pps_max=2425.5 flujos=7517 grandes=79 pk_grandes=399823
+   srv-dmz por cliente: {'10.10.20.22': (512, 90590), '10.10.20.23': (95, 45160), '10.10.20.26': (112, 27736), '10.10.20.21': (226, 6893), '10.10.20.24': (384, 4592), '10.10.20.25': (34, 440)}
+== recursos (muestreo fino 1 s)
+{
+ "desde": 1793773615.0,
+ "hasta": 1793777215.0,
+ "muestras": 3599,
+ "cobertura": {
+  "primera": 1793773615.685,
+  "ultima": 1793777214.26,
+  "margen_inicio_s": 0.68,
+  "margen_fin_s": 0.74,
+  "hueco_max_s": 1.01
+ },
+ "muestras_con_errores": 0,
+ "pids_suricata": [
+  1708643
+ ],
+ "nic_incrementos": {
+  "rx_packets": 1195056,
+  "rx_dropped": 50505,
+  "rx_missed_errors": 0,
+  "rx_fifo_errors": 0
+ },
+ "softnet_incrementos": {
+  "dropped": 0,
+  "time_squeeze": 169
+ },
+ "suricata_cpu_hilo_mas_cargado_pct": {
+  "p50": 1.0,
+  "p95": 2.0,
+  "max": 5.0
+ },
+ "suricata_cpu_por_tipo_max_pct": {
+  "CS": 1.0,
+  "CW": 1.0,
+  "FM": 2.0,
+  "FR": 1.0,
+  "Suricata-Main": 2.0,
+  "US": 1.0,
+  "W": 5.0
+ },
+ "host_softirq_pct": {
+  "p95": 0.5,
+  "max": 2.3
+ },
+ "host_iowait_pct": {
+  "p95": 0.0,
+  "max": 0.5
+ },
+ "disco_ms_en_es_por_s": {
+  "p95": 2.0,
+  "max": 13.0
+ },
+ "mem_disponible_min_kb": 5227052,
+ "suricata_rss_max_kb": 172860,
+ "suricata_rss_inicio_fin_kb": [
+  167740,
+  172860
+ ],
+ "eve_parada_max_s": 5.0,
+ "eve_parada_max_termina_en": 1793777053.233,
+ "pares_no_legibles": {
+  "nic": 0,
+  "suricata": 0,
+  "cpu": 0,
+  "softnet": 0,
+  "disco": 0,
+  "mem": 0,
+  "eve": 0
+ }
+}
+fino-previo-anillo-viejo.json cpu_hilo {'p50': 1.0, 'p95': 1.0, 'max': 2.0} softirq {'p95': 0.5, 'max': 1.0} iowait {'p95': 0.0, 'max': 0.3} disco {'p95': 3.0, 'max': 17.0} mem_min 5710964 rss_max 121404 softnet {'dropped': 0, 'time_squeeze': 18} nic {'rx_packets': 124190, 'rx_dropped': 6345, 'rx_missed_errors': 0, 'rx_fifo_errors': 0} eve_parada 3.0
+fino-calentamiento.json cpu_hilo {'p50': 1.0, 'p95': 1.0, 'max': 3.0} softirq {'p95': 0.5, 'max': 1.5} iowait {'p95': 0.0, 'max': 0.3} disco {'p95': 2.0, 'max': 5.0} mem_min 5946668 rss_max 167740 softnet {'dropped': 0, 'time_squeeze': 33} nic {'rx_packets': 181032, 'rx_dropped': 8417, 'rx_missed_errors': 0, 'rx_fifo_errors': 0} eve_parada 4.0
+fino-ensayo.json cpu_hilo {'p50': 1.0, 'p95': 2.0, 'max': 5.0} softirq {'p95': 0.5, 'max': 2.3} iowait {'p95': 0.0, 'max': 0.5} disco {'p95': 2.0, 'max': 13.0} mem_min 5227052 rss_max 172860 softnet {'dropped': 0, 'time_squeeze': 169} nic {'rx_packets': 1195056, 'rx_dropped': 50505, 'rx_missed_errors': 0, 'rx_fifo_errors': 0} eve_parada 5.0
+== calidad de captura en la ventana (clasificar_periodo, criterios congelados)
+rc_clasificar=0
+{"clase_periodo": "C3", "motivo": null, "capturas": {"captura": ["C3", ["Suricata sin medida completa en el periodo"]], "via-rapida": ["C3", ["Suricata sin medida completa en el periodo"]]}, "suricata_reinicios_dentro": 0}
+rc_clasificar=0
+{"clase_periodo": "C3", "muestras": {"n": 494, "primera_t": 1793772299.481, "ultima_t": 1793777274.88}, "periodo": {"desde": 1793773615.0, "duracion_s": 3600.0, "hasta": 1793777215.0, "origen": "indicado"}, "salud_captura": "2026-11-02.2", "suricata": {"reinicios_dentro_del_periodo": 0, "segmentos": [{"arranque_aprox_t": 1793390121.0, "descartes": 0, "descartes_fin": 82529, "descartes_ini": 82529, "descartes_por_millon": 0.0, "desde_t": 1793772299.481, "hasta_t": 1793774176.517, "paquetes": 182623, "paquetes_fin": 138218220, "paquetes_ini": 138035597}]}, "version": "clasificar_periodo 2026-11-04.1"}
+captura C3 ['Suricata sin medida completa en el periodo'] {'cobertura_tcpdump_ok': True, 'descartados_kernel': 0, 'lecturas': 122, 'pids': [1707345]}
+via-rapida C3 ['Suricata sin medida completa en el periodo'] {'cobertura_tcpdump_ok': True, 'descartados_kernel': 0, 'lecturas': 122, 'pids': [1413924]}
+== motor y vía rápida en la ventana
+ciclos 717 dur p50/p95/max 0.387 1.3952 2.6219 hueco_max_entre_ciclos_s 5.9 disparos Counter({'pcap_cerrado': 717})
+decisiones 3884 decision {'ALERT': 97, 'PERMIT': 3787} decision_if {'ALERT': 97, 'PERMIT': 2080, None: 1707} pcaps_ilegibles {0: 3884} historial_completo {True: 3884}
+== v1 sigue parada, sin aplicación, ruleset
+ppi-publicar-feed.timer inactive disabled 
+ppi-publicar-feed.service 0 0 inactive static 
+ppi-publicar-feed-v2.service 1413923 0 active enabled 
+ppi-motor.service 1707357 0 active enabled 
+ppi-motor-capture.service 1707345 0 active enabled 
+ppi-dashboard.service 1707384 0 active enabled 
+ppi-via-rapida@ens37.service 1413922 0 active enabled 
+/home/m4rk/feed/feed.json 2026-11-04 06:12:40.892770032 +0000
+/home/m4rk/feed/acuses/srv-dmz.json 2026-11-04 06:12:05.454345920 +0000
+ningún proceso v1 ni con --aplicar/--enforce
+24c320e3e953857317c08beb04e34f34c6f132bb6cccd0f1b4c7ab98b621a21e  -
+-rw-r--r--  1 m4rk m4rk      147 2026-11-04 07:28:15.591122198 +0000 feed.json
+-rw-r--r--  1 m4rk m4rk   165900 2026-11-04 07:28:04.060980559 +0000 senales-if.jsonl
+-rw-r--r--  1 m4rk m4rk   185315 2026-11-04 07:28:15.591122198 +0000 traza.jsonl
+evidencia en /home/m4rk/cf-e4/cierre4a/ensayo

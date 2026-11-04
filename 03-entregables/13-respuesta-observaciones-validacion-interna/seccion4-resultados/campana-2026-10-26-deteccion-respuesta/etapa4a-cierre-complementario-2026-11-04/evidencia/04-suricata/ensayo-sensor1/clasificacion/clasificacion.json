@@ -1,0 +1,139 @@
+{
+ "capturas": {
+  "captura": {
+   "acotado_por": [
+    1793773611.4,
+    1793777224.431
+   ],
+   "clase": "C3",
+   "continuidad": {
+    "cobertura_tcpdump_ok": true,
+    "descartados_kernel": 0,
+    "lecturas": 122,
+    "pids": [
+     1707345
+    ]
+   },
+   "info": {
+    "motor_retraso_pcap_max_s": 1.576,
+    "suricata": {
+     "descartes": 0,
+     "intervalos": 0,
+     "paquetes": 0
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1793773590.309571,
+     "hasta": 1793777220.317403,
+     "lecturas": 122,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1707345,
+     "pids": [
+      1707345
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": 0.023,
+     "medida": true
+    }
+   },
+   "journal": {
+    "error": "",
+    "lecturas_sigusr1": 123,
+    "ok": true,
+    "orden": "journalctl --no-pager -o short-iso-precise -u ppi-motor-capture --since @1793773580 --until @1793777251",
+    "rc": 0
+   },
+   "motivos": [
+    "Suricata sin medida completa en el periodo"
+   ],
+   "unidad": "ppi-motor-capture"
+  },
+  "via-rapida": {
+   "acotado_por": [
+    1793773611.4,
+    1793777224.431
+   ],
+   "clase": "C3",
+   "continuidad": {
+    "cobertura_tcpdump_ok": true,
+    "descartados_kernel": 0,
+    "lecturas": 122,
+    "pids": [
+     1413924
+    ]
+   },
+   "info": {
+    "motor_retraso_pcap_max_s": 1.576,
+    "suricata": {
+     "descartes": 0,
+     "intervalos": 0,
+     "paquetes": 0
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1793773590.353018,
+     "hasta": 1793777220.361996,
+     "lecturas": 122,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1413924,
+     "pids": [
+      1413924
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": 0.023,
+     "medida": true
+    }
+   },
+   "journal": {
+    "error": "",
+    "lecturas_sigusr1": 123,
+    "ok": true,
+    "orden": "journalctl --no-pager -o short-iso-precise -u ppi-via-rapida@ens37 --since @1793773580 --until @1793777251",
+    "rc": 0
+   },
+   "motivos": [
+    "Suricata sin medida completa en el periodo"
+   ],
+   "unidad": "ppi-via-rapida@ens37"
+  }
+ },
+ "clase_periodo": "C3",
+ "muestras": {
+  "n": 494,
+  "primera_t": 1793772299.481,
+  "ultima_t": 1793777274.88
+ },
+ "periodo": {
+  "desde": 1793773615.0,
+  "duracion_s": 3600.0,
+  "hasta": 1793777215.0,
+  "origen": "indicado"
+ },
+ "salud_captura": "2026-11-02.2",
+ "suricata": {
+  "reinicios_dentro_del_periodo": 0,
+  "segmentos": [
+   {
+    "arranque_aprox_t": 1793390121.0,
+    "descartes": 0,
+    "descartes_fin": 82529,
+    "descartes_ini": 82529,
+    "descartes_por_millon": 0.0,
+    "desde_t": 1793772299.481,
+    "hasta_t": 1793774176.517,
+    "paquetes": 182623,
+    "paquetes_fin": 138218220,
+    "paquetes_ini": 138035597
+   }
+  ]
+ },
+ "version": "clasificar_periodo 2026-11-04.1"
+}

@@ -1,0 +1,7 @@
+Id=ppi-publicar-feed.timer
+ActiveState=inactive
+UnitFileState=disabled
+
+Id=ppi-publicar-feed.service
+ActiveState=inactive
+UnitFileState=static

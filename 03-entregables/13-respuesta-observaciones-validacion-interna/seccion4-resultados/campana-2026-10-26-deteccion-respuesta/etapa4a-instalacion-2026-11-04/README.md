@@ -13,6 +13,14 @@
 >
 > **No se avanzó a la 4B.** No hubo ataques, no se activaron restricciones, no se eligió α, no se reentrenó y no se
 > tocó el Word ni la evidencia histórica.
+>
+> **Cierre complementario (04-nov, después de esta sesión).**
+> - Se corrigieron el panel, el PCAP inicial y la v1 residual.
+> - Se ensayó el anillo de Suricata.
+> - Se rectificaron en §8 y en la PROPUESTA las frases que daban la CPU y el disco por descartados.
+>
+> Ver [`../etapa4a-cierre-complementario-2026-11-04/`](../etapa4a-cierre-complementario-2026-11-04/README.md).
+> La evidencia de esta carpeta no se modificó.
 
 Petición: la de Mark del 04-nov (fases 1 a 5), tras la P0 del mismo día (01:38 UTC). Base:
 [`../etapa4-reconciliacion-2026-11-03/`](../etapa4-reconciliacion-2026-11-03/README.md).
@@ -263,6 +271,15 @@ franja «Cadena v2».
 - **CPU:** load 0,4 y los hilos de Suricata con 0,1–0,3 % de CPU.
 - **Disco:** 63 % usado.
 - **Reinicios:** ninguno.
+
+> **Corrección (cierre complementario, 04-nov).** Los dos puntos anteriores **no descartan la CPU ni el disco**:
+> - el `%CPU` de `ps` es la media de toda la vida del proceso, no la del intervalo de 8 s;
+> - el porcentaje de disco usado no mide la latencia de E/S.
+>
+> Tampoco se midieron el softirq ni la cola softnet. La CPU por hilo, el softirq, el iowait, el disco y la memoria a 1 s
+> se midieron después, en el ensayo del anillo: ver
+> [cierre complementario](../etapa4a-cierre-complementario-2026-11-04/README.md).
+> Que los descartes coincidan con descargas grandes es una **correlación**, no una causa demostrada.
 
 **Lo que se descarta:**
 - La NIC no pierde: `rx_missed 0`, y los dos tcpdump sobre la misma interfaz no descartaron nada.

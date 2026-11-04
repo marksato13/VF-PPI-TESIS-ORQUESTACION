@@ -1,0 +1,87 @@
+# /etc/systemd/system/ppi-relay-eventos.service
+ExecStart=/usr/bin/python3 -I /opt/cyberflow/relay-v2/relay_eventos.py \
+script: /usr/bin/python3
+--- /usr/bin/python3
+17b78e0a93175e86f9ac03141924fd7a7f0c0c52e66b34bfa0de20ffef989df1  /usr/bin/python3
+grep: /usr/bin/python3: binary file matches
+--- /opt/cyberflow/relay-v2/relay_eventos.py
+e24aefb23121cd546a5d1fc6135328b18221bec172645bb9526ec6970a3a810f  /opt/cyberflow/relay-v2/relay_eventos.py
+2:"""Rele por eventos del feed firmado (Etapa 2, candidato). NO sustituye a relay-feed.sh.
+5:feed.json y feed.sig del sensor y, si la PAREJA cambio, la reenvia a cada destino
+8:Coherencia feed/firma (correccion de la Etapa 2, punto 2). El publicador renombra
+10:nueva con feed anterior o al reves). Antes, el rele entregaba esa pareja, apuntaba
+12:feed, ya no la entregaba: el destino se quedaba con una pareja invalida hasta la
+13:siguiente publicacion. Ahora:
+15:1. Lectura estable: feed, firma y otra vez feed; si el feed cambio durante la
+16:   lectura -> ``lectura_inestable`` y se reintenta en el siguiente sondeo.
+17:2. Verificacion de la pareja con la clave PUBLICA (el rele sigue sin poder firmar):
+19:   el siguiente sondeo la vuelve a leer y, cuando es coherente, la entrega.
+21:   sha256(feed) + sha256(firma); si cambia solo la firma, se reenvia.
+22:4. Entrega en dos fases: ``.feed.sig.tmp`` y ``.feed.json.tmp`` y, solo si los dos
+24:   destino la pareja ANTERIOR intacta (coherente) y se reintenta en el siguiente
+30:   del agente, que sigue verificando la firma.
+34:(``cf-feed-ssh.sh``) que solo admite estas ordenes. Transporte ``local`` (pruebas).
+51:    import feed  # co-desplegado junto al rele (bastion)
+54:    import feed
+58:NOMBRES = ("feed.sig", "feed.json")
+79:        r = self._ssh(origen["host"], origen["identidad"], "cat %s/%s" % (origen["dir"], nombre))
+84:        r = self._ssh(destino["host"], destino["identidad"], "cat > %s/.%s.tmp" % (d, nombre), datos)
+90:                      "mv -f %s/.feed.sig.tmp %s/feed.sig && mv -f %s/.feed.json.tmp %s/feed.json" % (d, d, d, d))
+103:            (Path(destino["dir"]) / (".%s.tmp" % nombre)).write_bytes(datos)
+112:                shutil.move(str(d / (".%s.tmp" % n)), str(d / n))
+126:    return lambda datos, firma: feed.verificar(datos, firma, clave_publica)
+143:        feed1 = self.t.traer(self.origen, "feed.json")
+144:        firma = self.t.traer(self.origen, "feed.sig")
+145:        feed2 = self.t.traer(self.origen, "feed.json")
+146:        if not feed1 or not firma or not feed2:
+148:        if feed1 != feed2:
+151:        return feed1, firma
+166:                            "secuencia_feed": _secuencia(datos)})
+172:        reg = {"evento": "reenvio", "secuencia": _secuencia(datos), "sha256_feed": sha_f[:16],
+175:            err = (self.t.subir(d, "feed.sig", firma) or self.t.subir(d, "feed.json", datos)
+208:        time.sleep(a.sondeo_segundos)
+--- /opt/cyberflow/relay-v2/pub.pem
+7ce39571e282de7b3779f5d0f5f89f9c0f0dcaad7c4f88c16d53105c10198361  /opt/cyberflow/relay-v2/pub.pem
+--- /home/gadmin/relay-v2/traza.jsonl
+04057eb1dc24c4d12297e9d107aed22d5bd5dfa9cb64fbbe5f5de2c309aef2d2  /home/gadmin/relay-v2/traza.jsonl
+1:{"destinos": {"srv-dmz": {"entregado_en": 1793758731.400439}}, "evento": "reenvio", "huella": "0c7aa5d540557b01:65e8c061df696aee", "secuencia": 24, "sha256_feed": "0c7aa5d540557b01", "traido_en": 1793758731.0196974}
+2:{"destinos": {"srv-dmz": {"entregado_en": 1793758749.6079068}}, "evento": "reenvio", "huella": "50918ecdfc5d7ffd:2e9e00c136bcfb87", "secuencia": 25, "sha256_feed": "50918ecdfc5d7ffd", "traido_en": 1793758749.552856}
+3:{"destinos": {"srv-dmz": {"entregado_en": 1793758769.9466863}}, "evento": "reenvio", "huella": "a63d24bb9882806b:b1966e3b2af6bc80", "secuencia": 26, "sha256_feed": "a63d24bb9882806b", "traido_en": 1793758769.8878288}
+4:{"destinos": {"srv-dmz": {"entregado_en": 1793758789.3183308}}, "evento": "reenvio", "huella": "4772f24dd356d31b:b4de041dbf279f85", "secuencia": 27, "sha256_feed": "4772f24dd356d31b", "traido_en": 1793758789.2493901}
+5:{"destinos": {"srv-dmz": {"entregado_en": 1793758809.653314}}, "evento": "reenvio", "huella": "8ad8cdddfa0ea31b:79c3b559959fd3c5", "secuencia": 28, "sha256_feed": "8ad8cdddfa0ea31b", "traido_en": 1793758809.5963144}
+6:{"destinos": {"srv-dmz": {"entregado_en": 1793758829.9625447}}, "evento": "reenvio", "huella": "369ddb8a3489a8ea:ed0404d2a2b2422a", "secuencia": 29, "sha256_feed": "369ddb8a3489a8ea", "traido_en": 1793758829.9037933}
+7:{"destinos": {"srv-dmz": {"entregado_en": 1793758850.2476227}}, "evento": "reenvio", "huella": "9dd3521f54f93956:32a6fdb458a2178e", "secuencia": 30, "sha256_feed": "9dd3521f54f93956", "traido_en": 1793758850.1773605}
+8:{"destinos": {"srv-dmz": {"entregado_en": 1793758869.5095975}}, "evento": "reenvio", "huella": "89f72c2b64e9159c:d6faf2384a80ade0", "secuencia": 31, "sha256_feed": "89f72c2b64e9159c", "traido_en": 1793758869.4466271}
+9:{"destinos": {"srv-dmz": {"entregado_en": 1793758889.844284}}, "evento": "reenvio", "huella": "1743df6da3d13f00:ed462b34006e3860", "secuencia": 32, "sha256_feed": "1743df6da3d13f00", "traido_en": 1793758889.7776039}
+10:{"destinos": {"srv-dmz": {"entregado_en": 1793758910.2096584}}, "evento": "reenvio", "huella": "7041db730e9b010c:6ef02cebcfbfce63", "secuencia": 33, "sha256_feed": "7041db730e9b010c", "traido_en": 1793758910.1424384}
+11:{"destinos": {"srv-dmz": {"entregado_en": 1793758930.5508757}}, "evento": "reenvio", "huella": "96f1aa59417fd369:402fa2ca218c90b7", "secuencia": 34, "sha256_feed": "96f1aa59417fd369", "traido_en": 1793758930.495716}
+12:{"destinos": {"srv-dmz": {"entregado_en": 1793758949.7754931}}, "evento": "reenvio", "huella": "a662ab50d2ab64bd:c2069bcb412fa7f4", "secuencia": 35, "sha256_feed": "a662ab50d2ab64bd", "traido_en": 1793758949.7159998}
+13:{"destinos": {"srv-dmz": {"entregado_en": 1793758970.1258435}}, "evento": "reenvio", "huella": "2927306d98de453d:da9133e695851e63", "secuencia": 36, "sha256_feed": "2927306d98de453d", "traido_en": 1793758970.067728}
+14:{"destinos": {"srv-dmz": {"entregado_en": 1793758990.4160895}}, "evento": "reenvio", "huella": "9c557bb32c672994:1f156bfc3893a617", "secuencia": 37, "sha256_feed": "9c557bb32c672994", "traido_en": 1793758990.3590899}
+15:{"destinos": {"srv-dmz": {"entregado_en": 1793759010.7258117}}, "evento": "reenvio", "huella": "4c8be036b617f5e9:0c66b54e5abb11dc", "secuencia": 38, "sha256_feed": "4c8be036b617f5e9", "traido_en": 1793759010.6700935}
+16:{"destinos": {"srv-dmz": {"entregado_en": 1793759029.98071}}, "evento": "reenvio", "huella": "857d68baae2047f6:700d7bc563e5cfed", "secuencia": 39, "sha256_feed": "857d68baae2047f6", "traido_en": 1793759029.908445}
+17:{"destinos": {"srv-dmz": {"entregado_en": 1793759050.2417314}}, "evento": "reenvio", "huella": "645c256fa5d8bdfa:bdf5f7c453727425", "secuencia": 40, "sha256_feed": "645c256fa5d8bdfa", "traido_en": 1793759050.1676104}
+18:{"destinos": {"srv-dmz": {"entregado_en": 1793759070.5388494}}, "evento": "reenvio", "huella": "ff3b97c279296743:583d78687ca0660e", "secuencia": 41, "sha256_feed": "ff3b97c279296743", "traido_en": 1793759070.4686866}
+19:{"destinos": {"srv-dmz": {"entregado_en": 1793759090.8818958}}, "evento": "reenvio", "huella": "98b73c0d6d0c0a1c:9b6729226d023421", "secuencia": 42, "sha256_feed": "98b73c0d6d0c0a1c", "traido_en": 1793759090.813117}
+20:{"destinos": {"srv-dmz": {"entregado_en": 1793759110.1474483}}, "evento": "reenvio", "huella": "8e9a79838cdff28b:5ebd33f68ed3e75f", "secuencia": 43, "sha256_feed": "8e9a79838cdff28b", "traido_en": 1793759110.0916874}
+21:{"destinos": {"srv-dmz": {"entregado_en": 1793759130.453965}}, "evento": "reenvio", "huella": "6a42a949dc6d8a97:fde010a93c2d45e5", "secuencia": 44, "sha256_feed": "6a42a949dc6d8a97", "traido_en": 1793759130.3778863}
+22:{"destinos": {"srv-dmz": {"entregado_en": 1793759150.770653}}, "evento": "reenvio", "huella": "045dd207941ee927:2e6afb6cc40b0d94", "secuencia": 45, "sha256_feed": "045dd207941ee927", "traido_en": 1793759150.7132642}
+23:{"destinos": {"srv-dmz": {"entregado_en": 1793759171.0727928}}, "evento": "reenvio", "huella": "65a082e9f3f94bf3:b5496b13082c2def", "secuencia": 46, "sha256_feed": "65a082e9f3f94bf3", "traido_en": 1793759171.0185547}
+24:{"destinos": {"srv-dmz": {"entregado_en": 1793759190.3260918}}, "evento": "reenvio", "huella": "c0c605ecebab45fe:dfa30fb715af11c2", "secuencia": 47, "sha256_feed": "c0c605ecebab45fe", "traido_en": 1793759190.2720113}
+25:{"destinos": {"srv-dmz": {"entregado_en": 1793759210.5838346}}, "evento": "reenvio", "huella": "b1a7d113c62f0f75:65c1c5637e82a07b", "secuencia": 48, "sha256_feed": "b1a7d113c62f0f75", "traido_en": 1793759210.5303965}
+26:{"destinos": {"srv-dmz": {"entregado_en": 1793759230.8954563}}, "evento": "reenvio", "huella": "4c6a5e8875f7c307:00caa908b30dd94c", "secuencia": 49, "sha256_feed": "4c6a5e8875f7c307", "traido_en": 1793759230.8414326}
+27:{"destinos": {"srv-dmz": {"entregado_en": 1793759251.221938}}, "evento": "reenvio", "huella": "e2bc2f517ce3ff14:cb9bcf2bd995cccc", "secuencia": 50, "sha256_feed": "e2bc2f517ce3ff14", "traido_en": 1793759251.150746}
+28:{"destinos": {"srv-dmz": {"entregado_en": 1793759270.4462414}}, "evento": "reenvio", "huella": "70759923cc28b7d9:cde12eb4f81d84db", "secuencia": 51, "sha256_feed": "70759923cc28b7d9", "traido_en": 1793759270.3919094}
+29:{"destinos": {"srv-dmz": {"entregado_en": 1793759290.7841191}}, "evento": "reenvio", "huella": "066ea88e18ff1975:7ea5bca06fb4f1b4", "secuencia": 52, "sha256_feed": "066ea88e18ff1975", "traido_en": 1793759290.718157}
+30:{"destinos": {"srv-dmz": {"entregado_en": 1793759311.1735933}}, "evento": "reenvio", "huella": "4aa0d6a97e7c7520:296269e6d188b1f0", "secuencia": 53, "sha256_feed": "4aa0d6a97e7c7520", "traido_en": 1793759311.1080956}
+31:{"destinos": {"srv-dmz": {"entregado_en": 1793759331.5210311}}, "evento": "reenvio", "huella": "44279c64a23debc9:cadb1ca410a7f10e", "secuencia": 54, "sha256_feed": "44279c64a23debc9", "traido_en": 1793759331.4369657}
+32:{"destinos": {"srv-dmz": {"entregado_en": 1793759350.7797546}}, "evento": "reenvio", "huella": "f15df2cda9aff929:51dc659179da0e31", "secuencia": 55, "sha256_feed": "f15df2cda9aff929", "traido_en": 1793759350.7222004}
+33:{"destinos": {"srv-dmz": {"entregado_en": 1793759371.1071908}}, "evento": "reenvio", "huella": "cbed5ff30e26700d:8d02af34ed4d52e6", "secuencia": 56, "sha256_feed": "cbed5ff30e26700d", "traido_en": 1793759371.039557}
+34:{"destinos": {"srv-dmz": {"entregado_en": 1793759391.4008172}}, "evento": "reenvio", "huella": "08394ffefd86255c:30ba280d48c8ce9f", "secuencia": 57, "sha256_feed": "08394ffefd86255c", "traido_en": 1793759391.3439949}
+35:{"destinos": {"srv-dmz": {"entregado_en": 1793759411.742021}}, "evento": "reenvio", "huella": "95ae33e601ea9864:ad41ad6556477789", "secuencia": 58, "sha256_feed": "95ae33e601ea9864", "traido_en": 1793759411.6786442}
+36:{"destinos": {"srv-dmz": {"entregado_en": 1793759431.01738}}, "evento": "reenvio", "huella": "e9da0cea151449d4:071e901a4a0cc3f5", "secuencia": 59, "sha256_feed": "e9da0cea151449d4", "traido_en": 1793759430.9560826}
+37:{"destinos": {"srv-dmz": {"entregado_en": 1793759451.3926167}}, "evento": "reenvio", "huella": "6613d6562b906aa4:2817cfe2fa6e75e8", "secuencia": 60, "sha256_feed": "6613d6562b906aa4", "traido_en": 1793759451.3182952}
+38:{"destinos": {"srv-dmz": {"entregado_en": 1793759471.733639}}, "evento": "reenvio", "huella": "5d8690085a4234a0:6920e60ac6994af2", "secuencia": 61, "sha256_feed": "5d8690085a4234a0", "traido_en": 1793759471.665286}
+40:{"destinos": {"srv-dmz": {"entregado_en": 1793759492.0362995}}, "evento": "reenvio", "huella": "f6384777c10f08b0:653a052bffa37d63", "secuencia": 62, "sha256_feed": "f6384777c10f08b0", "traido_en": 1793759491.969062}
+41:{"destinos": {"srv-dmz": {"entregado_en": 1793759511.2727537}}, "evento": "reenvio", "huella": "a656d8dacaa8856d:db5f34ad66a524c2", "secuencia": 63, "sha256_feed": "a656d8dacaa8856d", "traido_en": 1793759511.2000377}
+-- No entries --

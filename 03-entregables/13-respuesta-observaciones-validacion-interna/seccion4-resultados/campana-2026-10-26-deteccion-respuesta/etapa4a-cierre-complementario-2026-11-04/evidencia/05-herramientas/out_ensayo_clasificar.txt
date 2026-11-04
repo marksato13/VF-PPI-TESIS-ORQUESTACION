@@ -1,0 +1,12 @@
+Python 3.13.5
+OK    P1 anillo C1 por Suricata
+OK    P1 vía rápida C1 por Suricata
+OK    P1 PID único y 0 descartes del kernel
+OK    P1 clase del periodo C1
+OK    P2 journals mezclados = C3 varios PID
+OK    P3 periodo fuera de la cobertura = no_evaluable
+OK    P4 journal vacío = no_evaluable
+OK    P5 journal sin margen = C3 sin acotar
+OK    P6 reinicio de Suricata = 2 segmentos, 1 dentro y C3
+OK    P6 contadores por segmento no negativos
+RESULTADO: OK

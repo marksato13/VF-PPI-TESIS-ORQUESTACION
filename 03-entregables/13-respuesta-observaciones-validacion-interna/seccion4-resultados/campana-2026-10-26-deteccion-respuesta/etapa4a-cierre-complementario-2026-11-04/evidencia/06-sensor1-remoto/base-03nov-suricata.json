@@ -1,0 +1,805 @@
+{
+ "etiqueta": "03-nov",
+ "desde": 1793664010.0,
+ "hasta": 1793750390.0,
+ "duracion_s": 86380.0,
+ "bloques_stats": 10796,
+ "intervalos_validos": 10795,
+ "reinicios_suricata_en_ventana": 0,
+ "cobertura_stats_s": 86375.0,
+ "paquetes": 59181540,
+ "descartes": 58423,
+ "descartes_por_millon": 987.183,
+ "intervalos_con_descartes": [
+  {
+   "t_utc": "03:36:37",
+   "paquetes": 7693,
+   "descartes": 224
+  },
+  {
+   "t_utc": "03:37:25",
+   "paquetes": 6134,
+   "descartes": 275
+  },
+  {
+   "t_utc": "03:37:57",
+   "paquetes": 4551,
+   "descartes": 73
+  },
+  {
+   "t_utc": "03:38:45",
+   "paquetes": 8101,
+   "descartes": 315
+  },
+  {
+   "t_utc": "03:45:01",
+   "paquetes": 9210,
+   "descartes": 64
+  },
+  {
+   "t_utc": "03:52:37",
+   "paquetes": 9679,
+   "descartes": 311
+  },
+  {
+   "t_utc": "04:01:01",
+   "paquetes": 12641,
+   "descartes": 19
+  },
+  {
+   "t_utc": "04:02:53",
+   "paquetes": 3826,
+   "descartes": 142
+  },
+  {
+   "t_utc": "04:04:37",
+   "paquetes": 9927,
+   "descartes": 715
+  },
+  {
+   "t_utc": "04:11:01",
+   "paquetes": 7654,
+   "descartes": 8
+  },
+  {
+   "t_utc": "04:11:09",
+   "paquetes": 5432,
+   "descartes": 409
+  },
+  {
+   "t_utc": "04:41:12",
+   "paquetes": 7132,
+   "descartes": 158
+  },
+  {
+   "t_utc": "04:52:40",
+   "paquetes": 8158,
+   "descartes": 108
+  },
+  {
+   "t_utc": "05:05:29",
+   "paquetes": 7988,
+   "descartes": 163
+  },
+  {
+   "t_utc": "05:11:13",
+   "paquetes": 8751,
+   "descartes": 9
+  },
+  {
+   "t_utc": "05:20:25",
+   "paquetes": 6523,
+   "descartes": 400
+  },
+  {
+   "t_utc": "05:23:21",
+   "paquetes": 3806,
+   "descartes": 233
+  },
+  {
+   "t_utc": "05:23:37",
+   "paquetes": 10203,
+   "descartes": 7
+  },
+  {
+   "t_utc": "05:24:01",
+   "paquetes": 10364,
+   "descartes": 316
+  },
+  {
+   "t_utc": "05:24:17",
+   "paquetes": 16317,
+   "descartes": 292
+  },
+  {
+   "t_utc": "05:24:57",
+   "paquetes": 5867,
+   "descartes": 561
+  },
+  {
+   "t_utc": "05:28:25",
+   "paquetes": 6507,
+   "descartes": 202
+  },
+  {
+   "t_utc": "05:29:45",
+   "paquetes": 7795,
+   "descartes": 255
+  },
+  {
+   "t_utc": "05:33:53",
+   "paquetes": 21121,
+   "descartes": 120
+  },
+  {
+   "t_utc": "05:44:41",
+   "paquetes": 8756,
+   "descartes": 24
+  },
+  {
+   "t_utc": "05:46:41",
+   "paquetes": 7173,
+   "descartes": 996
+  },
+  {
+   "t_utc": "05:47:45",
+   "paquetes": 2333,
+   "descartes": 64
+  },
+  {
+   "t_utc": "05:47:53",
+   "paquetes": 4704,
+   "descartes": 94
+  },
+  {
+   "t_utc": "05:52:49",
+   "paquetes": 10360,
+   "descartes": 224
+  },
+  {
+   "t_utc": "05:53:53",
+   "paquetes": 10272,
+   "descartes": 58
+  },
+  {
+   "t_utc": "05:55:45",
+   "paquetes": 8185,
+   "descartes": 171
+  },
+  {
+   "t_utc": "07:25:14",
+   "paquetes": 9190,
+   "descartes": 355
+  },
+  {
+   "t_utc": "07:28:58",
+   "paquetes": 59705,
+   "descartes": 274
+  },
+  {
+   "t_utc": "07:30:18",
+   "paquetes": 11497,
+   "descartes": 831
+  },
+  {
+   "t_utc": "07:31:54",
+   "paquetes": 9160,
+   "descartes": 1046
+  },
+  {
+   "t_utc": "07:32:10",
+   "paquetes": 4771,
+   "descartes": 332
+  },
+  {
+   "t_utc": "07:33:30",
+   "paquetes": 8802,
+   "descartes": 1304
+  },
+  {
+   "t_utc": "07:35:54",
+   "paquetes": 4558,
+   "descartes": 1232
+  },
+  {
+   "t_utc": "07:37:06",
+   "paquetes": 3846,
+   "descartes": 177
+  },
+  {
+   "t_utc": "07:38:18",
+   "paquetes": 16113,
+   "descartes": 107
+  },
+  {
+   "t_utc": "07:40:35",
+   "paquetes": 2757,
+   "descartes": 255
+  },
+  {
+   "t_utc": "07:53:47",
+   "paquetes": 4968,
+   "descartes": 206
+  },
+  {
+   "t_utc": "07:54:27",
+   "paquetes": 7218,
+   "descartes": 37
+  },
+  {
+   "t_utc": "08:00:27",
+   "paquetes": 7159,
+   "descartes": 317
+  },
+  {
+   "t_utc": "08:01:15",
+   "paquetes": 14211,
+   "descartes": 29
+  },
+  {
+   "t_utc": "08:02:11",
+   "paquetes": 15882,
+   "descartes": 5
+  },
+  {
+   "t_utc": "08:02:27",
+   "paquetes": 8788,
+   "descartes": 805
+  },
+  {
+   "t_utc": "08:04:19",
+   "paquetes": 19934,
+   "descartes": 115
+  },
+  {
+   "t_utc": "08:08:43",
+   "paquetes": 9590,
+   "descartes": 18
+  },
+  {
+   "t_utc": "08:09:07",
+   "paquetes": 9863,
+   "descartes": 3
+  },
+  {
+   "t_utc": "08:14:11",
+   "paquetes": 13005,
+   "descartes": 56
+  },
+  {
+   "t_utc": "08:14:19",
+   "paquetes": 16356,
+   "descartes": 1336
+  },
+  {
+   "t_utc": "08:14:27",
+   "paquetes": 7478,
+   "descartes": 126
+  },
+  {
+   "t_utc": "08:14:35",
+   "paquetes": 2619,
+   "descartes": 65
+  },
+  {
+   "t_utc": "08:15:15",
+   "paquetes": 15821,
+   "descartes": 1011
+  },
+  {
+   "t_utc": "08:16:03",
+   "paquetes": 10449,
+   "descartes": 988
+  },
+  {
+   "t_utc": "08:16:59",
+   "paquetes": 9286,
+   "descartes": 388
+  },
+  {
+   "t_utc": "08:17:31",
+   "paquetes": 10720,
+   "descartes": 663
+  },
+  {
+   "t_utc": "08:20:59",
+   "paquetes": 19037,
+   "descartes": 259
+  },
+  {
+   "t_utc": "08:22:11",
+   "paquetes": 10996,
+   "descartes": 49
+  },
+  {
+   "t_utc": "08:24:35",
+   "paquetes": 6332,
+   "descartes": 699
+  },
+  {
+   "t_utc": "08:25:15",
+   "paquetes": 6834,
+   "descartes": 170
+  },
+  {
+   "t_utc": "08:26:03",
+   "paquetes": 13080,
+   "descartes": 15
+  },
+  {
+   "t_utc": "08:26:43",
+   "paquetes": 9739,
+   "descartes": 800
+  },
+  {
+   "t_utc": "08:27:15",
+   "paquetes": 4028,
+   "descartes": 10
+  },
+  {
+   "t_utc": "08:28:19",
+   "paquetes": 15424,
+   "descartes": 221
+  },
+  {
+   "t_utc": "08:28:35",
+   "paquetes": 17754,
+   "descartes": 290
+  },
+  {
+   "t_utc": "08:29:15",
+   "paquetes": 9134,
+   "descartes": 12
+  },
+  {
+   "t_utc": "08:29:39",
+   "paquetes": 13289,
+   "descartes": 710
+  },
+  {
+   "t_utc": "08:30:35",
+   "paquetes": 25873,
+   "descartes": 104
+  },
+  {
+   "t_utc": "08:33:55",
+   "paquetes": 7195,
+   "descartes": 1310
+  },
+  {
+   "t_utc": "08:34:03",
+   "paquetes": 4040,
+   "descartes": 11
+  },
+  {
+   "t_utc": "08:34:27",
+   "paquetes": 7976,
+   "descartes": 340
+  },
+  {
+   "t_utc": "08:34:51",
+   "paquetes": 9657,
+   "descartes": 2669
+  },
+  {
+   "t_utc": "08:34:59",
+   "paquetes": 10803,
+   "descartes": 220
+  },
+  {
+   "t_utc": "08:35:07",
+   "paquetes": 10049,
+   "descartes": 967
+  },
+  {
+   "t_utc": "08:35:55",
+   "paquetes": 2817,
+   "descartes": 709
+  },
+  {
+   "t_utc": "08:36:35",
+   "paquetes": 13893,
+   "descartes": 86
+  },
+  {
+   "t_utc": "08:37:31",
+   "paquetes": 3308,
+   "descartes": 574
+  },
+  {
+   "t_utc": "08:37:39",
+   "paquetes": 6594,
+   "descartes": 811
+  },
+  {
+   "t_utc": "08:38:11",
+   "paquetes": 12208,
+   "descartes": 83
+  },
+  {
+   "t_utc": "08:38:51",
+   "paquetes": 16032,
+   "descartes": 158
+  },
+  {
+   "t_utc": "08:40:27",
+   "paquetes": 9387,
+   "descartes": 357
+  },
+  {
+   "t_utc": "08:41:15",
+   "paquetes": 6869,
+   "descartes": 40
+  },
+  {
+   "t_utc": "08:41:39",
+   "paquetes": 15172,
+   "descartes": 12
+  },
+  {
+   "t_utc": "08:42:03",
+   "paquetes": 3608,
+   "descartes": 208
+  },
+  {
+   "t_utc": "08:42:11",
+   "paquetes": 10973,
+   "descartes": 372
+  },
+  {
+   "t_utc": "08:42:19",
+   "paquetes": 16390,
+   "descartes": 950
+  },
+  {
+   "t_utc": "08:42:51",
+   "paquetes": 13166,
+   "descartes": 96
+  },
+  {
+   "t_utc": "08:42:59",
+   "paquetes": 13453,
+   "descartes": 1041
+  },
+  {
+   "t_utc": "08:43:23",
+   "paquetes": 9260,
+   "descartes": 39
+  },
+  {
+   "t_utc": "08:43:55",
+   "paquetes": 8700,
+   "descartes": 212
+  },
+  {
+   "t_utc": "08:45:07",
+   "paquetes": 8357,
+   "descartes": 489
+  },
+  {
+   "t_utc": "08:45:31",
+   "paquetes": 8491,
+   "descartes": 126
+  },
+  {
+   "t_utc": "08:45:47",
+   "paquetes": 15711,
+   "descartes": 334
+  },
+  {
+   "t_utc": "08:46:19",
+   "paquetes": 9327,
+   "descartes": 288
+  },
+  {
+   "t_utc": "08:46:27",
+   "paquetes": 15897,
+   "descartes": 58
+  },
+  {
+   "t_utc": "08:47:07",
+   "paquetes": 6948,
+   "descartes": 80
+  },
+  {
+   "t_utc": "08:47:15",
+   "paquetes": 11595,
+   "descartes": 12
+  },
+  {
+   "t_utc": "08:48:27",
+   "paquetes": 19015,
+   "descartes": 3
+  },
+  {
+   "t_utc": "08:48:43",
+   "paquetes": 5028,
+   "descartes": 3
+  },
+  {
+   "t_utc": "08:50:11",
+   "paquetes": 16497,
+   "descartes": 177
+  },
+  {
+   "t_utc": "08:50:19",
+   "paquetes": 4828,
+   "descartes": 168
+  },
+  {
+   "t_utc": "08:50:35",
+   "paquetes": 9498,
+   "descartes": 487
+  },
+  {
+   "t_utc": "08:51:15",
+   "paquetes": 17971,
+   "descartes": 27
+  },
+  {
+   "t_utc": "08:51:47",
+   "paquetes": 15123,
+   "descartes": 305
+  },
+  {
+   "t_utc": "08:53:31",
+   "paquetes": 13236,
+   "descartes": 160
+  },
+  {
+   "t_utc": "08:54:11",
+   "paquetes": 12159,
+   "descartes": 355
+  },
+  {
+   "t_utc": "08:54:51",
+   "paquetes": 9008,
+   "descartes": 200
+  },
+  {
+   "t_utc": "08:54:59",
+   "paquetes": 7664,
+   "descartes": 909
+  },
+  {
+   "t_utc": "08:55:39",
+   "paquetes": 7093,
+   "descartes": 345
+  },
+  {
+   "t_utc": "08:56:43",
+   "paquetes": 4774,
+   "descartes": 266
+  },
+  {
+   "t_utc": "08:57:15",
+   "paquetes": 8623,
+   "descartes": 25
+  },
+  {
+   "t_utc": "08:58:44",
+   "paquetes": 3136,
+   "descartes": 1016
+  },
+  {
+   "t_utc": "08:59:08",
+   "paquetes": 8476,
+   "descartes": 166
+  },
+  {
+   "t_utc": "08:59:24",
+   "paquetes": 25077,
+   "descartes": 126
+  },
+  {
+   "t_utc": "08:59:48",
+   "paquetes": 13199,
+   "descartes": 415
+  },
+  {
+   "t_utc": "08:59:56",
+   "paquetes": 12402,
+   "descartes": 741
+  },
+  {
+   "t_utc": "09:00:36",
+   "paquetes": 20463,
+   "descartes": 698
+  },
+  {
+   "t_utc": "09:01:32",
+   "paquetes": 6782,
+   "descartes": 813
+  },
+  {
+   "t_utc": "09:02:12",
+   "paquetes": 12557,
+   "descartes": 674
+  },
+  {
+   "t_utc": "09:02:36",
+   "paquetes": 9595,
+   "descartes": 734
+  },
+  {
+   "t_utc": "09:02:44",
+   "paquetes": 8631,
+   "descartes": 283
+  },
+  {
+   "t_utc": "09:04:28",
+   "paquetes": 4282,
+   "descartes": 825
+  },
+  {
+   "t_utc": "09:04:52",
+   "paquetes": 12370,
+   "descartes": 973
+  },
+  {
+   "t_utc": "09:05:08",
+   "paquetes": 5729,
+   "descartes": 134
+  },
+  {
+   "t_utc": "09:05:16",
+   "paquetes": 9168,
+   "descartes": 470
+  },
+  {
+   "t_utc": "09:05:40",
+   "paquetes": 12222,
+   "descartes": 64
+  },
+  {
+   "t_utc": "09:05:48",
+   "paquetes": 9281,
+   "descartes": 568
+  },
+  {
+   "t_utc": "09:06:12",
+   "paquetes": 19912,
+   "descartes": 681
+  },
+  {
+   "t_utc": "09:06:52",
+   "paquetes": 23659,
+   "descartes": 381
+  },
+  {
+   "t_utc": "09:07:24",
+   "paquetes": 12582,
+   "descartes": 339
+  },
+  {
+   "t_utc": "09:07:32",
+   "paquetes": 7152,
+   "descartes": 237
+  },
+  {
+   "t_utc": "09:08:20",
+   "paquetes": 6155,
+   "descartes": 35
+  },
+  {
+   "t_utc": "09:08:44",
+   "paquetes": 13676,
+   "descartes": 655
+  },
+  {
+   "t_utc": "09:10:44",
+   "paquetes": 6004,
+   "descartes": 1069
+  },
+  {
+   "t_utc": "09:10:52",
+   "paquetes": 21448,
+   "descartes": 90
+  },
+  {
+   "t_utc": "09:11:16",
+   "paquetes": 10850,
+   "descartes": 431
+  },
+  {
+   "t_utc": "09:11:24",
+   "paquetes": 7588,
+   "descartes": 257
+  },
+  {
+   "t_utc": "09:11:40",
+   "paquetes": 24098,
+   "descartes": 1170
+  },
+  {
+   "t_utc": "09:12:04",
+   "paquetes": 12653,
+   "descartes": 567
+  },
+  {
+   "t_utc": "09:12:12",
+   "paquetes": 17858,
+   "descartes": 550
+  },
+  {
+   "t_utc": "09:12:28",
+   "paquetes": 10466,
+   "descartes": 597
+  },
+  {
+   "t_utc": "09:12:52",
+   "paquetes": 20245,
+   "descartes": 552
+  },
+  {
+   "t_utc": "09:13:56",
+   "paquetes": 13597,
+   "descartes": 1450
+  },
+  {
+   "t_utc": "09:25:00",
+   "paquetes": 23743,
+   "descartes": 119
+  },
+  {
+   "t_utc": "09:51:48",
+   "paquetes": 14186,
+   "descartes": 80
+  },
+  {
+   "t_utc": "11:03:16",
+   "paquetes": 14696,
+   "descartes": 458
+  },
+  {
+   "t_utc": "11:31:01",
+   "paquetes": 12646,
+   "descartes": 11
+  },
+  {
+   "t_utc": "11:43:01",
+   "paquetes": 13003,
+   "descartes": 390
+  },
+  {
+   "t_utc": "14:17:02",
+   "paquetes": 6040,
+   "descartes": 235
+  },
+  {
+   "t_utc": "16:13:35",
+   "paquetes": 5704,
+   "descartes": 250
+  },
+  {
+   "t_utc": "17:55:27",
+   "paquetes": 6492,
+   "descartes": 92
+  },
+  {
+   "t_utc": "18:07:03",
+   "paquetes": 5889,
+   "descartes": 180
+  },
+  {
+   "t_utc": "18:21:36",
+   "paquetes": 5008,
+   "descartes": 335
+  }
+ ],
+ "paquetes_por_intervalo": {
+  "p50": 4304,
+  "p95": 12921,
+  "max": 87522,
+  "media": 5482.3
+ },
+ "pps_max_intervalo": 10940.2,
+ "rafagas_ge_umbral": 4578,
+ "umbral_rafaga_paquetes_8s": 5000,
+ "flujos_eve": 0,
+ "flujos_grandes": 0,
+ "umbral_flujo_grande": 1000,
+ "flujos_grandes_top": [],
+ "paquetes_en_flujos_grandes": 0,
+ "volumen_srv_dmz_por_cliente": {}
+}

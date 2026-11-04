@@ -1,0 +1,37 @@
+{
+ "etiqueta": "4A (eve stats)",
+ "fuente_contadores": "eve stats",
+ "hueco_max_entre_bloques_s": 8.0,
+ "desde": 1793758785.0,
+ "hasta": 1793762391.0,
+ "duracion_s": 3606.0,
+ "bloques_stats": 451,
+ "intervalos_validos": 450,
+ "reinicios_suricata_en_ventana": 0,
+ "cobertura_stats_s": 3600.4,
+ "paquetes": 936761,
+ "descartes": 7,
+ "descartes_por_millon": 7.473,
+ "intervalos_con_descartes": [
+  {
+   "t_utc": "03:05:47",
+   "paquetes": 5766,
+   "descartes": 7
+  }
+ ],
+ "paquetes_por_intervalo": {
+  "p50": 1856,
+  "p95": 4306,
+  "max": 7168,
+  "media": 2081.7
+ },
+ "pps_max_intervalo": 895.9,
+ "rafagas_ge_umbral": 11,
+ "umbral_rafaga_paquetes_8s": 5000,
+ "flujos_eve": 0,
+ "flujos_grandes": 0,
+ "umbral_flujo_grande": 1000,
+ "flujos_grandes_top": [],
+ "paquetes_en_flujos_grandes": 0,
+ "volumen_srv_dmz_por_cliente": {}
+}

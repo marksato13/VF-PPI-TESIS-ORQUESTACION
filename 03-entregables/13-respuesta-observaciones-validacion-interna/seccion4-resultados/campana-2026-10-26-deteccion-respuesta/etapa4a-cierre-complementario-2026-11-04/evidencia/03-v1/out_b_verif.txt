@@ -1,0 +1,28 @@
+evidencia: /home/gadmin/cierre4a/sudo-bastion-20261104T061209Z
+b5005113bd47dfa2e674f43c8725910cb7c6ea3e51c0d1af4f8e69e741559372  /home/gadmin/relay-feed.sh
+== retirar el relé v1
+Removed '/etc/systemd/system/timers.target.wants/ppi-relay-feed.timer'.
+Id=ppi-relay-feed.timer
+ActiveState=inactive
+UnitFileState=disabled
+Id=ppi-relay-feed.service
+ActiveState=inactive
+UnitFileState=static
+Id=ppi-relay-eventos.service
+ActiveState=active
+UnitFileState=enabled
+active
+0
+== fin 2026-11-04T06:12:10Z evidencia en /home/gadmin/cierre4a/sudo-bastion-20261104T061209Z
+ppi-relay-feed.timer inactive disabled 
+ppi-relay-feed.service 0 inactive static 
+ppi-relay-eventos.service 187767 active enabled 
+sin temporizadores relay
+-- No entries --
+-- No entries --
+Hint: You are currently not seeing messages from other users and the system.
+      Users in groups 'adm', 'systemd-journal' can see all messages.
+      Pass -q to turn off this notice.
+Hint: You are currently not seeing messages from other users and the system.
+      Users in groups 'adm', 'systemd-journal' can see all messages.
+      Pass -q to turn off this notice.

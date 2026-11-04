@@ -1,0 +1,30 @@
+== por qué se reinició el motor
+Requires=ppi-motor-capture.service -.mount sysinit.target system.slice
+Requisite=
+BindsTo=
+PartOf=
+After=systemd-journald.socket system.slice -.mount suricata.service network-online.target ppi-motor-capture.service basic.target sysinit.target
+After=network-online.target suricata.service ppi-motor-capture.service
+Requires=ppi-motor-capture.service
+2026-11-04T06:12:46.705685+00:00 cyberflow-sensor systemd[1]: Stopping ppi-motor.service - CyberFlow - motor de decision (Isolation Forest limpio), modo observacion...
+2026-11-04T06:12:46.759247+00:00 cyberflow-sensor systemd[1]: ppi-motor.service: Deactivated successfully.
+2026-11-04T06:12:46.759567+00:00 cyberflow-sensor systemd[1]: Stopped ppi-motor.service - CyberFlow - motor de decision (Isolation Forest limpio), modo observacion.
+2026-11-04T06:12:46.759661+00:00 cyberflow-sensor systemd[1]: ppi-motor.service: Consumed 21min 1.341s CPU time, 496.1M memory peak, 0B memory swap peak.
+2026-11-04T06:12:46.934500+00:00 cyberflow-sensor systemd[1]: Started ppi-motor.service - CyberFlow - motor de decision (Isolation Forest limpio), modo observacion.
+== primer fichero del NUEVO tcpdump y rotaciones (validez)
+live-20261104061246.pcap legible magic d4c3b2a1 paquetes 885 completo True modo 0o640 gid 1000
+live-20261104061251.pcap legible magic d4c3b2a1 paquetes 817 completo True modo 0o640 gid 1000
+live-20261104061256.pcap legible magic d4c3b2a1 paquetes 2039 completo True modo 0o640 gid 1000
+live-20261104061301.pcap legible magic d4c3b2a1 paquetes 867 completo True modo 0o640 gid 1000
+== el motor procesó esos ficheros (marca_pcap de los ciclos)
+0 arranque inicio 06:12:49.391 marca_pcap 06:12:46.252 dur 1.8898 pkts? None
+1 pcap_cerrado inicio 06:12:52.044 marca_pcap 06:12:50.901 dur 1.2335 pkts? None
+2 pcap_cerrado inicio 06:12:56.081 marca_pcap 06:12:55.007 dur 0.0641 pkts? None
+3 pcap_cerrado inicio 06:13:01.238 marca_pcap 06:13:00.099 dur 0.5897 pkts? None
+4 pcap_cerrado inicio 06:13:06.414 marca_pcap 06:13:05.268 dur 0.0621 pkts? None
+5 pcap_cerrado inicio 06:13:11.571 marca_pcap 06:13:10.381 dur 0.4821 pkts? None
+6 pcap_cerrado inicio 06:13:16.637 marca_pcap 06:13:15.484 dur 0.0581 pkts? None
+7 pcap_cerrado inicio 06:13:21.024 marca_pcap 06:13:19.991 dur 0.1127 pkts? None
+== procesos con --aplicar/--enforce (sin contar el propio grep)
+ninguno
+/home/m4rk/feed/feed.json 2026-11-04 06:12:40.892770032 +0000

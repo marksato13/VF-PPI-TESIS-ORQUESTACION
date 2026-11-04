@@ -1,7 +1,11 @@
 # Propuesta: anillo af-packet de Suricata en ens37 (PREPARADA, NO EJECUTADA)
 
-> **Estado: no aplicada.** Requiere la decisión de Mark, sudo en Sensor1 y reiniciar Suricata. Nada de este documento
-> se ejecutó el 04-nov. Diagnóstico de partida: [README §8](README.md#8-descartes-de-suricata-diagnóstico).
+> **Estado al escribirse: no aplicada.**
+> **Actualización del 04-nov, 06:16 UTC:** se ensayó en el cierre complementario. El resultado está en
+> [cierre complementario](../etapa4a-cierre-complementario-2026-11-04/README.md).
+>
+> Requiere la decisión de Mark, sudo en Sensor1 y reiniciar Suricata. Nada de este documento se ejecutó en la
+> sesión de la 4A. Diagnóstico de partida: [README §8](README.md#8-descartes-de-suricata-diagnóstico).
 
 ## 1. Problema
 
@@ -12,6 +16,16 @@ Suricata descarta paquetes en ráfagas cortas:
 
 La NIC y los dos tcpdump sobre la misma interfaz no pierden nada (0 descartes del kernel, `rx_missed 0`). La CPU, el
 disco y la rotación están descartados como causa.
+
+> **Corrección (cierre complementario, 04-nov).** La frase anterior es excesiva:
+> - **Rotación:** solo se descartó para el intervalo de 03:05:47; eve rota a las 00:00.
+> - **CPU y disco:** no se descartaron. La CPU se leyó con el `%CPU` de `ps`, que es una media de toda la vida del
+>   proceso, y el disco con el porcentaje usado, que no es latencia de E/S.
+> - **Softirq y softnet:** no se midieron.
+>
+> La medida a 1 s se hizo en el ensayo del anillo: ver
+> [cierre complementario](../etapa4a-cierre-complementario-2026-11-04/README.md).
+> La coincidencia con descargas grandes es una correlación, no una causa demostrada.
 
 Para la 4C, un descarte de Suricata saca el periodo de C0 y hace fallar I5. Con los perfiles de descarga actuales,
 I5 puede impedir el arranque de la 4C en cualquier momento.

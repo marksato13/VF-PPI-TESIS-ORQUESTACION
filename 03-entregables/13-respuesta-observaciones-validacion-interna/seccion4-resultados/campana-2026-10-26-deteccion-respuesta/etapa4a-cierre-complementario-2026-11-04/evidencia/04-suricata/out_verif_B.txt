@@ -1,0 +1,18 @@
+evidencia /home/m4rk/cf-e4/cierre4a/sudo-B-20261104T061651Z
+1793773012.455012965
+rc_test_candidato=0
+rc_test_instalado=0
+MainPID=1708643
+NRestarts=0
+ExecMainStartTimestamp=Wed 2026-11-04 06:16:54 UTC
+ActiveState=active
+40:[1708643 - Suricata-Main] 2026-11-04 06:16:55 Info: runmodes: ens37: creating 4 threads
+42:[1708643 - Suricata-Main] 2026-11-04 06:16:55 Notice: threads: Threads created -> W: 4 FM: 1 FR: 1   Engine started.
+== hueco EVE alrededor del reinicio
+ultimo EVE antes 06:16:51.400 primero despues 06:16:53.150 hueco_s 1.75
+capture.kernel_packets                        | Total                     | 261364
+Date: 11/4/2026 -- 06:30:23 (uptime: 0d, 00h 13m 28s)
+capture.kernel_packets                        | Total                     | 262748
+fino pid 1708643 hilos 10 rss_kb 168124 mem 6571792 err None
+muestrear vivo: si
+fino vivo: si

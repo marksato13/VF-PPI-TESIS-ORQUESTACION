@@ -1,0 +1,42 @@
+== cierre4a fase A  inicio 2026-11-04T06:12:45Z  host cyberflow-sensor
+== integridad de las herramientas
+CRITERIOS-ENSAYO-ANILLO.md: OK
+cf-primer-pcap.sh: OK
+cierre4a_sensor1.sh: OK
+clasificar_periodo.py: OK
+comparar_suricata.py: OK
+ensayo_clasificar_periodo.py: OK
+etapa4-primer-pcap.conf: OK
+modo-panel-v2.conf: OK
+muestreo_fino.py: OK
+revertir_cierre4a.sh: OK
+== A0 respaldo previo
+24c320e3e953857317c08beb04e34f34c6f132bb6cccd0f1b4c7ab98b621a21e  /home/m4rk/cf-e4/cierre4a/sudo-A-20261104T061245Z/nft-antes.txt
+== A1 retirar la publicación v1 (solo el temporizador y su servicio; ficheros y feed se conservan)
+Removed "/etc/systemd/system/timers.target.wants/ppi-publicar-feed.timer".
+Id=ppi-publicar-feed.timer
+ActiveState=inactive
+UnitFileState=disabled
+
+Id=ppi-publicar-feed.service
+ActiveState=inactive
+UnitFileState=static
+== A2 instalar la corrección del primer PCAP
+== A3 fijar el modo v2 del panel
+b654f8755c472ff4b9a9952f9ab325bd8d5975cfd928626a0cf98b81523828a5  /usr/local/sbin/cf-primer-pcap
+1a71f2eec093004529bbc5f24777fea9b4a388c5781f851edd463d4c9da5d1e6  /etc/systemd/system/ppi-motor-capture.service.d/etapa4-primer-pcap.conf
+7faad0044c1a2dcb9c773eab3c7b9785c1ba1c85d86456faff8f8c1afe838052  /etc/systemd/system/ppi-dashboard.service.d/modo-panel-v2.conf
+== A4 arranque controlado de la captura (el motor NO se reinicia)
+active
+2026-11-04T06:12:46.923303+00:00 cyberflow-sensor cf-primer-pcap[1707353]: primer_pcap: grupo corregido en /var/lib/ppi-motor-capture/live-20261104061246.pcap
+-rw-r-----  1 tcpdump m4rk   131390 2026-11-04 06:12:26.619599222 +0000 live-20261104061222.pcap
+-rw-r-----  1 tcpdump m4rk   117782 2026-11-04 06:12:31.739660496 +0000 live-20261104061227.pcap
+-rw-r-----  1 tcpdump m4rk   132611 2026-11-04 06:12:36.859721767 +0000 live-20261104061232.pcap
+-rw-r-----  1 tcpdump m4rk   704490 2026-11-04 06:12:41.891781987 +0000 live-20261104061237.pcap
+-rw-r-----  1 tcpdump m4rk  1405248 2026-11-04 06:12:46.268834366 +0000 live-20261104061242.pcap
+-rw-r-----  1 tcpdump m4rk   112058 2026-11-04 06:12:49.915878008 +0000 live-20261104061246.pcap
+== A5 reiniciar el panel con el drop-in
+active
+--modo-panel v2
+ruleset sin cambios
+== fin fase A 2026-11-04T06:12:54Z  evidencia en /home/m4rk/cf-e4/cierre4a/sudo-A-20261104T061245Z

@@ -1,0 +1,5 @@
+ls: cannot access '/var/lib/cyberflow/agente/traza.jsonl': Permission denied
+lineas 400
+[(('recepcion', 'aceptado', None), 200)]
+ultima {'ajenas': 0, 'estado': 'aceptado', 'evento': 'recepcion', 'generado': 1793772844.4556766, 'ids': [], 'motivo': '', 'mtime_feed': 1793772845.008753, 'perfil': 'dmz', 'rechazadas': [], 'recibido_en': 1793772845.0846608, 'secuencia': 728, 't': 1793772845.0924842}
+ls: cannot open directory '/var/lib/cyberflow/feed/': Permission denied
