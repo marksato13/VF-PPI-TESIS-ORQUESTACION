@@ -1,0 +1,42 @@
+2026-11-04T01:04:04+00:00
+ppi-enforce-agent.timer enabled=enabled active=active
+ppi-enforce-agent.service enabled=static active=inactive
+ppi-enforce-agent-v2-dmz.service enabled=not-found active=inactive
+ppi-brute-lab.service enabled=disabled active=inactive
+UnitFileState=enabled
+ActiveEnterTimestamp=Tue 2026-11-03 02:50:36 UTC
+#### tablas nft (sudo -n, lectura)
+table inet cyberflow
+#### elementos por set en tablas cyberflow*
+set cyberflow cyberflow_bloqueados elementos= 0
+set cyberflow cyberflow_limitados elementos= 1
+chain cyberflow entrada hook= input prio= -10
+#### ultimas lineas del registro del agente v1 (sin claves)
+total 416
+drwxrwxr-x 3 adminsrvdmz adminsrvdmz   4096 nov  4 01:03 .
+drwxr-x--- 9 adminsrvdmz adminsrvdmz   4096 nov  3 02:19 ..
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz   6429 nov  3 04:46 acuse_aplicacion.py
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz  14015 nov  4 01:03 acuse-historial.json
+-rwxrwxr-x 1 adminsrvdmz adminsrvdmz  20390 nov  3 08:42 agente_enforce.py
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz   7742 oct 15 12:56 agente_enforce.py.bak-20261015T1255Z
+-rwxr-xr-x 1 adminsrvdmz adminsrvdmz   7645 oct 15 21:26 agente_enforce.py.bak-20261015T2033Z
+-rwxr-xr-x 1 adminsrvdmz adminsrvdmz  10453 oct 15 21:32 agente_enforce.py.bak-20261102-antes-alcance
+-rwxr-xr-x 1 adminsrvdmz adminsrvdmz  18071 nov  3 07:28 agente_enforce.py.bak-20261103-liberacion
+-rwxrwxr-x 1 adminsrvdmz adminsrvdmz  18455 nov  3 07:28 agente_enforce.py.bak-20261103-preparar
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz    175 nov  3 02:50 alcance.json
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz    602 nov  4 01:03 feed.json
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz   3329 sep 30 20:00 feed.py
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz     64 nov  4 01:03 feed.sig
+== /home/adminsrvdmz/enforce/shadow.log
+{"block": [], "comandos": 9, "errores": 0, "estado": "aplicado", "limit": []}
+{"block": [], "comandos": 9, "errores": 0, "estado": "aplicado", "limit": []}
+{"block": [], "comandos": 9, "errores": 0, "estado": "aplicado", "limit": []}
+nov 04 01:03:56 srv-dmz systemd[1]: Starting ppi-enforce-agent.service - CyberFlow - agente de enforcement en el host protegido (verifica feed, aplica nftables)...
+nov 04 01:03:56 srv-dmz sudo[1470676]: adminsrvdmz : PWD=/ ; USER=root ; COMMAND=/usr/sbin/nft -j list set inet cyberflow cyberflow_limitados
+nov 04 01:03:56 srv-dmz python3[1470672]: {"block": [], "comandos": 9, "errores": 0, "estado": "aplicado", "liberadas_por_panel": [], "limit": ["10.10.20.21"], "sombra": {"10.10.20.20": "fuera-de-alcance", "10.10.20.22": "fuera-de-alcance"}}
+nov 04 01:03:56 srv-dmz systemd[1]: Finished ppi-enforce-agent.service - CyberFlow - agente de enforcement en el host protegido (verifica feed, aplica nftables).
+nov 04 01:04:06 srv-dmz systemd[1]: Starting ppi-enforce-agent.service - CyberFlow - agente de enforcement en el host protegido (verifica feed, aplica nftables)...
+nov 04 01:04:06 srv-dmz sudo[1470885]: adminsrvdmz : PWD=/ ; USER=root ; COMMAND=/usr/sbin/nft -j list set inet cyberflow cyberflow_limitados
+nov 04 01:04:06 srv-dmz python3[1470880]: {"block": [], "comandos": 9, "errores": 0, "estado": "aplicado", "liberadas_por_panel": [], "limit": ["10.10.20.21"], "sombra": {"10.10.20.20": "fuera-de-alcance", "10.10.20.22": "fuera-de-alcance"}}
+nov 04 01:04:07 srv-dmz systemd[1]: Finished ppi-enforce-agent.service - CyberFlow - agente de enforcement en el host protegido (verifica feed, aplica nftables).
+bash: line 31: $'\r': command not found

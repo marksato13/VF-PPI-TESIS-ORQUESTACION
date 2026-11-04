@@ -1,0 +1,692 @@
+...........................................s.....s..s..F.....F.F........ [ 13%]
+........................F............................................... [ 27%]
+.....................................................ss......F.F.......F [ 41%]
+....F.F....F..................F.s..s...........ss........F....F..F...... [ 55%]
+........................................................................ [ 69%]
+................FFFF............ss..s.................................ss [ 83%]
+.s.......s...........FFFFFFF.........FF.................F............... [ 96%]
+................                                                         [100%]
+================================== FAILURES ===================================
+________ Almacen.test_la_ventana_nueva_vuelve_sostenida_a_la_anterior _________
+
+self = <test_almacen_decisiones.Almacen testMethod=test_la_ventana_nueva_vuelve_sostenida_a_la_anterior>
+
+    def test_la_ventana_nueva_vuelve_sostenida_a_la_anterior(self):
+        self.log.write_text(linea(1000, "10.10.20.30", "ALERT", -0.70)
+                            + linea(1010, "10.10.20.30", "ALERT", -0.70), encoding="utf-8")
+>       self.assertEqual({p for _, p in self.politicas()}, {"suelta"})
+E       AssertionError: Items in the first set but not the second:
+E       'sostenida'
+E       Items in the second set but not the first:
+E       'suelta'
+
+tests\test_almacen_decisiones.py:56: AssertionError
+________________ Politica.test_la_politica_publicada_es_valida ________________
+
+self = <test_aprendizaje.Politica testMethod=test_la_politica_publicada_es_valida>
+
+    def test_la_politica_publicada_es_valida(self):
+        import tomllib
+        cfg = tomllib.loads((REPO / "configs" / "cyberflow.toml").read_text(encoding="utf-8"))
+>       self.assertEqual(ap.comprobar_politica(cfg["reentrenamiento"]), [])
+                                               ^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'reentrenamiento'
+
+tests\test_aprendizaje.py:165: KeyError
+_____________________ Unidades.test_timer_solo_si_activo ______________________
+
+self = <test_aprendizaje.Unidades testMethod=test_timer_solo_si_activo>
+
+    def test_timer_solo_si_activo(self):
+        import cyberflow_config as cc
+        cfg = cc.cargar(REPO / "configs" / "cyberflow.toml")
+        self.assertNotIn("cyberflow-aprendizaje.timer", cc.render(cfg))
+>       cfg["reentrenamiento"]["activo"] = True
+        ^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'reentrenamiento'
+
+tests\test_aprendizaje.py:174: KeyError
+_____________ CifrasPublicadas.test_falsos_positivos_en_su_unidad _____________
+
+self = <test_comparacion.CifrasPublicadas testMethod=test_falsos_positivos_en_su_unidad>
+
+    def test_falsos_positivos_en_su_unidad(self):
+        fp = self.r["falsos_positivos"]
+        self.assertEqual(fp["combinado"]["unidad"], "ventanas normales con acción")
+        self.assertEqual((fp["combinado"]["valor"], fp["combinado"]["de"]), (0, 527))
+        # El FP de Suricata ya se midio (14-oct): 0 firmas ET sobre clientes.
+>       self.assertIn("0 firmas ET", fp["suricata"]["valor"])
+E       AssertionError: '0 firmas ET' not found in 'no medido'
+
+tests\test_comparacion.py:43: AssertionError
+__ DatasetBuilderFixture.test_complete_collection_builds_three_atomic_splits __
+
+self = <test_f1_dataset_builder.DatasetBuilderFixture testMethod=test_complete_collection_builds_three_atomic_splits>
+
+    def test_complete_collection_builds_three_atomic_splits(self) -> None:
+>       base = builder.validate_candidate(
+            self.ledger_path, self.campaigns, self.features, self.contract
+        )
+
+tests\test_f1_dataset_builder.py:298: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\dataset\build_f1_dataset.py:371: in validate_candidate
+    require_equal(sha256_bytes(matrix_at_commit), contract.matrix_sha256, "GATE-GIT", "matriz en commit")
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+left = 'ad22ce5f8b41110b201f0eeacd2b5f13cc9f945c92cf539e9913e87fefdfa824'
+right = '69a4ed9afbcebe7694a6a91ac9c1aa5d9454f75a67e226d5477391ffb7f8827a'
+gate = 'GATE-GIT', description = 'matriz en commit'
+
+    def require_equal(left: Any, right: Any, gate: str, description: str) -> None:
+        if left != right:
+>           raise GateError(gate, f"{description}: {left!r} != {right!r}")
+E           build_f1_dataset.GateError: GATE-GIT: matriz en commit: 'ad22ce5f8b41110b201f0eeacd2b5f13cc9f945c92cf539e9913e87fefdfa824' != '69a4ed9afbcebe7694a6a91ac9c1aa5d9454f75a67e226d5477391ffb7f8827a'
+
+scripts\dataset\build_f1_dataset.py:181: GateError
+_____ DatasetBuilderFixture.test_incomplete_matrix_is_reported_not_built ______
+
+self = <test_f1_dataset_builder.DatasetBuilderFixture testMethod=test_incomplete_matrix_is_reported_not_built>
+
+    def test_incomplete_matrix_is_reported_not_built(self) -> None:
+        report, accepted = builder.audit_repository(
+            self.contract, self.campaigns, self.features, self.ledgers
+        )
+>       self.assertEqual(report["accepted_campaigns"], 1)
+E       AssertionError: 0 != 1
+
+tests\test_f1_dataset_builder.py:291: AssertionError
+_______ DatasetBuilderFixture.test_rejects_duplicate_window_inside_csv ________
+
+self = <test_f1_dataset_builder.DatasetBuilderFixture testMethod=test_rejects_duplicate_window_inside_csv>
+
+    def test_rejects_duplicate_window_inside_csv(self) -> None:
+        csv_path = self.feature_dir / "multilayer-v1.csv"
+        lines = csv_path.read_text(encoding="utf-8").splitlines()
+        csv_path.write_text("\n".join([*lines, lines[-1]]) + "\n", encoding="utf-8")
+        new_hash = sha256(csv_path)
+        self.mutate_json(
+            self.feature_dir / "extraction-report.json",
+            lambda value: value.update(rows=2, eligible_training_rows=2, output_sha256=new_hash),
+        )
+        rewrite_checksums(self.feature_dir)
+        self.mutate_json(
+            self.ledger_path,
+            lambda value: value.update(
+                feature_rows=2, eligible_training_rows=2, output_sha256=new_hash
+            ),
+        )
+>       self.assert_gate("GATE-DUPLICADOS")
+
+tests\test_f1_dataset_builder.py:385: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_f1_dataset_builder.py:231: in assert_gate
+    self.assertEqual(context.exception.gate, gate)
+E   AssertionError: 'GATE-GIT' != 'GATE-DUPLICADOS'
+E   - GATE-GIT
+E   + GATE-DUPLICADOS
+_________ DatasetBuilderFixture.test_rejects_output_hash_disagreement _________
+
+self = <test_f1_dataset_builder.DatasetBuilderFixture testMethod=test_rejects_output_hash_disagreement>
+
+    def test_rejects_output_hash_disagreement(self) -> None:
+        self.mutate_json(self.ledger_path, lambda value: value.update(output_sha256="0" * 64))
+>       self.assert_gate("GATE-CRUCE")
+
+tests\test_f1_dataset_builder.py:343: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_f1_dataset_builder.py:231: in assert_gate
+    self.assertEqual(context.exception.gate, gate)
+E   AssertionError: 'GATE-GIT' != 'GATE-CRUCE'
+E   - GATE-GIT
+E   + GATE-CRUCE
+_________ DatasetBuilderFixture.test_valid_candidate_passes_all_gates _________
+
+self = <test_f1_dataset_builder.DatasetBuilderFixture testMethod=test_valid_candidate_passes_all_gates>
+
+    def test_valid_candidate_passes_all_gates(self) -> None:
+>       result = builder.validate_candidate(self.ledger_path, self.campaigns, self.features, self.contract)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_f1_dataset_builder.py:234: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+scripts\dataset\build_f1_dataset.py:371: in validate_candidate
+    require_equal(sha256_bytes(matrix_at_commit), contract.matrix_sha256, "GATE-GIT", "matriz en commit")
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+left = 'ad22ce5f8b41110b201f0eeacd2b5f13cc9f945c92cf539e9913e87fefdfa824'
+right = '69a4ed9afbcebe7694a6a91ac9c1aa5d9454f75a67e226d5477391ffb7f8827a'
+gate = 'GATE-GIT', description = 'matriz en commit'
+
+    def require_equal(left: Any, right: Any, gate: str, description: str) -> None:
+        if left != right:
+>           raise GateError(gate, f"{description}: {left!r} != {right!r}")
+E           build_f1_dataset.GateError: GATE-GIT: matriz en commit: 'ad22ce5f8b41110b201f0eeacd2b5f13cc9f945c92cf539e9913e87fefdfa824' != '69a4ed9afbcebe7694a6a91ac9c1aa5d9454f75a67e226d5477391ffb7f8827a'
+
+scripts\dataset\build_f1_dataset.py:181: GateError
+__________________ F1PreflightContractTests.test_bash_syntax __________________
+
+self = <test_f1_preflight.F1PreflightContractTests testMethod=test_bash_syntax>
+
+    def test_bash_syntax(self) -> None:
+>       subprocess.run(["bash", "-n", str(SCRIPT)], check=True)
+
+tests\test_f1_preflight.py:17: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+input = None, capture_output = False, timeout = None, check = True
+popenargs = (['bash', '-n', 'C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\producto-as-deployed\\scripts\\f1\\preflight_profile.sh'],)
+kwargs = {}
+process = <Popen: returncode: 1 args: ['bash', '-n', 'C:\\Users\\markp\\Desktop\\PY-ME...>
+stdout = None, stderr = None, retcode = 1
+
+    def run(*popenargs,
+            input=None, capture_output=False, timeout=None, check=False, **kwargs):
+        """Run command with arguments and return a CompletedProcess instance.
+    
+        The returned instance will have attributes args, returncode, stdout and
+        stderr. By default, stdout and stderr are not captured, and those attributes
+        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them,
+        or pass capture_output=True to capture both.
+    
+        If check is True and the exit code was non-zero, it raises a
+        CalledProcessError. The CalledProcessError object will have the return code
+        in the returncode attribute, and output & stderr attributes if those streams
+        were captured.
+    
+        If timeout (seconds) is given and the process takes too long,
+         a TimeoutExpired exception will be raised.
+    
+        There is an optional argument "input", allowing you to
+        pass bytes or a string to the subprocess's stdin.  If you use this argument
+        you may not also use the Popen constructor's "stdin" argument, as
+        it will be used internally.
+    
+        By default, all communication is in bytes, and therefore any "input" should
+        be bytes, and the stdout and stderr will be bytes. If in text mode, any
+        "input" should be a string, and stdout and stderr will be strings decoded
+        according to locale encoding, or by "encoding" if set. Text mode is
+        triggered by setting any of text, encoding, errors or universal_newlines.
+    
+        The other arguments are the same as for the Popen constructor.
+        """
+        if input is not None:
+            if kwargs.get('stdin') is not None:
+                raise ValueError('stdin and input arguments may not both be used.')
+            kwargs['stdin'] = PIPE
+    
+        if capture_output:
+            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
+                raise ValueError('stdout and stderr arguments may not be used '
+                                 'with capture_output.')
+            kwargs['stdout'] = PIPE
+            kwargs['stderr'] = PIPE
+    
+        with Popen(*popenargs, **kwargs) as process:
+            try:
+                stdout, stderr = process.communicate(input, timeout=timeout)
+            except TimeoutExpired as exc:
+                process.kill()
+                if _mswindows:
+                    # Windows accumulates the output in a single blocking
+                    # read() call run on child threads, with the timeout
+                    # being done in a join() on those threads.  communicate()
+                    # _after_ kill() is required to collect that and add it
+                    # to the exception.
+                    exc.stdout, exc.stderr = process.communicate()
+                else:
+                    # POSIX _communicate already populated the output so
+                    # far into the TimeoutExpired exception.
+                    process.wait()
+                raise
+            except:  # Including KeyboardInterrupt, communicate handled that.
+                process.kill()
+                # We don't call process.wait() as .__exit__ does that for us.
+                raise
+            retcode = process.poll()
+            if check and retcode:
+>               raise CalledProcessError(retcode, process.args,
+                                         output=stdout, stderr=stderr)
+E               subprocess.CalledProcessError: Command '['bash', '-n', 'C:\\Users\\markp\\Desktop\\PY-MEGATRON\\PY - PERSONAL\\TESIS\\CYBERFLOW\\producto-as-deployed\\scripts\\f1\\preflight_profile.sh']' returned non-zero exit status 1.
+
+C:\Users\markp\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py:577: CalledProcessError
+_______________________ Firma.test_genera_par_de_claves _______________________
+
+self = <test_feed.Firma testMethod=test_genera_par_de_claves>
+
+    def test_genera_par_de_claves(self):
+        self.assertTrue(os.path.exists(self.priv))
+        self.assertTrue(os.path.exists(self.pub))
+        # la privada es 0600
+>       self.assertEqual(os.stat(self.priv).st_mode & 0o777, 0o600)
+E       AssertionError: 438 != 384
+
+tests\test_feed.py:44: AssertionError
+________ MultilayerFeatureTests.test_exact_vector_and_causal_boundary _________
+
+self = <test_multilayer_features.MultilayerFeatureTests testMethod=test_exact_vector_and_causal_boundary>
+
+    def test_exact_vector_and_causal_boundary(self) -> None:
+        network = ipaddress.ip_network("10.20.0.0/24")
+        packets = extractor.load_packet_observations([self.pcap], network)
+        apps = extractor.load_app_observations(self.eve, network)
+        rows = extractor.build_rows("SYNTHETIC", packets, apps)
+        first = rows[0]
+    
+        self.assertEqual(len(extractor.FEATURE_NAMES), 14)
+        self.assertEqual(first["packet_count_10s"], 8)
+        self.assertAlmostEqual(first["packet_rate_10s"], 0.8)
+        self.assertAlmostEqual(first["byte_rate_10s"], 295.8)
+        self.assertAlmostEqual(first["mean_ip_len_10s"], 369.75)
+        self.assertAlmostEqual(first["large_ip_ratio_10s"], 0.25)
+        self.assertAlmostEqual(first["unique_dst_ip_ratio_30s"], 1 / 3)
+        self.assertAlmostEqual(first["icmp_ratio_10s"], 0.25)
+        self.assertAlmostEqual(first["flow_attempt_rate_10s"], 0.3)
+        self.assertAlmostEqual(first["syn_rate_10s"], 0.1)
+        self.assertAlmostEqual(first["syn_completion_ratio_10s"], 1.0)
+        self.assertAlmostEqual(first["rst_ratio_10s"], 0.0)
+        self.assertAlmostEqual(first["unique_dst_port_ratio_30s"], 1.0)
+        self.assertAlmostEqual(first["http_error_ratio_60s"], 1.0)
+>       self.assertAlmostEqual(first["dns_nxdomain_ratio_60s"], 1.0)
+E       AssertionError: 0.0 != 1.0 within 7 places (1.0 difference)
+
+tests\test_multilayer_features.py:172: AssertionError
+__ MultilayerV2FeatureTests.test_new_v2_features_are_causal_and_conservative __
+
+self = <test_multilayer_v2_features.MultilayerV2FeatureTests testMethod=test_new_v2_features_are_causal_and_conservative>
+
+    def test_new_v2_features_are_causal_and_conservative(self) -> None:
+        network = ipaddress.ip_network("10.20.0.0/24")
+        packets = extractor.load_packet_observations([self.pcap], network)
+        apps = extractor.load_app_observations(self.eve, network)
+        rows = extractor.build_rows("SYNTHETIC", packets, apps)
+        first = rows[0]
+    
+        # Todas las tramas sintéticas usan TTL=64 y no llevan fragmentación.
+        self.assertAlmostEqual(first["ttl_mean_10s"], 64.0)
+        self.assertAlmostEqual(first["fragment_ratio_10s"], 0.0)
+        self.assertGreater(first["protocol_diversity_30s"], 0.0)
+        self.assertLessEqual(first["protocol_diversity_30s"], 1.0)
+    
+        # Cada segmento TCP con payload usa una secuencia distinta por dirección: sin retransmisión.
+        self.assertAlmostEqual(first["tcp_retransmission_ratio_10s"], 0.0)
+    
+        self.assertGreater(first["flow_duration_mean_30s"], 0.0)
+        self.assertGreater(first["tx_rx_byte_ratio_30s"], 0.0)
+        self.assertLess(first["tx_rx_byte_ratio_30s"], 1.0)
+    
+        self.assertAlmostEqual(first["http_request_rate_60s"], 1 / 60)
+        self.assertAlmostEqual(first["http_auth_failure_ratio_60s"], 0.0)
+        self.assertAlmostEqual(first["http_status_5xx_ratio_60s"], 0.0)
+        # Una única solicitud HTTP: entropía de método = 0 bits (sin incertidumbre).
+        self.assertAlmostEqual(first["http_method_entropy_60s"], 0.0)
+    
+>       self.assertAlmostEqual(first["dns_query_rate_60s"], 1 / 60)
+E       AssertionError: 0.0 != 0.016666666666666666 within 7 places (0.016666666666666666 difference)
+
+tests\test_multilayer_v2_features.py:245: AssertionError
+_ MultilayerV2FeatureTests.test_v1_features_preserved_and_causal_boundary_respected _
+
+self = <test_multilayer_v2_features.MultilayerV2FeatureTests testMethod=test_v1_features_preserved_and_causal_boundary_respected>
+
+    def test_v1_features_preserved_and_causal_boundary_respected(self) -> None:
+        network = ipaddress.ip_network("10.20.0.0/24")
+        packets = extractor.load_packet_observations([self.pcap], network)
+        apps = extractor.load_app_observations(self.eve, network)
+        rows = extractor.build_rows("SYNTHETIC", packets, apps)
+        first = rows[0]
+    
+        # El cierre de la primera ventana es t=1010; el HTTP 500 de t=1011 no puede alterarla.
+        self.assertEqual(
+            first["window_end_utc"], datetime.fromtimestamp(1010, timezone.utc).isoformat()
+        )
+        self.assertEqual(first["http_request_count_60s"], 1)
+    
+        self.assertAlmostEqual(first["packet_rate_10s"], 0.8)
+        self.assertAlmostEqual(first["byte_rate_10s"], 295.8)
+        self.assertAlmostEqual(first["large_ip_ratio_10s"], 0.25)
+        self.assertAlmostEqual(first["unique_dst_ip_ratio_30s"], 1 / 3)
+        self.assertAlmostEqual(first["icmp_ratio_10s"], 0.25)
+        self.assertAlmostEqual(first["syn_completion_ratio_10s"], 1.0)
+        self.assertAlmostEqual(first["rst_ratio_10s"], 0.0)
+        self.assertAlmostEqual(first["unique_dst_port_ratio_30s"], 1.0)
+        self.assertAlmostEqual(first["http_error_ratio_60s"], 1.0)
+>       self.assertAlmostEqual(first["dns_nxdomain_ratio_60s"], 1.0)
+E       AssertionError: 0.0 != 1.0 within 7 places (1.0 difference)
+
+tests\test_multilayer_v2_features.py:215: AssertionError
+_________ ExcluirIntervalos.test_descarta_las_ventanas_del_intervalo __________
+
+self = <test_particionar_linea_base.ExcluirIntervalos testMethod=test_descarta_las_ventanas_del_intervalo>
+
+    def test_descarta_las_ventanas_del_intervalo(self):
+        # Intervalo en la hora 2-3 de una franja de 6 h; esas ventanas salen.
+>       f, informe = pt.particionar(filas(6), bloque_s=3600, guarda_s=60,
+                                    intervalos=self.intervalo(2, 3))
+E       TypeError: particionar() got an unexpected keyword argument 'intervalos'
+
+tests\test_particionar_linea_base.py:66: TypeError
+_______ ExcluirIntervalos.test_la_guarda_va_por_la_cola_no_por_delante ________
+
+self = <test_particionar_linea_base.ExcluirIntervalos testMethod=test_la_guarda_va_por_la_cola_no_por_delante>
+
+    def test_la_guarda_va_por_la_cola_no_por_delante(self):
+        base = INICIO.timestamp()
+>       f, _ = pt.particionar(filas(6), bloque_s=3600, guarda_s=60,
+                              intervalos=self.intervalo(2, 3))
+E       TypeError: particionar() got an unexpected keyword argument 'intervalos'
+
+tests\test_particionar_linea_base.py:77: TypeError
+____________ ExcluirIntervalos.test_no_hay_fuga_entre_lo_que_queda ____________
+
+self = <test_particionar_linea_base.ExcluirIntervalos testMethod=test_no_hay_fuga_entre_lo_que_queda>
+
+    def test_no_hay_fuga_entre_lo_que_queda(self):
+>       f, _ = pt.particionar(filas(8), bloque_s=3600, guarda_s=60,
+                              intervalos=self.intervalo(3, 4))
+E       TypeError: particionar() got an unexpected keyword argument 'intervalos'
+
+tests\test_particionar_linea_base.py:93: TypeError
+____ ExcluirIntervalos.test_sin_intervalos_no_descarta_nada_por_intervalo _____
+
+self = <test_particionar_linea_base.ExcluirIntervalos testMethod=test_sin_intervalos_no_descarta_nada_por_intervalo>
+
+    def test_sin_intervalos_no_descarta_nada_por_intervalo(self):
+        _, informe = pt.particionar(filas(6), bloque_s=3600, guarda_s=60)
+>       self.assertEqual(informe["descartadas_por_intervalo"], 0)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'descartadas_por_intervalo'
+
+tests\test_particionar_linea_base.py:90: KeyError
+_____________ Puntuar.test_anomalias_da_tpr_y_filtra_por_etiqueta _____________
+
+self = <test_puntuar_deteccion.Puntuar testMethod=test_anomalias_da_tpr_y_filtra_por_etiqueta>
+
+    def test_anomalias_da_tpr_y_filtra_por_etiqueta(self):
+>       r = self._run(["--modelo", str(self.paq), "--csv", str(self.anom),
+                       "--tipo", "anomalias", "--etiqueta", "anomaly"])
+
+tests\test_puntuar_deteccion.py:96: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_puntuar_deteccion.Puntuar testMethod=test_anomalias_da_tpr_y_filtra_por_etiqueta>
+args = ['--modelo', 'C:\\Users\\markp\\AppData\\Local\\Temp\\cf-puntuar-inphrojp\\paq.joblib', '--csv', 'C:\\Users\\markp\\AppData\\Local\\Temp\\cf-puntuar-inphrojp\\anom.csv', '--tipo', 'anomalias', ...]
+
+    def _run(self, args):
+        inf = self.tmp / "out.json"
+        if inf.exists():
+            inf.unlink()
+>       pd.main(args + ["--informe", str(inf)])
+E       TypeError: main() takes 0 positional arguments but 1 was given
+
+tests\test_puntuar_deteccion.py:82: TypeError
+____________________ Puntuar.test_feature_faltante_aborta _____________________
+
+self = <test_puntuar_deteccion.Puntuar testMethod=test_feature_faltante_aborta>
+
+    def test_feature_faltante_aborta(self):
+        malo = self.tmp / "malo.csv"
+        with malo.open("w", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=["f0", "f1", "f2"])
+            w.writeheader()
+            w.writerow({"f0": "1", "f1": "2", "f2": "3"})
+        with self.assertRaises(SystemExit):
+>           self._run(["--modelo", str(self.paq), "--csv", str(malo)])
+
+tests\test_puntuar_deteccion.py:128: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def _run(self, args):
+        inf = self.tmp / "out.json"
+        if inf.exists():
+            inf.unlink()
+>       pd.main(args + ["--informe", str(inf)])
+E       TypeError: main() takes 0 positional arguments but 1 was given
+
+tests\test_puntuar_deteccion.py:82: TypeError
+__________ Puntuar.test_paquete_normal_emite_los_campos_del_candado ___________
+
+self = <test_puntuar_deteccion.Puntuar testMethod=test_paquete_normal_emite_los_campos_del_candado>
+
+    def test_paquete_normal_emite_los_campos_del_candado(self):
+>       r = self._run(["--modelo", str(self.paq), "--csv", str(self.normal),
+                       "--tipo", "normal", "--particion", "test"])
+
+tests\test_puntuar_deteccion.py:86: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_puntuar_deteccion.Puntuar testMethod=test_paquete_normal_emite_los_campos_del_candado>
+args = ['--modelo', 'C:\\Users\\markp\\AppData\\Local\\Temp\\cf-puntuar-inphrojp\\paq.joblib', '--csv', 'C:\\Users\\markp\\AppData\\Local\\Temp\\cf-puntuar-inphrojp\\normal.csv', '--tipo', 'normal', ...]
+
+    def _run(self, args):
+        inf = self.tmp / "out.json"
+        if inf.exists():
+            inf.unlink()
+>       pd.main(args + ["--informe", str(inf)])
+E       TypeError: main() takes 0 positional arguments but 1 was given
+
+tests\test_puntuar_deteccion.py:82: TypeError
+______________ Puntuar.test_pipeline_decide_igual_que_el_paquete ______________
+
+self = <test_puntuar_deteccion.Puntuar testMethod=test_pipeline_decide_igual_que_el_paquete>
+
+    def test_pipeline_decide_igual_que_el_paquete(self):
+>       rp = self._run(["--modelo", str(self.paq), "--csv", str(self.anom),
+                        "--tipo", "anomalias", "--etiqueta", "anomaly"])
+
+tests\test_puntuar_deteccion.py:103: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_puntuar_deteccion.Puntuar testMethod=test_pipeline_decide_igual_que_el_paquete>
+args = ['--modelo', 'C:\\Users\\markp\\AppData\\Local\\Temp\\cf-puntuar-inphrojp\\paq.joblib', '--csv', 'C:\\Users\\markp\\AppData\\Local\\Temp\\cf-puntuar-inphrojp\\anom.csv', '--tipo', 'anomalias', ...]
+
+    def _run(self, args):
+        inf = self.tmp / "out.json"
+        if inf.exists():
+            inf.unlink()
+>       pd.main(args + ["--informe", str(inf)])
+E       TypeError: main() takes 0 positional arguments but 1 was given
+
+tests\test_puntuar_deteccion.py:82: TypeError
+_________________ Puntuar.test_pipeline_sin_manifiesto_aborta _________________
+
+self = <test_puntuar_deteccion.Puntuar testMethod=test_pipeline_sin_manifiesto_aborta>
+
+    def test_pipeline_sin_manifiesto_aborta(self):
+        with self.assertRaises(SystemExit):
+>           self._run(["--modelo", str(self.pipe), "--csv", str(self.normal)])
+
+tests\test_puntuar_deteccion.py:115: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def _run(self, args):
+        inf = self.tmp / "out.json"
+        if inf.exists():
+            inf.unlink()
+>       pd.main(args + ["--informe", str(inf)])
+E       TypeError: main() takes 0 positional arguments but 1 was given
+
+tests\test_puntuar_deteccion.py:82: TypeError
+_________________ Puntuar.test_sha256_que_no_coincide_aborta __________________
+
+self = <test_puntuar_deteccion.Puntuar testMethod=test_sha256_que_no_coincide_aborta>
+
+    def test_sha256_que_no_coincide_aborta(self):
+        with self.assertRaises(SystemExit):
+>           self._run(["--modelo", str(self.paq), "--csv", str(self.normal), "--sha256", "0" * 64])
+
+tests\test_puntuar_deteccion.py:119: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def _run(self, args):
+        inf = self.tmp / "out.json"
+        if inf.exists():
+            inf.unlink()
+>       pd.main(args + ["--informe", str(inf)])
+E       TypeError: main() takes 0 positional arguments but 1 was given
+
+tests\test_puntuar_deteccion.py:82: TypeError
+______________ Puntuar.test_valor_no_numerico_aborta_sin_imputar ______________
+
+self = <test_puntuar_deteccion.Puntuar testMethod=test_valor_no_numerico_aborta_sin_imputar>
+
+    def test_valor_no_numerico_aborta_sin_imputar(self):
+        malo = self.tmp / "nonum.csv"
+        with malo.open("w", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=FEATS)
+            w.writeheader()
+            w.writerow({"f0": "1", "f1": "x", "f2": "3", "f3": "4"})
+        with self.assertRaises(SystemExit):
+>           self._run(["--modelo", str(self.paq), "--csv", str(malo)])
+
+tests\test_puntuar_deteccion.py:137: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def _run(self, args):
+        inf = self.tmp / "out.json"
+        if inf.exists():
+            inf.unlink()
+>       pd.main(args + ["--informe", str(inf)])
+E       TypeError: main() takes 0 positional arguments but 1 was given
+
+tests\test_puntuar_deteccion.py:82: TypeError
+_____ RetrainingDryRun.test_deployed_pipeline_requires_matching_manifest ______
+
+self = <test_retraining_demo.RetrainingDryRun testMethod=test_deployed_pipeline_requires_matching_manifest>
+
+    def test_deployed_pipeline_requires_matching_manifest(self):
+        import joblib
+        import numpy as np
+        from sklearn.ensemble import IsolationForest
+        from sklearn.pipeline import Pipeline
+        from sklearn.preprocessing import StandardScaler
+    
+        with tempfile.TemporaryDirectory() as directory:
+            temp = Path(directory)
+            features = [f["name"] for f in json.loads(SCHEMA.read_text(encoding="utf-8"))["features"]]
+            model = temp / "model.joblib"
+            pipeline = Pipeline([("scale", StandardScaler()), ("model", IsolationForest(n_estimators=10, random_state=1))])
+            pipeline.fit(np.arange(280, dtype=float).reshape(10, 28))
+            joblib.dump(pipeline, model)
+            digest = hashlib.sha256(model.read_bytes()).hexdigest()
+            manifest = temp / "manifest.json"
+            manifest.write_text(json.dumps({"detectors": {"active": {
+                "model_sha256": digest, "calibration": {"threshold": -0.5}
+            }}}), encoding="utf-8")
+            csv_path = temp / "normal.csv"
+            with csv_path.open("w", newline="", encoding="utf-8") as file:
+                writer = csv.DictWriter(file, fieldnames=features)
+                writer.writeheader()
+                writer.writerow({name: str(i) for i, name in enumerate(features)})
+            report = temp / "report.json"
+>           self.call(SCORE, "--modelo", model, "--manifest", manifest, "--detector-name", "active",
+                      "--schema", SCHEMA, "--csv", csv_path, "--tipo", "normal", "--informe", report)
+
+tests\test_retraining_demo.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_retraining_demo.py:28: in call
+    self.assertEqual(result.returncode, 0, result.stderr + "\n" + result.stdout)
+E   AssertionError: 2 != 0 : usage: puntuar_deteccion.py [-h] --modelo MODELO --csv CSV
+E                               [--etiqueta ETIQUETA]
+E   puntuar_deteccion.py: error: unrecognized arguments: --manifest C:\Users\markp\AppData\Local\Temp\tmp0ep9s275\manifest.json --detector-name active --schema C:\Users\markp\Desktop\PY-MEGATRON\PY - PERSONAL\TESIS\CYBERFLOW\producto-as-deployed\configs\features\multilayer-v2.json --tipo normal --informe C:\Users\markp\AppData\Local\Temp\tmp0ep9s275\report.json
+____________ RetrainingDryRun.test_full_cycle_isolated_and_paired _____________
+
+self = <test_retraining_demo.RetrainingDryRun testMethod=test_full_cycle_isolated_and_paired>
+
+    def test_full_cycle_isolated_and_paired(self):
+        with tempfile.TemporaryDirectory() as directory:
+            temp = Path(directory)
+            features = [f["name"] for f in json.loads(SCHEMA.read_text(encoding="utf-8"))["features"]]
+            source, attack = temp / "normal.csv", temp / "attack.csv"
+            columns = ["window_end_utc", "entity_ip", "eligible_training", "label", *features]
+            start = datetime(2026, 1, 1, tzinfo=timezone.utc)
+            with source.open("w", newline="", encoding="utf-8") as file:
+                writer = csv.DictWriter(file, fieldnames=columns)
+                writer.writeheader()
+                for hour in range(6):
+                    for n in range(8):
+                        row = {"window_end_utc": (start + timedelta(hours=hour, minutes=2 + n)).isoformat(),
+                               "entity_ip": "10.10.20.21", "eligible_training": "True", "label": "normal"}
+                        row.update({name: str(1 + (hour * 8 + n + i) % 7 / 10) for i, name in enumerate(features)})
+                        writer.writerow(row)
+            with attack.open("w", newline="", encoding="utf-8") as file:
+                writer = csv.DictWriter(file, fieldnames=columns)
+                writer.writeheader()
+                for n in range(8):
+                    row = {"window_end_utc": (start + timedelta(days=2, minutes=n)).isoformat(),
+                           "entity_ip": "10.10.20.30", "eligible_training": "True", "label": "anomaly"}
+                    row.update({name: str(4 + n / 10 + i / 50) for i, name in enumerate(features)})
+                    writer.writerow(row)
+            split = temp / "partitioned.csv"
+            self.call(DATASET, "--entrada", source, "--salida", split,
+                      "--informe", temp / "split.json", "--bloque-horas", "1", "--solo-elegibles")
+            reports = []
+            for label, seed in (("antes", 11), ("despues", 17)):
+                model, report = temp / f"{label}.joblib", temp / f"{label}.json"
+                self.call(TRAIN, "--entrada", split, "--schema", SCHEMA, "--salida", model,
+                          "--informe", report, "--n-estimators", "10", "--semilla", str(seed))
+>               self.call(SCORE, "--modelo", model, "--csv", split, "--particion", "test",
+                          "--tipo", "normal", "--informe", temp / f"fpr-{label}.json")
+
+tests\test_retraining_demo.py:63: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_retraining_demo.py:28: in call
+    self.assertEqual(result.returncode, 0, result.stderr + "\n" + result.stdout)
+E   AssertionError: 2 != 0 : usage: puntuar_deteccion.py [-h] --modelo MODELO --csv CSV
+E                               [--etiqueta ETIQUETA]
+E   puntuar_deteccion.py: error: unrecognized arguments: --particion test --tipo normal --informe C:\Users\markp\AppData\Local\Temp\tmp7sjvzph9\fpr-antes.json
+_ EvidenceDiskAuditTests.test_finds_physical_disk_through_nested_block_layers _
+
+self = <test_storage_audit.EvidenceDiskAuditTests testMethod=test_finds_physical_disk_through_nested_block_layers>
+
+    def test_finds_physical_disk_through_nested_block_layers(self) -> None:
+        topology = [
+            {
+                "path": "/dev/mapper/root",
+                "type": "lvm",
+                "children": [
+                    {
+                        "path": "/dev/sda2",
+                        "type": "part",
+                        "children": [{"path": "/dev/sda", "type": "disk"}],
+                    }
+                ],
+            }
+        ]
+>       self.assertEqual(audit.disk_paths(topology), {"/dev/sda"})
+E       AssertionError: Items in the first set but not the second:
+E       'C:\\dev\\sda'
+E       Items in the second set but not the first:
+E       '/dev/sda'
+
+tests\test_storage_audit.py:88: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_almacen_decisiones.py::Almacen::test_la_ventana_nueva_vuelve_sostenida_a_la_anterior
+FAILED tests/test_aprendizaje.py::Politica::test_la_politica_publicada_es_valida
+FAILED tests/test_aprendizaje.py::Unidades::test_timer_solo_si_activo - KeyEr...
+FAILED tests/test_comparacion.py::CifrasPublicadas::test_falsos_positivos_en_su_unidad
+FAILED tests/test_f1_dataset_builder.py::DatasetBuilderFixture::test_complete_collection_builds_three_atomic_splits
+FAILED tests/test_f1_dataset_builder.py::DatasetBuilderFixture::test_incomplete_matrix_is_reported_not_built
+FAILED tests/test_f1_dataset_builder.py::DatasetBuilderFixture::test_rejects_duplicate_window_inside_csv
+FAILED tests/test_f1_dataset_builder.py::DatasetBuilderFixture::test_rejects_output_hash_disagreement
+FAILED tests/test_f1_dataset_builder.py::DatasetBuilderFixture::test_valid_candidate_passes_all_gates
+FAILED tests/test_f1_preflight.py::F1PreflightContractTests::test_bash_syntax
+FAILED tests/test_feed.py::Firma::test_genera_par_de_claves - AssertionError:...
+FAILED tests/test_multilayer_features.py::MultilayerFeatureTests::test_exact_vector_and_causal_boundary
+FAILED tests/test_multilayer_v2_features.py::MultilayerV2FeatureTests::test_new_v2_features_are_causal_and_conservative
+FAILED tests/test_multilayer_v2_features.py::MultilayerV2FeatureTests::test_v1_features_preserved_and_causal_boundary_respected
+FAILED tests/test_particionar_linea_base.py::ExcluirIntervalos::test_descarta_las_ventanas_del_intervalo
+FAILED tests/test_particionar_linea_base.py::ExcluirIntervalos::test_la_guarda_va_por_la_cola_no_por_delante
+FAILED tests/test_particionar_linea_base.py::ExcluirIntervalos::test_no_hay_fuga_entre_lo_que_queda
+FAILED tests/test_particionar_linea_base.py::ExcluirIntervalos::test_sin_intervalos_no_descarta_nada_por_intervalo
+FAILED tests/test_puntuar_deteccion.py::Puntuar::test_anomalias_da_tpr_y_filtra_por_etiqueta
+FAILED tests/test_puntuar_deteccion.py::Puntuar::test_feature_faltante_aborta
+FAILED tests/test_puntuar_deteccion.py::Puntuar::test_paquete_normal_emite_los_campos_del_candado
+FAILED tests/test_puntuar_deteccion.py::Puntuar::test_pipeline_decide_igual_que_el_paquete
+FAILED tests/test_puntuar_deteccion.py::Puntuar::test_pipeline_sin_manifiesto_aborta
+FAILED tests/test_puntuar_deteccion.py::Puntuar::test_sha256_que_no_coincide_aborta
+FAILED tests/test_puntuar_deteccion.py::Puntuar::test_valor_no_numerico_aborta_sin_imputar
+FAILED tests/test_retraining_demo.py::RetrainingDryRun::test_deployed_pipeline_requires_matching_manifest
+FAILED tests/test_retraining_demo.py::RetrainingDryRun::test_full_cycle_isolated_and_paired
+FAILED tests/test_storage_audit.py::EvidenceDiskAuditTests::test_finds_physical_disk_through_nested_block_layers
+28 failed, 476 passed, 16 skipped in 36.96s

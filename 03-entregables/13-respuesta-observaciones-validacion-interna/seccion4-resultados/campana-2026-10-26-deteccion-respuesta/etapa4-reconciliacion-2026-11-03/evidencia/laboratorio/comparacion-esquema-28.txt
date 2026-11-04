@@ -1,0 +1,9 @@
+sensor: 28 caracteristicas; claves raiz: ['schema_version', 'observation_unit', 'emission_step_seconds', 'maximum_history_seconds', 'notes', 'features']
+7b275b8 | features iguales (orden,nombre,capa,ventana,unidad,fuente): True | metadatos iguales: True
+24f8a80 | features iguales (orden,nombre,capa,ventana,unidad,fuente): True | metadatos iguales: True
+6b6ef82 | features iguales (orden,nombre,capa,ventana,unidad,fuente): True | metadatos iguales: True
+ec78ca5 | features iguales (orden,nombre,capa,ventana,unidad,fuente): True | metadatos iguales: True
+3a9f26b | features iguales (orden,nombre,capa,ventana,unidad,fuente): True | metadatos iguales: True
+f57ca00 | features iguales (orden,nombre,capa,ventana,unidad,fuente): True | metadatos iguales: True
+ca66db5 | features iguales (orden,nombre,capa,ventana,unidad,fuente): True | metadatos iguales: True
+orden sensor: ['packet_rate_10s', 'byte_rate_10s', 'mean_ip_len_10s', 'large_ip_ratio_10s', 'unique_dst_ip_ratio_30s', 'icmp_ratio_10s', 'flow_attempt_rate_10s', 'syn_rate_10s', 'syn_completion_ratio_10s', 'rst_ratio_10s', 'unique_dst_port_ratio_30s', 'http_error_ratio_60s', 'dns_nxdomain_ratio_60s', 'tls_session_rate_60s', 'ttl_mean_10s', 'fragment_ratio_10s', 'protocol_diversity_30s', 'tcp_retransmission_ratio_10s', 'flow_duration_mean_30s', 'tx_rx_byte_ratio_30s', 'http_request_rate_60s', 'http_method_entropy_60s', 'http_auth_failure_ratio_60s', 'dns_query_rate_60s', 'unique_dns_name_ratio_60s', 'tls_handshake_failure_ratio_60s', 'tls_version_ratio_60s', 'http_status_5xx_ratio_60s']

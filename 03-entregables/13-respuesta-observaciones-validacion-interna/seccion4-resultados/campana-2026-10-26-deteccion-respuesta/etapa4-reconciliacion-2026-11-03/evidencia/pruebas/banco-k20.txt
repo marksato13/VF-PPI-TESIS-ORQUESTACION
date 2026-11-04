@@ -1,0 +1,18 @@
+bash -n OK
+## [ACCESO SSH A KALI 2026-11-04T01:21:48.371Z: abrir canal de control SIMULADO (4b) hasta 2026-11-04T01:21:55Z]
+## [ACCESO SSH A KALI 2026-11-04T01:21:55.429Z: canal de control SIMULADO (4b) cerrado tras 4 rondas]
+OK    rc 0
+OK    3-5 rondas en ~7 s con periodo 2 s (4)
+OK    todas con kali_rc 0
+OK    escribe SOLO permiso-simulado.json en la «Kali»
+OK    JSON válido con nonce simulado
+OK    accesos-kali.log: apertura, rondas y cierre
+OK    canal cerrado con -O exit
+OK    fase inválida para
+  ## [ACCESO SSH A KALI 2026-11-04T01:21:48.371Z: abrir canal de control SIMULADO (4b) hasta 2026-11-04T01:21:55Z]
+  2026-11-04T01:21:48.389Z canal de control SIMULADO (ronda #1) rc=0
+  2026-11-04T01:21:50.401Z canal de control SIMULADO (ronda #2) rc=0
+  2026-11-04T01:21:52.412Z canal de control SIMULADO (ronda #3) rc=0
+  2026-11-04T01:21:54.422Z canal de control SIMULADO (ronda #4) rc=0
+  ## [ACCESO SSH A KALI 2026-11-04T01:21:55.429Z: canal de control SIMULADO (4b) cerrado tras 4 rondas]
+BANCO k20 OK

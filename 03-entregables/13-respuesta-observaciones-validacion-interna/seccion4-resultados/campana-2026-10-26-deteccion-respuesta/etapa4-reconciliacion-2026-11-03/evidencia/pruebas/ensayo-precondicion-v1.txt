@@ -1,0 +1,9 @@
+bash -n OK
+OK    v1 activo (estado del 03/04-nov): PARADA el agente v1 (ppi-enforce-agent.timer) está activo y aplica con --aplicar: fase P0 pendiente
+OK    timer parado pero enabled: PARADA ppi-enforce-agent.timer sigue enabled: volvería a aplicar al reiniciar (fase P0 pendiente)
+OK    servicio v1 en ejecución: PARADA ppi-enforce-agent.service está en ejecución
+OK    tabla v1 restante: PARADA queda la tabla nft del agente v1 (cyberflow): fase P0 pendiente
+OK    nft ilegible (fallo cerrado): PARADA no se pueden leer las tablas nft: no se demuestra la sombra
+OK    solo cyberflow_dmz (no es v1): PARADA el respaldo no verifica
+OK    limpio (sigue al respaldo): PARADA el respaldo no verifica
+ENSAYO OK (7/7)

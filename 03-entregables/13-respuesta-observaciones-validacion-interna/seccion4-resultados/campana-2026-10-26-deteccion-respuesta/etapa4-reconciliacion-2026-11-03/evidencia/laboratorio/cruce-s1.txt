@@ -1,0 +1,36 @@
+ruta | blob_sensor | coincide_con | primer_commit_con_ese_blob
+configs/cyberflow.local.toml | 00e7bae446 | snap1029,antesDemo,demoAC,actual,main,c24f8a80,e2_6b6ef82,e3_ec78ca5,cand3a9f26b | 
+configs/cyberflow.toml | 74e5d29a43 | snap1029,antesDemo,demoAC,actual | 
+configs/escenarios.json | 556b837ab7 | snap1029,antesDemo,demoAC,actual,main,c24f8a80,e2_6b6ef82,e3_ec78ca5,cand3a9f26b | 
+configs/features/descripciones.json | f0a8329e1d | snap1029,antesDemo,demoAC,actual,main,c24f8a80,e2_6b6ef82,e3_ec78ca5,cand3a9f26b | 
+configs/features/multilayer-v1.json | 80893cb19c | - | NO ESTA EN NINGUN COMMIT
+configs/features/multilayer-v2.json | 9560ce9e49 | - | NO ESTA EN NINGUN COMMIT
+configs/features/multilayer-v3.json | d7d77b8eef | snap1029,antesDemo,demoAC,actual,main,c24f8a80,e2_6b6ef82,e3_ec78ca5,cand3a9f26b | 
+dashboard/app.py | dc6715e48d | - | NO ESTA EN NINGUN COMMIT
+deploy/enforcement/relay-feed.sh | 303373f293 | antesDemo,demoAC,actual | 
+scripts/campaign/archive-failed-attempt.sh | 2ee6c9ccf7 | - | NO ESTA EN NINGUN COMMIT
+scripts/campaign/common.sh | 788a4e718b | - | NO ESTA EN NINGUN COMMIT
+scripts/campaign/run-f1-kali.sh | a41ee0a787 | - | NO ESTA EN NINGUN COMMIT
+scripts/campaign/run-f1.sh | ccdc691479 | - | NO ESTA EN NINGUN COMMIT
+scripts/campaign/sample-sensor.sh | 5044ab6ac2 | - | NO ESTA EN NINGUN COMMIT
+scripts/campaign/start.sh | 13e3a0ceaa | - | NO ESTA EN NINGUN COMMIT
+scripts/campaign/stop.sh | 9369751895 | - | NO ESTA EN NINGUN COMMIT
+scripts/enforce/acuse_aplicacion.py | 15d916c870 | antesDemo,demoAC,actual | 
+scripts/engine/dashboard.py | 9604d11a82 | actual | 
+scripts/engine/escalada.py | 7bd55de8fb | snap1029,antesDemo,demoAC,actual | 
+scripts/engine/feed.py | fa30b818f0 | snap1029,antesDemo,demoAC,actual,main,c24f8a80 | 
+scripts/engine/heuristicos.py | ec0fe9e870 | snap1029,antesDemo,actual,main,c24f8a80 | 
+scripts/engine/motor_decision.py | 068c025dc8 | c24f8a80 | 
+scripts/engine/motor_incremental.py | 1197907c0d | c24f8a80 | 
+scripts/engine/publicar_feed.py | 8d368d97f8 | actual | 
+scripts/engine/vista_vivo.py | 7c17f6ca2a | snap1029,antesDemo,demoAC,actual,main,c24f8a80,e2_6b6ef82,e3_ec78ca5,cand3a9f26b | 
+scripts/features/acumular_v3.py | 3d182d2097 | snap1029,antesDemo,demoAC,actual,main,c24f8a80,e2_6b6ef82,e3_ec78ca5,cand3a9f26b | 
+scripts/features/extract_campaign.sh | f77fd9226c | - | NO ESTA EN NINGUN COMMIT
+scripts/features/extract_campaign_v2.sh | 0ad74d29ac | - | NO ESTA EN NINGUN COMMIT
+scripts/features/extract_multilayer.py | 3ce404784f | snap1029,antesDemo,demoAC,actual,main,c24f8a80,e2_6b6ef82,e3_ec78ca5,cand3a9f26b | 
+scripts/features/extract_multilayer_v2.py | ec46849dc8 | snap1029,antesDemo,demoAC,actual,main,c24f8a80,e2_6b6ef82,e3_ec78ca5,cand3a9f26b | 
+scripts/features/extract_multilayer_v3.py | 0739e4cda3 | snap1029,antesDemo,demoAC,actual,main,c24f8a80,e2_6b6ef82,e3_ec78ca5,cand3a9f26b | 
+scripts/setup/cyberflow_config.py | d38dd77740 | snap1029,antesDemo,demoAC,actual,main | 
+scripts/setup/cyberflow_usuarios.py | 3849020ef5 | snap1029,antesDemo,demoAC,actual,main,c24f8a80,e2_6b6ef82,e3_ec78ca5,cand3a9f26b | 
+scripts/setup/desinstalar.sh | 92c3176b28 | snap1029,antesDemo,demoAC,actual | 
+scripts/setup/instalar.sh | 34ac6c9ed7 | snap1029,antesDemo,demoAC,actual | 

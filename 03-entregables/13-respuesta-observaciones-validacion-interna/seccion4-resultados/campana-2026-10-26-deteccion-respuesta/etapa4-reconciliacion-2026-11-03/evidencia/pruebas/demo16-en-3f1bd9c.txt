@@ -1,0 +1,43 @@
+................                                                         [100%]
+============================== warnings summary ===============================
+scripts\engine\dashboard.py:3405
+  C:\Users\markp\AppData\Local\Temp\claude\f17b3819211dc686\51c74eee-a71d-4dd3-9ea4-b614ec3c2579\scratchpad\w3f1bd9c\scripts\engine\dashboard.py:3405: SyntaxWarning: "\." is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\."? A raw string is also an option.
+    const origen = f.ip === '10.10.20.30' ? 'atacante' : (/^10\.10\.20\.2[1-6]$/.test(f.ip) ? 'clientes' : null);
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=================================== PASSES ====================================
+______ Simulador.test_cada_ataque_produce_la_accion_del_motor_de_reglas _______
+---------------------------- Captured stdout call -----------------------------
+== dns
+2026-11-04T01:05:41Z  10.10.20.30  PERMIT 
+2026-11-04T01:05:41Z  10.10.20.30  LIMIT  82 consultas DNS/60s, 62% NXDOMAIN, 50% nombres únicos
+== escaneo
+2026-11-04T01:05:41Z  10.10.20.30  PERMIT 
+2026-11-04T01:05:41Z  10.10.20.30  BLOCK  1180 intentos/30s a 566 puertos distintos, 2% completados
+== fuerza-bruta
+2026-11-04T01:05:41Z  10.10.20.30  PERMIT 
+2026-11-04T01:05:41Z  10.10.20.30  BLOCK  240 req HTTP/60s con 100% de fallo de auth
+== http
+2026-11-04T01:05:41Z  10.10.20.34  PERMIT 
+2026-11-04T01:05:41Z  10.10.20.34  LIMIT  410 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)
+== modelo
+2026-11-04T01:05:41Z  10.10.20.51  PERMIT 
+2026-11-04T01:05:41Z  10.10.20.51  LIMIT  
+=========================== short test summary info ===========================
+PASSED tests/test_publicar_feed.py::DecisionesAEntradas::test_alerta_marginal_del_modelo_no_se_publica
+PASSED tests/test_publicar_feed.py::DecisionesAEntradas::test_alerta_suelta_del_modelo_no_se_publica
+PASSED tests/test_publicar_feed.py::DecisionesAEntradas::test_dos_ventanas_claras_no_bastan
+PASSED tests/test_publicar_feed.py::DecisionesAEntradas::test_politica_a_el_modelo_solo_no_publica
+PASSED tests/test_heuristico_icmp.py::IcmpFlood::test_el_flood_de_la_demo_bloquea
+PASSED tests/test_heuristico_icmp.py::IcmpFlood::test_version_subida
+PASSED tests/test_port_scan_rafaga_web.py::PortScan::test_250_descargas_al_puerto_80_no_son_escaneo
+PASSED tests/test_port_scan_rafaga_web.py::PortScan::test_cliente_a_una_peticion_por_segundo_no_es_abuso
+PASSED tests/test_port_scan_rafaga_web.py::PortScan::test_flood_de_la_demo_sigue_siendo_abuso
+PASSED tests/test_alertas_panel.py::ReglaDeAccion::test_anomalia_del_modelo_solo_queda_para_revision
+PASSED tests/test_alertas_panel.py::AccionesVigentes::test_contadores_por_accion
+PASSED tests/test_alertas_panel.py::Simulador::test_cada_ataque_produce_la_accion_del_motor_de_reglas
+PASSED tests/test_escenario_vivo.py::Marginal::test_borde_del_umbral_es_marginal
+PASSED tests/test_escenario_vivo.py::Marginal::test_contadores_separan_relevantes
+PASSED tests/test_historial_acciones.py::Historial::test_una_alerta_suelta_del_modelo_no_es_episodio
+PASSED tests/test_historial_acciones.py::Historial::test_una_racha_es_un_episodio_y_gana_la_accion_mas_severa
+16 passed, 1 warning in 0.17s

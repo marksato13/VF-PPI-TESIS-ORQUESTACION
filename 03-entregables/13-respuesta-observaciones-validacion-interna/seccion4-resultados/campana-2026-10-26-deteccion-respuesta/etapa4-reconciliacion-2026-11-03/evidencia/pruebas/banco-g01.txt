@@ -1,0 +1,91 @@
+658c4147088fe4153003297d99948d508c964439aa87400369f03d7c5b111a52  g01-original.sh
+936e1605cfbb5e47f679cf17e2d7f3ef4c9b4cdda9d15f9c4b3f1ed908c9ca63  g01-corregido.sh
+bash -n OK
+=== A: g01 ORIGINAL sin generador
+  | ## g01-e4 2026-11-04T01:14:40.497Z
+  | ## sombra (sensor)
+  |   ppi-motor active PID=22 NR=0 candidato=1 enforce=0
+  | ## sombra (srv-dmz): estado_sombra.py --alcance completo
+  |   estado=sombra (simulado)
+  |   [sin credenciales, esperado 401] 401 t=0.01 (simulado)
+  | ## relojes (p10b)
+  | kali|desfase|<=1 s: SI (simulado)
+  | ## lanzamiento en la Kali [ACCESO SSH A KALI 2026-11-04T01:14:40.556Z: abrir canal de control y lanzar el generador; nonce 4c-20261104T011440Z-6c14e7a5ea63]
+  |   /home/adminatacante/cf-campana-A/scripts-4c/generar_campana.py: OK
+  | PARAR: ya hay un generador
+OK    A para por el falso positivo de pgrep
+OK    A no lanza nada (sin comando.txt)
+=== B: g01 CORREGIDO sin generador
+  | ## g01-e4 2026-11-04T01:14:40.587Z
+  | ## sombra (sensor)
+  |   ppi-motor active PID=22 NR=0 candidato=1 enforce=0
+  | ## sombra (srv-dmz): estado_sombra.py --alcance completo
+  |   estado=sombra (simulado)
+  |   [sin credenciales, esperado 401] 401 t=0.01 (simulado)
+  | ## relojes (p10b)
+  | kali|desfase|<=1 s: SI (simulado)
+  | ## lanzamiento en la Kali [ACCESO SSH A KALI 2026-11-04T01:14:40.625Z: abrir canal de control y lanzar el generador; nonce 4c-20261104T011440Z-b98b67884f28]
+  |   /home/adminatacante/cf-campana-A/scripts-4c/generar_campana.py: OK
+  |   sin generador previo
+  |   vigía PID 176: primer permiso: continuar |  | kali_rc 0
+  |   comando: python3 -u /home/adminatacante/cf-campana-A/scripts-4c/generar_campana.py --config /home/adminatacante/cf-campana-A/escenarios/escenarios-4c.json --salida-dir /home/adminatacante/cf-e4-4c/corrida --autorizado --permiso /home/adminatacante/cf-e4-4c/permiso.json --nonce 4c-20261104T011440Z-b98b67884f28
+  |   pid(s) del generador: 196 
+  |   | generador SIMULADO: no lanza nada --config /home/adminatacante/cf-campana-A/escenarios/escenarios-4c.json
+  | ## lanzado 2026-11-04T01:14:45.704Z; el canal de control sigue abierto para el vigía (accesos-kali.log)
+  | ## fin 2026-11-04T01:14:45.706Z  (guion en /b)
+OK    B pasa la comprobación previa
+OK    B lanza
+OK    B lista 1 PID (196) y es python3 … generar_campana.py --config
+=== C: g01 CORREGIDO con el generador de B en ejecución
+  | ## g01-e4 2026-11-04T01:14:45.729Z
+  | ## sombra (sensor)
+  |   ppi-motor active PID=22 NR=0 candidato=1 enforce=0
+  | ## sombra (srv-dmz): estado_sombra.py --alcance completo
+  |   estado=sombra (simulado)
+  |   [sin credenciales, esperado 401] 401 t=0.01 (simulado)
+  | ## relojes (p10b)
+  | kali|desfase|<=1 s: SI (simulado)
+  | ## lanzamiento en la Kali [ACCESO SSH A KALI 2026-11-04T01:14:45.775Z: abrir canal de control y lanzar el generador; nonce 4c-20261104T011445Z-7def6aad9662]
+  |   /home/adminatacante/cf-campana-A/scripts-4c/generar_campana.py: OK
+  | PARAR: ya hay un generador (pid 196 )
+OK    C para con el PID real del generador
+=== D: g01 CORREGIDO con señuelos que contienen el patrón en su texto
+  señuelos: 2 proceso(s) que pgrep -f contaría
+  | ## g01-e4 2026-11-04T01:14:47.821Z
+  | ## sombra (sensor)
+  |   ppi-motor active PID=22 NR=0 candidato=1 enforce=0
+  | ## sombra (srv-dmz): estado_sombra.py --alcance completo
+  |   estado=sombra (simulado)
+  |   [sin credenciales, esperado 401] 401 t=0.01 (simulado)
+  | ## relojes (p10b)
+  | kali|desfase|<=1 s: SI (simulado)
+  | ## lanzamiento en la Kali [ACCESO SSH A KALI 2026-11-04T01:14:47.855Z: abrir canal de control y lanzar el generador; nonce 4c-20261104T011447Z-2f84b5a127ae]
+  |   /home/adminatacante/cf-campana-A/scripts-4c/generar_campana.py: OK
+  |   sin generador previo
+  |   vigía PID 436: primer permiso: continuar |  | kali_rc 0
+  |   comando: python3 -u /home/adminatacante/cf-campana-A/scripts-4c/generar_campana.py --config /home/adminatacante/cf-campana-A/escenarios/escenarios-4c.json --salida-dir /home/adminatacante/cf-e4-4c/corrida --autorizado --permiso /home/adminatacante/cf-e4-4c/permiso.json --nonce 4c-20261104T011447Z-2f84b5a127ae
+  |   pid(s) del generador: 456 
+  |   | generador SIMULADO: no lanza nada --config /home/adminatacante/cf-campana-A/escenarios/escenarios-4c.json
+  | ## lanzado 2026-11-04T01:14:52.927Z; el canal de control sigue abierto para el vigía (accesos-kali.log)
+  | ## fin 2026-11-04T01:14:52.928Z  (guion en /b)
+OK    D no cuenta los señuelos
+OK    D lista 1 PID (456), ni señuelos ni el bash -c envoltorio
+=== usos del SSH simulado
+  01:14:40 host=sensor1 orden=P=$(systemctl show -p MainPID --value ppi-motor); C=$(tr "\0" " " < /proc/$P/cmdline)   echo "ppi-motor $(systemctl is-active ppi-motor) PID
+  01:14:40 host=srvdmz orden=python3 -I ~/cf-e4/paquete/deploy/etapa4/srvdmz/estado_sombra.py --alcance completo --respaldo ~/respaldos-etapa4/srvdmz-banco
+  01:14:40 host=kali orden=set -u; K=/home/adminatacante/cf-e4-4c; KS=/home/adminatacante/cf-campana-A/scripts-4c [ -e $K/corrida ] && { echo 'PARAR: ya existe '$K/cor
+  01:14:40 host=sensor1 orden=P=$(systemctl show -p MainPID --value ppi-motor); C=$(tr "\0" " " < /proc/$P/cmdline)   echo "ppi-motor $(systemctl is-active ppi-motor) PID
+  01:14:40 host=srvdmz orden=python3 -I ~/cf-e4/paquete/deploy/etapa4/srvdmz/estado_sombra.py --alcance completo --respaldo ~/respaldos-etapa4/srvdmz-banco
+  01:14:40 host=kali orden=K=/home/adminatacante/cf-e4-4c KS=/home/adminatacante/cf-campana-A/scripts-4c bash -s
+  01:14:42 host=kali orden=K=/home/adminatacante/cf-e4-4c KS=/home/adminatacante/cf-campana-A/scripts-4c NONCE=4c-20261104T011440Z-b98b67884f28 bash -s
+  01:14:45 host=sensor1 orden=P=$(systemctl show -p MainPID --value ppi-motor); C=$(tr "\0" " " < /proc/$P/cmdline)   echo "ppi-motor $(systemctl is-active ppi-motor) PID
+  01:14:45 host=srvdmz orden=python3 -I ~/cf-e4/paquete/deploy/etapa4/srvdmz/estado_sombra.py --alcance completo --respaldo ~/respaldos-etapa4/srvdmz-banco
+  01:14:45 host=kali orden=K=/home/adminatacante/cf-e4-4c KS=/home/adminatacante/cf-campana-A/scripts-4c bash -s
+  01:14:47 host=sensor1 orden=P=$(systemctl show -p MainPID --value ppi-motor); C=$(tr "\0" " " < /proc/$P/cmdline)   echo "ppi-motor $(systemctl is-active ppi-motor) PID
+  01:14:47 host=srvdmz orden=python3 -I ~/cf-e4/paquete/deploy/etapa4/srvdmz/estado_sombra.py --alcance completo --respaldo ~/respaldos-etapa4/srvdmz-banco
+  01:14:47 host=kali orden=K=/home/adminatacante/cf-e4-4c KS=/home/adminatacante/cf-campana-A/scripts-4c bash -s
+  01:14:49 host=kali orden=K=/home/adminatacante/cf-e4-4c KS=/home/adminatacante/cf-campana-A/scripts-4c NONCE=4c-20261104T011447Z-2f84b5a127ae bash -s
+=== accesos-kali.log (D)
+  ## lanzamiento en la Kali [ACCESO SSH A KALI 2026-11-04T01:14:47.855Z: abrir canal de control y lanzar el generador; nonce 4c-20261104T011447Z-2f84b5a127ae]
+  ## lanzado 2026-11-04T01:14:52.927Z; el canal de control sigue abierto para el vigía (accesos-kali.log)
+BANCO g01 OK
