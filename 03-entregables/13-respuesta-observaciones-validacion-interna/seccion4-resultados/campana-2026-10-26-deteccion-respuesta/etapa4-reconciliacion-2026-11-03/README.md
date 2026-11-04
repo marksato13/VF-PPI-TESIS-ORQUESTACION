@@ -92,6 +92,9 @@ con hashes, dependencias, respaldo, instalación, comprobaciones, sombra, diagn�
 
 - **B1. Fase P0 (Mark, con autorización):** respaldo del estado de la demo, `disable --now` del timer v1, retirar
   la tabla `inet cyberflow` (lo que quita el LIMIT a .21) y nuevo respaldo base.
+  **Actualización 2026-11-04 01:39 UTC:** Mark ya desactivó el v1 y retiró la tabla. Comprobado: timer
+  `disabled`/`inactive`, sin tablas nft, respaldo de la tabla guardado. Queda el respaldo base, que se hace al empezar
+  la 4A. Detalle en [evidencia/laboratorio/p0-srvdmz-2026-11-04.md](evidencia/laboratorio/p0-srvdmz-2026-11-04.md).
 - **B2. Petición escrita de la 4A.**
 - **B3. `sudo -n journalctl` para m4rk** (lecturas SIGUSR1).
 
@@ -109,6 +112,7 @@ con hashes, dependencias, respaldo, instalación, comprobaciones, sombra, diagn�
 protocolos corregidos están verificados offline. La instalación no puede empezar mientras el v1 aplique (B1) y
 sin la petición escrita (B2). El laboratorio **no** se ha recuperado: sigue en el estado de ca66db5 (motor 24f8a80,
 publicador y panel de ca66db5, agente v1 aplicando).
+Desde el 04-nov 01:38 UTC el agente v1 ya no aplica (P0, paso 2). El resto del laboratorio sigue sin recuperar.
 
 ## 8. Estado git conservado
 
