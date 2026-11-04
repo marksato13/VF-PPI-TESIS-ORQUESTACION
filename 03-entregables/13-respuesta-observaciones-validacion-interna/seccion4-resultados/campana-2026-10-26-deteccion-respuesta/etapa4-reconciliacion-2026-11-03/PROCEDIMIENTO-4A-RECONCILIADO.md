@@ -139,7 +139,7 @@ activar el agente v1. Volver al estado de la demo es la reversión de P0 (§2), 
 
 | # | Pendiente | Quién | Estado |
 |---|---|---|---|
-| B1 | P0: el agente v1 aplica (LIMIT a .21) | Mark, con autorización | **bloquea** |
+| B1 | P0: el agente v1 aplica (LIMIT a .21) | Mark, con autorización | **pasos 2–3 hechos el 04-nov 01:39 UTC** (`evidencia/laboratorio/p0-srvdmz-2026-11-04.md`); el paso 4 (respaldo base) se hace al empezar la 4A |
 | B2 | Petición escrita de la 4A (C1 de la preparación) | Mark | pendiente |
 | B3 | `sudo -n journalctl` para m4rk (SIGUSR1) | Mark | pendiente (2-nov) |
 | B4 | Aceptar el canal SSH persistente con la Kali, en la 4C **y en el control** (`k20`) | Mark | pendiente |
