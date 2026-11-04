@@ -1,0 +1,16 @@
+curl terminados rc=0
+PID 1513580
+    PID %CPU   RSS     ELAPSED STAT WCHAN
+1513580  0.1 38532       04:24 Ss   do_poll.constprop.0
+    TID %CPU STAT WCHAN
+1513580  0.1 Ss   do_poll.constprop.0
+LISTEN 0      5        10.10.60.11:8788      0.0.0.0:*    users:(("python",pid=1513580,fd=3))
+11153022
+State:	S (sleeping)
+VmRSS:	   38532 kB
+Threads:	1
+Started ppi-dashboard.service - CyberFlow - panel web de solo lectura.
+/home/m4rk/cyberflow/scripts/engine/dashboard.py:3465: SyntaxWarning: "\." is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\."? A raw string is also an option
+  const origen = f.ip === '10.10.20.30' ? 'atacante' : (/^10\.10\.20\.2[1-6]$/.test(f.ip) ? 'clientes' : null);
+panel: detector if_limpio_2026_10 (fuente: --detector-name)
+panel: cadena v2 desde /home/m4rk/feed-v2 (modo sombra); «Preparar demo» deshabilitado

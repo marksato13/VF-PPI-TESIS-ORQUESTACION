@@ -1,0 +1,31 @@
+primera muestra 2026-11-04T02:19:45.862811+00:00  ultima 2026-11-04T03:19:48.852141+00:00
+rc=0
+{
+ "clase": "insuficiente",
+ "motivos": [
+  "ninguna muestra anterior o igual al inicio del periodo"
+ ]
+}
+--- motor_startup del arranque 02:11 (registro completo)
+{"ancla_reanudada": 1793758250.0, "capture_dir": "/var/lib/ppi-motor-capture", "ciclos_path": "/home/m4rk/cyberflow/logs/_state-e4/ciclos.jsonl", "claves_previas_cargadas": 8147, "detector_name": "if_limpio_2026_10", "disparo": "eventos", "entity_network": "10.10.0.0/16", "eve_path": "/var/log/suricata/eve.json", "event": "motor_startup", "excluidas": ["10.10.60.11/32", "10.10.10.30/32", "10.10.60.2/32", "10.10.60.3/32", "10.10.60.10/32", "10.10.60.20/32", "10.10.60.21/32", "10.10.60.30/32", "10.10.60.40/32", "10.10.60.41/32", "10.10.60.50/32"], "history_seconds": 230, "horizonte": "por_ventana", "hueco_arranque": null, "manifest_path": "/home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-
+--- lineas desde ese arranque: 4482
+--- pcaps ilegibles en la ultima decision
+"pcaps_ilegibles": 1, "pcaps_ilegibles_motivo": {"PermissionError": "[Errno 13] Permission denied: '/var/lib/ppi-motor-capture/live-20261104021107.pcap'"}
+ls: cannot access '/var/lib/ppi-motor-capture/live-20261104021107.pcap': No such file or directory
+-rw-r----- 1 tcpdump m4rk 234415 nov  4 03:05 live-20261104030501.pcap
+-rw-r----- 1 tcpdump m4rk 133968 nov  4 03:05 live-20261104030506.pcap
+--- señales IF por ip / ALERT por ip (ventana)
+total 1096
+-rw-rw-r-- 1 m4rk m4rk    332 nov  4 03:19 clasificacion.json
+-rw-rw-r-- 1 m4rk m4rk    332 nov  4 03:20 clasificacion-rango-muestras.json
+-rw-rw-r-- 1 m4rk m4rk 423876 nov  4 03:19 incrementos.jsonl
+-rw-rw-r-- 1 m4rk m4rk  39254 nov  4 03:19 journal-captura.txt
+-rw-rw-r-- 1 m4rk m4rk     17 nov  4 03:19 journal-motor.txt
+-rw-rw-r-- 1 m4rk m4rk     17 nov  4 03:19 journal-publicador-v2.txt
+-rw-rw-r-- 1 m4rk m4rk     17 nov  4 03:19 journal-suricata.txt
+-rw-rw-r-- 1 m4rk m4rk  19430 nov  4 03:19 journal-via-rapida.txt
+-rw-rw-r-- 1 m4rk m4rk 605004 nov  4 03:19 muestras.jsonl
+-rw-rw-r-- 1 m4rk m4rk      0 nov  4 02:19 muestrear.out
+-rw-rw-r-- 1 m4rk m4rk      8 nov  4 02:19 muestrear.pid
+2026-11-04T02:19:45Z
+2026-11-04T03:19:51Z

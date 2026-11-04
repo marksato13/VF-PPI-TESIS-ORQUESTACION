@@ -1,0 +1,67 @@
+2026-11-04T01:53:28Z
+cyberflow-sensor
+MainPID=1262627
+NRestarts=0
+ExecMainStartTimestamp=Tue 2026-11-03 23:42:56 UTC
+Id=ppi-motor.service
+ActiveState=active
+DropInPaths=
+
+MainPID=1375
+NRestarts=0
+ExecMainStartTimestamp=Fri 2026-10-30 19:55:21 UTC
+Id=ppi-motor-capture.service
+ActiveState=active
+DropInPaths=
+cmdline motor: /home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow/scripts/engine/motor_decision.py --eve-path /var/log/suricata/eve.json --capture-dir /var/lib/ppi-motor-capture --model-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib --manifest-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json --detector-name if_limpio_2026_10 --schema /home/m4rk/cyberflow/configs/features/multilayer-v2.json --entity-network 10.10.0.0/16 --excluir 10.10.60.11/32,10.10.10.30/32,10.10.60.2/32,10.10.60.3/32,10.10.60.10/32,10.10.60.20/32,10.10.60.21/32,10.10.60.30/32,10.10.60.40/32,10.10.60.41/32,10.10.60.50/32 --excluir-protocolos 112,240 --log-path /home/m4rk/cyberflow/logs/motor_decision.log --step-seconds 10 --history-seconds 230 
+cmdline captura: /usr/bin/tcpdump -i ens37 -n -s 0 -U -B 65536 -Z tcpdump -w /var/lib/ppi-motor-capture/live-%Y%m%d%H%M%S.pcap -G 15 
+6c274d9e3529e3fb6971ff38d8c6d586780b718b483ce4e2a5e3a1cfbf25692e  /home/m4rk/cyberflow/scripts/engine/motor_decision.py
+a403307aa5f76d38d199aef2542350f57eaf5843fdb94b44ec0bd20eaa8ff168  /home/m4rk/cyberflow/scripts/engine/motor_incremental.py
+ls: cannot access '/home/m4rk/cyberflow-e4': No such file or directory
+ls: cannot access '/home/m4rk/feed-v2': No such file or directory
+ls: cannot access '/home/m4rk/cf-e4': No such file or directory
+ls: cannot access '/home/m4rk/respaldos-etapa4': No such file or directory
+NTPSynchronized=yes
+--- unidades ppi/cf
+ppi-dashboard.service loaded active running
+ppi-motor-capture.service loaded active running
+ppi-motor.service loaded active running
+ppi-publicar-feed.service loaded inactive dead
+ppi-publicar-feed.timer loaded active waiting
+--- sudo -n journalctl (prueba real)
+sudo: a password is required
+rc=1
+--- sudo -n -l
+Matching Defaults entries for m4rk on cyberflow-sensor:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin, use_pty
+
+User m4rk may run the following commands on cyberflow-sensor:
+    (ALL : ALL) ALL
+    (root) NOPASSWD: /usr/bin/systemctl is-active *, /usr/bin/systemctl is-enabled *, /usr/bin/systemctl is-failed *, /usr/bin/systemctl show *, /usr/bin/systemctl list-timers --no-pager *, /usr/bin/systemctl status --no-pager *, /usr/bin/journalctl --no-pager *, /usr/sbin/nft list *, /usr/bin/systemctl restart cyberflow-capture-nic ppi-motor-capture ppi-motor ppi-dashboard cyberflow-panel-acceso suricata, /usr/bin/systemctl restart ppi-motor, /usr/bin/systemctl restart ppi-motor-capture, /usr/bin/systemctl restart ppi-dashboard, /usr/bin/systemctl restart cyberflow-panel-acceso, /usr/bin/systemctl restart cyberflow-capture-nic, /usr/bin/systemctl restart suricata, /usr/bin/systemctl start cyberflow-limpieza.service, /usr/bin/systemctl reset-failed *, /usr/bin/wc -l /var/log/suricata/eve.json, /usr/bin/tail /var/log/suricata/eve.json, /usr/bin/tail -n [0-9]* /var/log/suricata/eve.json, /usr/bin/grep * /var/log/suricata/eve.json, /usr/bin/ls -la /var/lib/ppi-motor-capture/, /usr/bin/ls -l /var/lib/ppi-motor-capture/, /usr/bin/du -sh /var/lib/ppi-motor-capture/, /usr/bin/find /var/lib/ppi-motor-capture -maxdepth 1 -name live-*.pcap*
+    (root) NOPASSWD: /usr/local/sbin/cf-capturar
+    (root) NOPASSWD: /usr/bin/systemctl daemon-reload
+    (root) NOPASSWD: /usr/bin/systemctl enable ppi-motor ppi-motor-capture ppi-dashboard cyberflow-limpieza.timer cyberflow-capture-nic cyberflow-panel-acceso
+    (root) NOPASSWD: /usr/bin/systemctl disable ppi-motor ppi-motor-capture ppi-dashboard cyberflow-limpieza.timer cyberflow-capture-nic cyberflow-panel-acceso
+    (root) NOPASSWD: /usr/bin/systemctl start cyberflow-acumular.service, /usr/bin/systemctl enable cyberflow-acumular.timer, /usr/bin/systemctl disable cyberflow-acumular.timer, /usr/bin/systemctl start cyberflow-acumular.timer, /usr/bin/systemctl stop cyberflow-acumular.timer
+--- disco/memoria
+/dev/mapper/ubuntu--vg-ubuntu--lv   37G   22G   13G  63% /
+Mem:            7940         988        3965           0        3251        6952
+4
+--- suricata
+MainPID=1372
+NRestarts=0
+ExecMainStartTimestamp=Fri 2026-10-30 19:55:21 UTC
+ActiveState=active
+total 1821800
+drwxr-xr-x  2 root root        4096 2026-11-04 00:00:24.537457526 +0000 .
+drwxrwxr-x 11 root syslog      4096 2026-11-01 00:00:05.101690059 +0000 ..
+-rw-r--r--  1 root root    25749822 2026-11-04 01:53:27.886903627 +0000 eve.json
+-rw-r--r--  1 root root    84086784 2026-10-05 18:50:39.134000020 +0000 eve.json.1-2026100600.backup
+-rw-r--r--  1 root root   113516544 2026-10-09 13:53:22.352000028 +0000 eve.json.1-2026101000.backup
+-rw-r--r--  1 root root   138301440 2026-10-21 19:07:42.090000045 +0000 eve.json.1-2026102200.backup
+-rw-r--r--  1 root root   926269440 2026-10-30 15:50:58.685347711 +0000 eve.json.1-2026103100.backup
+-rw-r--r--  1 root root    68989373 2026-11-04 00:00:01.968189427 +0000 eve.json.1.gz
+-rw-r--r--  1 root root    46319681 2026-11-03 00:00:00.561530200 +0000 eve.json.2.gz
+--- logrotate
+Thu 2026-11-05 00:00:00 UTC 22h Wed 2026-11-04 00:00:00 UTC 1h 53min ago logrotate.timer logrotate.service
+bash: line 23: $'\r': command not found

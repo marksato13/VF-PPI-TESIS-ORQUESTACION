@@ -1,0 +1,52 @@
+### BASTION
+RESPALDO OK /home/gadmin/respaldos-etapa4/bastion-20261104T015600Z
+verifica: /home/gadmin/respaldos-etapa4/bastion-20261104T015600Z
+etc-systemd-system
+known_hosts
+opt.ls
+relay-feed.sh
+relay-feed.sha256
+RESPALDO.txt
+SHA256SUMS
+ssh-config
+ssh-huellas-publicas.txt
+ssh.ls
+unidades-cat.txt
+unidades-estado.txt
+versiones.txt
+### SRV-DMZ
+disabled
+inactive
+inactive
+tablas-fin
+RESPALDO OK /home/adminsrvdmz/respaldos-etapa4/srvdmz-20261104T015601Z
+verifica: /home/adminsrvdmz/respaldos-etapa4/srvdmz-20261104T015601Z
+total 60
+drwx------ 4 adminsrvdmz adminsrvdmz 4096 nov  4 01:56 .
+drwx------ 3 adminsrvdmz adminsrvdmz 4096 nov  4 01:56 ..
+-rw------- 1 adminsrvdmz adminsrvdmz  196 sep 30 19:16 authorized_keys
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz    5 nov  4 01:56 cuentas.txt
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz 1923 nov  4 01:56 enforce.ls
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz 1771 nov  4 01:56 enforce.sha256
+drwxrwxr-x 2 adminsrvdmz adminsrvdmz 4096 nov  4 01:56 etc-systemd-system
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz   71 nov  4 01:56 RESPALDO.txt
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz    0 nov  4 01:56 ruleset.nft
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz  686 nov  4 01:56 rutas.ls
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz 1639 nov  4 01:56 SHA256SUMS
+drwxr-xr-x 2 adminsrvdmz adminsrvdmz 4096 oct 23 15:33 sudoers.d
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz  152 nov  4 01:56 sudoers-defaults.txt
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz    0 nov  4 01:56 tablas.txt
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz 1984 nov  4 01:56 unidades-cat.txt
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz  176 nov  4 01:56 unidades-estado.txt
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz  192 nov  4 01:56 versiones.txt
+--- tablas.txt
+--- defaults
+Defaults	env_reset
+Defaults	mail_badpass
+Defaults	secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
+Defaults	use_pty
+--- ruleset (lineas, sha256)
+0
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /home/adminsrvdmz/respaldos-etapa4/srvdmz-20261104T015601Z/ruleset.nft
+--- volcado v1 conservado
+4bbb578381362df95939970b629ecb42996f2ab203f89fea61c932597f8b1980  /home/adminsrvdmz/respaldo-cyberflow-v1-20261104T0138Z.nft

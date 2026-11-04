@@ -1,0 +1,118 @@
+--- journal 03:05:15-03:06:15 (todas las unidades)
+2026-11-04T03:05:15+00:00 cyberflow-sensor sshd[1479587]: Accepted publickey for m4rk from 10.10.10.30 port 34964 ssh2: ED25519 SHA256:SL4EjhSKOUolt3F83svd4reh/Y9y9RN64l0wrQXHrgE
+2026-11-04T03:05:15+00:00 cyberflow-sensor sshd[1479587]: pam_unix(sshd:session): session opened for user m4rk(uid=1000) by m4rk(uid=0)
+2026-11-04T03:05:15+00:00 cyberflow-sensor systemd-logind[965]: New session 87352 of user m4rk.
+2026-11-04T03:05:15+00:00 cyberflow-sensor systemd[1]: Started session-87352.scope - Session 87352 of User m4rk.
+2026-11-04T03:05:15+00:00 cyberflow-sensor sshd[1479641]: Received disconnect from 10.10.10.30 port 34964:11: disconnected by user
+2026-11-04T03:05:15+00:00 cyberflow-sensor sshd[1479641]: Disconnected from user m4rk 10.10.10.30 port 34964
+2026-11-04T03:05:15+00:00 cyberflow-sensor sshd[1479587]: pam_unix(sshd:session): session closed for user m4rk
+2026-11-04T03:05:15+00:00 cyberflow-sensor systemd-logind[965]: Session 87352 logged out. Waiting for processes to exit.
+2026-11-04T03:05:15+00:00 cyberflow-sensor systemd[1]: session-87352.scope: Deactivated successfully.
+2026-11-04T03:05:15+00:00 cyberflow-sensor systemd-logind[965]: Removed session 87352.
+2026-11-04T03:05:20+00:00 cyberflow-sensor systemd[1]: Starting ppi-publicar-feed.service - CyberFlow - publica el feed firmado de acciones (desde las decisiones del motor)...
+2026-11-04T03:05:20+00:00 cyberflow-sensor python[1479658]: AVISO: --umbrales '2026-10-06.1' no coincide con la versión del código '2026-10-06.2'; el feed se etiqueta con la del código
+2026-11-04T03:05:20+00:00 cyberflow-sensor python[1479658]: {"block": 0, "entradas": 1, "limit": 1, "revisar_humano": []}
+2026-11-04T03:05:20+00:00 cyberflow-sensor systemd[1]: ppi-publicar-feed.service: Deactivated successfully.
+2026-11-04T03:05:20+00:00 cyberflow-sensor systemd[1]: Finished ppi-publicar-feed.service - CyberFlow - publica el feed firmado de acciones (desde las decisiones del motor).
+2026-11-04T03:05:23+00:00 cyberflow-sensor sshd[1479676]: Accepted publickey for m4rk from 10.10.10.30 port 54346 ssh2: ED25519 SHA256:SL4EjhSKOUolt3F83svd4reh/Y9y9RN64l0wrQXHrgE
+2026-11-04T03:05:23+00:00 cyberflow-sensor sshd[1479676]: pam_unix(sshd:session): session opened for user m4rk(uid=1000) by m4rk(uid=0)
+2026-11-04T03:05:23+00:00 cyberflow-sensor systemd-logind[965]: New session 87353 of user m4rk.
+2026-11-04T03:05:23+00:00 cyberflow-sensor systemd[1]: Started session-87353.scope - Session 87353 of User m4rk.
+2026-11-04T03:05:23+00:00 cyberflow-sensor sshd[1479730]: Received disconnect from 10.10.10.30 port 54346:11: disconnected by user
+2026-11-04T03:05:23+00:00 cyberflow-sensor sshd[1479730]: Disconnected from user m4rk 10.10.10.30 port 54346
+2026-11-04T03:05:23+00:00 cyberflow-sensor sshd[1479676]: pam_unix(sshd:session): session closed for user m4rk
+2026-11-04T03:05:23+00:00 cyberflow-sensor systemd[1]: session-87353.scope: Deactivated successfully.
+2026-11-04T03:05:23+00:00 cyberflow-sensor systemd-logind[965]: Session 87353 logged out. Waiting for processes to exit.
+2026-11-04T03:05:23+00:00 cyberflow-sensor systemd-logind[965]: Removed session 87353.
+2026-11-04T03:05:24+00:00 cyberflow-sensor sshd[1479732]: Accepted publickey for m4rk from 10.10.10.30 port 54352 ssh2: ED25519 SHA256:SL4EjhSKOUolt3F83svd4reh/Y9y9RN64l0wrQXHrgE
+2026-11-04T03:05:24+00:00 cyberflow-sensor sshd[1479732]: pam_unix(sshd:session): session opened for user m4rk(uid=1000) by m4rk(uid=0)
+2026-11-04T03:05:24+00:00 cyberflow-sensor systemd-logind[965]: New session 87354 of user m4rk.
+2026-11-04T03:05:24+00:00 cyberflow-sensor systemd[1]: Started session-87354.scope - Session 87354 of User m4rk.
+2026-11-04T03:05:24+00:00 cyberflow-sensor sshd[1479783]: Received disconnect from 10.10.10.30 port 54352:11: disconnected by user
+2026-11-04T03:05:24+00:00 cyberflow-sensor sshd[1479783]: Disconnected from user m4rk 10.10.10.30 port 54352
+2026-11-04T03:05:24+00:00 cyberflow-sensor sshd[1479732]: pam_unix(sshd:session): session closed for user m4rk
+2026-11-04T03:05:24+00:00 cyberflow-sensor systemd[1]: session-87354.scope: Deactivated successfully.
+2026-11-04T03:05:24+00:00 cyberflow-sensor systemd-logind[965]: Session 87354 logged out. Waiting for processes to exit.
+2026-11-04T03:05:24+00:00 cyberflow-sensor systemd-logind[965]: Removed session 87354.
+2026-11-04T03:05:25+00:00 cyberflow-sensor sshd[1479788]: Accepted publickey for m4rk from 10.10.10.30 port 54356 ssh2: ED25519 SHA256:SL4EjhSKOUolt3F83svd4reh/Y9y9RN64l0wrQXHrgE
+2026-11-04T03:05:25+00:00 cyberflow-sensor sshd[1479788]: pam_unix(sshd:session): session opened for user m4rk(uid=1000) by m4rk(uid=0)
+2026-11-04T03:05:25+00:00 cyberflow-sensor systemd-logind[965]: New session 87355 of user m4rk.
+2026-11-04T03:05:25+00:00 cyberflow-sensor systemd[1]: Started session-87355.scope - Session 87355 of User m4rk.
+2026-11-04T03:05:25+00:00 cyberflow-sensor sshd[1479839]: Received disconnect from 10.10.10.30 port 54356:11: disconnected by user
+2026-11-04T03:05:25+00:00 cyberflow-sensor sshd[1479839]: Disconnected from user m4rk 10.10.10.30 port 54356
+2026-11-04T03:05:25+00:00 cyberflow-sensor sshd[1479788]: pam_unix(sshd:session): session closed for user m4rk
+2026-11-04T03:05:25+00:00 cyberflow-sensor systemd[1]: session-87355.scope: Deactivated successfully.
+2026-11-04T03:05:25+00:00 cyberflow-sensor systemd-logind[965]: Session 87355 logged out. Waiting for processes to exit.
+2026-11-04T03:05:25+00:00 cyberflow-sensor systemd-logind[965]: Removed session 87355.
+2026-11-04T03:05:30+00:00 cyberflow-sensor systemd[1]: Starting cf-tcpdump-estadisticas.service - CyberFlow - estadisticas de tcpdump (SIGUSR1, sin parar la captura)...
+2026-11-04T03:05:30+00:00 cyberflow-sensor systemd[1]: Starting ppi-publicar-feed.service - CyberFlow - publica el feed firmado de acciones (desde las decisiones del motor)...
+2026-11-04T03:05:30+00:00 cyberflow-sensor systemd[1]: ppi-motor-capture.service: Sent signal SIGUSR1 to main process 1413865 (tcpdump) on client request.
+2026-11-04T03:05:30+00:00 cyberflow-sensor tcpdump[1413865]: tcpdump: 809496 packets captured, 809598 packets received by filter, 0 packets dropped by kernel
+2026-11-04T03:05:30+00:00 cyberflow-sensor bash[1413924]: tcpdump: 555629 packets captured, 555629 packets received by filter, 0 packets dropped by kernel
+2026-11-04T03:05:30+00:00 cyberflow-sensor systemd[1]: cf-tcpdump-estadisticas.service: Deactivated successfully.
+2026-11-04T03:05:30+00:00 cyberflow-sensor systemd[1]: Finished cf-tcpdump-estadisticas.service - CyberFlow - estadisticas de tcpdump (SIGUSR1, sin parar la captura).
+2026-11-04T03:05:30+00:00 cyberflow-sensor python[1479859]: AVISO: --umbrales '2026-10-06.1' no coincide con la versión del código '2026-10-06.2'; el feed se etiqueta con la del código
+2026-11-04T03:05:30+00:00 cyberflow-sensor python[1479859]: {"block": 0, "entradas": 1, "limit": 1, "revisar_humano": []}
+2026-11-04T03:05:30+00:00 cyberflow-sensor systemd[1]: ppi-publicar-feed.service: Deactivated successfully.
+2026-11-04T03:05:30+00:00 cyberflow-sensor systemd[1]: Finished ppi-publicar-feed.service - CyberFlow - publica el feed firmado de acciones (desde las decisiones del motor).
+2026-11-04T03:05:33+00:00 cyberflow-sensor sshd[1479887]: Accepted publickey for m4rk from 10.10.10.30 port 36372 ssh2: ED25519 SHA256:SL4EjhSKOUolt3F83svd4reh/Y9y9RN64l0wrQXHrgE
+2026-11-04T03:05:33+00:00 cyberflow-sensor sshd[1479887]: pam_unix(sshd:session): session opened for user m4rk(uid=1000) by m4rk(uid=0)
+2026-11-04T03:05:33+00:00 cyberflow-sensor systemd-logind[965]: New session 87356 of user m4rk.
+2026-11-04T03:05:33+00:00 cyberflow-sensor systemd[1]: Started session-87356.scope - Session 87356 of User m4rk.
+--- muestras del muestreador alrededor
+03:04:30 rx_pps=192 rx_dropped= 5208752 suri= {'kernel_drops': 82031, 'kernel_packets': 134781063} motor= {'antiguedad_s': 3.822, 'duracion_s': 0.1105, 'fin_ciclo': 1793761466.5266511, 'ok': True, 'retraso_pcap_s': 1.084, 'ventanas_pendientes': 52}
+03:04:40 rx_pps=213 rx_dropped= 5208893 suri= {'kernel_drops': 82031, 'kernel_packets': 134781986} motor= {'antiguedad_s': 3.656, 'duracion_s': 0.1176, 'fin_ciclo': 1793761476.7800572, 'ok': True, 'retraso_pcap_s': 1.176, 'ventanas_pendientes': 44}
+03:04:50 rx_pps=197 rx_dropped= 5209034 suri= {'kernel_drops': 82031, 'kernel_packets': 134783888} motor= {'antiguedad_s': 3.477, 'duracion_s': 0.11, 'fin_ciclo': 1793761487.0540679, 'ok': True, 'retraso_pcap_s': 1.141, 'ventanas_pendientes': 47}
+03:05:00 rx_pps=214 rx_dropped= 5209174 suri= {'kernel_drops': 82031, 'kernel_packets': 134787302} motor= {'antiguedad_s': 4.338, 'duracion_s': 0.106, 'fin_ciclo': 1793761496.2829251, 'ok': True, 'retraso_pcap_s': 1.167, 'ventanas_pendientes': 55}
+03:05:10 rx_pps=210 rx_dropped= 5209314 suri= {'kernel_drops': 82031, 'kernel_packets': 134789213} motor= {'antiguedad_s': 4.202, 'duracion_s': 0.1125, 'fin_ciclo': 1793761506.508291, 'ok': True, 'retraso_pcap_s': 1.124, 'ventanas_pendientes': 54}
+03:05:20 rx_pps=210 rx_dropped= 5209460 suri= {'kernel_drops': 82031, 'kernel_packets': 134791056} motor= {'antiguedad_s': 4.089, 'duracion_s': 0.108, 'fin_ciclo': 1793761516.7082238, 'ok': True, 'retraso_pcap_s': 1.2, 'ventanas_pendientes': 54}
+03:05:30 rx_pps=199 rx_dropped= 5209601 suri= {'kernel_drops': 82031, 'kernel_packets': 134792097} motor= {'antiguedad_s': 3.985, 'duracion_s': 0.1061, 'fin_ciclo': 1793761526.9122367, 'ok': True, 'retraso_pcap_s': 1.078, 'ventanas_pendientes': 59}
+03:05:40 rx_pps=209 rx_dropped= 5209748 suri= {'kernel_drops': 82031, 'kernel_packets': 134795958} motor= {'antiguedad_s': 3.62, 'duracion_s': 0.1044, 'fin_ciclo': 1793761537.3645108, 'ok': True, 'retraso_pcap_s': 1.317, 'ventanas_pendientes': 48}
+03:05:51 rx_pps=678 rx_dropped= 5209898 suri= {'kernel_drops': 82038, 'kernel_packets': 134801724} motor= {'antiguedad_s': 3.046, 'duracion_s': 0.2333, 'fin_ciclo': 1793761548.0295024, 'ok': True, 'retraso_pcap_s': 1.128, 'ventanas_pendientes': 52}
+03:06:01 rx_pps=222 rx_dropped= 5210038 suri= {'kernel_drops': 82038, 'kernel_packets': 134803638} motor= {'antiguedad_s': 2.811, 'duracion_s': 0.1125, 'fin_ciclo': 1793761558.36105, 'ok': True, 'retraso_pcap_s': 1.281, 'ventanas_pendientes': 48}
+03:06:11 rx_pps=193 rx_dropped= 5210178 suri= {'kernel_drops': 82038, 'kernel_packets': 134805487} motor= {'antiguedad_s': 2.853, 'duracion_s': 0.11, 'fin_ciclo': 1793761568.4091988, 'ok': True, 'retraso_pcap_s': 1.158, 'ventanas_pendientes': 51}
+03:06:21 rx_pps=204 rx_dropped= 5210318 suri= {'kernel_drops': 82038, 'kernel_packets': 134808840} motor= {'antiguedad_s': 2.705, 'duracion_s': 0.1121, 'fin_ciclo': 1793761578.655015, 'ok': True, 'retraso_pcap_s': 1.251, 'ventanas_pendientes': 56}
+03:06:31 rx_pps=574 rx_dropped= 5210459 suri= {'kernel_drops': 82038, 'kernel_packets': 134810692} motor= {'antiguedad_s': 2.54, 'duracion_s': 0.1068, 'fin_ciclo': 1793761588.9166884, 'ok': True, 'retraso_pcap_s': 1.123, 'ventanas_pendientes': 51}
+03:06:41 rx_pps=483 rx_dropped= 5210600 suri= {'kernel_drops': 82038, 'kernel_packets': 134817860} motor= {'antiguedad_s': 2.46, 'duracion_s': 0.1184, 'fin_ciclo': 1793761599.0954344, 'ok': True, 'retraso_pcap_s': 1.087, 'ventanas_pendientes': 54}
+03:06:51 rx_pps=195 rx_dropped= 5210740 suri= {'kernel_drops': 82038, 'kernel_packets': 134820067} motor= {'antiguedad_s': 3.274, 'duracion_s': 0.1157, 'fin_ciclo': 1793761608.365988, 'ok': True, 'retraso_pcap_s': 1.109, 'ventanas_pendientes': 52}
+claves interfaz: ['ok', 'rx_dropped', 'rx_fifo_errors', 'rx_missed_errors', 'rx_over_errors', 'rx_packets']
+claves suricata: ['decoder_pkts', 'fecha_utc', 'kernel_drops', 'kernel_packets', 'ok', 't', 'uptime_s']
+claves motor: ['antiguedad_s', 'duracion_s', 'fin_ciclo', 'ok', 'retraso_pcap_s', 'ventanas_pendientes']
+--- ciclos del motor 03:05-03:07
+lineas 737
+ultima {"ciclo_n": 736, "decididas": 0, "disparo": "pcap_cerrado", "duracion_s": 0.1241, "entidades": 0, "etapas_s": {"eve_lectura": 0.0021, "eve_poda": 0.0001, "expiracion_y_escritura": 0.0001, "filtro_plano_control": 0.0133, "pcap_parseo": 0.045, "pcap_poda": 0.0376, "pendientes": 0.004, "ventanas_por_ancla": 0.0218}, "event": "ciclo", "excluidas_nuevas": 0, "filas_construidas": 0, "fin_ciclo": 1793761
+--- drops de hoy en stats.log (intervalos con drops)
+2026-11-04 01:42:11 dp 3405 dd 164
+2026-11-04 02:08:27 dp 4522 dd 198
+2026-11-04 03:05:47 dp 5766 dd 7
+--- eve.json: estadisticas de drops por dia (eve stats, ultimos gz)
+/var/log/suricata/eve.json.1.gz
+ lecturas 10799 intervalos con drops 155 drops 58423
+   ('08:34:51', 9657, 2669)
+   ('09:13:56', 13597, 1450)
+   ('08:14:19', 16356, 1336)
+   ('08:33:55', 7195, 1310)
+   ('07:33:30', 8802, 1304)
+   ('07:35:54', 4558, 1232)
+   ('09:11:40', 24098, 1170)
+   ('09:10:44', 6004, 1069)
+/var/log/suricata/eve.json.2.gz
+ lecturas 10798 intervalos con drops 79 drops 13596
+   ('18:42:33', 5970, 871)
+   ('09:04:45', 53775, 667)
+   ('09:00:13', 33743, 547)
+   ('18:11:53', 4701, 524)
+   ('13:00:55', 3024, 508)
+   ('18:35:05', 13127, 492)
+   ('08:55:09', 8035, 384)
+   ('18:10:33', 5414, 371)
+/var/log/suricata/eve.json.3.gz
+ lecturas 10799 intervalos con drops 47 drops 9650
+   ('03:08:15', 6581, 939)
+   ('03:09:03', 5520, 681)
+   ('12:38:36', 4009, 666)
+   ('08:34:34', 42909, 599)
+   ('22:06:32', 7955, 534)
+   ('12:36:36', 6315, 493)
+   ('10:31:39', 5947, 472)
+   ('08:34:18', 31063, 463)

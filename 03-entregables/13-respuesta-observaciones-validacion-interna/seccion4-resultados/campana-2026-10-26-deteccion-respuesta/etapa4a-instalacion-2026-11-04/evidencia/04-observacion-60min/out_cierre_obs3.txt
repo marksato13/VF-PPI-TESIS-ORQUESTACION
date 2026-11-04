@@ -1,0 +1,39 @@
+primera muestra 1793758785.873  ultima 1793762388.842
+rc=0
+{
+ "acotado_por": [
+  1793758785.863,
+  1793762388.852
+ ],
+ "clase": "C3",
+ "info": {
+  "motor_retraso_pcap_max_s": 1.616,
+  "suricata": {
+   "descartes": 7,
+   "intervalos": 357,
+   "paquetes": 937757
+  },
+  "tcpdump": {
+   "descartados_kernel": null,
+   "lecturas_sin_hora_o_pid": 0,
+   "limite_s": 32.0,
+   "motivos_c3": [
+    "tcpdump sin lecturas SIGUSR1 que acoten el periodo (ninguna anterior o igual al inicio) (ninguna posterior o igual al fin)"
+   ],
+   "ok": false
+  },
+  "via_rapida": {
+   "antiguedad_max_s": 0.013,
+   "medida": true
+  }
+ },
+ "motivos": [
+  "tcpdump sin lecturas SIGUSR1 que acoten el periodo (ninguna anterior o igual al inicio) (ninguna posterior o igual al fin)",
+  "Suricata: 7 descartes de 937757 paquetes"
+ ],
+ "periodo": [
+  1793758785.873,
+  1793762388.842
+ ]
+}
+manifiesto ok

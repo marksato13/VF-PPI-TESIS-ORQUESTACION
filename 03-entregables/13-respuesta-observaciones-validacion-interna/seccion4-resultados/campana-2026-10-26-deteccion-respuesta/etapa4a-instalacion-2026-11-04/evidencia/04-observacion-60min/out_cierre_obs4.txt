@@ -1,0 +1,50 @@
+/home/m4rk/cf-e4/4a/salud/journal-captura-margen.txt:124
+/home/m4rk/cf-e4/4a/salud/journal-via-rapida-margen.txt:124
+    124 kernel by filter,
+    124 /home/m4rk/cf-e4/4a/salud/journal-via-rapida-margen.txt:0 packets dropped by kernel
+    124 /home/m4rk/cf-e4/4a/salud/journal-captura-margen.txt:0 packets dropped by kernel
+rc=0
+{
+ "acotado_por": [
+  1793758785.863,
+  1793762388.852
+ ],
+ "clase": "C3",
+ "info": {
+  "motor_retraso_pcap_max_s": 1.616,
+  "suricata": {
+   "descartes": 7,
+   "intervalos": 357,
+   "paquetes": 937757
+  },
+  "tcpdump": {
+   "descartados_kernel": null,
+   "desde": 1793758770.348808,
+   "hasta": 1793762400.325617,
+   "lecturas": 242,
+   "lecturas_sin_hora_o_pid": 0,
+   "limite_s": 32.0,
+   "motivos_c3": [
+    "tcpdump: varios PID en el periodo [1413865, 1413924] (reinicio del proceso o lecturas de dos capturas mezcladas)"
+   ],
+   "ok": false,
+   "pids": [
+    1413865,
+    1413924
+   ]
+  },
+  "via_rapida": {
+   "antiguedad_max_s": 0.013,
+   "medida": true
+  }
+ },
+ "motivos": [
+  "tcpdump: varios PID en el periodo [1413865, 1413924] (reinicio del proceso o lecturas de dos capturas mezcladas)",
+  "Suricata: 7 descartes de 937757 paquetes"
+ ],
+ "periodo": [
+  1793758785.873,
+  1793762388.842
+ ]
+}
+manifiesto ok

@@ -1,0 +1,15 @@
+{
+ "clase": "insuficiente",
+ "criterios": {
+  "max_hueco_muestras_s": 30.0,
+  "motor_retraso_max_s": 25.0,
+  "rotacion_s": 5.0,
+  "tcpdump_periodo_s": 30.0,
+  "tcpdump_tolerancia_s": 2.0,
+  "tolerancia_rotacion_s": 2.0,
+  "via_antiguedad_max_s": 2.0
+ },
+ "motivos": [
+  "ninguna muestra anterior o igual al inicio del periodo"
+ ]
+}

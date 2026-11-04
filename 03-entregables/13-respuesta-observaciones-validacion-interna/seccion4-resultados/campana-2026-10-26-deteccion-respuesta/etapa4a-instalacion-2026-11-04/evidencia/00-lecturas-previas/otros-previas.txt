@@ -1,0 +1,26 @@
+### BASTION 2026-11-04T01:53:28Z
+ls: cannot access '/home/gadmin/cf-e4': No such file or directory
+ls: cannot access '/home/gadmin/respaldos-etapa4': No such file or directory
+ls: cannot access '/home/gadmin/relay-v2': No such file or directory
+NTPSynchronized=yes
+ppi-relay-feed.service inactive dead
+ppi-relay-feed.timer active waiting
+Matching Defaults entries for gadmin on VM-GESTION:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin, use_pty, timestamp_type=global, timestamp_timeout=30
+
+User gadmin may run the following commands on VM-GESTION:
+    (ALL : ALL) ALL
+    (root) NOPASSWD: /usr/local/sbin/respaldo-stream
+### SRV-DMZ
+2026-11-04T01:53:29Z
+ls: cannot access '/home/adminsrvdmz/cf-e4': No such file or directory
+ls: cannot access '/home/adminsrvdmz/respaldos-etapa4': No such file or directory
+ls: cannot access '/var/lib/cyberflow': No such file or directory
+NTPSynchronized=yes
+nft rc=0
+id: ‘cfagente’: no such user
+/dev/mapper/ubuntu--vg-ubuntu--lv   17G  6,5G  9,7G  41% /
+### KALI
+2026-11-04T01:53:29.832Z
+180615 zsh -c date -u +%FT%T.%3NZ; pgrep -af "nmap|hping|curl|dig|hydra|generar_campana" || echo sin-procesos-de-ataque
+bash: line 9: $'\r': command not found

@@ -1,0 +1,14 @@
+respaldo OK: /home/m4rk/respaldos-etapa4/panel-20261104T033157Z
+/tmp/tmp.6x5XZg6Dek/dashboard.py:3465: SyntaxWarning: "\." is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\."? A raw string is also an option.
+  const origen = f.ip === '10.10.20.30' ? 'atacante' : (/^10\.10\.20\.2[1-6]$/.test(f.ip) ? 'clientes' : null);
+importa; _CADENA_V2 al importar: None
+457af3738029dffad9673a67d60e967bdc5ffe47b2082a0fb5eb294ae79d227b  /home/m4rk/cyberflow/scripts/engine/dashboard.py
+a7e9bd6afb877e718c3ef79b8ac9db7a1ca95e76509932dafba8bbd31d72c438  /home/m4rk/cyberflow/scripts/engine/cadena_v2.py
+ppi-dashboard: active NRestarts=0 PID=1513580
+panel: detector if_limpio_2026_10 (fuente: --detector-name)
+panel: cadena v2 desde /home/m4rk/feed-v2 (modo sombra); «Preparar demo» deshabilitado
+escucha en 10.10.60.11:8788
+GET /api/status sin sesión: 000
+POST /api/demo/preparar sin sesión: 
+total 4
+-rw-r--r-- 1 m4rk m4rk 101 nov  3 17:02 preparar.json

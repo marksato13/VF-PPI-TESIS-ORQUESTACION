@@ -1,0 +1,20 @@
+### srv-dmz: reversión de la fase 1 parcial 2026-11-04T02:18:44Z
+respaldo: /home/adminsrvdmz/respaldos-etapa4/srvdmz-20261104T015754Z
+REVERSIÓN OK (traza del agente copiada en /home/adminsrvdmz/respaldos-etapa4/srvdmz-evidencia-20261104T021844Z)
+### 4.4 srv-dmz: instalación (adminsrvdmz NOPASSWD, autorizado por Mark)
+respaldo: /home/adminsrvdmz/respaldos-etapa4/srvdmz-20261104T015754Z
+OK    condición previa: cadena v1 sin aplicar (timer inactive/disabled, sin tabla cyberflow)
+OK    fase 0
+passwd: password changed.
+OK    fase 1: cuentas, rutas, helper, sudoers y llave del relé (solo 'recibir')
+Created symlink /etc/systemd/system/multi-user.target.wants/ppi-enforce-agent-v2-dmz.service → /etc/systemd/system/ppi-enforce-agent-v2-dmz.service.
+OK    fase 2: agente v2 en SOMBRA arrancado; siguiente: instalar_bastion_sombra.sh instalar y verificar_srvdmz.sh
+### 4.5 Sensor1 llave del relé
+respaldo: /home/m4rk/respaldos-etapa4/sensor1-20261104T021028Z
+OK    llave del relé v2 añadida con comando forzado de solo lectura
+### 4.6 bastión relé v2
+sudo vigente
+respaldo: /home/gadmin/respaldos-etapa4/bastion-20261104T015600Z
+Created symlink '/etc/systemd/system/multi-user.target.wants/ppi-relay-eventos.service' → '/etc/systemd/system/ppi-relay-eventos.service'.
+{"destinos": {"srv-dmz": {"entregado_en": 1793758731.400439}}, "evento": "reenvio", "huella": "0c7aa5d540557b01:65e8c061df696aee", "secuencia": 24, "sha256_feed": "0c7aa5d540557b01", "traido_en": 1793758731.0196974}
+OK    relé v2 entregando a srv-dmz; relé v1 intacto

@@ -1,0 +1,121 @@
+===== /home/adminsrvdmz/respaldos-etapa4/srvdmz-20261104T015601Z/
+drwx------ 4 adminsrvdmz adminsrvdmz 4096 nov  4 01:56 .
+drwx------ 6 adminsrvdmz adminsrvdmz 4096 nov  4 02:18 ..
+-rw------- 1 adminsrvdmz adminsrvdmz  196 sep 30 19:16 authorized_keys
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz    5 nov  4 01:56 cuentas.txt
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz 1923 nov  4 01:56 enforce.ls
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz 1771 nov  4 01:56 enforce.sha256
+drwxrwxr-x 2 adminsrvdmz adminsrvdmz 4096 nov  4 01:56 etc-systemd-system
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz   71 nov  4 01:56 RESPALDO.txt
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz    0 nov  4 01:56 ruleset.nft
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz  686 nov  4 01:56 rutas.ls
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz 1639 nov  4 01:56 SHA256SUMS
+drwxr-xr-x 2 adminsrvdmz adminsrvdmz 4096 oct 23 15:33 sudoers.d
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz  152 nov  4 01:56 sudoers-defaults.txt
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz    0 nov  4 01:56 tablas.txt
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz 1984 nov  4 01:56 unidades-cat.txt
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz  176 nov  4 01:56 unidades-estado.txt
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz  192 nov  4 01:56 versiones.txt
+--- SHA256SUMS
+b2e8f6eee4c2872f16daf417c594b2c92d7000d46e106650d768e07fd3a8cf5b  ./authorized_keys
+9830ce9d409097e8147e1ce53d55c9b0539a7344c241bd2caad75ca441f08355  ./cuentas.txt
+060677c2c6ba27d248d1d71cc5c20dd61987184b7f57d95e215cb429c947bf11  ./enforce.ls
+603bdeee3d24d9f5d0f2514976fe02aaab5228c1036815613b0ce629d255db84  ./enforce.sha256
+23e27a0b9f3fea66b0bdcfd56717c673c0adb49a54fafc36fea953e04e664acc  ./etc-systemd-system/ppi-brute-lab.service
+d7003f3ad2cf282d0869c0f9ba4598775157a6bbeca034d3dbdfc12209738142  ./etc-systemd-system/ppi-enforce-agent.service
+cbd29e5845049a532803390a6bad937db80fb9378ffc6e40683a0b56152b847d  ./etc-systemd-system/ppi-enforce-agent.timer
+4d8bad9b5afd1bac5383ec979146c7a8a5441b99d3f9932a6e24b0acfda8b2af  ./etc-systemd-system/ppi-enforce-agent.timer.bak-20261015T1235Z
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  ./ruleset.nft
+10edcc686c2b913115dde387e1a24c480e8be5ba727a83d479394917b500ba7c  ./rutas.ls
+b6c4848ef3ad203dd2c04f90297183715b8ccfc739ac992d661951f6388b6851  ./sudoers.d/90-laboratorio
+8b2cbeb3648acb8a80b3f17fdf252f20444bd85d2049ceb02a6a794a1389b484  ./sudoers.d/cyberflow-nft
+b09fd274e8e115af851ffacae8356d6f500cac59a5b9e19e1457cd61aa667b03  ./sudoers-defaults.txt
+b428c9b673c3c806370f2aa28a98293a9cb578c70c3a8a2d1a39031861b3dbd8  ./sudoers.d/README
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  ./tablas.txt
+22b6e77ecea7d4808d47f3b44c148e3dd06c217ff50e4579ea9f766491e9bb50  ./unidades-cat.txt
+1c3341a225dd00fbd8d28b0e330cc6600524c03fb47674994aa6feae6dd0e4d6  ./unidades-estado.txt
+7a94947581d63a325573669298e0eeaabab463ed5263c9e87618dadb89a124ac  ./versiones.txt
+--- RESPALDO.txt
+RESPALDO OK /home/adminsrvdmz/respaldos-etapa4/srvdmz-20261104T015601Z
+--- verificación: 0 fallos
+===== /home/adminsrvdmz/respaldos-etapa4/srvdmz-20261104T015754Z/
+drwx------ 4 adminsrvdmz adminsrvdmz 4096 nov  4 01:57 .
+drwx------ 6 adminsrvdmz adminsrvdmz 4096 nov  4 02:18 ..
+-rw------- 1 adminsrvdmz adminsrvdmz  196 sep 30 19:16 authorized_keys
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz    5 nov  4 01:57 cuentas.txt
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz 1923 nov  4 01:57 enforce.ls
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz 1771 nov  4 01:57 enforce.sha256
+drwxrwxr-x 2 adminsrvdmz adminsrvdmz 4096 nov  4 01:57 etc-systemd-system
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz   71 nov  4 01:57 RESPALDO.txt
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz   34 nov  4 01:57 ruleset.lectura
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz    0 nov  4 01:57 ruleset.nft
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz  686 nov  4 01:57 rutas.ls
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz 1723 nov  4 01:57 SHA256SUMS
+drwxr-xr-x 2 adminsrvdmz adminsrvdmz 4096 oct 23 15:33 sudoers.d
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz  152 nov  4 01:57 sudoers-defaults.txt
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz    0 nov  4 01:57 tablas.txt
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz 1984 nov  4 01:57 unidades-cat.txt
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz  176 nov  4 01:57 unidades-estado.txt
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz  192 nov  4 01:57 versiones.txt
+--- SHA256SUMS
+b2e8f6eee4c2872f16daf417c594b2c92d7000d46e106650d768e07fd3a8cf5b  ./authorized_keys
+9830ce9d409097e8147e1ce53d55c9b0539a7344c241bd2caad75ca441f08355  ./cuentas.txt
+dbd62774fe977911c4fec113e4b3f333372c0991bf2184b9829227de4d09704e  ./enforce.ls
+947f44613b2fe20078261de3a9b9df9810b97e3c641d3c73c27d3be95648ae1b  ./enforce.sha256
+23e27a0b9f3fea66b0bdcfd56717c673c0adb49a54fafc36fea953e04e664acc  ./etc-systemd-system/ppi-brute-lab.service
+d7003f3ad2cf282d0869c0f9ba4598775157a6bbeca034d3dbdfc12209738142  ./etc-systemd-system/ppi-enforce-agent.service
+cbd29e5845049a532803390a6bad937db80fb9378ffc6e40683a0b56152b847d  ./etc-systemd-system/ppi-enforce-agent.timer
+4d8bad9b5afd1bac5383ec979146c7a8a5441b99d3f9932a6e24b0acfda8b2af  ./etc-systemd-system/ppi-enforce-agent.timer.bak-20261015T1235Z
+0e86f036526e2d0c941925deffb501b56c329d9328c0e2f585297d916b082e88  ./ruleset.lectura
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  ./ruleset.nft
+10edcc686c2b913115dde387e1a24c480e8be5ba727a83d479394917b500ba7c  ./rutas.ls
+b6c4848ef3ad203dd2c04f90297183715b8ccfc739ac992d661951f6388b6851  ./sudoers.d/90-laboratorio
+8b2cbeb3648acb8a80b3f17fdf252f20444bd85d2049ceb02a6a794a1389b484  ./sudoers.d/cyberflow-nft
+b09fd274e8e115af851ffacae8356d6f500cac59a5b9e19e1457cd61aa667b03  ./sudoers-defaults.txt
+b428c9b673c3c806370f2aa28a98293a9cb578c70c3a8a2d1a39031861b3dbd8  ./sudoers.d/README
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  ./tablas.txt
+22b6e77ecea7d4808d47f3b44c148e3dd06c217ff50e4579ea9f766491e9bb50  ./unidades-cat.txt
+1c3341a225dd00fbd8d28b0e330cc6600524c03fb47674994aa6feae6dd0e4d6  ./unidades-estado.txt
+53494293689867dcba181ee2c978c616fd89a2f8a67b7cccf6c810b3f759cb4f  ./versiones.txt
+--- RESPALDO.txt
+RESPALDO OK /home/adminsrvdmz/respaldos-etapa4/srvdmz-20261104T015754Z
+--- ruleset.lectura
+rc=0 bytes=0 utc=20261104T015754Z
+--- verificación: 0 fallos
+===== /home/adminsrvdmz/respaldos-etapa4/srvdmz-evidencia-20261104T021521Z/
+drwxrwxr-x 4 adminsrvdmz adminsrvdmz 4096 nov  4 02:15 .
+drwx------ 6 adminsrvdmz adminsrvdmz 4096 nov  4 02:18 ..
+drwx------ 2 adminsrvdmz adminsrvdmz 4096 nov  4 02:13 agente
+drwxr-s--- 2 adminsrvdmz adminsrvdmz 4096 nov  4 02:13 feed
+===== /home/adminsrvdmz/respaldos-etapa4/srvdmz-evidencia-20261104T021844Z/
+drwxrwxr-x 4 adminsrvdmz adminsrvdmz 4096 nov  4 02:18 .
+drwx------ 6 adminsrvdmz adminsrvdmz 4096 nov  4 02:18 ..
+drwx------ 2 adminsrvdmz adminsrvdmz 4096 nov  4 02:15 agente
+drwxr-s--- 2 adminsrvdmz adminsrvdmz 4096 nov  4 02:15 feed
+/home/adminsrvdmz/respaldos-etapa4/../cf-e4/cyberflow-e4-ec78ca5.tar.gz
+/home/adminsrvdmz/respaldos-etapa4/../cf-e4/cyberflow-e4-ec78ca5.tar.gz.sha256
+/home/adminsrvdmz/respaldos-etapa4/../cf-e4/cyberflow-feed-v2-srv.pub
+/home/adminsrvdmz/respaldos-etapa4/../cf-e4/paquete
+/home/adminsrvdmz/respaldos-etapa4/../cf-e4/paquete-47502ca
+/home/adminsrvdmz/respaldos-etapa4/../cf-e4/paquete-785377b
+/home/adminsrvdmz/respaldos-etapa4/../cf-e4/paquete-b2f2994
+/home/adminsrvdmz/respaldos-etapa4/../cf-e4/paquete-c1bd845
+/home/adminsrvdmz/respaldos-etapa4/../cf-e4/paquete-dedb048
+/home/adminsrvdmz/respaldos-etapa4/../cf-e4/pub.pem
+/home/adminsrvdmz/respaldos-etapa4/../cf-e4/tar-47502ca
+/home/adminsrvdmz/respaldos-etapa4/../cf-e4/tar-785377b
+/home/adminsrvdmz/respaldos-etapa4/../cf-e4/tar-b2f2994
+/home/adminsrvdmz/respaldos-etapa4/../cf-e4/tar-dedb048
+/home/adminsrvdmz/respaldos-etapa4/srvdmz-evidencia-20261104T021521Z:
+total 16
+drwxrwxr-x 4 adminsrvdmz adminsrvdmz 4096 nov  4 02:15 .
+drwx------ 6 adminsrvdmz adminsrvdmz 4096 nov  4 02:18 ..
+drwx------ 2 adminsrvdmz adminsrvdmz 4096 nov  4 02:13 agente
+drwxr-s--- 2 adminsrvdmz adminsrvdmz 4096 nov  4 02:13 feed
+
+/home/adminsrvdmz/respaldos-etapa4/srvdmz-evidencia-20261104T021844Z:
+total 16
+drwxrwxr-x 4 adminsrvdmz adminsrvdmz 4096 nov  4 02:18 .
+drwx------ 6 adminsrvdmz adminsrvdmz 4096 nov  4 02:18 ..
+drwx------ 2 adminsrvdmz adminsrvdmz 4096 nov  4 02:15 agente
+drwxr-s--- 2 adminsrvdmz adminsrvdmz 4096 nov  4 02:15 feed

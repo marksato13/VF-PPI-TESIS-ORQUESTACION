@@ -1,0 +1,7 @@
+2026-11-04T03:11:25Z
+2026-11-04T02:19:45Z
+pid 1423944 vivo: si
+    PID    PPID     SID     ELAPSED CMD
+1423944       1 1423944       51:39 /home/m4rk/cyberflow/.venv/bin/python -I /home/m4rk/cyberflow-e4/ec78ca5/scripts/etapa4/salud_captura.py muestrear
+308
+{'anillo': True, 'interfaz': True, 'motor': True, 'proc_io': [{'motivo': '/proc/1413924/io: PermissionError', 'ok': False, 'pid': 1413924}, {'motivo': '/proc/1413925/io: PermissionError', 'ok': False, 'pid': 1413925}], 'suricata': True, 't': 1793761884.157, 'unidades': None, 'utc': '2026-11-04T03:11:24.157355+00:00', 'version': '2026-11-02.2', 'via_rapida': True}

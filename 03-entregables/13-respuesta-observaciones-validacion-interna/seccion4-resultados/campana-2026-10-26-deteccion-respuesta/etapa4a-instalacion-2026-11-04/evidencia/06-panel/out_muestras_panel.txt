@@ -1,0 +1,76 @@
+=== unidad ppi-dashboard
+[Unit]
+Description=CyberFlow - panel web de solo lectura
+After=ppi-motor.service
+Wants=ppi-motor.service
+Requires=cyberflow-panel-acceso.service
+After=cyberflow-panel-acceso.service
+[Service]
+Type=simple
+User=m4rk
+Group=m4rk
+WorkingDirectory=/home/m4rk/cyberflow
+ExecStart=/home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow/scripts/engine/dashboard.py \
+    --log-path /home/m4rk/cyberflow/logs/motor_decision.log \
+    --manifest-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json \
+    --detector-name if_limpio_2026_10 \
+    --eve-path /var/log/suricata/eve.json \
+    --schema /home/m4rk/cyberflow/configs/features/multilayer-v2.json \
+    --schema-extra /home/m4rk/cyberflow/configs/features/multilayer-v3.json \
+    --descripciones /home/m4rk/cyberflow/configs/features/descripciones.json \
+    --dataset /home/m4rk/cyberflow/artifacts/linea-base/multilayer-v3.csv \
+    --escenarios /home/m4rk/cyberflow/configs/escenarios.json \
+    --config-toml /home/m4rk/cyberflow/configs/cyberflow.local.toml \
+    --services ppi-motor.service,ppi-motor-capture.service,suricata.service \
+    --calibrado-en-esta-red \
+    --usuarios /etc/cyberflow/usuarios.json \
+    --clave-sesion /etc/cyberflow/clave-sesion \
+    --tls-cert /etc/cyberflow/panel.crt \
+    --tls-key /etc/cyberflow/panel.key \
+    --auditoria /home/m4rk/cyberflow/logs/panel_auditoria.jsonl \
+    --sesion-minutos 480 \
+    --intentos-max 5 \
+    --bloqueo-minutos 15 \
+    --host 10.10.60.11 --port 8788
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/home/m4rk/cyberflow/logs
+[Install]
+WantedBy=multi-user.target
+MainPID=1271831
+ActiveState=active
+ActiveEnterTimestamp=Tue 2026-11-03 23:51:59 UTC
+=== dashboard desplegado
+-rwxr-xr-x 1 m4rk m4rk 641961 nov  3 23:51 /home/m4rk/cyberflow/scripts/engine/dashboard.py
+a5186d2e2d508336f31a23c1176a7f3fb48a90e8be8055e45346714a8bc37d7a  /home/m4rk/cyberflow/scripts/engine/dashboard.py
+=== feed-v2
+total 6904
+-rw-r--r-- 1 m4rk m4rk      65 nov  4 03:15 estado.json
+-rw-r--r-- 1 m4rk m4rk     147 nov  4 03:15 feed.json
+-rw-r--r-- 1 m4rk m4rk      64 nov  4 03:15 feed.sig
+-rw-r--r-- 1 m4rk m4rk   34568 nov  4 03:14 senales-if.jsonl
+-rw-r--r-- 1 m4rk m4rk       0 nov  4 02:11 senales-rapidas.jsonl
+-rw-r--r-- 1 m4rk m4rk   37535 nov  4 03:15 traza.jsonl
+-rw-r--r-- 1 m4rk m4rk 6966323 nov  4 03:15 via-rapida-resumen.jsonl
+=== feed.json
+{"emisor":"sensor1","entradas":[],"expira":1793762177.5180593,"generado":1793762117.5180593,"secuencia":193,"umbrales":"2026-11-02.1","version":2}
+
+=== estado.json
+{"escalada": {}, "eventos": {}, "secuencia": 193, "vigentes": {}}
+=== traza (ultimas con nuevos no vacios)
+=== traza tipos (todo)
+193 {'publicacion': 193}
+claves ['entradas', 'evento', 'expira', 'generado', 'nuevos', 'politica', 'publicado_en', 'secuencia']
+=== senales-if (2)
+{"alfa_superados": ["0.05"], "decision_desplegada": "ALERT", "decision_id": "10.10.20.24|2026-11-04T03:13:30+00:00", "ip": "10.10.20.24", "leido_en": 1793762015.0266736, "logged_at": 1793762014.8916051, "score": -0.5834549428935902, "window_end_utc": "2026-11-04T03:13:30+00:00"}
+{"alfa_superados": ["0.05"], "decision_desplegada": "ALERT", "decision_id": "10.10.20.24|2026-11-04T03:14:00+00:00", "ip": "10.10.20.24", "leido_en": 1793762045.606812, "logged_at": 1793762045.5361404, "score": -0.584676776386854, "window_end_utc": "2026-11-04T03:14:00+00:00"}
+=== senales-rapidas (2)
+=== decision del motor con decision_id (1 ALERT y 1 heuristico)
+{"auth_failure": null, "ciclo_n": 753, "decidido_en": 1793762045.5357523, "decision": "ALERT", "decision_id": "10.10.20.24|2026-11-04T03:14:00+00:00", "decision_if": "ALERT", "detector_name": "if_limpio_2026_10", "disparo": "pcap_cerrado", "dns_vista": {"dnsh_consultas_60s": 1, "dnsh_nombres_unicos_ratio_60s": 1.0, "dnsh_nxdomain_ratio_60s": 0.0, "dnsh_reenvios_excluidos_60s": 0}, "duplicados_espejo": 7622214, "entity_ip": "10.10.20.24", "event": "decision", "excluidas_acumulado": 1647, "heuristico": null, "heuristicos": [], "historial_completo": true, "history_coverage_s": 60.0, "horizonte_s": 230, "http_vista": {"httph_fallo_auth_ratio_60s": 0.0, "httph_peticiones_60s": 11, "httph_tardios_excluidos_60s": 0}, "inicio_ciclo": 1793762044.969258, "logged_at": 1793762045.5361404, "marca_eve": 1793762044.880666, "marca_pcap": 1793762043.763408, "packet_count_10s": 18, "pcaps_ilegibles": 1, "pcaps_ilegibles_motivo": {"PermissionError": "[Errno 13] Permission denied: '/var/lib/ppi-motor-capture/live-20261104021107.pcap'"}, "pendiente_desde": 1793761989.7850568, "plano_control_descartado": 8225393, "score": -0.584676776386854, "threshold": -0.5693969936322356, "window_end_utc": "2026-11-04T03:14:00+00:00"}
+
+
+=== acuses v1 (dir)
+total 8
+-rw-rw-r-- 1 m4rk m4rk 5256 nov  4 03:15 srv-dmz.json

@@ -1,0 +1,33 @@
+===== /home/gadmin/respaldos-etapa4/bastion-20261104T015600Z/
+drwx------ 3 gadmin gadmin  4096 Nov  3 20:56 .
+drwx------ 3 gadmin gadmin  4096 Nov  3 20:56 ..
+drwxrwxr-x 2 gadmin gadmin  4096 Nov  3 20:56 etc-systemd-system
+-rw------- 1 gadmin gadmin 31798 Nov  2 15:23 known_hosts
+-rw-rw-r-- 1 gadmin gadmin   258 Nov  3 20:56 opt.ls
+-rwxrwxr-x 1 gadmin gadmin  2048 Nov  2 23:46 relay-feed.sh
+-rw-rw-r-- 1 gadmin gadmin    93 Nov  3 20:56 relay-feed.sha256
+-rw-rw-r-- 1 gadmin gadmin    67 Nov  3 20:56 RESPALDO.txt
+-rw-rw-r-- 1 gadmin gadmin  1170 Nov  3 20:56 SHA256SUMS
+-rw------- 1 gadmin gadmin  2116 Nov  2 15:36 ssh-config
+-rw-rw-r-- 1 gadmin gadmin   537 Nov  3 20:56 ssh-huellas-publicas.txt
+-rw-rw-r-- 1 gadmin gadmin   947 Nov  3 20:56 ssh.ls
+-rw-rw-r-- 1 gadmin gadmin  1174 Nov  3 20:56 unidades-cat.txt
+-rw-rw-r-- 1 gadmin gadmin   120 Nov  3 20:56 unidades-estado.txt
+-rw-rw-r-- 1 gadmin gadmin   163 Nov  3 20:56 versiones.txt
+--- SHA256SUMS
+0af18ff800df3bb3a21386202cdc8c8f260c525bfb4f18f518f5b983b9ca1663  ./etc-systemd-system/ppi-relay-feed.service
+eaf976932fe26c355757b9b71a585e9c9343657c5627e80c3ac3a88a1e5ca76d  ./etc-systemd-system/ppi-relay-feed.timer
+7e3503a21a6bbdad6495343ca2af975aed8cab0693a740f4eeaa27e71e5e572e  ./etc-systemd-system/ppi-relay-feed.timer.bak-20261015T1235Z
+f8525541c5128bca6df4e6c754745b9bc807ef2be50652a406155187e9f25a7a  ./known_hosts
+d6a5cc1264462522b8218ea3878788c050a4108a7627aec3d6bcc369fe0c339e  ./opt.ls
+b5005113bd47dfa2e674f43c8725910cb7c6ea3e51c0d1af4f8e69e741559372  ./relay-feed.sh
+c5bd407a7f0af80fa6b49b6e7dc9f6c8182f354fd772b249e3c357987ef8b299  ./relay-feed.sha256
+4bb8eed85c288e0c8b19a78104c69d277f0a77bd2e6f20902e3f4745ef8f229f  ./ssh-config
+39db359024682ffb5d33643c5e2c5c18d5a185bc517c6a559de0828037196dce  ./ssh-huellas-publicas.txt
+9e8688da5485a6cb40025ac4e9208a8fd68213081e2e9c2015ba2e35b275c500  ./ssh.ls
+406d24cf03904024aee13b9c2fa713e38fffc4f79371528f5beec6a086bb8c9a  ./unidades-cat.txt
+39ec8b44bc5ff0a493e7e2adf59d239bee8c63a850baab446c0b904b7a1c3406  ./unidades-estado.txt
+f16d9302098b6653aed2c40538a3fa2b2646ea6decc366e83e0e699b6796ce6b  ./versiones.txt
+--- RESPALDO.txt
+RESPALDO OK /home/gadmin/respaldos-etapa4/bastion-20261104T015600Z
+--- verificación: 0 fallos

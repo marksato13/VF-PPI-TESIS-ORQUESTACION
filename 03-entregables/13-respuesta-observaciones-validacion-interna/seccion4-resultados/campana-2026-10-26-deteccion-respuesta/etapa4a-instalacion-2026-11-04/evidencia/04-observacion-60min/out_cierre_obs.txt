@@ -1,0 +1,156 @@
+muestreador 1423944 detenido
+ventana: 2026-11-04T02:19:45Z -> 2026-11-04T03:19:51Z (3606 s)
+  240 /home/m4rk/cf-e4/4a/salud/journal-captura.txt
+    1 /home/m4rk/cf-e4/4a/salud/journal-motor.txt
+    1 /home/m4rk/cf-e4/4a/salud/journal-publicador-v2.txt
+    1 /home/m4rk/cf-e4/4a/salud/journal-suricata.txt
+  120 /home/m4rk/cf-e4/4a/salud/journal-via-rapida.txt
+  363 total
+--- errores en journals
+/home/m4rk/cf-e4/4a/salud/journal-captura.txt:0
+/home/m4rk/cf-e4/4a/salud/journal-motor.txt:0
+/home/m4rk/cf-e4/4a/salud/journal-publicador-v2.txt:0
+/home/m4rk/cf-e4/4a/salud/journal-suricata.txt:0
+/home/m4rk/cf-e4/4a/salud/journal-via-rapida.txt:0
+357 incrementos; con reinicio: 0
+clasificar rc=0
+{
+ "clase": "insuficiente",
+ "criterios": {
+  "max_hueco_muestras_s": 30.0,
+  "motor_retraso_max_s": 25.0,
+  "rotacion_s": 5.0,
+  "tcpdump_periodo_s": 30.0,
+  "tcpdump_tolerancia_s": 2.0,
+  "tolerancia_rotacion_s": 2.0,
+  "via_antiguedad_max_s": 2.0
+ },
+ "motivos": [
+  "ninguna muestra anterior o igual al inicio del periodo"
+ ]
+}
+--- resumen de muestras
+muestras 358 hueco max s 10.12 mediana 10.09
+motor duracion_s p50 0.1364 p95 0.5872 max 0.7392
+motor ventanas_pendientes p50 52 p95 60 max 68
+motor antiguedad_s p50 2.395 p95 4.423 max 5.584
+motor retraso_pcap_s p50 1.193 p95 1.363 max 1.616
+motor ok 358 / 358
+via_rapida ok 358 / 358 claves ['antiguedad_s', 'bloque_hasta', 'bytes_pendientes', 'cpu_s', 'ok', 'paquetes_tcp']
+ via antiguedad_s p95 -0.02 max 0.013
+anillo ok 358 / 358 claves ['ficheros', 'inicio_mas_nuevo', 'mas_nuevo', 'mtime_mas_nuevo', 'ok', 'salto_max_s', 'saltos_contados']
+ens37 rx pps p50 212 p95 483 max 737 rx_missed 0 rx_dropped(nic) delta 50519
+suricata kernel_drops delta 7 packets delta 937757
+unidades ultima muestra: {"ppi-motor": {"activo": "active", "arranque_mono_us": 368275616946, "nrestarts": 0, "ok": true, "pid": 1413866}, "ppi-motor-capture": {"activo": "active", "arranque_mono_us": 368275614260, "nrestarts": 0, "ok": true, "pid": 1413865}, "ppi-publicar-feed-v2": {"activo": "active", "arranque_mono_us": 368276053418, "nrestarts": 0, "ok": true, "pid": 1413923}, "ppi-via-rapida@ens37": {"activo": "active", "arranque_mono_us": 368276047625, "nrestarts": 0, "ok": true, "pid": 1413922}, "suricata": {"activo": "active", "arranque_mono_us": 130102929, "nrestarts": 0, "ok": true, "pid": 1372}}
+--- ciclos del motor en la ventana
+ciclos 719 dur p50 0.3875 p95 0.5902 max 0.8963 decididas 3867 disparos {'pcap_cerrado': 719}
+separación max entre ciclos s 6.27
+claves ['ciclo_n', 'decididas', 'disparo', 'duracion_s', 'entidades', 'etapas_s', 'event', 'excluidas_nuevas', 'filas_construidas', 'fin_ciclo', 'flujos_recalculados', 'inicio_ciclo', 'lineas_eve_nuevas', 'marca_eve', 'marca_pcap', 'marca_pcap_avanzo', 'no_elegibles', 'no_evaluadas', 'observaciones_l7', 'observaciones_paquete', 'paquetes_anillo', 'paquetes_deduplicados', 'pcaps_nuevos', 'pendientes_canceladas', 'pendientes_nuevas', 'puntuadas', 'registro_escrito_en', 'registros_escritos', 'ventanas_pendientes']
+--- decisiones del motor en la ventana
+registros 3879 lineas no JSON (todo el log) 0
+eventos {'decision': 3867, 'pendiente_cancelada': 12}
+decision_id duplicados 0
+con decision_if 3867 decision_if {'PERMIT': 2048, None: 1713, 'ALERT': 106}
+con auth_failure 3867
+decision (desplegada) {'PERMIT': 3761, 'ALERT': 106, None: 12}
+ventanas por src_ip {None: 3879}
+--- publicador v2: traza en la ventana
+publicaciones 180 eventos {'publicacion': 180} politica {'if_senal'}
+secuencia [27] [206] monotona True
+nuevos por tipo {} por accion {}
+evento_id "nueva" duplicados 0
+--- señales IF en la ventana
+senales IF 106 por ip {'10.10.10.20': 53, '10.10.20.24': 33, '10.10.40.10': 1, '10.10.50.52': 4, '10.10.50.51': 6, '10.10.20.22': 5, '10.10.20.21': 2, '10.10.10.21': 2}
+--- señales rápidas: 0
+--- procesos que apliquen (no debe haber)
+ninguno
+--- memoria/reinicios
+ppi-motor NRestarts=0 MemoryCurrent=243204096 ActiveState=active 
+ppi-motor-capture NRestarts=0 MemoryCurrent=55652352 ActiveState=active 
+ppi-via-rapida@ens37 NRestarts=0 MemoryCurrent=25583616 ActiveState=active 
+ppi-publicar-feed-v2 NRestarts=0 MemoryCurrent=16396288 ActiveState=active 
+suricata NRestarts=0 MemoryCurrent=187412480 ActiveState=active 
+ppi-dashboard NRestarts=0 MemoryCurrent=26828800 ActiveState=active 
+    PID   RSS     ELAPSED CMD
+1271831 39084    03:27:54 /home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow/scripts/engine/dashboard.py --log-path /home/m4rk/cyber
+1413865 72320    01:08:46 /usr/bin/tcpdump -i ens37 -n -s 0 -U -B 65536 -Z tcpdump -w /var/lib/ppi-motor-capture/live-%Y%m%d%H%M%S.pcap -G 5
+1413866 275336   01:08:46 /home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow-e4/ec78ca5/scripts/engine/motor_decision.py --eve-path 
+1413923 23760    01:08:46 /home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow-e4/ec78ca5/scripts/engine/publicar_feed_v2.py --log /ho
+1413924  7552    01:08:46 /usr/bin/tcpdump -i ens37 -n -U --immediate-mode -s 128 -w - tcp or (vlan and tcp)
+1413925 26496    01:08:46 /home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow-e4/ec78ca5/scripts/engine/detector_rapido.py --flujo --
+--- intensidad de perfiles (eve http/flow desde el inicio)
+http por origen->destino:
+   338 ('10.10.20.24', '10.10.30.10')
+   318 ('10.10.20.22', '10.10.30.10')
+   210 ('10.10.20.21', '10.10.30.10')
+   104 ('10.10.20.23', '10.10.30.10')
+   102 ('10.10.20.26', '10.10.30.10')
+   36 ('10.10.20.25', '10.10.30.10')
+   11 ('10.10.10.30', '192.73.243.135')
+   10 ('10.10.10.30', '192.73.243.229')
+   10 ('10.10.10.30', '192.73.243.141')
+   4 ('10.10.10.30', '102.67.167.245')
+   4 ('10.10.10.30', '102.67.167.188')
+   2 ('10.10.10.30', '45.159.98.145')
+   2 ('10.10.10.30', '45.159.98.196')
+   2 ('10.10.10.30', '199.38.182.118')
+   2 ('10.10.10.30', '176.58.92.254')
+flujos (n, paquetes, MB) por origen->destino/app:
+   2155 117216 22.46 ('10.10.10.30', '10.10.60.11', 'ssh')
+   1429 81496 15.57 ('10.10.10.30', '10.10.30.10', 'ssh')
+   339 3722 0.41 ('10.10.20.24', '10.10.30.10', 'http')
+   319 81074 5.93 ('10.10.20.22', '10.10.30.10', 'http')
+   254 254 0.02 ('10.10.60.12', '8.8.8.8', 'dns')
+   245 246 0.02 ('10.10.60.12', '1.1.1.1', 'dns')
+   211 6699 0.61 ('10.10.20.21', '10.10.30.10', 'http')
+   195 325 0.03 ('10.10.10.30', '10.10.10.1', 'failed')
+   142 2404 0.62 ('10.10.20.22', '10.10.30.10', 'tls')
+   125 875 0.07 ('10.10.60.12', '8.8.8.8', 'TCP')
+   124 868 0.07 ('10.10.60.12', '1.1.1.1', 'TCP')
+   123 245 0.03 ('10.10.10.20', '10.10.10.1', 'dns')
+   120 242 0.03 ('10.10.20.22', '10.10.10.20', 'dns')
+   105 69531 5.0 ('10.10.20.23', '10.10.30.10', 'http')
+   101 19166 1.41 ('10.10.20.26', '10.10.30.10', 'http')
+   65 260 0.04 ('10.10.10.30', '239.255.255.250', 'failed')
+   56 964 0.25 ('10.10.20.24', '10.10.30.10', 'tls')
+   48 96 0.01 ('10.10.20.24', '10.10.10.20', 'dns')
+   45 90 0.01 ('10.10.20.21', '10.10.10.20', 'dns')
+   44 120 0.02 ('10.10.60.21', '10.10.10.20', 'dns')
+--- verificación final Sensor1
+OK    ppi-motor activo
+OK    ppi-motor-capture activo
+OK    ppi-via-rapida@ens37 activo
+OK    ppi-publicar-feed-v2 activo
+OK    cf-tcpdump-estadisticas.timer activo
+OK    suricata activo
+OK    ppi-publicar-feed.timer activo
+OK    motor = candidato ec78ca5 con --disparo eventos
+OK    motor SIN --enforce
+OK    captura con -G 5
+OK    código candidato sin cambios (SHA256SUMS)
+OK    código anterior ~/cyberflow intacto
+OK    importaciones desde el candidato
+INFO  NRestarts motor/captura/vía: 0/0/0
+OK    decisiones con decision_if y auth_failure
+OK    decisiones con http_vista y dns_vista
+FALLO motor_startup del candidato (incremental, disparo eventos, umbral del manifiesto)
+INFO  decisiones con registros HTTP tardíos excluidos de la vista: 102 de 2000
+INFO  auth_failure solo histórico (no aceptado por la vista HTTP): 0
+INFO  último ciclo: {"ciclo_n": 822, "decididas": 0, "disparo": "pcap_cerrado", "duracion_s": 0.1271, "entidades": 0, "etapas_s": {"eve_lectura": 0.0024, "eve_poda": 0.0001, "expiracion_y_escritura": 0.0002, "filtro_plano_control": 0.0182, "pcap_parseo": 0.0402, "pcap_poda": 0.0389, "pendientes": 0.0046, "ventanas_por_
+OK    resumen de la vía rápida avanza (1793762395.695874 -> 1793762398.734459)
+INFO  resumen vía rápida: {"bloque_hasta": 1793762398.784891, "paquetes_tcp": 15057, "bytes_pendientes": 0, "cpu_s": 60.416618}
+INFO  señales rápidas: 0 líneas (sin ataques, 0 sobre legítimos)
+INFO  tcpdump de la vía rápida: PID 1413924; estadísticas en journalctl -u ppi-via-rapida@ens37
+OK    feed v2 reciente (< 60 s)
+OK    firma del feed v2 verifica con la clave PÚBLICA
+INFO  traza del publicador (última): {"entradas": [], "evento": "publicacion", "expira": 1793762458.230325, "generado": 1793762398.230325, "nuevos": [], "politica": "if_senal", "publicado_en": 1793762398.2394614, "secuencia": 207}
+INFO  eventos 'rechazada' en la traza: 0
+INFO  menciones de dns_entropy en el feed v2 actual: 0 (no hay agente DNS: nada se aplica en DC1)
+OK    SIGUSR1 periódico del anillo en el journal (últimos 2 min)
+OK    SIGUSR1 periódico de la vía rápida en el journal (últimos 2 min)
+INFO  anillo: 239 ficheros; últimos: live-20261104031945.pcap live-20261104031950.pcap live-20261104031955.pcap 
+INFO  suricata: capture.kernel_packets | Total | 135040399 capture.kernel_drops | Total | 82038 
+OK    reloj sincronizado
+INFO  recursos: load average: 0,12, 0,19, 0,29; mem 1136/7940 MB; /home libre   13G
+OK    logrotate de feed-v2 instalado
+VERIFICACIÓN SENSOR1 CON FALLOS

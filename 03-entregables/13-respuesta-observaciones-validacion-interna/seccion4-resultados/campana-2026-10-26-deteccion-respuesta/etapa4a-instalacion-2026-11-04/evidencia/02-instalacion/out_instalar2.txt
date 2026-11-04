@@ -1,0 +1,11 @@
+### srv-dmz: reversión de la fase 1 parcial 2026-11-04T02:15:21Z
+respaldo: /home/adminsrvdmz/respaldos-etapa4/srvdmz-20261104T015754Z
+REVERSIÓN OK (traza del agente copiada en /home/adminsrvdmz/respaldos-etapa4/srvdmz-evidencia-20261104T021521Z)
+### 4.4 srv-dmz: instalación (adminsrvdmz NOPASSWD, autorizado por Mark)
+respaldo: /home/adminsrvdmz/respaldos-etapa4/srvdmz-20261104T015754Z
+OK    condición previa: cadena v1 sin aplicar (timer inactive/disabled, sin tabla cyberflow)
+OK    fase 0
+passwd: password changed.
+OK    fase 1: cuentas, rutas, helper, sudoers y llave del relé (solo 'recibir')
+PARADA la unidad lleva --aplicar
+PARADA srv-dmz

@@ -1,0 +1,36 @@
+######## BASTION 2026-11-04T03:22:48Z
+OK    relé v2 activo
+OK    relé v2 solo con destino srv-dmz (sin dc1)
+OK    relé v1 sigue activo e intacto
+OK    entrega reciente a srv-dmz (hace 10.1 s)
+INFO  entregas: 192; traído->entregado p50/máx: 0.062/0.381 s
+INFO  última hora: parejas inconsistentes 0, errores 0
+OK    reloj sincronizado
+VERIFICACIÓN BASTIÓN OK
+######## SRV-DMZ
+/home/adminsrvdmz/cf-e4/paquete-c1bd845/deploy/etapa4/srvdmz/verificar_srvdmz.sh: OK
+estado=sombra alcance=completo agentes=1 con_aplicar=0 tablas_cyberflow=0 eventos_aplicacion=0
+OK    estado de sombra demostrado (--alcance completo --respaldo /home/adminsrvdmz/respaldos-etapa4/srvdmz-20261104T015754Z)
+OK    feed v2 recibido hace < 60 s
+OK    reloj sincronizado
+INFO  rechazos por motivo:     192 "motivo": "" 
+OK    helper rechaza un perfil ajeno
+VERIFICACIÓN SRV-DMZ OK
+--- traza agente (eventos)
+    192 "evento": "recepcion"
+--- recepciones en la ventana 02:19:45-03:19:51
+recepciones 180 secuencias (27, 206)
+ultima {"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793762558.6025732, "ids": [], "motivo": "", "mtime_feed": 1793762558.9583633, "perfil": "dmz", "rechazadas": [], "recibido_en": 1793762559.4732924, "secuencia": 215, "t": 1793762559.4894526}
+
+--- v1
+disabled
+inactive
+tablas-fin
+--- ruleset vs respaldo
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  -
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  -
+rc=0 bytes=0 utc=20261104T015754Z
+NRestarts=0
+ExecStart={ path=/usr/bin/python3 ; argv[]=/usr/bin/python3 -I /opt/cyberflow/agente-v2/agente_enforce_v2.py --perfil dmz --feed /var/lib/cyberflow/feed/feed.json --firma /var/lib/cyberflow/feed/feed.sig --clave-publica /opt/cyberflow/agente-v2/pub.pem --estado /var/lib/cyberflow/agente/estado.json 
+MemoryCurrent=8941568
+ActiveState=active

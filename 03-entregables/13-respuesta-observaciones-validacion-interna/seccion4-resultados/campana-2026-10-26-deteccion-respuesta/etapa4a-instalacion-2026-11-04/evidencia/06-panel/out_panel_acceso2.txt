@@ -1,0 +1,24 @@
+--- desde el BASTION
+{"error": "sesion requerida"}
+GET /api/status -> HTTP 401
+{"ok": false, "motivo": "panel de solo lectura con la cadena v2: \u00abPreparar demo\u00bb deshabilitado"}
+POST /api/demo/preparar -> HTTP 409
+[Unit]
+Description=CyberFlow - acceso al panel: solo 10.10.10.30/32
+Before=ppi-dashboard.service
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStartPre=-/usr/sbin/nft delete table inet cyberflow_panel
+ExecStart=/usr/sbin/nft -f /etc/cyberflow/panel-acceso.nft
+ExecStop=-/usr/sbin/nft delete table inet cyberflow_panel
+[Install]
+WantedBy=multi-user.target
+2-	chain entrada {
+3-		type filter hook input priority filter; policy accept;
+4:		tcp dport 8788 ip saddr 10.10.10.30 accept
+5:		tcp dport 8788 drop
+6-	}
+7-}
+total 4
+-rw-r--r-- 1 m4rk m4rk 101 nov  3 17:02 preparar.json
