@@ -1,0 +1,5 @@
+GET /api/status sin sesión: 401
+POST /api/demo/preparar: 409 {"ok": false, "motivo": "panel de solo lectura con la cadena v2: \u00abPreparar demo\u00bb deshabilitado"}
+GET / (login): 401
+total 4
+-rw-r--r-- 1 m4rk m4rk 101 2026-11-03 17:02:23.367368338 +0000 preparar.json

@@ -1,0 +1,101 @@
+### bastión 2026-11-04T05:35:05Z
+  UNIT                      LOAD   ACTIVE     SUB     JOB   DESCRIPTION
+  ppi-relay-eventos.service loaded active     running       CyberFlow - rele por eventos del feed v2 (sensor -> srv-dmz), via bastion (Etapa 4)
+● ppi-relay-feed.service    loaded activating start   start CyberFlow - relay del feed firmado (sensor -> host protegido), via bastion
+  ppi-relay-feed.timer      loaded active     running       CyberFlow - relay del feed cada 10 segundos
+
+Legend: LOAD   → Reflects whether the unit definition was properly loaded.
+        ACTIVE → The high-level unit activation state, i.e. generalization of SUB.
+        SUB    → The low-level unit activation state, values depend on unit type.
+        JOB    → Pending job for the unit.
+
+3 loaded units listed.
+To show all installed unit files use 'systemctl list-unit-files'.
+UNIT FILE                 STATE   PRESET
+ppi-relay-eventos.service enabled enabled
+ppi-relay-feed.service    static  -
+ppi-relay-feed.timer      enabled enabled
+
+3 unit files listed.
+-                                  - Wed 2026-11-04 00:35:03 -05       1s ago ppi-relay-feed.timer         ppi-relay-feed.service
+===== ppi-relay-eventos.service
+# /etc/systemd/system/ppi-relay-eventos.service
+[Unit]
+# Etapa 4 (SOMBRA). Igual que deploy/enforcement/candidato-etapa2/ppi-relay-eventos.service SIN el
+# destino dc1: en DC1 no se instala nada (norma vigente; el LIMIT DNS sigue sin aprobar).
+# Llaves NUEVAS y exclusivas del relé v2 (no se reutilizan cyberflow-to-sensor ni cyberflow-to-srv,
+# que siguen sirviendo al relé v1 y a las lecturas):
+#   cyberflow-feed-v2-sensor  -> m4rk@Sensor1 con command="cf-feed-ssh.sh servir /home/m4rk/feed-v2",restrict
+#   cyberflow-feed-v2-srv     -> cffeed@srv-dmz con command="cf-feed-ssh.sh recibir /var/lib/cyberflow/feed",restrict
+Description=CyberFlow - rele por eventos del feed v2 (sensor -> srv-dmz), via bastion (Etapa 4)
+After=network-online.target
+[Service]
+Type=simple
+User=gadmin
+Group=gadmin
+ExecStart=/usr/bin/python3 -I /opt/cyberflow/relay-v2/relay_eventos.py \
+    --origen m4rk@10.10.60.11:/home/m4rk/feed-v2,/home/gadmin/.ssh/cyberflow-feed-v2-sensor \
+    --destino srv-dmz=cffeed@10.10.30.10:/var/lib/cyberflow/feed,/home/gadmin/.ssh/cyberflow-feed-v2-srv \
+    --clave-publica /opt/cyberflow/relay-v2/pub.pem \
+    --traza /home/gadmin/relay-v2/traza.jsonl --sondeo-segundos 1
+Restart=always
+RestartSec=2
+[Install]
+WantedBy=multi-user.target
+ExecMainStartTimestamp=Tue 2026-11-03 21:18:50 -05
+WantedBy=multi-user.target
+Triggers=
+TriggeredBy=
+ActiveState=active
+UnitFileState=enabled
+===== ppi-relay-feed.service
+# /etc/systemd/system/ppi-relay-feed.service
+[Unit]
+Description=CyberFlow - relay del feed firmado (sensor -> host protegido), via bastion
+Documentation=https://github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos
+[Service]
+Type=oneshot
+User=gadmin
+Group=gadmin
+# Pull del feed del sensor (clave cyberflow-to-sensor) y push al host DMZ
+# (clave cyberflow-to-srv). El bastion es un relay tonto: no puede forjar, la
+# clave privada de firma vive solo en el sensor.
+ExecStart=/home/gadmin/relay-feed.sh
+# Salida al journal (journalctl -u ppi-relay-feed).
+ExecMainStartTimestamp=Wed 2026-11-04 00:35:03 -05
+WantedBy=
+Triggers=
+TriggeredBy=ppi-relay-feed.timer
+ActiveState=inactive
+UnitFileState=static
+===== ppi-relay-feed.timer
+# /etc/systemd/system/ppi-relay-feed.timer
+[Unit]
+Description=CyberFlow - relay del feed cada 10 segundos
+[Timer]
+# Segundo paso, tres segundos despues del publicador.
+OnCalendar=*-*-* *:*:03/10
+AccuracySec=1s
+Persistent=false
+[Install]
+WantedBy=timers.target
+WantedBy=timers.target
+Triggers=ppi-relay-feed.service
+TriggeredBy=
+ActiveState=active
+UnitFileState=enabled
+Hint: You are currently not seeing messages from other users and the system.
+      Users in groups 'adm', 'systemd-journal' can see all messages.
+      Pass -q to turn off this notice.
+-- No entries --
+total 480
+drwxrwxr-x 12 gadmin gadmin   4096 Nov  3 22:42 .
+drwx------ 39 gadmin gadmin   4096 Nov  4 00:21 ..
+-rw-rw-r--  1 gadmin gadmin 350143 Nov  3 21:18 cyberflow-e4-ec78ca5.tar.gz
+-rw-rw-r--  1 gadmin gadmin     94 Nov  3 21:18 cyberflow-e4-ec78ca5.tar.gz.sha256
+drwxrwxr-x  5 gadmin gadmin   4096 Nov  3 22:42 evidencia-4a-20261104T034250Z
+-rw-rw-r--  1 gadmin gadmin  81889 Nov  3 22:42 evidencia-4a-20261104T034250Z.tgz
+drwxr-xr-x  5 gadmin gadmin   4096 Nov  1 19:00 paquete
+drwxr-xr-x  5 gadmin gadmin   4096 Nov  1 19:00 paquete-47502ca
+drwxr-xr-x  5 gadmin gadmin   4096 Nov  1 19:00 paquete-785377b
+bastion-20261104T015600Z

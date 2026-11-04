@@ -1,0 +1,99 @@
+Ubuntu 24.04.2 LTS
+tcpdump version 4.99.4
+libpcap version 1.10.4 (with TPACKET_V3)
+OpenSSL 3.0.13 30 Jan 2024
+ii  libcap-ng0:amd64 0.8.4-2build2   amd64        alternate POSIX capabilities library
+ii  tcpdump          4.99.4-3ubuntu4 amd64        command-line network traffic analyzer
+uid=105(tcpdump) gid=107(tcpdump) groups=107(tcpdump)
+tcpdump:x:107:
+m4rk:x:1000:
+### qué líneas contienen PermissionError (tipos de evento)
+Counter({'decision': 13133})
+decision .pcaps_ilegibles_motivo.PermissionError [Errno 13] Permission denied: '/var/lib/ppi-motor-capture/live-20261104021107.pcap'
+### ciclos con ilegibles
+-rw-r--r-- 1 m4rk m4rk 2283110 nov  4 05:33 /home/m4rk/cyberflow/logs/_state-e4/ciclos.jsonl
+{"ciclo_n": 0, "decididas": 12, "disparo": "arranque", "duracion_s": 2.1767, "entidades": 17, "etapas_s": {"decision_y_registro": 0.0006, "eve_lectura": 0.1106, "eve_poda": 0.0002, "expiracion_y_escritura": 0.0009, "filtro_plano_control": 0.0041, "pcap_parseo": 1.3112, "pcap_poda": 0.0102, "pendientes": 0.0035, "puntuacion": 0.0661, "ventanas_por_ancla": 0.6692}, "event": "ciclo", "excluidas_nuevas": 5, "filas_construidas": 12, "fin_ciclo": 1793758271.5253174, "flujos_recalculados": 387, "inicio_ciclo": 1793758269.3487153, "lineas_eve_nuevas": 1402, "marca_eve": 1793758268.41539, "marca_pcap":
+2416 ciclos; []
+/home/m4rk/cyberflow-e4/ec78ca5/scripts/engine/dashboard.py
+/home/m4rk/cyberflow-e4/ec78ca5/scripts/engine/motor_decision.py
+/home/m4rk/cyberflow-e4/ec78ca5/scripts/engine/vista_vivo.py
+577-    limite_pendiente = args.history_seconds - 60
+578-    descartados_plano_control = 0
+579-    ventanas_excluidas = 0
+580:    pcaps_ilegibles = 0
+581:    motivos_ilegibles: dict[str, str] = {}
+582-    duplicados_espejo = 0
+583-    # Buffer incremental de paquetes ya decodificados (ParsedPacket) + set de
+584-    # PCAP ya parseados. Evita re-decodificar todo el anillo cada ciclo: cada
+585-    # archivo se lee de disco UNA vez; la atribucion de flujo se recalcula
+586-    # sobre el buffer en memoria. Corrige el atraso bajo carga (F6 #12).
+587-    packet_buffer: collections.deque = collections.deque()
+588-    # Via por deltas (pendiente 2): contextos llegados (sin plano de control) que el
+589-    # Deduplicador aun no ha recibido, y el corte de la ultima poda EJECUTADA del buffer
+590-    # (la poda quita todo lo anterior a su corte; asi el buffer es exactamente lo llegado
+591-    # con timestamp >= poda_hecha).
+592-    llegados_dedup: list = []
+593-    poda_hecha = float("-inf")
+--
+772-                # arranque a tcpdump:tcpdump y el usuario del motor no podia
+773-                # leerlo. Un contador en cada decision lo habria delatado el
+774-                # primer dia. Ver scripts/setup/cyberflow_config.py, CAPTURA.
+775:                pcaps_ilegibles += 1
+776:                if type(exc).__name__ not in motivos_ilegibles:
+777:                    motivos_ilegibles[type(exc).__name__] = str(exc)[:120]
+778-            parsed_pcaps[pcap.name] = None
+779-        while len(parsed_pcaps) > MAX_PARSED_PCAP_NAMES:
+780-            parsed_pcaps.popitem(last=False)
+781-        if inicio_historial is None and (packet_buffer or eve_buffer):
+782-            if inicio_pcap is None:
+783-                inicio_pcap = min((pk.packet.timestamp for pk in packet_buffer), default=cycle_start)
+784-            if tail.recuperacion.get("completa"):
+785-                inicio_eve = tail.recuperacion["pedido_desde"]
+786-            else:
+787-                inicio_eve = min((x[0] for x in eve_buffer), default=cycle_start)
+788-            inicio_historial = max(inicio_pcap, inicio_eve)
+789-        t = cerrar_etapa("pcap_parseo", t)
+--
+960-                            "entity_ip": entidad, "window_end_utc": clave, "motivo": motivo_ne,
+961-                            "pendiente_desde": visto_ne, "inicio_ciclo": cycle_start,
+962-                            "marca_pcap": marca_pcap, "marca_eve": marca_eve,
+963:                            "pcaps_ilegibles": pcaps_ilegibles, "horizonte_s": horizonte_s,
+964-                            "historial_completo": completo,
+965-                        })
+966-                    continue
+967-                # Espera: primer ciclo que ya tenia contenido de la ventana (registro de
+968-                # pendientes o marcas de lectura); None si se decide en ese mismo ciclo.
+969-                vistos = [pendientes.pop(window_key, None)]
+970-                if lp[entidad]:
+971-                    vistos.append(visto_en("pcap", min(x.timestamp for x in lp[entidad])))
+972-                if la[entidad]:
+973-                    vistos.append(visto_en("eve", min(x.timestamp for x in la[entidad])))
+974-                vistos = [v for v in vistos if v is not None and v < cycle_start]
+975-                pendiente_desde = min(vistos) if vistos else None
+--
+1169-                    "event": "decision",
+1170-                    "excluidas_acumulado": excluidas_momento,
+1171-                    "plano_control_descartado": descartados_plano_control,
+1172:                    "pcaps_ilegibles": pcaps_ilegibles,
+1173:                    "pcaps_ilegibles_motivo": motivos_ilegibles or None,
+1174-                    "duplicados_espejo": duplicados_espejo,
+1175-                    "decidido_en": time.time(),
+1176-                    "entity_ip": row["entity_ip"],
+1177-                    "window_end_utc": row["window_end_utc"],
+1178-                    "history_coverage_s": row["history_coverage_s"],
+1179-                    # Horizonte de entrada fijado por ventana (cierre de la Etapa 2): la
+1180-                    # fila usa [ventana - horizonte_s, ventana]. historial_completo=false si
+1181-                    # ese horizonte empieza antes de que el proceso tuviera historia
+1182-                    # completa de PCAP y EVE (arranque sin recuperacion posible).
+1183-                    "horizonte_s": horizonte_s,
+1184-                    "historial_completo": historial_completo,
+1185-                    "packet_count_10s": row["packet_count_10s"],
+--
+1237-            t = cerrar_etapa("decision_y_registro", t)
+1238-
+1239-        # Una ventana pendiente nunca desaparece en silencio: si sus paquetes no llegan
+1240:        # a tiempo (captura parada, PCAP ilegible...) se registra como no evaluada.
+1241-        # Si los PCAP SI la cubren pero build_rows ya no la genera (solo existia por
+1242-        # observaciones viejas de la entidad que la poda a history_seconds saco del
+1243-        # buffer), el motivo es otro: se distingue para no culpar a la captura.
+1244-        for window_key, visto in list(pendientes.items()):

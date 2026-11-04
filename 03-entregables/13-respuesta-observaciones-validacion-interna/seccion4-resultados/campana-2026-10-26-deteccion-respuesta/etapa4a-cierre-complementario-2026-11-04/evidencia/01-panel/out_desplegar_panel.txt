@@ -1,0 +1,10 @@
+respaldo OK: /home/m4rk/respaldos-etapa4/panel-20261104T054553Z
+/tmp/tmp.RN6T4WpDOr/dashboard.py:3480: SyntaxWarning: "\." is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\."? A raw string is also an option.
+  const origen = f.ip === '10.10.20.30' ? 'atacante' : (/^10\.10\.20\.2[1-6]$/.test(f.ip) ? 'clientes' : null);
+importa; HUECO 30.0 FRESCA 30.0
+6eb2a4be800010fd3943b0bf40f67620a6a7baf2116e3651db7245681faab32e  /home/m4rk/cyberflow/scripts/engine/dashboard.py
+23403181c33d24a51855982b93b9e99691473c6576bbad2e2cf2b3e14e426949  /home/m4rk/cyberflow/scripts/engine/cadena_v2.py
+ppi-dashboard: active NRestarts=0 PID=1674512
+panel: detector if_limpio_2026_10 (fuente: --detector-name)
+panel: modo v2, cadena desde /home/m4rk/feed-v2 (modo sombra); «Preparar demo» deshabilitado
+escucha en 10.10.60.11:8788

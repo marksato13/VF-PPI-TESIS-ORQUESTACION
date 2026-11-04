@@ -1,0 +1,43 @@
+python Python 3.13.5 node v20.19.2 OpenSSL 3.5.7 9 Jun 2026 (Library: OpenSSL 3.5.7 9 Jun 2026)
+=== RAMA (corrección)
+s.....s..s.............................................................. [ 47%]
+................................ss.........ss........................... [ 95%]
+.......                                                                  [100%]
+=============================== warnings summary ===============================
+scripts/engine/dashboard.py:3480
+scripts/engine/dashboard.py:3480
+scripts/engine/dashboard.py:3480
+scripts/engine/dashboard.py:3480
+scripts/engine/dashboard.py:3480
+scripts/engine/dashboard.py:3480
+scripts/engine/dashboard.py:3480
+scripts/engine/dashboard.py:3480
+scripts/engine/dashboard.py:3480
+  /rama/scripts/engine/dashboard.py:3480: SyntaxWarning: invalid escape sequence '\.'
+    const origen = f.ip === '10.10.20.30' ? 'atacante' : (/^10\.10\.20\.2[1-6]$/.test(f.ip) ? 'clientes' : null);
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+SKIPPED [3] tests/test_alertas_panel.py: política de la demo (A+C); rige el motor de las campañas
+SKIPPED [2] tests/test_escenario_vivo.py: política de la demo (A+C); rige el motor de las campañas
+SKIPPED [2] tests/test_historial_acciones.py: política de la demo (A+C); rige el motor de las campañas
+144 passed, 7 skipped, 9 warnings in 11.19s
+=== a27889d con las regresiones nuevas (deben FALLAR)
+FAILED tests/test_panel_cadena_v2_cobertura.py::DecisionesPosteriores::test_dentro_de_la_cobertura_si_es_sin_senal_y_no_aplica
+FAILED tests/test_panel_cadena_v2_cobertura.py::DecisionesPosteriores::test_margen_de_lectura_antes_de_la_ultima_publicacion
+FAILED tests/test_panel_cadena_v2_cobertura.py::DecisionesPosteriores::test_posterior_con_traza_fresca_es_pendiente_y_no_sin_senal
+FAILED tests/test_panel_cadena_v2_cobertura.py::RetrasoYFuenteAntigua::test_fuente_antigua_se_declara_incidencia_y_conserva_lo_cubierto
+FAILED tests/test_panel_cadena_v2_cobertura.py::RetrasoYFuenteAntigua::test_hueco_entre_publicaciones_no_demuestra_ausencia
+FAILED tests/test_panel_cadena_v2_cobertura.py::RetrasoYFuenteAntigua::test_publicador_retrasado_es_fuente_desactualizada
+FAILED tests/test_panel_cadena_v2_cobertura.py::FuentesAusentes::test_desaparecen_durante_la_ejecucion_y_se_recuperan
+FAILED tests/test_panel_cadena_v2_cobertura.py::FuentesAusentes::test_medida_desconocida_mantiene_aplicacion_desconocida
+FAILED tests/test_panel_cadena_v2_cobertura.py::FuentesAusentes::test_senales_ausentes_no_son_cero_senales
+FAILED tests/test_panel_cadena_v2_cobertura.py::FuentesAusentes::test_traza_sin_publicaciones_es_fuente_ausente
+FAILED tests/test_panel_cadena_v2_cobertura.py::IFDelMotorExplicito::test_decision_if_del_motor_y_senal_alfa_no_se_mezclan
+FAILED tests/test_panel_cadena_v2_cobertura.py::ModoExplicito::test_boton_preparar_sale_oculto_del_servidor_en_v2
+FAILED tests/test_panel_cadena_v2_cobertura.py::ModoExplicito::test_seleccion_de_modo
+FAILED tests/test_panel_cadena_v2_cobertura.py::JsEstados::test_textos_de_estado_franja_y_boton
+FAILED tests/test_panel_cadena_v2_cobertura.py::ServidorSinTraza::test_1_arranca_en_v2_con_incidencia_y_sin_politica_v1
+FAILED tests/test_panel_cadena_v2_cobertura.py::ServidorSinTraza::test_2_preparar_demo_deshabilitado_sin_fuentes
+FAILED tests/test_panel_cadena_v2_cobertura.py::ServidorSinTraza::test_3_las_fuentes_se_recuperan_sin_reiniciar
+17 failed, 1 warning in 1.31s

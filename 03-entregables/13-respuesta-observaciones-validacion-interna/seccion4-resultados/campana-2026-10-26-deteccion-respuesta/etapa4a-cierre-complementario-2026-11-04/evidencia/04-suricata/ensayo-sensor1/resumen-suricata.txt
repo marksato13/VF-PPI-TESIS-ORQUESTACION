@@ -1,0 +1,6 @@
+4A (eve)                 eve stats bloques=451 interv=450 hueco_max=8.0 reinicios=0 cobertura_s=3600.4 paq=936761 desc=7 por_M=7.473 episodios=[('03:05:47', 5766, 7)] rafagas=11 p50/p95/max=1856/4306/7168 pps_max=895.9 flujos=7845 grandes=63 pk_grandes=88747
+   srv-dmz por cliente: {'10.10.10.30': (1461, 82098), '10.10.20.22': (471, 84062), '10.10.20.23': (108, 69246), '10.10.20.26': (111, 19191), '10.10.20.21': (242, 7334), '10.10.20.24': (413, 4784)}
+calentamiento            eve stats bloques=74 interv=73 hueco_max=8.0 reinicios=0 cobertura_s=584.1 paq=173380 desc=0 por_M=0.0 episodios=[] rafagas=5 p50/p95/max=1467/5253/14169 pps_max=1770.9 flujos=1049 grandes=20 pk_grandes=37312
+   srv-dmz por cliente: {'10.10.20.22': (83, 22206), '10.10.20.23': (24, 11210), '10.10.20.26': (24, 6144), '10.10.20.24': (60, 710), '10.10.20.21': (36, 708), '10.10.20.25': (8, 122)}
+ensayo ring-size 16384   eve stats bloques=450 interv=449 hueco_max=8.0 reinicios=0 cobertura_s=3592.4 paq=1193578 desc=0 por_M=0.0 episodios=[] rafagas=68 p50/p95/max=1477/7437/19406 pps_max=2425.5 flujos=7517 grandes=79 pk_grandes=399823
+   srv-dmz por cliente: {'10.10.20.22': (512, 90590), '10.10.20.23': (95, 45160), '10.10.20.26': (112, 27736), '10.10.20.21': (226, 6893), '10.10.20.24': (384, 4592), '10.10.20.25': (34, 440)}

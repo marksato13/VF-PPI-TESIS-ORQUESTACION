@@ -1,0 +1,19 @@
+ahora 2026-11-04T05:46:50Z
+dashboard 6eb2a4be8000 cadena_v2 23403181c33d
+decisiones última hora: 3911 | ALERT: 120
+acción (panel 93f076e): {'PERMIT': 3911}
+cobertura: {'cubierta': 3899, 'pendiente': 12}
+IF (señal α): {'sin_puntuar': 1710, 'sin_senal': 2073, 'senal': 120, 'pendiente': 8}
+IF del motor (decision_if): {'None': 1710, 'PERMIT': 2081, 'ALERT': 120}
+medida: {'no_publicada': 3899, 'pendiente': 12}
+aplicación: {'no_aplica': 3899, 'desconocido': 12}
+aplicación por medida: {('no_publicada', 'no_aplica'): 3899, ('pendiente', 'desconocido'): 12}
+posteriores a la última publicación (−2 s): 12 estados IF: {'pendiente': 8, 'sin_puntuar': 4} medida: {'pendiente': 12}
+señales α en la hora: 120 | en el registro: 120 | marcadas 'senal': 120 | iguales: True
+traza: publicaciones 646 secuencias 1 -> 646 | nuevos: 0 | huecos >30 s: 0 []
+resumen: {'estado': 'ok', 'incidencias': [], 'politica': 'if_senal', 'modo': 'sombra', 'traza_fresca': True, 'huecos_traza': 0, 'feed_secuencia': 646, 'feed_edad_s': 10.0, 'feed_entradas': 0, 'aplicacion': 'no_ejecutada (modo sombra)'}
+vigentes: []
+con fuentes ausentes: {('fuente_ausente', 'desconocido'): 50} | acciones: {'PERMIT': 50} | incidencias: ['directorio /nonexistent-feed-v2 ausente', 'senales-if.jsonl ausente o ilegible (FileNotFoundError)']
+coste anotar 3911 decisiones: 0.032 s
+--- unidad del panel (argumentos efectivos)
+(sin --modo-panel: rige el valor por omisión v2)

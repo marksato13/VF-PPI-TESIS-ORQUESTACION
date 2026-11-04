@@ -1,0 +1,65 @@
+{
+ "etiqueta": "04-nov 00:00-05:55",
+ "desde": 1793750410.0,
+ "hasta": 1793771700.0,
+ "duracion_s": 21290.0,
+ "bloques_stats": 2662,
+ "intervalos_validos": 2661,
+ "reinicios_suricata_en_ventana": 0,
+ "cobertura_stats_s": 21290.0,
+ "paquetes": 5404505,
+ "descartes": 860,
+ "descartes_por_millon": 159.127,
+ "intervalos_con_descartes": [
+  {
+   "t_utc": "01:42:11",
+   "paquetes": 3405,
+   "descartes": 164
+  },
+  {
+   "t_utc": "02:08:27",
+   "paquetes": 4522,
+   "descartes": 198
+  },
+  {
+   "t_utc": "03:05:47",
+   "paquetes": 5766,
+   "descartes": 7
+  },
+  {
+   "t_utc": "03:53:56",
+   "paquetes": 5164,
+   "descartes": 13
+  },
+  {
+   "t_utc": "05:30:28",
+   "paquetes": 3361,
+   "descartes": 240
+  },
+  {
+   "t_utc": "05:49:40",
+   "paquetes": 31681,
+   "descartes": 176
+  },
+  {
+   "t_utc": "05:52:36",
+   "paquetes": 2998,
+   "descartes": 62
+  }
+ ],
+ "paquetes_por_intervalo": {
+  "p50": 1738,
+  "p95": 4448,
+  "max": 33311,
+  "media": 2031.0
+ },
+ "pps_max_intervalo": 4163.9,
+ "rafagas_ge_umbral": 73,
+ "umbral_rafaga_paquetes_8s": 5000,
+ "flujos_eve": 0,
+ "flujos_grandes": 0,
+ "umbral_flujo_grande": 1000,
+ "flujos_grandes_top": [],
+ "paquetes_en_flujos_grandes": 0,
+ "volumen_srv_dmz_por_cliente": {}
+}

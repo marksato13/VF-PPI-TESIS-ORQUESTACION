@@ -1,0 +1,3 @@
+$P = "C:\Users\markp\Desktop\PY-MEGATRON\PY - PERSONAL\TESIS\CYBERFLOW\producto-recuperacion"
+$E = "C:\Users\markp\Desktop\PY-MEGATRON\PY - PERSONAL\TESIS\CYBERFLOW\orquestacion-limpio\03-entregables\13-respuesta-observaciones-validacion-interna\seccion4-resultados\campana-2026-10-26-deteccion-respuesta\etapa4a-instalacion-2026-11-04\evidencia\04-observacion-60min\sensor1-cf-e4-4a"
+docker run --rm -e PYTHONDONTWRITEBYTECODE=1 -v "${P}:/p:ro" -v "${E}:/e4a:ro" debian:trixie-slim bash -c "apt-get update -qq >/dev/null && apt-get install -y -qq python3 >/dev/null 2>&1; python3 --version; python3 -I /p/deploy/etapa4/sensor1/ensayo_clasificar_periodo.py /p/scripts/etapa4/salud_captura.py /e4a"

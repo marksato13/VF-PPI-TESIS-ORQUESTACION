@@ -1,0 +1,25 @@
+NEXT                            LEFT LAST                              PASSED UNIT                           ACTIVATES
+Wed 2026-11-04 06:12:50 UTC       4s Wed 2026-11-04 06:12:40 UTC       5s ago ppi-publicar-feed.timer        ppi-publicar-feed.service
+Wed 2026-11-04 06:13:00 UTC      14s Wed 2026-11-04 06:12:30 UTC      15s ago cf-tcpdump-estadisticas.timer  cf-tcpdump-estadisticas.service
+Wed 2026-11-04 06:15:00 UTC 2min 14s Wed 2026-11-04 06:10:00 UTC 2min 45s ago cyberflow-limpieza.timer       cyberflow-limpieza.service
+Wed 2026-11-04 06:20:00 UTC     7min Wed 2026-11-04 06:10:00 UTC 2min 45s ago cyberflow-acumular.timer       cyberflow-acumular.service
+Wed 2026-11-04 06:20:00 UTC     7min Wed 2026-11-04 06:10:00 UTC 2min 45s ago sysstat-collect.timer          sysstat-collect.service
+Wed 2026-11-04 06:36:29 UTC    23min Wed 2026-11-04 05:42:10 UTC    30min ago fwupd-refresh.timer            fwupd-refresh.service
+Wed 2026-11-04 06:56:42 UTC    43min Tue 2026-11-03 06:22:39 UTC      23h ago apt-daily-upgrade.timer        apt-daily-upgrade.service
+Wed 2026-11-04 12:03:51 UTC 5h 51min Tue 2026-11-03 18:47:40 UTC      11h ago apt-daily.timer                apt-daily.service
+Wed 2026-11-04 17:36:13 UTC      11h Wed 2026-11-04 02:11:06 UTC  4h 1min ago motd-news.timer                motd-news.service
+Wed 2026-11-04 19:58:21 UTC      13h Tue 2026-11-03 19:58:21 UTC      10h ago update-notifier-download.timer update-notifier-download.service
+Wed 2026-11-04 20:08:13 UTC      13h Tue 2026-11-03 20:08:13 UTC      10h ago systemd-tmpfiles-clean.timer   systemd-tmpfiles-clean.service
+Thu 2026-11-05 00:00:00 UTC      17h Wed 2026-11-04 00:00:00 UTC       6h ago dpkg-db-backup.timer           dpkg-db-backup.service
+Thu 2026-11-05 00:00:00 UTC      17h Wed 2026-11-04 00:00:00 UTC       6h ago logrotate.timer                logrotate.service
+Thu 2026-11-05 00:07:00 UTC      17h Wed 2026-11-04 00:07:00 UTC       6h ago sysstat-summary.timer          sysstat-summary.service
+Thu 2026-11-05 00:30:00 UTC      18h Wed 2026-11-04 00:30:00 UTC 5h 42min ago cyberflow-aprendizaje.timer    cyberflow-aprendizaje.service
+Thu 2026-11-05 04:06:39 UTC      21h Wed 2026-11-04 06:09:10 UTC 3min 35s ago man-db.timer                   man-db.service
+Sun 2026-11-08 01:09:27 UTC   3 days Tue 2026-10-27 05:46:02 UTC            - update-notifier-motd.timer     update-notifier-motd.service
+Sun 2026-11-08 03:10:20 UTC   3 days Sun 2026-11-01 03:10:56 UTC   3 days ago e2scrub_all.timer              e2scrub_all.service
+Mon 2026-11-09 00:45:02 UTC   4 days Mon 2026-11-02 00:36:50 UTC   2 days ago fstrim.timer                   fstrim.service
+-                                  - -                                      - apport-autoreport.timer        apport-autoreport.service
+-                                  - -                                      - snapd.snap-repair.timer        snapd.snap-repair.service
+-                                  - -                                      - ua-timer.timer                 ua-timer.service
+
+22 timers listed.

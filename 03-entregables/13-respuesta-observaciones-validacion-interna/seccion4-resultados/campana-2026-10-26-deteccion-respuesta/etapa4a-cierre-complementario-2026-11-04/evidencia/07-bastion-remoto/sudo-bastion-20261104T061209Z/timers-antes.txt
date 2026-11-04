@@ -1,0 +1,14 @@
+NEXT                            LEFT LAST                              PASSED UNIT                         ACTIVATES
+Wed 2026-11-04 01:12:13 -05       2s Wed 2026-11-04 01:12:03 -05       6s ago ppi-relay-feed.timer         ppi-relay-feed.service
+Wed 2026-11-04 01:26:23 -05    14min Wed 2026-11-04 01:11:23 -05      46s ago sysvol-sync.timer            sysvol-sync.service
+Wed 2026-11-04 03:03:32 -05 1h 51min Tue 2026-11-03 05:39:53 -05      19h ago man-db.timer                 man-db.service
+Wed 2026-11-04 06:13:26 -05  5h 1min Tue 2026-11-03 06:33:33 -05      18h ago apt-daily-upgrade.timer      apt-daily-upgrade.service
+Wed 2026-11-04 06:17:39 -05  5h 5min Wed 2026-11-04 00:18:13 -05    53min ago francos-exportar-red.timer   francos-exportar-red.service
+Wed 2026-11-04 10:47:33 -05       9h Tue 2026-11-03 10:47:33 -05      14h ago systemd-tmpfiles-clean.timer systemd-tmpfiles-clean.service
+Wed 2026-11-04 11:55:01 -05      10h Tue 2026-11-03 21:18:50 -05 3h 53min ago apt-daily.timer              apt-daily.service
+Thu 2026-11-05 00:00:00 -05      22h Wed 2026-11-04 00:00:03 -05 1h 12min ago dpkg-db-backup.timer         dpkg-db-backup.service
+Thu 2026-11-05 00:02:42 -05      22h Wed 2026-11-04 00:01:14 -05 1h 10min ago logrotate.timer              logrotate.service
+Sun 2026-11-08 03:10:51 -05   4 days Sun 2026-11-01 03:10:32 -05            - e2scrub_all.timer            e2scrub_all.service
+Mon 2026-11-09 00:57:03 -05   4 days Mon 2026-11-02 00:45:23 -05            - fstrim.timer                 fstrim.service
+
+11 timers listed.

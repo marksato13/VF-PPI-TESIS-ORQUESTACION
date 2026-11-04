@@ -1,0 +1,31 @@
+### srv-dmz 2026-11-04T05:35:07Z
+  UNIT                             LOAD   ACTIVE SUB     DESCRIPTION
+  ppi-enforce-agent-v2-dmz.service loaded active running CyberFlow - agente v2 perfil dmz (srv-dmz), SOMBRA (Etapa 4)
+
+Legend: LOAD   → Reflects whether the unit definition was properly loaded.
+        ACTIVE → The high-level unit activation state, i.e. generalization of SUB.
+        SUB    → The low-level unit activation state, values depend on unit type.
+
+1 loaded units listed.
+To show all installed unit files use 'systemctl list-unit-files'.
+UNIT FILE                        STATE    PRESET
+ppi-brute-lab.service            disabled enabled
+ppi-enforce-agent-v2-dmz.service enabled  enabled
+ppi-enforce-agent.service        static   -
+ppi-enforce-agent.timer          disabled enabled
+
+4 unit files listed.
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  -
+total 20
+drwxr-xr-x  5 root     root     4096 nov  4 02:18 .
+drwxr-xr-x 47 root     root     4096 nov  4 02:18 ..
+drwx------  2 cfagente cfagente 4096 nov  4 05:35 agente
+drwxr-x---  4 cffeed   cffeed   4096 nov  4 02:18 cffeed-home
+drwxr-s---  2 cffeed   cfagente 4096 nov  4 05:34 feed
+total 16
+drwxr-s--- 2 cffeed cfagente 4096 nov  4 05:34 .
+drwxr-xr-x 5 root   root     4096 nov  4 02:18 ..
+-rw-r----- 1 cffeed cfagente  147 nov  4 05:34 feed.json
+-rw-r----- 1 cffeed cfagente   64 nov  4 05:34 feed.sig
+logs: 
+1525584 cfagente /usr/bin/python3 -I /opt/cyberflow/agente-v2/agente_enforce_v2.py --perfil dmz --feed /var/lib/cyberflow/feed/feed.json --firma /var/lib/cyberflow/feed/feed.sig --clave-publica /opt/cyberflow/agente-v2/pub.pem --estado /var/lib/cyberflow/agente/estado.json --traza /var/lib/cyberflow/agente/traza.jsonl --helper sudo -n /usr/local/sbin/cf-nft-helper --seguir

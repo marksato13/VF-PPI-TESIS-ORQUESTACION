@@ -1,0 +1,142 @@
+2:  - interface: ens37
+4:    # Number of receive threads. "auto" uses the number of cores
+5:    #threads: auto
+24:    # To use the ring feature of AF_PACKET, set 'use-mmap' to yes
+25:    #use-mmap: yes
+28:    #mmap-locked: yes
+29:    # Use tpacket_v3 capture mode, only active if use-mmap is true
+31:    #tpacket-v3: yes
+32:    # Ring size will be computed with respect to "max-pending-packets" and number
+33:    # of threads. You can set manually the ring size in number of packets by setting
+35:    # intensive single-flow you may want to set the "ring-size" independently of the number
+36:    # of threads:
+37:    #ring-size: 2048
+38:    # Block size is used by tpacket_v3 only. It should set to a value high enough to contain
+41:    #block-size: 32768
+42:    # tpacket_v3 block timeout: an open block is passed to userspace if it is not
+43:    # filled after block-timeout milliseconds.
+44:    #block-timeout: 10
+47:    #use-emergency-flush: yes
+49:    # buffer-size: 32768
+52:    # Choose checksum verification mode for the interface. At the moment
+63:    # BPF filter to apply to this interface. The pcap filter syntax applies here.
+67:    # interface will be copied to the copy-iface interface. If 'tap' is set, the
+75:  # Put default values here. These will be used for an interface that is not
+77:  - interface: default
+78:    #threads: auto
+79:    #use-mmap: no
+80:    #tpacket-v3: yes
+84:  - interface: default
+85:    # Number of receive threads. "auto" uses least between the number
+87:    #threads: auto
+### comentarios de ring-size
+642-    # Use tpacket_v3 capture mode, only active if use-mmap is true
+643-    # Don't use it in IPS or TAP mode as it causes severe latency
+644-    #tpacket-v3: yes
+645-    # Ring size will be computed with respect to "max-pending-packets" and number
+646-    # of threads. You can set manually the ring size in number of packets by setting
+647-    # the following value. If you are using flow "cluster-type" and have really network
+648:    # intensive single-flow you may want to set the "ring-size" independently of the number
+649-    # of threads:
+650:    #ring-size: 2048
+651-    # Block size is used by tpacket_v3 only. It should set to a value high enough to contain
+652-    # a decent number of packets. Size is in bytes so please consider your MTU. It should be
+653-    # a power of 2 and it must be multiple of page size (usually 4096).
+1267:#max-pending-packets: 1024
+### dump-config (sin root)
+stats.enabled = yes
+stats.interval = 8
+af-packet = (null)
+af-packet.0 = interface
+af-packet.0.interface = ens37
+af-packet.0.checksum-checks = no
+af-packet.0.cluster-id = 99
+af-packet.0.cluster-type = cluster_flow
+af-packet.0.defrag = yes
+af-packet.1 = interface
+af-packet.1.interface = default
+### suricata.log del arranque 30-oct
+total 1881388
+-rw-r--r-- 1 root root  71424652 nov  4 05:34 eve.json
+-rw-r--r-- 1 root root  84086784 oct  5 18:50 eve.json.1-2026100600.backup
+-rw-r--r-- 1 root root 113516544 oct  9 13:53 eve.json.1-2026101000.backup
+-rw-r--r-- 1 root root 138301440 oct 21 19:07 eve.json.1-2026102200.backup
+-rw-r--r-- 1 root root 926269440 oct 30 15:50 eve.json.1-2026103100.backup
+-rw-r--r-- 1 root root  68989373 nov  4 00:00 eve.json.1.gz
+-rw-r--r-- 1 root root  46319681 nov  3 00:00 eve.json.2.gz
+-rw-r--r-- 1 root root  64185399 nov  2 00:00 eve.json.3.gz
+-rw-r--r-- 1 root root  11908848 nov  1 00:00 eve.json.4.gz
+== /var/log/suricata/suricata.log
+== /var/log/suricata/suricata.log.1-2026100600.backup
+== /var/log/suricata/suricata.log.1-2026101000.backup
+== /var/log/suricata/suricata.log.1-2026102200.backup
+== /var/log/suricata/suricata.log.1-2026103100.backup
+== /var/log/suricata/suricata.log.1.gz
+== /var/log/suricata/suricata.log.2.gz
+== /var/log/suricata/suricata.log.3.gz
+== /var/log/suricata/suricata.log.4.gz
+== /var/log/suricata/suricata.log.5.gz
+[1350 - Suricata-Main] 2026-10-30 15:52:49 Info: runmodes: ens37: creating 4 threads
+[1350 - Suricata-Main] 2026-10-30 15:52:50 Notice: threads: Threads created -> W: 4 FM: 1 FR: 1   Engine started.
+[1341 - Suricata-Main] 2026-10-30 17:14:49 Info: runmodes: ens37: creating 4 threads
+[1341 - Suricata-Main] 2026-10-30 17:14:50 Notice: threads: Threads created -> W: 4 FM: 1 FR: 1   Engine started.
+[1342 - Suricata-Main] 2026-10-30 17:48:30 Info: runmodes: ens37: creating 4 threads
+[1342 - Suricata-Main] 2026-10-30 17:48:30 Notice: threads: Threads created -> W: 4 FM: 1 FR: 1   Engine started.
+[1372 - Suricata-Main] 2026-10-30 19:55:21 Info: runmodes: ens37: creating 4 threads
+[1372 - Suricata-Main] 2026-10-30 19:55:21 Notice: threads: Threads created -> W: 4 FM: 1 FR: 1   Engine started.
+== /var/log/suricata/suricata.log.7.gz
+### outputs stats
+309:        - stats:
+310-            totals: yes       # stats for all threads merged together
+311-            threads: no       # per thread stats
+312-            deltas: no        # include delta values
+313-        # bi-directional flows
+314-        - flow
+315-        # uni-directional flows
+316-        #- netflow
+317-
+--
+436:  - stats:
+437-      enabled: yes
+438-      filename: stats.log
+439-      append: yes       # append to file (yes) or overwrite it (no)
+440-      totals: yes       # stats for all threads merged together
+441-      threads: no       # per thread stats
+442-      #null-values: yes  # print counters that have value 0. Default: no
+443-
+444-  # a line based alerts log similar to fast.log into syslog
+### packets/sockets
+sk               RefCnt Type Proto  Iface R Rmem   User   Inode
+0000000000000000 3      3    88cc   2     1 0      998    9243  
+0000000000000000 3      3    88cc   3     1 0      998    9244  
+0000000000000000 3      3    0003   3     1 0      0      8734  
+0000000000000000 3      3    0003   3     1 0      0      8738  
+0000000000000000 3      3    0003   3     1 0      0      8739  
+0000000000000000 3      3    0003   3     1 0      0      8755  
+0000000000000000 3      3    0003   3     1 0      0      13388449
+0000000000000000 3      3    0003   3     1 0      1000   13387602
+    TID COMMAND         PSR %CPU
+   1372 Suricata-Main     0  0.3
+   1381 W#01-ens37        1  0.1
+   1383 W#02-ens37        1  0.1
+   1384 W#03-ens37        2  0.1
+   1389 W#04-ens37        0  0.1
+   1395 FM#01             3  0.3
+   1396 FR#01             2  0.0
+   1397 CW                1  0.0
+   1398 CS                0  0.0
+   1399 US                1  0.0
+212992
+212992
+capture.afpacket.poll_data                    | Total                     | 63415144
+tcp.memuse                                    | Total                     | 2471872
+flow.memuse                                   | Total                     | 7662032
+Date: 11/4/2026 -- 05:34:12 (uptime: 4d, 09h 38m 51s)
+capture.kernel_packets                        | Total                     | 137214699
+capture.kernel_drops                          | Total                     | 82291
+capture.afpacket.busy_loop_avg                | Total                     | 1
+capture.afpacket.polls                        | Total                     | 74004210
+capture.afpacket.poll_timeout                 | Total                     | 10587912
+capture.afpacket.poll_data                    | Total                     | 63416298
+tcp.memuse                                    | Total                     | 2471968
+flow.memuse                                   | Total                     | 7662032

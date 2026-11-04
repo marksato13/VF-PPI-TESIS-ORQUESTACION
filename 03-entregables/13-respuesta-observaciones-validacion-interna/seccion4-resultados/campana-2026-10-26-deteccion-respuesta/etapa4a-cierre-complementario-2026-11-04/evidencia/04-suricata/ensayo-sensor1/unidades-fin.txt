@@ -1,0 +1,9 @@
+ppi-publicar-feed.timer inactive disabled 
+ppi-publicar-feed.service 0 0 inactive static 
+ppi-publicar-feed-v2.service 1413923 0 active enabled 
+ppi-motor.service 1707357 0 active enabled 
+ppi-motor-capture.service 1707345 0 active enabled 
+ppi-dashboard.service 1707384 0 active enabled 
+ppi-via-rapida@ens37.service 1413922 0 active enabled 
+/home/m4rk/feed/feed.json 2026-11-04 06:12:40.892770032 +0000
+/home/m4rk/feed/acuses/srv-dmz.json 2026-11-04 06:12:05.454345920 +0000

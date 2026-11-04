@@ -1,0 +1,32 @@
+2026-11-04T06:04:59.108604970Z
+6c6cbbee1f39ee241a30b0f117c296845006b895edfd897a3805884a167d8782  /home/m4rk/cf-e4/cierre4a/previo/CRITERIOS-ENSAYO-ANILLO.md
+ultima_decision 10.10.60.12|2026-11-04T06:04:50+00:00 pcaps_ilegibles 1 {'PermissionError': "[Errno 13] Permission denied: '/var/lib/ppi-motor-capture/live-20261104021107.pcap'"}
+PermissionError en el registro del motor: 15157
+-rw-r-----  1 tcpdump m4rk  4749332 2026-11-04 06:04:43.452049386 +0000 live-20261104060439.pcap
+-rw-r-----  1 tcpdump m4rk   251033 2026-11-04 06:04:48.572110838 +0000 live-20261104060444.pcap
+-rw-r-----  1 tcpdump m4rk   126047 2026-11-04 06:04:53.691172273 +0000 live-20261104060449.pcap
+-rw-r-----  1 tcpdump m4rk   261406 2026-11-04 06:04:58.811233720 +0000 live-20261104060454.pcap
+/home/m4rk/feed/feed.json 2026-11-04 06:04:50.886138608 +0000
+/home/m4rk/feed/acuses/srv-dmz.json 2026-11-04 06:04:55.423193060 +0000
+ppi-publicar-feed.timer active enabled 
+ppi-publicar-feed.service 0 inactive static 
+ppi-publicar-feed-v2.service 1413923 active enabled 
+ppi-motor.service 1413866 active enabled 
+ppi-motor-capture.service 1413865 active enabled 
+ppi-dashboard.service 1674512 active enabled 
+ppi-via-rapida@ens37.service 1413922 active enabled 
+suricata.service 1372 active enabled 
+1413923 m4rk     mié nov  4 02:11:07 2026 /home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow-e4/ec78ca5/scripts/engine/publicar_feed_v2.py --log /home/m4rk/cyberflow/logs/motor_decision.log --estado /home/m4rk/feed-v2/estado.json --clave-privada /home/m4rk/cyberflow/artifacts/feed-keys/priv.pem --salida-feed /home/m4rk/feed-v2/feed.json --salida-firma /home/m4rk/feed-v2/feed.sig --senales /home/m4rk/feed-v2/senales-if.jsonl --senales-rapidas /home/m4rk/feed-v2/senales-rapidas.jsonl --traza /home/m4rk/feed-v2/traza.jsonl --politica if_senal --vigencia-segundos 60 --refresco-segundos 20 --seguir
+24c320e3e953857317c08beb04e34f34c6f132bb6cccd0f1b4c7ab98b621a21e  -
+Date: 11/4/2026 -- 06:04:53 (uptime: 4d, 10h 09m 32s)
+capture.kernel_packets                        | Total                     | 138035597
+capture.kernel_drops                          | Total                     | 82529
+muestrear pid 1698028 vivo: si
+fino pid 1698029 vivo: si
+    3 /home/m4rk/cf-e4/cierre4a/salud/muestras.jsonl
+   25 /home/m4rk/cf-e4/cierre4a/salud/fino.jsonl
+   28 total
+==> /home/m4rk/cf-e4/cierre4a/salud/muestrear.out <==
+
+==> /home/m4rk/cf-e4/cierre4a/salud/fino.out <==
+fino: nic {'rx_packets': 138042938, 'rx_bytes': 31868840785, 'rx_dropped': 5360899, 'rx_missed_errors': 0, 'rx_fifo_errors': 0} hilos 10 rss 121404 mem 6791880 errores None

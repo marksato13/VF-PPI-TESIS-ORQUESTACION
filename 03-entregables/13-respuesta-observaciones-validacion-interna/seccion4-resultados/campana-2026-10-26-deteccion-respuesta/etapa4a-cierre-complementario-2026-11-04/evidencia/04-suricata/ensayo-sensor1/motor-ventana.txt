@@ -1,0 +1,2 @@
+ciclos 717 dur p50/p95/max 0.387 1.3952 2.6219 hueco_max_entre_ciclos_s 5.9 disparos Counter({'pcap_cerrado': 717})
+decisiones 3884 decision {'ALERT': 97, 'PERMIT': 3787} decision_if {'ALERT': 97, 'PERMIT': 2080, None: 1707} pcaps_ilegibles {0: 3884} historial_completo {True: 3884}

@@ -1,0 +1,27 @@
+-rw-r--r--  1 root root    82743792 2026-11-04 06:32:10.560160471 +0000 eve.json
+-rw-r--r--  1 root root    84086784 2026-10-05 18:50:39.134000020 +0000 eve.json.1-2026100600.backup
+-rw-r--r--  1 root root   113516544 2026-10-09 13:53:22.352000028 +0000 eve.json.1-2026101000.backup
+-rw-r--r--  1 root root   138301440 2026-10-21 19:07:42.090000045 +0000 eve.json.1-2026102200.backup
+-rw-r--r--  1 root root   926269440 2026-10-30 15:50:58.685347711 +0000 eve.json.1-2026103100.backup
+-rw-r--r--  1 root root    68989373 2026-11-04 00:00:01.968189427 +0000 eve.json.1.gz
+-rw-r--r--  1 root root    46319681 2026-11-03 00:00:00.561530200 +0000 eve.json.2.gz
+-rw-r--r--  1 root root    64185399 2026-11-02 00:00:00.986094191 +0000 eve.json.3.gz
+-rw-r--r--  1 root root    11908848 2026-11-01 00:00:04.309680503 +0000 eve.json.4.gz
+-rw-r--r--  1 root root     4250336 2026-10-30 23:59:59.427265201 +0000 eve.json.5.gz
+-rw-r--r--  1 root root    46753835 2026-10-28 23:59:58.754379852 +0000 eve.json.7.gz
+-rw-r--r--  1 root root    27008919 2026-11-04 06:32:07.170119246 +0000 stats.log
+-rw-r--r--  1 root root    62914560 2026-10-05 18:50:38.910000019 +0000 stats.log.1-2026100600.backup
+-rw-r--r--  1 root root    80986112 2026-10-09 13:53:21.752000026 +0000 stats.log.1-2026101000.backup
+-rw-r--r--  1 root root    79921152 2026-10-21 19:07:41.142000042 +0000 stats.log.1-2026102200.backup
+-rw-r--r--  1 root root    86529376 2026-10-30 15:50:54.106347694 +0000 stats.log.1-2026103100.backup
+-rw-r--r--  1 root root     3485367 2026-11-03 23:59:54.494100647 +0000 stats.log.1.gz
+-rw-r--r--  1 root root     3346540 2026-11-02 23:59:55.740471924 +0000 stats.log.2.gz
+-rw-r--r--  1 root root     3191758 2026-11-01 23:59:53.545005582 +0000 stats.log.3.gz
+-rw-r--r--  1 root root     2774915 2026-10-31 23:59:58.493610327 +0000 stats.log.4.gz
+-rw-r--r--  1 root root      745285 2026-10-30 23:59:55.592219739 +0000 stats.log.5.gz
+-rw-r--r--  1 root root     3287550 2026-10-28 23:59:56.714355275 +0000 stats.log.7.gz
+{"timestamp":"2026-11-04T00:00:03.921468+0000","flow_id":141
+base-4a-suricata.json stats.log bloques 451 interv 450 hueco_max None paq 936761 desc 7 por_M 7.473 episodios [('03:05:47', 7)] rafagas 11 p50/p95/max 1856 4306 7168
+base-4a-suricata-eve.json eve stats bloques 451 interv 450 hueco_max 8.0 paq 936761 desc 7 por_M 7.473 episodios [('03:05:47', 7)] rafagas 11 p50/p95/max 1856 4306 7168
+== desde el reinicio (06:16:55) hasta ahora, solo contexto de calentamiento
+bloques 114 reinicios 0 paq 284849 desc 0 rafagas 12

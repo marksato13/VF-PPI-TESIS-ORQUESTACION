@@ -1,0 +1,25 @@
+ec78ca5 SHA256SUMS OK (87 ficheros)
+b3ad680595128189574527208e53058f613822f56f542f914faef6495aa2a9e7  /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json
+df547da098e51171aa267c8466edc6624bc1bd5c6b602639cc00bd4711a2fd60  /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib
+fb6b8ed2b677056f0c23d267a1d38a988d7d1d993f980b050f0a63665543bbf4  /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10.joblib
+9a4e02645df9484037ba9386c488cc431cba4b8564c3b4892de3c5ed210c579d  /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/verif_vigente.joblib
+.detectors.if_limpio_2026_10.kind isolation_forest_pipeline
+.detectors.if_limpio_2026_10.model_path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib
+.detectors.if_limpio_2026_10.model_sha256 df547da098e51171aa267c8466edc6624bc1bd5c6b602639cc00bd4711a2fd60
+.detectors.if_limpio_2026_10.schema multilayer-v2.json
+.detectors.if_limpio_2026_10.n_features 28
+.detectors.if_limpio_2026_10.calibration.threshold -0.5693969936322356
+.detectors.if_limpio_2026_10.calibration.comparison score < threshold
+.detectors.if_limpio_2026_10.calibration.score_function score_samples
+.detectors.if_limpio_2026_10.calibration.threshold_decision_function -0.06939699363223557
+.detectors.if_limpio_2026_10.calibration.offset -0.5
+.detectors.if_limpio_2026_10.calibration.alpha 0.05
+.detectors.if_limpio_2026_10.origen.paquete /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10.joblib
+.detectors.if_limpio_2026_10.origen.paquete_sha256 fb6b8ed2b677056f0c23d267a1d38a988d7d1d993f980b050f0a63665543bbf4
+.detectors.if_limpio_2026_10.origen.informe /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10.json
+.detectors.if_limpio_2026_10.origen.informe_sha256 9211e041ec6d01508c3a6fe5cf99e221e897a0c24e5f9aa92e5c62365dcffd35
+.evaluation.if_limpio_2026_10.threshold_used -0.5693969936322356
+{'detector_name': 'if_limpio_2026_10', 'threshold': -0.5693969936322356, 'disparo': 'eventos'}
+['ancla_reanudada', 'capture_dir', 'ciclos_path', 'claves_previas_cargadas', 'detector_name', 'disparo', 'entity_network', 'eve_path', 'event', 'excluidas', 'history_seconds', 'horizonte', 'hueco_arranque', 'manifest_path', 'model_path', 'procesamiento', 'protocolos_excluidos', 'recuperacion_eve', 'sondeo_segundos', 'step_seconds', 'threshold', 'timestamp']
+--manifest-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json
+--disparo eventos

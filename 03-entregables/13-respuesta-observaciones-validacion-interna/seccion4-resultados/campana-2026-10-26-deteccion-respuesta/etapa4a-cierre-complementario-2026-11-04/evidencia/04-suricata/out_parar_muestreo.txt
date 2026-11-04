@@ -1,0 +1,9 @@
+1698028 /home/m4rk/cyberflow/.venv/bin/python -I /home/m4rk/cyberflow-e4/ec78ca5/scripts/etapa4/salud_captura.py muestrear --salida /home/m4rk/cf-e4/cierre4a/salud/muestras.jsonl --suricata-stats /var/log/suricata/stats.log --interfaz ens37 --unidad ppi-motor --unidad ppi-motor-capture --unidad ppi-via-rapida@ens37 --unidad ppi-publicar-feed-v2 --unidad suricata --anillo /var/lib/ppi-motor-capture --resumen-rapida /home/m4rk/feed-v2/via-rapida-resumen.jsonl --ciclos /home/m4rk/cyberflow/logs/_state-e4/ciclos.jsonl --hijos-de-unidad ppi-via-rapida@ens37 --intervalo 10
+muestrear (1698028) parado
+1698029 /home/m4rk/cyberflow/.venv/bin/python -I /home/m4rk/cf-e4/cierre4a/herr/muestreo_fino.py --salida /home/m4rk/cf-e4/cierre4a/salud/fino.jsonl --intervalo 1
+fino (1698029) parado
+    500 /home/m4rk/cf-e4/cierre4a/salud/muestras.jsonl
+   5041 /home/m4rk/cf-e4/cierre4a/salud/fino.jsonl
+   5541 total
+d69323d80720e7acca9d597d6b6e17eb16e89cf79ed35f89d2c8a29c483434ec  /tmp/cierre4a-salud-ensayo.tgz
+-rw-rw-r-- 1 m4rk m4rk 630278 nov  4 07:29 /tmp/cierre4a-salud-ensayo.tgz

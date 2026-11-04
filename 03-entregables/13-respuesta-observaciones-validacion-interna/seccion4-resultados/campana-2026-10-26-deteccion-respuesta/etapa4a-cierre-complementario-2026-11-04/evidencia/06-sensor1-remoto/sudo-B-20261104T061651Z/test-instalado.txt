@@ -1,0 +1,12 @@
+Notice: suricata: This is Suricata version 7.0.3 RELEASE running in SYSTEM mode
+Info: cpu: CPUs/cores online: 4
+Info: suricata: Running suricata under test mode
+Info: suricata: Setting engine mode to IDS mode by default
+Info: exception-policy: master exception-policy set to: auto
+Info: logopenfile: fast output device (regular) initialized: fast.log
+Info: logopenfile: eve-log output device (regular) initialized: eve.json
+Info: logopenfile: stats output device (regular) initialized: stats.log
+Warning: detect: 1 rule files specified, but no rules were loaded!
+Info: threshold-config: Threshold config parsed: 0 rule(s) found
+Info: detect: 0 signatures processed. 0 are IP-only rules, 0 are inspecting packet payload, 0 inspect application layer, 0 are decoder event only
+Notice: suricata: Configuration provided was successfully loaded. Exiting.

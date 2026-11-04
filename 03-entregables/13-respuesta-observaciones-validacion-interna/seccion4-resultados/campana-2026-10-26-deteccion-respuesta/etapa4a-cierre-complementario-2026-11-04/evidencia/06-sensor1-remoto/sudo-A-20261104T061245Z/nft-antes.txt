@@ -1,0 +1,7 @@
+table inet cyberflow_panel {
+	chain entrada {
+		type filter hook input priority filter; policy accept;
+		tcp dport 8788 ip saddr 10.10.10.30 accept
+		tcp dport 8788 drop
+	}
+}

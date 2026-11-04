@@ -1,0 +1,9 @@
+Id=ppi-relay-feed.timer
+ActiveState=inactive
+UnitFileState=disabled
+Id=ppi-relay-feed.service
+ActiveState=inactive
+UnitFileState=static
+Id=ppi-relay-eventos.service
+ActiveState=active
+UnitFileState=enabled

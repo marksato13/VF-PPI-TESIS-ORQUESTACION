@@ -1,0 +1,66 @@
+== sección stats de outputs y global
+64:stats:
+68:  interval: 8
+309:        - stats:
+310:            totals: yes       # stats for all threads merged together
+311:            threads: no       # per thread stats
+436:  - stats:
+438:      filename: stats.log
+440:      totals: yes       # stats for all threads merged together
+441:      threads: no       # per thread stats
+757:      threads: auto
+792:      threads: auto
+1987:    threads: auto
+stats = (null)
+stats.enabled = yes
+stats.interval = 8
+outputs.7.stats = (null)
+outputs.7.stats.enabled = yes
+outputs.7.stats.filename = stats.log
+outputs.7.stats.append = yes
+outputs.7.stats.totals = yes
+outputs.7.stats.threads = no
+== último bloque completo de stats.log
+Date: 11/4/2026 -- 06:30:55 (uptime: 0d, 00h 14m 00s)
+------------------------------------------------------------------------------------
+Counter                                       | TM Name                   | Value
+------------------------------------------------------------------------------------
+capture.kernel_packets                        | Total                     | 271749
+capture.afpacket.busy_loop_avg                | Total                     | 1
+capture.afpacket.polls                        | Total                     | 154593
+capture.afpacket.poll_timeout                 | Total                     | 21473
+capture.afpacket.poll_data                    | Total                     | 133120
+decoder.pkts                                  | Total                     | 271831
+decoder.bytes                                 | Total                     | 88333875
+decoder.ipv4                                  | Total                     | 259649
+decoder.ipv6                                  | Total                     | 10
+decoder.ethernet                              | Total                     | 271831
+decoder.arp                                   | Total                     | 213
+decoder.unknown_ethertype                     | Total                     | 11959
+decoder.tcp                                   | Total                     | 202889
+tcp.syn                                       | Total                     | 928
+tcp.synack                                    | Total                     | 512
+tcp.rst                                       | Total                     | 249
+decoder.udp                                   | Total                     | 15083
+decoder.icmpv4                                | Total                     | 1
+decoder.icmpv6                                | Total                     | 10
+decoder.vlan                                  | Total                     | 271663
+decoder.avg_pkt_size                          | Total                     | 324
+decoder.max_pkt_size                          | Total                     | 1499
+tcp.active_sessions                           | Total                     | 55
+flow.total                                    | Total                     | 1512
+flow.active                                   | Total                     | 304
+flow.tcp                                      | Total                     | 628
+flow.udp                                      | Total                     | 879
+flow.icmpv6                                   | Total                     | 5
+flow.tcp_reuse                                | Total                     | 14
+flow.wrk.spare_sync_avg                       | Total                     | 99
+flow.wrk.spare_sync                           | Total                     | 16
+flow.wrk.spare_sync_incomplete                | Total                     | 6
+flow.wrk.flows_evicted_needs_work             | Total                     | 64
+flow.wrk.flows_evicted_pkt_inject             | Total                     | 126
+flow.wrk.flows_evicted                        | Total                     | 42
+flow.wrk.flows_injected                       | Total                     | 64
+== bloques desde el reinicio con y sin kernel_drops
+kernel_drops_presente=0 106
+{"timestamp":"2026-11-04T06:31:03.163920+0000","event_type":"stats","stats":{"uptime":848,"capture":{"kernel_packets":272977,"kernel_drops":0,"errors":0,"afpacket":{"busy_loop_avg":1,"polls":155427,"poll_signal":0,"poll_timeout":21640,"poll_data":133787,"poll_errors":0,"send_errors":0}},"decoder":{"pkts":272987,"bytes":88500688,"invalid":0,"ipv4":260719,"ipv6":10,"ethernet":272987,"arp":215,"unknown_ethertype":12043,"chdlc":0,"raw":0,"null":0,"sll":0,"tcp":203527,"udp":15207,"sctp":0,"esp":0,"icmpv4":1,"icmpv6":10,"ppp":0,"pppoe":0,"geneve":0,"gre":0,"vlan":272819,"vlan_qinq":0,"vlan_qinqinq":

@@ -1,0 +1,31 @@
+{
+ "etiqueta": "calentamiento",
+ "fuente_contadores": "eve stats",
+ "hueco_max_entre_bloques_s": 8.0,
+ "desde": 1793773015.0,
+ "hasta": 1793773932.0,
+ "duracion_s": 917.0,
+ "bloques_stats": 114,
+ "intervalos_validos": 113,
+ "reinicios_suricata_en_ventana": 0,
+ "cobertura_stats_s": 904.1,
+ "paquetes": 284849,
+ "descartes": 0,
+ "descartes_por_millon": 0.0,
+ "intervalos_con_descartes": [],
+ "paquetes_por_intervalo": {
+  "p50": 1456,
+  "p95": 6018,
+  "max": 14614,
+  "media": 2520.8
+ },
+ "pps_max_intervalo": 1826.4,
+ "rafagas_ge_umbral": 12,
+ "umbral_rafaga_paquetes_8s": 5000,
+ "flujos_eve": 0,
+ "flujos_grandes": 0,
+ "umbral_flujo_grande": 1000,
+ "flujos_grandes_top": [],
+ "paquetes_en_flujos_grandes": 0,
+ "volumen_srv_dmz_por_cliente": {}
+}

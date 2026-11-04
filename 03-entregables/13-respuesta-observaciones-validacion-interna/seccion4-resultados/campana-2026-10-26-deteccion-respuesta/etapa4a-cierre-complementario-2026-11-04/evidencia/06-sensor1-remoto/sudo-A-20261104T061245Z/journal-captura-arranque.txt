@@ -1,0 +1,11 @@
+2026-11-04T06:12:46.760545+00:00 cyberflow-sensor tcpdump[1413865]: 4181969 packets captured
+2026-11-04T06:12:46.760545+00:00 cyberflow-sensor tcpdump[1413865]: 4182118 packets received by filter
+2026-11-04T06:12:46.760970+00:00 cyberflow-sensor tcpdump[1413865]: 0 packets dropped by kernel
+2026-11-04T06:12:46.760613+00:00 cyberflow-sensor systemd[1]: Stopping ppi-motor-capture.service - CyberFlow - buffer en anillo de PCAP para el motor...
+2026-11-04T06:12:46.781966+00:00 cyberflow-sensor systemd[1]: ppi-motor-capture.service: Deactivated successfully.
+2026-11-04T06:12:46.782243+00:00 cyberflow-sensor systemd[1]: Stopped ppi-motor-capture.service - CyberFlow - buffer en anillo de PCAP para el motor.
+2026-11-04T06:12:46.782331+00:00 cyberflow-sensor systemd[1]: ppi-motor-capture.service: Consumed 8.340s CPU time, 290.4M memory peak, 0B memory swap peak.
+2026-11-04T06:12:46.795775+00:00 cyberflow-sensor systemd[1]: Starting ppi-motor-capture.service - CyberFlow - buffer en anillo de PCAP para el motor...
+2026-11-04T06:12:46.834512+00:00 cyberflow-sensor tcpdump[1707345]: tcpdump: listening on ens37, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+2026-11-04T06:12:46.923303+00:00 cyberflow-sensor cf-primer-pcap[1707353]: primer_pcap: grupo corregido en /var/lib/ppi-motor-capture/live-20261104061246.pcap
+2026-11-04T06:12:46.925415+00:00 cyberflow-sensor systemd[1]: Started ppi-motor-capture.service - CyberFlow - buffer en anillo de PCAP para el motor.

@@ -1,0 +1,113 @@
+evidencia: /home/m4rk/cf-e4/cierre4a/sudo-A-20261104T061245Z
+CRITERIOS-ENSAYO-ANILLO.md: OK
+cf-primer-pcap.sh: OK
+cierre4a_sensor1.sh: OK
+clasificar_periodo.py: OK
+comparar_suricata.py: OK
+ensayo_clasificar_periodo.py: OK
+etapa4-primer-pcap.conf: OK
+modo-panel-v2.conf: OK
+muestreo_fino.py: OK
+revertir_cierre4a.sh: OK
+== A0 respaldo previo
+24c320e3e953857317c08beb04e34f34c6f132bb6cccd0f1b4c7ab98b621a21e  /home/m4rk/cf-e4/cierre4a/sudo-A-20261104T061245Z/nft-antes.txt
+== A1 retirar la publicación v1 (solo el temporizador y su servicio; ficheros y feed se conservan)
+Removed "/etc/systemd/system/timers.target.wants/ppi-publicar-feed.timer".
+Id=ppi-publicar-feed.timer
+ActiveState=inactive
+UnitFileState=disabled
+
+Id=ppi-publicar-feed.service
+ActiveState=inactive
+UnitFileState=static
+== A2 instalar la corrección del primer PCAP
+== A3 fijar el modo v2 del panel
+b654f8755c472ff4b9a9952f9ab325bd8d5975cfd928626a0cf98b81523828a5  /usr/local/sbin/cf-primer-pcap
+1a71f2eec093004529bbc5f24777fea9b4a388c5781f851edd463d4c9da5d1e6  /etc/systemd/system/ppi-motor-capture.service.d/etapa4-primer-pcap.conf
+7faad0044c1a2dcb9c773eab3c7b9785c1ba1c85d86456faff8f8c1afe838052  /etc/systemd/system/ppi-dashboard.service.d/modo-panel-v2.conf
+== A4 arranque controlado de la captura (el motor NO se reinicia)
+active
+2026-11-04T06:12:46.923303+00:00 cyberflow-sensor cf-primer-pcap[1707353]: primer_pcap: grupo corregido en /var/lib/ppi-motor-capture/live-20261104061246.pcap
+-rw-r-----  1 tcpdump m4rk   131390 2026-11-04 06:12:26.619599222 +0000 live-20261104061222.pcap
+-rw-r-----  1 tcpdump m4rk   117782 2026-11-04 06:12:31.739660496 +0000 live-20261104061227.pcap
+-rw-r-----  1 tcpdump m4rk   132611 2026-11-04 06:12:36.859721767 +0000 live-20261104061232.pcap
+-rw-r-----  1 tcpdump m4rk   704490 2026-11-04 06:12:41.891781987 +0000 live-20261104061237.pcap
+-rw-r-----  1 tcpdump m4rk  1405248 2026-11-04 06:12:46.268834366 +0000 live-20261104061242.pcap
+-rw-r-----  1 tcpdump m4rk   112058 2026-11-04 06:12:49.915878008 +0000 live-20261104061246.pcap
+== A5 reiniciar el panel con el drop-in
+active
+--modo-panel v2
+ruleset sin cambios
+== fin fase A 2026-11-04T06:12:54Z  evidencia en /home/m4rk/cf-e4/cierre4a/sudo-A-20261104T061245Z
+
+1793772766.696417061
+== unidades
+ppi-publicar-feed.timer inactive disabled 
+ppi-publicar-feed.service 0  inactive static 
+ppi-publicar-feed-v2.service 1413923 Wed 2026-11-04 02:11:07 UTC active enabled 
+ppi-motor.service 1707357 Wed 2026-11-04 06:12:46 UTC active enabled 
+ppi-motor-capture.service 1707345 Wed 2026-11-04 06:12:46 UTC active enabled 
+ppi-dashboard.service 1707384 Wed 2026-11-04 06:12:49 UTC active enabled 
+ppi-via-rapida@ens37.service 1413922 Wed 2026-11-04 02:11:07 UTC active enabled 
+suricata.service 1372 Fri 2026-10-30 19:55:21 UTC active enabled 
+sin temporizador publicar en list-timers activos
+sin procesos v1
+/home/m4rk/feed/feed.json 2026-11-04 06:12:40.892770032 +0000
+/home/m4rk/feed/acuses/srv-dmz.json 2026-11-04 06:12:05.454345920 +0000
+== drop-ins
+# /etc/systemd/system/ppi-motor-capture.service
+# /etc/systemd/system/ppi-motor-capture.service.d/etapa4-primer-pcap.conf
+# /etc/systemd/system/ppi-motor-capture.service.d/etapa4-primer-pcap.conf  (0644 root:root)
+ExecStartPost=-/usr/local/sbin/cf-primer-pcap /var/lib/ppi-motor-capture m4rk
+# /etc/systemd/system/ppi-motor-capture.service.d/etapa4.conf
+# /etc/systemd/system/ppi-motor-capture.service.d/etapa4.conf  (0644 root:root) — Etapa 4.
+# /etc/systemd/system/ppi-dashboard.service
+# /etc/systemd/system/ppi-dashboard.service.d/modo-panel-v2.conf
+# /etc/systemd/system/ppi-dashboard.service.d/modo-panel-v2.conf  (0644 root:root)
+# unidad generada por cyberflow_config.py + --modo-panel v2 --cadena-v2-dir --modo-respuesta.
+# modo v1 histórico solo se elige quitando este drop-in Y pasando --modo-panel v1-historico.
+    --modo-panel v2 --cadena-v2-dir /home/m4rk/feed-v2 --modo-respuesta sombra
+--modo-panel v2 --cadena-v2-dir /home/m4rk/feed-v2 --modo-respuesta sombra
+nov 04 06:12:50 cyberflow-sensor python[1707384]: panel: modo v2, cadena desde /home/m4rk/feed-v2 (modo sombra); «Preparar demo» deshabilitado
+== captura: primer fichero y rotaciones tras el reinicio
+2026-11-04T06:12:46.760545+00:00 cyberflow-sensor tcpdump[1413865]: 4181969 packets captured
+2026-11-04T06:12:46.760545+00:00 cyberflow-sensor tcpdump[1413865]: 4182118 packets received by filter
+2026-11-04T06:12:46.760970+00:00 cyberflow-sensor tcpdump[1413865]: 0 packets dropped by kernel
+2026-11-04T06:12:46.760613+00:00 cyberflow-sensor systemd[1]: Stopping ppi-motor-capture.service - CyberFlow - buffer en anillo de PCAP para el motor...
+2026-11-04T06:12:46.781966+00:00 cyberflow-sensor systemd[1]: ppi-motor-capture.service: Deactivated successfully.
+2026-11-04T06:12:46.782243+00:00 cyberflow-sensor systemd[1]: Stopped ppi-motor-capture.service - CyberFlow - buffer en anillo de PCAP para el motor.
+2026-11-04T06:12:46.782331+00:00 cyberflow-sensor systemd[1]: ppi-motor-capture.service: Consumed 8.340s CPU time, 290.4M memory peak, 0B memory swap peak.
+2026-11-04T06:12:46.795775+00:00 cyberflow-sensor systemd[1]: Starting ppi-motor-capture.service - CyberFlow - buffer en anillo de PCAP para el motor...
+2026-11-04T06:12:46.834512+00:00 cyberflow-sensor tcpdump[1707345]: tcpdump: listening on ens37, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+2026-11-04T06:12:46.923303+00:00 cyberflow-sensor cf-primer-pcap[1707353]: primer_pcap: grupo corregido en /var/lib/ppi-motor-capture/live-20261104061246.pcap
+2026-11-04T06:12:46.925415+00:00 cyberflow-sensor systemd[1]: Started ppi-motor-capture.service - CyberFlow - buffer en anillo de PCAP para el motor.
+2026-11-04T06:13:00.304801+00:00 cyberflow-sensor systemd[1]: ppi-motor-capture.service: Sent signal SIGUSR1 to main process 1707345 (tcpdump) on client request.
+2026-11-04 06:12:46.2688343660 tcpdump:m4rk 640 1405248 live-20261104061242.pcap
+2026-11-04 06:12:50.9408902740 tcpdump:m4rk 640 156412 live-20261104061246.pcap
+2026-11-04 06:12:55.0359392750 tcpdump:m4rk 640 154595 live-20261104061251.pcap
+2026-11-04 06:13:00.1560005420 tcpdump:m4rk 640 263065 live-20261104061256.pcap
+2026-11-04 06:13:05.2760618090 tcpdump:m4rk 640 149328 live-20261104061301.pcap
+2026-11-04 06:13:10.3961230750 tcpdump:m4rk 640 104364 live-20261104061306.pcap
+2026-11-04 06:13:15.5151843250 tcpdump:m4rk 640 120115 live-20261104061311.pcap
+2026-11-04 06:13:19.9952379300 tcpdump:m4rk 640 1676601 live-20261104061316.pcap
+no legibles por m4rk (todo el anillo):
+grupo tcpdump restante: 0
+primer fichero: /var/lib/ppi-motor-capture/live-20261104061242.pcap
+-rw-r----- 1 tcpdump m4rk 1405248 2026-11-04 06:12:46.268834366 +0000 /var/lib/ppi-motor-capture/live-20261104061242.pcap
+magic d4c3b2a1 bytes 1405248 paquetes 3164 completo True
+== motor: decisiones tras el reinicio
+decisiones tras reinicio 68 pcaps_ilegibles {0: 68} motivos {'null'}
+ultima 10.10.60.12|2026-11-04T06:13:40+00:00 PERMIT aplicar? {}
+ciclos tras reinicio 12 dur max 1.8898 p50 0.4821 disparos ['arranque', 'pcap_cerrado']
+ultimo ciclo hace 0.8 s
+== feed v2 y nft
+-rw-r--r--  1 m4rk m4rk      145 2026-11-04 06:13:24.364290206 +0000 feed.json
+-rw-r--r--  1 m4rk m4rk   131938 2026-11-04 06:13:42.150503010 +0000 senales-if.jsonl
+-rw-r--r--  1 m4rk m4rk   141591 2026-11-04 06:13:24.365290218 +0000 traza.jsonl
+24c320e3e953857317c08beb04e34f34c6f132bb6cccd0f1b4c7ab98b621a21e  -
+/proc/1707738/cmdline:1
+/proc/self/cmdline:1
+/proc/thread-self/cmdline:1
+== muestreadores
+muestrear vivo: si
+fino vivo: si
