@@ -1,0 +1,10 @@
+### 4.3 clave pública 2026-11-04T02:13:21Z
+7ce39571e282de7b3779f5d0f5f89f9c0f0dcaad7c4f88c16d53105c10198361  /home/gadmin/cf-e4/pub.pem
+### 4.4 srv-dmz (adminsrvdmz NOPASSWD, autorizado por Mark)
+respaldo: /home/adminsrvdmz/respaldos-etapa4/srvdmz-20261104T015754Z
+OK    condición previa: cadena v1 sin aplicar (timer inactive/disabled, sin tabla cyberflow)
+OK    fase 0
+passwd: password changed.
+OK    fase 1: cuentas, rutas, helper, sudoers y llave del relé (solo 'recibir')
+PARADA el helper no rechaza un perfil ajeno
+PARADA srv-dmz

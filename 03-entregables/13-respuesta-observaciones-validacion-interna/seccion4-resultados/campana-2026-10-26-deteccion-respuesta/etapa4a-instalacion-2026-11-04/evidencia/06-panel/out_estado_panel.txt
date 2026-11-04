@@ -1,0 +1,16 @@
+/home/m4rk/respaldos-etapa4/panel-20261104T033157Z
+457af3738029dffad9673a67d60e967bdc5ffe47b2082a0fb5eb294ae79d227b  /home/m4rk/cyberflow/scripts/engine/dashboard.py
+a7e9bd6afb877e718c3ef79b8ac9db7a1ca95e76509932dafba8bbd31d72c438  /home/m4rk/cyberflow/scripts/engine/cadena_v2.py
+MainPID=1513580
+NRestarts=0
+ActiveState=active
+ActiveEnterTimestamp=Wed 2026-11-04 03:31:57 UTC
+2026-11-04T03:31:57+00:00 cyberflow-sensor systemd[1]: ppi-dashboard.service: Deactivated successfully.
+2026-11-04T03:31:57+00:00 cyberflow-sensor systemd[1]: Stopped ppi-dashboard.service - CyberFlow - panel web de solo lectura.
+2026-11-04T03:31:57+00:00 cyberflow-sensor systemd[1]: ppi-dashboard.service: Consumed 2.597s CPU time, 25.9M memory peak, 0B memory swap peak.
+2026-11-04T03:31:57+00:00 cyberflow-sensor systemd[1]: Started ppi-dashboard.service - CyberFlow - panel web de solo lectura.
+2026-11-04T03:31:57+00:00 cyberflow-sensor python[1513580]: /home/m4rk/cyberflow/scripts/engine/dashboard.py:3465: SyntaxWarning: "\." is an invalid escape sequence. Such sequences will not work in th
+2026-11-04T03:31:57+00:00 cyberflow-sensor python[1513580]:   const origen = f.ip === '10.10.20.30' ? 'atacante' : (/^10\.10\.20\.2[1-6]$/.test(f.ip) ? 'clientes' : null);
+2026-11-04T03:31:57+00:00 cyberflow-sensor python[1513580]: panel: detector if_limpio_2026_10 (fuente: --detector-name)
+2026-11-04T03:31:57+00:00 cyberflow-sensor python[1513580]: panel: cadena v2 desde /home/m4rk/feed-v2 (modo sombra); «Preparar demo» deshabilitado
+m4rk     1516363 1513557  0 03:34 ?        00:00:00 curl -sk -o /dev/null -w %{http_code} -X POST -H X-CyberFlow: 1 https://10.10.60.11:8788/api/demo/preparar

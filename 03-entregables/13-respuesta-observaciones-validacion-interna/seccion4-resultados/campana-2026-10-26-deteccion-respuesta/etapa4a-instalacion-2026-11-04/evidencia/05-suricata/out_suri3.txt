@@ -1,0 +1,72 @@
+--- af-packet ens37 (bloque activo)
+af-packet:
+  - interface: ens37
+    checksum-checks: no
+    #threads: auto
+    cluster-id: 99
+    cluster-type: cluster_flow
+    defrag: yes
+    #use-mmap: yes
+    #mmap-locked: yes
+    #tpacket-v3: yes
+    #ring-size: 2048
+    #block-size: 32768
+    #block-timeout: 10
+    #use-emergency-flush: yes
+    #checksum-checks: kernel
+    #bpf-filter: port 80 or udp
+    #copy-mode: ips
+    #copy-iface: eth1
+  - interface: default
+1272:#runmode: autofp
+--- ethtool ens37
+Ring parameters for ens37:
+Pre-set maximums:
+RX:			4096
+RX Mini:		2048
+RX Jumbo:		4096
+TX:			4096
+TX push buff len:	n/a
+Current hardware settings:
+RX:			1024
+RX Mini:		128
+RX Jumbo:		512
+TX:			512
+Channel parameters for ens37:
+Pre-set maximums:
+RX:		n/a
+TX:		n/a
+Other:		1
+Combined:	4
+Current hardware settings:
+RX:		n/a
+TX:		n/a
+Other:		1
+Combined:	4
+driver: vmxnet3
+version: 1.7.0.0-k-NAPI
+firmware-version: 
+5216288
+0
+--- eve 03:05:36-03:05:52: eventos por par (top)
+flujos solapados (paquetes totales del flujo):
+   2469 ('10.10.20.26', '10.10.30.10', 80, 'TCP', 'http')
+   1203 ('10.10.20.23', '10.10.30.10', 80, 'TCP', 'http')
+   326 ('10.10.10.30', '10.10.60.11', 22, 'TCP', 'ssh')
+   224 ('10.10.10.30', '10.10.30.10', 22, 'TCP', 'ssh')
+   20 ('10.10.20.22', '10.10.30.10', 80, 'TCP', 'http')
+   20 ('10.10.20.24', '10.10.30.10', 80, 'TCP', 'http')
+   4 ('10.10.60.12', '8.8.8.8', 53, 'UDP', 'dns')
+eventos no-flow en el tramo:
+   6 ('ssh', '10.10.10.30', '10.10.60.11', 22)
+   4 ('dns', '10.10.60.12', '8.8.8.8', 53)
+   4 ('ssh', '10.10.10.30', '10.10.30.10', 22)
+   4 ('http', '10.10.20.24', '10.10.30.10', 80)
+   3 ('http', '10.10.20.23', '10.10.30.10', 80)
+   2 ('http', '10.10.20.22', '10.10.30.10', 80)
+   2 ('fileinfo', '10.10.30.10', '10.10.20.22', 41139)
+   2 ('stats', None, None, None)
+   2 ('http', '10.10.20.26', '10.10.30.10', 80)
+   2 ('fileinfo', '10.10.30.10', '10.10.20.24', 35857)
+   2 ('fileinfo', '10.10.30.10', '10.10.20.23', 54225)
+   2 ('fileinfo', '10.10.20.24', '10.10.30.10', 80)

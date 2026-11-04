@@ -124,9 +124,18 @@ sale de `~/feed-v2/traza.jsonl` y `senales-if.jsonl`; la de lo aplicado, de la t
      `descargas`/`erratico`;
    - hilos y `cluster_flow`: `grep -nE 'threads|cluster-type|ring-size' /etc/suricata/suricata.yaml` (lectura), y la
      CPU por hilo en `muestras.jsonl`.
-   Si se identifica una causa, la corrección se propone aparte y **no** se aplica en este encargo. Si no se
-   identifica, la 4C sigue siendo posible con el riesgo declarado de episodios C1, que van fuera de la población
-   principal (solo C0 entra, PROTOCOLO-4C corregido §6).
+   Si se identifica una causa, la corrección se propone aparte y **no** se aplica en este encargo.
+
+   **Corrección 2026-11-04 (contradicción con I5).** La versión del 03-nov decía aquí «si no se identifica, la 4C
+   sigue siendo posible con el riesgo declarado de episodios C1». Eso contradice I5 y queda **anulado**. Rige esto:
+   - **Inicio de la 4C:** deben cumplirse I1–I8 de SALUD-CAPTURA §4.1, incluido **I5: 0 `kernel_drops` de Suricata en
+     los 30 min previos**. Si I5 no se cumple, la batería **no comienza**, se haya identificado la causa o no. Sin
+     medida no es cero.
+   - **Durante una ejecución ya iniciada:** si aparecen descartes, se aplican los criterios congelados de
+     SALUD-CAPTURA §4.2 y §4.3: P5 (tres episodios consecutivos en C1 → pausa para diagnosticar), las cancelaciones
+     X y la clasificación C0–C3, sin cambiarla.
+   - **Población principal: solo C0.** C1 se publica aparte (`fuera:`). No se flexibiliza ningún criterio para
+     admitir más episodios.
 3. **Interfaz.** `ip -s link show ens37` (`rx_dropped`): se informa sin clasificar.
 
 ## 6. Reversión de la 4A
@@ -146,4 +155,4 @@ activar el agente v1. Volver al estado de la demo es la reversión de P0 (§2), 
 | B5 | Copiar `scripts-4c/` a la Kali y verificar c03 (seis hashes) | yo, con permiso para la Kali | pendiente (es 4C) |
 | B6 | Coste del vigía en vivo | se mide en la 4A | pendiente |
 | B7 | Panel frente a feed v2: no hay correspondencia | decisión: aceptar que la evidencia no sale del panel, o adaptarlo antes de la 4B | abierto |
-| B8 | Descartes de Suricata sin causa (I5 exige 0 en 30 min para la 4C) | diagnóstico en la 4A (§5) | abierto |
+| B8 | Descartes de Suricata sin causa. I5 (0 en los 30 min previos) es condición de inicio de la 4C sin excepción (§5.2, corrección 2026-11-04) | diagnóstico en la 4A (§5) | abierto |

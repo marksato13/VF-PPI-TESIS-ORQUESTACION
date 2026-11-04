@@ -1,0 +1,111 @@
+=== herramientas f1a12d7 (debian:trixie-slim)
+--- ensayo_comprobaciones_4a
+OK    U unidad real (comentario «SIN --aplicar»): PASA
+OK    U ExecStart con --aplicar: PARADA la unidad lleva --aplicar
+OK    U ExecStart con --aplicar=si: PARADA la unidad lleva --aplicar
+OK    U control: grep antiguo sobre la unidad real: PARADA antigua
+OK    K una línea añadida (caso real): PASA
+OK    K dos líneas añadidas: PARADA authorized_keys cambió en más de una línea (+2 −0)
+OK    K una añadida y otra quitada: PARADA authorized_keys cambió en más de una línea (+1 −1)
+OK    K control: forma antigua con una línea añadida: PARADA
+OK    L ambas llaves limitadas (caso real): PASA
+OK    L llave con shell abierta: PARADA Sensor1 no limita la llave del relé (falta la línea command=... en authorized_keys): uid=1000(m4rk) gid=1000(m4rk)
+OK    L sin conexión: PARADA Sensor1 no limita la llave del relé (falta la línea command=... en authorized_keys): ssh: connect to host 10.10.60.11 port 22: Connection refused
+OK    L control: forma antigua con llave limitada: PARADA
+ENSAYO OK (12/12)
+--- ensayo_helper_rechazo
+OK    rechazo explícito con rc=1 (respuesta real del 04-nov): PASA
+OK    el helper acepta un perfil ajeno: PARADA el helper no rechaza un perfil ajeno: {"estado": {}, "ok": true, "perfil": "dns"}
+OK    rechazo por otro motivo: PARADA el helper no rechaza un perfil ajeno: {"ok": false, "rechazo": "peticion_invalida"}
+OK    sudo no permitido para cfagente: PARADA el helper no rechaza un perfil ajeno: sudo: a password is required
+ENSAYO OK (4/4)
+--- ensayo_precondicion_v1
+OK    v1 activo (estado del 03/04-nov): PARADA el agente v1 (ppi-enforce-agent.timer) está activo y aplica con --aplicar: fase P0 pendiente
+OK    timer parado pero enabled: PARADA ppi-enforce-agent.timer sigue enabled: volvería a aplicar al reiniciar (fase P0 pendiente)
+OK    servicio v1 en ejecución: PARADA ppi-enforce-agent.service está en ejecución
+OK    tabla v1 restante: PARADA queda la tabla nft del agente v1 (cyberflow): fase P0 pendiente
+OK    nft ilegible (fallo cerrado): PARADA no se pueden leer las tablas nft: no se demuestra la sombra
+OK    solo cyberflow_dmz (no es v1): PARADA el respaldo no verifica
+OK    limpio (sigue al respaldo): PARADA el respaldo no verifica
+OK    ruleset vacío sin constancia de lectura: PARADA el respaldo no tiene una lectura válida de ruleset.nft (CON_SUDO=1)
+OK    ruleset vacío leído (rc=0): PARADA el paquete no verifica
+OK    ruleset con contenido (respaldo antiguo): PARADA el paquete no verifica
+ENSAYO OK (10/10)
+--- ensayo_respaldos
+OK    Sensor1 CON_SUDO=1: manifiesto verifica y RESPALDO.txt termina en RESPALDO OK
+OK    Sensor1 sin sudo (línea «pendiente» previa): manifiesto verifica y RESPALDO.txt termina en RESPALDO OK
+OK    srv-dmz CON_SUDO=1, ruleset vacío: manifiesto verifica y RESPALDO.txt termina en RESPALDO OK
+OK    srv-dmz: ruleset.lectura rc=0 bytes=0
+OK    srv-dmz sin sudo (línea «pendiente» previa): manifiesto verifica y RESPALDO.txt termina en RESPALDO OK
+OK    bastión con AVISO previo: manifiesto verifica y RESPALDO.txt termina en RESPALDO OK
+ENSAYO OK (6/6)
+--- ensayo_estado_sombra (cyberflow-etapa3-banco:1)
+2026-11-04T03:45:38.249Z python: Python 3.13.5; estado_sombra: VERSION = "2026-11-02.1"
+2026-11-04T03:45:39.091Z S1 patrón antiguo (pgrep -af | grep -c --aplicar dentro de bash -c) = 1 con 0 agentes aplicando
+2026-11-04T03:45:39.104Z OK    S1 regresión reproducida: el patrón antiguo se contaba a sí mismo
+2026-11-04T03:45:39.956Z OK    S1 sombra con la comprobación por SSH simulado (rc=0)
+2026-11-04T03:45:41.685Z OK    S2 agente v1 real con --aplicar bajo sh -c (rc=1)
+2026-11-04T03:45:43.459Z OK    S3 agente v2 con --aplicar=si (rc=1)
+2026-11-04T03:45:44.482Z OK    S4 sudo -n falla: desconocido, no cero (rc=2)
+2026-11-04T03:45:45.477Z OK    S5 nft falla: desconocido (rc=2)
+2026-11-04T03:45:46.425Z OK    S6 traza ausente: desconocido (rc=2)
+2026-11-04T03:45:47.242Z OK    S7 systemctl falla: desconocido (rc=2)
+2026-11-04T03:45:47.929Z OK    S8 tabla cyberflow_dmz (rc=1)
+2026-11-04T03:45:48.673Z OK    S9 evento aplicacion en la traza (rc=1)
+2026-11-04T03:45:50.201Z OK    S10 SSH real a localhost (rc=0)
+2026-11-04T03:45:50.212Z RESULTADO: todas las comprobaciones OK
+--- ensayo_unidades_importaciones (cyberflow-etapa3-banco:1)
+systemd: systemd 257 (257.13-1~deb13u1); python: Python 3.13.5
+cp: cannot stat '/viejo/scripts': No such file or directory
+cp: cannot stat '/viejo/configs': No such file or directory
+OK    U1 systemd-analyze verify ppi-motor.service sin avisos
+OK    U1 systemd-analyze verify ppi-motor-capture.service sin avisos
+OK    U1 systemd-analyze verify ppi-publicar-feed-v2.service sin avisos
+OK    U1 systemd-analyze verify ppi-via-rapida@ens37.service sin avisos
+OK    U1 systemd-analyze verify cf-tcpdump-estadisticas.service sin avisos
+OK    U1 systemd-analyze verify cf-tcpdump-estadisticas.timer sin avisos
+OK    U1 systemd-analyze verify ppi-relay-eventos.service sin avisos
+OK    U1 systemd-analyze verify ppi-enforce-agent-v2-dmz.service sin avisos
+OK    U2 ExecStart efectivo: candidato, mismos argumentos de detección, -G 5
+OK    U3 importaciones desde el candidato con la disposición de Sensor1
+FALLO U3 detecta código viejo si entra en sys.path (PARADA esperada)
+RESULTADO: HAY FALLOS
+--- ensayo_unidades_importaciones (cyberflow-etapa3-banco:1, con /viejo = 24f8a80)
+systemd: systemd 257 (257.13-1~deb13u1); python: Python 3.13.5
+OK    U1 systemd-analyze verify ppi-motor.service sin avisos
+OK    U1 systemd-analyze verify ppi-motor-capture.service sin avisos
+OK    U1 systemd-analyze verify ppi-publicar-feed-v2.service sin avisos
+OK    U1 systemd-analyze verify ppi-via-rapida@ens37.service sin avisos
+OK    U1 systemd-analyze verify cf-tcpdump-estadisticas.service sin avisos
+OK    U1 systemd-analyze verify cf-tcpdump-estadisticas.timer sin avisos
+OK    U1 systemd-analyze verify ppi-relay-eventos.service sin avisos
+OK    U1 systemd-analyze verify ppi-enforce-agent-v2-dmz.service sin avisos
+OK    U2 ExecStart efectivo: candidato, mismos argumentos de detección, -G 5
+OK    U3 importaciones desde el candidato con la disposición de Sensor1
+OK    U3 detecta código viejo si entra en sys.path (PARADA esperada)
+RESULTADO: todas las comprobaciones OK
+--- ensayo_tcpdump_estadisticas (cyberflow-etapa3-banco:1, --privileged --network none)
+2026-11-04T03:46:51.402Z versiones: tcpdump version 4.99.5 libpcap version 1.10.5 (with TPACKET_V3) OpenSSL 3.5.7 9 Jun 2026 64-bit build, 64-bit time_t 
+2026-11-04T03:46:51.415Z kernel: 6.18.54.1-microsoft-standard-WSL2
+2026-11-04T03:46:55.562Z E1 SIGUSR1 #1 enviado (ficheros en el anillo: 2)
+2026-11-04T03:46:58.583Z E1 SIGUSR1 #2 enviado (ficheros en el anillo: 4)
+2026-11-04T03:47:01.603Z E1 SIGUSR1 #3 enviado (ficheros en el anillo: 5)
+2026-11-04T03:47:08.630Z OK   E1 tcpdump sigue vivo tras 4 SIGUSR1
+2026-11-04T03:47:11.658Z E1 ficheros antes/después de la última señal: 8 / 8
+2026-11-04T03:47:11.739Z OK   E1 hay 4 líneas de SIGUSR1 + 1 final
+2026-11-04T03:47:11.759Z OK   E1 'captured' no decrece entre lecturas
+2026-11-04T03:47:11.771Z OK   E1 la rotación continúa (hay más de 6 ficheros de 2 s)
+2026-11-04T03:47:11.788Z OK   E1 los ficheros del anillo siguen siendo de tcpdump (setuid aplicado)
+2026-11-04T03:47:13.824Z E2 tcpdump PID 92, detector PID 93
+2026-11-04T03:47:21.929Z E2 paquetes_tcp del detector antes/después de SIGUSR1: 1036 / 2128
+2026-11-04T03:47:21.940Z OK   E2 la tubería sigue viva tras SIGUSR1
+2026-11-04T03:47:21.953Z OK   E2 el resumen sigue avanzando
+2026-11-04T03:47:21.997Z OK   E2 la estadística sale por stderr de tcpdump
+2026-11-04T03:47:29.674Z E5 con tráfico: capturados=4152 detector≈4152; tras drenar: capturados=5546 detector=5546
+2026-11-04T03:47:29.684Z OK   E5 tras drenar, capturados (tcpdump) = paquetes_tcp (detector)
+2026-11-04T03:47:29.699Z E4 NO EJECUTABLE en este banco: el kernel 6.18.54.1-microsoft-standard-WSL2 no expone /proc/<pid>/io; el método se verifica por lectura en Sensor1
+2026-11-04T03:47:41.065Z OK   E3 hay descartes del kernel con búfer mínimo y lector lento
+2026-11-04T03:47:41.092Z OK   E3 los descartes no decrecen entre lecturas
+2026-11-04T03:47:41.114Z OK   E3 recibidos por el filtro = capturados + descartados (última lectura)
+E3 última lectura: tcpdump: 135 packets captured, 101713 packets received by filter, 101578 packets dropped by kernel
+2026-11-04T03:47:41.142Z RESULTADO: todas las comprobaciones OK

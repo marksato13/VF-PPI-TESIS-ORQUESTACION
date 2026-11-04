@@ -1,10 +1,16 @@
 # Reconciliación investigación ↔ demostración antes de la 4A (2026-11-03)
 
-> **Veredicto.** La **base de recuperación está preparada y verificada offline**. El **laboratorio NO está
-> recuperado** y la 4A **sigue bloqueada**: el agente v1 de srv-dmz aplica restricciones de verdad (`--aplicar`)
-> desde la demo, y a las 01:04 UTC del 04-nov tenía un LIMIT sobre un cliente legítimo (10.10.20.21). Antes de
-> instalar nada hace falta la fase P0, que ejecuta Mark con autorización expresa, y la petición escrita de la 4A.
-> No se ha instalado, reiniciado ni modificado nada en el laboratorio.
+> **Estado vigente (actualizado el 2026-11-04).** La **base de recuperación está preparada y verificada offline**.
+> **La P0 está hecha.** La evidencia [p0-srvdmz-2026-11-04.md](evidencia/laboratorio/p0-srvdmz-2026-11-04.md)
+> confirma que, a las 01:39 UTC del 04-nov, el agente v1 de srv-dmz estaba desactivado (timer `disabled`/`inactive`,
+> servicio `inactive`) y su tabla `inet cyberflow` retirada, con el volcado guardado. La petición escrita de la 4A
+> (B2) llegó el 04-nov y su ejecución se documenta en `../etapa4a-instalacion-2026-11-04/`.
+> **Esta carpeta no instaló nada.** El estado del laboratorio en cada momento se comprueba con lecturas nuevas
+> antes de actuar: una lectura histórica no garantiza el estado actual.
+>
+> *Antecedente, veredicto original del 2026-11-03 (se conserva):* la base de recuperación preparada y verificada
+> offline; laboratorio NO recuperado; 4A bloqueada porque el agente v1 de srv-dmz aplicaba restricciones de verdad
+> (`--aplicar`) desde la demo, con un LIMIT sobre un cliente legítimo (10.10.20.21) a las 01:04 UTC del 04-nov.
 
 ## 1. Tres versiones que no deben confundirse
 
@@ -104,15 +110,23 @@ con hashes, dependencias, respaldo, instalación, comprobaciones, sombra, diagn�
 - **B5.** Copiar `scripts-4c` a la Kali.
 - **B6.** Coste del vigía.
 - **B7.** El panel no corresponde al feed v2: decidir si se adapta o si la evidencia sale solo de los ficheros.
-- **B8.** Causa de los descartes de Suricata (I5).
+- **B8.** Causa de los descartes de Suricata. Es un diagnóstico, no una excepción: **I5 sigue siendo condición
+  de inicio de la 4C** (0 `kernel_drops` en los 30 min previos); ver PROCEDIMIENTO-4A-RECONCILIADO §5.2.
 
 ## 7. ¿Listo para preparar la 4A?
 
-**Listo para preparar, bloqueado para instalar.** La rama, el paquete, los guiones, las herramientas y los
-protocolos corregidos están verificados offline. La instalación no puede empezar mientras el v1 aplique (B1) y
-sin la petición escrita (B2). El laboratorio **no** se ha recuperado: sigue en el estado de ca66db5 (motor 24f8a80,
-publicador y panel de ca66db5, agente v1 aplicando).
-Desde el 04-nov 01:38 UTC el agente v1 ya no aplica (P0, paso 2). El resto del laboratorio sigue sin recuperar.
+**Conclusión vigente (2026-11-04).** La rama, el paquete, los guiones, las herramientas y los protocolos
+corregidos están verificados offline. Los pasos 2 y 3 de P0 (B1) están hechos y comprobados: el agente v1 no aplica
+y su tabla está retirada. B2 está resuelta con la petición del 04-nov. Queda el paso 4 de P0 (respaldo base
+completo de srv-dmz) y B3, que forman parte de la ejecución de la 4A (`../etapa4a-instalacion-2026-11-04/`).
+Esta carpeta no declara el laboratorio recuperado: eso solo puede hacerlo la 4A con sus lecturas.
+
+*Antecedentes con fecha (se conservan):*
+
+- *2026-11-03, conclusión original:* «Listo para preparar, bloqueado para instalar». La instalación no podía
+  empezar mientras el v1 aplicara (B1) y sin la petición escrita (B2). Laboratorio en el estado de ca66db5
+  (motor 24f8a80, publicador y panel de ca66db5, agente v1 aplicando).
+- *2026-11-04 01:38 UTC:* el agente v1 dejó de aplicar (P0, paso 2).
 
 ## 8. Estado git conservado
 

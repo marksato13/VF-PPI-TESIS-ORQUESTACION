@@ -1,0 +1,36 @@
+=== bastion
+apartado
+cyberflow-e4-ec78ca5.tar.gz: OK
+SHA256SUMS OK
+candidato=ec78ca56a3a8f4bb17fda967a7f0abe0e9a2c742
+herramientas=47502cab18e993a9548db334e2edae323969eae2
+construido_utc=2026-11-04T01:57:28Z
+=== m4rk@10.10.60.11
+apartado
+cyberflow-e4-ec78ca5.tar.gz: OK
+SHA256SUMS OK
+candidato=ec78ca56a3a8f4bb17fda967a7f0abe0e9a2c742
+herramientas=47502cab18e993a9548db334e2edae323969eae2
+construido_utc=2026-11-04T01:57:28Z
+=== adminsrvdmz@10.10.30.10
+apartado
+cyberflow-e4-ec78ca5.tar.gz: OK
+SHA256SUMS OK
+candidato=ec78ca56a3a8f4bb17fda967a7f0abe0e9a2c742
+herramientas=47502cab18e993a9548db334e2edae323969eae2
+construido_utc=2026-11-04T01:57:28Z
+=== respaldo base srv-dmz (script corregido)
+disabled
+inactive
+inactive
+tablas-fin
+RESPALDO OK /home/adminsrvdmz/respaldos-etapa4/srvdmz-20261104T015754Z
+verifica: /home/adminsrvdmz/respaldos-etapa4/srvdmz-20261104T015754Z
+rc=0 bytes=0 utc=20261104T015754Z
+ppi-enforce-agent.service static inactive
+ppi-enforce-agent.timer disabled inactive
+ppi-brute-lab.service disabled inactive
+ppi-enforce-agent-v2-dmz.service not-found inactive
+rc=2
+/home/adminsrvdmz/respaldos-etapa4/srvdmz-20261104T015601Z
+/home/adminsrvdmz/respaldos-etapa4/srvdmz-20261104T015754Z

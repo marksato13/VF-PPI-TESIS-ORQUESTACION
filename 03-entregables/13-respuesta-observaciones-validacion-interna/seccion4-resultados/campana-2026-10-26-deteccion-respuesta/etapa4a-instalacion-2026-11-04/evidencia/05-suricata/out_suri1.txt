@@ -1,0 +1,81 @@
+2026-11-04T03:12:16Z
+total 1842920
+-rw-r--r-- 1 root root  41902685 2026-11-04T03:12:16 eve.json
+-rw-r--r-- 1 root root  84086784 2026-10-05T18:50:39 eve.json.1-2026100600.backup
+-rw-r--r-- 1 root root 113516544 2026-10-09T13:53:22 eve.json.1-2026101000.backup
+-rw-r--r-- 1 root root 138301440 2026-10-21T19:07:42 eve.json.1-2026102200.backup
+-rw-r--r-- 1 root root 926269440 2026-10-30T15:50:58 eve.json.1-2026103100.backup
+-rw-r--r-- 1 root root  68989373 2026-11-04T00:00:01 eve.json.1.gz
+-rw-r--r-- 1 root root  46319681 2026-11-03T00:00:00 eve.json.2.gz
+-rw-r--r-- 1 root root  64185399 2026-11-02T00:00:00 eve.json.3.gz
+-rw-r--r-- 1 root root  11908848 2026-11-01T00:00:04 eve.json.4.gz
+-rw-r--r-- 1 root root   4250336 2026-10-30T23:59:59 eve.json.5.gz
+-rw-r--r-- 1 root root  46753835 2026-10-28T23:59:58 eve.json.7.gz
+-rw-r--r-- 1 root root         0 2026-11-04T00:00:02 fast.log
+-rw-r--r-- 1 root root         0 2026-10-05T18:50:38 fast.log.1-2026100600.backup
+-rw-r--r-- 1 root root         0 2026-10-09T13:53:21 fast.log.1-2026101000.backup
+-rw-r--r-- 1 root root         0 2026-10-21T19:07:40 fast.log.1-2026102200.backup
+-rw-r--r-- 1 root root         0 2026-10-30T15:50:53 fast.log.1-2026103100.backup
+-rw-r--r-- 1 root root        20 2026-11-03T00:00:01 fast.log.1.gz
+-rw-r--r-- 1 root root        20 2026-11-02T00:00:01 fast.log.2.gz
+-rw-r--r-- 1 root root        20 2026-11-01T00:00:05 fast.log.3.gz
+lecturas stats.log: 1442 primera 2026-11-04 00:00:02 ultima 2026-11-04 03:12:11
+TZ local offset s: 0 ('UTC', 'UTC')
+lecturas en la ventana: 394
+paquetes 809720 drops 7 tasa 8.644963691152496e-06
+intervalos con drops: 1
+   ('2026-11-04 03:05:47', 5766, 7, 8)
+ultimo: {'t': datetime.datetime(2026, 11, 4, 3, 12, 11), 'capture.kernel_packets': 134911221, 'capture.kernel_drops': 82038, 'decoder.pkts': 134829276, 'tcp.reassembly_gap': 7882428, 'tcp.memuse': 2471968, 'flow.memuse': 7662032}
+--- suricata unidad / hilos
+NRestarts=0
+MemoryCurrent=185217024
+ActiveEnterTimestamp=Fri 2026-10-30 19:55:21 UTC
+   1395  0.3 FM#01
+   1372  0.3 Suricata-Main
+   1389  0.1 W#04-ens37
+   1384  0.1 W#03-ens37
+   1383  0.1 W#02-ens37
+   1381  0.1 W#01-ens37
+   1399  0.0 US
+   1398  0.0 CS
+   1397  0.0 CW
+   1396  0.0 FR#01
+    TID %CPU COMMAND
+311:            threads: no       # per thread stats
+441:      threads: no       # per thread stats
+614:af-packet:
+615:  - interface: ens37
+633:    cluster-type: cluster_flow
+690:  - interface: default
+697:  - interface: default
+752:    - interface: 0000:3b:00.0 # PCIe address of the NIC port
+756:      threads: auto
+790:    - interface: default
+791:      threads: auto
+808:  - interface: eth0
+835:  - interface: default
+1983:  - interface: eth0
+1986:    threads: auto
+2001:    cluster-type: cluster_flow
+2028:  - interface: default
+--- logrotate suricata
+/var/log/suricata/*.log
+/var/log/suricata/*.json
+{
+	daily
+	maxsize 500M
+	rotate 7
+	missingok
+	compress
+	copytruncate
+	sharedscripts
+	postrotate
+		/bin/kill -HUP $(cat /var/run/suricata.pid)
+	endscript
+}
+4
+ 03:12:16 up 4 days,  7:19,  3 users,  load average: 0,50, 0,39, 0,39
+               total        used        free      shared  buff/cache   available
+Mem:            7940        1084        3401           0        3751        6855
+Swap:           4030         135        3895
+/dev/mapper/ubuntu--vg-ubuntu--lv   37G   22G   13G  63% /

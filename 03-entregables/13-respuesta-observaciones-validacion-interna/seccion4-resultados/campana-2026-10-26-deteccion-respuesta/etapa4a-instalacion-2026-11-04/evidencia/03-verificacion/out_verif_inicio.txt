@@ -1,0 +1,64 @@
+######## SENSOR1 2026-11-04T02:19:17Z
+OK    ppi-motor activo
+OK    ppi-motor-capture activo
+OK    ppi-via-rapida@ens37 activo
+OK    ppi-publicar-feed-v2 activo
+OK    cf-tcpdump-estadisticas.timer activo
+OK    suricata activo
+OK    ppi-publicar-feed.timer activo
+OK    motor = candidato ec78ca5 con --disparo eventos
+OK    motor SIN --enforce
+OK    captura con -G 5
+OK    código candidato sin cambios (SHA256SUMS)
+OK    código anterior ~/cyberflow intacto
+OK    importaciones desde el candidato
+INFO  NRestarts motor/captura/vía: 0/0/0
+OK    decisiones con decision_if y auth_failure
+OK    decisiones con http_vista y dns_vista
+OK    motor_startup del candidato (incremental, disparo eventos, umbral del manifiesto)
+INFO  decisiones con registros HTTP tardíos excluidos de la vista: 27 de 537
+INFO  auth_failure solo histórico (no aceptado por la vista HTTP): 0
+INFO  último ciclo: {"ciclo_n": 98, "decididas": 0, "disparo": "pcap_cerrado", "duracion_s": 0.1535, "entidades": 0, "etapas_s": {"eve_lectura": 0.0042, "eve_poda": 0.0002, "expiracion_y_escritura": 0.0001, "filtro_plano_control": 0.0088, "pcap_parseo": 0.0973, "pcap_poda": 0.024, "pendientes": 0.0035, "ventanas_por_an
+OK    resumen de la vía rápida avanza (1793758759.391903 -> 1793758762.420826)
+INFO  resumen vía rápida: {"bloque_hasta": 1793758762.477549, "paquetes_tcp": 1888, "bytes_pendientes": 0, "cpu_s": 6.167328}
+INFO  señales rápidas: 0 líneas (sin ataques, 0 sobre legítimos)
+INFO  tcpdump de la vía rápida: PID 1413924; estadísticas en journalctl -u ppi-via-rapida@ens37
+OK    feed v2 reciente (< 60 s)
+OK    firma del feed v2 verifica con la clave PÚBLICA
+INFO  traza del publicador (última): {"entradas": [], "evento": "publicacion", "expira": 1793758809.0524163, "generado": 1793758749.0524163, "nuevos": [], "politica": "if_senal", "publicado_en": 1793758749.0615366, "secuencia": 25}
+INFO  eventos 'rechazada' en la traza: 0
+INFO  menciones de dns_entropy en el feed v2 actual: 0 (no hay agente DNS: nada se aplica en DC1)
+OK    SIGUSR1 periódico del anillo en el journal (últimos 2 min)
+OK    SIGUSR1 periódico de la vía rápida en el journal (últimos 2 min)
+INFO  anillo: 144 ficheros; últimos: live-20261104021908.pcap live-20261104021913.pcap live-20261104021918.pcap 
+INFO  suricata: capture.kernel_packets | Total | 134090062 capture.kernel_drops | Total | 82031 
+OK    reloj sincronizado
+INFO  recursos: load average: 0,78, 0,91, 0,76; mem 1063/7940 MB; /home libre   13G
+OK    logrotate de feed-v2 instalado
+VERIFICACIÓN SENSOR1 OK
+######## BASTION
+OK    relé v2 activo
+OK    relé v2 solo con destino srv-dmz (sin dc1)
+OK    relé v1 sigue activo e intacto
+OK    entrega reciente a srv-dmz (hace 13.4 s)
+INFO  entregas: 2; traído->entregado p50/máx: 0.381/0.381 s
+INFO  última hora: parejas inconsistentes 0, errores 0
+OK    reloj sincronizado
+VERIFICACIÓN BASTIÓN OK
+######## SRV-DMZ (CON_SUDO=1, NOPASSWD)
+estado=sombra alcance=completo agentes=1 con_aplicar=0 tablas_cyberflow=0 eventos_aplicacion=0
+OK    estado de sombra demostrado (--alcance completo --respaldo /home/adminsrvdmz/respaldos-etapa4/srvdmz-20261104T015754Z)
+FALLO feed v2 recibido hace < 60 s
+stat: cannot statx '/var/lib/cyberflow/feed/feed.json': Permission denied
+OK    reloj sincronizado
+INFO  rechazos por motivo:       2 "motivo": "" 
+OK    helper rechaza un perfil ajeno
+VERIFICACIÓN SRV-DMZ CON FALLOS
+--- traza agente (eventos)
+      2 "evento": "recepcion"
+{"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793758729.0019405, "ids": [], "motivo": "", "mtime_feed": 1793758731.3797276, "perfil": "dmz", "rechazadas": [], "recibido_en": 1793758731.5510814, "secuencia": 24, "t": 1793758731.5681913}
+{"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793758749.0524163, "ids": [], "motivo": "", "mtime_feed": 1793758749.588838, "perfil": "dmz", "rechazadas": [], "recibido_en": 1793758749.6642804, "secuencia": 25, "t": 1793758749.6719618}
+--- v1
+disabled
+inactive
+tablas-fin

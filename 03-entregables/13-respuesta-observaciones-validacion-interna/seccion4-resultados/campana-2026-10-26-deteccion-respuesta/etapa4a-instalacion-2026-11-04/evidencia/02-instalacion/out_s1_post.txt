@@ -1,0 +1,35 @@
+2026-11-04T02:12:57Z
+/home/m4rk/respaldos-etapa4/sensor1-20261104T020318Z
+/home/m4rk/respaldos-etapa4/sensor1-20261104T021028Z
+manifiesto OK /home/m4rk/respaldos-etapa4/sensor1-20261104T021028Z
+RESPALDO OK /home/m4rk/respaldos-etapa4/sensor1-20261104T021028Z
+ppi-motor enabled active
+ppi-motor-capture enabled active
+ppi-via-rapida@ens37 enabled active
+ppi-publicar-feed-v2 enabled active
+cf-tcpdump-estadisticas.timer enabled active
+suricata enabled active
+ppi-publicar-feed.timer enabled active
+ppi-dashboard enabled active
+MainPID=1413866 NRestarts=0 ExecMainStartTimestamp=Wed 2026-11-04 02:11:07 UTC DropInPaths=/etc/systemd/system/ppi-motor.service.d/etapa4.conf  MainPID=1413865 NRestarts=0 ExecMainStartTimestamp=Wed 2026-11-04 02:11:07 UTC DropInPaths=/etc/systemd/system/ppi-motor-capture.service.d/etapa4.conf
+motor: cyberflow-e4/ec78ca5/scripts/engine/motor_decision.py --disparo eventos
+captura: -G 5
+/home/m4rk/cyberflow-e4:
+total 16
+drwxrwxr-x  3 m4rk m4rk 4096 nov  4 02:11 .
+drwxr-x--- 35 m4rk m4rk 4096 nov  4 02:11 ..
+dr-xr-xr-x  5 m4rk m4rk 4096 nov  2 00:00 ec78ca5
+-rw-r--r--  1 m4rk m4rk  113 nov  4 02:11 pub.pem
+
+/home/m4rk/feed-v2:
+total 224
+drwxr-x---  2 m4rk m4rk   4096 nov  4 02:12 .
+drwxr-x--- 35 m4rk m4rk   4096 nov  4 02:11 ..
+-rw-r--r--  1 m4rk m4rk     63 nov  4 02:12 estado.json
+-rw-r--r--  1 m4rk m4rk    145 nov  4 02:12 feed.json
+-rw-r--r--  1 m4rk m4rk     64 nov  4 02:12 feed.sig
+-rw-r--r--  1 m4rk m4rk   3689 nov  4 02:12 senales-if.jsonl
+-rw-r--r--  1 m4rk m4rk      0 nov  4 02:11 senales-rapidas.jsonl
+-rw-r--r--  1 m4rk m4rk   1154 nov  4 02:12 traza.jsonl
+-rw-r--r--  1 m4rk m4rk 195752 nov  4 02:12 via-rapida-resumen.jsonl
+{"auth_failure": null, "ciclo_n": 21, "decidido_en": 1793758372.5807238, "decision": "PERMIT", "decision_id": "10.10.60.12|2026-11-04T02:12:50+00:00", "decision_if": "PERMIT", "detector_name": "if_lim

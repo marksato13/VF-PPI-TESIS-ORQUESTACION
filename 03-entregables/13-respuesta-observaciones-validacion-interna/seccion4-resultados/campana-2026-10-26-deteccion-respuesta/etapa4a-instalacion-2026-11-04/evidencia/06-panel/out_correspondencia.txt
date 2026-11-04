@@ -1,0 +1,15 @@
+dashboard 457af3738029 cadena_v2 a7e9bd6afb87
+decisiones última hora: 3907 | ALERT: 105
+acción según panel v1 (ca66db5): {'PERMIT': 3495, 'LIMIT': 52}
+acción según panel v2 (e0dc71d): {'PERMIT': 3907}
+IF: {'sin_senal': 2048, 'desconocido': 1754, 'senal': 105}
+medida: {'no_publicada': 3907}
+aplicación: {'no_aplica': 3907}
+señales IF en la hora: 105 | en el registro: 105 | marcadas 'senal' por el panel: 105 | iguales: True
+ALERT del motor sin señal IF en el panel: 0 []
+traza: publicaciones 259 secuencias 1 -> 259 | nuevos: 0
+vigentes del panel (feed v2): [] | entradas feed v2: 0
+resumen: {'politica': 'if_senal', 'modo': 'sombra', 'feed_secuencia': 259, 'feed_edad_s': 0.9, 'feed_atrasado': False, 'feed_entradas': 0, 'aplicacion': 'no_ejecutada (modo sombra)', 'efecto': 'sin_evidencia'}
+fuentes: {'senales_if': {'ok': True, 'lineas': 165}, 'traza': {'ok': True, 'publicaciones': 259}, 'feed': {'ok': True}}
+ejemplo: 10.10.20.24|2026-11-04T03:32:30+00:00 {"decision_id": "10.10.20.24|2026-11-04T03:32:30+00:00", "if": {"estado": "senal", "score": -0.6236331029958069, "alfa_superados": ["0.05", "0.03", "0.01"]}, "reglas": [], "decision": "ALERT", "medida": {"estado": "no_publicada", "accion": null}, "propuesta": false, "agente": "desconocido", "aplicacion": "no_aplica", "efecto": "sin_evidencia", "modo": "sombra"}
+coste anotar 3907 decisiones: 0.019 s

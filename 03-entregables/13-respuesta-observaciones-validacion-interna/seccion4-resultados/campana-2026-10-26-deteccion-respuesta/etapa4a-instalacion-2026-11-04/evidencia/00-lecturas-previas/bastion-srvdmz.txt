@@ -1,0 +1,139 @@
+### BASTION VM-GESTION 2026-11-03T20:52:51-05:00
+ppi-relay-feed.service inactive dead
+ppi-relay-feed.timer active waiting
+ppi-relay-feed.timer ppi-relay-feed.service
+#### ppi-relay-feed.service
+# /etc/systemd/system/ppi-relay-feed.service
+[Unit]
+Description=CyberFlow - relay del feed firmado (sensor -> host protegido), via bastion
+Documentation=https://github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos
+[Service]
+Type=oneshot
+User=gadmin
+Group=gadmin
+# Pull del feed del sensor (clave cyberflow-to-sensor) y push al host DMZ
+# (clave cyberflow-to-srv). El bastion es un relay tonto: no puede forjar, la
+# clave privada de firma vive solo en el sensor.
+ExecStart=/home/gadmin/relay-feed.sh
+# Salida al journal (journalctl -u ppi-relay-feed).
+#### ppi-relay-feed.timer
+# /etc/systemd/system/ppi-relay-feed.timer
+[Unit]
+Description=CyberFlow - relay del feed cada 10 segundos
+[Timer]
+# Segundo paso, tres segundos despues del publicador.
+OnCalendar=*-*-* *:*:03/10
+AccuracySec=1s
+Persistent=false
+[Install]
+WantedBy=timers.target
+#### crontab (lineas con relay/feed)
+#### ficheros del relay
+a1e49f3c11857f6c180e0094c51212b14034949c 2026-11-03 20:52 /home/gadmin/relay/feed.json
+059c01859c4f77154679ae5a01261676da0d72b8 2026-11-03 20:52 /home/gadmin/relay/feed.sig
+e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 2026-09-30 15:01 /home/gadmin/relay/relay.log
+17be2fbe8d82f6d104584da2eb1170875f3402a9 2026-11-03 20:52 /home/gadmin/relay/srv-dmz.json
+total 36
+drwxrwxr-x  2 gadmin gadmin 4096 Nov  2 21:19 .
+drwx------ 35 gadmin gadmin 4096 Nov  2 23:46 ..
+-rwxrwxr-x  1 gadmin gadmin 8296 Nov  3 18:52 comparar-suricata.sh
+-rwxrwxr-x  1 gadmin gadmin 3612 Nov  3 18:52 estado_sensor.py
+
+### SRV-DMZ (via bastion)
+srv-dmz
+2026-11-04T01:52:51+00:00
+#### ppi-brute-lab.service
+# /etc/systemd/system/ppi-brute-lab.service
+[Unit]
+Description=Endpoint de prueba (fuerza bruta HTTP) - laboratorio aislado CyberFlow
+After=network.target
+[Service]
+User=adminsrvdmz
+Environment=USUARIO=control
+Environment=CLAVE=<omitido>
+Environment=PUERTO=18081
+Environment=RUTA=/auth
+Environment=LOG=/opt/brute-lab/brute.log
+ExecStart=/usr/bin/python3 /opt/brute-lab/app.py
+Restart=no
+# Servicio de laboratorio: se detiene y se elimina tras la campaña B (ver README).
+[Install]
+WantedBy=multi-user.target
+#### ppi-enforce-agent.service
+# /etc/systemd/system/ppi-enforce-agent.service
+[Unit]
+Description=CyberFlow - agente de enforcement en el host protegido (verifica feed, aplica nftables)
+Documentation=https://github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos
+[Service]
+Type=oneshot
+User=adminsrvdmz
+Group=adminsrvdmz
+# Trae el feed, verifica la firma ed25519 y sincroniza nftables (LIMIT=rate,
+# BLOCK=drop, con timeout). --sudo: el nft se eleva con 'sudo -n' (NOPASSWD solo
+# para nft en este host); minimo privilegio. Fail-safe: si la firma no verifica,
+# no toca nada.
+# IMPORTANTE: no poner NoNewPrivileges=yes, rompe el 'sudo -n nft'.
+ExecStart=/usr/bin/python3 /home/adminsrvdmz/enforce/agente_enforce.py \
+    --feed /home/adminsrvdmz/enforce/feed.json \
+    --firma /home/adminsrvdmz/enforce/feed.sig \
+    --clave-publica /home/adminsrvdmz/enforce/pub.pem \
+    --aplicar --sudo
+# Salida al journal (journalctl -u ppi-enforce-agent). Para modo sombra (dry-run)
+# quitar '--aplicar'.
+#### ppi-enforce-agent.timer
+# /etc/systemd/system/ppi-enforce-agent.timer
+[Unit]
+Description=CyberFlow - agente de enforcement cada 10 segundos
+[Timer]
+# Tercer paso, tres segundos despues del relay.
+OnCalendar=*-*-* *:*:06/10
+AccuracySec=1s
+Persistent=false
+[Install]
+WantedBy=timers.target
+#### ficheros del agente
+f1145e4870dbaf5e570cda949f587829e99a9df9 2026-11-03 23:52 /home/adminsrvdmz/cf-demo/alcance.json
+fa30b818f03bf389554559312fc3e596314f3750 2026-09-30 20:00 /home/adminsrvdmz/enforce/feed.py
+6ba590703986c80c011db11a348b38ee65322b91 2026-11-03 08:42 /home/adminsrvdmz/enforce/agente_enforce.py
+f1145e4870dbaf5e570cda949f587829e99a9df9 2026-11-03 02:50 /home/adminsrvdmz/enforce/alcance.json
+#### alcance.json
+/home/adminsrvdmz/cf-demo/alcance.json
+{
+ "nunca": ["10.10.10.0/24", "10.10.50.0/24", "10.10.60.0/24",
+           "10.10.20.1/32", "10.10.30.0/24", "10.10.40.1/32"],
+ "solo": ["10.10.20.30/32", "10.10.20.21/32"]
+}
+
+/home/adminsrvdmz/enforce/alcance.json
+{
+ "nunca": ["10.10.10.0/24", "10.10.50.0/24", "10.10.60.0/24",
+           "10.10.20.1/32", "10.10.30.0/24", "10.10.40.1/32"],
+ "solo": ["10.10.20.30/32", "10.10.20.21/32"]
+}
+
+#### estado del agente (ficheros de estado, sin claves)
+/home/adminsrvdmz/enforce:
+total 416
+drwxrwxr-x 3 adminsrvdmz adminsrvdmz   4096 nov  4 01:52 .
+drwxr-x--- 9 adminsrvdmz adminsrvdmz   4096 nov  4 01:38 ..
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz   6429 nov  3 04:46 acuse_aplicacion.py
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz  14406 nov  4 01:52 acuse-historial.json
+-rwxrwxr-x 1 adminsrvdmz adminsrvdmz  20390 nov  3 08:42 agente_enforce.py
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz   7742 oct 15 12:56 agente_enforce.py.bak-20261015T1255Z
+-rwxr-xr-x 1 adminsrvdmz adminsrvdmz   7645 oct 15 21:26 agente_enforce.py.bak-20261015T2033Z
+-rwxr-xr-x 1 adminsrvdmz adminsrvdmz  10453 oct 15 21:32 agente_enforce.py.bak-20261102-antes-alcance
+-rwxr-xr-x 1 adminsrvdmz adminsrvdmz  18071 nov  3 07:28 agente_enforce.py.bak-20261103-liberacion
+-rwxrwxr-x 1 adminsrvdmz adminsrvdmz  18455 nov  3 07:28 agente_enforce.py.bak-20261103-preparar
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz    175 nov  3 02:50 alcance.json
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz    256 nov  4 01:52 feed.json
+bash: line 31: $'\r': command not found
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz   3329 sep 30 20:00 feed.py
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz     64 nov  4 01:52 feed.sig
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz      2 nov  3 22:56 liberadas.json
+-rw-r--r-- 1 adminsrvdmz adminsrvdmz   1716 nov  3 17:02 peticiones_vistas.json
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz    113 sep 30 20:00 pub.pem
+drwxrwxr-x 2 adminsrvdmz adminsrvdmz   4096 nov  3 08:42 __pycache__
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz 265280 oct  6 06:15 shadow.log
+#### sudoers visibles para el agente (sin sudo: sudo -n -l)
+    (ALL) NOPASSWD: ALL
+    (root) NOPASSWD: /usr/local/sbin/cf-nft-mostrar

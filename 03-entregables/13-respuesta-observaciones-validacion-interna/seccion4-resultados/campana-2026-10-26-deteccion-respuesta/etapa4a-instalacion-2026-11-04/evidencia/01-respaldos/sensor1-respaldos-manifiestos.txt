@@ -1,0 +1,235 @@
+===== /home/m4rk/respaldos-etapa4/panel-20261104T033157Z/
+drwxrwxr-x 2 m4rk m4rk   4096 nov  4 03:31 .
+drwx------ 6 m4rk m4rk   4096 nov  4 03:41 ..
+-rwxr-xr-x 1 m4rk m4rk 641961 nov  3 23:51 dashboard.py
+-rw-rw-r-- 1 m4rk m4rk     77 nov  4 03:31 estado-previo.txt
+-rw-rw-r-- 1 m4rk m4rk    143 nov  4 03:31 LEEME.txt
+-rw-rw-r-- 1 m4rk m4rk   2249 nov  4 03:31 ppi-dashboard.service.txt
+-rw-rw-r-- 1 m4rk m4rk    331 nov  4 03:31 SHA256SUMS
+--- SHA256SUMS
+a5186d2e2d508336f31a23c1176a7f3fb48a90e8be8055e45346714a8bc37d7a  dashboard.py
+e3f392e3b80d1e423fba6fabc1615f045e8e55a0b41d65aed29aaa09b71434f4  ppi-dashboard.service.txt
+324156aba8c14d13ed53b628eec8726661cf55d06287662b835b74ead87068ba  estado-previo.txt
+f7cc41b2a99e65450544bca1cf36a7756877e9e52aa20197894d65f9ebeab7f3  LEEME.txt
+--- LEEME.txt
+panel previo: ca66db5 (producto-as-deployed master) sha a5186d2e…
+panel nuevo: e0dc71d (panel/cadena-v2-20261104)
+respaldo: 20261104T033157Z
+--- verificación: 0 fallos
+===== /home/m4rk/respaldos-etapa4/panel-20261104T034131Z/
+drwxrwxr-x 2 m4rk m4rk   4096 nov  4 03:41 .
+drwx------ 6 m4rk m4rk   4096 nov  4 03:41 ..
+-rw-r--r-- 1 m4rk m4rk  13628 nov  4 03:31 cadena_v2.py
+-rwxr-xr-x 1 m4rk m4rk 651264 nov  4 03:31 dashboard.py
+-rw-rw-r-- 1 m4rk m4rk     77 nov  4 03:41 estado-previo.txt
+-rw-rw-r-- 1 m4rk m4rk    176 nov  4 03:41 LEEME.txt
+-rw-rw-r-- 1 m4rk m4rk   2249 nov  4 03:41 ppi-dashboard.service.txt
+-rw-rw-r-- 1 m4rk m4rk    410 nov  4 03:41 SHA256SUMS
+--- SHA256SUMS
+457af3738029dffad9673a67d60e967bdc5ffe47b2082a0fb5eb294ae79d227b  dashboard.py
+a7e9bd6afb877e718c3ef79b8ac9db7a1ca95e76509932dafba8bbd31d72c438  cadena_v2.py
+e3f392e3b80d1e423fba6fabc1615f045e8e55a0b41d65aed29aaa09b71434f4  ppi-dashboard.service.txt
+f1304bacb87a91683d7a4d2d933eefefbf4311c2add62682448c1e4f29b7734f  estado-previo.txt
+fac7f0099d2d777efd21bf6fab63c18533e9ce30ab6e7f6e82995af7c0fe3f29  LEEME.txt
+--- LEEME.txt
+panel previo: e0dc71d sha 457af373… (antes de él: ca66db5 a5186d2e…, en panel-20261104T033157Z)
+panel nuevo: a27889d (panel/cadena-v2-20261104)
+respaldo: 20261104T034131Z
+--- verificación: 0 fallos
+===== /home/m4rk/respaldos-etapa4/sensor1-20261104T020318Z/
+drwx------ 5 m4rk m4rk    4096 nov  4 02:03 .
+drwx------ 6 m4rk m4rk    4096 nov  4 03:41 ..
+-rw-rw-r-- 1 m4rk m4rk     478 nov  4 02:03 anillo.ls
+-rw-rw-r-- 1 m4rk m4rk     895 nov  4 02:03 artefactos.sha256
+-rw------- 1 m4rk m4rk     105 sep 16 15:16 authorized_keys
+-rw-rw-r-- 1 m4rk m4rk       0 nov  4 02:03 crontab.txt
+-rw-rw-r-- 1 m4rk m4rk   15753 nov  4 02:03 cyberflow-codigo.sha256
+-rw-rw-r-- 1 m4rk m4rk 1597945 nov  4 02:03 cyberflow-codigo.tar.gz
+-rw-rw-r-- 1 m4rk m4rk     452 nov  4 02:03 disco.txt
+-rw-rw-r-- 1 m4rk m4rk      93 nov  4 02:03 ens37.txt
+drwxrwxr-x 2 m4rk m4rk    4096 nov  4 02:03 etc-systemd-system
+-rw-rw-r-- 1 m4rk m4rk    4009 nov  4 02:03 etc-systemd-system.ls
+-rw-rw-r-- 1 m4rk m4rk     287 nov  4 02:03 feed-keys.ls
+-rw-rw-r-- 1 m4rk m4rk    5838 nov  4 02:03 feed-v1.tar.gz
+-rw-rw-r-- 1 m4rk m4rk       0 nov  4 02:03 getcap.txt
+drwxrwxr-x 2 m4rk m4rk    4096 nov  4 02:03 logrotate.d
+-rw-rw-r-- 1 m4rk m4rk    2517 nov  4 02:03 logs.ls
+-rw-rw-r-- 1 m4rk m4rk 2906441 nov  4 02:03 logs-_state.tar.gz
+-rw-rw-r-- 1 m4rk m4rk    1089 nov  4 02:03 procesos.txt
+-rw-rw-r-- 1 m4rk m4rk     277 nov  4 02:03 RESPALDO.txt
+-rw-rw-r-- 1 m4rk m4rk     175 nov  4 02:03 ruleset.nft
+-rw-rw-r-- 1 m4rk m4rk    5760 nov  4 02:03 SHA256SUMS
+drwxr-xr-x 2 m4rk m4rk    4096 oct 23 15:32 sudoers.d
+-rw-rw-r-- 1 m4rk m4rk    9184 nov  4 02:03 suricata-stats-ultimo.txt
+-rw-rw-r-- 1 m4rk m4rk   16282 nov  4 02:03 unidades-cat.txt
+-rw-rw-r-- 1 m4rk m4rk     766 nov  4 02:03 unidades-estado.txt
+-rw-rw-r-- 1 m4rk m4rk    4104 nov  4 02:03 unidades-show.txt
+-rw-rw-r-- 1 m4rk m4rk     283 nov  4 02:03 usr-local.ls
+-rw-rw-r-- 1 m4rk m4rk     216 nov  4 02:03 versiones.txt
+--- SHA256SUMS
+02b7bb8328cbd52616c97e9da3dbb5c9ec84900d225b4d9fa6f053bd16abc0ed  ./anillo.ls
+a042c32282293ab34bcf9e8c9d096b822affb84bc5099761e5b0068976279268  ./artefactos.sha256
+4d68d23e398faa7cfdc6b519ba47e0b339dacaaefbd99edbc9cdc6add2f2fbd9  ./authorized_keys
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  ./crontab.txt
+72518b395c2f4afb671506a652f52831fa35a3fcfb7a1745cd11ceb6428bdee3  ./cyberflow-codigo.sha256
+2214a6040fec23425ec6b87edc1442eaeafd0ff9fb93a3688795b622a8f9777c  ./cyberflow-codigo.tar.gz
+6afa56d1d8d9cca397a5928632fd784847051995735d65b742db285ac44cd1ed  ./disco.txt
+5989d8a373b045551148cd55fedb8239e899653872a09d596ddf65557d966d9d  ./ens37.txt
+3475ff446d3577dadb485c6c69c41486c93b0af902c90fc933f8346444076918  ./etc-systemd-system/cyberflow-acumular.service
+69ee8af31a8a21fda155ca6cc8654c50916bae5b028ccf88302c4e605181c470  ./etc-systemd-system/cyberflow-acumular.service.anterior
+69ee8af31a8a21fda155ca6cc8654c50916bae5b028ccf88302c4e605181c470  ./etc-systemd-system/cyberflow-acumular.service.bak-20261024
+fb09ff6be92261d5d54c307a670e1f046ff91ab77625ae04341b575e289fcad2  ./etc-systemd-system/cyberflow-acumular.timer
+fb09ff6be92261d5d54c307a670e1f046ff91ab77625ae04341b575e289fcad2  ./etc-systemd-system/cyberflow-acumular.timer.anterior
+493eb25ea14fec87c2494709ef4c489c22ee199fca2ca81a531ca7e1ca382da6  ./etc-systemd-system/cyberflow-aprendizaje.service
+493eb25ea14fec87c2494709ef4c489c22ee199fca2ca81a531ca7e1ca382da6  ./etc-systemd-system/cyberflow-aprendizaje.service.anterior
+4b8ba868f6fd36f861f4ab0eb65e886725ca58c507b1f976228b7b4afd092ed4  ./etc-systemd-system/cyberflow-aprendizaje.timer
+4b8ba868f6fd36f861f4ab0eb65e886725ca58c507b1f976228b7b4afd092ed4  ./etc-systemd-system/cyberflow-aprendizaje.timer.anterior
+0b9e721157bc6ee51464b7bdcfe7d48a99d88c3689f2ef188d44ffaf5e6f7f55  ./etc-systemd-system/cyberflow-capture-nic.service
+0b9e721157bc6ee51464b7bdcfe7d48a99d88c3689f2ef188d44ffaf5e6f7f55  ./etc-systemd-system/cyberflow-capture-nic.service.anterior
+37deea0c407ba61fa6688a3b310c578931c7d377ec8f43226201f9828a34e255  ./etc-systemd-system/cyberflow-limpieza.service
+37deea0c407ba61fa6688a3b310c578931c7d377ec8f43226201f9828a34e255  ./etc-systemd-system/cyberflow-limpieza.service.anterior
+fe245925d3494725d3ea7d838bc9abc3806a3d1fab3fbf20ac75cf26c49d9ad4  ./etc-systemd-system/cyberflow-limpieza.timer
+fe245925d3494725d3ea7d838bc9abc3806a3d1fab3fbf20ac75cf26c49d9ad4  ./etc-systemd-system/cyberflow-limpieza.timer.anterior
+156252ee107c955c987fad483bf8cb712a11aa83deb53195d0e21a6b3bf5d961  ./etc-systemd-system/cyberflow-panel-acceso.service
+156252ee107c955c987fad483bf8cb712a11aa83deb53195d0e21a6b3bf5d961  ./etc-systemd-system/cyberflow-panel-acceso.service.anterior
+d2b14299c97f03dd32bb817de088edded390db1e4c3d3a275669a5aaf8016c7f  ./etc-systemd-system.ls
+4a03ff3661dd340171ce998a4ef17a545d5b25e20276095ae3e4977e0313a641  ./etc-systemd-system/ppi-dashboard.service
+f33f102db9e31cdc9de659a6a29161cddeefb4c3194cbabeb1ab93eb537c4fb8  ./etc-systemd-system/ppi-dashboard.service.anterior
+362631b2e9ee6f3fde5f89944629a063fdcc6333ceeb8fb5aae65ed607e9afb0  ./etc-systemd-system/ppi-motor-capture.service
+362631b2e9ee6f3fde5f89944629a063fdcc6333ceeb8fb5aae65ed607e9afb0  ./etc-systemd-system/ppi-motor-capture.service.anterior
+dc09cdad5d098fac294e4813bbd78112ec246567f558e341cda9b4074788717e  ./etc-systemd-system/ppi-motor.service
+ee4a714cfd97dc7f742ffe648809cc1a6b8e59e7d0e7689e7b17ad90e57369df  ./etc-systemd-system/ppi-motor.service.anterior
+c9286922d10d8918636c175854f44f7aba9cb548afff0bd64955361f690e2a07  ./etc-systemd-system/ppi-motor.service.bak-20261024
+91a1e992ad7714c183463e79fcecc7011956b6605b03b933aa572f5bbf38e350  ./etc-systemd-system/ppi-publicar-feed.service
+e35efd7a85eca56e37a731422c775f540c55c736f39d1a63d5a5a9549db50992  ./etc-systemd-system/ppi-publicar-feed.timer
+574cea09d7dfb3c35f4c0da944c574b9088d314df88af661ded001404e583b9c  ./etc-systemd-system/ppi-publicar-feed.timer.bak-20261015T124000Z
+9e253cb55129115dd50a1ba505c883f5e91ed9f02670cb1a3e133c37cee3bad8  ./feed-keys.ls
+8332b64b2f54bd1fecc2857508a7f4c79a2971d47368b17d6bf80e0c245f8ead  ./feed-v1.tar.gz
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  ./getcap.txt
+183e7bc469122ed9e2d517d0561adde2afa589a97dce3365e291d9b185fce094  ./logrotate.d/cyberflow
+d8ddbe3ce5ea773077aba2eeb0fb885671b77fd540e2d174166c062077f110c2  ./logrotate.d/suricata
+d7cdb58be7de44b64bfd5617b59d398c3b7e261cd0909a791dd9bcb9c1e58681  ./logs.ls
+0162145ad578b34431db33a60d0d3b46c79858ef57e8d60434a0de66145b7bca  ./logs-_state.tar.gz
+d96f7c8254e94c33fd7a7c5d0beef77580a4284cd7e92a6b05f203a4ca7dd489  ./procesos.txt
+751e05d96852965698a4dfba35fe2f5f18a6c5f97308c8cdc3c4cb5b46b6d689  ./RESPALDO.txt
+24c320e3e953857317c08beb04e34f34c6f132bb6cccd0f1b4c7ab98b621a21e  ./ruleset.nft
+72bdecb7c8758a74836c80b212044bac4a72826c5525d7f00330076a124a5640  ./sudoers.d/90-cyberflow
+65207e6812654a071a89ccd3cc86f00816f376a9708f1d51c197254fc8046c00  ./sudoers.d/cyberflow-captura
+e3b14dae08ac425b03863e3bacfab64d486b8302abe51d44829c2df0ac059e59  ./sudoers.d/cyberflow-operacio
+fec49aa79f26a741135f60c31332418f0e616a9672f54681add8a719f09cee66  ./sudoers.d/cyberflow-operacion
+b428c9b673c3c806370f2aa28a98293a9cb578c70c3a8a2d1a39031861b3dbd8  ./sudoers.d/README
+63de8911bb17dd4251aee8307f736b5d831439b67d9ccb3eb3c5b23fa486d235  ./suricata-stats-ultimo.txt
+cbc8ad0349082988ab52936eef9df617c985fbac88ff0bdedb8b0216eb0a3d4f  ./unidades-cat.txt
+02fa0d461357edfe4d65175d72de87ac33c24a281bd31e8ee0d0d65de743b924  ./unidades-estado.txt
+344efed2d7946ad82602eafcc93b4281fe206a740674115bd9c798c286b0124c  ./unidades-show.txt
+49fbf57ba5fd4612adc0efde9e3800ce558e081bd657a9df1207b3d092168eb0  ./usr-local.ls
+6794991b80c24dc2f317508fab1fa5adf97338852ec0072cebd0dfbb7591faf6  ./versiones.txt
+--- RESPALDO.txt
+respaldo Sensor1 cyberflow-sensor 20261104T020318Z por m4rk
+ok    estado de unidades
+ok    copia de ppi-motor.service
+ok    cmdline del motor
+ok    hash del código
+ok    authorized_keys
+ok    ruleset nft (sudo)
+RESPALDO OK /home/m4rk/respaldos-etapa4/sensor1-20261104T020318Z
+--- verificación: 2 fallos
+===== /home/m4rk/respaldos-etapa4/sensor1-20261104T021028Z/
+drwx------ 5 m4rk m4rk    4096 nov  4 02:11 .
+drwx------ 6 m4rk m4rk    4096 nov  4 03:41 ..
+-rw-rw-r-- 1 m4rk m4rk     478 nov  4 02:10 anillo.ls
+-rw-rw-r-- 1 m4rk m4rk     895 nov  4 02:10 artefactos.sha256
+-rw------- 1 m4rk m4rk     105 sep 16 15:16 authorized_keys
+-rw-rw-r-- 1 m4rk m4rk       0 nov  4 02:10 crontab.txt
+-rw-rw-r-- 1 m4rk m4rk   15753 nov  4 02:10 cyberflow-codigo.sha256
+-rw-rw-r-- 1 m4rk m4rk 1597945 nov  4 02:10 cyberflow-codigo.tar.gz
+-rw-rw-r-- 1 m4rk m4rk     452 nov  4 02:10 disco.txt
+-rw-rw-r-- 1 m4rk m4rk      93 nov  4 02:10 ens37.txt
+drwxrwxr-x 2 m4rk m4rk    4096 nov  4 02:10 etc-systemd-system
+-rw-rw-r-- 1 m4rk m4rk    4009 nov  4 02:10 etc-systemd-system.ls
+-rw-rw-r-- 1 m4rk m4rk     287 nov  4 02:10 feed-keys.ls
+-rw-rw-r-- 1 m4rk m4rk    5863 nov  4 02:10 feed-v1.tar.gz
+-rw-rw-r-- 1 m4rk m4rk       0 nov  4 02:11 getcap.txt
+drwxrwxr-x 2 m4rk m4rk    4096 nov  4 02:10 logrotate.d
+-rw-rw-r-- 1 m4rk m4rk    2517 nov  4 02:10 logs.ls
+-rw-rw-r-- 1 m4rk m4rk 2911011 nov  4 02:10 logs-_state.tar.gz
+-rw-rw-r-- 1 m4rk m4rk    1089 nov  4 02:10 procesos.txt
+-rw-rw-r-- 1 m4rk m4rk     277 nov  4 02:11 RESPALDO.txt
+-rw-rw-r-- 1 m4rk m4rk     175 nov  4 02:10 ruleset.nft
+-rw-rw-r-- 1 m4rk m4rk    5760 nov  4 02:11 SHA256SUMS
+drwxr-xr-x 2 m4rk m4rk    4096 oct 23 15:32 sudoers.d
+-rw-rw-r-- 1 m4rk m4rk    9184 nov  4 02:10 suricata-stats-ultimo.txt
+-rw-rw-r-- 1 m4rk m4rk   16282 nov  4 02:10 unidades-cat.txt
+-rw-rw-r-- 1 m4rk m4rk     768 nov  4 02:10 unidades-estado.txt
+-rw-rw-r-- 1 m4rk m4rk    4113 nov  4 02:10 unidades-show.txt
+-rw-rw-r-- 1 m4rk m4rk     283 nov  4 02:10 usr-local.ls
+-rw-rw-r-- 1 m4rk m4rk     216 nov  4 02:10 versiones.txt
+--- SHA256SUMS
+a2afd1816593d3b9b2fdc2175a14e85286c5375d0c7335be2d3512352af01b0f  ./anillo.ls
+a042c32282293ab34bcf9e8c9d096b822affb84bc5099761e5b0068976279268  ./artefactos.sha256
+4d68d23e398faa7cfdc6b519ba47e0b339dacaaefbd99edbc9cdc6add2f2fbd9  ./authorized_keys
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  ./crontab.txt
+72518b395c2f4afb671506a652f52831fa35a3fcfb7a1745cd11ceb6428bdee3  ./cyberflow-codigo.sha256
+2214a6040fec23425ec6b87edc1442eaeafd0ff9fb93a3688795b622a8f9777c  ./cyberflow-codigo.tar.gz
+648036624a1b2e769544e36318ebc289f443cfb2ec300cec9e309b5057a606ad  ./disco.txt
+2b0ec37d583bdc497ba83930c8a050c60149d450127e59a4601b47179a8c37b4  ./ens37.txt
+3475ff446d3577dadb485c6c69c41486c93b0af902c90fc933f8346444076918  ./etc-systemd-system/cyberflow-acumular.service
+69ee8af31a8a21fda155ca6cc8654c50916bae5b028ccf88302c4e605181c470  ./etc-systemd-system/cyberflow-acumular.service.anterior
+69ee8af31a8a21fda155ca6cc8654c50916bae5b028ccf88302c4e605181c470  ./etc-systemd-system/cyberflow-acumular.service.bak-20261024
+fb09ff6be92261d5d54c307a670e1f046ff91ab77625ae04341b575e289fcad2  ./etc-systemd-system/cyberflow-acumular.timer
+fb09ff6be92261d5d54c307a670e1f046ff91ab77625ae04341b575e289fcad2  ./etc-systemd-system/cyberflow-acumular.timer.anterior
+493eb25ea14fec87c2494709ef4c489c22ee199fca2ca81a531ca7e1ca382da6  ./etc-systemd-system/cyberflow-aprendizaje.service
+493eb25ea14fec87c2494709ef4c489c22ee199fca2ca81a531ca7e1ca382da6  ./etc-systemd-system/cyberflow-aprendizaje.service.anterior
+4b8ba868f6fd36f861f4ab0eb65e886725ca58c507b1f976228b7b4afd092ed4  ./etc-systemd-system/cyberflow-aprendizaje.timer
+4b8ba868f6fd36f861f4ab0eb65e886725ca58c507b1f976228b7b4afd092ed4  ./etc-systemd-system/cyberflow-aprendizaje.timer.anterior
+0b9e721157bc6ee51464b7bdcfe7d48a99d88c3689f2ef188d44ffaf5e6f7f55  ./etc-systemd-system/cyberflow-capture-nic.service
+0b9e721157bc6ee51464b7bdcfe7d48a99d88c3689f2ef188d44ffaf5e6f7f55  ./etc-systemd-system/cyberflow-capture-nic.service.anterior
+37deea0c407ba61fa6688a3b310c578931c7d377ec8f43226201f9828a34e255  ./etc-systemd-system/cyberflow-limpieza.service
+37deea0c407ba61fa6688a3b310c578931c7d377ec8f43226201f9828a34e255  ./etc-systemd-system/cyberflow-limpieza.service.anterior
+fe245925d3494725d3ea7d838bc9abc3806a3d1fab3fbf20ac75cf26c49d9ad4  ./etc-systemd-system/cyberflow-limpieza.timer
+fe245925d3494725d3ea7d838bc9abc3806a3d1fab3fbf20ac75cf26c49d9ad4  ./etc-systemd-system/cyberflow-limpieza.timer.anterior
+156252ee107c955c987fad483bf8cb712a11aa83deb53195d0e21a6b3bf5d961  ./etc-systemd-system/cyberflow-panel-acceso.service
+156252ee107c955c987fad483bf8cb712a11aa83deb53195d0e21a6b3bf5d961  ./etc-systemd-system/cyberflow-panel-acceso.service.anterior
+d2b14299c97f03dd32bb817de088edded390db1e4c3d3a275669a5aaf8016c7f  ./etc-systemd-system.ls
+4a03ff3661dd340171ce998a4ef17a545d5b25e20276095ae3e4977e0313a641  ./etc-systemd-system/ppi-dashboard.service
+f33f102db9e31cdc9de659a6a29161cddeefb4c3194cbabeb1ab93eb537c4fb8  ./etc-systemd-system/ppi-dashboard.service.anterior
+362631b2e9ee6f3fde5f89944629a063fdcc6333ceeb8fb5aae65ed607e9afb0  ./etc-systemd-system/ppi-motor-capture.service
+362631b2e9ee6f3fde5f89944629a063fdcc6333ceeb8fb5aae65ed607e9afb0  ./etc-systemd-system/ppi-motor-capture.service.anterior
+dc09cdad5d098fac294e4813bbd78112ec246567f558e341cda9b4074788717e  ./etc-systemd-system/ppi-motor.service
+ee4a714cfd97dc7f742ffe648809cc1a6b8e59e7d0e7689e7b17ad90e57369df  ./etc-systemd-system/ppi-motor.service.anterior
+c9286922d10d8918636c175854f44f7aba9cb548afff0bd64955361f690e2a07  ./etc-systemd-system/ppi-motor.service.bak-20261024
+91a1e992ad7714c183463e79fcecc7011956b6605b03b933aa572f5bbf38e350  ./etc-systemd-system/ppi-publicar-feed.service
+e35efd7a85eca56e37a731422c775f540c55c736f39d1a63d5a5a9549db50992  ./etc-systemd-system/ppi-publicar-feed.timer
+574cea09d7dfb3c35f4c0da944c574b9088d314df88af661ded001404e583b9c  ./etc-systemd-system/ppi-publicar-feed.timer.bak-20261015T124000Z
+9e253cb55129115dd50a1ba505c883f5e91ed9f02670cb1a3e133c37cee3bad8  ./feed-keys.ls
+8e4a51772e2594922ebaf7d7e10731ff16689e951093d891deb3f26cc7b68951  ./feed-v1.tar.gz
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  ./getcap.txt
+183e7bc469122ed9e2d517d0561adde2afa589a97dce3365e291d9b185fce094  ./logrotate.d/cyberflow
+d8ddbe3ce5ea773077aba2eeb0fb885671b77fd540e2d174166c062077f110c2  ./logrotate.d/suricata
+9fe5f925901f539d880655d46f8cd7adac12212371a41e69258496db087359ef  ./logs.ls
+e4201865e0922875023011b62b0b8de604b8c6bab3b81bdabde708c6df5f0ced  ./logs-_state.tar.gz
+d96f7c8254e94c33fd7a7c5d0beef77580a4284cd7e92a6b05f203a4ca7dd489  ./procesos.txt
+ac7acbaa4b3465d972f69738e32d40fc2191b3ad4e2c54a15b97f16406d1e4c4  ./RESPALDO.txt
+24c320e3e953857317c08beb04e34f34c6f132bb6cccd0f1b4c7ab98b621a21e  ./ruleset.nft
+72bdecb7c8758a74836c80b212044bac4a72826c5525d7f00330076a124a5640  ./sudoers.d/90-cyberflow
+65207e6812654a071a89ccd3cc86f00816f376a9708f1d51c197254fc8046c00  ./sudoers.d/cyberflow-captura
+e3b14dae08ac425b03863e3bacfab64d486b8302abe51d44829c2df0ac059e59  ./sudoers.d/cyberflow-operacio
+fec49aa79f26a741135f60c31332418f0e616a9672f54681add8a719f09cee66  ./sudoers.d/cyberflow-operacion
+b428c9b673c3c806370f2aa28a98293a9cb578c70c3a8a2d1a39031861b3dbd8  ./sudoers.d/README
+3030659a0b25d0f484f9de580d08297fa760c81625dba0bc4ee31de900b90ff1  ./suricata-stats-ultimo.txt
+cbc8ad0349082988ab52936eef9df617c985fbac88ff0bdedb8b0216eb0a3d4f  ./unidades-cat.txt
+f58c58cc008238a680cb025710b9a04e721a543280976c44a5e89cae7be4d472  ./unidades-estado.txt
+b5ff82f58429f54af99b45567be6812dc15a612e1a6331313ad0afac78954462  ./unidades-show.txt
+49fbf57ba5fd4612adc0efde9e3800ce558e081bd657a9df1207b3d092168eb0  ./usr-local.ls
+b7de615558e705f69fbefe308717e8fa18f596a3dbc468629b836603fb18af90  ./versiones.txt
+--- RESPALDO.txt
+respaldo Sensor1 cyberflow-sensor 20261104T021028Z por m4rk
+ok    estado de unidades
+ok    copia de ppi-motor.service
+ok    cmdline del motor
+ok    hash del código
+ok    authorized_keys
+ok    ruleset nft (sudo)
+RESPALDO OK /home/m4rk/respaldos-etapa4/sensor1-20261104T021028Z
+--- verificación: 0 fallos
+===== volcado v1

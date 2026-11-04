@@ -1,0 +1,52 @@
+{
+ "acotado_por": [
+  1793758785.863,
+  1793762388.852
+ ],
+ "clase": "C3",
+ "criterios": {
+  "max_hueco_muestras_s": 30.0,
+  "motor_retraso_max_s": 25.0,
+  "rotacion_s": 5.0,
+  "tcpdump_periodo_s": 30.0,
+  "tcpdump_tolerancia_s": 2.0,
+  "tolerancia_rotacion_s": 2.0,
+  "via_antiguedad_max_s": 2.0
+ },
+ "info": {
+  "motor_retraso_pcap_max_s": 1.616,
+  "suricata": {
+   "descartes": 7,
+   "intervalos": 357,
+   "paquetes": 937757
+  },
+  "tcpdump": {
+   "descartados_kernel": null,
+   "desde": 1793758770.348808,
+   "hasta": 1793762400.325617,
+   "lecturas": 242,
+   "lecturas_sin_hora_o_pid": 0,
+   "limite_s": 32.0,
+   "motivos_c3": [
+    "tcpdump: varios PID en el periodo [1413865, 1413924] (reinicio del proceso o lecturas de dos capturas mezcladas)"
+   ],
+   "ok": false,
+   "pids": [
+    1413865,
+    1413924
+   ]
+  },
+  "via_rapida": {
+   "antiguedad_max_s": 0.013,
+   "medida": true
+  }
+ },
+ "motivos": [
+  "tcpdump: varios PID en el periodo [1413865, 1413924] (reinicio del proceso o lecturas de dos capturas mezcladas)",
+  "Suricata: 7 descartes de 937757 paquetes"
+ ],
+ "periodo": [
+  1793758785.873,
+  1793762388.842
+ ]
+}

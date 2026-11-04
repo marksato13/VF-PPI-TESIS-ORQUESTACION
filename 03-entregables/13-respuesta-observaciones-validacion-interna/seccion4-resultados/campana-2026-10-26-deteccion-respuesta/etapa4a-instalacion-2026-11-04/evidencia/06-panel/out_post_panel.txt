@@ -1,0 +1,13 @@
+pkill: regex error: Invalid content of \{\}
+--- POST con cuerpo vacío (Content-Length: 0), máx 10 s
+
+HTTP 000
+--- POST sin Content-Length, máx 10 s
+
+HTTP 000
+rc=28
+--- GET sin sesión
+HTTP 000
+total 4
+-rw-r--r-- 1 m4rk m4rk 101 nov  3 17:02 preparar.json
+active

@@ -1,0 +1,8 @@
+256 SHA256:D3LRY5PxVREIOxMLg0MrHaxfM5LBshNYN3KzyCBrMso cyberflow-feed-v2-sensor (ED25519)
+256 SHA256:A+bOHdCK6cLe/plTIN9sKc3wqG1coov0YaNLOxaNCqo cyberflow-feed-v2-srv (ED25519)
+OK    llaves nuevas; la PÚBLICA cyberflow-feed-v2-sensor.pub va a Sensor1 (instalar_sensor1_sombra.sh llave-rele)
+OK    y la PÚBLICA cyberflow-feed-v2-srv.pub a srv-dmz (instalar_srvdmz_sombra.sh ... <pub>)
+-rw------- /home/gadmin/.ssh/cyberflow-feed-v2-sensor
+-rw-r--r-- /home/gadmin/.ssh/cyberflow-feed-v2-sensor.pub
+-rw------- /home/gadmin/.ssh/cyberflow-feed-v2-srv
+-rw-r--r-- /home/gadmin/.ssh/cyberflow-feed-v2-srv.pub

@@ -1,0 +1,80 @@
+python Python 3.13.5 node v20.19.2 OpenSSL 3.5.7 9 Jun 2026 (Library: OpenSSL 3.5.7 9 Jun 2026)
+=== rama
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-8.3.5, pluggy-1.5.0
+rootdir: /rama
+collected 134 items
+
+tests/test_alertas_panel.py s.....s..s.                                  [  8%]
+tests/test_dashboard_artefactos.py .....                                 [ 11%]
+tests/test_dashboard_counters.py .....                                   [ 15%]
+tests/test_dashboard_detector.py .....                                   [ 19%]
+tests/test_dashboard_escenarios.py .....                                 [ 23%]
+tests/test_dashboard_gui_contract.py .....                               [ 26%]
+tests/test_dashboard_variables.py ..........                             [ 34%]
+tests/test_panel_auth.py ......................                          [ 50%]
+tests/test_panel_auth_e2e.py ...........                                 [ 58%]
+tests/test_panel_revision_gui.py ..........                              [ 66%]
+tests/test_salud_panel.py ...............                                [ 77%]
+tests/test_escenario_vivo.py ss......                                    [ 83%]
+tests/test_historial_acciones.py ...ss                                   [ 87%]
+tests/test_panel_cadena_v2.py .................                          [100%]
+
+=============================== warnings summary ===============================
+scripts/engine/dashboard.py:3465
+scripts/engine/dashboard.py:3465
+scripts/engine/dashboard.py:3465
+scripts/engine/dashboard.py:3465
+scripts/engine/dashboard.py:3465
+scripts/engine/dashboard.py:3465
+scripts/engine/dashboard.py:3465
+scripts/engine/dashboard.py:3465
+scripts/engine/dashboard.py:3465
+  /rama/scripts/engine/dashboard.py:3465: SyntaxWarning: invalid escape sequence '\.'
+    const origen = f.ip === '10.10.20.30' ? 'atacante' : (/^10\.10\.20\.2[1-6]$/.test(f.ip) ? 'clientes' : null);
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+SKIPPED [3] tests/test_alertas_panel.py: política de la demo (A+C); rige el motor de las campañas
+SKIPPED [2] tests/test_escenario_vivo.py: política de la demo (A+C); rige el motor de las campañas
+SKIPPED [2] tests/test_historial_acciones.py: política de la demo (A+C); rige el motor de las campañas
+================= 127 passed, 7 skipped, 9 warnings in 19.42s ==================
+=== base
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-8.3.5, pluggy-1.5.0
+rootdir: /base
+collected 117 items
+
+tests/test_alertas_panel.py s.....s..s.                                  [  9%]
+tests/test_dashboard_artefactos.py .....                                 [ 13%]
+tests/test_dashboard_counters.py .....                                   [ 17%]
+tests/test_dashboard_detector.py .....                                   [ 22%]
+tests/test_dashboard_escenarios.py .....                                 [ 26%]
+tests/test_dashboard_gui_contract.py .....                               [ 30%]
+tests/test_dashboard_variables.py ..........                             [ 39%]
+tests/test_panel_auth.py ......................                          [ 58%]
+tests/test_panel_auth_e2e.py ...........                                 [ 67%]
+tests/test_panel_revision_gui.py ..........                              [ 76%]
+tests/test_salud_panel.py ...............                                [ 88%]
+tests/test_escenario_vivo.py ss......                                    [ 95%]
+tests/test_historial_acciones.py ...ss                                   [100%]
+
+=============================== warnings summary ===============================
+scripts/engine/dashboard.py:3405
+scripts/engine/dashboard.py:3405
+scripts/engine/dashboard.py:3405
+scripts/engine/dashboard.py:3405
+scripts/engine/dashboard.py:3405
+scripts/engine/dashboard.py:3405
+scripts/engine/dashboard.py:3405
+scripts/engine/dashboard.py:3405
+scripts/engine/dashboard.py:3405
+  /base/scripts/engine/dashboard.py:3405: SyntaxWarning: invalid escape sequence '\.'
+    const origen = f.ip === '10.10.20.30' ? 'atacante' : (/^10\.10\.20\.2[1-6]$/.test(f.ip) ? 'clientes' : null);
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+SKIPPED [3] tests/test_alertas_panel.py: política de la demo (A+C); rige el motor de las campañas
+SKIPPED [2] tests/test_escenario_vivo.py: política de la demo (A+C); rige el motor de las campañas
+SKIPPED [2] tests/test_historial_acciones.py: política de la demo (A+C); rige el motor de las campañas
+================= 110 passed, 7 skipped, 9 warnings in 19.46s ==================
