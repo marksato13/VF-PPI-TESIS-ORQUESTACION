@@ -1,0 +1,97 @@
+..........................                                               [100%]
+=================================== PASSES ====================================
+___________________ test_original_3b__cli_extremo_a_extremo ___________________
+---------------------------- Captured stdout call -----------------------------
+{
+ "tabla_principal": {
+  "Inundación HTTP": {
+   "poblacion_principal": [
+    "inundacion_http-r1"
+   ],
+   "fuera_de_poblacion": [],
+   "IF_0.05": {
+    "oportuna": 1
+   },
+   "IF_0.03": {
+    "oportuna": 1
+   },
+   "IF_0.01": {
+    "oportuna": 1
+   },
+   "HEUR": {
+    "ausencia_con_observacion_suficiente": 1
+   },
+   "HIB_0.05": {
+    "oportuna": 1
+   },
+   "HIB_0.03": {
+    "oportuna": 1
+   },
+   "HIB_0.01": {
+    "oportuna": 1
+   },
+   "emisiones_oportunas_episodios": 1,
+   "episodios_oportunos_senal_if": 1,
+   "episodios_oportunos_regla_prevista": 0,
+   "episodios_oportunos_regla_no_prevista": 0,
+   "respuesta_aplicada": "no_medida"
+  }
+ },
+ "inventario": {
+  "requeridas": 15,
+  "estados": {
+   "decidida_a_tiempo": 15,
+   "decidida_tardia": 0,
+   "no_evaluada": 0,
+   "ausente": 0
+  },
+  "solo_en_vivo": 0,
+  "cobertura_total": 1.0
+ }
+}
+_____________ test_original_rt__epsilon_y_fin_del_generador_acota _____________
+---------------------------- Captured stdout call -----------------------------
+{"escaneo_breve-r2": {"IF_0.05": "oportuna", "HEUR": "oportuna"}}
+_________ test_original_rt__escaneo_breve_oportuna_contra_rafaga_real _________
+---------------------------- Captured stdout call -----------------------------
+{"escaneo_breve-r1": {"IF_0.05": "solo_posterior", "HEUR": "solo_posterior"}}
+___________ test_original_rt__otro_escenario_conserva_categoria_3b ____________
+---------------------------- Captured stdout call -----------------------------
+{"inundacion_http-r1": {"IF_0.05": "oportuna", "HEUR": "oportuna"}}
+__________________ test_original_rt__sin_trafico_no_inventa ___________________
+---------------------------- Captured stdout call -----------------------------
+{"escaneo_breve-r3": {"IF_0.05": "oportuna", "HEUR": "oportuna"}}
+____________ test_original_rt__via_rapida_y_propuesta_con_entrega _____________
+---------------------------- Captured stdout call -----------------------------
+{"escaneo_breve-r4": {"IF_0.05": "solo_posterior", "HEUR": "solo_posterior"}}
+________ test_referencia_marca_regla_publicada_y_no_inventa_aplicacion ________
+---------------------------- Captured stdout call -----------------------------
+{"escaneo_breve-r1": {"IF_0.05": "oportuna", "HEUR": "oportuna"}}
+=========================== short test summary info ===========================
+PASSED test_etiquetas_reconciliacion.py::test_original_3b__ciclos_sin_decisiones_y_huecos
+PASSED test_etiquetas_reconciliacion.py::test_original_3b__cli_extremo_a_extremo
+PASSED test_etiquetas_reconciliacion.py::test_original_3b__configuraciones_vs_emisiones
+PASSED test_etiquetas_reconciliacion.py::test_original_3b__control_parcialmente_cubierto_y_no_evaluadas
+PASSED test_etiquetas_reconciliacion.py::test_original_3b__control_poblacion_y_cotas
+PASSED test_etiquetas_reconciliacion.py::test_original_3b__disponibilidad_por_ciclo
+PASSED test_etiquetas_reconciliacion.py::test_original_3b__limites_temporales_rejilla
+PASSED test_etiquetas_reconciliacion.py::test_original_3b__observacion_parcial_y_fuente_degradada
+PASSED test_etiquetas_reconciliacion.py::test_original_3b__oportuna_y_posterior
+PASSED test_etiquetas_reconciliacion.py::test_original_3b__poblacion
+PASSED test_etiquetas_reconciliacion.py::test_original_3b__regresion_inventario_truncado
+PASSED test_etiquetas_reconciliacion.py::test_original_3b__regresion_no_evaluada_en_ambas_versiones
+PASSED test_etiquetas_reconciliacion.py::test_original_3b__senal_no_atribuible_y_actividad_previa
+PASSED test_etiquetas_reconciliacion.py::test_original_3b__tardia_ausente_no_evaluada
+PASSED test_etiquetas_reconciliacion.py::test_original_3b__ventana_que_solapa_el_final
+PASSED test_etiquetas_reconciliacion.py::test_original_rt__epsilon_y_fin_del_generador_acota
+PASSED test_etiquetas_reconciliacion.py::test_original_rt__escaneo_breve_oportuna_contra_rafaga_real
+PASSED test_etiquetas_reconciliacion.py::test_original_rt__otro_escenario_conserva_categoria_3b
+PASSED test_etiquetas_reconciliacion.py::test_original_rt__sin_trafico_no_inventa
+PASSED test_etiquetas_reconciliacion.py::test_original_rt__via_rapida_y_propuesta_con_entrega
+PASSED test_etiquetas_reconciliacion.py::test_escaneo_con_brute_force_es_otra_regla_no_la_prevista
+PASSED test_etiquetas_reconciliacion.py::test_port_scan_en_escaneo_es_regla_prevista
+PASSED test_etiquetas_reconciliacion.py::test_senal_if_por_decision_if_y_auth_que_autoriza
+PASSED test_etiquetas_reconciliacion.py::test_registro_antiguo_sin_decision_if
+PASSED test_etiquetas_reconciliacion.py::test_hibrida_lleva_las_dos_etiquetas_y_respuesta_no_medida
+PASSED test_etiquetas_reconciliacion.py::test_referencia_marca_regla_publicada_y_no_inventa_aplicacion
+26 passed in 0.16s

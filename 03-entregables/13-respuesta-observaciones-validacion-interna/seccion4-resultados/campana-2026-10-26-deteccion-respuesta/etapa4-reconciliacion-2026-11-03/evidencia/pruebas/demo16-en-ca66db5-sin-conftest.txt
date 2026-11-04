@@ -1,0 +1,332 @@
+FFFFFFFFFFFFFFFF                                                         [100%]
+================================== FAILURES ===================================
+______ DecisionesAEntradas.test_alerta_marginal_del_modelo_no_se_publica ______
+
+self = <test_publicar_feed.DecisionesAEntradas testMethod=test_alerta_marginal_del_modelo_no_se_publica>
+
+    def test_alerta_marginal_del_modelo_no_se_publica(self):
+        marg = []
+        for t in (980.0, 990.0, 1000.0):
+            d = dec("10.10.20.21", logged_at=t)
+            d.update(score=-0.610, threshold=-0.569)       # a 0,041 del umbral: marginal
+            marg.append(d)
+>       self.assertEqual(pf.decisiones_a_entradas(marg, {}, 1000.0, self.nunca), [])
+E       AssertionError: Lists differ: [{'ip': '10.10.20.21', 'accion': 'LIMIT', [126 chars]lse}] != []
+E       
+E       First list contains 1 additional elements.
+E       First extra element 0:
+E       {'ip': '10.10.20.21', 'accion': 'LIMIT', 'hasta': 1300, 'alcance': 'all', 'motivo': 'modelo:ocsvm_scaled', 'detector': 'ocsvm_scaled', 'nivel': 0, 'revisar_humano': False}
+E       
+E       + []
+E       - [{'accion': 'LIMIT',
+E       -   'alcance': 'all',
+E       -   'detector': 'ocsvm_scaled',
+E       -   'hasta': 1300,
+E       -   'ip': '10.10.20.21',
+E       -   'motivo': 'modelo:ocsvm_scaled',
+E       -   'nivel': 0,
+E       -   'revisar_humano': False}]
+
+tests\test_publicar_feed.py:43: AssertionError
+_______ DecisionesAEntradas.test_alerta_suelta_del_modelo_no_se_publica _______
+
+self = <test_publicar_feed.DecisionesAEntradas testMethod=test_alerta_suelta_del_modelo_no_se_publica>
+
+    def test_alerta_suelta_del_modelo_no_se_publica(self):
+        ent = pf.decisiones_a_entradas([dec("10.10.20.21")], {}, 1000.0, self.nunca)
+>       self.assertEqual(ent, [])
+E       AssertionError: Lists differ: [{'ip': '10.10.20.21', 'accion': 'LIMIT', [126 chars]lse}] != []
+E       
+E       First list contains 1 additional elements.
+E       First extra element 0:
+E       {'ip': '10.10.20.21', 'accion': 'LIMIT', 'hasta': 1300, 'alcance': 'all', 'motivo': 'modelo:ocsvm_scaled', 'detector': 'ocsvm_scaled', 'nivel': 0, 'revisar_humano': False}
+E       
+E       + []
+E       - [{'accion': 'LIMIT',
+E       -   'alcance': 'all',
+E       -   'detector': 'ocsvm_scaled',
+E       -   'hasta': 1300,
+E       -   'ip': '10.10.20.21',
+E       -   'motivo': 'modelo:ocsvm_scaled',
+E       -   'nivel': 0,
+E       -   'revisar_humano': False}]
+
+tests\test_publicar_feed.py:35: AssertionError
+___________ DecisionesAEntradas.test_dos_ventanas_claras_no_bastan ____________
+
+self = <test_publicar_feed.DecisionesAEntradas testMethod=test_dos_ventanas_claras_no_bastan>
+
+    def test_dos_ventanas_claras_no_bastan(self):
+        # corrida 3 (3-nov): .21 con dos ventanas a 0,03 y 0,05 del umbral -> no se publica
+        ds = []
+        for t, s in ((990.0, -0.598), (1000.0, -0.621)):
+            d = dec("10.10.20.21", logged_at=t)
+            d.update(score=s, threshold=-0.569)
+            ds.append(d)
+>       self.assertEqual(pf.decisiones_a_entradas(ds, {}, 1000.0, self.nunca), [])
+E       AssertionError: Lists differ: [{'ip': '10.10.20.21', 'accion': 'LIMIT', [126 chars]lse}] != []
+E       
+E       First list contains 1 additional elements.
+E       First extra element 0:
+E       {'ip': '10.10.20.21', 'accion': 'LIMIT', 'hasta': 1300, 'alcance': 'all', 'motivo': 'modelo:ocsvm_scaled', 'detector': 'ocsvm_scaled', 'nivel': 0, 'revisar_humano': False}
+E       
+E       + []
+E       - [{'accion': 'LIMIT',
+E       -   'alcance': 'all',
+E       -   'detector': 'ocsvm_scaled',
+E       -   'hasta': 1300,
+E       -   'ip': '10.10.20.21',
+E       -   'motivo': 'modelo:ocsvm_scaled',
+E       -   'nivel': 0,
+E       -   'revisar_humano': False}]
+
+tests\test_publicar_feed.py:62: AssertionError
+________ DecisionesAEntradas.test_politica_a_el_modelo_solo_no_publica ________
+
+self = <test_publicar_feed.DecisionesAEntradas testMethod=test_politica_a_el_modelo_solo_no_publica>
+
+    def test_politica_a_el_modelo_solo_no_publica(self):
+        # 3-nov tarde: aunque sea clara y sostenida, sin regla queda para revision
+>       self.assertFalse(pf.MODELO_SOLO_ACTUA)
+E       AssertionError: True is not false
+
+tests\test_publicar_feed.py:18: AssertionError
+_________________ IcmpFlood.test_el_flood_de_la_demo_bloquea __________________
+
+self = <test_heuristico_icmp.IcmpFlood testMethod=test_el_flood_de_la_demo_bloquea>
+
+    def test_el_flood_de_la_demo_bloquea(self):
+        for pps in (318.2, 1784.1, 3997.3):                      # ventanas reales de la Kali
+            v = h.evaluar(ventana(pps, 1.0))
+>           self.assertEqual((v["heuristico"], v["accion"]), ("icmp_flood", "BLOCK"), pps)
+                              ^^^^^^^^^^^^^^^
+E           TypeError: 'NoneType' object is not subscriptable
+
+tests\test_heuristico_icmp.py:15: TypeError
+________________________ IcmpFlood.test_version_subida ________________________
+
+self = <test_heuristico_icmp.IcmpFlood testMethod=test_version_subida>
+
+    def test_version_subida(self):
+>       self.assertEqual(h.VERSION_UMBRALES, "2026-11-03.2")
+E       AssertionError: '2026-10-06.2' != '2026-11-03.2'
+E       - 2026-10-06.2
+E       ?       ^  ^
+E       + 2026-11-03.2
+E       ?       ^  ^
+
+tests\test_heuristico_icmp.py:25: AssertionError
+___________ PortScan.test_250_descargas_al_puerto_80_no_son_escaneo ___________
+
+self = <test_port_scan_rafaga_web.PortScan testMethod=test_250_descargas_al_puerto_80_no_son_escaneo>
+
+    def test_250_descargas_al_puerto_80_no_son_escaneo(self):
+        # caso real del 3-nov: 252 intentos, 1 puerto, «0 % completados» por el espejo
+        v = h.evaluar(fila(252, 1 / 252, 0.0, http=467))
+>       self.assertEqual((v["heuristico"], v["accion"]), ("http_abuse", "LIMIT"))
+E       AssertionError: Tuples differ: ('port_scan', 'BLOCK') != ('http_abuse', 'LIMIT')
+E       
+E       First differing element 0:
+E       'port_scan'
+E       'http_abuse'
+E       
+E       - ('port_scan', 'BLOCK')
+E       + ('http_abuse', 'LIMIT')
+
+tests\test_port_scan_rafaga_web.py:25: AssertionError
+________ PortScan.test_cliente_a_una_peticion_por_segundo_no_es_abuso _________
+
+self = <test_port_scan_rafaga_web.PortScan testMethod=test_cliente_a_una_peticion_por_segundo_no_es_abuso>
+
+    def test_cliente_a_una_peticion_por_segundo_no_es_abuso(self):
+        # medido 3-nov: 60 peticiones reales/min llegan como 111-122 eventos (espejo x2)
+>       self.assertIsNone(h.evaluar(fila(122, 1 / 122, 0.0, http=122)))
+E       AssertionError: {'heuristico': 'http_abuse', 'accion': 'LIMIT', 'motivo': '122 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)'} is not None
+
+tests\test_port_scan_rafaga_web.py:29: AssertionError
+______________ PortScan.test_flood_de_la_demo_sigue_siendo_abuso ______________
+
+self = <test_port_scan_rafaga_web.PortScan testMethod=test_flood_de_la_demo_sigue_siendo_abuso>
+
+    def test_flood_de_la_demo_sigue_siendo_abuso(self):
+        v = h.evaluar(fila(250, 1 / 250, 0.0, http=470))
+>       self.assertEqual((v["heuristico"], v["accion"]), ("http_abuse", "LIMIT"))
+E       AssertionError: Tuples differ: ('port_scan', 'BLOCK') != ('http_abuse', 'LIMIT')
+E       
+E       First differing element 0:
+E       'port_scan'
+E       'http_abuse'
+E       
+E       - ('port_scan', 'BLOCK')
+E       + ('http_abuse', 'LIMIT')
+
+tests\test_port_scan_rafaga_web.py:33: AssertionError
+_______ ReglaDeAccion.test_anomalia_del_modelo_solo_queda_para_revision _______
+
+self = <test_alertas_panel.ReglaDeAccion testMethod=test_anomalia_del_modelo_solo_queda_para_revision>
+
+    def test_anomalia_del_modelo_solo_queda_para_revision(self):
+        # politica A (3-nov): sin regla que la confirme no pide accion
+>       self.assertIsNone(db.accion_de(dec("1.1.1.1", 1, "ALERT")))
+E       AssertionError: ('LIMIT', 'anomalía del modelo', 'modelo') is not None
+
+tests\test_alertas_panel.py:40: AssertionError
+_________________ AccionesVigentes.test_contadores_por_accion _________________
+
+self = <test_alertas_panel.AccionesVigentes testMethod=test_contadores_por_accion>
+
+    def test_contadores_por_accion(self):
+        ahora = time.time()
+        c = db.compute_counters([
+            dec("a", ahora - 5, heur={"accion": "BLOCK", "heuristico": "port_scan", "motivo": ""}),
+            dec("b", ahora - 5, "ALERT"), dec("c", ahora - 5)], detector_modelo="if_recalibrado_2026_09")
+        # «b» es una anomalia solo del modelo: con la politica A no es accion
+>       self.assertEqual((c["block"], c["limit"], c["ips_con_accion"]), (1, 0, 1))
+E       AssertionError: Tuples differ: (1, 1, 2) != (1, 0, 1)
+E       
+E       First differing element 1:
+E       1
+E       0
+E       
+E       - (1, 1, 2)
+E       + (1, 0, 1)
+
+tests\test_alertas_panel.py:107: AssertionError
+______ Simulador.test_cada_ataque_produce_la_accion_del_motor_de_reglas _______
+
+self = <test_alertas_panel.Simulador testMethod=test_cada_ataque_produce_la_accion_del_motor_de_reglas>
+
+    def test_cada_ataque_produce_la_accion_del_motor_de_reglas(self):
+        esperado = {"escaneo": ("BLOCK", "port_scan"), "dns": ("LIMIT", "dns_entropy"),
+                    "fuerza-bruta": ("BLOCK", "brute_force"), "http": ("LIMIT", "http_abuse")}
+        with tempfile.TemporaryDirectory() as tmp:
+            log = Path(tmp) / "demo.log"
+            self.assertEqual(sim.main(["--log", str(log), "--ataque", "todos",
+                                       "--ventanas", "2", "--intervalo", "0"]), 0)
+            filas = [json.loads(l) for l in log.read_text(encoding="utf-8").splitlines()]
+        self.assertTrue(all(f["demo"] and f["simulado"] for f in filas))
+        for nombre, (acc, origen) in esperado.items():
+            ip = sim.ATAQUES[nombre]["ip"]
+            rafagas = [f for f in filas if f["entity_ip"] == ip and db.accion_de(f)]
+            self.assertTrue(any(db.accion_de(f)[0] == acc and db.accion_de(f)[2] == origen
+                                for f in rafagas), nombre)
+        self.assertIsNone(db.accion_de(filas[0]))       # la ventana previa es normal
+        ip_modelo = sim.ATAQUES["modelo"]["ip"]           # politica A: solo revision
+>       self.assertFalse(any(db.accion_de(f) for f in filas if f["entity_ip"] == ip_modelo))
+E       AssertionError: True is not false
+
+tests\test_alertas_panel.py:134: AssertionError
+---------------------------- Captured stdout call -----------------------------
+== dns
+2026-11-04T01:05:42Z  10.10.20.30  PERMIT 
+2026-11-04T01:05:42Z  10.10.20.30  LIMIT  82 consultas DNS/60s, 62% NXDOMAIN, 50% nombres únicos
+== escaneo
+2026-11-04T01:05:42Z  10.10.20.30  PERMIT 
+2026-11-04T01:05:42Z  10.10.20.30  BLOCK  1180 intentos/30s a muchos puertos, 2% completados
+== fuerza-bruta
+2026-11-04T01:05:42Z  10.10.20.30  PERMIT 
+2026-11-04T01:05:42Z  10.10.20.30  BLOCK  240 req HTTP/60s con 100% de fallo de auth
+== http
+2026-11-04T01:05:42Z  10.10.20.34  PERMIT 
+2026-11-04T01:05:42Z  10.10.20.34  LIMIT  410 req HTTP/60s (volumen alto, sin patrón de fuerza bruta)
+== modelo
+2026-11-04T01:05:42Z  10.10.20.51  PERMIT 
+2026-11-04T01:05:42Z  10.10.20.51  LIMIT  
+_________________ Marginal.test_borde_del_umbral_es_marginal __________________
+
+self = <test_escenario_vivo.Marginal testMethod=test_borde_del_umbral_es_marginal>
+
+    def test_borde_del_umbral_es_marginal(self):
+>       self.assertTrue(dash.es_marginal(dec("1.1.1.1", 0, "ALERT", -0.575)))
+E       AssertionError: False is not true
+
+tests\test_escenario_vivo.py:24: AssertionError
+_________________ Marginal.test_contadores_separan_relevantes _________________
+
+self = <test_escenario_vivo.Marginal testMethod=test_contadores_separan_relevantes>
+
+    def test_contadores_separan_relevantes(self):
+        ahora = time.time()
+        ds = [dec("a", ahora - 5, "ALERT", -0.575), dec("b", ahora - 5, "ALERT", -0.7),
+              dec("c", ahora - 5, "PERMIT", -0.5,
+                  {"accion": "LIMIT", "heuristico": "dns_entropy", "motivo": "x"})]
+        c = dash.compute_counters(ds, detector_modelo="if_limpio_2026_10")
+>       self.assertEqual(c["alert_model_marginal"], 1)
+E       AssertionError: 0 != 1
+
+tests\test_escenario_vivo.py:42: AssertionError
+_________ Historial.test_una_alerta_suelta_del_modelo_no_es_episodio __________
+
+self = <test_historial_acciones.Historial testMethod=test_una_alerta_suelta_del_modelo_no_es_episodio>
+
+    def test_una_alerta_suelta_del_modelo_no_es_episodio(self):
+        self.escribir([linea(AHORA - 100, "10.10.20.30", "ALERT")])
+>       self.assertEqual(db.historial_acciones(self.log, AHORA)["episodios"], [])
+E       AssertionError: Lists differ: [{'ip': '10.10.20.30', 'accion': 'LIMIT', [138 chars]0.0}] != []
+E       
+E       First list contains 1 additional elements.
+E       First extra element 0:
+E       {'ip': '10.10.20.30', 'accion': 'LIMIT', 'motivo': 'anomalía del modelo', 'origen': 'modelo', 'inicio': 999900.0, 'fin': 999900.0, 'ventanas': 1, 'vigente': True, 'caduca': 1000210.0}
+E       
+E       + []
+E       - [{'accion': 'LIMIT',
+E       -   'caduca': 1000210.0,
+E       -   'fin': 999900.0,
+E       -   'inicio': 999900.0,
+E       -   'ip': '10.10.20.30',
+E       -   'motivo': 'anomalía del modelo',
+E       -   'origen': 'modelo',
+E       -   'ventanas': 1,
+E       -   'vigente': True}]
+
+tests\test_historial_acciones.py:49: AssertionError
+_____ Historial.test_una_racha_es_un_episodio_y_gana_la_accion_mas_severa _____
+
+self = <test_historial_acciones.Historial testMethod=test_una_racha_es_un_episodio_y_gana_la_accion_mas_severa>
+
+    def test_una_racha_es_un_episodio_y_gana_la_accion_mas_severa(self):
+        scan = {"heuristico": "port_scan", "accion": "BLOCK", "motivo": "250 intentos"}
+        # Las ALERT del modelo solo no son accion (politica A): el episodio es la regla.
+        self.escribir([
+            linea(AHORA - 5000, "10.10.20.21"),
+            linea(AHORA - 4000, "10.10.20.30", "ALERT"),                 # LIMIT por el modelo
+            linea(AHORA - 3990, "10.10.20.30", heuristico=scan),         # BLOCK por la regla
+            linea(AHORA - 3985, "10.10.20.30", "ALERT"),
+            linea(AHORA - 3980, "10.10.20.30", "ALERT"),
+        ])
+        d = db.historial_acciones(self.log, AHORA)
+        self.assertEqual(len(d["episodios"]), 1)
+        e = d["episodios"][0]
+>       self.assertEqual((e["ip"], e["accion"], e["origen"], e["ventanas"]),
+                         ("10.10.20.30", "BLOCK", "port_scan", 1))
+E       AssertionError: Tuples differ: ('10.10.20.30', 'BLOCK', 'port_scan', 4) != ('10.10.20.30', 'BLOCK', 'port_scan', 1)
+E       
+E       First differing element 3:
+E       4
+E       1
+E       
+E       - ('10.10.20.30', 'BLOCK', 'port_scan', 4)
+E       ?                                       ^
+E       
+E       + ('10.10.20.30', 'BLOCK', 'port_scan', 1)
+E       ?                                       ^
+
+tests\test_historial_acciones.py:42: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_publicar_feed.py::DecisionesAEntradas::test_alerta_marginal_del_modelo_no_se_publica
+FAILED tests/test_publicar_feed.py::DecisionesAEntradas::test_alerta_suelta_del_modelo_no_se_publica
+FAILED tests/test_publicar_feed.py::DecisionesAEntradas::test_dos_ventanas_claras_no_bastan
+FAILED tests/test_publicar_feed.py::DecisionesAEntradas::test_politica_a_el_modelo_solo_no_publica
+FAILED tests/test_heuristico_icmp.py::IcmpFlood::test_el_flood_de_la_demo_bloquea
+FAILED tests/test_heuristico_icmp.py::IcmpFlood::test_version_subida - Assert...
+FAILED tests/test_port_scan_rafaga_web.py::PortScan::test_250_descargas_al_puerto_80_no_son_escaneo
+FAILED tests/test_port_scan_rafaga_web.py::PortScan::test_cliente_a_una_peticion_por_segundo_no_es_abuso
+FAILED tests/test_port_scan_rafaga_web.py::PortScan::test_flood_de_la_demo_sigue_siendo_abuso
+FAILED tests/test_alertas_panel.py::ReglaDeAccion::test_anomalia_del_modelo_solo_queda_para_revision
+FAILED tests/test_alertas_panel.py::AccionesVigentes::test_contadores_por_accion
+FAILED tests/test_alertas_panel.py::Simulador::test_cada_ataque_produce_la_accion_del_motor_de_reglas
+FAILED tests/test_escenario_vivo.py::Marginal::test_borde_del_umbral_es_marginal
+FAILED tests/test_escenario_vivo.py::Marginal::test_contadores_separan_relevantes
+FAILED tests/test_historial_acciones.py::Historial::test_una_alerta_suelta_del_modelo_no_es_episodio
+FAILED tests/test_historial_acciones.py::Historial::test_una_racha_es_un_episodio_y_gana_la_accion_mas_severa
+16 failed in 0.29s

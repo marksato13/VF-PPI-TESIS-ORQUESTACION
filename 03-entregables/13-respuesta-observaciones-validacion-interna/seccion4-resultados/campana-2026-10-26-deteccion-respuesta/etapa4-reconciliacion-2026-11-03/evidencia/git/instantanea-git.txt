@@ -1,0 +1,133 @@
+# Instantanea git 2026-11-03 19:52:59 -05:00
+
+## REPO C:\Users\markp\Desktop\PY-MEGATRON\PY - PERSONAL\TESIS\CYBERFLOW\producto-as-deployed
+remote: https://github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos.git
+### ramas remotas
+origin 7b275b8 2026-10-28 03:07:00 -0500
+origin/as-deployed-sensor-20261006 ca66db5 2026-11-03 18:44:16 -0500
+origin/candidato/etapa2-20261101 6b6ef82 2026-11-02 01:58:48 -0500
+origin/candidato/etapa3-20261102 3a9f26b 2026-11-02 18:23:13 -0500
+origin/candidato/motor-rendimiento-20261031 24f8a80 2026-10-31 15:39:46 -0500
+origin/feat/shared-data-science-skills 97581ac 2026-08-26 03:10:03 -0500
+origin/main 7b275b8 2026-10-28 03:07:00 -0500
+origin/master b204f59 2026-10-23 15:56:28 -0500
+### etiquetas
+antes-politica-AC-2026-11-03 b33a7e1 7f4e8b6
+demo-politica-AC-2026-11-03 3f1bd9c 
+v1.0.0 3655558 f9ced59
+validacion-interna-2026-10-15 3086e9a 6d92ff3
+### worktrees
+worktree C:/Users/markp/Desktop/PY-MEGATRON/PY - PERSONAL/TESIS/CYBERFLOW/producto-as-deployed
+HEAD ca66db56b87eab188140714880b5bfaf163f5c12
+branch refs/heads/master
+
+worktree C:/Users/markp/AppData/Local/Temp/w953
+HEAD 953a4360dc9a7540048e2b956e3b500c4069a664
+detached
+
+worktree C:/Users/markp/AppData/Local/Temp/wcand
+HEAD 4694e38eab22f2eeadf598ef5e9613eab3dda100
+detached
+
+worktree C:/Users/markp/AppData/Local/Temp/wopt
+HEAD 6b6ef82195075ef608d3735d52569d0521667fd5
+detached
+
+worktree C:/Users/markp/Desktop/PY-MEGATRON/PY - PERSONAL/TESIS/CYBERFLOW/producto-candidato
+HEAD 24f8a80e376d89b78454fd16854d2239a1b7d278
+branch refs/heads/candidato/motor-rendimiento-20261031
+
+worktree C:/Users/markp/Desktop/PY-MEGATRON/PY - PERSONAL/TESIS/CYBERFLOW/producto-etapa2
+HEAD 6b6ef82195075ef608d3735d52569d0521667fd5
+branch refs/heads/candidato/etapa2-20261101
+
+worktree C:/Users/markp/Desktop/PY-MEGATRON/PY - PERSONAL/TESIS/CYBERFLOW/producto-etapa3
+HEAD 3a9f26b1e9c0c511da8719056c48deda646ff971
+branch refs/heads/candidato/etapa3-20261102
+
+worktree C:/Users/markp/Desktop/PY-MEGATRON/PY - PERSONAL/TESIS/CYBERFLOW/producto-main
+HEAD 7b275b8bab1c8343e55f40a103ee980dc497620b
+branch refs/heads/main
+
+#### WT C:/Users/markp/Desktop/PY-MEGATRON/PY - PERSONAL/TESIS/CYBERFLOW/producto-as-deployed
+rama: master | HEAD: ca66db56b87eab188140714880b5bfaf163f5c12
+upstream: origin/as-deployed-sensor-20261006
+cambios (status --short, sin ignorados):
+  ?? testsprite_tests/tmp/
+stash:
+#### WT C:/Users/markp/AppData/Local/Temp/w953
+rama:  | HEAD: 953a4360dc9a7540048e2b956e3b500c4069a664
+upstream: fatal: HEAD does not point to a branch
+cambios (status --short, sin ignorados):
+stash:
+#### WT C:/Users/markp/AppData/Local/Temp/wcand
+rama:  | HEAD: 4694e38eab22f2eeadf598ef5e9613eab3dda100
+upstream: fatal: HEAD does not point to a branch
+cambios (status --short, sin ignorados):
+stash:
+#### WT C:/Users/markp/AppData/Local/Temp/wopt
+rama:  | HEAD: 6b6ef82195075ef608d3735d52569d0521667fd5
+upstream: fatal: HEAD does not point to a branch
+cambios (status --short, sin ignorados):
+stash:
+#### WT C:/Users/markp/Desktop/PY-MEGATRON/PY - PERSONAL/TESIS/CYBERFLOW/producto-candidato
+rama: candidato/motor-rendimiento-20261031 | HEAD: 24f8a80e376d89b78454fd16854d2239a1b7d278
+upstream: origin/candidato/motor-rendimiento-20261031
+cambios (status --short, sin ignorados):
+stash:
+#### WT C:/Users/markp/Desktop/PY-MEGATRON/PY - PERSONAL/TESIS/CYBERFLOW/producto-etapa2
+rama: candidato/etapa2-20261101 | HEAD: 6b6ef82195075ef608d3735d52569d0521667fd5
+upstream: origin/candidato/etapa2-20261101
+cambios (status --short, sin ignorados):
+stash:
+#### WT C:/Users/markp/Desktop/PY-MEGATRON/PY - PERSONAL/TESIS/CYBERFLOW/producto-etapa3
+rama: candidato/etapa3-20261102 | HEAD: 3a9f26b1e9c0c511da8719056c48deda646ff971
+upstream: origin/candidato/etapa3-20261102
+cambios (status --short, sin ignorados):
+stash:
+#### WT C:/Users/markp/Desktop/PY-MEGATRON/PY - PERSONAL/TESIS/CYBERFLOW/producto-main
+rama: main | HEAD: 7b275b8bab1c8343e55f40a103ee980dc497620b
+upstream: origin/main
+cambios (status --short, sin ignorados):
+   M scripts/engine/dashboard.py
+stash:
+
+## REPO C:\Users\markp\Desktop\PY-MEGATRON\PY - PERSONAL\TESIS\CYBERFLOW\orquestacion-limpio
+remote: https://github.com/marksato13/VF-PPI-TESIS-ORQUESTACION.git
+### ramas remotas
+origin ce8050b 2026-11-03 07:19:19 -0500
+origin/main ce8050b 2026-11-03 07:19:19 -0500
+### etiquetas
+### worktrees
+worktree C:/Users/markp/Desktop/PY-MEGATRON/PY - PERSONAL/TESIS/CYBERFLOW/orquestacion-limpio
+HEAD ce8050b2808b5f378b9eb964e6b6b33aeb220739
+branch refs/heads/main
+
+#### WT C:/Users/markp/Desktop/PY-MEGATRON/PY - PERSONAL/TESIS/CYBERFLOW/orquestacion-limpio
+rama: main | HEAD: ce8050b2808b5f378b9eb964e6b6b33aeb220739
+upstream: origin/main
+cambios (status --short, sin ignorados):
+  ?? 03-entregables/12-presentacion-validacion/respaldo/
+  ?? 03-entregables/14-auditoria-gui-tam/
+  ?? 03-entregables/15-cumplimiento-audios-asin-neemias/
+stash:
+
+## REPO C:\Users\markp\Desktop\PY-MEGATRON\PY - PERSONAL\TESIS\CYBERFLOW\orquestacion
+remote: https://github.com/marksato13/VF-PPI-TESIS-ORQUESTACION
+### ramas remotas
+origin ce8050b 2026-11-03 07:19:19 -0500
+origin/main ce8050b 2026-11-03 07:19:19 -0500
+### etiquetas
+### worktrees
+worktree C:/Users/markp/Desktop/PY-MEGATRON/PY - PERSONAL/TESIS/CYBERFLOW/orquestacion
+HEAD 44327a8fd81872f54b18e40570724401220c8571
+branch refs/heads/main
+
+#### WT C:/Users/markp/Desktop/PY-MEGATRON/PY - PERSONAL/TESIS/CYBERFLOW/orquestacion
+rama: main | HEAD: 44327a8fd81872f54b18e40570724401220c8571
+upstream: origin/main
+cambios (status --short, sin ignorados):
+   M ESTADO.md
+   M README.md
+  ?? 04-evidencias/
+stash:

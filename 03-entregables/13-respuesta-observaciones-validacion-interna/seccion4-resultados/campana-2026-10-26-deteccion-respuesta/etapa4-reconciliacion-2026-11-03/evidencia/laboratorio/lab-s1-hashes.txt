@@ -1,0 +1,113 @@
+### codigo (git-blob sha256 tamano mtime ruta)
+00e7bae4463a736a5f8d6e5fef59bb310ad3ec9e 5b15774937299f71 6518 2026-10-24 10:42 configs/cyberflow.local.toml
+74e5d29a431fe37fda0d941ceae70123af8b9a83 18bd43be231060c7 5779 2026-09-27 01:23 configs/cyberflow.toml
+556b837ab7dc00e15af81861a2ccacc211d49d9b 41ab334b63692ce3 3640 2026-09-28 02:13 configs/escenarios.json
+f0a8329e1d8359bdaea91341340e9e379d7d5193 eb4b552841486b2a 6866 2026-09-27 01:23 configs/features/descripciones.json
+80893cb19c880ea54f953d23b4a84d0a19b992e1 e99d346ecbc3dbb8 1705 2026-09-17 19:24 configs/features/multilayer-v1.json
+9560ce9e49f569e930dff07f12c3a85a1e7d0a82 e032a1a28650d438 4114 2026-09-17 19:24 configs/features/multilayer-v2.json
+d7d77b8eefc93883dfcede7cf18cb64ed39b1dee bf48a79812e51537 6273 2026-09-24 08:26 configs/features/multilayer-v3.json
+dc6715e48dd04c6f6941fd65c0fa83c58bd9b9ce 00c7b54e7348d44b 3883 2026-09-17 19:24 dashboard/app.py
+303373f293a462a20f9488354cc1e34e849de394 522c9c9aa16c5e96 2046 2026-11-03 05:28 deploy/enforcement/relay-feed.sh
+2ee6c9ccf7648f77a57cd8466ac984dd42d48f78 318e1c8a5a6d3521 6288 2026-09-17 19:24 scripts/campaign/archive-failed-attempt.sh
+788a4e718b80c7f779f6456a66bcb5a213cd005c bb3b79d2a5987be7 1461 2026-09-17 19:24 scripts/campaign/common.sh
+a41ee0a787ac30adfdd90c281e0abd1bcb965f65 223264d98f98fe73 2324 2026-09-17 19:24 scripts/campaign/run-f1-kali.sh
+ccdc691479dfc64f485425b540f42d5fb801aee7 787b394a1e50a690 2707 2026-09-17 19:24 scripts/campaign/run-f1.sh
+5044ab6ac2ee7eb0c13d4b631fd89ebc8ff70bf1 e70b05919d1d7a69 2093 2026-09-17 19:24 scripts/campaign/sample-sensor.sh
+13e3a0ceaaa5a89988eb42e722273bfe42f226df 368cb8764f769efa 6523 2026-09-17 19:24 scripts/campaign/start.sh
+9369751895788037ca1acbd4904fc2817c1880cb f82583014b0fd84c 12172 2026-09-17 19:24 scripts/campaign/stop.sh
+15d916c870dabb1f7d4571e667f2349edb4a76bc 6d6ae5b4beee472b 6427 2026-11-03 05:28 scripts/enforce/acuse_aplicacion.py
+9604d11a82e007b1068f515b6ba2d660b1f8d1b4 a5186d2e2d508336 641961 2026-11-03 23:51 scripts/engine/dashboard.py
+7bd55de8fbb261e521ebfbe40ad0a9bf04277dfb 7d80ab4a926457ef 3457 2026-10-15 12:52 scripts/engine/escalada.py
+fa30b818f03bf389554559312fc3e596314f3750 b4d36adb3f29b216 3329 2026-09-30 19:52 scripts/engine/feed.py
+ec0fe9e870c2f3c98c0cc9140011674df327f1f3 10deb05d22fa0215 7524 2026-11-03 23:51 scripts/engine/heuristicos.py
+068c025dc867e753d59167b0e73d9df10db00c64 6c274d9e3529e3fb 47636 2026-11-01 03:14 scripts/engine/motor_decision.py
+1197907c0d3f8e1c28001485bb43b1ed5fc12375 a403307aa5f76d38 16858 2026-11-01 03:14 scripts/engine/motor_incremental.py
+8d368d97f834d844de3353a4f2b60c2c36885940 4a1e6c6f565a967b 11804 2026-11-03 23:51 scripts/engine/publicar_feed.py
+7c17f6ca2ad2d42b4aed44f90d747a482d4f66e1 94d3df28ae213be6 41603 2026-10-10 16:32 scripts/engine/vista_vivo.py
+3d182d2097cf17a605cfbcddbc5b755c94c3620a 9c35b831453d2107 10863 2026-09-27 01:26 scripts/features/acumular_v3.py
+f77fd9226cbb4209912fdcf915540b455ebe6b74 41741be0fc7cd8aa 1815 2026-09-17 19:24 scripts/features/extract_campaign.sh
+0ad74d29ac4bb9ebb9b62243db565331aad18c00 ee3c757f58bff655 1570 2026-09-17 19:24 scripts/features/extract_campaign_v2.sh
+3ce404784ff31a2e8964768da06361302bb1f996 950fe6c49c9eee21 20311 2026-10-15 03:48 scripts/features/extract_multilayer.py
+ec46849dc8454976b056622e334cc35b7cc95d26 7130edae65afefa2 30971 2026-10-15 03:48 scripts/features/extract_multilayer_v2.py
+0739e4cda326c640facb5b6d1def1182a1d8b09c 5adbfbf484555443 22653 2026-09-27 01:26 scripts/features/extract_multilayer_v3.py
+d38dd77740e27ffdb39584aa20f19829e22114a9 b729ade2e8f4733a 25322 2026-10-11 05:08 scripts/setup/cyberflow_config.py
+3849020ef5269001e138a616a05b9df100daa1ea 906e1de0ad6f13cf 9364 2026-09-27 23:31 scripts/setup/cyberflow_usuarios.py
+92c3176b287ae950ec74a93da2affbd2db3e5f1a aa00211c2d00d395 4670 2026-09-18 17:13 scripts/setup/desinstalar.sh
+34ac6c9ed78c42cd5bb0baddd86ad5dcfe81fe0e 651bea739b3240ff 17933 2026-09-18 17:13 scripts/setup/instalar.sh
+### artefactos del modelo (sha256 completo)
+7641e965f78f8f19446b066f604958e3cf108eec39a32d6569418efb648c131b 18664 2026-09-17 19:24 artifacts/model/candidates/elliptic_envelope_scaled.joblib
+5c9a877d1bbfd599f60e7bb6cb10075d599da6f4d2187c57cc300e36f84fac09 1097981 2026-09-17 19:24 artifacts/model/candidates/if_exact_collapsed.joblib
+56989fdf01c5d8976708008288ae7ea961443963033640baf20cd8017d6186ba 1332434 2026-09-17 19:24 artifacts/model/candidates/if_primary_weighted.joblib
+37020dc7c7e7e1dfe9f89c0763452093ed00fce0be2553fbe7ea6a7575846144 1327419 2026-09-17 19:24 artifacts/model/candidates/if_scaled_weighted.joblib
+5c9a877d1bbfd599f60e7bb6cb10075d599da6f4d2187c57cc300e36f84fac09 1097981 2026-09-17 19:24 artifacts/model/candidates/if_uniform.joblib
+55e9d582cb23ed40c3999f4f6632ab5ec12632a09083d8a2da43a0f157d93a3b 167656 2026-09-17 19:24 artifacts/model/candidates/lof_scaled.joblib
+af9b50c29f839037b2bda380fc197e017dea482d403c61fa7ae3df79cbff7236 7244 2026-09-17 19:24 artifacts/model/candidates/ocsvm_scaled.joblib
+f7f446d5efc5bdc9c678e033a2c95d3f40a050497eaceab9c71cfe479f4e9b76 30888 2026-09-17 19:24 artifacts/model/manifest.json
+af9b50c29f839037b2bda380fc197e017dea482d403c61fa7ae3df79cbff7236 7244 2026-09-17 19:24 artifacts/model/ocsvm_scaled.joblib
+9a4e02645df9484037ba9386c488cc431cba4b8564c3b4892de3c5ed210c579d 4410157 2026-09-29 23:14 artifacts/preliminar/ensayo-if-v2.joblib
+ec3ed06304fdbe6367ab1b69e40498980e6eed6df890f67ae5c4001f98c86421 1564 2026-09-29 23:14 artifacts/preliminar/ensayo-if-v2.json
+d27f68711fcb0f6657611bd7feb17759bc4fae36b9e61fbd5ca8d1190128125a 4417582 2026-09-30 03:10 artifacts/preliminar/if_recalibrado_desplegable.joblib
+3ba8170d036edc3972375df65a43fe0c99edaf5ccad00ba6268d53ff4c16d0e5 4089133 2026-09-27 19:44 artifacts/preliminar/if-v2.joblib
+24d1e5a9b52fe74c8d1b60c4d6d1754ac2cc0c56f64faf3b714ccdb394dc6617 1562 2026-09-27 19:44 artifacts/preliminar/if-v2.json
+09dd3a560a2ed8bd9c2f3982068b97aaa99647d1a7924eb9dc5f6551e04189a0 4169854 2026-09-27 19:44 artifacts/preliminar/if-v3.joblib
+bf34e4f108ca5c7f9055fe4d8d9612f42a6e77ad734f25dd7754c278b3c244cb 1651 2026-09-27 19:44 artifacts/preliminar/if-v3.json
+df547da098e51171aa267c8466edc6624bc1bd5c6b602639cc00bd4711a2fd60 4372702 2026-10-19 05:53 artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib
+fb6b8ed2b677056f0c23d267a1d38a988d7d1d993f980b050f0a63665543bbf4 4365277 2026-10-19 06:05 artifacts/preliminar/limpio-2026-10/if_limpio_2026_10.joblib
+cb67b3ee608ad6e79cd8dbda436beaa33086ec9ce0e00a034dee6f8e0c14be8e 1564 2026-10-19 06:05 artifacts/preliminar/limpio-2026-10/if_limpio_2026_10.json
+b3ad680595128189574527208e53058f613822f56f542f914faef6495aa2a9e7 2522 2026-10-19 05:53 artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json
+9a4e02645df9484037ba9386c488cc431cba4b8564c3b4892de3c5ed210c579d 4410157 2026-10-19 06:05 artifacts/preliminar/limpio-2026-10/verif_vigente.joblib
+558774cbf24ea38e6d427e883f30b957e885d4d6e446173d412236939d1c25c2 1564 2026-10-19 06:05 artifacts/preliminar/limpio-2026-10/verif_vigente.json
+564b3a080e22f20731d3a9ec8bde251cc166ce37be8e78e5247e4e3ed1e8fb5e 30422 2026-09-30 03:19 artifacts/preliminar/manifest-if-recalibrado.json
+53327ebb7e2bbd5e719fa88c799afb32327f0753613457f8876e039733ac49ef 721 2026-09-27 19:44 artifacts/preliminar/particion.json
+### manifiesto desplegado (campos clave)
+tipo = "manifiesto-desplegable"
+generado = "2026-10-19T05:53:52.944510+00:00"
+detectors = {"if_limpio_2026_10": {"kind": "isolation_forest_pipeline", "model_path": "/home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib", "model_sha256": "df547da098e51171aa267c8466edc6624bc1bd5c6b602639cc00bd4711a2fd60", "schema": "multilayer-v2.json", "n_features":
+evaluation = {"if_limpio_2026_10": {"threshold_used": -0.5693969936322356, "validation": {"fpr": 0.050005}, "test": {"fpr": 0.045261, "rows": 65421}, "anomalies": {"detection_rate": null, "kali_real_detection_rate": null, "fuente": null}}}
+runtime = {"python": "3.14.4", "scikit_learn": "1.9.0", "numpy": "2.5.1"}
+### esquema multilayer-v2 (orden de columnas)
+list 28
+[{"order": 1, "name": "packet_rate_10s", "layer": "L3", "window_seconds": 10, "unit": "packets_per_second", "source": "pcap"}, {"order": 2, "name": "byte_rate_10s", "layer": "L3", "window_seconds": 10, "unit": "ip_bytes_per_second", "source": "pcap"}, {"order": 3, "name": "mean_ip_len_10s", "layer": "L3", "window_seconds": 10, "unit": "bytes", "source": "pcap"}, {"order": 4, "name": "large_ip_ratio_10s", "layer": "L3", "window_seconds": 10, "unit": "ratio", "source": "pcap"}, {"order": 5, "name": "unique_dst_ip_ratio_30s", "layer": "L3", "window_seconds": 30, "unit": "ratio", "source": "pcap"}, {"order": 6, "name": "icmp_ratio_10s", "layer": "L3", "window_seconds": 10, "unit": "ratio", "source": "pcap"}, {"order": 7, "name": "flow_attempt_rate_10s", "layer": "L4", "window_seconds": 10, "unit": "attempts_per_second", "source": "pcap"}, {"order": 8, "name": "syn_rate_10s", "layer": "L4", "window_seconds": 10, "unit": "syn_per_second", "source": "pcap"}, {"order": 9, "name": "syn_completion_ratio_10s", "layer": "L4", "window_seconds": 10, "unit": "ratio", "source": "pcap"}, {"order": 10, "name": "rst_ratio_10s", "layer": "L4", "window_seconds": 10, "unit": "ratio", "source": "pcap"}, {"order": 11, "name": "unique_dst_port_ratio_30s", "layer": "L4", "window_seconds": 30, "unit": "ratio", "source": "pcap"}, {"order": 12, "name": "http_error_ratio_60s", "layer": "L7", "window_seconds": 60, "unit": "ratio", "source": "eve"}, {"order": 13, "name": "dns_nxdomain_ratio_60s", "layer": "L7", "window_seconds": 60, "unit": "ratio", "source": "eve"}, {"order": 14, "name": "tls_session_rate_60s", "layer": "L7", "window_seconds": 60, "unit": "sessions_per_second", "source": "eve"}, {"order": 15, "name": "ttl_mean_10s", "layer": "L3", "window_seconds": 10, "unit": "ip_ttl_mean", "source": "pcap"}, {"order": 16, "name": "fragment_ratio_10s", "layer": "L3", "window_seconds": 10, "unit": "ratio", "source": "pcap"}, {"order": 17, "name": "protocol_diversity_30s", "layer": "L3", "window_seconds": 30, "unit": "ratio", "source": "pcap"}, {"order": 18, "name": "tcp_retransmission_ratio_10s", "layer": "L4", "window_seconds": 10, "unit": "ratio", "source": "pcap"}, {"order": 19, "name": "flow_duration_mean_30s", "layer": "L4", "window_seconds": 30, "unit": "seconds", "source": "pcap"}, {"order": 20, "name": "tx_rx_byte_ratio_30s", "layer": "L4", "window_seconds": 30, "unit": "ratio", "source": "pcap"}, {"order": 21, "name": "http_request_rate_60s", "layer": "L7", "window_seconds": 60, "unit": "requests_per_second", "source": "eve"}, {"order": 22, "name": "http_method_entropy_60s", "layer": "L7", "window_seconds": 60, "unit": "bits", "source": "eve"}, {"order": 23, "name": "http_auth_failure_ratio_60s", "layer": "L7", "window_seconds": 60, "unit": "ratio", "source": "eve"}, {"order": 24, "name": "dns_query_rate_60s", "layer": "L7", "window_seconds": 60, "unit": "queries_per_second", "source": "eve"}, {"order": 25, "name": "unique_dns_name_ratio_60s", "layer": "L7", "window_s
+### python del venv y paquetes
+3.14.4 sklearn 1.9.0 numpy 2.5.1 joblib 1.5.3
+### feed vigente
+{'entradas': 2, 'generado': 1793753670.4005606, 'umbrales': '2026-10-06.2', 'version': 1}
+/home/m4rk/feed:
+total 256
+drwxrwxr-x  5 m4rk m4rk   4096 nov  3 08:43 .
+drwxr-x--- 31 m4rk m4rk   4096 nov  3 09:37 ..
+drwxrwxr-x  2 m4rk m4rk   4096 nov  4 00:54 acuses
+drwxrwxr-x  3 m4rk m4rk   4096 nov  3 12:00 comparaciones
+-rw-------  1 m4rk m4rk    967 nov  4 00:54 estado.json
+-rw-rw-r--  1 m4rk m4rk    476 oct 15 03:49 estado.json.bak-20261015-034951
+-rw-------  1 m4rk m4rk    473 oct 15 04:00 estado.json.bak-20261015-040004
+-rw-------  1 m4rk m4rk    473 oct 15 04:03 estado.json.bak-20261015-040312
+-rw-------  1 m4rk m4rk    474 oct 15 04:40 estado.json.bak-20261015-044054
+-rw-rw-r--  1 m4rk m4rk    429 nov  4 00:54 feed.json
+-rw-rw-r--  1 m4rk m4rk     64 nov  4 00:54 feed.sig
+drwxr-xr-x  2 m4rk m4rk   4096 nov  3 17:02 peticiones
+-rw-rw-r--  1 m4rk m4rk 205422 oct  6 06:14 publicar.log
+
+/home/m4rk/feed/peticiones:
+total 12
+drwxr-xr-x 2 m4rk m4rk 4096 nov  3 17:02 .
+drwxrwxr-x 5 m4rk m4rk 4096 nov  3 08:43 ..
+### respaldos y sombra
+total 16
+drwxrwxr-x  4 m4rk m4rk 4096 nov  3 23:42 .
+drwxr-x--- 31 m4rk m4rk 4096 nov  3 09:37 ..
+drwxrwxr-x  3 m4rk m4rk 4096 nov  3 09:37 motor-antes-politica-AC-20261103-0937
+drwxrwxr-x  2 m4rk m4rk 4096 nov  3 23:42 motor-antes-volver-campanas-20261103-2342
+/home/m4rk/cf-3b-20261101T0721Z
+/home/m4rk/cf-3b-revision-20261101
+/home/m4rk/cf-campana-A-20261029
+/home/m4rk/cf-demo
+/home/m4rk/cf-deploy
+/home/m4rk/cf-p1
+/home/m4rk/cf-paso2-20261101T0254Z
+/home/m4rk/cf-paso3a-20261101T0523Z
+/home/m4rk/cf-preflight-20261028
+/home/m4rk/cf-prep-20261028
+/home/m4rk/cf-r42
+/home/m4rk/cyberflow-ops
+bash: line 41: $'\r': command not found
