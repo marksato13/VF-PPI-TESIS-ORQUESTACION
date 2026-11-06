@@ -1,5 +1,19 @@
 # Etapa 4A: pendientes del cierre complementario (P1, P3, P4, P5) e integración en sombra (2026-11-06)
 
+> **Estado actualizado (06-nov, 22:10Z): herramientas de P0 corregidas y probadas en banco. E-carga NO ejecutada y NO
+> programada; P0 r2 NO ejecutado contra el laboratorio.** Evidencia en
+> [`evidencia/17-correccion-p0/`](evidencia/17-correccion-p0/).
+> - **Defecto A, propagación:** `p0_anticipado.sh` daba rc 0 con los 9 ssh fallidos. El P0 r2 separa «bloques
+>   ejecutados sin errores» de «precondiciones conformes» (rc 0/2/4/5). Banco 46/46 (65534 y root).
+> - **Defecto B, caché:** `sensor1_muestreadores.sh comprobar` escribía `__pycache__` en el paquete. Corregido en
+>   producto **`20dabe2`** (2026-11-06.3, `-B`; `ecarga/SHA256SUMS` `41d9a397…`). Banco E-carga 87/87; suite
+>   1009/53/0.
+> - **Sensor1 hoy:** `paquete-902991e` tiene 481 ficheros. Sobra el `.pyc` creado a las 21:05:27Z por la comprobación
+>   anticipada. Post-copia r2: Sensor1 NO_CONFORME 11/12, rc 4. **No se ha borrado**; la retirada puntual está propuesta.
+> - **Pendiente:** elegir entre seguir con `902991e` (retirar el `.pyc`) o copiar `20dabe2` (protocolo r5 en el punto
+>   13 y traslado r3), y después P0 r2. La retención del anillo con carga sigue sin medir.
+>
+
 > **Estado actualizado (06-nov, 21:06Z): comprobación posterior repetida (comprobador r2) CONFORME 3/3 y
 > precondiciones de P0 comprobadas de forma ANTICIPADA. E-carga NO ejecutada y NO programada.**
 > - Evidencia en [`evidencia/16-postcopia-p0/`](evidencia/16-postcopia-p0/).

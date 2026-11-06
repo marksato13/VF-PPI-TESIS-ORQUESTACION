@@ -1,0 +1,53 @@
+........................................................................ [  6%]
+.....................................................................s.. [ 13%]
+........................................................................ [ 20%]
+.........................................F....F.F....................... [ 27%]
+.............F.......................................ssssss............. [ 33%]
+........................................................................ [ 40%]
+........................................................................ [ 47%]
+........................................................................ [ 54%]
+........................................................................ [ 61%]
+.............................................................s.......... [ 67%]
+..........s............................................................. [ 74%]
+........................................................................ [ 81%]
+........................................................................ [ 88%]
+........................................................................ [ 94%]
+......................................................                   [100%]
+=================================== FAILURES ===================================
+_____________________ test_helper_nft_real_ciclo_completo ______________________
+tests/test_etapa2_cadena.py:491: in test_helper_nft_real_ciclo_completo
+    assert hx({"perfil": "dns", "operaciones": ops}, nft=nft)["ok"]
+E   assert False
+________________________ test_limpieza_con_helper_real _________________________
+tests/test_etapa2_cadena.py:578: in test_limpieza_con_helper_real
+    assert hx({"perfil": perfil, "operaciones": [
+E   assert False
+___________________ test_helper_dmz_no_toca_la_tabla_del_v1 ____________________
+tests/test_etapa2_cadena.py:631: in test_helper_dmz_no_toca_la_tabla_del_v1
+    subprocess.run([nft, "-f", "-"], input=v1, text=True, check=True)
+/usr/lib/python3.13/subprocess.py:577: in run
+    raise CalledProcessError(retcode, process.args,
+E   subprocess.CalledProcessError: Command '['/usr/sbin/nft', '-f', '-']' returned non-zero exit status 1.
+----------------------------- Captured stderr call -----------------------------
+netlink: Error: cache initialization failed: Operation not permitted
+___________________ test_limit_nft_real_descartes_por_origen ___________________
+tests/test_etapa2_correcciones.py:492: in test_limit_nft_real_descartes_por_origen
+    assert r["ok"], r
+E   AssertionError: {'error_nft': 'netlink: Error: cache initialization failed: Operation not permitted', 'ok': False}
+E   assert False
+=========================== short test summary info ============================
+FAILED tests/test_etapa2_cadena.py::test_helper_nft_real_ciclo_completo - ass...
+FAILED tests/test_etapa2_cadena.py::test_limpieza_con_helper_real - assert False
+FAILED tests/test_etapa2_cadena.py::test_helper_dmz_no_toca_la_tabla_del_v1
+FAILED tests/test_etapa2_correcciones.py::test_limit_nft_real_descartes_por_origen
+SKIPPED [1] tests/test_dashboard_gui_contract.py:30: sin node en esta máquina: no se puede comprobar la sintaxis del JS servido
+SKIPPED [1] tests/test_etapa4_compuerta_banco.py:157: repo de documentación no disponible
+SKIPPED [1] tests/test_etapa4_compuerta_banco.py:198: repo de documentación no disponible
+SKIPPED [1] tests/test_etapa4_compuerta_banco.py:217: repo de documentación no disponible
+SKIPPED [1] tests/test_etapa4_compuerta_banco.py:231: repo de documentación no disponible
+SKIPPED [1] tests/test_etapa4_compuerta_banco.py:243: repo de documentación no disponible
+SKIPPED [1] tests/test_etapa4_compuerta_banco.py:253: repo de documentación no disponible
+SKIPPED [1] tests/test_etapa4_verificadores.py:241: como root chmod 000 no impide leer
+SKIPPED [1] tests/test_etapa4_verificadores.py:411: como root chmod 000 no impide leer
+4 failed, 1049 passed, 9 skipped in 363.93s (0:06:03)
+RC_PYTEST=1

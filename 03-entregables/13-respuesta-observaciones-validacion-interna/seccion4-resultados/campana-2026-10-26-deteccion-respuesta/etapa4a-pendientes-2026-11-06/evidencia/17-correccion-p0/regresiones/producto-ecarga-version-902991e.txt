@@ -1,0 +1,14 @@
+.F                                                                       [100%]
+=================================== FAILURES ===================================
+______________ test_regresion_comprobar_no_escribe_en_el_paquete _______________
+tests/test_etapa4_ecarga_prep.py:1014: in test_regresion_comprobar_no_escribe_en_el_paquete
+    assert (anadidos, quitados, cambiados) == ([], [], []), f"pasada {i}: {anadidos} {quitados} {cambiados}"
+E   AssertionError: pasada 1: ['deploy/etapa4/sensor1/__pycache__', 'deploy/etapa4/sensor1/__pycache__/evaluar_ecarga.cpython-313.pyc'] [] ['deploy/etapa4/sensor1']
+E   assert (['deploy/eta...pa4/sensor1']) == ([], [], [])
+E     
+E     At index 0 diff: ['deploy/etapa4/sensor1/__pycache__', 'deploy/etapa4/sensor1/__pycache__/evaluar_ecarga.cpython-313.pyc'] != []
+E     Use -v to get more diff
+=========================== short test summary info ============================
+FAILED tests/test_etapa4_ecarga_prep.py::test_regresion_comprobar_no_escribe_en_el_paquete
+1 failed, 1 passed, 85 deselected in 0.79s
+RC_PYTEST=1
