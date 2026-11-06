@@ -1,0 +1,25 @@
+59cd3bae22952ebd21d6d625c99b46f9e7a37450db3149e72674d419eee18c51  -
+INFO archivar_cache 2026-11-06.1 m4rk cyberflow-sensor 2026-11-06T23:22:49Z
+INFO destino /home/m4rk/cf-e4/archivo-cache-pyc-20261106T232245Z
+INFO modo real (sin variables BANCO_*)
+INFO sha256 original 754ec72930cb1b187b387f0360ae65c25763ec0cccf4abe7dd5f8aa19be701d1
+INFO antes: 482 ficheros regulares en el paquete (480 del manifiesto + SHA256SUMS + la caché)
+COPIA_VERIFICADA /home/m4rk/cf-e4/archivo-cache-pyc-20261106T232245Z/evaluar_ecarga.cpython-312.pyc sha256 754ec72930cb1b187b387f0360ae65c25763ec0cccf4abe7dd5f8aa19be701d1 tamano 27980 mtime_conservado 2026-11-06 21:05:27.803101848 +0000
+RETIRADO /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/sensor1/__pycache__/evaluar_ecarga.cpython-312.pyc
+RETIRADO_DIR_VACIO /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/sensor1/__pycache__
+DIFERENCIA_ESTRUCTURA:
+< d 775 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/sensor1/__pycache__
+< f 644 27980 1793999127.8031018480 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/sensor1/__pycache__/evaluar_ecarga.cpython-312.pyc
+DIFERENCIA_SHA256:
+< 754ec72930cb1b187b387f0360ae65c25763ec0cccf4abe7dd5f8aa19be701d1  ./deploy/etapa4/sensor1/__pycache__/evaluar_ecarga.cpython-312.pyc
+INFO despues: 481 ficheros regulares; sha256sum -c del manifiesto OK; SHA256SUMS 8480f0e02952216d0a371f13201657e81e27ccc53fef2d5917d5dc74a68df30c
+SELLO /home/m4rk/cf-e4/archivo-cache-pyc-20261106T232245Z/SHA256SUMS 9f17d2e322a202fc07884c4eed90ccd5146a66c32f919031d27b7314ae5dfe2d
+fd8f37d38756218ade6de0d8923c9a944ee84442f604a79594562b1e03d30858  metadatos.txt
+754ec72930cb1b187b387f0360ae65c25763ec0cccf4abe7dd5f8aa19be701d1  evaluar_ecarga.cpython-312.pyc
+1786ed5e7c71e3891e844cb5093f46f9d044e05c27eb6cd630a9b7c4515a1251  antes.estructura
+a5db6f688f222c17fefae0a4851533a495809005f7906f6f364391130aae983e  antes.sha256
+856539037d584a84234a9d5c6e349c5ee8068a9a300be7c595bc14ed462beb4b  despues.estructura
+281d5f3ec8f1370988893e61a4c4a6c01f5e0ca37ed3ad027e48bdebfca03955  despues.sha256
+3cf3a6fff5a980286b0b3eb6033a1ac14565f9221af796b582fa946075dbb0da  diferencia.estructura
+b74d0f6c5364324fe099fa49a195a95103e6dad13f43003092dc579edd6fd037  diferencia.sha256
+RESULTADO archivar rc=0

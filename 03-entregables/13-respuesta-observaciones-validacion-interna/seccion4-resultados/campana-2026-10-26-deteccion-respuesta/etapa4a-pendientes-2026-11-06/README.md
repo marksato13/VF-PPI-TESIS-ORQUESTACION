@@ -1,5 +1,22 @@
 # Etapa 4A: pendientes del cierre complementario (P1, P3, P4, P5) e integración en sombra (2026-11-06)
 
+> **Estado actualizado (06-nov, 23:26Z): caché archivada, post-copia r3 CONFORME 3/3 y P0 r2 anticipado con rc 5
+> (P11 NO_CUMPLE por autocoincidencia de la herramienta, diagnosticada y sin corregir). E-carga NO ejecutada y NO
+> programada.** Evidencia en [`evidencia/18-cache-archivada-postcopia-p0/`](evidencia/18-cache-archivada-postcopia-p0/).
+> - **Caché:** solo el `.pyc` autorizado (`754ec729…`) se archivó en Sensor1, en
+>   `/home/m4rk/cf-e4/archivo-cache-pyc-20261106T232245Z/`. La copia se verificó y después se retiraron el original y su
+>   `__pycache__` vacío. La diferencia antes/después del paquete son exactamente esas dos entradas.
+> - **Comprobador r3:** `LC_ALL=C` en todo el guion, `comm --check-order` y comprobación del rc. Banco: 63/63 (65534),
+>   62 + 1 omitida (root), 8 locales. La r2 se conserva; el banco demuestra que daba CONFORME falso si `comm` fallaba.
+> - **Post-copia r3:** CONFORME 3/3, 480 ficheros en cada host.
+> - **P0 r2 anticipado:**
+>   - 9/9 bloques sin errores; 49/50 anticipables;
+>   - **P11 NO_CUMPLE:** no hay muestreadores en Sensor1, pero `pgrep -af` coincide con el propio `bash -c "$txt"`
+>     del mecanismo sin escritura;
+>   - P5b, P8 y P12 NO_EVALUABLE.
+>   - El paquete quedó idéntico antes y después del P0 en los 3 hosts.
+> - **No sustituye** al P0 inmediato de la franja del 09-nov. Carga sin validar.
+>
 > **Estado actualizado (06-nov, 22:10Z): herramientas de P0 corregidas y probadas en banco. E-carga NO ejecutada y NO
 > programada; P0 r2 NO ejecutado contra el laboratorio.** Evidencia en
 > [`evidencia/17-correccion-p0/`](evidencia/17-correccion-p0/).

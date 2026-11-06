@@ -1,0 +1,37 @@
+a1adfa790954d41b3f943f64bae4d4007bb3ad8d56821d4f27fe82d49e35ed82  -
+REQ X.generadores_sh CUMPLE generadores.sh 0badeac51ccf2339122412a7607b01176b22f97413e927134bb11ab208a3f662 (VERSION=2026-11-06.2)
+######## generadores.sh configuracion
+OK cyberflow-lab-ofimatica.service ofimatica 10.10.20.21
+OK cyberflow-lab-navegacion.service navegacion 10.10.20.22
+OK cyberflow-lab-descargas.service descargas 10.10.20.23
+OK cyberflow-lab-aplicacion.service aplicacion 10.10.20.24
+OK cyberflow-lab-ligero.service ligero 10.10.20.25
+OK cyberflow-lab-erratico.service erratico 10.10.20.26
+INFO rc_configuracion=0
+REQ P10 CUMPLE generadores.sh configuracion rc 0
+######## generadores.sh estado
+gen target=inactive carga=loaded habilitado=disabled hash=ae5134a7 procesos=0 unidades: ofimatica=inactive/dead/pid0/nr0 navegacion=inactive/dead/pid0/nr0 descargas=inactive/dead/pid0/nr0 aplicacion=inactive/dead/pid0/nr0 ligero=inactive/dead/pid0/nr0 erratico=inactive/dead/pid0/nr0 consulta=ok
+INFO rc_estado=0
+REQ X.estado_generadores CUMPLE estado leído (rc 0)
+######## generadores.sh comprobar-parado
+gen target=inactive carga=loaded habilitado=disabled hash=ae5134a7 procesos=0 unidades: ofimatica=inactive/dead/pid0/nr0 navegacion=inactive/dead/pid0/nr0 descargas=inactive/dead/pid0/nr0 aplicacion=inactive/dead/pid0/nr0 ligero=inactive/dead/pid0/nr0 erratico=inactive/dead/pid0/nr0 consulta=ok
+PARADO_CONFIRMADO
+INFO rc_comprobar-parado=0
+REQ P4.parado CUMPLE generadores.sh comprobar-parado rc 0
+######## generadores.sh permisos
+    (ALL : ALL) ALL
+    (root) NOPASSWD: /usr/bin/systemctl start cyberflow-lab.target
+    (root) NOPASSWD: /usr/bin/systemctl stop cyberflow-lab.target
+zona=Etc/UTC ahora_utc=2026-11-06T23:24:51Z hash_generador=ae5134a778e66d90f5c3fbcd47323e328f3422cf4ba8d5197649f402c1d4cdc3 esperado=si
+gen target=inactive carga=loaded habilitado=disabled hash=ae5134a7 procesos=0 unidades: ofimatica=inactive/dead/pid0/nr0 navegacion=inactive/dead/pid0/nr0 descargas=inactive/dead/pid0/nr0 aplicacion=inactive/dead/pid0/nr0 ligero=inactive/dead/pid0/nr0 erratico=inactive/dead/pid0/nr0 consulta=ok
+INFO rc_permisos=0
+REQ X.permisos CUMPLE generadores.sh permisos rc 0
+######## clientes: generador, zona y reloj
+INFO clientes EPOCH 1794007492
+INFO clientes GEN ae5134a778e66d90f5c3fbcd47323e328f3422cf4ba8d5197649f402c1d4cdc3
+INFO clientes Timezone=Etc/UTC
+INFO clientes NTPSynchronized=yes
+REQ P4.generador CUMPLE clientes_lab.py ae5134a778e66d90f5c3fbcd47323e328f3422cf4ba8d5197649f402c1d4cdc3
+REQ P5a.clientes CUMPLE Timezone=Etc/UTC
+REQ X.sincronizado.clientes CUMPLE NTPSynchronized=yes
+FIN_BLOQUE clientes_r2 rc=0

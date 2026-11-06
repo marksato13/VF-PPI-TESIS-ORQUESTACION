@@ -1,0 +1,11 @@
+PASA  paquete de prueba = 902991e (SUMAS 8480f0e0…)
+PASA  correcto: copia verificada, original y __pycache__ retirados, 480+1 ficheros, paquete verifica
+PASA  segunda ejecución (ya archivado): __pycache__ ausente -> rc 4
+PASA  hash distinto -> rc 4, nada cambiado
+PASA  enlace simbólico -> rc 4, nada cambiado
+PASA  ausente -> rc 4, nada cambiado
+PASA  __pycache__ con otro .pyc -> rc 4, nada cambiado
+PASA  destino existente -> rc 4, nada cambiado
+PASA  no regular (directorio) -> rc 4, nada cambiado
+RESULTADO_BANCO fallos=0
+RC_BANCO=0

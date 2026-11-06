@@ -1,0 +1,15 @@
+2026-11-06T23:26:03Z
+== pgrep (patrón de comprobar, sin autocoincidencia)
+pgrep_rc=1
+== ps: procesos de python o bash de m4rk
+   1384       1   84421 m4rk     /home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow-e4/ec78ca5/scripts/engine/motor_decision.py --eve-path /var/log/suricata/eve.json --capture-dir /var/lib/ppi
+   1385       1   84421 m4rk     /home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow/scripts/engine/dashboard.py --log-path /home/m4rk/cyberflow/logs/motor_decision.log --manifest-path /home/m4
+   1386       1   84421 m4rk     /home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow-e4/ec78ca5/scripts/engine/publicar_feed_v2.py --log /home/m4rk/cyberflow/logs/motor_decision.log --estado /h
+   1387       1   84421 m4rk     /bin/bash -c set -o pipefail;    /usr/bin/tcpdump -i ens37 -n -U --immediate-mode -s 128 -w - "tcp or (vlan and tcp)"    | /home/m4rk/cyberflow/.venv/bin/python /home/
+   1390    1387   84421 m4rk     /home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow-e4/ec78ca5/scripts/engine/detector_rapido.py --flujo --salida /home/m4rk/feed-v2/senales-rapidas.jsonl --res
+ 302991  302990       0 m4rk     bash -c date -u +%FT%TZ; echo "== pgrep (patrón de comprobar, sin autocoincidencia)"; pgrep -af "salud_captura[.]py muestrear|muestreo_fin[o][.]py|obs_pca[p][.]py|mue
+== unidades systemd con muestre en el nombre
+UNIT LOAD ACTIVE SUB DESCRIPTION
+
+0 loaded units listed.
+To show all installed unit files use 'systemctl list-unit-files'.

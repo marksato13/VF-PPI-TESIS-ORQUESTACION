@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# DOBLE de órdenes que un comprobador de SOLO LECTURA no debe usar (systemctl, sudo, nft, rm, mv, cp, chmod, ...).
+# Cualquier llamada queda registrada y falla.
+command -p mkdir -p "${SIM:-/tmp}/log"
+echo "PROHIBIDO $(basename -- "$0") $*" >> "${SIM:-/tmp}/log/PROHIBIDO.log"
+echo "$(basename -- "$0"): orden prohibida en el comprobador (doble del banco)" >&2
+exit 99
