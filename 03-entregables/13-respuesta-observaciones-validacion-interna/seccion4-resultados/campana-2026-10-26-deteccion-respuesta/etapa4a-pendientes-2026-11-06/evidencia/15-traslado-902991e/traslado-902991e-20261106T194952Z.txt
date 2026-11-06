@@ -1,0 +1,60 @@
+2026-11-06T19:49:52Z portatil inicio rc=0 paquete_902991e r2 2026-11-07.1; RUN=20261106T194952Z-10146; destino 902991e (902991ec077c9495a99e1075cb26af35ae980507)
+2026-11-06T19:49:54Z portatil git-fetch rc=0 origin
+2026-11-06T19:49:54Z portatil referencia rc=0 902991ec077c9495a99e1075cb26af35ae980507 en origin/recuperacion/etapa4a-pendientes-20261106 (punta 902991e)
+2026-11-06T19:49:58Z portatil paquete rc=0 480 ficheros; evaluador 53e9f7bd578123f6499289ebbb92d8d6c71a6e56b7c1c35a59463b98aad5c23f; ecarga/SHA256SUMS e001352c2e6485d99e71b1e62ff68a4051bebdfc2bbb4fbd927000517d463b80; SHA256SUMS interno 8480f0e02952216d0a371f13201657e81e27ccc53fef2d5917d5dc74a68df30c; tgz bda65802ebed48e22998bf47240e39b8b1293b79bcfede9ca00d5e97c58579f4
+2026-11-06T19:50:04Z portatil scp-paquete-bastion rc=0 /tmp/cf-e4-stage-902991e.20261106T194952Z-10146.tgz
+2026-11-06T19:50:06Z portatil scp-op_host-bastion rc=0 /tmp/cf-e4-op_host-902991e.20261106T194952Z-10146.sh
+reparto: bastion recepcion rc=0 tgz=bda65802ebed48e22998bf47240e39b8b1293b79bcfede9ca00d5e97c58579f4
+reparto: sensor1 scp-paquete rc=0
+sensor1: inicio rc=0 op_host_902991e r2 2026-11-07.1; RUN=20261106T194952Z-10146; TGZ=bda65802ebed48e22998bf47240e39b8b1293b79bcfede9ca00d5e97c58579f4; SUMAS=8480f0e02952216d0a371f13201657e81e27ccc53fef2d5917d5dc74a68df30c
+sensor1: tgz-recibido rc=0 = bda65802ebed48e22998bf47240e39b8b1293b79bcfede9ca00d5e97c58579f4
+sensor1: extraccion rc=0 566 entradas en /home/m4rk/cf-e4/.paquete-902991e.parcial.20261106T194952Z-10146
+sensor1: inventario rc=0 480 ficheros: hashes correctos, ninguno ausente, ninguno inesperado
+sensor1: evaluador rc=0 = 53e9f7bd578123f6499289ebbb92d8d6c71a6e56b7c1c35a59463b98aad5c23f
+sensor1: versiones rc=0 evaluar_s14 2026-11-06.2, construir_entrada 2026-11-06.3
+sensor1: manifiesto-ecarga rc=0 = e001352c2e6485d99e71b1e62ff68a4051bebdfc2bbb4fbd927000517d463b80 y verifica
+sensor1: instalacion rc=0 /home/m4rk/cf-e4/paquete-902991e
+sensor1: marca rc=0 /home/m4rk/cf-e4/paquete-902991e.VERIFICADO.txt
+sensor1: aviso rc=0 creado junto a paquete-a12deae (su contenido no se toca)
+sensor1: limpieza-staging rc=0 eliminado
+sensor1: limpieza-tgz-recibido rc=0 eliminado
+sensor1: ESTADO_FINAL=VERIFICADO rc=0
+reparto: sensor1 op_host rc=0 VERIFICADO
+reparto: srvdmz scp-paquete rc=0
+srvdmz: inicio rc=0 op_host_902991e r2 2026-11-07.1; RUN=20261106T194952Z-10146; TGZ=bda65802ebed48e22998bf47240e39b8b1293b79bcfede9ca00d5e97c58579f4; SUMAS=8480f0e02952216d0a371f13201657e81e27ccc53fef2d5917d5dc74a68df30c
+srvdmz: tgz-recibido rc=0 = bda65802ebed48e22998bf47240e39b8b1293b79bcfede9ca00d5e97c58579f4
+srvdmz: extraccion rc=0 566 entradas en /home/adminsrvdmz/cf-e4/.paquete-902991e.parcial.20261106T194952Z-10146
+srvdmz: inventario rc=0 480 ficheros: hashes correctos, ninguno ausente, ninguno inesperado
+srvdmz: evaluador rc=0 = 53e9f7bd578123f6499289ebbb92d8d6c71a6e56b7c1c35a59463b98aad5c23f
+srvdmz: versiones rc=0 evaluar_s14 2026-11-06.2, construir_entrada 2026-11-06.3
+srvdmz: manifiesto-ecarga rc=0 = e001352c2e6485d99e71b1e62ff68a4051bebdfc2bbb4fbd927000517d463b80 y verifica
+srvdmz: instalacion rc=0 /home/adminsrvdmz/cf-e4/paquete-902991e
+srvdmz: marca rc=0 /home/adminsrvdmz/cf-e4/paquete-902991e.VERIFICADO.txt
+srvdmz: aviso rc=0 creado junto a paquete-a12deae (su contenido no se toca)
+srvdmz: limpieza-staging rc=0 eliminado
+srvdmz: limpieza-tgz-recibido rc=0 eliminado
+srvdmz: ESTADO_FINAL=VERIFICADO rc=0
+reparto: srvdmz op_host rc=0 VERIFICADO
+bastion: inicio rc=0 op_host_902991e r2 2026-11-07.1; RUN=20261106T194952Z-10146; TGZ=bda65802ebed48e22998bf47240e39b8b1293b79bcfede9ca00d5e97c58579f4; SUMAS=8480f0e02952216d0a371f13201657e81e27ccc53fef2d5917d5dc74a68df30c
+bastion: tgz-recibido rc=0 = bda65802ebed48e22998bf47240e39b8b1293b79bcfede9ca00d5e97c58579f4
+bastion: extraccion rc=0 566 entradas en /home/gadmin/cf-e4/.paquete-902991e.parcial.20261106T194952Z-10146
+bastion: inventario rc=0 480 ficheros: hashes correctos, ninguno ausente, ninguno inesperado
+bastion: evaluador rc=0 = 53e9f7bd578123f6499289ebbb92d8d6c71a6e56b7c1c35a59463b98aad5c23f
+bastion: versiones rc=0 evaluar_s14 2026-11-06.2, construir_entrada 2026-11-06.3
+bastion: manifiesto-ecarga rc=0 = e001352c2e6485d99e71b1e62ff68a4051bebdfc2bbb4fbd927000517d463b80 y verifica
+bastion: instalacion rc=0 /home/gadmin/cf-e4/paquete-902991e
+bastion: marca rc=0 /home/gadmin/cf-e4/paquete-902991e.VERIFICADO.txt
+bastion: aviso rc=0 creado junto a paquete-a12deae (su contenido no se toca)
+bastion: limpieza-staging rc=0 eliminado
+bastion: limpieza-tgz-recibido rc=0 eliminado
+bastion: ESTADO_FINAL=VERIFICADO rc=0
+reparto: bastion op_host rc=0 VERIFICADO
+reparto: bastion limpieza-tmp rc=0 eliminados
+RESULTADO bastion rc=0 estado=VERIFICADO
+RESULTADO sensor1 rc=0 estado=VERIFICADO
+RESULTADO srvdmz rc=0 estado=VERIFICADO
+2026-11-06T19:50:12Z portatil ssh-reparto rc=0 ejecutado
+2026-11-06T19:50:12Z portatil host-bastion rc=0 VERIFICADO
+2026-11-06T19:50:12Z portatil host-sensor1 rc=0 VERIFICADO
+2026-11-06T19:50:13Z portatil host-srvdmz rc=0 VERIFICADO
+2026-11-06T19:50:13Z portatil RESULTADO_GLOBAL rc=0 TRASLADO COMPLETO: bastion, sensor1 y srvdmz verificados (3/3)
