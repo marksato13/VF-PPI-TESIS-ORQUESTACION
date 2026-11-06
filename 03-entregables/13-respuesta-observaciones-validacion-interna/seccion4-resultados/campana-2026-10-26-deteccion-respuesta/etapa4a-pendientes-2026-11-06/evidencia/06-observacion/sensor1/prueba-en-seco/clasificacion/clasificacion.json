@@ -1,0 +1,18 @@
+{
+ "capturas": {},
+ "clase_periodo": "no_evaluable",
+ "motivo": "el periodo indicado no est\u00e1 dentro de la cobertura medida [1793940210.801, 1793940311.662]; no se recorta",
+ "muestras": {
+  "n": 11,
+  "primera_t": 1793940210.801,
+  "ultima_t": 1793940311.662
+ },
+ "periodo": {
+  "desde": 1793940240.0,
+  "duracion_s": 90.0,
+  "hasta": 1793940330.0,
+  "origen": "indicado"
+ },
+ "salud_captura": "2026-11-06.1",
+ "version": "clasificar_periodo 2026-11-06.1"
+}

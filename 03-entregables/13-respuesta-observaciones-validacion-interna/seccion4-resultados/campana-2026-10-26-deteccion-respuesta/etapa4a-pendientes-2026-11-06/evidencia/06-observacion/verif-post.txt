@@ -1,0 +1,99 @@
+######## verificar_bastion 2026-11-06T05:54:03Z
+OK    relé v2 activo
+OK    relé v2 solo con destino srv-dmz (sin dc1)
+FALLO relé v1 sigue activo e intacto
+OK    entrega reciente a srv-dmz (hace 13.9 s)
+INFO  entregas: 4637; traído->entregado p50/máx: 0.062/0.381 s
+INFO  última hora: parejas inconsistentes 0, errores 0
+OK    reloj sincronizado
+VERIFICACIÓN BASTIÓN CON FALLOS
+rc=1
+######## verificar_sensor1
+OK    ppi-motor activo
+OK    ppi-motor-capture activo
+OK    ppi-via-rapida@ens37 activo
+OK    ppi-publicar-feed-v2 activo
+OK    cf-tcpdump-estadisticas.timer activo
+OK    suricata activo
+FALLO ppi-publicar-feed.timer activo
+OK    motor = candidato ec78ca5 con --disparo eventos
+OK    motor SIN --enforce
+OK    captura con -G 5
+OK    código candidato sin cambios (SHA256SUMS)
+OK    importaciones desde el candidato
+INFO  NRestarts motor/captura/vía: 0/0/0
+OK    decisiones con decision_if y auth_failure
+OK    decisiones con http_vista y dns_vista
+FALLO motor_startup del candidato (incremental, disparo eventos, umbral del manifiesto)
+INFO  decisiones con registros HTTP tardíos excluidos de la vista: 0 de 1999
+INFO  auth_failure solo histórico (no aceptado por la vista HTTP): 0
+INFO  último ciclo: {"ciclo_n": 4224, "decididas": 6, "disparo": "pcap_cerrado", "duracion_s": 0.4254, "entidades": 11, "etapas_s": {"decision_y_registro": 0.0003, "eve_lectura": 0.001, "eve_poda": 0.0, "expiracion_y_escritura": 0.0006, "filtro_plano_control": 0.0082, "pcap_parseo": 0.0217, "pcap_poda": 0.0221, "pendie
+OK    resumen de la vía rápida avanza (1793944445.202817 -> 1793944448.239302)
+INFO  resumen vía rápida: {"bloque_hasta": 1793944448.289722, "paquetes_tcp": 11564, "bytes_pendientes": 0, "cpu_s": 222.865679}
+INFO  señales rápidas: 0 líneas (sin ataques, 0 sobre legítimos)
+INFO  tcpdump de la vía rápida: PID 1389; estadísticas en journalctl -u ppi-via-rapida@ens37
+OK    feed v2 reciente (< 60 s)
+OK    firma del feed v2 verifica con la clave PÚBLICA
+INFO  traza del publicador (última): {"entradas": [], "evento": "publicacion", "expira": 1793944489.33276, "generado": 1793944429.33276, "nuevos": [], "politica": "if_senal", "publicado_en": 1793944429.3452206, "secuencia": 4718}
+INFO  eventos 'rechazada' en la traza: 0
+INFO  menciones de dns_entropy en el feed v2 actual: 0 (no hay agente DNS: nada se aplica en DC1)
+OK    SIGUSR1 periódico del anillo en el journal (últimos 2 min)
+OK    SIGUSR1 periódico de la vía rápida en el journal (últimos 2 min)
+INFO  anillo: 230 ficheros; últimos: live-20261106055356.pcap live-20261106055401.pcap live-20261106055406.pcap 
+INFO  suricata: capture.kernel_packets | Total | 4405681 capture.kernel_packets | Total | 4407321 
+OK    reloj sincronizado
+INFO  recursos: load average: 0,58, 0,34, 0,26; mem 1325/7940 MB; /home libre   13G
+OK    logrotate de feed-v2 instalado
+VERIFICACIÓN SENSOR1 CON FALLOS
+rc=1
+######## I5 informativo (30 min hasta la última muestra)
+{
+ "evaluado_en": 1793944448.6099262,
+ "i5": "cumple",
+ "medida": {
+  "acotado_por": [
+   1793942647.248604,
+   1793944447.456759
+  ],
+  "arranque_estimado": [
+   1793923140
+  ],
+  "criterios": {
+   "eve_borde_s": 10.0,
+   "eve_intervalo_s": 8.0,
+   "eve_max_hueco_s": 20.0,
+   "eve_tolerancia_arranque_s": 3.0
+  },
+  "descartes": 0,
+  "descartes_parciales": 0,
+  "estado": "cero_explicito",
+  "fuente": "eve_stats",
+  "intervalos_con_descartes": [],
+  "motivos": [],
+  "muestras": 226,
+  "paquetes": 304391,
+  "parciales": 0,
+  "periodo": [
+   1793942647.456759,
+   1793944447.456759
+  ],
+  "reinicios": [],
+  "repetidas": 0,
+  "ultima_muestra": 1793944447.456759,
+  "version": "2026-11-06.1"
+ },
+ "ventana_s": 1800.0
+}
+rc=0
+######## verificar_srvdmz (CON_SUDO=1, respaldo fase C)
+estado=sombra alcance=completo agentes=1 con_aplicar=0 tablas_cyberflow=0 eventos_aplicacion=0
+OK    estado de sombra demostrado (--alcance completo --respaldo /home/adminsrvdmz/respaldos-etapa4/srvdmz-p4-fase-c-20261106T043944Z)
+OK    feed v2 recibido hace < 60 s (feed.par)
+OK    reloj sincronizado
+INFO  rechazos por motivo:       1 "motivo": "feed_caducado"      14 "motivo": "firma_invalida"       1 "motivo": "misma_secuencia"  (recepciones: 4638)
+OK    helper rechaza un perfil ajeno
+VERIFICACIÓN SRV-DMZ OK
+rc=0
+######## motivos distintos de firma_invalida en la traza del agente
+3642:{"ajenas": 0, "estado": "rechazado", "evento": "recepcion", "generado": 1793831512.4762614, "ids": [], "motivo": "feed_caducado", "mtime_feed": 1793831513.3260822, "perfil": "dmz", "rechazadas": [], "recibido_en": 1793923229.1869879, "secuencia": 3654, "t": 1793923229.2668495}
+4285:{"ajenas": 0, "estado": "repetido", "evento": "recepcion", "generado": 1793937072.750688, "ids": [], "motivo": "misma_secuencia", "mtime_feed": 1793937073.8753293, "perfil": "dmz", "rechazadas": [], "recibido_en": 1793937089.2149417, "secuencia": 4351, "t": 1793937089.2233613}

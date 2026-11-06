@@ -1,0 +1,179 @@
+fecha=2026-11-06T04:41:41Z arranque=2026-11-05 23:56:55 ntp=yes
+--- codigo ec78ca5
+SHA256SUMS OK (87 ficheros)
+bbb2538cf371aa8a6be75660cba0ac5a97bafeba9dda106524b331fb23f0d191  SHA256SUMS
+--- modelo/escalador/features/manifiesto
+--- unidades
+suricata                         active/enabled
+ppi-motor                        active/enabled
+ppi-motor-capture                active/enabled
+ppi-via-rapida@ens37             active/enabled
+ppi-publicar-feed-v2             active/enabled
+ppi-publicar-feed.timer          inactive/disabled
+ppi-publicar-feed                inactive/static
+cf-tcpdump-estadisticas.timer    active/enabled
+ppi-dashboard                    active/enabled
+cf-primer-pcap.service           inactive/not-found
+cf-primer-pcap.path              inactive/not-found
+  cf-tcpdump-estadisticas.service inactive dead
+  ppi-dashboard.service active running
+  ppi-motor-capture.service active running
+  ppi-motor.service active running
+  ppi-publicar-feed-v2.service active running
+  ppi-via-rapida@ens37.service active running
+  cf-tcpdump-estadisticas.timer active waiting
+--- cmdlines
+ppi-motor pid=1384 inicio=Thu 2026-11-05 23:59:01 UTC NRestarts=0
+/home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow-e4/ec78ca5/scripts/engine/motor_decision.py --eve-path /var/log/suricata/eve.json --capture-dir /var/lib/ppi-motor-capture --model-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib --manifest-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json --dete
+
+ppi-motor-capture pid=1355 inicio=Thu 2026-11-05 23:59:01 UTC NRestarts=0
+/usr/bin/tcpdump -i ens37 -n -s 0 -U -B 65536 -Z tcpdump -w /var/lib/ppi-motor-capture/live-%Y%m%d%H%M%S.pcap -G 5 
+
+ppi-via-rapida@ens37 pid=1387 inicio=Thu 2026-11-05 23:59:01 UTC NRestarts=0
+/bin/bash -c set -o pipefail;    /usr/bin/tcpdump -i ens37 -n -U --immediate-mode -s 128 -w - "tcp or (vlan and tcp)"    | /home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow-e4/ec78ca5/scripts/engine/detector_rapido.py --flujo        --salida /home/m4rk/feed-v2/senales-rapidas.jsonl        --resumen /home/m4rk/feed-v2/via-rapida-resumen.jsonl 
+
+ppi-publicar-feed-v2 pid=1386 inicio=Thu 2026-11-05 23:59:01 UTC NRestarts=0
+/home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow-e4/ec78ca5/scripts/engine/publicar_feed_v2.py --log /home/m4rk/cyberflow/logs/motor_decision.log --estado /home/m4rk/feed-v2/estado.json --clave-privada /home/m4rk/cyberflow/artifacts/feed-keys/priv.pem --salida-feed /home/m4rk/feed-v2/feed.json --salida-firma /home/m4rk/feed-v2/feed.sig --senales /home/m4rk/feed-v2/senales-if.jsonl --sena
+
+suricata pid=1351 inicio=Thu 2026-11-05 23:59:00 UTC NRestarts=0
+/usr/bin/suricata -D --af-packet -c /etc/suricata/suricata.yaml --pidfile /run/suricata.pid 
+
+--enforce/--aplicar en procesos: 0
+--- drop-ins
+b4b7598415563f3891d784cc7d2992db6896ee3f114a61e0c2e2bda523e16a5e  /etc/systemd/system/ppi-motor.service.d/etapa4.conf
+4465061f0e9cd61587f7bd80dce18548d018ea34866f33452cc5f89989865b9e  /etc/systemd/system/ppi-motor-capture.service.d/etapa4.conf
+1a71f2eec093004529bbc5f24777fea9b4a388c5781f851edd463d4c9da5d1e6  /etc/systemd/system/ppi-motor-capture.service.d/etapa4-primer-pcap.conf
+--- suricata
+0962ce68b565c237ded37313f578e1a1b05229206741e76f7d3a2daaa6e694d0  /etc/suricata/suricata.yaml
+68:  interval: 8
+94:      filename: eve.json
+438:      filename: stats.log
+616:    ring-size: 16384   # cierre 4A 4-nov-2026: único cambio del ensayo
+This is Suricata version 7.0.3 RELEASE
+eve ultima escritura hace 1 s; tamano 31908369
+total 2277180
+drwxr-xr-x  2 root root        4096 nov  6 00:00 .
+drwxrwxr-x 11 root syslog      4096 nov  5 23:57 ..
+-rw-r--r--  1 root root    31908369 nov  6 04:41 eve.json
+-rw-r--r--  1 root root    84086784 oct  5 18:50 eve.json.1-2026100600.backup
+-rw-r--r--  1 root root   113516544 oct  9 13:53 eve.json.1-2026101000.backup
+-rw-r--r--  1 root root   138301440 oct 21 19:07 eve.json.1-2026102200.backup
+-rw-r--r--  1 root root   926269440 oct 30 15:50 eve.json.1-2026103100.backup
+-rw-r--r--  1 root root   413306880 nov  5 23:57 eve.json.1-2026110600.backup
+-rw-r--r--  1 root root        3243 nov  5 23:59 eve.json.1.gz
+-rw-r--r--  1 root root    68989373 nov  4 00:00 eve.json.3.gz
+-rw-r--r--  1 root root    46319681 nov  3 00:00 eve.json.4.gz
+-rw-r--r--  1 root root    64185399 nov  2 00:00 eve.json.5.gz
+-rw-r--r--  1 root root    11908848 nov  1 00:00 eve.json.6.gz
+-rw-r--r--  1 root root     4250336 oct 30 23:59 eve.json.7.gz
+-rw-r--r--  1 root root           0 nov  6 00:00 fast.log
+-rw-r--r--  1 root root           0 oct  5 18:50 fast.log.1-2026100600.backup
+-rw-r--r--  1 root root           0 oct  9 13:53 fast.log.1-2026101000.backup
+-rw-r--r--  1 root root           0 oct 21 19:07 fast.log.1-2026102200.backup
+-rw-r--r--  1 root root           0 oct 30 15:50 fast.log.1-2026103100.backup
+ultimo stats EVE: 2026-11-06T04:41:34.947947+0000 uptime 16954 {'kernel_packets': 3688274, 'kernel_drops': 0, 'errors': 0, 'afpacket': {'busy_loop_avg': 1, 'polls': 2427906, 'poll_signal': 0, 'poll_timeout': 487913, 'poll_data': 1939993, 'poll_errors': 0, 'send_errors': 0}}
+--- primer pcap / anillo
+b654f8755c472ff4b9a9952f9ab325bd8d5975cfd928626a0cf98b81523828a5  /usr/local/sbin/cf-primer-pcap
+live-20261106042500.pcap
+live-20261106042505.pcap
+200
+--- feed-v2
+total 168784
+drwxr-x---  2 m4rk m4rk      4096 2026-11-06T04:41:39 .
+drwxr-x--- 36 m4rk m4rk      4096 2026-11-06T03:20:53 ..
+-rw-r--r--  1 m4rk m4rk        66 2026-11-06T04:41:39 estado.json
+-rw-r--r--  1 m4rk m4rk       148 2026-11-06T04:41:39 feed.json
+-rw-r--r--  1 m4rk m4rk        64 2026-11-06T04:41:39 feed.sig
+-rw-r--r--  1 m4rk m4rk     47262 2026-11-06T04:39:04 senales-if.jsonl
+-rw-r--r--  1 m4rk m4rk   2101540 2026-11-06T00:00:01 senales-if.jsonl.1
+-rw-r--r--  1 m4rk m4rk         0 2026-11-04T02:11:07 senales-rapidas.jsonl
+-rw-r--r--  1 m4rk m4rk    165423 2026-11-06T04:41:39 traza.jsonl
+--- nic
+3: ens37: <BROADCAST,MULTICAST,PROMISC,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
+    link/ether 00:0c:29:3d:f9:4e brd ff:ff:ff:ff:ff:ff
+    RX:  bytes packets errors dropped  missed   mcast           
+     702132237 3692062      0  222710       0  615540 
+    RX errors:  length    crc   frame    fifo overrun otherhost
+                     0      0       0       0       0   3443774 
+    TX:  bytes packets errors dropped carrier collsns           
+           796      10      0       0       0       0 
+    TX errors: aborted   fifo  window heartbt transns
+                     0      0       0       0       1 
+    altname enp2s5
+rx_dropped=222710 rx_missed_errors=0 rx_fifo_errors=0 rx_over_errors=0 rx_packets=3692123 
+driver: vmxnet3
+version: 1.7.0.0-k-NAPI
+firmware-version: 
+expansion-rom-version: 
+bus-info: 0000:02:05.0
+supports-statistics: yes
+supports-test: no
+supports-eeprom-access: no
+supports-register-dump: yes
+supports-priv-flags: no
+NIC statistics:
+     Tx Queue#: 0
+       TSO pkts tx: 0
+       TSO bytes tx: 0
+       ucast pkts tx: 0
+       ucast bytes tx: 0
+       mcast pkts tx: 2
+       mcast bytes tx: 180
+       bcast pkts tx: 0
+       bcast bytes tx: 0
+       pkts tx err: 0
+       pkts tx discard: 0
+       drv dropped tx total: 0
+          too many frags: 0
+          giant hdr: 0
+          hdr err: 0
+          tso: 0
+       ring full: 0
+       pkts linearized: 0
+       hdr cloned: 0
+       giant hdr: 0
+       xdp xmit: 0
+       xdp xmit err: 0
+     Tx Queue#: 1
+       TSO pkts tx: 0
+       TSO bytes tx: 0
+       ucast pkts tx: 0
+       ucast bytes tx: 0
+       mcast pkts tx: 5
+       mcast bytes tx: 350
+       bcast pkts tx: 0
+       bcast bytes tx: 0
+       pkts tx err: 0
+       pkts tx discard: 0
+       drv dropped tx total: 0
+          too many frags: 0
+          giant hdr: 0
+          hdr err: 0
+          tso: 0
+       ring full: 0
+       pkts linearized: 0
+       hdr cloned: 0
+       giant hdr: 0
+       xdp xmit: 0
+       xdp xmit err: 0
+     Tx Queue#: 2
+       TSO pkts tx: 0
+       TSO bytes tx: 0
+       ucast pkts tx: 0
+       ucast bytes tx: 0
+       mcast pkts tx: 3
+       mcast bytes tx: 266
+       bcast pkts tx: 0
+       bcast bytes tx: 0
+       pkts tx err: 0
+       pkts tx discard: 0
+       drv dropped tx total: 0
+          too many frags: 0
+          giant hdr: 0
+          hdr err: 0
+0x1103
+3: ens37: <BROADCAST,MULTICAST,PROMISC,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
+    link/ether 00:0c:29:3d:f9:4e brd ff:ff:ff:ff:ff:ff promiscuity 7  allmulti 0 minmtu 60 maxmtu 9190 addrgenmode eui64 numtxqueues 4 numrxqueues 4 gso_max_size 65536 gso_max_segs 65535 tso_max_size 65536 tso_max_segs 65535 gro_max_size 65536 parentbus pci parentdev 0000:02:05.0 
+    altname enp2s5
+--- kernel
+6.8.0-53-generic

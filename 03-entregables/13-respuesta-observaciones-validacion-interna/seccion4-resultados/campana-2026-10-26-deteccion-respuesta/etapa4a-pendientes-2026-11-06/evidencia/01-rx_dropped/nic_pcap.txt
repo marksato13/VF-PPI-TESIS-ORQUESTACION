@@ -1,0 +1,32 @@
+rx_dropped +982 otherhost +8990 en 70 s (t0=1793936482 t1=1793936552)
+total 22500
+-rw-r----- 1 tcpdump m4rk  95408 nov  6 03:25 live-20261106032458.pcap
+-rw-r----- 1 tcpdump m4rk 102921 nov  6 03:25 live-20261106032503.pcap
+ficheros analizados: 12 (60 s) tramas: 8571
+vlan60     0800           2831  47.18/s
+vlan10     0800           2353  39.22/s
+vlan100    0800           1040  17.33/s
+vlan30     0800            222  3.70/s
+vlan50     0800            148  2.47/s
+vlan40     0800            133  2.22/s
+vlan80     0800            120  2.00/s
+vlan90     0800            120  2.00/s
+vlan70     0800            120  2.00/s
+vlan95     0800            120  2.00/s
+vlan88     0800            118  1.97/s
+vlan20     0800            118  1.97/s
+vlan99     0800            118  1.97/s
+vlan85     0800            118  1.97/s
+vlan60     802.3/LLC        62  1.03/s
+vlan20     802.3/LLC        62  1.03/s
+vlan50     802.3/LLC        62  1.03/s
+vlan99     802.3/LLC        62  1.03/s
+vlan10     802.3/LLC        62  1.03/s
+vlan30     802.3/LLC        62  1.03/s
+vlan40     802.3/LLC        62  1.03/s
+vlan70     802.3/LLC        62  1.03/s
+vlan80     802.3/LLC        62  1.03/s
+vlan85     802.3/LLC        62  1.03/s
+vlan88     802.3/LLC        62  1.03/s
+VLAN con VID!=0 y ethertype interno sin manejador en este host (no IPv4/ARP/IPv6/LLDP): 14.50/s
+rx_dropped del mismo intervalo: 14.03/s

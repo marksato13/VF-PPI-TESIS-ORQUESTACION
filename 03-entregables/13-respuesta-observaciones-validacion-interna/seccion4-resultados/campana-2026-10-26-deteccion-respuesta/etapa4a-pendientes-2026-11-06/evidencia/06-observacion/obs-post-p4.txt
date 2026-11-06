@@ -1,0 +1,42 @@
+######## p4 post 2026-11-06T05:53:27Z ventana 1793940600-1793944200
+O7 entregas del relé en la ventana: 180 modos: Counter({'paquete': 180})
+   secuencias entregadas [4527] … [4706] orden creciente: True huecos: []
+   agente: recepciones 180 estados Counter({'aceptado': 180})
+   aceptadas en orden: True
+   entregadas NO aceptadas: 0 []
+O8 rechazos en la ventana: Counter()
+O10 eventos aplicacion (toda la traza): 0 en la ventana: 0
+   retraso generado->aceptado (s): p50 0.834 p95 1.405 max 1.601
+muestras en ventana±60 s: 125 intervalo máximo 30 s
+O1 pid/NRestarts/estado por servicio:
+    agente [('15020', '0', 'active')]
+    ppi-dashboard [('1385', '0', 'active')]
+    ppi-motor [('1384', '0', 'active')]
+    ppi-motor-capture [('1355', '0', 'active')]
+    ppi-publicar-feed-v2 [('1386', '0', 'active')]
+    ppi-via-rapida@ens37 [('1387', '0', 'active')]
+    relay [('70246', '0', 'active')]
+    suricata [('1351', '0', 'active')]
+   publicador: secuencia [4524] … [4709] sin retroceso: True
+O6 /home libre mínimo (GB): 12.15
+O9 panel desde el bastión: {'401': 125}
+O10 ruleset Sensor1: {'24c320e3e9538573'}  srv-dmz: {'e3b0c44298fc1c14'}  aplicacion: {'0'}  procesos enforce/aplicar: {'0'}
+O8 contadores acumulados firma_invalida: {'14'}  paquete_invalido: {'0'}
+correlación de rechazos (toda la traza):
+   firma_invalida 1793773586.981 | entrega seq 765 modo pareja traído 1793773586.916 entregado 1793773586.988 -> DENTRO | siguiente recepción seq 765 aceptado a +0.510 s
+   firma_invalida 1793778639.867 | entrega seq 1017 modo pareja traído 1793778639.792 entregado 1793778639.873 -> DENTRO | siguiente recepción seq 1017 aceptado a +0.510 s
+   firma_invalida 1793782428.630 | entrega seq 1206 modo pareja traído 1793782428.576 entregado 1793782428.634 -> DENTRO | siguiente recepción seq 1206 aceptado a +0.509 s
+   firma_invalida 1793787482.000 | entrega seq 1458 modo pareja traído 1793787481.941 entregado 1793787482.005 -> DENTRO | siguiente recepción seq 1458 aceptado a +0.510 s
+   firma_invalida 1793799852.126 | entrega seq 2075 modo pareja traído 1793799852.070 entregado 1793799852.130 -> DENTRO | siguiente recepción seq 2075 aceptado a +0.510 s
+   firma_invalida 1793813045.769 | entrega seq 2733 modo pareja traído 1793813045.706 entregado 1793813045.775 -> DENTRO | siguiente recepción seq 2733 aceptado a +0.510 s
+   firma_invalida 1793816494.240 | entrega seq 2905 modo pareja traído 1793816494.169 entregado 1793816494.249 -> DENTRO | siguiente recepción seq 2905 aceptado a +0.512 s
+   firma_invalida 1793817095.391 | entrega seq 2935 modo pareja traído 1793817095.325 entregado 1793817095.398 -> DENTRO | siguiente recepción seq 2935 aceptado a +0.510 s
+   firma_invalida 1793823171.211 | entrega seq 3238 modo pareja traído 1793823171.158 entregado 1793823171.221 -> DENTRO | siguiente recepción seq 3238 aceptado a +0.513 s
+   firma_invalida 1793827602.904 | entrega seq 3459 modo pareja traído 1793827602.851 entregado 1793827602.908 -> DENTRO | siguiente recepción seq 3459 aceptado a +0.509 s
+   firma_invalida 1793927371.804 | entrega seq 3867 modo pareja traído 1793927371.727 entregado 1793927371.812 -> DENTRO | siguiente recepción seq 3867 aceptado a +0.512 s
+   firma_invalida 1793930117.484 | entrega seq 4004 modo pareja traído 1793930117.430 entregado 1793930117.488 -> DENTRO | siguiente recepción seq 4004 aceptado a +0.510 s
+   firma_invalida 1793931239.796 | entrega seq 4060 modo pareja traído 1793931239.725 entregado 1793931239.797 -> DENTRO | siguiente recepción seq 4060 aceptado a +0.509 s
+   firma_invalida 1793937655.138 | entrega seq 4380 modo pareja traído 1793937655.078 entregado 1793937655.142 -> DENTRO | siguiente recepción seq 4380 aceptado a +0.509 s
+--- O10 srv-dmz después
+tablas: []
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  -

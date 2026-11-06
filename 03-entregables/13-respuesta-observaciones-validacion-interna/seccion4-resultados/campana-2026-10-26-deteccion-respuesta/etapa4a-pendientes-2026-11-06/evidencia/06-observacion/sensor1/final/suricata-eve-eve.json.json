@@ -1,0 +1,32 @@
+{
+ "acotado_por": [
+  1793940599.010631,
+  1793944207.429506
+ ],
+ "arranque_estimado": [
+  1793923140
+ ],
+ "criterios": {
+  "eve_borde_s": 10.0,
+  "eve_intervalo_s": 8.0,
+  "eve_max_hueco_s": 20.0,
+  "eve_tolerancia_arranque_s": 3.0
+ },
+ "descartes": 0,
+ "descartes_parciales": 0,
+ "estado": "cero_explicito",
+ "fuente": "eve_stats",
+ "intervalos_con_descartes": [],
+ "motivos": [],
+ "muestras": 452,
+ "paquetes": 587592,
+ "parciales": 0,
+ "periodo": [
+  1793940600.0,
+  1793944200.0
+ ],
+ "reinicios": [],
+ "repetidas": 0,
+ "ultima_muestra": 1793944383.449324,
+ "version": "2026-11-06.1"
+}

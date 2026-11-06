@@ -1,0 +1,4 @@
+O=~/cf-e4p/observacion-p4-20261106T0450Z; H=~/cyberflow-e4/herramientas-20261106
+(cd $H && sha256sum -c --quiet SHA256SUMS && echo "herramientas verifican")
+(setsid nohup /home/m4rk/cyberflow/.venv/bin/python -I $H/salud_captura.py muestrear --salida $O/muestras.jsonl --suricata-stats /var/log/suricata/stats.log --interfaz ens37 --unidad ppi-motor --unidad ppi-motor-capture --unidad ppi-via-rapida@ens37 --unidad ppi-publicar-feed-v2 --unidad suricata --anillo /var/lib/ppi-motor-capture --resumen-rapida /home/m4rk/feed-v2/via-rapida-resumen.jsonl --ciclos /home/m4rk/cyberflow/logs/_state-e4/ciclos.jsonl --hijos-de-unidad ppi-via-rapida@ens37 --intervalo 10 --hasta 2026-11-06T05:51:30Z > $O/muestrear.out 2>&1 < /dev/null &)
+sleep 22; pgrep -af "salud_captura.py muestrear"; wc -l $O/muestras.jsonl; cat $O/muestrear.out; date -u +%T

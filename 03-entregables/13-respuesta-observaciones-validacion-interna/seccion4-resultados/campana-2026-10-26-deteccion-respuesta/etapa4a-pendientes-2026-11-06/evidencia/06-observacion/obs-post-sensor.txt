@@ -1,0 +1,74 @@
+######## sensor post 2026-11-06T05:53:07Z ventana 1793940600-1793944200
+57280 python3 /home/m4rk/cf-e4p/obs_pcap.py
+--- eve (O3 rotación)
+-rw-r--r--  1 root root    40132268 2026-11-06T05:53:06 eve.json
+-rw-r--r--  1 root root    84086784 2026-10-05T18:50:39 eve.json.1-2026100600.backup
+-rw-r--r--  1 root root   113516544 2026-10-09T13:53:22 eve.json.1-2026101000.backup
+-rw-r--r--  1 root root   138301440 2026-10-21T19:07:42 eve.json.1-2026102200.backup
+-rw-r--r--  1 root root   926269440 2026-10-30T15:50:58 eve.json.1-2026103100.backup
+-rw-r--r--  1 root root   413306880 2026-11-05T23:57:08 eve.json.1-2026110600.backup
+-rw-r--r--  1 root root        3243 2026-11-05T23:59:57 eve.json.1.gz
+-rw-r--r--  1 root root    68989373 2026-11-04T00:00:01 eve.json.3.gz
+-rw-r--r--  1 root root    46319681 2026-11-03T00:00:00 eve.json.4.gz
+-rw-r--r--  1 root root    64185399 2026-11-02T00:00:00 eve.json.5.gz
+-rw-r--r--  1 root root    11908848 2026-11-01T00:00:04 eve.json.6.gz
+-rw-r--r--  1 root root     4250336 2026-10-30T23:59:59 eve.json.7.gz
+-rw-r--r--  1 root root    22088145 2026-11-06T05:53:03 stats.log
+-rw-r--r--  1 root root    62914560 2026-10-05T18:50:38 stats.log.1-2026100600.backup
+-rw-r--r--  1 root root    80986112 2026-10-09T13:53:21 stats.log.1-2026101000.backup
+-rw-r--r--  1 root root    79921152 2026-10-21T19:07:41 stats.log.1-2026102200.backup
+-rw-r--r--  1 root root    86529376 2026-10-30T15:50:54 stats.log.1-2026103100.backup
+-rw-r--r--  1 root root    87371776 2026-11-05T23:57:05 stats.log.1-2026110600.backup
+-rw-r--r--  1 root root         947 2026-11-05T23:59:57 stats.log.1.gz
+-rw-r--r--  1 root root     3485367 2026-11-03T23:59:54 stats.log.3.gz
+-rw-r--r--  1 root root     3346540 2026-11-02T23:59:55 stats.log.4.gz
+-rw-r--r--  1 root root     3191758 2026-11-01T23:59:53 stats.log.5.gz
+-rw-r--r--  1 root root     2774915 2026-10-31T23:59:58 stats.log.6.gz
+-rw-r--r--  1 root root      745285 2026-10-30T23:59:55 stats.log.7.gz
+--- O4/O12 suricata-eve
+rc=0 /var/log/suricata/eve.json
+{
+ "acotado_por": [
+  1793940599.010631,
+  1793944207.429506
+ ],
+ "arranque_estimado": [
+  1793923140
+ ],
+ "criterios": {
+  "eve_borde_s": 10.0,
+  "eve_intervalo_s": 8.0,
+  "eve_max_hueco_s": 20.0,
+  "eve_tolerancia_arranque_s": 3.0
+ },
+ "descartes": 0,
+ "descartes_parciales": 0,
+ "estado": "cero_explicito",
+ "fuente": "eve_stats",
+ "intervalos_con_descartes": [],
+ "motivos": [],
+ "muestras": 452,
+ "paquetes": 587592,
+ "parciales": 0,
+ "periodo": [
+  1793940600.0,
+  1793944200.0
+ ],
+ "reinicios": [],
+ "repetidas": 0,
+ "ultima_muestra": 1793944383.449324,
+ "version": "2026-11-06.1"
+}
+
+--- O5 clasificar_periodo
+rc=0
+{"clase_periodo": "C0", "motivo": null, "capturas": {"captura": ["C0", []], "via-rapida": ["C0", []]}, "suricata_reinicios_dentro": 0}
+--- O2/O3 pcap
+ficheros que empiezan en la ventana: 717 errores de formato: 0 []
+primero: live-20261106045002.pcap último: live-20261106054955.pcap
+salto entre nombres consecutivos: max 6.0 s (esperado 5)
+hueco entre último paquete y primero del siguiente: max 0.496 s
+registros totales: 585151 ficheros vacíos: 0
+esperados (3600/5): 720 faltan nombres: 3
+--- ruleset Sensor1 después
+24c320e3e953857317c08beb04e34f34c6f132bb6cccd0f1b4c7ab98b621a21e  -

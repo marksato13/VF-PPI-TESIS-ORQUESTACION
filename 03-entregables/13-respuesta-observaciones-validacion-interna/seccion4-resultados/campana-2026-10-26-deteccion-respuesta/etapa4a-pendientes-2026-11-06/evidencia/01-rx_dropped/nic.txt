@@ -1,0 +1,150 @@
+### offloads (solo lectura)
+rx-checksumming: on
+generic-receive-offload: off
+large-receive-offload: off
+rx-vlan-offload: on
+receive-hashing: on
+rx-vlan-filter: on [fixed]
+Current hardware settings:
+RX:		n/a
+TX:		n/a
+Other:		1
+Combined:	4
+### taps AF_PACKET en el host
+      1 proto=0003 iface_idx=3 rmem=0 inode=10460
+      1 proto=0003 iface_idx=3 rmem=0 inode=11349
+      1 proto=0003 iface_idx=3 rmem=0 inode=12342
+      1 proto=0003 iface_idx=3 rmem=0 inode=12357
+      1 proto=0003 iface_idx=3 rmem=0 inode=12375
+      1 proto=0003 iface_idx=3 rmem=0 inode=9770
+      1 proto=88cc iface_idx=2 rmem=0 inode=6559
+      1 proto=88cc iface_idx=3 rmem=0 inode=6563
+ifindex ens37 = 3
+### módulos 8021q/llc/stp/bridge cargados:
+ninguno
+### lectura 1
+t=1793936374.746209565
+rx_packets=2185755
+rx_dropped=170409
+rx_missed_errors=0
+rx_fifo_errors=0
+rx_over_errors=0
+rx_errors=0
+rx_crc_errors=0
+rx_frame_errors=0
+rx_length_errors=0
+rx_nohandler=0
+multicast=467161
+ip_json_rx={"bytes": 294474707, "crc_errors": 0, "dropped": 170409, "errors": 0, "fifo_errors": 0, "frame_errors": 0, "length_errors": 0, "missed_errors": 0, "multicast": 467161, "otherhost": 1991225, "over_errors": 0, "packets": 2185755}
+q0 LRO pkts rx: 0
+q0 ucast pkts rx: 309074
+q0 mcast pkts rx: 261439
+q0 bcast pkts rx: 14369
+q0 pkts rx OOB: 5094
+q0 pkts rx err: 0
+q0 drv dropped rx total: 0
+q0 rx buf alloc fail: 0
+q1 LRO pkts rx: 0
+q1 ucast pkts rx: 1140395
+q1 mcast pkts rx: 90918
+q1 bcast pkts rx: 0
+q1 pkts rx OOB: 0
+q1 pkts rx err: 0
+q1 drv dropped rx total: 0
+q1 rx buf alloc fail: 0
+q2 LRO pkts rx: 0
+q2 ucast pkts rx: 138163
+q2 mcast pkts rx: 23893
+q2 bcast pkts rx: 0
+q2 pkts rx OOB: 0
+q2 pkts rx err: 0
+q2 drv dropped rx total: 0
+q2 rx buf alloc fail: 0
+q3 LRO pkts rx: 0
+q3 ucast pkts rx: 116365
+q3 mcast pkts rx: 90911
+q3 bcast pkts rx: 230
+q3 pkts rx OOB: 0
+q3 pkts rx err: 0
+q3 drv dropped rx total: 0
+q3 rx buf alloc fail: 0
+softnet_cpu0_dropped=0 time_squeeze=83
+softnet_cpu1_dropped=0 time_squeeze=34
+softnet_cpu2_dropped=0 time_squeeze=23
+softnet_cpu3_dropped=0 time_squeeze=62
+### lectura 2 (+60 s)
+t=1793936434.821485039
+rx_packets=2195160
+rx_dropped=171251
+rx_missed_errors=0
+rx_fifo_errors=0
+rx_over_errors=0
+rx_errors=0
+rx_crc_errors=0
+rx_frame_errors=0
+rx_length_errors=0
+rx_nohandler=0
+multicast=469549
+ip_json_rx={"bytes": 295839702, "crc_errors": 0, "dropped": 171251, "errors": 0, "fifo_errors": 0, "frame_errors": 0, "length_errors": 0, "missed_errors": 0, "multicast": 469549, "otherhost": 1999772, "over_errors": 0, "packets": 2195162}
+q0 LRO pkts rx: 0
+q0 ucast pkts rx: 309990
+q0 mcast pkts rx: 262755
+q0 bcast pkts rx: 14369
+q0 pkts rx OOB: 5094
+q0 pkts rx err: 0
+q0 drv dropped rx total: 0
+q0 rx buf alloc fail: 0
+q1 LRO pkts rx: 0
+q1 ucast pkts rx: 1145769
+q1 mcast pkts rx: 91390
+q1 bcast pkts rx: 0
+q1 pkts rx OOB: 0
+q1 pkts rx err: 0
+q1 drv dropped rx total: 0
+q1 rx buf alloc fail: 0
+q2 LRO pkts rx: 0
+q2 ucast pkts rx: 138800
+q2 mcast pkts rx: 24021
+q2 bcast pkts rx: 0
+q2 pkts rx OOB: 0
+q2 pkts rx err: 0
+q2 drv dropped rx total: 0
+q2 rx buf alloc fail: 0
+q3 LRO pkts rx: 0
+q3 ucast pkts rx: 116455
+q3 mcast pkts rx: 91383
+q3 bcast pkts rx: 230
+q3 pkts rx OOB: 0
+q3 pkts rx err: 0
+q3 drv dropped rx total: 0
+q3 rx buf alloc fail: 0
+softnet_cpu0_dropped=0 time_squeeze=83
+softnet_cpu1_dropped=0 time_squeeze=34
+softnet_cpu2_dropped=0 time_squeeze=23
+softnet_cpu3_dropped=0 time_squeeze=63
+### incrementos en 60.1 s
+ip.bytes                                     +1364995  (22721.41/s)
+ip.dropped                                       +842  (14.02/s)
+ip.multicast                                    +2388  (39.75/s)
+ip.otherhost                                    +8547  (142.27/s)
+ip.packets                                      +9407  (156.59/s)
+multicast                                       +2388  (39.75/s)
+q0.mcast pkts rx                                +1316  (21.91/s)
+q0.ucast pkts rx                                 +916  (15.25/s)
+q1.mcast pkts rx                                 +472  (7.86/s)
+q1.ucast pkts rx                                +5374  (89.45/s)
+q2.mcast pkts rx                                 +128  (2.13/s)
+q2.ucast pkts rx                                 +637  (10.60/s)
+q3.mcast pkts rx                                 +472  (7.86/s)
+q3.ucast pkts rx                                  +90  (1.50/s)
+rx_dropped                                       +842  (14.02/s)
+rx_fifo_errors                                     +0  (0.00/s)
+rx_missed_errors                                   +0  (0.00/s)
+rx_nohandler                                       +0  (0.00/s)
+rx_packets                                      +9405  (156.55/s)
+time_squeeze                                       +1  (0.02/s)
+SUMA drv dropped rx total (driver vmxnet3) = +0 ; rx_dropped (sysfs) = +842 ; diferencia (núcleo) = +842
+6.8.0-53-generic
+filename:       /lib/modules/6.8.0-53-generic/kernel/drivers/net/vmxnet3/vmxnet3.ko.zst
+version:        1.7.0.0-k
+srcversion:     F5B4A4A60758BBEFC090814

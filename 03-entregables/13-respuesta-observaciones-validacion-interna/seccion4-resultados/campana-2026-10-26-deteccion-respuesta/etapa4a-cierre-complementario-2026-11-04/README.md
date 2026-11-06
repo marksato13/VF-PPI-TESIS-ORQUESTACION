@@ -3,6 +3,11 @@
 > **Veredicto.** El cierre complementario **cumple sus criterios**, con dos salvedades que pasan a la 4B. **La 4B se
 > puede preparar, pero no iniciar** hasta resolver el pendiente P1 (medición de I5).
 >
+> **Corrección (pendientes 4A, 06-nov).** Criterio de avance unificado (este README decía aquí «no iniciar la 4B» y en
+> §11 solo «no iniciar la 4C»): la 4B **puede prepararse**; su **control formal** espera a que P1 esté cerrado y la
+> integración verificada; la 4C y la campaña B **no** están autorizadas. Resultado de los pendientes:
+> [`../etapa4a-pendientes-2026-11-06/`](../etapa4a-pendientes-2026-11-06/README.md).
+>
 > Lo que está cerrado:
 > - **Panel:** corregido (**93f076e**) y desplegado con modo v2 explícito.
 > - **Primer PCAP ilegible:** corregido y verificado en arranque y rotaciones.
@@ -252,6 +257,12 @@ fondo eran los mismos y no hubo ataques. La intensidad se registró, no se eligi
 | RSS de Suricata | 121 MB | 168 → 173 MB (+≈100 MB: el anillo mayor) |
 | Parada máxima de eve.json | 3 s | 5 s |
 
+> **Corrección (pendientes 4A, 06-nov), fila `rx_dropped`.** «Tramas sin manejador» no estaba demostrado en este cierre,
+> y `rx_nohandler` vale 0. El diagnóstico posterior (solo lectura) muestra que es un contador del **núcleo**, no del
+> driver (`drv dropped rx total` = 0), compatible con tramas 802.3/LLC dentro de VLAN sin interfaz VLAN en el host
+> (≈ 14,5/s en los PCAP frente a 14,0/s de `rx_dropped`), que **sí** están en los PCAP. Con incertidumbre declarada:
+> [`../etapa4a-pendientes-2026-11-06/README.md` §4](../etapa4a-pendientes-2026-11-06/README.md).
+
 **Interpretación.**
 - **Sin saturación.** No hay ninguna de CPU, softirq, disco ni memoria. `time_squeeze` sube con el tráfico, pero
   sin `dropped`.
@@ -310,6 +321,12 @@ configuración en mitad del ensayo. Pasan a P1.
 - **I5 y C0 no cambian.** I5 sigue exigiendo 0 descartes en los 30 min previos a la 4C, y la población principal
   sigue siendo C0.
 
+> **Corrección (pendientes 4A, 06-nov).** «C3, no evaluable» significa que **faltaba la medida** de Suricata, no que
+> hubiera evidencia de descartes. La medida retrospectiva con la herramienta nueva (EVE `stats`) da cero explícito en
+> 1 201 704 paquetes, se publica aparte rotulada como tal y **no reclasifica** esta ventana, que sigue siendo C3.
+> La diferencia con 1 193 578 (§6.3) son las muestras que acotan los extremos:
+> [`../etapa4a-pendientes-2026-11-06/README.md` §3](../etapa4a-pendientes-2026-11-06/README.md).
+
 ## 8. Validaciones por separado
 
 | Validación | Resultado |
@@ -355,11 +372,15 @@ La reversión **nunca** arranca `ppi-enforce-agent` (v1, con `--aplicar`) ni car
 | P2 | El ensayo del anillo duró 1 h: hace falta más observación con carga real | La 4B puede prepararse con el anillo en 16384, vigilando los descartes con EVE `stats` |
 | P3 | `Requires=` del motor: cualquier reinicio de la captura reinicia el motor | Planificarlo en la 4B: cada reinicio abre un intervalo de arranque, que se excluye |
 | P4 | Rechazo transitorio de firma en el agente v2 (§5.5) | En modo activo retrasaría una medida un ciclo; revisar la entrega de la pareja antes de activar |
-| P5 | En `cierre4a_*.sh`, el `SHA256SUMS` de `salida.txt` se calcula antes de la última línea (falla solo ese fichero en las 3 carpetas) | Solo documental. El MANIFIESTO de esta carpeta usa los bytes finales |
+| P5 | En `cierre4a_*.sh`, el `SHA256SUMS` de `salida.txt` se calcula antes de la última línea (falla solo ese fichero en las 3 carpetas) | Solo documental. El MANIFIESTO de esta carpeta usa los bytes finales. **Corrección (06-nov): resuelto** con `evidencia.sh` (`ev_sellar` sella tras cerrar el `tee`) |
 | P6 | El panel no ve al agente | Conocido; se verifica en srv-dmz |
 
 **¿Se puede preparar la 4B?** **Sí**, con estas limitaciones: el anillo en 16384, la vigilancia con EVE `stats` y la
 planificación de reinicios (P3). **No se puede iniciar la 4C** hasta cerrar P1.
+
+> **Corrección (pendientes 4A, 06-nov).** Criterio unificado con el veredicto: la 4B puede prepararse; su control
+> formal espera a P1 cerrado e integración verificada; 4C y campaña B no autorizadas. Estado de P1, P3, P4 y P5:
+> [`../etapa4a-pendientes-2026-11-06/`](../etapa4a-pendientes-2026-11-06/README.md).
 
 ## 12. Evidencia
 
