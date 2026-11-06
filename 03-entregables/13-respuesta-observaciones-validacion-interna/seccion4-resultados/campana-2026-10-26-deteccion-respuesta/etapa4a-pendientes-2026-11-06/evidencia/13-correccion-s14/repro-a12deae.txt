@@ -1,0 +1,6 @@
+herramientas: /old/deploy/etapa4/ecarga
+evaluar_s14 VERSION: evaluar_s14 2026-11-06.1
+A) lecturas completas: S14 = False | cpu = False | saturación nueva: 1 episodio(s) >= 8 s
+B) psi=None en [D+100, D+103): S14 = True | cpu = True | sin episodios de saturación
+   cobertura cpu: {'cubierto_s': 3596.0, 'fraccion': 0.9989, 'hueco_max_s': 4.0, 'ok': True} | episodios: [] | dudosos: []
+C) punta a punta: S14 = True | veredicto = estable con carga suficiente | habilita_condicion_3 = True | rc = 0

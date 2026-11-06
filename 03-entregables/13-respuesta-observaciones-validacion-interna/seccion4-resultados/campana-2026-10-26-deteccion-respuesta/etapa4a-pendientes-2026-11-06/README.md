@@ -1,6 +1,28 @@
 # Etapa 4A: pendientes del cierre complementario (P1, P3, P4, P5) e integración en sombra (2026-11-06)
 
-> **Estado actualizado (06-nov, noche): defectos de la preparación de E-carga v2 corregidos. E-carga NO ejecutada y NO
+> **Estado actualizado (06-nov, noche, 2): S14 con tiempo desconocido corregido en banco. E-carga NO ejecutada y NO
+> programada.**
+> - **Defecto.** `evaluar_s14` 2026-11-06.1 (`a12deae`) no contaba el hueco inmediatamente anterior a un tramo
+>   saturado. CPU 100 %/PSI 50 % en [D+100, D+108) con `psi` ausente en D+100 ≤ t < D+103 daba S14 `true`, «estable
+>   con carga suficiente», `habilita_condicion_3` true y rc 0.
+> - **Ahora** da S14 `null`, «no demostrable», false y rc 1. La regla S/N/U (protocolo **r4** §3.6.1.1) cubre los
+>   huecos antes, dentro y después, los bordes de la ventana y de la línea base, y la base dudosa. Umbrales, 8 s, 4 s y
+>   99 % sin cambios.
+> - **Banco.**
+>   - 12 regresiones fallan con `a12deae` y pasan ahora;
+>   - 85/85 en las pruebas de E-carga;
+>   - suite 1 013 (65534) y 1 057 (root) sin fallos;
+>   - la prueba de la GUI en el portátil es intermitente por WinError 6/50 de Windows, sin relación con el cambio.
+> - **Producto `902991e`**, rama sin fusionar en `main`: `evaluar_s14` 2026-11-06.2 y `construir_entrada` 2026-11-06.3.
+> - **Documentos.** [`ecarga-v2-preparacion/PREPARACION-ECARGA-v2-r3.md`](ecarga-v2-preparacion/PREPARACION-ECARGA-v2-r3.md)
+>   y evidencia en `evidencia/13-correccion-s14/`. La futura ejecución va a `evidencia/14-ecarga-ejecucion/`.
+> - **Pendiente.**
+>   - Copiar el paquete de `902991e` a los hosts: guiones preparados y no ejecutados. `paquete-a12deae` **no se usa**.
+>   - Repetir P0.
+>   - La orden de Mark, que incluye aprobar la r4.
+> - **Veredictos.** Corregido en banco: **sí**. Validado en vivo: **no**.
+
+> **Estado anterior (06-nov, noche): defectos de la preparación de E-carga v2 corregidos. E-carga NO ejecutada y NO
 > programada.**
 > - **Qué se corrigió.** `generadores.sh` daba rc 0 tras un start fallido. `muestreo_bastion.sh` daba la parada por
 >   hecha aunque fallara. `derivar_pcap.py` aprobaba S2 y S3 con observaciones incompletas (con dos PCAP de una hora
