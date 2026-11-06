@@ -1,0 +1,12 @@
+-- antes
+gen target=inactive habilitado=disabled procesos=0 hash=ae5134a7 unidades: 
+muestreo_bastion (real, parada inmediata) rc=0
+-- eventos
+2026-11-06T08:12:58Z 1793952778 PARADA de generadores: fin previsto (PARADA_EPOCH 1793952775)
+stop rc=0
+gen target=inactive habilitado=disabled procesos=0 hash=ae5134a7 unidades: 
+parados: target inactivo y 0 procesos
+2026-11-06T08:13:01Z 1793952781 parada rc=0
+-- después
+gen target=inactive habilitado=disabled procesos=0 hash=ae5134a7 unidades: 
+fin 2026-11-06T08:13:31Z

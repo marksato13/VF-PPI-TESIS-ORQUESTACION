@@ -1,0 +1,9 @@
+{
+ "_PLANTILLA_SIN_RESULTADOS": "PLANTILLA SIN RESULTADOS. No es una entrada de E-carga: ningún valor está medido. La entrada real la escribe construir_entrada.py desde las salidas de la ventana; este fichero solo muestra la forma. evaluar_ecarga.py 2026-11-06.4 la rechaza con rc 2 (campo desconocido y valores nulos donde el contrato exige dato).",
+ "K": {"K1": null, "K2": null, "K3": null, "K4a": null, "K5": null},
+ "S": {"S1": null, "S2": null, "S3": null, "S4": null, "S5": null, "S6": null, "S7": null, "S8": null,
+       "S9": null, "S10": null, "S11": null, "S12": null, "S13": null, "S14": null, "S15": null},
+ "clasificacion": {"clase_periodo": null, "motivos": []},
+ "suricata": {"estado": null, "paquetes": null, "descartes": null},
+ "descartes_por_millon": null
+}

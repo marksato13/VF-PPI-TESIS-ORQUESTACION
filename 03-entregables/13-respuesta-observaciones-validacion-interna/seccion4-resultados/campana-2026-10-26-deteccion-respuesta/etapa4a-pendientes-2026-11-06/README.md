@@ -1,6 +1,36 @@
 # Etapa 4A: pendientes del cierre complementario (P1, P3, P4, P5) e integración en sombra (2026-11-06)
 
-> **Estado actualizado (06-nov): evaluador de E-carga corregido (2026-11-06.4, producto `ae2900e`). E-carga sigue sin
+> **Estado actualizado (06-nov, tarde): ejecución de E-carga v2 preparada. NO ejecutada y NO programada.**
+> - **Paquete.** El de `ae2900e` está copiado y verificado en el bastión, en Sensor1 y en srv-dmz
+>   (`~/cf-e4/paquete-ae2900e`):
+>   - `SHA256SUMS` `41f91787…`;
+>   - evaluador `53e9f7bd…`, 2026-11-06.4.
+>
+>   `paquete-f6dc685` lleva el evaluador con el defecto: tiene el aviso `NO-USAR-PARA-VEREDICTO` y no se usa.
+> - **Guiones y herramientas versionados en los hosts:**
+>   - ejecución `c7f24510`: muestreo, guardia de §3.7, muestreadores de Sensor1, generadores;
+>   - evaluación `e83f4be6`: análisis posterior, derivación de los S y construcción de la entrada con trazabilidad.
+> - **Comprobaciones sin carga, todas OK:**
+>   - relojes;
+>   - los tres verificadores con rc 0;
+>   - herramientas, permisos y espacio;
+>   - `obs_pcap --en-seco`;
+>   - arranque y parada de los muestreadores;
+>   - vía de parada de los generadores;
+>   - prueba de humo de la cadena de evaluación;
+>   - lecturas de S7 y S11;
+>   - 14/14 y 17/17 pruebas en el banco.
+>
+>   Se repiten en P0.
+> - **Documentos.** La construcción de la entrada por K/S, la secuencia del día, las paradas y la tabla de estado están
+>   en [`ecarga-v2-preparacion/PREPARACION-ECARGA-v2.md`](ecarga-v2-preparacion/PREPARACION-ECARGA-v2.md). La
+>   evidencia está en `evidencia/11-preparacion-ecarga/`.
+> - **Pendiente.** Mark tiene que decidir sobre S14: «saturación nueva» no tiene umbral publicado. La otra opción es
+>   aceptar S14 en `null`, con lo que el resultado sería como mucho «no demostrable».
+>
+>   Después hace falta la orden explícita de ejecutar en la franja publicada, que sigue sin programar.
+>
+> **Estado anterior (06-nov): evaluador de E-carga corregido (2026-11-06.4, producto `ae2900e`). E-carga sigue sin
 > ejecutarse y sin programarse.**
 > - **Defecto.** En `f6dc685`, `veredicto` daba «estable con carga suficiente» (rc 0, condición (3) habilitada) en tres
 >   casos:
@@ -22,8 +52,8 @@
 >
 >   Las omisiones son las de antes: requieren root, `node` o el repo de documentación. Contra el evaluador de
 >   `f6dc685` fallan 96 de las 129 pruebas de E-carga.
-> - **Pendiente antes de P0.** Copiar el paquete de `ae2900e` a Sensor1 (protocolo §3.5, punto 9). El
->   `paquete-f6dc685` lleva el evaluador con el defecto.
+> - **Pendiente antes de P0** *(hecho después: ver el estado de arriba)*. Copiar el paquete de `ae2900e` a Sensor1
+>   (protocolo §3.5, punto 9). El `paquete-f6dc685` lleva el evaluador con el defecto.
 >
 > **Estado anterior (06-nov, 07:30Z): E-carga v2 publicado, no ejecutado.**
 > - [`PROTOCOLO-CARGA-v2.md`](PROTOCOLO-CARGA-v2.md) sustituye a la v1, que se conserva sin cambios. Su §0 enumera qué
@@ -586,6 +616,11 @@ CRITERIOS-FIJADOS.md         criterios publicados antes de instalar y de observa
 PROTOCOLO-CARGA.md           E-carga v1 (36a3739): sustituida por la v2, se conserva sin cambios; nunca ejecutada
 PROTOCOLO-CARGA-v2.md        E-carga v2: versión vigente (publicada, NO ejecutada)
 MANIFIESTO.sha256            sha256 de cada fichero (bytes publicados), dos espacios, orden LC_ALL=C sort -f
+ecarga-v2-preparacion/       preparación de E-carga v2 (NO ejecutada ni programada)
+  PREPARACION-ECARGA-v2.md   paquete, fuente de cada K/S, secuencia del día, paradas, conservación, estado, orden
+  guiones-c7f24510/          guiones de ejecución tal como están en los hosts (con SHA256SUMS)
+  evaluacion-e83f4be6/       herramientas de evaluación tal como están en los hosts (con SHA256SUMS)
+  *.PLANTILLA-SIN-RESULTADOS.json   forma de la entrada y de la trazabilidad; ningún valor medido
 evidencia/
   01-rx_dropped/             contadores NIC/driver/softnet y recuento de tramas en los PCAP (P3)
   02-firma_invalida/         correlación relé ↔ agente de cada rechazo; hueco de secuencias
@@ -607,6 +642,9 @@ evidencia/
   10-veredicto-contrato/     evaluador 2026-11-06.4 (ae2900e): reproducción de los tres fallos con f6dc685 y con
                              la corrección, pruebas nuevas contra f6dc685 con el motivo de cada fallo, regresiones
                              completas de ae2900e como root y sin root, sha256 de la r1 del protocolo v2 (8f17273)
+  11-preparacion-ecarga/     copia y verificación del paquete ae2900e en los hosts, copia de guiones y evaluación,
+                             comprobación previa y en seco, prueba de la vía de parada, prueba de humo (PRUEBA, sin
+                             valor de medida), lecturas en seco de S7 y S11, pruebas en banco y rechazo de la plantilla
 ```
 
 Respaldos e instalaciones en los hosts (no se copian aquí; se citan en §8 y §11). Los guiones de producto están en la
