@@ -1,6 +1,21 @@
 # Etapa 4A: pendientes del cierre complementario (P1, P3, P4, P5) e integración en sombra (2026-11-06)
 
-> **Estado actualizado (06-nov, 06:29Z): verificadores corregidos.**
+> **Estado actualizado (06-nov, 07:30Z): E-carga v2 publicado, no ejecutado.**
+> - [`PROTOCOLO-CARGA-v2.md`](PROTOCOLO-CARGA-v2.md) sustituye a la v1, que se conserva sin cambios. Su §0 enumera qué
+>   cambió y por qué:
+>   - las clases son las del clasificador (C1 para descartes medidos);
+>   - estabilidad técnica, clase de captura, I5 y población principal se dan por separado;
+>   - K4a es criterio y K4b es informativo;
+>   - el alcance de las etapas queda unificado;
+>   - se registran las señales de tráfico legítimo;
+>   - los tiempos van en epoch;
+>   - `obs_pcap.py` comprueba el fin.
+> - La prueba intermitente `test_patron_antiguo_falla` ahora es **determinista**: 200 de 200 pasadas.
+> - Regresión en `f6dc685`: **872 passed / 9 skipped / 0 failed** como root; **828 passed / 53 skipped / 0 failed** sin
+>   root.
+> - El criterio de avance no cambia: sigue faltando E-carga (§0).
+>
+> **Estado anterior (06-nov, 06:29Z): verificadores corregidos.**
 > - `verificar_bastion.sh`, `verificar_sensor1.sh` y `verificar_srvdmz.sh` dan **rc 0** con los guiones corregidos
 >   (producto `a1cea5e`, ejecución de solo lectura, §8b).
 > - Los 3 FALLO antiguos eran defectos de los guiones. Se conservan tal cual en `evidencia/06-observacion/verif-post.txt`.
@@ -102,7 +117,7 @@ configuración de captura ni de Suricata.
 | **Estabilidad con carga suficiente** | **No demostrada** | O12 «carga insuficiente». No había generadores legítimos y la intensidad fue mucho menor que en la referencia (`PROTOCOLO-CARGA.md` §1). Pendiente de E-carga |
 | **Detección oportuna** | **No evaluada** | Sin ataques. Esta etapa no la mide |
 | **Aplicación de una restricción** | **No evaluada** | En sombra: 0 eventos `aplicacion`, sin `--aplicar`/`--enforce`. Los feeds tenían `entradas: []` |
-| **Efecto real sobre el ataque y sobre el tráfico legítimo** | **No evaluado** | Requiere aplicación real (4C/campaña B, no autorizadas) |
+| **Efecto real sobre el ataque y sobre el tráfico legítimo** | **No evaluado** | Requiere respuesta aplicada, que solo existe en la **campaña B** (posterior a la 4C y no autorizada). La 4C es la campaña A **en sombra**, sin aplicar restricciones. *(Corregido el 06-nov a las 07:30Z: antes decía «4C/campaña B».)* |
 
 **Lo que prueban las 180 entregas aceptadas.**
 - Prueban el **transporte del feed firmado** (paquete `feed.par`, firma ed25519, secuencia e idempotencia) desde
@@ -130,8 +145,15 @@ este informe):
 |---|---|---|
 | **Control formal de la 4B** | (1) `verificar_*.sh` sin FALLO, con los guiones corregidos | **Cumple** (`a1cea5e`, rc 0 en los tres, §8b) |
 | | (2) O1–O11 de la integración en sombra | **Cumple** (§8) |
-| | (3) E-carga con resultado «estable con carga suficiente» ([`PROTOCOLO-CARGA.md`](PROTOCOLO-CARGA.md)) | **Pendiente**: publicado, no ejecutado. Necesita una orden de Mark |
-| **4C y campaña B** | Lo anterior, el resultado de la 4B y **I5** en los 30 min previos a su inicio real; la población principal sigue siendo **C0** | **No autorizadas** |
+| | (3) E-carga con resultado «estable con carga suficiente» ([`PROTOCOLO-CARGA-v2.md`](PROTOCOLO-CARGA-v2.md) §4.1; desde las 07:30Z la versión vigente es la v2, y la v1 queda como registro) | **Pendiente**: publicado, no ejecutado. Necesita una orden de Mark |
+| **4C: campaña A en sombra, sin aplicar restricciones** | Lo anterior, el resultado de la 4B y **I5** en los 30 min previos al inicio real de la 4C. La población principal sigue siendo **C0** | **No autorizada** |
+| **Campaña B** (posterior): respuesta aplicada y medición de su efecto | La 4C cerrada, y sus propias condiciones, que se fijarán antes | **No autorizada** |
+
+**Lo que E-carga habilita y lo que no.**
+- «Estable con carga suficiente» cumple la condición (3) y nada más.
+- La **clase de captura** de E-carga se publica aparte. Un C1 conserva su limitación: no es captura sin pérdidas.
+- S13 (< 14,95 descartes por millón) es un límite técnico. **No** demuestra C0 ni satisface I5.
+- I5 solo se evalúa antes de la 4C (`PROTOCOLO-CARGA-v2.md` §4).
 
 Mientras falte (3), la 4B **puede prepararse, pero no iniciarse**.
 
@@ -461,7 +483,7 @@ No se reinstaló ni se reinició nada. El paquete solo se copió y se verificó.
 | Estabilidad con carga suficiente | **No demostrada.** Protocolo E-carga publicado y no ejecutado |
 | Panel | Responde 401 sin sesión; sigue sin ver al agente (P6 del cierre, conocido) |
 | 4B, control formal | **Todavía no:** falta E-carga (criterio único, §0). Puede seguir preparándose |
-| 4C y campaña B | **No autorizadas** |
+| 4C (campaña A en sombra) y campaña B (respuesta aplicada, posterior) | **No autorizadas** |
 
 ## 10. Correcciones al cierre complementario
 
@@ -512,6 +534,12 @@ no se modifica. En lo que respecta a `rx_dropped`, prevalecen §0 y §4 de este 
   de 61,5 s, la atribución sería ambigua. En ese caso el guion da FALLO «ambiguo»; no elige uno.
 - **Una prueba de regresión no determinista** (`test_patron_antiguo_falla`, ajena a esta corrección): falla en
   ≈ 1 de cada 10 ejecuciones (§2). Queda pendiente hacerla determinista.
+  - **Resuelto en `38ee91d`.** Un escritor controlado por barreras (tuberías) mantiene `salida.txt` abierto:
+    1. el fichero existe y está en el manifiesto antes de calcularlo;
+    2. la línea final se escribe solo por orden explícita, después del hash;
+    3. `sha256sum -c` da `./salida.txt: FAILED`.
+  - Hay una prueba separada que comprueba que el sellado nuevo produce hashes válidos sobre ficheros finalizados.
+  - Sin pausas, sin `skip` ni `xfail`: 200 de 200 en `f6dc685` (`evidencia/09-ecarga-v2/regresion-f6dc685-root.txt`).
 - **No es una prueba de eficacia.** Sin ataques ni generadores, el feed no tuvo entradas. La cadena se demostró con
   feeds firmados reales, pero vacíos; la aplicación de restricciones no se probó, porque no estaba autorizada.
 - **P3.** La explicación se apoya en el código de upstream 6.8 y en una correspondencia de tasas (§4).
@@ -530,7 +558,8 @@ no se modifica. En lo que respecta a `rx_dropped`, prevalecen §0 y §4 de este 
 ```
 README.md                    este informe
 CRITERIOS-FIJADOS.md         criterios publicados antes de instalar y de observar (997c8e2, sin cambios)
-PROTOCOLO-CARGA.md           E-carga v1: estabilidad con carga suficiente (propuesto, NO ejecutado)
+PROTOCOLO-CARGA.md           E-carga v1 (36a3739): sustituida por la v2, se conserva sin cambios; nunca ejecutada
+PROTOCOLO-CARGA-v2.md        E-carga v2: versión vigente (publicada, NO ejecutada)
 MANIFIESTO.sha256            sha256 de cada fichero (bytes publicados), dos espacios, orden LC_ALL=C sort -f
 evidencia/
   01-rx_dropped/             contadores NIC/driver/softnet y recuento de tramas en los PCAP (P3)
@@ -547,6 +576,9 @@ evidencia/
                              verificadores como root y sin root, regresión completa de a1cea5e
   08-carga/                  estado de los generadores (clientes_ro*), flujos de los perfiles en EVE e intensidad
                              de la ventana del 06-nov con el método del ensayo (intensidad_obs)
+  09-ecarga-v2/              referencia de desarrollo K4a/K4b (38ee91d, con el defecto del tramo residual, y
+                             f6dc685, corregida), flow-timeouts, obs_pcap en seco, calendario en epoch,
+                             simulación de K4b, regresiones 38ee91d y f6dc685 como root y sin root
 ```
 
 Respaldos e instalaciones en los hosts (no se copian aquí; se citan en §8 y §11). Los guiones de producto están en la

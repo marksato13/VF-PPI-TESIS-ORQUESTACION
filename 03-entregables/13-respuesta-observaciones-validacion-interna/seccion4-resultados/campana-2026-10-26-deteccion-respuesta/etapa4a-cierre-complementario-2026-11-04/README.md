@@ -16,6 +16,10 @@
 > 3. ensayo E-carga «estable con carga suficiente»: pendiente.
 >
 > La 4C y la campaña B siguen sin autorizar, e I5 se comprueba en los 30 min previos a su inicio real.
+> *(Precisión del 06-nov, 07:30Z.)* I5 se comprueba en los 30 min previos al inicio real de la **4C**. La 4C es la
+> campaña A en sombra, sin aplicar restricciones. La campaña B es posterior y es la única con respuesta aplicada.
+> Versión vigente del ensayo:
+> [`../etapa4a-pendientes-2026-11-06/PROTOCOLO-CARGA-v2.md`](../etapa4a-pendientes-2026-11-06/PROTOCOLO-CARGA-v2.md).
 >
 > Lo que está cerrado:
 > - **Panel:** corregido (**93f076e**) y desplegado con modo v2 explícito.

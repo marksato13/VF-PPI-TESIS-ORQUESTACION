@@ -1,0 +1,18 @@
+commit 38ee91d; regresion completa; banco Docker sin red, repo solo lectura, ROOT + NET_ADMIN
+........................................................................ [ 90%]
+........................................................................ [ 98%]
+................                                                         [100%]
+=========================== short test summary info ============================
+SKIPPED [1] tests/test_dashboard_gui_contract.py:30: sin node en esta máquina: no se puede comprobar la sintaxis del JS servido
+SKIPPED [1] tests/test_etapa4_compuerta_banco.py:157: repo de documentación no disponible
+SKIPPED [1] tests/test_etapa4_compuerta_banco.py:198: repo de documentación no disponible
+SKIPPED [1] tests/test_etapa4_compuerta_banco.py:217: repo de documentación no disponible
+SKIPPED [1] tests/test_etapa4_compuerta_banco.py:231: repo de documentación no disponible
+SKIPPED [1] tests/test_etapa4_compuerta_banco.py:243: repo de documentación no disponible
+SKIPPED [1] tests/test_etapa4_compuerta_banco.py:253: repo de documentación no disponible
+SKIPPED [1] tests/test_etapa4_verificadores.py:241: como root chmod 000 no impide leer
+SKIPPED [1] tests/test_etapa4_verificadores.py:411: como root chmod 000 no impide leer
+871 passed, 9 skipped in 133.08s (0:02:13)
+
+#### test_patron_antiguo_falla 200 veces seguidas, sin cambios (comprobacion de determinismo; cualquier fallo se imprime)
+pasadas=200 fallidas=0

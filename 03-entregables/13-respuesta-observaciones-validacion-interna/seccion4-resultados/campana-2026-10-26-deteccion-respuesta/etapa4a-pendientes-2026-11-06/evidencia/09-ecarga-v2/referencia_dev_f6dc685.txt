@@ -1,0 +1,83 @@
+######## 2026-11-06T07:17:35Z paquete 7828f0a4bd1cef80
+######## 1. flow-timeouts y flow (suricata.yaml, solo lectura)
+0962ce68b565c237
+flow-timeouts:
+
+  default:
+    new: 30
+    established: 300
+    closed: 0
+    bypassed: 100
+    emergency-new: 10
+    emergency-established: 100
+    emergency-closed: 0
+    emergency-bypassed: 50
+  tcp:
+    new: 60
+    established: 600
+    closed: 60
+    bypassed: 100
+    emergency-new: 5
+    emergency-established: 100
+    emergency-closed: 10
+    emergency-bypassed: 50
+  udp:
+    new: 30
+    established: 300
+    bypassed: 100
+    emergency-new: 10
+    emergency-established: 100
+    emergency-bypassed: 50
+  icmp:
+    new: 30
+    established: 300
+    bypassed: 100
+    emergency-new: 10
+    emergency-established: 100
+    emergency-bypassed: 50
+
+314:        - flow
+1434:flow:
+######## 2. referencia de desarrollo; fichero /var/log/suricata/eve.json.1-2026110600.backup: primera/última marca
+"timestamp":"2026-11-04T00:00:03.921468+0000"
+grep: (standard input): binary file matches
+== base4A (1793758785 - 1793762391)
+K4a cumple: True
+   ofimatica [52, 52, 50, 50, 48, 38]
+   navegacion [76, 110, 88, 118, 102, 90]
+   descargas [20, 16, 14, 20, 26, 12]
+   aplicacion [70, 54, 72, 76, 92, 88]
+   ligero [8, 10, 14, 4, 12, 2]
+   erratico [27, 14, 27, 13, 32, 26]
+K4b: {'estado': 'rafaga_detectada', 'flujos': 139, 'intervalos': 451, 'intervalos_con_actividad': 69, 'media_por_intervalo': 0.3082, 'mediana_por_intervalo': 0.0, 'lambda_ref': 0.3082, 'umbral_suma_40s': 6, 'max_suma_40s': 10}
+  episodios: [{'desde': 1793759337.0, 'hasta': 1793759433.0, 'flujos': 13}, {'desde': 1793761505.0, 'hasta': 1793761545.0, 'flujos': 6}, {'desde': 1793761649.0, 'hasta': 1793761721.0, 'flujos': 10}, {'desde': 1793762297.0, 'hasta': 1793762361.0, 'flujos': 10}]
+rc=0
+== ensayo-anillo (1793773615 - 1793777215)
+K4a cumple: True
+   ofimatica [48, 52, 32, 42, 50, 36]
+   navegacion [110, 102, 108, 130, 88, 112]
+   descargas [16, 8, 28, 20, 6, 24]
+   aplicacion [68, 68, 64, 72, 74, 76]
+   ligero [16, 12, 10, 12, 6, 16]
+   erratico [22, 19, 24, 23, 25, 17]
+K4b: {'estado': 'rafaga_detectada', 'flujos': 130, 'intervalos': 450, 'intervalos_con_actividad': 67, 'media_por_intervalo': 0.2889, 'mediana_por_intervalo': 0.0, 'lambda_ref': 0.2889, 'umbral_suma_40s': 6, 'max_suma_40s': 7}
+  episodios: [{'desde': 1793773799.0, 'hasta': 1793773839.0, 'flujos': 6}, {'desde': 1793775151.0, 'hasta': 1793775207.0, 'flujos': 6}, {'desde': 1793776359.0, 'hasta': 1793776415.0, 'flujos': 9}]
+rc=0
+== obs-06nov (1793940600 - 1793944200), eve.json actual
+K4a cumple: False {'ofimatica': [0, 0, 0, 0, 0, 0], 'navegacion': [0, 0, 0, 0, 0, 0], 'descargas': [0, 0, 0, 0, 0, 0], 'aplicacion': [0, 0, 0, 0, 0, 0], 'ligero': [0, 0, 0, 0, 0, 0], 'erratico': [0, 0, 0, 0, 0, 0]}
+K4b: sin_trafico
+######## 3. obs_pcap.py --en-seco (fin = fin de ventana + 60 s)
+{"version": "2026-11-06.2", "fin_epoch": 1794197760.0, "fin_utc": "2026-11-09T04:16:00Z", "fin_peru": "2026-11-08 23:16:00 (UTC-5)", "parada_epoch": 1794197790.0, "faltan_s": 248281.4, "en_seco": true, "dir_existe": true}
+rc=0
+-- con el error del 06-nov (debe dar rc 2):
+ERROR --hasta-epoch 1793945490.0 = 2026-11-06T06:11:30Z no coincide con --hasta-iso 2026-11-06T05:51:30Z
+rc=2
+(no se creó /tmp/no-se-usa: en seco no escribe)
+######## 4. calendario: zona del Sensor1 Etc/UTC
+1794191400 P0 Mon 2026-11-09 02:30:00 UTC | Sun 2026-11-08 21:30:00 Peru (UTC-5) | weekday UTC 0
+1794193200 T_g arranque generadores Mon 2026-11-09 03:00:00 UTC | Sun 2026-11-08 22:00:00 Peru (UTC-5) | weekday UTC 0
+1794194100 inicio ventana Mon 2026-11-09 03:15:00 UTC | Sun 2026-11-08 22:15:00 Peru (UTC-5) | weekday UTC 0
+1794197700 fin ventana Mon 2026-11-09 04:15:00 UTC | Sun 2026-11-08 23:15:00 Peru (UTC-5) | weekday UTC 0
+1794197760 fin obs_pcap Mon 2026-11-09 04:16:00 UTC | Sun 2026-11-08 23:16:00 Peru (UTC-5) | weekday UTC 0
+1794197820 parada generadores Mon 2026-11-09 04:17:00 UTC | Sun 2026-11-08 23:17:00 Peru (UTC-5) | weekday UTC 0
+1794198600 analisis desde Mon 2026-11-09 04:30:00 UTC | Sun 2026-11-08 23:30:00 Peru (UTC-5) | weekday UTC 0

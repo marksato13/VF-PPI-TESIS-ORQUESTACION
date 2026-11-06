@@ -1,0 +1,24 @@
+{
+ "semilla": 20261106,
+ "regla": "evaluar_ecarga 2026-11-06.3",
+ "resultado": {
+  "flujos_por_accion=1.0": {
+   "ventanas": 4000,
+   "flujos_por_hora_media": 98.7,
+   "P(hay_rafaga_real)": 0.82,
+   "P(detectada | hay_rafaga)": 0.893,
+   "P(detectada | sin_rafaga)": 0.107,
+   "episodios_falsos_por_hora": 0.106
+  },
+  "flujos_por_accion=1.5": {
+   "ventanas": 4000,
+   "flujos_por_hora_media": 148.1,
+   "P(hay_rafaga_real)": 0.82,
+   "P(detectada | hay_rafaga)": 0.998,
+   "P(detectada | sin_rafaga)": 0.926,
+   "episodios_falsos_por_hora": 2.278
+  }
+ }
+}
+...................................                                      [100%]
+35 passed in 0.49s
