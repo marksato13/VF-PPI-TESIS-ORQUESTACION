@@ -1,5 +1,13 @@
 # Preparación de la ejecución de E-carga v2 (Etapa 4A), 06-nov
 
+> **SUSTITUIDA EN PARTE (06-nov, noche) por [`PREPARACION-ECARGA-v2-r2.md`](PREPARACION-ECARGA-v2-r2.md).**
+> - No valen: §1.2 y §1.3 (los guiones `c7f24510` y la evaluación `e83f4be6`), §3 (la secuencia del día), §4.4 (S14) y
+>   §5 (la parada).
+> - Defectos de esos guiones: `generadores.sh` daba rc 0 tras un start fallido, el muestreo marcaba la parada como hecha
+>   aunque fallara, y `derivar_pcap` aprobaba observaciones incompletas.
+> - Esta nota es lo único que cambia en el texto. sha256 de la r1 publicada: `79a24275…`, en
+>   `../evidencia/12-correccion-preparacion/protocolo-v2-r2.sha256`.
+
 **Estado: preparado. NO ejecutado y NO programado.**
 - No se ha arrancado ningún generador.
 - No se ha abierto ninguna ventana de observación.

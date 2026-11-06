@@ -10,9 +10,17 @@ siga siendo identificable; la v1 no se llegó a ejecutar.
 **Base de la medida.** La observación del 06-nov (O12) sigue siendo **«carga insuficiente»**. Ni la v1 ni la v2 la
 sustituyen ni la reevalúan.
 
-**Revisión vigente: r2 (06-nov).** La r1 es el texto publicado en `8f17273`, que sigue identificable en el historial
-y por su sha256 en `evidencia/10-veredicto-contrato/protocolo-v2-r1.sha256`. La r2 no cambia ningún criterio ni
-umbral; los cambios están en §0.1.
+**Revisión vigente: r3 (06-nov, noche).** Fija la definición operacional de S14 (§3.6.1) y precisa qué demuestran S2 y
+S3 (§3.6.2). Se publica **antes de cualquier ensayo** y **no se aplica a ninguna observación anterior**: la del 06-nov
+(O12) no se reevalúa. No cambia ningún otro criterio ni umbral; los cambios están en §0.2.
+- La r1 es el texto de `8f17273` (sha256 en `evidencia/10-veredicto-contrato/protocolo-v2-r1.sha256`).
+- La r2 es el texto de `fef1ebd`, sha256 `d3be6f19…` (en `evidencia/12-correccion-preparacion/protocolo-v2-r2.sha256`);
+  sus cambios están en §0.1.
+
+**Herramientas de E-carga (r3).** Producto **`a12deae`** (rama `recuperacion/etapa4a-pendientes-20261106`), carpeta
+canónica `deploy/etapa4/ecarga/` con su `SHA256SUMS`. Sustituye a las copias `guiones-c7f24510/` y
+`evaluacion-e83f4be6/`, que se conservan como evidencia sellada y **no se usan**. El evaluador sigue siendo
+`evaluar_ecarga.py` 2026-11-06.4 (`53e9f7bd…`), sin cambios.
 
 **Herramientas.** Producto **`ae2900e`** (rama `recuperacion/etapa4a-pendientes-20261106`):
 - `evaluar_ecarga.py` **2026-11-06.4**: blob `06b84134…`, sha256 `53e9f7bd…`. Contrato de entrada estricto y contraste
@@ -76,6 +84,18 @@ El evaluador se fiaba de los indicadores ya preparados y no los contrastaba. Rep
 | 2 | Contraste de S12 y S13 con las métricas y de la clase con la medida de Suricata. Una contradicción se lista y da «no demostrable», sin corregir ningún dato | Fallo 3. §4.1 ya decía «no demostrable» si la clase no cuadra con los descartes medidos; ahora también se comprueban los indicadores | No: S13 sigue siendo < 14,95/M, y el valor exacto 14,95 no cumple |
 | 3 | C3 y `no_evaluable` no pueden dar «estable con carga suficiente»: pasan a «no demostrable». Un S que falla con C3 sigue siendo «no estable» | Fallo 2. Una captura no evaluable no demuestra estabilidad | Precisa §4.1, que no contemplaba este caso. No baja ni sube ningún umbral |
 | 4 | §0, fila 2, y §3.4.2: se corrige la afirmación sobre K4b | La simulación no demuestra que ninguna regla posible funcione; solo que la regla fijada no quedó validada como criterio decisorio | No: K4b sigue siendo informativo |
+
+### 0.2 Revisión r3 (06-nov, noche): S14 operacional y S2/S3 precisados, antes de medir
+
+La preparación del 06-nov (`fef1ebd`) dejaba S14 como valor **manual**, sin regla, y su derivación de S2/S3 aprobaba
+observaciones incompletas: con dos PCAP en T+2 s y T+7 s daba S2 = S3 = true. Los defectos de las herramientas
+están en `ecarga-v2-preparacion/PREPARACION-ECARGA-v2-r2.md`.
+
+| # | Cambio en r3 | Por qué | ¿Cambia un criterio? |
+|---|---|---|---|
+| 1 | S14 se calcula con `evaluar_s14.py` según §3.6.1 (componentes, límites, duración, cobertura, línea base) y deja de ser manual | Un criterio sin regla no se puede medir ni auditar; no se fija un umbral después de ver los datos | El enunciado de S14 no cambia; se fija **cómo se mide**. Ninguna observación anterior se evalúa con esta regla |
+| 2 | S2 y S3 con la definición de §3.6.2: bordes cubiertos, continuidad, lectura completa; `false` = incumplimiento demostrado y `null` = evidencia insuficiente | La regla anterior solo miraba los ficheros cuyo nombre caía en la ventana | No: siguen siendo O2 y O3 (salto ≤ 7 s). Se precisa qué se exige para darlos por medidos |
+| 3 | §3.5: tres comprobaciones más en P0 (puntos 10–12) | Lo que la r3 necesita para medir: `PartOf` y argv de las unidades, retención del anillo ≥ 900 s y PSI legible | No |
 
 ## 1. Por qué hace falta (sin cambios respecto a la v1 §1)
 
@@ -276,6 +296,12 @@ posible pueda funcionar: no se han probado otras reglas ni se ha medido cuántos
    - `evaluar_ecarga.py` con sha256 `53e9f7bd578123f6499289ebbb92d8d6c71a6e56b7c1c35a59463b98aad5c23f` y `VERSION`
      2026-11-06.4.
    Con el 2026-11-06.3 no se emite el veredicto.
+10. *(r3)* Paquete de **`a12deae`** (`deploy/etapa4/ecarga/`, `SHA256SUMS` verificado) en el bastión y en Sensor1, y
+    `generadores.sh configuracion` con **rc 0**: las seis unidades cargadas, con `PartOf=cyberflow-lab.target` y el
+    argv de su perfil e IP. Sin `PartOf`, el stop del target permitido por sudo no pararía las unidades: no se arranca.
+11. *(r3)* `sensor1_muestreadores.sh comprobar` con **rc 0**: el fichero más antiguo del anillo tiene ≥ 900 s, y PSI,
+    `vmstat`, `diskstats` y `USER_HZ` se leen sin sudo.
+12. *(r3)* Los muestreadores (incluido S14) arrancados **antes** de T_g − 300 s, para cubrir la línea base de §3.6.1.
 
 ### 3.6 Criterios de estabilidad técnica (sin cambios de valor)
 
@@ -286,6 +312,99 @@ posible pueda funcionar: no se han probado otras reglas ni se ha medido cuántos
 | S13 | Descartes por millón **< 14,95** (2 × la base 4A) |
 | S14 | Sin saturación nueva de CPU, softirq, disco ni memoria; softnet `dropped` = 0 |
 | S15 | Verificadores con rc 0 después de la ventana |
+
+#### 3.6.1 S14: definición operacional (r3, fijada antes de medir; no retroactiva)
+
+**Fuente.** `muestreo_s14.py` en Sensor1, solo lectura y sin sudo, **cada 1 s**. Lee `/proc/pressure/{cpu,io,memory}`,
+`/proc/stat` (agregado y por CPU), `/proc/net/softnet_stat`, `/proc/diskstats`, `MemAvailable`, `/proc/vmstat`
+(`pswpin`, `pswpout`, `oom_kill`) y los ticks de los hilos `W#…` de Suricata. Cada error de lectura se escribe en la
+muestra. La evalúa `evaluar_s14.py` 2026-11-06.1 (producto `a12deae`).
+
+**Ventanas.**
+- Ventana medida: la de E-carga, [1794194100, 1794197700).
+- Línea base: los 300 s previos a T_g, [1794192900, 1794193200), sin generadores.
+
+«Nueva» significa que la saturación aparece en la ventana y **no** en una línea base evaluable.
+
+**Utilización alta no es saturación.** Una componente está **saturada** en un par de muestras consecutivas solo si su
+capacidad está agotada **y** hay trabajo esperando, o si un recurso que no se puede repartir está al 100 %:
+
+| Componente | Métrica (unidad, fuente) | Condición de saturación (límites inclusivos) | Justificación |
+|---|---|---|---|
+| CPU | ocupación del host, % = 1 − Δ(idle+iowait)/Δtotal (`/proc/stat`, 4 CPU) **y** PSI `cpu some`, % del intervalo | ocupación ≥ 95 % **y** PSI ≥ 10 % | 95 % = capacidad total salvo la resolución del tick (1/100 s). PSI ≥ 10 % es más de 50 veces la media desde el arranque (≈ 0,19 %, medido el 06-nov). Ocupación alta sin espera es solo utilización |
+| Hilos | CPU de cada hilo `W#` de Suricata, % de un núcleo = Δ(utime+stime)/(USER_HZ·Δt) | algún hilo ≥ 95 % | Un hilo no puede usar más de un núcleo: a ese nivel su demanda supera su capacidad aunque el host esté libre. Ensayo del anillo (04-nov): p95 2 %, máximo 5 % |
+| softirq | irq+softirq por CPU, % de su tiempo | alguna CPU ≥ 95 % | ens37 tiene 4 colas repartidas en las CPU 0–3: una cola desbordada satura su CPU, no el agregado. Máximo del host (agregado) medido el 04-nov: 2,3 %; por CPU no se midió entonces y se mide desde ahora |
+| Disco | Δio_ticks/Δt por disco, % **y** PSI `io full`, % | ocupado ≥ 95 % **y** PSI ≥ 10 % | El disco es virtual (VMware, mq-deadline): «ocupado» indica E/S en curso, no capacidad agotada. Por eso se exige además espera completa (`full`). Máximo medido el 04-nov: 13 ms/s |
+| Memoria | PSI `memory some`, % | ≥ 10 % | Espera por reclamación o por swap-in. Medido: 47 µs desde el arranque |
+
+**Duración.** Un episodio son pares consecutivos saturados que suman **≥ 8 s**. Es el intervalo de `stats` de Suricata
+y de K2. Una ráfaga más corta la absorbe el anillo de af-packet (ring-size 16384, sin descartes el 04-nov).
+
+**Incumplimientos inmediatos** (sin duración):
+- `softnet dropped` > 0 entre los bordes de la ventana;
+- `oom_kill` > 0;
+- `MemAvailable` < 1 GiB en alguna muestra (la condición de parada de §3.7).
+
+`time_squeeze` y `pswpin`/`pswpout` se informan pero no deciden: `time_squeeze` sube con el tráfico sin pérdida
+(169 el 04-nov, con 0 descartes).
+
+**Cobertura mínima** por componente: pares válidos (≤ 4 s) que cubran **≥ 99 %** de la ventana, sin ningún hueco > 4 s.
+4 s es la mitad de la duración mínima: un episodio de 8 s no cabe entero en un hueco.
+
+**Lecturas fallidas, datos ausentes y reinicios.**
+- Un par con un dato ausente, un error de lectura, un contador que retrocede (reinicio) o un hilo de Suricata con otro
+  PID no cuenta como cubierto e interrumpe el episodio.
+- Si los pares saturados, más los huecos intercalados, suman ≥ 8 s, el episodio **no se puede negar**: la componente
+  queda `null`, nunca `true`.
+- Un reinicio de Suricata es además un incumplimiento de S1.
+
+**Resultado por componente.**
+- `false`: episodio en la ventana con una línea base evaluable sin episodios ni dudas (saturación nueva demostrada), o
+  un incumplimiento inmediato.
+- `null`: cobertura insuficiente; episodio posible partido por datos ausentes; o episodio con la línea base también
+  saturada o no evaluable («nueva» no demostrable).
+- `true`: cobertura suficiente y ningún episodio.
+
+**S14** = `false` si alguna componente es `false`; si no, `null` si alguna es `null`; si no, `true`.
+
+**Limitaciones declaradas.**
+- Los límites salen de la definición de saturación, no de una saturación observada. En el laboratorio no ha habido
+  ninguna: el margen medido es de dos órdenes de magnitud.
+- La utilización del disco virtual no mide la capacidad del datastore de ESXi. La ESXi no se mide desde aquí: si hiciera
+  falta, se mediría `esxtop` en el host, fuera de esta revisión.
+- `/proc/pressure` existe en el kernel 6.8.0-53 de Sensor1 y se lee sin sudo (comprobado el 06-nov a las 15:45Z). Si
+  en P0 no se leyera, S14 quedaría `null` y no se arrancaría (§3.5, punto 11).
+
+#### 3.6.2 S2 y S3: qué demuestra cada uno (r3)
+
+Herramienta: `derivar_pcap.py` 2026-11-06.2. Fuente: `obs_pcap/pcap.jsonl` y `obs_pcap.log`.
+
+**Ficheros que cuentan: la cadena.** Va desde el fichero que contiene DESDE (el último que empieza ≤ DESDE) hasta el
+primero que empieza ≥ HASTA.
+- El primero de la cadena tiene paquetes de la ventana: cuenta para S2 y para S3.
+- El último solo prueba que el fichero de HASTA se cerró: cuenta para S3.
+
+**Lectura completa.** Sin ella, lo que falta pudo ser un fichero no leído:
+- la primera pasada llega ≤ 893 s después de DESDE (retención del anillo, 900 s, menos el salto);
+- la última pasada, o el `terminado_en` del log, es ≥ HASTA + 14 s;
+- ningún hueco entre pasadas supera 893 s, salvo un fin normal en el log;
+- ninguna línea sin `leido_en`.
+
+**S2 (O2).** Demuestra que todos los ficheros de la cadena con paquetes de la ventana se leyeron completos, sin error
+de formato. No demuestra continuidad.
+- `false`: error de formato.
+- `null`: lectura incompleta o truncada, ficheros no comprobados (error de lectura, sin `registros`), líneas no
+  interpretables o duplicados contradictorios.
+
+**S3 (O3).** Demuestra que el anillo escribió sin huecos todo [DESDE, HASTA]: los dos bordes cubiertos, ningún salto
+> 7 s entre inicios consecutivos y ningún fichero sin registros.
+- `false`: solo con la lectura completa.
+- `null`: en los demás casos de S2.
+
+**Reglas comunes.**
+- No se exige un número fijo de ficheros: se informa la cadencia real (mediana) y decide el salto.
+- Los duplicados idénticos y las líneas desordenadas se avisan y no ocultan huecos.
+- Una observación incompleta no puede dar S2 = S3 = `true`.
 
 ### 3.7 Parada anticipada (sin cambios)
 
