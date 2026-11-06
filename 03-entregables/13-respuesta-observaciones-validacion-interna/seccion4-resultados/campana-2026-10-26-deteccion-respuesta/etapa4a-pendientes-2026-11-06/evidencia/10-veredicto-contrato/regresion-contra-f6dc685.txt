@@ -1,0 +1,127 @@
+== sha256 del evaluador probado
+953506fb44344e954e5f5e440cab18d27b5daed9f376153bdc42cc51697f4fda  deploy/etapa4/sensor1/evaluar_ecarga.py
+VERSION 2026-11-06.3. Reglas fijadas en PROTOCOLO-CARGA-v2.md ANTES de cualquier ejecución de E-carga.
+== pruebas nuevas contra f6dc685 (se esperan fallos)
+FAILED tests/test_etapa4_ecarga.py::test_estable_c0
+FAILED tests/test_etapa4_ecarga.py::test_estable_c1_conserva_la_limitacion_y_no_es_c0_ni_i5
+FAILED tests/test_etapa4_ecarga.py::test_s13_superado_y_declarado_false_es_no_estable
+FAILED tests/test_etapa4_ecarga.py::test_carga_insuficiente_domina_pero_conserva_hallazgos
+FAILED tests/test_etapa4_ecarga.py::test_carga_insuficiente_se_mantiene_aunque_haya_contradicciones
+FAILED tests/test_etapa4_ecarga.py::test_criterio_sin_medida_es_no_demostrable[S-S4]
+FAILED tests/test_etapa4_ecarga.py::test_criterio_sin_medida_es_no_demostrable[K-K5]
+FAILED tests/test_etapa4_ecarga.py::test_criterio_sin_medida_es_no_demostrable[K-K4a]
+FAILED tests/test_etapa4_ecarga.py::test_c3_no_es_admisible
+FAILED tests/test_etapa4_ecarga.py::test_incoherencia_clase_descartes_no_da_estable
+FAILED tests/test_etapa4_ecarga.py::test_entrada_incompleta_o_clase_desconocida_es_error
+FAILED tests/test_etapa4_ecarga.py::test_fallo1_texto_false_en_k1_y_s1_se_rechaza
+FAILED tests/test_etapa4_ecarga.py::test_fallo2_no_evaluable_con_s_verdaderos_no_habilita
+FAILED tests/test_etapa4_ecarga.py::test_fallo3_c1_con_100_por_millon_y_s13_verdadero_no_habilita
+FAILED tests/test_etapa4_ecarga.py::test_k_y_s_rechazan_otros_tipos[K1-false]
+FAILED tests/test_etapa4_ecarga.py::test_k_y_s_rechazan_otros_tipos[K1-true]
+FAILED tests/test_etapa4_ecarga.py::test_k_y_s_rechazan_otros_tipos[K1-null]
+FAILED tests/test_etapa4_ecarga.py::test_k_y_s_rechazan_otros_tipos[K1-]
+FAILED tests/test_etapa4_ecarga.py::test_k_y_s_rechazan_otros_tipos[K1-0]
+FAILED tests/test_etapa4_ecarga.py::test_k_y_s_rechazan_otros_tipos[K1-1]
+FAILED tests/test_etapa4_ecarga.py::test_k_y_s_rechazan_otros_tipos[K1-0.0]
+FAILED tests/test_etapa4_ecarga.py::test_k_y_s_rechazan_otros_tipos[K1-1.0]
+FAILED tests/test_etapa4_ecarga.py::test_k_y_s_rechazan_otros_tipos[K1-valor8]
+FAILED tests/test_etapa4_ecarga.py::test_k_y_s_rechazan_otros_tipos[K1-valor9]
+FAILED tests/test_etapa4_ecarga.py::test_k_y_s_rechazan_otros_tipos[K1-valor10]
+FAILED tests/test_etapa4_ecarga.py::test_k_y_s_rechazan_otros_tipos[K1-valor11]
+FAILED tests/test_etapa4_ecarga.py::test_k_y_s_rechazan_otros_tipos[S13-false]
+FAILED tests/test_etapa4_ecarga.py::test_k_y_s_rechazan_otros_tipos[S13-true]
+FAILED tests/test_etapa4_ecarga.py::test_k_y_s_rechazan_otros_tipos[S13-null]
+FAILED tests/test_etapa4_ecarga.py::test_k_y_s_rechazan_otros_tipos[S13-]
+FAILED tests/test_etapa4_ecarga.py::test_k_y_s_rechazan_otros_tipos[S13-0]
+FAILED tests/test_etapa4_ecarga.py::test_k_y_s_rechazan_otros_tipos[S13-1]
+FAILED tests/test_etapa4_ecarga.py::test_k_y_s_rechazan_otros_tipos[S13-0.0]
+FAILED tests/test_etapa4_ecarga.py::test_k_y_s_rechazan_otros_tipos[S13-1.0]
+FAILED tests/test_etapa4_ecarga.py::test_k_y_s_rechazan_otros_tipos[S13-valor8]
+FAILED tests/test_etapa4_ecarga.py::test_k_y_s_rechazan_otros_tipos[S13-valor9]
+FAILED tests/test_etapa4_ecarga.py::test_k_y_s_rechazan_otros_tipos[S13-valor10]
+FAILED tests/test_etapa4_ecarga.py::test_k_y_s_rechazan_otros_tipos[S13-valor11]
+FAILED tests/test_etapa4_ecarga.py::test_criterio_no_reconocido_o_grupo_mal_formado_es_error
+FAILED tests/test_etapa4_ecarga.py::test_metrica_o_campo_ausente_es_error[descartes_por_millon]
+FAILED tests/test_etapa4_ecarga.py::test_metrica_o_campo_ausente_es_error[suricata]
+FAILED tests/test_etapa4_ecarga.py::test_metrica_o_campo_ausente_es_error[clasificacion]
+FAILED tests/test_etapa4_ecarga.py::test_metrica_o_campo_ausente_es_error[suricata.descartes]
+FAILED tests/test_etapa4_ecarga.py::test_metrica_o_campo_ausente_es_error[suricata.paquetes]
+FAILED tests/test_etapa4_ecarga.py::test_metrica_o_campo_ausente_es_error[suricata.estado]
+FAILED tests/test_etapa4_ecarga.py::test_metrica_o_campo_ausente_es_error[clasificacion.motivos]
+FAILED tests/test_etapa4_ecarga.py::test_dpm_invalido_es_error[-1-negativo]
+FAILED tests/test_etapa4_ecarga.py::test_dpm_invalido_es_error[-0.5-negativo]
+FAILED tests/test_etapa4_ecarga.py::test_dpm_invalido_es_error[True-n\xfamero]
+FAILED tests/test_etapa4_ecarga.py::test_dpm_invalido_es_error[False-n\xfamero]
+FAILED tests/test_etapa4_ecarga.py::test_dpm_invalido_es_error[nan-finito]
+FAILED tests/test_etapa4_ecarga.py::test_dpm_invalido_es_error[inf-finito]
+FAILED tests/test_etapa4_ecarga.py::test_dpm_invalido_es_error[3.2-n\xfamero]
+FAILED tests/test_etapa4_ecarga.py::test_dpm_invalido_es_error[valor7-n\xfamero]
+FAILED tests/test_etapa4_ecarga.py::test_dpm_invalido_es_error[None-ausente]
+FAILED tests/test_etapa4_ecarga.py::test_contadores_invalidos_son_error[-1-negativo-paquetes]
+FAILED tests/test_etapa4_ecarga.py::test_contadores_invalidos_son_error[-1-negativo-descartes]
+FAILED tests/test_etapa4_ecarga.py::test_contadores_invalidos_son_error[True-n\xfamero-paquetes]
+FAILED tests/test_etapa4_ecarga.py::test_contadores_invalidos_son_error[True-n\xfamero-descartes]
+FAILED tests/test_etapa4_ecarga.py::test_contadores_invalidos_son_error[2.5-entero-paquetes]
+FAILED tests/test_etapa4_ecarga.py::test_contadores_invalidos_son_error[2.5-entero-descartes]
+FAILED tests/test_etapa4_ecarga.py::test_contadores_invalidos_son_error[2.0-entero-paquetes]
+FAILED tests/test_etapa4_ecarga.py::test_contadores_invalidos_son_error[2.0-entero-descartes]
+FAILED tests/test_etapa4_ecarga.py::test_contadores_invalidos_son_error[nan-entero-paquetes]
+FAILED tests/test_etapa4_ecarga.py::test_contadores_invalidos_son_error[nan-entero-descartes]
+FAILED tests/test_etapa4_ecarga.py::test_contadores_invalidos_son_error[inf-entero-paquetes]
+FAILED tests/test_etapa4_ecarga.py::test_contadores_invalidos_son_error[inf-entero-descartes]
+FAILED tests/test_etapa4_ecarga.py::test_contadores_invalidos_son_error[7-n\xfamero-paquetes]
+FAILED tests/test_etapa4_ecarga.py::test_contadores_invalidos_son_error[7-n\xfamero-descartes]
+FAILED tests/test_etapa4_ecarga.py::test_contadores_invalidos_son_error[None-ausente-paquetes]
+FAILED tests/test_etapa4_ecarga.py::test_contadores_invalidos_son_error[None-ausente-descartes]
+FAILED tests/test_etapa4_ecarga.py::test_estado_de_suricata_no_reconocido_es_error
+FAILED tests/test_etapa4_ecarga.py::test_nan_e_infinito_en_el_json_son_error
+FAILED tests/test_etapa4_ecarga.py::test_dpm_que_no_cuadra_con_los_contadores_es_contradiccion
+FAILED tests/test_etapa4_ecarga.py::test_paquetes_cero_con_medida_no_define_dpm
+FAILED tests/test_etapa4_ecarga.py::test_numeros_con_suricata_sin_medida_es_contradiccion
+FAILED tests/test_etapa4_ecarga.py::test_c0_coherente_habilita_y_c0_con_motivos_no
+FAILED tests/test_etapa4_ecarga.py::test_c0_con_descartes_no_habilita
+FAILED tests/test_etapa4_ecarga.py::test_c1_frente_al_limite_s13[1494-100000000-True-estable con carga suficiente-True]
+FAILED tests/test_etapa4_ecarga.py::test_c1_frente_al_limite_s13[1495-100000000-True-no demostrable-False]
+FAILED tests/test_etapa4_ecarga.py::test_c1_frente_al_limite_s13[1495-100000000-False-no estable-False]
+FAILED tests/test_etapa4_ecarga.py::test_c1_frente_al_limite_s13[100-1000000-False-no estable-False]
+FAILED tests/test_etapa4_ecarga.py::test_c1_frente_al_limite_s13[100-1000000-True-no demostrable-False]
+FAILED tests/test_etapa4_ecarga.py::test_c1_frente_al_limite_s13[2-625000-False-no demostrable-False]
+FAILED tests/test_etapa4_ecarga.py::test_limite_s13_exacto_con_enteros_no_con_redondeo
+FAILED tests/test_etapa4_ecarga.py::test_c3_y_no_evaluable_con_s_verdaderos_no_habilitan[C3]
+FAILED tests/test_etapa4_ecarga.py::test_c3_y_no_evaluable_con_s_verdaderos_no_habilitan[no_evaluable]
+FAILED tests/test_etapa4_ecarga.py::test_c3_con_fallo_de_s_sigue_siendo_no_estable
+FAILED tests/test_etapa4_ecarga.py::test_c2_coherente_conserva_su_limitacion
+FAILED tests/test_etapa4_ecarga.py::test_cli_veredicto_valido_rc0_y_contradiccion_rc1
+FAILED tests/test_etapa4_ecarga.py::test_cli_entrada_invalida_rc2_sin_habilitar[[]-(ra\xedz)]
+FAILED tests/test_etapa4_ecarga.py::test_cli_entrada_invalida_rc2_sin_habilitar[{-None]
+FAILED tests/test_etapa4_ecarga.py::test_cli_entrada_invalida_rc2_sin_habilitar[-None]
+FAILED tests/test_etapa4_ecarga.py::test_cli_entrada_invalida_rc2_sin_habilitar[{"K": {"K1": true, "K2": true, "K3": true, "K4a": true, "K5": true}, "S": {"S1": true, "S2": true, "S3": true, "S4": true, "S5": true, "S6": true, "S7": true, "S8": true, "S9": true, "S10": true, "S11": true, "S12": true, "S13": true, "S14": true, "S15": true}, "clasificacion": {"clase_periodo": "C0", "motivos": []}, "suricata": {"estado": "cero_explicito", "paquetes": 1000000, "descartes": 0}, "descartes_por_millon": 0.0, "extra": 1}-extra]
+FAILED tests/test_etapa4_ecarga.py::test_cli_entrada_invalida_rc2_sin_habilitar[{"K": {}, "K": {}}-K]
+FAILED tests/test_etapa4_ecarga.py::test_cli_fichero_inexistente_rc2
+96 failed, 33 passed in 1.27s
+== reproduccion de los tres fallos con el evaluador de f6dc685
+evaluar_ecarga VERSION 2026-11-06.3
+1. K1 y S1 como texto "false": rc=0 estabilidad='estable con carga suficiente' error=None habilita=SÍ (DEFECTO)
+2. clase no_evaluable con S verdaderos: rc=0 estabilidad='estable con carga suficiente' error=None habilita=SÍ (DEFECTO)
+3. C1, 100 descartes/M y S13 verdadero: rc=0 estabilidad='estable con carga suficiente' error=None habilita=SÍ (DEFECTO)
+casos que habilitan el avance: 3 de 3
+== reproduccion con el evaluador corregido (repo montado)
+evaluar_ecarga VERSION 2026-11-06.4
+1. K1 y S1 como texto "false": rc=2 estabilidad=None error="K.K1: solo admite true, false o null, no 'false'" habilita=no
+2. clase no_evaluable con S verdaderos: rc=1 estabilidad='no demostrable' error=None habilita=no
+3. C1, 100 descartes/M y S13 verdadero: rc=1 estabilidad='no demostrable' error=None habilita=no
+casos que habilitan el avance: 0 de 3
+== motivo del fallo de las pruebas de los tres defectos contra f6dc685
+/tmp/w/tests/test_etapa4_ecarga.py:207: assert (0 == 2)
+/tmp/w/tests/test_etapa4_ecarga.py:216: assert (0 == 1)
+/tmp/w/tests/test_etapa4_ecarga.py:224: assert (0 == 1)
+/tmp/w/tests/test_etapa4_ecarga.py:358: KeyError: 'habilita_condicion_3'
+/tmp/w/tests/test_etapa4_ecarga.py:358: AssertionError: assert ('estable con carga suficiente' == 'no demostrable'
+/tmp/w/tests/test_etapa4_ecarga.py:358: KeyError: 'habilita_condicion_3'
+/tmp/w/tests/test_etapa4_ecarga.py:358: KeyError: 'habilita_condicion_3'
+/tmp/w/tests/test_etapa4_ecarga.py:358: AssertionError: assert ('estable con carga suficiente' == 'no demostrable'
+/tmp/w/tests/test_etapa4_ecarga.py:358: AssertionError: assert ('no estable' == 'no demostrable'
+/tmp/w/tests/test_etapa4_ecarga.py:364: assert False
+/tmp/w/tests/test_etapa4_ecarga.py:371: AssertionError: assert 'estable con carga suficiente' == 'no demostrable'
+/tmp/w/tests/test_etapa4_ecarga.py:371: AssertionError: assert 'estable con carga suficiente' == 'no demostrable'
+12 failed, 117 deselected in 0.11s

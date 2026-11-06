@@ -1,0 +1,5 @@
+evaluar_ecarga VERSION 2026-11-06.3
+1. K1 y S1 como texto "false": rc=0 estabilidad='estable con carga suficiente' error=None habilita=SÍ (DEFECTO)
+2. clase no_evaluable con S verdaderos: rc=0 estabilidad='estable con carga suficiente' error=None habilita=SÍ (DEFECTO)
+3. C1, 100 descartes/M y S13 verdadero: rc=0 estabilidad='estable con carga suficiente' error=None habilita=SÍ (DEFECTO)
+casos que habilitan el avance: 3 de 3
