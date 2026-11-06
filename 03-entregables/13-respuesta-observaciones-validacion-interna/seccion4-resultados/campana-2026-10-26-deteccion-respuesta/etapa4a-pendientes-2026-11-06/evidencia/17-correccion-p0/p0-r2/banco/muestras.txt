@@ -1,0 +1,229 @@
+######## 1) sensor1_r2.sh (paquete escribible con la .2 de 902991e; mecanismo derivado), rc 3
+REQ P5b CUMPLE ahora 1794001716 dentro de la franja [0,9999999999]
+REQ P5a.sensor1 CUMPLE Timezone=Etc/UTC
+REQ P13.sumas CUMPLE SHA256SUMS e10dd8c7891949b551f88643f733d2594f8aee5b0bf5d9062619e3f59159ecb2
+REQ P13.hashes CUMPLE sha256sum -c --strict rc 0
+REQ P13.inventario CUMPLE 10 ficheros = manifiesto
+REQ X.mecanismo_sin_escritura CUMPLE derivada en memoria la 2026-11-06.3 (4ed4385674e9f731c7d50f12b132d86a0a3625355df24ebaf4fa9fa0c8342b6e) desde la .2 del paquete; nada escrito
+######## sensor1_muestreadores.sh comprobar /tmp/m/m1/home/cf-e4/p0-muestra 1794197760 2026-11-09T04:16:00Z (2026-11-06T21:48:36Z)
+| OK    paquete paquete-banco: SHA256SUMS verifica
+| OK    evaluar_ecarga.py sha256 = publicado
+| OK    evaluar_ecarga VERSION 2026-11-06.4
+| OK    herramientas-20261106: SHA256SUMS verifica
+| OK    salud_captura.py de herramientas = paquete
+| FALLO python del venv
+| OK    legible muestreo_fino.py
+| OK    legible obs_pcap.py
+| OK    legible clasificar_periodo.py
+| OK    legible comparar_suricata.py
+| OK    legible verificar_sensor1.sh
+| OK    legible muestreo_s14.py
+| OK    legible evaluar_s14.py
+| FALLO eve.json no legible
+| FALLO anillo no legible
+| FALLO no se pudo medir la retención del anillo
+| OK    legible /proc/net/softnet_stat
+| OK    legible /proc/pressure/cpu
+| OK    legible /proc/pressure/io
+| OK    legible /proc/pressure/memory
+| OK    legible /proc/vmstat
+| OK    legible /proc/diskstats
+| OK    USER_HZ 100
+| FALLO journal de ppi-motor-capture sin lecturas SIGUSR1
+| FALLO journal de ppi-via-rapida@ens37 sin lecturas SIGUSR1
+| OK    /home libre 970551 MiB (>= 2 GiB)
+| OK    MemAvailable 14661 MiB (>= 1 GiB)
+| OK    destino de evidencia escribible: /tmp/m/m1/home/cf-e4
+| OK    DIR /tmp/m/m1/home/cf-e4/p0-muestra libre
+| OK    0 procesos con --aplicar/--enforce
+| FALLO ya hay muestreadores en marcha
+| == obs_pcap --en-seco
+| {"version": "2026-11-06.2", "fin_epoch": 1794197760.0, "fin_utc": "2026-11-09T04:16:00Z", "fin_peru": "2026-11-08 23:16:00 (UTC-5)", "parada_epoch": 1794197790.0, "faltan_s": 196043.3, "en_seco": true, "dir_existe": false}
+| FALLO obs_pcap --en-seco rc 2
+| OK    obs_pcap en seco no creó salida
+| fallo=1
+INFO rc_comprobar=1
+REQ P11 NO_CUMPLE comprobar rc 1: FALLO python del venv;FALLO eve.json no legible;FALLO anillo no legible;FALLO no se pudo medir la retención del anillo;FALLO journal de ppi-motor-capture sin lecturas SIGUSR1;FALLO journal de ppi-via-rapida@ens37 sin lecturas SIGUSR1;FALLO ya hay muestreadores en marcha;FALLO obs_pcap --en-seco rc 
+REQ P11.retencion NO_CUMPLE no se pudo medir la retención del anillo
+REQ P6.home CUMPLE /home libre 970551 MiB (>= 2 GiB)
+REQ P6.mem CUMPLE MemAvailable 14661 MiB (>= 1 GiB)
+REQ P7 NO_CUMPLE FALLO obs_pcap --en-seco rc 2
+REQ X.dir_no_creado CUMPLE no creó /tmp/m/m1/home/cf-e4/p0-muestra ni salida en seco
+REQ X.paquete_sin_cambios CUMPLE inventario (tipo, modo, tamaño, mtime, ruta) idéntico antes y después: 19 entradas
+INFO ae2900e bash: line 40: cd: /tmp/m/m1/home/cf-e4/paquete-ae2900e: No such file or directory
+REQ P9 ERROR lecturas de paquete-ae2900e rc 1/1/2
+INFO eve: ls: cannot access '/var/log/suricata/eve.json': No such file or directory
+INFO anillo: 0 ficheros; primero ; ahora 20261106214836
+FIN_BLOQUE sensor1_r2 rc=3
+
+inventario del paquete: 18 entradas antes, 18 después, idéntico=True
+__pycache__ en el paquete: ninguno
+######## 2) ANTIGUO p0_anticipado.sh con ssh rc 255 en los 9 bloques -> rc del proceso = 0
+p0_anticipado 2026-11-06.1
+inicio 2026-11-06T21:48:36Z portatil_epoch 1794001716
+00-estado-bastion host=bastion rc=255 transporte=DISTINTO(nada) bloque=estado_host.sh sha=406ce22a2aa9
+00-estado-sensor1 host=sensor1 rc=255 transporte=DISTINTO(nada) bloque=estado_host.sh sha=406ce22a2aa9
+00-estado-srvdmz host=srvdmz rc=255 transporte=DISTINTO(nada) bloque=estado_host.sh sha=406ce22a2aa9
+01-verificar-bastion host=bastion rc=255 transporte=DISTINTO(nada) bloque=verificador.sh sha=0b2fd4ab1238
+02-verificar-sensor1 host=sensor1 rc=255 transporte=DISTINTO(nada) bloque=verificador.sh sha=0b2fd4ab1238
+03-verificar-srvdmz host=srvdmz rc=255 transporte=DISTINTO(nada) bloque=verificador.sh sha=0b2fd4ab1238
+04-precheck-s11 host=bastion rc=255 transporte=DISTINTO(nada) bloque=precheck.sh sha=b3127eddb289
+05-clientes host=bastion rc=255 transporte=DISTINTO(nada) bloque=clientes_desde_bastion.sh sha=9a5dd0dda3a7
+06-sensor1-comprobar host=sensor1 rc=255 transporte=DISTINTO(nada) bloque=sensor1_p0.sh sha=f02479681fd3
+fin 2026-11-06T21:48:37Z portatil_epoch 1794001717
+
+######## 2) r2 p0_r2.sh con ssh rc 255 en los 9 bloques -> rc del proceso = 4
+p0_r2 2026-11-06.r2 modo=anticipado paquete=902991e sumas=8480f0e02952216d0a371f13201657e81e27ccc53fef2d5917d5dc74a68df30c
+inicio 2026-11-06T21:48:37Z portatil_epoch 1794001717 franja=[1794191400,1794200400]
+BLOQUE 00-estado-bastion host=bastion rc=255 estado=ERROR motivo=SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble)) bloque=estado_r2.sh sha=990da8503fce
+BLOQUE 00-estado-sensor1 host=sensor1 rc=255 estado=ERROR motivo=SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble)) bloque=estado_r2.sh sha=990da8503fce
+BLOQUE 00-estado-srvdmz host=srvdmz rc=255 estado=ERROR motivo=SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble)) bloque=estado_r2.sh sha=990da8503fce
+BLOQUE 01-verificar-bastion host=bastion rc=255 estado=ERROR motivo=SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble)) bloque=verificador_r2.sh sha=8714361effd4
+BLOQUE 02-verificar-sensor1 host=sensor1 rc=255 estado=ERROR motivo=SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble)) bloque=verificador_r2.sh sha=8714361effd4
+BLOQUE 03-verificar-srvdmz host=srvdmz rc=255 estado=ERROR motivo=SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble)) bloque=verificador_r2.sh sha=8714361effd4
+BLOQUE 04-precheck-s11 host=bastion rc=255 estado=ERROR motivo=SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble)) bloque=precheck_r2.sh sha=131f0a562bb0
+BLOQUE 05-clientes host=bastion rc=255 estado=ERROR motivo=SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble)) bloque=clientes_r2.sh sha=a1adfa790954
+BLOQUE 06-sensor1 host=sensor1 rc=255 estado=ERROR motivo=SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble)) bloque=sensor1_r2.sh sha=0fc062be46c9
+== DETALLE DE PRECONDICIONES (categoría estado id: detalle)
+REQ anticipable SIN_VERIFICAR P1.bastion: bloque 01-verificar-bastion: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR P1.sensor1: bloque 02-verificar-sensor1: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR P1.srvdmz: bloque 03-verificar-srvdmz: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR P2.ec78ca5: bloque 04-precheck-s11: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR P2.esquema: bloque 04-precheck-s11: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR P2.manifiesto: bloque 04-precheck-s11: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR P2.modelo: bloque 04-precheck-s11: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR P2.suricata: bloque 04-precheck-s11: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR P3.procesos.bastion: bloque 00-estado-bastion: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR P3.procesos.precheck: bloque 04-precheck-s11: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR P3.procesos.sensor1: bloque 00-estado-sensor1: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR P3.procesos.srvdmz: bloque 00-estado-srvdmz: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR P3.ruleset.sensor1: bloque 04-precheck-s11: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR P3.ruleset.srvdmz: bloque 04-precheck-s11: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR P3.tablas.srvdmz: bloque 04-precheck-s11: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR P4.generador: bloque 05-clientes: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR P4.parado: bloque 05-clientes: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR P5a.clientes: bloque 05-clientes: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR P5a.sensor1: bloque 06-sensor1: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ momento SIN_VERIFICAR P5b: bloque 06-sensor1: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable CUMPLE P5c: la franja empieza en día laborable UTC (ISO 1)
+REQ anticipable SIN_VERIFICAR P6.home: bloque 06-sensor1: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR P6.mem: bloque 06-sensor1: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR P7: bloque 06-sensor1: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ documental NO_EVALUABLE P8: documental: la ventana está publicada en el protocolo r4 §3.2; esta herramienta no lo comprueba
+REQ anticipable SIN_VERIFICAR P9: bloque 06-sensor1: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR P10: bloque 05-clientes: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR P11: bloque 06-sensor1: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR P11.retencion: bloque 06-sensor1: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ ejecucion NO_EVALUABLE P12: se cumple en la ejecución (arranque de los muestreadores antes de T_g-300 s), después de P0
+REQ anticipable SIN_VERIFICAR P13.hashes: bloque 06-sensor1: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR P13.inventario: bloque 06-sensor1: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR P13.sumas: bloque 06-sensor1: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR X.permisos: bloque 05-clientes: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR X.sincronizado.bastion: bloque 00-estado-bastion: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR X.sincronizado.clientes: bloque 05-clientes: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR X.sincronizado.sensor1: bloque 00-estado-sensor1: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR X.sincronizado.srvdmz: bloque 00-estado-srvdmz: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR X.v1.bastion: bloque 04-precheck-s11: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR X.v1.sensor1: bloque 04-precheck-s11: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR X.v1.srvdmz: bloque 04-precheck-s11: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR X.agente_v2: bloque 04-precheck-s11: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR X.cadena_v2.sensor1: bloque 04-precheck-s11: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR X.dir_no_creado: bloque 06-sensor1: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR X.estado_generadores: bloque 05-clientes: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR X.eventos_aplicacion: bloque 04-precheck-s11: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR X.generadores_sh: bloque 05-clientes: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR X.mecanismo_sin_escritura: bloque 06-sensor1: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR X.paquete_sin_cambios: bloque 06-sensor1: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR X.precheck_identico: bloque 04-precheck-s11: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR X.precheck_rc: bloque 04-precheck-s11: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR X.precheck_stderr: bloque 04-precheck-s11: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+REQ anticipable SIN_VERIFICAR X.relay_v2: bloque 04-precheck-s11: SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+== RESUMEN
+BLOQUES 0/9 ejecutados sin errores
+   bloque con error: 00-estado-bastion -> SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+   bloque con error: 00-estado-sensor1 -> SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+   bloque con error: 00-estado-srvdmz -> SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+   bloque con error: 01-verificar-bastion -> SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+   bloque con error: 02-verificar-sensor1 -> SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+   bloque con error: 03-verificar-srvdmz -> SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+   bloque con error: 04-precheck-s11 -> SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+   bloque con error: 05-clientes -> SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+   bloque con error: 06-sensor1 -> SSH_FALLIDO rc 255 (ssh: connect to host gadmin@10.10.10.30 port 22: Connection timed out (doble))
+PRECONDICIONES anticipables: 1/50 CUMPLE; no cumplidas o sin verificar: P1.bastion=SIN_VERIFICAR P1.sensor1=SIN_VERIFICAR P1.srvdmz=SIN_VERIFICAR P2.ec78ca5=SIN_VERIFICAR P2.esquema=SIN_VERIFICAR P2.manifiesto=SIN_VERIFICAR P2.modelo=SIN_VERIFICAR P2.suricata=SIN_VERIFICAR P3.procesos.bastion=SIN_VERIFICAR P3.procesos.precheck=SIN_VERIFICAR P3.procesos.sensor1=SIN_VERIFICAR P3.procesos.srvdmz=SIN_VERIFICAR P3.ruleset.sensor1=SIN_VERIFICAR P3.ruleset.srvdmz=SIN_VERIFICAR P3.tablas.srvdmz=SIN_VERIFICAR P4.generador=SIN_VERIFICAR P4.parado=SIN_VERIFICAR P5a.clientes=SIN_VERIFICAR P5a.sensor1=SIN_VERIFICAR P6.home=SIN_VERIFICAR P6.mem=SIN_VERIFICAR P7=SIN_VERIFICAR P9=SIN_VERIFICAR P10=SIN_VERIFICAR P11=SIN_VERIFICAR P11.retencion=SIN_VERIFICAR P13.hashes=SIN_VERIFICAR P13.inventario=SIN_VERIFICAR P13.sumas=SIN_VERIFICAR X.permisos=SIN_VERIFICAR X.sincronizado.bastion=SIN_VERIFICAR X.sincronizado.clientes=SIN_VERIFICAR X.sincronizado.sensor1=SIN_VERIFICAR X.sincronizado.srvdmz=SIN_VERIFICAR X.v1.bastion=SIN_VERIFICAR X.v1.sensor1=SIN_VERIFICAR X.v1.srvdmz=SIN_VERIFICAR X.agente_v2=SIN_VERIFICAR X.cadena_v2.sensor1=SIN_VERIFICAR X.dir_no_creado=SIN_VERIFICAR X.estado_generadores=SIN_VERIFICAR X.eventos_aplicacion=SIN_VERIFICAR X.generadores_sh=SIN_VERIFICAR X.mecanismo_sin_escritura=SIN_VERIFICAR X.paquete_sin_cambios=SIN_VERIFICAR X.precheck_identico=SIN_VERIFICAR X.precheck_rc=SIN_VERIFICAR X.precheck_stderr=SIN_VERIFICAR X.relay_v2=SIN_VERIFICAR
+PRECONDICIONES de momento, documentales y de ejecución: P5b=SIN_VERIFICAR P8=NO_EVALUABLE P12=NO_EVALUABLE
+fin 2026-11-06T21:48:38Z portatil_epoch 1794001718
+RESULTADO_GLOBAL rc=4 modo=anticipado NO VERIFICADO: 9 bloque(s) con error; las precondiciones no se pueden dar por evaluadas
+
+######## 3) r2 anticipado, todo correcto -> rc = 0
+p0_r2 2026-11-06.r2 modo=anticipado paquete=902991e sumas=8480f0e02952216d0a371f13201657e81e27ccc53fef2d5917d5dc74a68df30c
+inicio 2026-11-06T21:48:38Z portatil_epoch 1794001718 franja=[1794191400,1794200400]
+BLOQUE 00-estado-bastion host=bastion rc=0 estado=OK motivo=sin errores bloque=estado_r2.sh sha=990da8503fce
+BLOQUE 00-estado-sensor1 host=sensor1 rc=0 estado=OK motivo=sin errores bloque=estado_r2.sh sha=990da8503fce
+BLOQUE 00-estado-srvdmz host=srvdmz rc=0 estado=OK motivo=sin errores bloque=estado_r2.sh sha=990da8503fce
+BLOQUE 01-verificar-bastion host=bastion rc=0 estado=OK motivo=sin errores bloque=verificador_r2.sh sha=8714361effd4
+BLOQUE 02-verificar-sensor1 host=sensor1 rc=0 estado=OK motivo=sin errores bloque=verificador_r2.sh sha=8714361effd4
+BLOQUE 03-verificar-srvdmz host=srvdmz rc=0 estado=OK motivo=sin errores bloque=verificador_r2.sh sha=8714361effd4
+BLOQUE 04-precheck-s11 host=bastion rc=0 estado=OK motivo=sin errores bloque=precheck_r2.sh sha=131f0a562bb0
+BLOQUE 05-clientes host=bastion rc=0 estado=OK motivo=sin errores bloque=clientes_r2.sh sha=a1adfa790954
+BLOQUE 06-sensor1 host=sensor1 rc=0 estado=OK motivo=sin errores bloque=sensor1_r2.sh sha=0fc062be46c9
+== DETALLE DE PRECONDICIONES (categoría estado id: detalle)
+REQ anticipable CUMPLE P1.bastion: doble
+REQ anticipable CUMPLE P1.sensor1: doble
+REQ anticipable CUMPLE P1.srvdmz: doble
+REQ anticipable CUMPLE P2.ec78ca5: doble
+REQ anticipable CUMPLE P2.esquema: doble
+REQ anticipable CUMPLE P2.manifiesto: doble
+REQ anticipable CUMPLE P2.modelo: doble
+REQ anticipable CUMPLE P2.suricata: doble
+REQ anticipable CUMPLE P3.procesos.bastion: doble
+REQ anticipable CUMPLE P3.procesos.precheck: doble
+REQ anticipable CUMPLE P3.procesos.sensor1: doble
+REQ anticipable CUMPLE P3.procesos.srvdmz: doble
+REQ anticipable CUMPLE P3.ruleset.sensor1: doble
+REQ anticipable CUMPLE P3.ruleset.srvdmz: doble
+REQ anticipable CUMPLE P3.tablas.srvdmz: doble
+REQ anticipable CUMPLE P4.generador: doble
+REQ anticipable CUMPLE P4.parado: doble
+REQ anticipable CUMPLE P5a.clientes: doble
+REQ anticipable CUMPLE P5a.sensor1: doble
+REQ momento NO_EVALUABLE P5b: doble
+REQ anticipable CUMPLE P5c: la franja empieza en día laborable UTC (ISO 1)
+REQ anticipable CUMPLE P6.home: doble
+REQ anticipable CUMPLE P6.mem: doble
+REQ anticipable CUMPLE P7: doble
+REQ documental NO_EVALUABLE P8: documental: la ventana está publicada en el protocolo r4 §3.2; esta herramienta no lo comprueba
+REQ anticipable CUMPLE P9: doble
+REQ anticipable CUMPLE P10: doble
+REQ anticipable CUMPLE P11: doble
+REQ anticipable CUMPLE P11.retencion: doble
+REQ ejecucion NO_EVALUABLE P12: se cumple en la ejecución (arranque de los muestreadores antes de T_g-300 s), después de P0
+REQ anticipable CUMPLE P13.hashes: doble
+REQ anticipable CUMPLE P13.inventario: doble
+REQ anticipable CUMPLE P13.sumas: doble
+REQ anticipable CUMPLE X.permisos: doble
+REQ anticipable CUMPLE X.sincronizado.bastion: doble
+REQ anticipable CUMPLE X.sincronizado.clientes: doble
+REQ anticipable CUMPLE X.sincronizado.sensor1: doble
+REQ anticipable CUMPLE X.sincronizado.srvdmz: doble
+REQ anticipable CUMPLE X.v1.bastion: doble
+REQ anticipable CUMPLE X.v1.sensor1: doble
+REQ anticipable CUMPLE X.v1.srvdmz: doble
+REQ anticipable CUMPLE X.agente_v2: doble
+REQ anticipable CUMPLE X.cadena_v2.sensor1: doble
+REQ anticipable CUMPLE X.dir_no_creado: doble
+REQ anticipable CUMPLE X.estado_generadores: doble
+REQ anticipable CUMPLE X.eventos_aplicacion: doble
+REQ anticipable CUMPLE X.generadores_sh: doble
+REQ anticipable CUMPLE X.mecanismo_sin_escritura: doble
+REQ anticipable CUMPLE X.paquete_sin_cambios: doble
+REQ anticipable CUMPLE X.precheck_identico: doble
+REQ anticipable CUMPLE X.precheck_rc: doble
+REQ anticipable CUMPLE X.precheck_stderr: doble
+REQ anticipable CUMPLE X.relay_v2: doble
+== RESUMEN
+BLOQUES 9/9 ejecutados sin errores
+PRECONDICIONES anticipables: 50/50 CUMPLE
+PRECONDICIONES de momento, documentales y de ejecución: P5b=NO_EVALUABLE P8=NO_EVALUABLE P12=NO_EVALUABLE
+fin 2026-11-06T21:48:39Z portatil_epoch 1794001719
+RESULTADO_GLOBAL rc=0 modo=anticipado PRECONDICIONES ANTICIPABLES CONFORMES. NO sustituye al P0 inmediato: P5b=NO_EVALUABLE
+

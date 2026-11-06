@@ -1,0 +1,21 @@
+c34d929a88c9e7a935920bce2ec07c32ec43fa42b074e287f09e9063d0ddf2c6  -
+== cyberflow-sensor m4rk 2026-11-06T21:24:44Z
+manifiesto=480 presentes=481
+-- ausentes (LC_ALL=C comm):
+(ninguno)
+-- añadidos (LC_ALL=C comm):
+./deploy/etapa4/sensor1/__pycache__/evaluar_ecarga.cpython-312.pyc
+-- directorios no presentes en el manifiesto:
+./deploy/etapa4/sensor1/__pycache__  2026-11-06T21:05:27.8031018480  m4rk
+## ./deploy/etapa4/sensor1/__pycache__/evaluar_ecarga.cpython-312.pyc
+tamaño=27980 B  modo=-rw-r--r--  propietario=m4rk  modificado=2026-11-06 21:05:27.803101848 +0000  cambiado=2026-11-06 21:05:27.803101848 +0000  nacido=2026-11-06 21:05:27.803101848 +0000
+754ec72930cb1b187b387f0360ae65c25763ec0cccf4abe7dd5f8aa19be701d1  /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/sensor1/__pycache__/evaluar_ecarga.cpython-312.pyc
+cabecera (16 bytes, little-endian):  cb 0d 0d 0a 00 00 00 00 ed 0b ee 6a 72 53 00 00
+magic=3531  flags=0  mtime_fuente=1793985517  tamaño_fuente=21362
+fuente: /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/sensor1/evaluar_ecarga.py  mtime=1793985517  tamaño=21362  sha256=53e9f7bd578123f6…
+nombres del fuente dentro del .pyc: evaluar_ecarga.py evaluar_ecarga.pyr 
+-- python3 del sistema: Python 3.12.3  (cpython-312 = 3.12)
+-- otros __pycache__ bajo ~/cf-e4/paquete-* (histórico, solo listado):
+2026-11-06T08:05  /home/m4rk/cf-e4/paquete-ae2900e/deploy/etapa4/sensor1/__pycache__/evaluar_ecarga.cpython-312.pyc
+2026-11-06T16:35  /home/m4rk/cf-e4/paquete-a12deae/deploy/etapa4/sensor1/__pycache__/evaluar_ecarga.cpython-312.pyc
+2026-11-06T21:05  /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/sensor1/__pycache__/evaluar_ecarga.cpython-312.pyc

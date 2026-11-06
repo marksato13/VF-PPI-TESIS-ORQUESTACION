@@ -1,5 +1,21 @@
 # Post-copia repetida (comprobador r2) y comprobación ANTICIPADA de precondiciones P0 (06-nov, 20:45–21:06Z)
 
+> **Corrección posterior (06-nov, 22:10Z).** Dos afirmaciones de esta carpeta no eran exactas. Los resultados y los
+> ficheros de abajo se conservan **sin cambios**.
+>
+> 1. **`comprobar` sí escribió en el paquete.** `p0/bloques/sensor1_p0.sh` dice que «comprobar NO crea» nada. Es
+>    cierto del DIR y de la salida en seco, pero la consulta de VERSION (`python3 -I -c`, importando
+>    `evaluar_ecarga.py`) creó a las **21:05:27.80Z**
+>    `~/cf-e4/paquete-902991e/deploy/etapa4/sensor1/__pycache__/evaluar_ecarga.cpython-312.pyc` (27 980 B,
+>    `754ec729…`). Desde entonces, el inventario de Sensor1 tiene 481 ficheros frente a 480: la post-copia r2 de las
+>    21:24Z da NO_CONFORME 11/12 en Sensor1. El CONFORME 3/3 de §4 (21:02Z) era cierto en su momento.
+> 2. **El rc 0 de §5 no era un agregado.** `p0/p0_anticipado.sh` termina con rc 0 aunque fallen todos sus bloques; sus
+>    lecturas son válidas, pero su código no. Los 9 bloques sí terminaron con rc 0, transporte igual y stderr vacío, y
+>    eso se comprobó fichero a fichero.
+>
+> Las dos se corrigen en [`../17-correccion-p0/`](../17-correccion-p0/): P0 r2 y producto `20dabe2`. El `.pyc` **no se
+> ha borrado**; la actuación puntual está propuesta allí.
+
 **Alcance.** Solo lecturas en el laboratorio, más el comprobador corregido y probado en banco. **E-carga NO
 ejecutada y NO programada.**
 

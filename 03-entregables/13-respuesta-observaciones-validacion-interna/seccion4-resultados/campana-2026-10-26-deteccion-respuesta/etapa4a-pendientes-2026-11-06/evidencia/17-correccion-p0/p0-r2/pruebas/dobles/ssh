@@ -1,0 +1,78 @@
+#!/usr/bin/env python3
+"""DOBLE de ssh del banco de P0 r2. NO conecta con nada.
+
+DOBLE_MODO=p0 (manejador): no ejecuta el bloque; reconoce cuál es (línea «# BLOQUE=…» del texto en base64 de la orden),
+calcula el sha256 de esos bytes (como el host real) y responde según DOBLE_CONF (JSON), por clave «bloque:arg1»:
+  {"ssh_rc": 255}            ssh falla (stderr de conexión) sin salida
+  {"sha": "distinto"}        primera línea con otro sha (transporte distinto)
+  {"modo": "vacio"}          sin salida, rc 0
+  {"modo": "truncado"}       sha y REQ, pero sin FIN_BLOQUE
+  {"reqs": {"ID": "EST"}}    estado de esos REQ (por defecto CUMPLE; P5b NO_EVALUABLE)
+  {"omitir": ["ID"]}         no imprime esos REQ
+  {"rc": N, "fin_rc": M}     rc de salida y el que declara FIN_BLOQUE (por defecto: 3 si hay algún ERROR, si no 0)
+  "esperados": {"clave": ["ID", ...]}  REQ que imprime cada bloque
+DOBLE_MODO=host: ejecuta la orden remota con bash (para probar el manejador antiguo, que no tiene REQ).
+Registra cada llamada en DOBLE_LOG.
+"""
+import hashlib, json, os, re, subprocess, sys
+
+args = sys.argv[1:]
+dest, rest, i = None, [], 0
+while i < len(args):
+    a = args[i]
+    if a in ("-o", "-i", "-p", "-F", "-l", "-E"):
+        i += 2; continue
+    if a.startswith("-"):
+        i += 1; continue
+    if dest is None:
+        dest = a
+    else:
+        rest.append(a)
+    i += 1
+cmd = " ".join(rest)
+host = "bastion"
+m = re.search(r"ssh .*?(\S+@10\.10\.\d+\.\d+) ", cmd)
+if m:
+    host = {"m4rk@10.10.60.11": "sensor1", "adminsrvdmz@10.10.30.10": "srvdmz"}.get(m.group(1), "?")
+mb = re.search(r"printf %s (\S+) \| base64 -d \| sha256sum", cmd)
+ma = re.search(r"bash -s -- ?(.*)$", cmd)
+texto = __import__("base64").b64decode(mb.group(1)) if mb else b""
+argumentos = (ma.group(1).rstrip('"').split() if ma else [])
+nb = re.search(rb"^# BLOQUE=(\S+)", texto, re.M)
+bloque = nb.group(1).decode() if nb else "?"
+clave = bloque + (":" + argumentos[0] if bloque in ("estado_r2", "verificador_r2") and argumentos else "")
+log = os.environ.get("DOBLE_LOG")
+n_llamada = 1
+if log:
+    if os.path.exists(log):
+        n_llamada += sum(1 for _ in open(log))
+    with open(log, "a") as f:
+        f.write(f"{host} {clave}\n")
+
+conf = json.load(open(os.environ["DOBLE_CONF"])) if os.environ.get("DOBLE_CONF") else {}
+c = conf.get(clave, conf.get("*", {}))
+if c.get("ssh_rc") == 255 or conf.get("todos_ssh_255") or conf.get("falla_llamada") == n_llamada:
+    sys.stderr.write(f"ssh: connect to host {dest} port 22: Connection timed out (doble)\n")
+    sys.exit(255)
+if os.environ.get("DOBLE_MODO", "p0") == "host":
+    sys.exit(subprocess.run(["bash", "-c", cmd]).returncode)
+if c.get("modo") == "vacio":
+    sys.exit(c.get("rc", 0))
+sha = hashlib.sha256(texto).hexdigest()
+if c.get("sha") == "distinto":
+    sha = hashlib.sha256(texto + b"\r\n").hexdigest()
+out = [f"{sha}  -", f"INFO doble {clave} host={host} args={len(argumentos)}"]
+estados = {}
+for rid in conf.get("esperados", {}).get(clave, []):
+    if rid in c.get("omitir", []):
+        continue
+    st = c.get("reqs", {}).get(rid, "NO_EVALUABLE" if rid == "P5b" else "CUMPLE")
+    estados[rid] = st
+    out.append(f"REQ {rid} {st} doble")
+for extra in c.get("lineas", []):
+    out.append(extra)
+rc = c.get("rc", 3 if "ERROR" in estados.values() else 0)
+if c.get("modo") != "truncado":
+    out.append(f"FIN_BLOQUE {bloque} rc={c.get('fin_rc', rc)}")
+print("\n".join(out))
+sys.exit(rc)

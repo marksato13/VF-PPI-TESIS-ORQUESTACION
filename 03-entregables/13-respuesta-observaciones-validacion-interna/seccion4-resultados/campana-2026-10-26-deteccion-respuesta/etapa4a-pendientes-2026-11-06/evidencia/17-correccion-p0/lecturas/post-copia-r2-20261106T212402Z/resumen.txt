@@ -1,0 +1,8 @@
+comprobar_post_copia r2 2026-11-06.1
+inicio 2026-11-06T21:24:02Z
+guion post_copia_host_r2.sh sha256 07063091b4315143b9c56d4c89e7ec3bdb6373bf804ded8560b8af5978686520 bytes 7809 CR 0
+HOST bastion rc=0 estado=CONFORME recibido=07063091b4315143b9c56d4c89e7ec3bdb6373bf804ded8560b8af5978686520 ok=12/12
+HOST sensor1 rc=1 estado=NO_CONFORME recibido=07063091b4315143b9c56d4c89e7ec3bdb6373bf804ded8560b8af5978686520 ok=11/12
+HOST srvdmz rc=0 estado=CONFORME recibido=07063091b4315143b9c56d4c89e7ec3bdb6373bf804ded8560b8af5978686520 ok=12/12
+fin 2026-11-06T21:24:07Z
+RESULTADO_GLOBAL rc=4 NO_CONFORME 2/3; sin conformidad en: sensor1
