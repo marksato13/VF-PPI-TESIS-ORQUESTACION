@@ -1,0 +1,174 @@
+### VM-GESTION gadmin 2026-11-06T19:51:42Z
+marca-OK
+SHA256SUMS interno 8480f0e02952216d0a371f13201657e81e27ccc53fef2d5917d5dc74a68df30c
+hashes-OK
+inventario-exacto 480
+evaluador 53e9f7bd578123f6499289ebbb92d8d6c71a6e56b7c1c35a59463b98aad5c23f
+ecarga/SHA256SUMS e001352c2e6485d99e71b1e62ff68a4051bebdfc2bbb4fbd927000517d463b80
+ecarga-OK
+VERSION = "evaluar_s14 2026-11-06.2"
+VERSION = "construir_entrada 2026-11-06.3"
+aviso: paquete-a12deae SUSTITUIDO por ~/cf-e4/paquete-902991e (verificado; RUN=20261106T194952Z-10146; PROTOCOLO-CARGA-v2 r4).
+1
+parciales: 0
+registro: 2026-11-06T19:50:13Z bastion: ESTADO_FINAL=VERIFICADO rc=0
+paquete-a12deae: 481 ficheros; ecarga a12deae intacta (9ff24889?)
+9ff24889
+contenido ~/cf-e4:
+cyberflow-e4-ec78ca5.tar.gz
+cyberflow-e4-ec78ca5.tar.gz.sha256
+ecarga-v2-evaluacion-e83f4be6
+ecarga-v2-evaluacion-e83f4be6.SUSTITUIDO.txt
+ecarga-v2-guiones-c7f24510
+ecarga-v2-guiones-c7f24510.SUSTITUIDO.txt
+ecarga-v2-seco-20261106T081024Z
+ecarga-v2-seco-20261106T081254Z
+evidencia-4a-20261104T034250Z
+evidencia-4a-20261104T034250Z.tgz
+paquete
+paquete-313f8f8
+paquete-313f8f8.tgz
+paquete-38ee91d
+paquete-38ee91d.tgz
+paquete-47502ca
+paquete-785377b
+paquete-902991e
+paquete-902991e.VERIFICADO.txt
+paquete-a12deae
+paquete-a12deae.NO-USAR.txt
+paquete-a12deae.tgz
+paquete-a1cea5e
+paquete-a1cea5e.tgz
+paquete-ae2900e
+paquete-ae2900e.tgz
+paquete-b18c286
+paquete-b18c286.tgz
+paquete-b2f2994
+paquete-dedb048
+paquete-f6dc685
+paquete-f6dc685.NO-USAR-PARA-VEREDICTO.txt
+paquete-f6dc685.tgz
+pub.pem
+tar-47502ca
+tar-785377b
+tar-b2f2994
+tar-dedb048
+traslado-902991e.20261106T194952Z-10146.bastion.log
+bash: line 19: $'\r': command not found
+### cyberflow-sensor m4rk 2026-11-06T19:51:43Z
+marca-OK
+SHA256SUMS interno 8480f0e02952216d0a371f13201657e81e27ccc53fef2d5917d5dc74a68df30c
+hashes-OK
+inventario-exacto 480
+evaluador 53e9f7bd578123f6499289ebbb92d8d6c71a6e56b7c1c35a59463b98aad5c23f
+ecarga/SHA256SUMS e001352c2e6485d99e71b1e62ff68a4051bebdfc2bbb4fbd927000517d463b80
+ecarga-OK
+VERSION = "evaluar_s14 2026-11-06.2"
+VERSION = "construir_entrada 2026-11-06.3"
+aviso: paquete-a12deae SUSTITUIDO por ~/cf-e4/paquete-902991e (verificado; RUN=20261106T194952Z-10146; PROTOCOLO-CARGA-v2 r4).
+1
+parciales: 0
+registro: 2026-11-06T19:50:09Z sensor1: ESTADO_FINAL=VERIFICADO rc=0
+paquete-a12deae: 482 ficheros; ecarga a12deae intacta (9ff24889?)
+9ff24889
+contenido ~/cf-e4:
+4a
+cierre4a
+cyberflow-e4-ec78ca5.tar.gz
+cyberflow-e4-ec78ca5.tar.gz.sha256
+cyberflow-feed-v2-sensor.pub
+ecarga-v2-evaluacion-e83f4be6
+ecarga-v2-evaluacion-e83f4be6.SUSTITUIDO.txt
+ecarga-v2-guiones-c7f24510
+ecarga-v2-guiones-c7f24510.SUSTITUIDO.txt
+ecarga-v2-seco-20261106T081024Z
+panel-93f076e
+panel-a27889d
+panel-e0dc71d
+paquete
+paquete-313f8f8
+paquete-313f8f8.tgz
+paquete-38ee91d
+paquete-38ee91d.tgz
+paquete-47502ca
+paquete-785377b
+paquete-902991e
+paquete-902991e.VERIFICADO.txt
+paquete-a12deae
+paquete-a12deae.NO-USAR.txt
+paquete-a12deae.tgz
+paquete-a1cea5e
+paquete-a1cea5e.tgz
+paquete-ae2900e
+paquete-ae2900e.tgz
+paquete-b18c286
+paquete-b18c286.tgz
+paquete-b2f2994
+paquete-c1bd845
+paquete-dedb048
+paquete-f6dc685
+paquete-f6dc685.NO-USAR-PARA-VEREDICTO.txt
+paquete-f6dc685.tgz
+tar-47502ca
+tar-785377b
+tar-b2f2994
+tar-dedb048
+traslado-902991e.20261106T194952Z-10146.sensor1.log
+bash: line 19: $'\r': command not found
+### srv-dmz adminsrvdmz 2026-11-06T19:51:44Z
+marca-OK
+SHA256SUMS interno 8480f0e02952216d0a371f13201657e81e27ccc53fef2d5917d5dc74a68df30c
+hashes-OK
+inventario-exacto 480
+evaluador 53e9f7bd578123f6499289ebbb92d8d6c71a6e56b7c1c35a59463b98aad5c23f
+ecarga/SHA256SUMS e001352c2e6485d99e71b1e62ff68a4051bebdfc2bbb4fbd927000517d463b80
+ecarga-OK
+VERSION = "evaluar_s14 2026-11-06.2"
+VERSION = "construir_entrada 2026-11-06.3"
+aviso: paquete-a12deae SUSTITUIDO por ~/cf-e4/paquete-902991e (verificado; RUN=20261106T194952Z-10146; PROTOCOLO-CARGA-v2 r4).
+1
+parciales: 0
+registro: 2026-11-06T19:50:12Z srvdmz: ESTADO_FINAL=VERIFICADO rc=0
+paquete-a12deae: 481 ficheros; ecarga a12deae intacta (9ff24889?)
+9ff24889
+contenido ~/cf-e4:
+bash: line 19: $'\r': command not found
+cyberflow-e4-ec78ca5.tar.gz
+cyberflow-e4-ec78ca5.tar.gz.sha256
+cyberflow-feed-v2-srv.pub
+paquete
+paquete-313f8f8
+paquete-313f8f8.tgz
+paquete-38ee91d
+paquete-38ee91d.tgz
+paquete-47502ca
+paquete-785377b
+paquete-902991e
+paquete-902991e.VERIFICADO.txt
+paquete-a12deae
+paquete-a12deae.NO-USAR.txt
+paquete-a12deae.tgz
+paquete-a1cea5e
+paquete-a1cea5e.tgz
+paquete-ae2900e
+paquete-ae2900e.tgz
+paquete-b18c286
+paquete-b18c286.tgz
+paquete-b2f2994
+paquete-c1bd845
+paquete-dedb048
+paquete-f6dc685
+paquete-f6dc685.NO-USAR-PARA-VEREDICTO.txt
+paquete-f6dc685.tgz
+pub.pem
+tar-47502ca
+tar-785377b
+tar-b2f2994
+tar-dedb048
+traslado-902991e.20261106T194952Z-10146.srvdmz.log
+### sensor1: fichero de mas en paquete-a12deae (anterior a la copia)
+modificados en paquete-a12deae tras la copia: 0
+> ./SHA256SUMS
+-rw-r--r-- 1 m4rk m4rk 50880 2026-11-06T16:33:28 paquete-a12deae/SHA256SUMS
+> ./deploy/etapa4/sensor1/__pycache__/evaluar_ecarga.cpython-312.pyc
+-rw-r--r-- 1 m4rk m4rk 27980 2026-11-06T16:35:37 paquete-a12deae/deploy/etapa4/sensor1/__pycache__/evaluar_ecarga.cpython-312.pyc

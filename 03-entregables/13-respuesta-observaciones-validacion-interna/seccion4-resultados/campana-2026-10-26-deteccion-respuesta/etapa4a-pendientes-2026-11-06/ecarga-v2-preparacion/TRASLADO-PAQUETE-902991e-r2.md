@@ -1,5 +1,15 @@
 # Traslado del paquete `902991e` al laboratorio: guiones r2 (corregidos y probados en banco)
 
+> **Actualización (06-nov, 19:50Z): estado 2 ALCANZADO.**
+> - Mark ejecutó el comando de §5 y terminó con **rc 0, «TRASLADO COMPLETO» 3/3** (`RUN=20261106T194952Z-10146`).
+> - Las comprobaciones de §6 pasan en el bastión, Sensor1 y srv-dmz.
+> - Evidencia en [`../evidencia/15-traslado-902991e/`](../evidencia/15-traslado-902991e/).
+> - El primer intento acabó en rc 2, sin conexión, por la ruta larga de Windows: hay que lanzar el guion desde `~`
+>   con su ruta absoluta.
+> - P0 (estado 3) y E-carga (estado 4) siguen pendientes. E-carga no está ni ejecutada ni programada.
+>
+> El texto de abajo se conserva tal como se revisó.
+
 **Estado: guiones corregidos y probados en banco. NO se ha ejecutado ninguna copia.** No hubo ninguna conexión ni
 escritura en el laboratorio. No se ha arrancado ningún generador, no se ha modificado ningún servicio, no se ha
 activado ninguna restricción, no se ha ejecutado ni programado E-carga y no se ha iniciado la 4B ni la 4C.

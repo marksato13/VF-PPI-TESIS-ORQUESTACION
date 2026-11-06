@@ -1,5 +1,10 @@
 # Etapa 4A: pendientes del cierre complementario (P1, P3, P4, P5) e integración en sombra (2026-11-06)
 
+> **Estado actualizado (06-nov, 19:50Z): paquete `902991e` COPIADO Y VERIFICADO en el bastión, Sensor1 y srv-dmz
+> (rc 0, 3/3).** Evidencia en [`evidencia/15-traslado-902991e/`](evidencia/15-traslado-902991e/). En los hosts, el
+> paquete utilizable es `~/cf-e4/paquete-902991e`, con su marca `VERIFICADO`. P0 y E-carga siguen pendientes; E-carga
+> no está ni ejecutada ni programada.
+>
 > **Estado actualizado (06-nov, noche, 3): guiones de traslado del paquete `902991e` corregidos (r2) y probados en
 > banco. NO se ha copiado nada al laboratorio. E-carga NO ejecutada y NO programada.**
 > - **Defectos de los guiones anteriores** (`evidencia/13-correccion-s14/`, ahora **sustituidos**, conservados sin
