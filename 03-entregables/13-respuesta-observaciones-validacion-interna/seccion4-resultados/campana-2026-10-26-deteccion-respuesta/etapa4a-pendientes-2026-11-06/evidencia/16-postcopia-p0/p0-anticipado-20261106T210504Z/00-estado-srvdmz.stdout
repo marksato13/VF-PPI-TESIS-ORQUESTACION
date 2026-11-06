@@ -1,0 +1,32 @@
+406ce22a2aa99cdaf2bc543b61257d675ab53fe38a4d65107cb10dd4f94c6cb0  -
+== srvdmz srv-dmz adminsrvdmz
+epoch 1793999109.213592033 utc 2026-11-06T21:05:09Z
+Timezone=Etc/UTC
+LocalRTC=no
+NTP=yes
+NTPSynchronized=yes
+rc_timedatectl=0
+chrony=inactive chronyd=inactive systemd-timesyncd=active ntp=inactive ntpsec=inactive 
+       Server: 185.125.190.57 (ntp.ubuntu.com)
+Poll interval: 34min 8s (min: 32s; max 34min 8s)
+         Leap: normal
+      Version: 4
+      Stratum: 2
+    Reference: 1D586304
+    Precision: 1us (-25)
+Root distance: 4.371ms (max: 5s)
+       Offset: +171us
+        Delay: 154.282ms
+       Jitter: 400us
+ Packet count: 42
+rc_timesync_status=0
+-- procesos con --aplicar/--enforce:
+ninguno
+CON_APLICAR=no
+Filesystem                         Size  Used Avail Use% Mounted on
+/dev/mapper/ubuntu--vg-ubuntu--lv   17G  6,8G  9,4G  42% /
+/dev/mapper/ubuntu--vg-ubuntu--lv   17G  6,8G  9,4G  42% /
+               total        used        free      shared  buff/cache   available
+Mem:            1967         397        1074           1         656        1569
+Swap:           1882           0        1882
+ 21:05:09 up 21:04,  2 users,  load average: 0,00, 0,00, 0,00

@@ -1,0 +1,12 @@
+p0_anticipado 2026-11-06.1
+inicio 2026-11-06T21:05:04Z portatil_epoch 1793999104
+00-estado-bastion host=bastion rc=0 transporte=igual bloque=estado_host.sh sha=406ce22a2aa9
+00-estado-sensor1 host=sensor1 rc=0 transporte=igual bloque=estado_host.sh sha=406ce22a2aa9
+00-estado-srvdmz host=srvdmz rc=0 transporte=igual bloque=estado_host.sh sha=406ce22a2aa9
+01-verificar-bastion host=bastion rc=0 transporte=igual bloque=verificador.sh sha=0b2fd4ab1238
+02-verificar-sensor1 host=sensor1 rc=0 transporte=igual bloque=verificador.sh sha=0b2fd4ab1238
+03-verificar-srvdmz host=srvdmz rc=0 transporte=igual bloque=verificador.sh sha=0b2fd4ab1238
+04-precheck-s11 host=bastion rc=0 transporte=igual bloque=precheck.sh sha=b3127eddb289
+05-clientes host=bastion rc=0 transporte=igual bloque=clientes_desde_bastion.sh sha=9a5dd0dda3a7
+06-sensor1-comprobar host=sensor1 rc=0 transporte=igual bloque=sensor1_p0.sh sha=f02479681fd3
+fin 2026-11-06T21:05:27Z portatil_epoch 1793999127

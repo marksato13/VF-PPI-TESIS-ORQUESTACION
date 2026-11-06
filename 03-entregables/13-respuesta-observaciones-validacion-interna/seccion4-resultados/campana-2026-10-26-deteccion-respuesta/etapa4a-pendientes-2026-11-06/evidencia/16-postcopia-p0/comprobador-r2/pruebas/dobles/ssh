@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# DOBLE de ssh del banco del comprobador post-copia. NO conecta con nada: cada host es el directorio $SIM/<host>.
+# Ejecuta la orden remota con bash y HOME=$SIM/<host>/home. stdin pasa tal cual.
+#   DOBLE_FALLA_SSH=host[,host]  -> rc 255 sin ejecutar nada en ese destino (si es el bastión, falla todo el salto)
+#   DOBLE_CR_FINAL=host          -> simula un transporte que añade "\r\n" a los bytes decodificados en ese host
+set -u
+: "${SIM:?SIM sin definir}"
+host_de() { case "${1#*@}" in 10.10.10.30) echo bastion;; 10.10.60.11) echo sensor1;; 10.10.30.10) echo srvdmz;; *) echo "";; esac; }
+dest=""; args=()
+while [ $# -gt 0 ]; do
+  case "$1" in
+    -o|-i|-p|-F|-l|-E) shift 2;;
+    --) shift;;
+    -*) shift;;
+    *) if [ -z "$dest" ]; then dest=$1; else args+=("$1"); fi; shift;;
+  esac
+done
+h=$(host_de "$dest")
+command -p mkdir -p "$SIM/log"
+cmd="${args[*]:-}"
+printf 'ssh %s bytes=%s\n' "${h:-?}" "${#cmd}" >> "$SIM/log/ordenes.log"
+if [ -z "$h" ]; then echo "ssh(doble): host desconocido '$dest'" >&2; exit 255; fi
+case ",${DOBLE_FALLA_SSH:-}," in *",$h,"*) echo "ssh: connect to host $dest port 22: Connection timed out (doble)" >&2; exit 255;; esac
+if [ "${DOBLE_CR_FINAL:-}" = "$h" ]; then cmd=$(printf '%s' "$cmd" | sed 's/base64 -d |/{ base64 -d; printf "\\r\\n"; } |/g'); fi
+HD="$SIM/$h"; command -p mkdir -p "$HD/home"
+# En el host, las órdenes que escriben o cambian estado son dobles «prohibido» ($DOBLES_REMOTO va primero en PATH)
+( cd "$HD/home" && HOME="$HD/home" PATH="${DOBLES_REMOTO:+$DOBLES_REMOTO:}$PATH" bash -c "$cmd" ); rc=$?
+printf 'ssh %s rc=%s\n' "$h" "$rc" >> "$SIM/log/ordenes.log"
+exit $rc

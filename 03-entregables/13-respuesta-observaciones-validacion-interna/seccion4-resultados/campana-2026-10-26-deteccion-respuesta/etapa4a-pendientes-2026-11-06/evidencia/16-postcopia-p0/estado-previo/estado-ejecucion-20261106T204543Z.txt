@@ -1,0 +1,93 @@
+######## BASTIÓN
+== VM-GESTION gadmin 2026-11-06T20:45:43Z
+-- procesos E-carga (pgrep -af)
+(ninguno)
+-- temporizadores (todos)
+(ninguno relacionado)
+-- unidades transitorias run-*
+  run-lock.mount      loaded active mounted Legacy Locks Directory /run/lock
+  run-user-1000.mount loaded active mounted /run/user/1000
+-- unidades de usuario
+(ninguna relacionada)
+-- crontab
+(vacío)
+-- at
+(at no instalado)
+rc=0
+######## CLIENTES
+== clientesadmin adminclientes 2026-11-06T20:45:44Z
+-- procesos E-carga (pgrep -af)
+(ninguno)
+-- temporizadores (todos)
+(ninguno relacionado)
+-- unidades transitorias run-*
+● run-credentials-systemd\x2dresolved.service.mount                          not-found inactive dead    run-credentials-systemd\x2dresolved.service.mount
+● run-credentials-systemd\x2dsysctl.service.mount                            not-found inactive dead    run-credentials-systemd\x2dsysctl.service.mount
+● run-credentials-systemd\x2dsysusers.service.mount                          not-found inactive dead    run-credentials-systemd\x2dsysusers.service.mount
+● run-credentials-systemd\x2dtmpfiles\x2dclean.service.mount                 not-found inactive dead    run-credentials-systemd\x2dtmpfiles\x2dclean.service.mount
+● run-credentials-systemd\x2dtmpfiles\x2dsetup.service.mount                 not-found inactive dead    run-credentials-systemd\x2dtmpfiles\x2dsetup.service.mount
+● run-credentials-systemd\x2dtmpfiles\x2dsetup\x2ddev.service.mount          not-found inactive dead    run-credentials-systemd\x2dtmpfiles\x2dsetup\x2ddev.service.mount
+● run-credentials-systemd\x2dtmpfiles\x2dsetup\x2ddev\x2dearly.service.mount not-found inactive dead    run-credentials-systemd\x2dtmpfiles\x2dsetup\x2ddev\x2dearly.service.mount
+  run-user-1000.mount                                                        loaded    active   mounted /run/user/1000
+-- unidades de usuario
+(ninguna relacionada)
+-- crontab
+no crontab for adminclientes
+-- at
+(at no instalado)
+cyberflow-lab.target         active=inactive enabled=disabled
+cyberflow-lab-ofimatica      active=inactive enabled=disabled
+cyberflow-lab-navegacion     active=inactive enabled=disabled
+cyberflow-lab-descargas      active=inactive enabled=disabled
+cyberflow-lab-aplicacion     active=inactive enabled=disabled
+cyberflow-lab-ligero         active=inactive enabled=disabled
+cyberflow-lab-erratico       active=inactive enabled=disabled
+rc=0
+######## SENSOR1
+== cyberflow-sensor m4rk 2026-11-06T20:45:45Z
+-- procesos E-carga (pgrep -af)
+(ninguno)
+-- temporizadores (todos)
+Fri 2026-11-06 20:50:00 UTC 4min 14s Fri 2026-11-06 20:40:00 UTC  5min ago cyberflow-acumular.timer       cyberflow-acumular.service
+Fri 2026-11-06 20:50:00 UTC 4min 14s Fri 2026-11-06 20:45:00 UTC   44s ago cyberflow-limpieza.timer       cyberflow-limpieza.service
+Sat 2026-11-07 00:30:00 UTC 3h 44min Fri 2026-11-06 00:30:00 UTC   20h ago cyberflow-aprendizaje.timer    cyberflow-aprendizaje.service
+-- unidades transitorias run-*
+● run-credentials-systemd\x2dresolved.service.mount                          not-found inactive dead    run-credentials-systemd\x2dresolved.service.mount
+● run-credentials-systemd\x2dsysctl.service.mount                            not-found inactive dead    run-credentials-systemd\x2dsysctl.service.mount
+● run-credentials-systemd\x2dsysusers.service.mount                          not-found inactive dead    run-credentials-systemd\x2dsysusers.service.mount
+● run-credentials-systemd\x2dtmpfiles\x2dclean.service.mount                 not-found inactive dead    run-credentials-systemd\x2dtmpfiles\x2dclean.service.mount
+● run-credentials-systemd\x2dtmpfiles\x2dsetup.service.mount                 not-found inactive dead    run-credentials-systemd\x2dtmpfiles\x2dsetup.service.mount
+● run-credentials-systemd\x2dtmpfiles\x2dsetup\x2ddev.service.mount          not-found inactive dead    run-credentials-systemd\x2dtmpfiles\x2dsetup\x2ddev.service.mount
+● run-credentials-systemd\x2dtmpfiles\x2dsetup\x2ddev\x2dearly.service.mount not-found inactive dead    run-credentials-systemd\x2dtmpfiles\x2dsetup\x2ddev\x2dearly.service.mount
+  run-user-1000.mount                                                        loaded    active   mounted /run/user/1000
+-- unidades de usuario
+(ninguna relacionada)
+-- crontab
+(vacío)
+-- at
+(at no instalado)
+rc=0
+######## SRV-DMZ
+== srv-dmz adminsrvdmz 2026-11-06T20:45:46Z
+-- procesos E-carga (pgrep -af)
+(ninguno)
+-- temporizadores (todos)
+(ninguno relacionado)
+-- unidades transitorias run-*
+● run-credentials-systemd\x2dresolved.service.mount                          not-found inactive dead    run-credentials-systemd\x2dresolved.service.mount
+● run-credentials-systemd\x2dsysctl.service.mount                            not-found inactive dead    run-credentials-systemd\x2dsysctl.service.mount
+● run-credentials-systemd\x2dsysusers.service.mount                          not-found inactive dead    run-credentials-systemd\x2dsysusers.service.mount
+● run-credentials-systemd\x2dtmpfiles\x2dclean.service.mount                 not-found inactive dead    run-credentials-systemd\x2dtmpfiles\x2dclean.service.mount
+● run-credentials-systemd\x2dtmpfiles\x2dsetup.service.mount                 not-found inactive dead    run-credentials-systemd\x2dtmpfiles\x2dsetup.service.mount
+● run-credentials-systemd\x2dtmpfiles\x2dsetup\x2ddev.service.mount          not-found inactive dead    run-credentials-systemd\x2dtmpfiles\x2dsetup\x2ddev.service.mount
+● run-credentials-systemd\x2dtmpfiles\x2dsetup\x2ddev\x2dearly.service.mount not-found inactive dead    run-credentials-systemd\x2dtmpfiles\x2dsetup\x2ddev\x2dearly.service.mount
+  run-user-1000.mount                                                        loaded    active   mounted /run/user/1000
+  run-user-999.mount                                                         loaded    active   mounted /run/user/999
+-- unidades de usuario
+(ninguna relacionada)
+-- crontab
+(vacío)
+-- at
+(at no instalado)
+rc=0
+rc_bastion_ssh=0
