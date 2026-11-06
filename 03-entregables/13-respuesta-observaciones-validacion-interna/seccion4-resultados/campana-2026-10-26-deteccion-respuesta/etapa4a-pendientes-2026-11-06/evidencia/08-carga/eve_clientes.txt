@@ -1,0 +1,14 @@
+-rw-r--r--  1 root root    43798514 nov  6 06:31 eve.json
+-rw-r--r--  1 root root    84086784 oct  5 18:50 eve.json.1-2026100600.backup
+-rw-r--r--  1 root root   113516544 oct  9 13:53 eve.json.1-2026101000.backup
+-rw-r--r--  1 root root   138301440 oct 21 19:07 eve.json.1-2026102200.backup
+-rw-r--r--  1 root root   926269440 oct 30 15:50 eve.json.1-2026103100.backup
+-rw-r--r--  1 root root   413306880 nov  5 23:57 eve.json.1-2026110600.backup
+-rw-r--r--  1 root root        3243 nov  5 23:59 eve.json.1.gz
+-rw-r--r--  1 root root    68989373 nov  4 00:00 eve.json.3.gz
+-rw-r--r--  1 root root    46319681 nov  3 00:00 eve.json.4.gz
+-rw-r--r--  1 root root    64185399 nov  2 00:00 eve.json.5.gz
+<stdin>:21: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+eventos flow leídos: 23410 líneas ilegibles: 0
+ventana 04:50-05:50Z, flujos con origen 10.10.20.20-26: {'10.10.20.20': 2} paquetes: {'10.10.20.20': 4}
+flujos de esos orígenes por hora UTC (todo eve.json): {'11-06 00': 22, '11-06 01': 1, '11-06 02': 2, '11-06 03': 2, '11-06 04': 34, '11-06 05': 1, '11-06 06': 1}

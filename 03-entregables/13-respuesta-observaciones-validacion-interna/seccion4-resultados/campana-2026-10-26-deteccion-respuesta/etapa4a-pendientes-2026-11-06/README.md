@@ -1,22 +1,60 @@
 # Etapa 4A: pendientes del cierre complementario (P1, P3, P4, P5) e integración en sombra (2026-11-06)
 
-> **Veredicto.** P1, P4 y P5 están **resueltos y verificados**; P3 está **explicado, con incertidumbre declarada**; el
-> instalador quedó **corregido y probado con fallos deliberados**. La integración en sombra (relé `--entrega paquete`,
-> agente `--paquete`) funcionó toda la ventana fija de 60 min: **O1–O11 cumplen**. Hay tres resultados desfavorables,
-> que se publican tal cual:
-> 1. **O12, carga insuficiente:** 587 592 paquetes frente al umbral de 596 789. La observación **no permite concluir nada
->    sobre descartes bajo carga**; sí demuestra la medida (C0, `cero_explicito`) con la carga que hubo.
-> 2. **Criterio §3 «`verificar_*.sh` sin FALLO» no cumplido tal como está escrito:** 3 FALLO en los guiones de la 4A.
->    Dos esperan **activo** el v1 que el cierre retiró a propósito; el otro busca `motor_startup` solo en el registro
->    actual, y la rotación diaria lo dejó en `.1`. Cada condición real se comprobó por otra vía (§8), pero el
->    criterio no se flexibiliza.
-> 3. **Un error mío en la observación:** el verificador de PCAP tenía mal calculada la hora de fin (06:11:30Z). Siguió
->    leyendo, solo lectura, después de la ventana y lo detuve a las 05:56:25Z. No afecta a ningún dato de la ventana.
+> **Estado actualizado (06-nov, 06:29Z): verificadores corregidos.**
+> - `verificar_bastion.sh`, `verificar_sensor1.sh` y `verificar_srvdmz.sh` dan **rc 0** con los guiones corregidos
+>   (producto `a1cea5e`, ejecución de solo lectura, §8b).
+> - Los 3 FALLO antiguos eran defectos de los guiones. Se conservan tal cual en `evidencia/06-observacion/verif-post.txt`.
+> - La corrección **no** relaja nada:
+>   - v1 debe estar inactivo, no habilitado y sin procesos;
+>   - el `motor_startup` debe ser el del proceso vigente;
+>   - cualquier error de lectura es FALLO.
 >
-> **¿Está listo para iniciar el control formal de la 4B? Todavía no, por un único motivo:** el §3 sin FALLO. Para
-> cerrarlo basta corregir los dos guiones de verificación, probarlos en banco y volver a ejecutarlos (solo lectura, sin
-> reinstalar nada). P1 está cerrado y la integración verificada por O1–O11. La 4C y la campaña B **no** están
-> autorizadas: I5 se seguirá exigiendo en los 30 min previos a la 4C, y la carga de esta hora no sirve para eso.
+> **Sigue sin demostrarse la estabilidad con carga suficiente.**
+> - O12 es «carga insuficiente» y lo sigue siendo.
+> - En esa hora **no funcionaba ningún generador legítimo**:
+>   - 0 flujos de 10.10.20.21–26;
+>   - 0 ráfagas;
+>   - 0 flujos grandes;
+>   - pps máximo 391, frente a 2 426 en el ensayo del 04-nov.
+> - Se propone el ensayo **E-carga** dentro de la 4A ([`PROTOCOLO-CARGA.md`](PROTOCOLO-CARGA.md)). Está publicado y
+>   **no ejecutado**.
+>
+> **¿Se puede iniciar el control formal de la 4B? Todavía no.**
+> - Queda una sola condición técnica: E-carga con resultado «estable con carga suficiente» (§0).
+> - La 4B se puede seguir preparando.
+> - La 4C y la campaña B **no** están autorizadas.
+>
+> **El veredicto original de este informe sigue debajo, sin cambios, como registro.** Las partes que esta
+> actualización corrige están anotadas en §0, §4, §8 y §9.
+>
+> ---
+>
+> **Veredicto original (06-nov, 05:56Z).**
+> - P1, P4 y P5 están **resueltos y verificados**.
+> - P3 está **explicado, con incertidumbre declarada**.
+> - El instalador quedó **corregido y probado con fallos deliberados**.
+> - La integración en sombra (relé `--entrega paquete`, agente `--paquete`) funcionó toda la ventana fija de 60 min:
+>   **O1–O11 cumplen**.
+>
+> Hay tres resultados desfavorables, que se publican tal cual:
+> 1. **O12, carga insuficiente:** 587 592 paquetes frente al umbral de 596 789. La observación **no permite concluir nada
+>    sobre descartes bajo carga**. Sí demuestra la medida (C0, `cero_explicito`) con la carga que hubo.
+> 2. **Criterio §3 «`verificar_*.sh` sin FALLO» no cumplido tal como está escrito:** 3 FALLO en los guiones de la 4A.
+>    - Dos esperan **activo** el v1 que el cierre retiró a propósito.
+>    - El otro busca `motor_startup` solo en el registro actual, y la rotación diaria lo dejó en `.1`.
+>    - Cada condición real se comprobó por otra vía (§8), pero el criterio no se flexibiliza.
+> 3. **Un error mío en la observación:** el verificador de PCAP tenía mal calculada la hora de fin (06:11:30Z). Siguió
+>    leyendo, solo lectura, después de la ventana, y lo detuve a las 05:56:25Z. No afecta a ningún dato de la ventana.
+>
+> **¿Está listo para iniciar el control formal de la 4B? Todavía no, por un único motivo:** el §3 sin FALLO.
+> - Para cerrarlo basta corregir los dos guiones de verificación, probarlos en banco y volver a ejecutarlos (solo
+>   lectura, sin reinstalar nada).
+> - P1 está cerrado y la integración verificada por O1–O11.
+> - La 4C y la campaña B **no** están autorizadas: I5 se seguirá exigiendo en los 30 min previos a la 4C, y la carga de
+>   esta hora no sirve para eso.
+>
+> *(Corregido el 06-nov, 06:29Z, en §0: el §3 ya está cerrado, pero el motivo no era único. La integración no se había
+> observado nunca con los perfiles legítimos activos.)*
 
 Petición: la de Mark del 06-nov («cierra los pendientes del cierre complementario antes de la 4B»), en siete partes, y
 su corrección posterior sobre la seguridad del instalador (códigos de salida, `systemd-analyze verify`, respaldo
@@ -26,6 +64,76 @@ Mark ejecutó el único paso con sudo con contraseña (bastión); nunca se pidi�
 
 No se inició la 4B, la 4C ni la campaña B. No hubo ataques, generadores ni restricciones. No se cambiaron las 28
 features, el modelo, los umbrales α, las reglas ni la política `if_senal`; no se reentrenó; no se tocó el Word.
+
+Segunda petición de Mark (06-nov): continuar el cierre de la 4A sin iniciar la 4B, la 4C ni la campaña B, en seis
+partes:
+1. referencias;
+2. verificadores corregidos;
+3. pruebas que detecten fallos reales;
+4. protocolo de carga;
+5. conclusiones ajustadas a la evidencia;
+6. publicación.
+
+Respuesta: §0, §8b, [`PROTOCOLO-CARGA.md`](PROTOCOLO-CARGA.md) y `evidencia/07-verificadores/` y `08-carga/`.
+
+Tampoco esta vez se reinstaló ni se reinició ningún servicio. No se arrancó ningún generador y no se cambió ninguna
+configuración de captura ni de Suricata.
+
+## 0. Conclusiones separadas y criterio único de avance (06-nov, 06:29Z)
+
+**Referencias confirmadas** (fetch del 06-nov, 06:0xZ; `git log` de ambos repositorios):
+- **Producto:** <https://github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos>,
+  rama `recuperacion/etapa4a-pendientes-20261106`.
+  - No había ningún commit posterior a `b18c286`. El único posterior es el de esta corrección, **`a1cea5e`**: solo
+    toca los dos verificadores, un módulo nuevo de solo lectura y sus pruebas.
+  - Detector instalado: `ec78ca5`. Es ancestro de `b18c286` y de `a1cea5e`.
+- **Panel:** `93f076e`, en `panel/cadena-v2-20261104`. **No** es ancestro de esta rama.
+- **Demostración:** `as-deployed-sensor` `ca66db5`, etiqueta `demo-politica-AC-2026-11-03`. Va aparte y no se mezcla:
+  nada de esta rama procede de ella ni se instala sobre ella.
+- **Documentación:** <https://github.com/marksato13/VF-PPI-TESIS-ORQUESTACION>, `main` en `da4c3a0`, sin commits
+  posteriores. El commit que publica esta actualización figura en el historial de `main`.
+
+**Conclusiones, cada una con su propio alcance:**
+
+| Conclusión | ¿Demostrada? | Alcance exacto y evidencia |
+|---|---|---|
+| **C0: calidad de la fuente en el periodo medido** | **Sí, solo en esa ventana** | 04:50–05:50Z del 06-nov: anillo C0, vía rápida C0 y Suricata `cero_explicito`, con 587 592 paquetes (§8, O5). Con esa carga, sin ráfagas ni flujos grandes. No se extiende a otras horas ni a otra carga |
+| **Estabilidad de la integración** | **Sí, sin carga controlada** | O1–O11 en la misma ventana: servicios continuos, 180 entregas = 180 aceptadas en orden, 0 `firma_invalida`/`paquete_invalido`, rulesets iguales y hashes iguales. Los verificadores corregidos dan rc 0 (§8b) |
+| **Estabilidad con carga suficiente** | **No demostrada** | O12 «carga insuficiente». No había generadores legítimos y la intensidad fue mucho menor que en la referencia (`PROTOCOLO-CARGA.md` §1). Pendiente de E-carga |
+| **Detección oportuna** | **No evaluada** | Sin ataques. Esta etapa no la mide |
+| **Aplicación de una restricción** | **No evaluada** | En sombra: 0 eventos `aplicacion`, sin `--aplicar`/`--enforce`. Los feeds tenían `entradas: []` |
+| **Efecto real sobre el ataque y sobre el tráfico legítimo** | **No evaluado** | Requiere aplicación real (4C/campaña B, no autorizadas) |
+
+**Lo que prueban las 180 entregas aceptadas.**
+- Prueban el **transporte del feed firmado** (paquete `feed.par`, firma ed25519, secuencia e idempotencia) desde
+  Sensor1 hasta srv-dmz durante esa ventana.
+- **No** prueban eficacia frente a ataques ni la aplicación de restricciones: el sistema estaba en sombra y los feeds
+  no llevaban medidas.
+
+**`rx_dropped` (P3).**
+- Las tramas 802.3/LLC dentro de VLAN examinadas aparecen en los PCAP.
+- Los contadores de descarte del driver y de softnet no subieron.
+- La tasa de esas tramas coincide con la de `rx_dropped`.
+- **No se comprobó cada incremento del contador por separado.** Por tanto no se afirma la ausencia universal de
+  pérdida, solo que no hay evidencia de pérdida en lo examinado (§4).
+
+**C3 histórico.** La ventana del ensayo del 04-nov **sigue siendo C3**. La medida retrospectiva con la herramienta
+nueva (§3) no la reclasifica.
+
+**I5.** Las lecturas «cumple» del 06-nov son **informativas** y **no autorizan** la 4C, ni ahora ni más adelante. I5 se
+vuelve a comprobar, con una lectura propia, en los 30 min previos al inicio real de la 4C.
+
+**Criterio único de avance** (sustituye a la respuesta «por un único motivo» del veredicto original; vale para todo
+este informe):
+
+| Paso | Condiciones, todas necesarias | Estado |
+|---|---|---|
+| **Control formal de la 4B** | (1) `verificar_*.sh` sin FALLO, con los guiones corregidos | **Cumple** (`a1cea5e`, rc 0 en los tres, §8b) |
+| | (2) O1–O11 de la integración en sombra | **Cumple** (§8) |
+| | (3) E-carga con resultado «estable con carga suficiente» ([`PROTOCOLO-CARGA.md`](PROTOCOLO-CARGA.md)) | **Pendiente**: publicado, no ejecutado. Necesita una orden de Mark |
+| **4C y campaña B** | Lo anterior, el resultado de la 4B y **I5** en los 30 min previos a su inicio real; la población principal sigue siendo **C0** | **No autorizadas** |
+
+Mientras falte (3), la 4B **puede prepararse, pero no iniciarse**.
 
 ## 1. Versiones y hashes
 
@@ -40,19 +148,31 @@ features, el modelo, los umbrales α, las reglas ni la política `if_senal`; no 
 | Herramientas de medida en Sensor1 (sin sudo) | `~/cyberflow-e4/herramientas-20261106`: `salud_captura.py` `274b4d61…` (VERSION `2026-11-06.1`), `clasificar_periodo.py` `65af5e53…`, `vigia_4c.py` `2fe00200…`, `evidencia.sh` `ead0eab0…` (del paquete `313f8f8`; `b18c286` no las cambia) |
 | Bastión instalado | `relay_eventos.py` `d21a3da2…`, `feed.py` `c41be50e…`, `pub.pem` `7ce39571…`, unidad `e7f89e15…` (`--entrega paquete`) |
 | srv-dmz instalado | `agente_enforce_v2.py` `7884a6ba…`, `feed.py` `c41be50e…`, `pub.pem` `7ce39571…`, `cf-feed-ssh.sh` `c5701056…`, `cf-nft-helper` `3ba6374f…` (sin cambios), unidad `80e9aa62…` (`--paquete`) |
+| Verificadores corregidos (06-nov, 06:29Z) | **`a1cea5e`** sobre `b18c286`. Cambia solo `verificar_bastion.sh`, `verificar_sensor1.sh`, el nuevo `comun/verif_estado.py` (VERSION `2026-11-06.1`) y `tests/test_etapa4_verificadores.py`. Paquete `~/cf-e4/paquete-a1cea5e` en los tres hosts: tgz `103d39ff…`, `SHA256SUMS` interno `d08a7d1f…`, verificado. **Se copió; no se instaló ni se reinició nada** |
 
 ## 2. Matriz: pendiente → corrección → prueba → resultado → evidencia
 
 | # | Pendiente (cierre 4A §11) | Corrección | Prueba | Resultado | Evidencia |
 |---|---|---|---|---|---|
 | **P1** | I5/C0 no demostrables: Suricata 7 omite los ceros en `stats.log` | `salud_captura` 2026-11-06.1 mide Suricata con los eventos `stats` de EVE (cero explícito / descartes / ausente / desactualizada / error / cobertura insuficiente; reinicio por identidad `t − uptime`; rotación .1/.gz; huecos). Integrada en `clasificar_periodo` (`--suricata-eve`), `vigia_4c` e I5 | 34 casos en banco (`test_etapa4_salud_eve.py`), 2 551 muestras reales del 04-nov; observación fija (§8) | **Resuelto**: la herramienta da estados medidos y no convierte una ausencia en cero. En vivo: ventana de observación **C0** (`cero_explicito`, 587 592 paquetes, 452 muestras, sin reinicio); I5 informativo **cumple** | §3, `evidencia/04-p1-medida/`, `evidencia/06-observacion/` |
-| P3 | `rx_dropped` ≈ 14/s sin causa demostrada | Ninguna (diagnóstico, solo lectura) | Contadores separados del driver, del núcleo y de softnet; recuento de tramas en los PCAP | **Explicado con incertidumbre declarada**: contador del núcleo, no del driver; tramas 802.3/LLC dentro de VLAN sin manejador; no es pérdida de captura | §4, `evidencia/01-rx_dropped/` |
+| P3 | `rx_dropped` ≈ 14/s sin causa demostrada | Ninguna (diagnóstico, solo lectura) | Contadores separados del driver, del núcleo y de softnet; recuento de tramas en los PCAP | **Explicado con incertidumbre declarada**: contador del núcleo, no del driver; compatible con tramas 802.3/LLC dentro de VLAN sin manejador, que aparecen en los PCAP examinados; no se comprobó cada incremento (§0, §4) | §4, `evidencia/01-rx_dropped/` |
 | **P4** | `firma_invalida` transitorio en el agente v2 | Entrega en un solo fichero `feed.par` (feed + firma + sha256), publicado con **un** `rename`; el agente lo lee con `--paquete`. Firma, secuencia e idempotencia sin cambios | Reproducción determinista en banco; cadena completa; interrupciones; concurrencia; laboratorio | **Resuelto en banco y en la observación**: 180 entregas en modo paquete, 180 aceptadas en orden, 0 `firma_invalida`, 0 `paquete_invalido` | §5, `evidencia/02-firma_invalida/`, `evidencia/03-banco/` |
 | P5 | `SHA256SUMS` de `salida.txt` calculado antes de la última línea | `evidencia.sh`: `ev_sellar` cierra el `tee`, espera, comprueba 1 s sin cambios y solo entonces sella y verifica | 3 casos en banco (incluido un escritor que sigue escribiendo: «PARADA», no sella) | **Resuelto**: todas las carpetas de evidencia de hoy verifican | §6 |
 | Instalador | (revisión de Mark de `313f8f8`) rc no comprobados, `verify` decidido por texto, evidencia dentro del respaldo | `p4_comun.sh`: cada paso con rc real; respaldo inmutable separado; reversión automática verificada (rc 20) o parada manual (rc 30) | 33 casos con errores deliberados en cada paso crítico | **Resuelto**: ningún falso OK; respaldo verificable; recuperación correcta; sombra conservada | §7, `evidencia/03-banco/regresion-instaladores.txt` |
+| Verificadores (§3) | 3 FALLO falsos en `verif-post.txt` | `verif_estado.py`: v1 retirado (unidades y procesos) y arranque del proceso vigente; los errores se propagan (`a1cea5e`) | 52 casos (50 como root y 2 de permisos sin root); regresión de los 3 FALLO con los valores reales | **Resuelto**: rc 0 en bastión, Sensor1 y srv-dmz, solo lectura | §8b, `evidencia/07-verificadores/` |
 
 Regresión completa del producto en banco Linux (Docker, sin red, repo de solo lectura): **786 passed, 7 skipped** en
 `b18c286` (los 7 omitidos son los de siempre: compuerta sin el repo de docs montado y la prueba JS sin `node`).
+
+En `a1cea5e`: **835 passed, 9 skipped, 1 failed** (`evidencia/07-verificadores/regresion-a1cea5e.txt`).
+- **Omitidos:** los 7 de siempre y 2 casos de permisos que como root no aplican. Esos 2 pasan sin root
+  (`banco-verificadores-noroot.txt`: 52/52).
+- **El fallo** es `test_etapa4_evidencia_sellado.py::test_patron_antiguo_falla`. Esa prueba reproduce el defecto
+  **antiguo** de sellado provocando una carrera entre `tee` y `find`, así que su resultado depende del orden de
+  ejecución: falló 1 de cada 10 repeticiones, sin cambiar el código.
+- **No guarda relación con esta corrección:** `a1cea5e` no toca ni `evidencia.sh` ni esa prueba (`git diff --stat
+  b18c286 a1cea5e`: 4 ficheros, los de §1).
+- Se declara aquí y no se oculta. Convertirla en determinista queda pendiente (§12).
 
 ## 3. P1: medida de Suricata por EVE `stats`
 
@@ -90,8 +210,9 @@ muestra (≤ 20 s de antigüedad). Lecturas informativas (no inician nada):
 - 06-nov 05:54Z, después de la observación: `cumple`, `cero_explicito`, con 304 391 paquetes y 226 muestras entre
   05:24:07 y 05:54:07Z (`evidencia/06-observacion/verif-post.txt`).
 
-Estas lecturas solo comprueban que la medida funciona en vivo. I5 se evalúa en los 30 min previos al inicio real de
-la 4C, no antes.
+Estas lecturas solo comprueban que la medida funciona en vivo. **No son una autorización, y menos una permanente.**
+I5 se evalúa de nuevo, con una lectura propia, en los 30 min previos al inicio real de la 4C, no antes. Además, la
+carga de esas lecturas fue la de una red sin generadores legítimos (§0).
 
 ## 4. P3: `rx_dropped` de la NIC de captura (ens37), solo lectura
 
@@ -113,6 +234,15 @@ protocolo interno no tiene manejador termina en `dev_core_stats_rx_dropped_inc` 
 Recuento en los PCAP del anillo (`nic_pcap.txt`, 60 s): tramas 802.3/LLC dentro de VLAN ≈ 1,03/s en cada una de 14
 VLAN = **14,50/s**, frente a `rx_dropped` **14,03/s** en el mismo intervalo. **Esas tramas están en los PCAP**: no se
 pierde tráfico capturado.
+
+> **Precisión (06-nov, 06:29Z).** La frase anterior dice más de lo que se comprobó.
+> - Las tramas de ese tipo **examinadas** aparecen en los PCAP.
+> - Los contadores de descarte del driver y de softnet no subieron.
+> - Las tasas coinciden.
+> - Pero **no se comprobó cada incremento de `rx_dropped` por separado**.
+>
+> Lo demostrado es esto: no hay evidencia de pérdida de captura en lo examinado. No se afirma la ausencia universal de
+> pérdida.
 
 **Incertidumbre declarada.** (1) La lectura del código es sobre el núcleo 6.8 de upstream, no sobre las fuentes de
 Ubuntu `6.8.0-53-generic`. (2) La coincidencia 14,50/s ↔ 14,03/s es una correspondencia de tasas en un intervalo, no
@@ -239,20 +369,98 @@ Los tres son defectos de los guiones, no del sistema. Aun así el criterio está
 cumple**. Corrección propuesta, no aplicada: v1 retirado debe esperarse inactivo, y `motor_startup` debe buscarse
 también en el registro rotado. Después, prueba en banco y nueva ejecución de solo lectura.
 
+> **Resuelto el 06-nov a las 06:29Z (§8b).** Los guiones se corrigieron, se probaron y se ejecutaron en solo lectura:
+> rc 0 en los tres. Esta tabla y `verif-post.txt` se conservan como estaban.
+
+## 8b. Verificadores corregidos (`a1cea5e`)
+
+**Qué comprueba ahora cada guion.** El cálculo está en `deploy/etapa4/comun/verif_estado.py`, es solo de lectura y
+no necesita sudo. Un error nunca cuenta como prueba.
+
+- **v1 retirado** (`v1-retirado`). Se lee `systemctl show` de cada unidad.
+  - El timer debe estar `inactive` y `disabled`/`masked`.
+  - El servicio debe estar `inactive`. Si es `static`, solo cuenta cuando su timer está demostrado como retirado: un
+    `static` solo lo arranca su timer o una orden manual, y lo segundo lo cubre la búsqueda de procesos.
+  - **No debe haber ningún proceso** con un argumento cuyo nombre sea `publicar_feed.py` (Sensor1) o `relay-feed.sh`
+    (bastión). `publicar_feed_v2.py` no cuenta.
+  - Si `systemctl` falla, si faltan propiedades, si `/proc` está montado con `hidepid` o es ilegible, o si una línea
+    de órdenes no se puede leer, el resultado es FALLO «no demostrable».
+- **Arranque del proceso vigente** (`motor-arranque`):
+  1. Se toman el `MainPID` de `ppi-motor` y su inicio real (`btime` + `starttime` de `/proc`).
+  2. Se lee el registro actual y cada rotado (`.N` o `.N.gz`) cuya fecha de modificación no sea anterior a ese inicio.
+     Un rotado anterior no puede contener el arranque, y se informa cuántos se descartan.
+  3. Hace falta **exactamente un** `motor_startup` entre el inicio −1,5 s y el inicio +60 s, y ninguno posterior.
+  4. Ese evento debe coincidir con la **línea de ejecución** del PID en 11 opciones: modelo, manifiesto, detector,
+     disparo, EVE, captura, red, paso, historia, excluidas y protocolos.
+  5. Además debe tener `procesamiento: incremental` y un umbral igual al del **manifiesto** (leído del detector de la
+     línea de ejecución) y al **congelado** −0,5693969936322356.
+  - Si solo hay un arranque antiguo, es FALLO «solo hay arranques anteriores al proceso vigente», aunque su
+    configuración sea correcta.
+  - Si un registro está ausente, ilegible o corrupto, o si una línea de arranque está dañada, es FALLO «no demostrable».
+- **Guiones.** La nueva función `bloque()` marca FALLO cuando un bloque de comprobaciones termina con rc≠0 o no imprime
+  ningún OK. Antes, si el Python de la traza del relé fallaba, no salía ningún FALLO.
+  - El bastión comprueba además que el relé v2 usa `--entrega paquete`.
+  - «Sin dc1» ya no da OK cuando `systemctl cat` falla.
+  - Todas las demás comprobaciones siguen como estaban, entre ellas: candidato `ec78ca5` con `--disparo eventos` y sin
+    `--enforce`, `-G 5`, `SHA256SUMS`, importaciones, decisiones con `decision_if`/`auth_failure`/`http_vista`/`dns_vista`,
+    vía rápida, feed v2 < 60 s y firma, SIGUSR1, NTP y logrotate.
+- **Sin cambios** en el detector, el modelo, las 28 features, los umbrales, las reglas, la política `if_senal`, la
+  captura y Suricata.
+
+**Los 3 FALLO antiguos y su resolución:**
+
+| Guion · FALLO antiguo (`verif-post.txt`) | Causa | Comprobación nueva | Resultado nuevo (`verif-nuevo-a1cea5e.txt`) | Regresión en banco |
+|---|---|---|---|---|
+| `verificar_bastion.sh` · «relé v1 sigue activo e intacto» | Exigía `is-active ppi-relay-feed.timer`, el estado anterior al cierre que retiró v1 | `v1-retirado` del timer y del servicio, más la búsqueda de procesos `relay-feed.sh` | OK: timer `disabled/inactive`, servicio `static/inactive`, sin procesos | `test_bastion_estado_real_ok_y_regresion_v1`: con el estado real, el criterio antiguo da rc≠0 y el nuevo, OK |
+| `verificar_sensor1.sh` · «ppi-publicar-feed.timer activo» | Mismo defecto con el publicador v1 | `v1-retirado` del timer y del servicio, más la búsqueda de procesos `publicar_feed.py` | OK, igual que arriba | `test_v1_retirado_correctamente_sensor1` |
+| `verificar_sensor1.sh` · «motor_startup del candidato» | Solo leía `motor_decision.log`, y el arranque estaba en `.1` por la rotación de las 23:59:03. Además, cualquier arranque antiguo con ese umbral habría dado OK | `motor-arranque`: registro actual y rotados, y atribución al PID vigente | OK: PID 1384, inicio 1793923142,37, evento +1,47 s en `motor_decision.log.1`, 11 opciones coinciden y umbral = manifiesto = congelado | `test_arranque_vigente_en_registro_rotado_estado_real`, con los valores reales: actual sin arranques, `.1` con el vigente y `.2.gz` con dos antiguos |
+
+**Pruebas** (`tests/test_etapa4_verificadores.py`, 52 casos). Usan los guiones reales con un `systemctl` falso, una raíz
+`/proc` falsa (mountinfo, btime, stat y cmdline) y registros actuales, `.1` y `.N.gz`.
+
+| Caso pedido | Pruebas | Resultado esperado y obtenido |
+|---|---|---|
+| v1 retirado correctamente | Sensor1, bastión y unidades no instaladas | OK (rc 0) |
+| Timer o servicio v1 reactivado | Timer activo y habilitado, solo habilitado o arrancado a mano; servicio activo o habilitado; bastión completo con el timer activo | FALLO (rc 1). Con el timer no retirado, el servicio `static` tampoco pasa |
+| Proceso v1 residual con el timer apagado | `publicar_feed.py` vivo; `relay-feed.sh` vivo | FALLO con su PID; las unidades salen OK |
+| Fallo al consultar el estado | `systemctl` con rc 1, salida vacía o inexistente; `hidepid`; `/proc` sin mountinfo; cmdline ilegible (sin root) | FALLO «no demostrable», nunca OK |
+| Cadena v2 parada | Relé v2 `inactive` (guion del bastión completo); motor `inactive`; relé v2 sin `--entrega paquete` | FALLO |
+| Arranque vigente en el registro actual | Evento +1,47 s en `motor_decision.log` | OK |
+| Arranque vigente en un registro rotado | En `.1` (estado real) y en `.2.gz` | OK |
+| Solo un arranque antiguo, correcto pero ajeno | Los dos antiguos reales en `.1`; solo en un `.2.gz` anterior al inicio | FALLO |
+| Arranque con configuración incorrecta | Umbral, disparo, procesamiento, detector, paso, historia, modelo, excluidas, protocolos o EVE distintos de la ejecución; ejecución con otro disparo; manifiesto con otro umbral | FALLO «configuración distinta» o «≠ congelado» |
+| Registro ausente, ilegible o insuficiente | Actual ausente; `.gz` corrupto; `.1` sin permiso (sin root); línea de arranque corrupta; arranque sin marca de tiempo; dos arranques compatibles (ambiguo); arranque posterior; arranque > 60 s después; `stat` del PID ausente; `btime` ausente; manifiesto ilegible | FALLO «no demostrable» |
+| Propagación en los guiones | `bloque()` con rc≠0 o sin OK; traza del relé ausente | FALLO |
+
+- **Como root:** 50 passed y 2 skipped. Los dos omitidos se justifican porque con root `chmod 000` no impide leer.
+- **Sin root (uid 65534):** 52 passed.
+- Salidas: `evidencia/07-verificadores/banco-verificadores-{root,noroot}.txt`.
+
+**Ejecución en el laboratorio** (06-nov, 06:29:11–06:29:18Z; `verif_nuevo.sh`, salida `verif-nuevo-a1cea5e.txt`):
+
+| Host | Guion | rc | Resumen |
+|---|---|---|---|
+| Bastión (gadmin, sin sudo) | `verificar_bastion.sh` | **0** | Relé v2 activo, sin dc1 y en paquete. v1 retirado, sin procesos. Entrega hace 17,7 s; 4 742 entregas, p50 0,062 s. NTP |
+| Sensor1 (m4rk, sin sudo) | `verificar_sensor1.sh` | **0** | 6 servicios activos. v1 retirado, sin procesos. Arranque del proceso vigente demostrado. 1 995 decisiones con los campos nuevos. Vía rápida avanza. Feed v2 < 60 s y firma válida. SIGUSR1, NTP y logrotate. `NRestarts` 0/0/0 |
+| srv-dmz (`CON_SUDO=1`, solo lecturas) | `verificar_srvdmz.sh` (sin cambios) | **0** | Sombra demostrada (`con_aplicar=0`, `tablas_cyberflow=0`, `eventos_aplicacion=0`). feed.par < 60 s. El helper rechaza un perfil ajeno |
+
+No se reinstaló ni se reinició nada. El paquete solo se copió y se verificó.
+
 ## 9. Veredicto por componente
 
 | Componente | Veredicto |
 |---|---|
 | P1: medida de Suricata por EVE `stats` (`salud_captura` 2026-11-06.1, `clasificar_periodo`, `vigia_4c`, I5) | **Cerrado.** Probado en banco y en vivo: C0 y `cero_explicito` medidos, I5 informativo `cumple`. La ventana del ensayo del 04-nov sigue siendo C3 |
-| P3: `rx_dropped` | **Explicado con incertidumbre declarada.** Contador del núcleo, no del driver; las tramas están en los PCAP. Falta una traza trama a trama y las fuentes de Ubuntu (§4) |
+| P3: `rx_dropped` | **Explicado con incertidumbre declarada.** Contador del núcleo, no del driver. Las tramas examinadas están en los PCAP, pero no se comprobó cada incremento: no se afirma la ausencia universal de pérdida. Faltan una traza trama a trama y las fuentes de Ubuntu (§0, §4) |
 | P4: entrega `feed.par` | **Cerrado.** Reproducido, corregido, sin rechazos en banco ni en 180 entregas reales, firma y secuencia intactas |
 | P5: sellado de evidencia | **Cerrado.** Todas las carpetas de hoy verifican, también en la copia del repo |
 | Instalador `p4-instalador 2026-11-06.2` | **Correcto.** 33 casos con fallos deliberados; en el laboratorio, rc 0 en bastión y en srv-dmz, con respaldos estrictos fuera de la evidencia |
-| Integración en sombra (relé paquete + agente paquete) | **Verificada en O1–O11**, sin aplicaciones ni cambios de ruleset |
-| Carga de la observación (O12) | **Insuficiente.** No se concluye nada sobre descartes bajo carga |
-| Aceptación §3 (`verificar_*.sh` sin FALLO) | **No cumplida tal como está escrita:** 3 FALLO por defectos de los guiones (§8) |
+| Integración en sombra (relé paquete + agente paquete) | **Verificada en O1–O11**, sin aplicaciones ni cambios de ruleset, **con la carga de fondo de una red sin generadores**. Demuestra el transporte del feed firmado, no la eficacia (§0) |
+| Carga de la observación (O12) | **Insuficiente.** No se concluye nada sobre descartes bajo carga. No había generadores legítimos: 0 ráfagas y 0 flujos grandes (`PROTOCOLO-CARGA.md` §1) |
+| Aceptación §3 (`verificar_*.sh` sin FALLO) | ~~No cumplida tal como está escrita: 3 FALLO por defectos de los guiones (§8)~~ → **Cumplida el 06-nov a las 06:29Z** con los guiones corregidos `a1cea5e`: rc 0 en los tres (§8b) |
+| Estabilidad con carga suficiente | **No demostrada.** Protocolo E-carga publicado y no ejecutado |
 | Panel | Responde 401 sin sesión; sigue sin ver al agente (P6 del cierre, conocido) |
-| 4B, control formal | **Todavía no:** falta el §3 sin FALLO. Puede seguir preparándose |
+| 4B, control formal | **Todavía no:** falta E-carga (criterio único, §0). Puede seguir preparándose |
 | 4C y campaña B | **No autorizadas** |
 
 ## 10. Correcciones al cierre complementario
@@ -269,6 +477,13 @@ En `../etapa4a-cierre-complementario-2026-11-04/README.md` se añaden notas marc
 - **§11 P5:** resuelto (§6).
 
 Su `MANIFIESTO.sha256` se regenera porque cambia el README; las líneas de `evidencia/` no cambian.
+
+**06-nov, 06:29Z.** La nota del §6.3 sobre `rx_dropped` decía «que **sí** están en los PCAP». Recibe una precisión
+anotada en el mismo sitio: lo comprobado son las tramas examinadas, no cada incremento del contador. El manifiesto de
+esa carpeta se regenera otra vez; `evidencia/` sigue sin cambios.
+
+El informe de la instalación 4A (`../etapa4a-instalacion-2026-11-04/README.md`, línea «no es pérdida de captura»)
+no se modifica. En lo que respecta a `rx_dropped`, prevalecen §0 y §4 de este informe.
 
 ## 11. Procedimientos
 
@@ -288,6 +503,15 @@ Su `MANIFIESTO.sha256` se regenera porque cambia el README; las líneas de `evid
 
 - **Carga.** La hora observada tuvo menos carga que el umbral comparable (O12). No dice nada sobre descartes con
   ráfagas ni sobre P2 (anillo de Suricata con carga real).
+  - **Causa (hallada el 06-nov, 06:30Z):** los seis generadores legítimos estaban parados desde el reinicio del host
+    de clientes (05-nov 23:58Z; las unidades están `disabled`).
+  - La observación se planificó sin comprobar que funcionaran. Fue un fallo del protocolo de la observación, y por
+    eso P0 de E-carga lo comprueba antes de empezar.
+- **Los verificadores corregidos** atribuyen el arranque al proceso vigente por tiempo, línea de ejecución y umbral.
+  El evento `motor_startup` no lleva PID: si dos procesos con la misma configuración arrancaran en el mismo intervalo
+  de 61,5 s, la atribución sería ambigua. En ese caso el guion da FALLO «ambiguo»; no elige uno.
+- **Una prueba de regresión no determinista** (`test_patron_antiguo_falla`, ajena a esta corrección): falla en
+  ≈ 1 de cada 10 ejecuciones (§2). Queda pendiente hacerla determinista.
 - **No es una prueba de eficacia.** Sin ataques ni generadores, el feed no tuvo entradas. La cadena se demostró con
   feeds firmados reales, pero vacíos; la aplicación de restricciones no se probó, porque no estaba autorizada.
 - **P3.** La explicación se apoya en el código de upstream 6.8 y en una correspondencia de tasas (§4).
@@ -306,6 +530,7 @@ Su `MANIFIESTO.sha256` se regenera porque cambia el README; las líneas de `evid
 ```
 README.md                    este informe
 CRITERIOS-FIJADOS.md         criterios publicados antes de instalar y de observar (997c8e2, sin cambios)
+PROTOCOLO-CARGA.md           E-carga v1: estabilidad con carga suficiente (propuesto, NO ejecutado)
 MANIFIESTO.sha256            sha256 de cada fichero (bytes publicados), dos espacios, orden LC_ALL=C sort -f
 evidencia/
   01-rx_dropped/             contadores NIC/driver/softnet y recuento de tramas en los PCAP (P3)
@@ -317,7 +542,12 @@ evidencia/
     bastion/                 muestras cada 30 s y copias de las trazas del relé y del agente (con su SHA256SUMS)
     sensor1/                 muestras de salud_captura, lectura de cada PCAP, clasificación final y prueba en seco,
                              incidencias.txt (con su SHA256SUMS; ambos verificados en esta copia)
+                             verif-post.txt = salidas ANTIGUAS con los 3 FALLO (se conservan)
+  07-verificadores/          verif_nuevo.sh y verif-nuevo-a1cea5e.txt (salidas NUEVAS con rc), banco de los
+                             verificadores como root y sin root, regresión completa de a1cea5e
+  08-carga/                  estado de los generadores (clientes_ro*), flujos de los perfiles en EVE e intensidad
+                             de la ventana del 06-nov con el método del ensayo (intensidad_obs)
 ```
 
 Respaldos e instalaciones en los hosts (no se copian aquí; se citan en §8 y §11). Los guiones de producto están en la
-rama `recuperacion/etapa4a-pendientes-20261106` (`b18c286`).
+rama `recuperacion/etapa4a-pendientes-20261106`: instaladores en `b18c286`, verificadores corregidos en **`a1cea5e`**.
