@@ -1,0 +1,100 @@
+######## comprobación en seco 20261106T081024Z (carpeta de prueba cf-e4/ecarga-v2-seco-20261106T081024Z, rotulada seco)
+######## relojes
+bastion 2026-11-06T08:10:24.533Z yes
+sensor1 2026-11-06T08:10:24.972Z ntp=yes tz=Etc/UTC
+srvdmz  2026-11-06T08:10:26.174Z ntp=yes
+clientes 2026-11-06T08:10:26.853Z ntp=yes tz=Etc/UTC
+######## guiones versionados
+bastion: cf-e4/ecarga-v2-guiones-c7f24510 verifica
+######## verificadores (paquete ae2900e, solo lecturas)
+bastion OK=8
+verificar_bastion rc=0
+sensor1 OK=24
+verificar_sensor1 rc=0
+srvdmz OK=4
+verificar_srvdmz rc=0
+######## Sensor1: comprobaciones previas + obs_pcap --en-seco (fin propuesto 1794197760 = 2026-11-09T04:16:00Z)
+OK    paquete-ae2900e: SHA256SUMS verifica
+OK    evaluar_ecarga.py sha256 = publicado
+OK    evaluar_ecarga VERSION 2026-11-06.4
+OK    herramientas-20261106: SHA256SUMS verifica
+OK    salud_captura.py de herramientas = paquete ae2900e
+OK    python del venv: Python 3.14.4
+OK    legible muestreo_fino.py
+OK    legible obs_pcap.py
+OK    legible clasificar_periodo.py
+OK    legible comparar_suricata.py
+OK    legible verificar_sensor1.sh
+OK    eve.json legible (52898387 B)
+OK    rotado legible: /var/log/suricata/eve.json.1-2026100600.backup
+OK    anillo legible (186 ficheros)
+OK    softnet_stat legible
+OK    journal de ppi-motor-capture legible (20 lecturas SIGUSR1 en 10 min)
+OK    journal de ppi-via-rapida@ens37 legible (20 lecturas SIGUSR1 en 10 min)
+OK    /home libre 12294 MiB (>= 2 GiB)
+OK    MemAvailable 6357 MiB (>= 1 GiB)
+OK    destino de evidencia escribible: /home/m4rk/cf-e4/ecarga-v2-seco-20261106T081024Z
+OK    DIR /home/m4rk/cf-e4/ecarga-v2-seco-20261106T081024Z/sensor1-comprobar libre
+OK    0 procesos con --aplicar/--enforce
+OK    ningún muestreador en marcha
+== obs_pcap --en-seco
+{"version": "2026-11-06.2", "fin_epoch": 1794197760.0, "fin_utc": "2026-11-09T04:16:00Z", "fin_peru": "2026-11-08 23:16:00 (UTC-5)", "parada_epoch": 1794197790.0, "faltan_s": 245126.3, "en_seco": true, "dir_existe": true}
+OK    obs_pcap --en-seco rc 0
+OK    obs_pcap en seco no creó salida
+fallo=0
+rc=0
+######## Sensor1: prueba de mecanismo de arranque y parada (solo lectura, fin a +120 s, parada manual a ~25 s)
+vivo   118392 salud_captura.py muestrear
+vivo   118394 muestreo_fino.py
+vivo   118396 obs_pcap.py
+fichero muestras.jsonl 1 líneas
+fichero fino.jsonl 3 líneas
+fichero obs_pcap/pcap.jsonl 186 líneas
+-- antes de parar
+vivo   118392 salud_captura.py muestrear
+vivo   118394 muestreo_fino.py
+vivo   118396 obs_pcap.py
+fichero muestras.jsonl 3 líneas
+fichero fino.jsonl 25 líneas
+fichero obs_pcap/pcap.jsonl 186 líneas
+-- parar
+TERM 118392 salud_captura.py muestrear
+TERM 118394 muestreo_fino.py
+TERM 118396 obs_pcap.py
+parado 118392 salud_captura.py muestrear
+parado 118394 muestreo_fino.py
+parado 118396 obs_pcap.py
+fichero muestras.jsonl 3 líneas
+fichero fino.jsonl 25 líneas
+fichero obs_pcap/pcap.jsonl 186 líneas
+-- después
+parado 118392 salud_captura.py muestrear
+parado 118394 muestreo_fino.py
+parado 118396 obs_pcap.py
+fichero muestras.jsonl 3 líneas
+fichero fino.jsonl 25 líneas
+fichero obs_pcap/pcap.jsonl 186 líneas
+ningún muestreador vivo
+-- protección: arrancar en el mismo DIR debe abortar
+ABORTA: /home/m4rk/cf-e4/ecarga-v2-seco-20261106T081024Z/sensor1-mecanismo ya tiene muestras o pids
+rc=2
+######## clientes: estado y permisos de los generadores (sin arrancar ni parar)
+    (ALL : ALL) ALL
+    (root) NOPASSWD: /usr/bin/systemctl start cyberflow-lab.target
+    (root) NOPASSWD: /usr/bin/systemctl stop cyberflow-lab.target
+zona=Etc/UTC ahora_utc=2026-11-06T08:11:05Z hash_generador=ae5134a778e66d90f5c3fbcd47323e328f3422cf4ba8d5197649f402c1d4cdc3
+gen target=inactive habilitado=disabled procesos=0 hash=ae5134a7 unidades: 
+######## bastión: muestreo + guardia en modo SECO (fin +75 s, «parada» simulada a +45 s; no para nada)
+muestreo_bastion rc=0
+muestras: 3
+      3 C gen target=inactive habilitado=disabled procesos=0 hash=ae5134a7 unidades: 
+-- guardia (última evaluación)
+{"parar": false, "motivos": [], "avisos": [], "muestras": 3, "t": 1793952720.0}
+-- eventos
+2026-11-06T08:12:02Z 1793952722 SECO: se pararían los generadores (fin previsto (PARADA_EPOCH 1793952710))
+-- protección: el mismo DIR debe abortar
+ABORTA: /home/gadmin/cf-e4/ecarga-v2-seco-20261106T081024Z/bastion/muestras.txt ya existe (no se sobrescribe)
+rc=2
+######## generadores después (deben seguir parados)
+gen target=inactive habilitado=disabled procesos=0 hash=ae5134a7 unidades: 
+######## fin 2026-11-06T08:12:31Z

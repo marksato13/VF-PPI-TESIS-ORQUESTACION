@@ -1,0 +1,7 @@
+## evaluador sha256 53e9f7bd578123f6499289ebbb92d8d6c71a6e56b7c1c35a59463b98aad5c23f
+## 1) plantilla tal cual (con el campo _PLANTILLA_SIN_RESULTADOS)
+{"version": "2026-11-06.4", "error": "_PLANTILLA_SIN_RESULTADOS: campo no reconocido", "campo": "_PLANTILLA_SIN_RESULTADOS", "habilita_condicion_3": false, "habilita": "nada: la condici�n (3) sigue pendiente"}
+rc=2
+## 2) la misma plantilla SIN el campo de marca (todo null): tampoco debe dar veredicto
+{"version": "2026-11-06.4", "error": "clasificacion.clase_periodo: clase no reconocida: None", "campo": "clasificacion.clase_periodo", "habilita_condicion_3": false, "habilita": "nada: la condici�n (3) sigue pendiente"}
+rc=2

@@ -21,7 +21,23 @@ umbral; los cambios están en §0.1.
 
 El paquete `~/cf-e4/paquete-f6dc685` (tgz `beb70c79…`, `SHA256SUMS` interno `7828f0a4…`) ya está copiado en los tres
 hosts, sin instalar nada, pero lleva el evaluador **2026-11-06.3**, que tiene el defecto de §0.1. **No sirve para
-E-carga.** Antes de P0 hay que copiar el paquete de `ae2900e` (§3.5, punto 9); todavía no se ha copiado.
+E-carga.** Antes de P0 hay que copiar el paquete de `ae2900e` (§3.5, punto 9).
+
+> **Nota de estado (06-nov, tarde). No es una revisión: no cambia ningún criterio, umbral, franja ni condición.**
+>
+> El paquete de `ae2900e` ya está copiado y verificado en `~/cf-e4/paquete-ae2900e`, en el bastión, en Sensor1 y en
+> srv-dmz:
+> - tgz `09ab20c8…`;
+> - `SHA256SUMS` interno `41f91787…`;
+> - evaluador `53e9f7bd…`, `VERSION` 2026-11-06.4.
+>
+> Junto a `paquete-f6dc685` hay un aviso `NO-USAR-PARA-VEREDICTO`.
+>
+> Las comprobaciones previas y en seco de §3.5 (puntos 1–7 y 9) se hicieron sin carga y **se repiten en P0**.
+>
+> E-carga sigue **sin ejecutar y sin programar**. La preparación, la construcción de la entrada y la secuencia del día
+> están en [`ecarga-v2-preparacion/PREPARACION-ECARGA-v2.md`](ecarga-v2-preparacion/PREPARACION-ECARGA-v2.md). Ese
+> documento deja pendiente una decisión: la definición operacional de «saturación nueva» de S14 (§4.4).
 
 ## 0. Qué cambia respecto a la v1 y por qué
 
@@ -133,8 +149,8 @@ El calendario está comprobado: el lunes 2026-11-09 tiene `weekday()` = 0 en UTC
 
 ### 3.3 Instrumentación (solo lectura)
 
-Todo sale del paquete de **`ae2900e`** (`~/cf-e4/paquete-ae2900e`, pendiente de copiar; §3.5, punto 9) salvo lo
-indicado. El paquete `paquete-f6dc685` no se usa para el veredicto.
+Todo sale del paquete de **`ae2900e`** (`~/cf-e4/paquete-ae2900e`, copiado y verificado el 06-nov; §3.5, punto 9)
+salvo lo indicado. El paquete `paquete-f6dc685` no se usa para el veredicto.
 
 **Bastión**
 - `obs_muestreo.sh` cada 30 s (`evidencia/06-observacion/`). Incluye Sensor1 y srv-dmz por ssh: PID, `NRestarts`,

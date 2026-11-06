@@ -1,0 +1,29 @@
+carpeta de prueba: /home/m4rk/cf-e4/ecarga-v2-seco-20261106T081024Z/sensor1-mecanismo
+periodo de prueba: 1793952635.156 – 1793952653.342
+######## post 2026-11-06T08:19:11Z ventana 1793952635.156–1793952653.342
+muestreadores terminados
+--- clasificar_periodo (clase, motivos, medida EVE: K5, S4, S5, S12, S13 y bloque suricata)
+rc=0
+{"clase_periodo": "C0", "motivo": null, "capturas": {"captura": ["C0", []], "via-rapida": ["C0", []]}, "suricata_reinicios_dentro": 0}
+rc=0
+--- comparar_suricata (K1, K2, K3)
+rc=0
+{'paquetes': 1273, 'rafagas_ge_umbral': 0, 'flujos_eve': 0, 'flujos_grandes': 0, 'reinicios_suricata_en_ventana': 0, 'hueco_max_entre_bloques_s': 8.0}
+--- evaluar_ecarga perfiles (K4a; K4b informativo)
+rc=1
+--- derivar_pcap (S2, S3)
+rc=0
+S2 None S3 None ficheros 0
+--- ruleset de Sensor1 después
+24c320e3e9538573
+sellado /home/m4rk/cf-e4/ecarga-v2-seco-20261106T081024Z/sensor1-mecanismo/post/SHA256SUMS
+######## construir_entrada (solo fuentes de Sensor1; S de bastión y manuales sin dar -> null)
+{"entrada": "/home/m4rk/cf-e4/ecarga-v2-seco-20261106T081024Z/sensor1-mecanismo/post/entrada-PRUEBA.json", "sin_medida": ["K.K3", "S.S1", "S.S2", "S.S3", "S.S6", "S.S7", "S.S8", "S.S9", "S.S10", "S.S11", "S.S14", "S.S15"], "avisos": []}
+rc=0
+K {'K1': False, 'K2': False, 'K3': None, 'K4a': False, 'K5': True}
+S {'S1': None, 'S2': None, 'S3': None, 'S4': True, 'S5': True, 'S6': None, 'S7': None, 'S8': None, 'S9': None, 'S10': None, 'S11': None, 'S12': True, 'S13': True, 'S14': None, 'S15': None}
+clase {'clase_periodo': 'C0', 'motivos': []} suricata {'estado': 'cero_explicito', 'paquetes': 4048, 'descartes': 0} dpm 0.0
+######## veredicto con el evaluador del paquete ae2900e
+rc=1
+{'version': '2026-11-06.4', 'estabilidad_tecnica': 'carga insuficiente', 'habilita_condicion_3': False, 'K_sin_medida': ['K3'], 'incoherencias': [], 'error': None}
+######## generadores no intervienen; fin 2026-11-06T08:19:15Z
