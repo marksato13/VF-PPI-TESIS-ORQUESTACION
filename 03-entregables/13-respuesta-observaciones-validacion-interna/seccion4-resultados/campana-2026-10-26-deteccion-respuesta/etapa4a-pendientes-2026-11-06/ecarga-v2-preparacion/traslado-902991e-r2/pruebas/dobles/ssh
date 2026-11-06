@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# DOBLE de ssh para el banco. NO conecta con nada: cada host del laboratorio es un directorio $SIM/<host>.
+# Ejecuta la orden remota con bash, HOME=$SIM/<host>/home, y sustituye "/tmp/" por el /tmp del host en la orden y en
+# el guion recibido por stdin. El /tmp del bastión es el /tmp real del contenedor (el bastión ejecuta op_host desde un
+# fichero, sin pasar por este doble). Fallos simulados: DOBLE_FALLA_SSH=host[,host] -> rc 255 sin ejecutar nada.
+set -u
+: "${SIM:?SIM sin definir}"
+host_de() { case "${1#*@}" in 10.10.10.30) echo bastion;; 10.10.60.11) echo sensor1;; 10.10.30.10) echo srvdmz;; *) echo "";; esac; }
+dest=""; args=()
+while [ $# -gt 0 ]; do
+  case "$1" in
+    -o|-i|-p|-F|-l|-E) shift 2;;
+    --) shift;;
+    -*) shift;;
+    *) if [ -z "$dest" ]; then dest=$1; else args+=("$1"); fi; shift;;
+  esac
+done
+h=$(host_de "$dest")
+mkdir -p "$SIM/log"
+printf 'ssh %s %s\n' "${h:-?}" "${args[*]:-}" >> "$SIM/log/ordenes.log"
+if [ -z "$h" ]; then echo "ssh(doble): host desconocido '$dest'" >&2; exit 255; fi
+case ",${DOBLE_FALLA_SSH:-}," in *",$h,"*) echo "ssh(doble): conexión con $h fallida (simulada)" >&2; echo "ssh $h rc=255 (simulado)" >> "$SIM/log/ordenes.log"; exit 255;; esac
+HD="$SIM/$h"; T="$HD/tmp"
+mkdir -p "$HD/home"
+cmd=$(printf '%s' "${args[*]:-}" | sed "s#/tmp/#$T/#g")
+entrada=$(mktemp "$SIM/log/stdin.XXXXXX")
+sed "s#/tmp/#$T/#g" > "$entrada"
+( cd "$HD/home" && HOME="$HD/home" SIM_HOST="$h" bash -c "$cmd" < "$entrada" ); rc=$?
+/usr/bin/rm -f "$entrada"
+printf 'ssh %s rc=%s\n' "$h" "$rc" >> "$SIM/log/ordenes.log"
+exit $rc

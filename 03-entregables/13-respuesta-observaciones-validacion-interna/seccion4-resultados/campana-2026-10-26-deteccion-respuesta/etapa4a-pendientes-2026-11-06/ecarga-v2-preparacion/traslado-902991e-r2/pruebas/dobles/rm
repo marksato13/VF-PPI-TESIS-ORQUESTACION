@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# DOBLE de rm: delega en /usr/bin/rm salvo que algún argumento contenga $DOBLE_FALLA_RM (fallo de limpieza simulado).
+if [ -n "${DOBLE_FALLA_RM:-}" ]; then
+  for a in "$@"; do
+    case "$a" in *"$DOBLE_FALLA_RM"*)
+      echo "rm(doble): fallo de limpieza simulado en $a" >&2
+      [ -n "${SIM:-}" ] && echo "rm FALLO-SIMULADO $a" >> "$SIM/log/ordenes.log"
+      exit 1;;
+    esac
+  done
+fi
+exec /usr/bin/rm "$@"

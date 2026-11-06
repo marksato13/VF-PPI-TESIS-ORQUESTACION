@@ -1,5 +1,22 @@
 # Etapa 4A: pendientes del cierre complementario (P1, P3, P4, P5) e integración en sombra (2026-11-06)
 
+> **Estado actualizado (06-nov, noche, 3): guiones de traslado del paquete `902991e` corregidos (r2) y probados en
+> banco. NO se ha copiado nada al laboratorio. E-carga NO ejecutada y NO programada.**
+> - **Defectos de los guiones anteriores** (`evidencia/13-correccion-s14/`, ahora **sustituidos**, conservados sin
+>   cambios):
+>   - `op_host` terminaba con rc 0 aunque hubiera hashes, evaluador o manifiesto distintos;
+>   - el principal no exigía el éxito de los tres hosts;
+>   - el `SHA256SUMS` interno podía listarse a sí mismo.
+> - **r2:** [`ecarga-v2-preparacion/traslado-902991e-r2/`](ecarga-v2-preparacion/traslado-902991e-r2/).
+>   - Éxito global solo con bastión, Sensor1 y srv-dmz verificados (3/3).
+>   - Paquete en staging oculto y marca `VERIFICADO`. El aviso, solo tras verificar.
+>   - Nada se sobrescribe ni se borra.
+>   - Registro por host, y recuperación definida.
+> - **Banco:** r2 33/33 (65534 y root). La versión anterior oculta el fallo en 18 casos.
+> - **Documento:** [`ecarga-v2-preparacion/TRASLADO-PAQUETE-902991e-r2.md`](ecarga-v2-preparacion/TRASLADO-PAQUETE-902991e-r2.md).
+>   Contiene el comando de copia, marcado **NO EJECUTADO**.
+> - **Pendiente:** autorizar la copia (estado 2), P0 (estado 3) y E-carga (estado 4).
+>
 > **Estado actualizado (06-nov, noche, 2): S14 con tiempo desconocido corregido en banco. E-carga NO ejecutada y NO
 > programada.**
 > - **Defecto.** `evaluar_s14` 2026-11-06.1 (`a12deae`) no contaba el hueco inmediatamente anterior a un tramo
