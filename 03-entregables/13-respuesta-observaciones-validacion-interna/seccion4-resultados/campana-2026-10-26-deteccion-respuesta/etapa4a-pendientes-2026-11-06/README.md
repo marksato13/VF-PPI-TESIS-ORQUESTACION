@@ -1,6 +1,31 @@
 # Etapa 4A: pendientes del cierre complementario (P1, P3, P4, P5) e integración en sombra (2026-11-06)
 
-> **Estado actualizado (06-nov, 07:30Z): E-carga v2 publicado, no ejecutado.**
+> **Estado actualizado (06-nov): evaluador de E-carga corregido (2026-11-06.4, producto `ae2900e`). E-carga sigue sin
+> ejecutarse y sin programarse.**
+> - **Defecto.** En `f6dc685`, `veredicto` daba «estable con carga suficiente» (rc 0, condición (3) habilitada) en tres
+>   casos:
+>   - K1 y S1 con el texto `"false"`;
+>   - clase `no_evaluable` con S verdaderos;
+>   - C1 a 100/M con S13 verdadero.
+>
+>   Está reproducido: 3 de 3 casos habilitan con f6dc685 y 0 de 3 con la corrección
+>   (`evidencia/10-veredicto-contrato/`).
+> - **Corrección.** Contrato de entrada estricto, y contraste de S12, S13 y la clase con las métricas de Suricata;
+>   una contradicción da «no demostrable» y no se corrige ningún dato. C3 y `no_evaluable` no pueden dar «estable»
+>   ([`PROTOCOLO-CARGA-v2.md`](PROTOCOLO-CARGA-v2.md) §0.1 y §4.5, revisión r2).
+>   - No cambia ningún K, S ni umbral; 14,95/M exacto sigue sin cumplir.
+>   - Se corrige la afirmación sobre K4b: la regla auxiliar no quedó validada como criterio decisorio, y la simulación
+>     no demuestra que ninguna regla posible funcione.
+> - **Pruebas.** Regresión en `ae2900e`:
+>   - como root, **966 passed / 9 skipped / 0 failed**;
+>   - sin root, **922 passed / 53 skipped / 0 failed**.
+>
+>   Las omisiones son las de antes: requieren root, `node` o el repo de documentación. Contra el evaluador de
+>   `f6dc685` fallan 96 de las 129 pruebas de E-carga.
+> - **Pendiente antes de P0.** Copiar el paquete de `ae2900e` a Sensor1 (protocolo §3.5, punto 9). El
+>   `paquete-f6dc685` lleva el evaluador con el defecto.
+>
+> **Estado anterior (06-nov, 07:30Z): E-carga v2 publicado, no ejecutado.**
 > - [`PROTOCOLO-CARGA-v2.md`](PROTOCOLO-CARGA-v2.md) sustituye a la v1, que se conserva sin cambios. Su §0 enumera qué
 >   cambió y por qué:
 >   - las clases son las del clasificador (C1 para descartes medidos);
@@ -579,7 +604,14 @@ evidencia/
   09-ecarga-v2/              referencia de desarrollo K4a/K4b (38ee91d, con el defecto del tramo residual, y
                              f6dc685, corregida), flow-timeouts, obs_pcap en seco, calendario en epoch,
                              simulación de K4b, regresiones 38ee91d y f6dc685 como root y sin root
+  10-veredicto-contrato/     evaluador 2026-11-06.4 (ae2900e): reproducción de los tres fallos con f6dc685 y con
+                             la corrección, pruebas nuevas contra f6dc685 con el motivo de cada fallo, regresiones
+                             completas de ae2900e como root y sin root, sha256 de la r1 del protocolo v2 (8f17273)
 ```
 
 Respaldos e instalaciones en los hosts (no se copian aquí; se citan en §8 y §11). Los guiones de producto están en la
-rama `recuperacion/etapa4a-pendientes-20261106`: instaladores en `b18c286`, verificadores corregidos en **`a1cea5e`**.
+rama `recuperacion/etapa4a-pendientes-20261106`:
+- instaladores en `b18c286`;
+- verificadores corregidos en **`a1cea5e`**;
+- herramientas de E-carga v2 en `f6dc685`;
+- evaluador `evaluar_ecarga.py` 2026-11-06.4 en **`ae2900e`**.

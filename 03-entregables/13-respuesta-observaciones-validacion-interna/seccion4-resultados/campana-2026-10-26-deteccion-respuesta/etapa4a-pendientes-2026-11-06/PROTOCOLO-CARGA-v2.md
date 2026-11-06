@@ -10,16 +10,25 @@ siga siendo identificable; la v1 no se llegó a ejecutar.
 **Base de la medida.** La observación del 06-nov (O12) sigue siendo **«carga insuficiente»**. Ni la v1 ni la v2 la
 sustituyen ni la reevalúan.
 
-**Herramientas.** Paquete del producto **`f6dc685`** (rama `recuperacion/etapa4a-pendientes-20261106`):
-`evaluar_ecarga.py` 2026-11-06.3 y `obs_pcap.py` 2026-11-06.2. El paquete se copió a los tres hosts como
-`~/cf-e4/paquete-f6dc685` (tgz `beb70c79…`, `SHA256SUMS` interno `7828f0a4…`); no se instaló nada.
+**Revisión vigente: r2 (06-nov).** La r1 es el texto publicado en `8f17273`, que sigue identificable en el historial
+y por su sha256 en `evidencia/10-veredicto-contrato/protocolo-v2-r1.sha256`. La r2 no cambia ningún criterio ni
+umbral; los cambios están en §0.1.
+
+**Herramientas.** Producto **`ae2900e`** (rama `recuperacion/etapa4a-pendientes-20261106`):
+- `evaluar_ecarga.py` **2026-11-06.4**: blob `06b84134…`, sha256 `53e9f7bd…`. Contrato de entrada estricto y contraste
+  de coherencia en `veredicto` (§4.5).
+- `obs_pcap.py` 2026-11-06.2, sin cambios desde `f6dc685`.
+
+El paquete `~/cf-e4/paquete-f6dc685` (tgz `beb70c79…`, `SHA256SUMS` interno `7828f0a4…`) ya está copiado en los tres
+hosts, sin instalar nada, pero lleva el evaluador **2026-11-06.3**, que tiene el defecto de §0.1. **No sirve para
+E-carga.** Antes de P0 hay que copiar el paquete de `ae2900e` (§3.5, punto 9); todavía no se ha copiado.
 
 ## 0. Qué cambia respecto a la v1 y por qué
 
 | # | Dónde (v1) | Cambio | Por qué |
 |---|---|---|---|
 | 1 | §3.6, resultado «estable»: «puede ser C0, o C3 si hubo descartes por debajo de S13» | Se elimina. La clase es **la del clasificador vigente, tal cual** (§4.2): descartes de Suricata medidos con cobertura completa son **C1**, no C3. Se separan cuatro dimensiones: estabilidad técnica, clase de captura, I5 y población principal (§4) | Contradecía el clasificador (`salud_captura.clasificar`: `descartes` → C1) y mezclaba el límite técnico S13 con la calidad de captura |
-| 2 | §3.4, K4 | Se divide en **K4a**, presencia de los seis perfiles (criterio), y **K4b**, ráfaga del perfil errático (**solo informativo**), con una regla operacional fijada antes de medir (§3.4) | «3 × la mediana» no significa nada con mediana 0 (el caso nocturno). Además, la simulación del diseño del generador muestra que **ninguna regla sobre flujos distingue ráfagas de forma fiable** con lo que el generador deja observable (§3.4.2) |
+| 2 | §3.4, K4 | Se divide en **K4a**, presencia de los seis perfiles (criterio), y **K4b**, ráfaga del perfil errático (**solo informativo**), con una regla operacional fijada antes de medir (§3.4) | «3 × la mediana» no significa nada con mediana 0 (el caso nocturno). La regla auxiliar fijada para K4b **no quedó validada como criterio decisorio**: en la simulación del diseño del generador da demasiadas detecciones en horas sin ráfaga real (§3.4.2). Esa simulación **no demuestra que ninguna regla posible pueda funcionar**; solo que esta no basta *(r2: corregido; la r1 afirmaba lo contrario)* |
 | 3 | §4 y README §0: aplicación real ligada a «4C/campaña B» | Alcance unificado: 4A sombra + E-carga · 4B control normal formal · 4C campaña A en sombra **sin aplicar** · campaña B **posterior**, con respuesta aplicada (§2.1) | La 4C no aplica restricciones; solo la campaña B lo hace |
 | 4 | §4: «el feed no tendrá medidas» | Puede haber **señales o propuestas** producidas por tráfico legítimo. Se registran y no se suprimen. La condición operativa es que **no se aplique ninguna restricción** (S10) | No hay base para afirmar que el feed estará vacío: el detector puede reaccionar a tráfico legítimo |
 | 5 | §3.2, tiempos relativos | Tiempos en **epoch**, con UTC y Perú, de una franja comprobada contra el calendario y la zona horaria real del generador (§3.2) | La v1 dejaba la hora sin fijar |
@@ -33,6 +42,24 @@ sustituyen ni la reevalúan.
 - las condiciones de parada, la franja horaria del generador, la duración de la ventana y el calentamiento.
 
 No se cambia **ningún umbral**.
+
+### 0.1 Revisión r2 (06-nov): evaluador 2026-11-06.4, sin cambio de criterios
+
+**Defecto reproducido** en `evaluar_ecarga.py` 2026-11-06.3 (`f6dc685`). `veredicto` declaraba «estable con carga
+suficiente», con rc 0 y la condición (3) habilitada, en estos tres casos:
+1. K1 y S1 con el texto `"false"` en vez del booleano;
+2. clase `no_evaluable` con los S marcados como verdaderos;
+3. clase C1 con 100 descartes por millón y S13 marcado como verdadero.
+
+El evaluador se fiaba de los indicadores ya preparados y no los contrastaba. Reproducción:
+`evidencia/10-veredicto-contrato/reproduccion-f6dc685.txt` (3 de 3 habilitan) frente a 0 de 3 con 2026-11-06.4.
+
+| # | Cambio en r2 | Por qué | ¿Cambia un criterio? |
+|---|---|---|---|
+| 1 | Contrato de entrada estricto (§4.5): K y S solo `true`, `false` o `null`; métricas numéricas, finitas y ≥ 0; bloque `suricata` obligatorio; entrada inválida → rc 2 sin habilitar nada | Fallo 1, y que un dato ausente no pase por cero | No |
+| 2 | Contraste de S12 y S13 con las métricas y de la clase con la medida de Suricata. Una contradicción se lista y da «no demostrable», sin corregir ningún dato | Fallo 3. §4.1 ya decía «no demostrable» si la clase no cuadra con los descartes medidos; ahora también se comprueban los indicadores | No: S13 sigue siendo < 14,95/M, y el valor exacto 14,95 no cumple |
+| 3 | C3 y `no_evaluable` no pueden dar «estable con carga suficiente»: pasan a «no demostrable». Un S que falla con C3 sigue siendo «no estable» | Fallo 2. Una captura no evaluable no demuestra estabilidad | Precisa §4.1, que no contemplaba este caso. No baja ni sube ningún umbral |
+| 4 | §0, fila 2, y §3.4.2: se corrige la afirmación sobre K4b | La simulación no demuestra que ninguna regla posible funcione; solo que la regla fijada no quedó validada como criterio decisorio | No: K4b sigue siendo informativo |
 
 ## 1. Por qué hace falta (sin cambios respecto a la v1 §1)
 
@@ -106,7 +133,8 @@ El calendario está comprobado: el lunes 2026-11-09 tiene `weekday()` = 0 en UTC
 
 ### 3.3 Instrumentación (solo lectura)
 
-Todo sale de `~/cf-e4/paquete-f6dc685` salvo lo indicado.
+Todo sale del paquete de **`ae2900e`** (`~/cf-e4/paquete-ae2900e`, pendiente de copiar; §3.5, punto 9) salvo lo
+indicado. El paquete `paquete-f6dc685` no se usa para el veredicto.
 
 **Bastión**
 - `obs_muestreo.sh` cada 30 s (`evidencia/06-observacion/`). Incluye Sensor1 y srv-dmz por ssh: PID, `NRestarts`,
@@ -162,7 +190,7 @@ La carga es suficiente solo si se cumplen **todas** estas condiciones; ninguna c
 
 #### 3.4.2 K4b: regla, justificación y por qué queda informativo
 
-**Regla, congelada en `evaluar_ecarga.py` 2026-11-06.3** (`f6dc685`; la regla del errático no cambia desde `38ee91d`):
+**Regla, congelada en `evaluar_ecarga.py` 2026-11-06.3** (`f6dc685`; la regla del errático no cambia desde `38ee91d` y sigue igual en 2026-11-06.4, `ae2900e`):
 - **Intervalos:** de 8 s desde el inicio de la ventana, **todos**, también los que no tienen actividad: n = 450.
 - **Tasa de referencia:** λ_ref = max(media de flujos por intervalo con los ceros incluidos, λ_diseño), con
   λ_diseño = 8 × 0,12 / 5 = 0,192, del ritmo del errático y la curva nocturna.
@@ -199,7 +227,9 @@ misma franja de madrugada). Se leyó **después** de fijar la regla, y no la aju
   regla daría «ráfaga» en la mayoría de las horas **sin** ráfaga real.
 - Además, ≈ 18 % de las horas no tienen ninguna ráfaga real, solo por azar del generador.
 
-**No se puede justificar una regla fiable.** Por eso:
+**La regla fijada no quedó validada como criterio decisorio** *(r2; la r1 decía «no se puede justificar una regla
+fiable»)*. La simulación prueba **esta** regla con dos supuestos de flujos por acción. No demuestra que ninguna regla
+posible pueda funcionar: no se han probado otras reglas ni se ha medido cuántos flujos genera cada acción. Por eso:
 - **K4b no decide el resultado.** Se mide y se publica con su estado, como dato descriptivo.
 - **Alternativa adoptada:** la exigencia de demanda a ráfagas recae en **K2** (≥ 9 ráfagas de red de ≥ 5 000 paquetes
   por 8 s) y en **K3** (≥ 50 flujos grandes). Ambas miden lo que importa a la estabilidad de captura y ya estaban
@@ -208,7 +238,7 @@ misma franja de madrugada). Se leyó **después** de fijar la regla, y no la aju
   cuántos flujos genera cada acción. Lo primero obliga a modificar el generador, y eso no está permitido. Queda
   descartada para esta versión.
 - **Cambio respecto a la v1.** El errático con ráfaga visible deja de ser condición de «carga suficiente». Lo
-  declaro como cambio de criterio: la v1 exigía algo que no podía medirse con fiabilidad.
+  declaro como cambio de criterio: la v1 exigía algo para lo que no hay una regla de medida validada.
 
 ### 3.5 Comprobación previa P0 (solo lectura; si algo falla, no se arranca nada)
 
@@ -225,6 +255,11 @@ misma franja de madrugada). Se leyó **después** de fijar la regla, y no la aju
    - Con el valor erróneo del 06-nov da rc 2.
    - Ver `evidencia/09-ecarga-v2/referencia_dev_f6dc685.txt`.
 8. Ventana fijada en epoch y publicada, con su commit, **antes** de T_g.
+9. *(r2)* Paquete de **`ae2900e`** copiado en Sensor1, sin instalar nada:
+   - `SHA256SUMS` interno verificado;
+   - `evaluar_ecarga.py` con sha256 `53e9f7bd578123f6499289ebbb92d8d6c71a6e56b7c1c35a59463b98aad5c23f` y `VERSION`
+     2026-11-06.4.
+   Con el 2026-11-06.3 no se emite el veredicto.
 
 ### 3.6 Criterios de estabilidad técnica (sin cambios de valor)
 
@@ -259,7 +294,20 @@ Una señal o una entrada del feed **no** es motivo de parada (§2.1). Una **apli
 | **estable con carga suficiente** | K1–K5 y S1–S15 se cumplen | La integración en sombra se mantuvo estable una hora con carga comparable a la de referencia | La **condición (3)** del criterio único (README §0) para el control formal de la 4B |
 | **no estable** | K1–K5 se cumplen y falla algún S | Hubo un fallo técnico con carga | Nada. Diagnóstico y, en su caso, otro E-carga con identificador nuevo |
 | **carga insuficiente** | Falla algún K | Nada sobre la estabilidad con carga. Los S que fallen se publican igualmente como hallazgos | Nada |
-| **no demostrable** | Falta una lectura, o la clase no cuadra con los descartes medidos | Nada | Nada |
+| **no demostrable** | Falta una lectura; la clase no cuadra con los descartes medidos; *(r2)* un indicador contradice las métricas o la clase (§4.5); o *(r2)* la clase es C3 o `no_evaluable` con todos los K y S cumplidos | Nada | Nada |
+
+*(r2)* Orden de decisión:
+1. Falla algún K → «carga insuficiente». Las contradicciones se listan igualmente.
+2. Si no, falta algún K o S → «no demostrable».
+3. Si no, falla algún S → «no estable».
+4. Si no → «estable».
+
+Después:
+- una contradicción convierte «no estable» y «estable» en «no demostrable»;
+- C3 o `no_evaluable` convierte «estable» en «no demostrable», pero un S que falla con C3 sigue siendo «no estable».
+
+La condición (3) se habilita **solo** con `habilita_condicion_3 = true`, que exige las tres cosas: «estable», ninguna
+contradicción y una clase C0, C1 o C2. El rc 0 equivale exactamente a eso.
 
 ### 4.2 Clase de calidad de captura (clasificador vigente, tal cual)
 
@@ -300,6 +348,50 @@ admite ninguno.
   - C3 y `no_evaluable`: no evaluable.
 - Un C1 en E-carga avisa de que, con esa carga, los episodios de la 4C podrían quedar fuera de la población principal.
 
+### 4.5 Contrato de entrada de `veredicto` y tratamiento de contradicciones (r2, `evaluar_ecarga.py` 2026-11-06.4)
+
+**Entrada:** un objeto JSON con exactamente estos cinco campos, sin campos de más y sin claves duplicadas.
+
+| Campo | Tipo admitido | Notas |
+|---|---|---|
+| `K` | objeto con exactamente `K1`, `K2`, `K3`, `K4a`, `K5` | Cada valor `true`, `false` o `null`. `null` = **sin medida**. K4b no entra (es informativo) |
+| `S` | objeto con exactamente `S1` … `S15` | Igual que `K` |
+| `clasificacion` | `{"clase_periodo": C0\|C1\|C2\|C3\|no_evaluable, "motivos": [texto, …]}` | Copiados de `clasificar_periodo.py`, sin reinterpretar |
+| `suricata` | `{"estado", "paquetes", "descartes"}` | `estado` es uno de los seis de `medida_suricata_eve`: `cero_explicito`, `descartes`, `ausente`, `desactualizada`, `error_lectura`, `cobertura_insuficiente`. Contadores **enteros ≥ 0**, obligatorios si el estado es una medida (`cero_explicito` o `descartes`); `null` solo si no lo es |
+| `descartes_por_millon` | número real finito ≥ 0 | Obligatorio si hay medida; `null` solo si no la hay |
+
+**Lo que se rechaza** (rc 2, JSON con `error`, `campo` y `habilita_condicion_3: false`, sin `estabilidad_tecnica`):
+- cualquier conversión implícita a booleano: `"false"`, `"true"`, `"null"`, `""`, `0`, `1`, `0.0`, listas u objetos;
+- en las métricas: `true`/`false` usados como números, NaN, ±∞ (también como literales `NaN` o `Infinity` en el
+  JSON), negativos, textos y contadores no enteros (también `2.0`);
+- un campo ausente, uno no reconocido o una clave duplicada;
+- un fichero ilegible o un JSON mal formado.
+
+Un dato ausente nunca se toma por cero ni por cumplimiento.
+
+**Contradicciones.** Se contrastan con las métricas y nunca se corrigen.
+
+| Comprobación | Contradicción si… |
+|---|---|
+| S12 (descartes medidos) | Es `true` sin medida, o no es `true` con medida |
+| S13 (< 14,95/M) | No coincide con `descartes × 10⁶ / paquetes < 14,95`, calculado con enteros (`descartes × 10⁸ < 1 495 × paquetes`). **14,95 exacto no cumple.** Sin medida, o con 0 paquetes, S13 = `true` es contradicción |
+| `descartes_por_millon` | Difiere más de 0,01 de `descartes × 10⁶ / paquetes`, o lleva valor sin medida |
+| Estado de Suricata | `cero_explicito` con descartes > 0, o `descartes` con 0 descartes |
+| C0 | El estado no es `cero_explicito`, hay descartes, o hay motivos (C0 exige evidencia completa sin motivos) |
+| C1 | El estado no es `descartes`, los descartes son 0, o no hay motivos |
+| C2 y C3 | No hay motivos. Además, C2 sin medida de Suricata (el clasificador daría C3) |
+
+Cada contradicción aparece en `incoherencias` y el resultado pasa a «no demostrable» (salvo «carga insuficiente»).
+`descartes_por_millon`, la clase y los indicadores se publican **tal como llegaron**.
+
+**Caso previsto, que sigue siendo válido:** clase C1, estado `descartes`, por ejemplo 2 de 625 000 (3,2/M), S12 y S13
+`true` y todo lo demás cumplido. Da «estable con carga suficiente» y habilita la condición (3), con dos limitaciones
+que conserva:
+- «No es captura sin pérdidas»;
+- «S13 … no demuestra C0 ni I5».
+
+I5 sigue «no evaluado» y la población principal sigue «NO apta» para C1.
+
 **Pruebas de §4** (`tests/test_etapa4_ecarga.py`, con el clasificador **sin modificar**):
 - cero descartes → C0;
 - descartes con cobertura completa → C1;
@@ -318,6 +410,23 @@ admite ninguno.
   - lecturas que faltan → no demostrable;
   - incoherencia entre clase y descartes → no demostrable;
   - entrada incompleta → error.
+- *(r2, `ae2900e`, 129 casos en el fichero)*:
+  - los tres fallos reproducidos;
+  - `true`, `false` y `null` válidos, y 12 tipos incorrectos en K y en S;
+  - métricas ausentes, negativas, booleanas, NaN, infinitas, de texto o no enteras;
+  - NaN e Infinity como literales del JSON;
+  - dpm que no cuadra con los contadores; 0 paquetes; números con Suricata sin medida;
+  - C0 coherente, C0 con descartes y C0 con motivos;
+  - C1 a 14,94/M, a 14,95/M exacto (S13 `true` → contradicción; `false` → no estable) y a 100/M; C1 bajo el límite
+    con S13 `false` (contradicción);
+  - C3 y `no_evaluable` con S verdaderos, y C3 con un S que falla → no estable;
+  - C2 coherente;
+  - carga insuficiente con contradicciones; K y S sin medida;
+  - recorrido completo de la CLI: rc 0, 1 y 2; JSON raíz no objeto; JSON mal formado o vacío; campo de más; clave
+    duplicada; fichero inexistente. Ningún error habilita.
+  - Contra el evaluador de `f6dc685` fallan 96 de los 129. Las pruebas de los tres fallos fallan por el defecto mismo
+    (rc 0 en vez de 2 o 1); muchas otras, porque el campo `habilita_condicion_3` es nuevo
+    (`evidencia/10-veredicto-contrato/regresion-contra-f6dc685.txt`).
 
 ## 5. Resultados desfavorables y conservación (sin cambios de fondo)
 
