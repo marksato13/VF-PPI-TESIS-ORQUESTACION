@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# DOBLE de órdenes PROHIBIDAS en el traslado (systemctl, sudo, nft, reboot, shutdown, install, chmod, chown, ...).
+# El banco lo instala con esos nombres. Cualquier llamada queda registrada y falla: el traslado no debe usarlas.
+mkdir -p "${SIM:-/tmp}/log"
+echo "PROHIBIDO $(basename -- "$0") $*" >> "${SIM:-/tmp}/log/PROHIBIDO.log"
+echo "$(basename -- "$0"): orden prohibida en el traslado (doble del banco)" >&2
+exit 99

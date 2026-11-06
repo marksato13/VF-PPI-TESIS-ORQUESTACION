@@ -1,0 +1,41 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-8.3.5, pluggy-1.5.0 -- /usr/bin/python3
+rootdir: /t/pruebas
+collecting ... collected 33 items
+
+test_traslado.py::test_regresion_host_paquete_invalido[fichero-alterado-checksum-incorrecto] PASSED [  3%]
+test_traslado.py::test_regresion_host_paquete_invalido[fichero-esperado-ausente] PASSED [  6%]
+test_traslado.py::test_regresion_host_paquete_invalido[fichero-inesperado] PASSED [  9%]
+test_traslado.py::test_regresion_host_paquete_invalido[evaluador-distinto] PASSED [ 12%]
+test_traslado.py::test_regresion_host_paquete_invalido[version-incorrecta] PASSED [ 15%]
+test_traslado.py::test_regresion_host_paquete_invalido[manifiesto-ecarga-distinto] PASSED [ 18%]
+test_traslado.py::test_host_copia_correcta[bastion] PASSED               [ 21%]
+test_traslado.py::test_host_copia_correcta[sensor1] PASSED               [ 24%]
+test_traslado.py::test_host_copia_correcta[srvdmz] PASSED                [ 27%]
+test_traslado.py::test_host_tgz_truncado PASSED                          [ 30%]
+test_traslado.py::test_host_extraccion_fallida PASSED                    [ 33%]
+test_traslado.py::test_host_destino_ya_existente PASSED                  [ 36%]
+test_traslado.py::test_host_marca_de_otro_paquete PASSED                 [ 39%]
+test_traslado.py::test_regresion_host_fallo_al_crear_el_aviso PASSED     [ 42%]
+test_traslado.py::test_regresion_host_fallo_de_limpieza_tras_un_error PASSED [ 45%]
+test_traslado.py::test_host_reintento_con_paquete_ya_verificado PASSED   [ 48%]
+test_traslado.py::test_host_paquete_existente_alterado_despues PASSED    [ 51%]
+test_traslado.py::test_traslado_correcto_en_los_tres_hosts PASSED        [ 54%]
+test_traslado.py::test_regresion_manifiesto_interno_sin_autorreferencia PASSED [ 57%]
+test_traslado.py::test_regresion_fallo_de_scp_en_cada_destino[bastion-4] PASSED [ 60%]
+test_traslado.py::test_regresion_fallo_de_scp_en_cada_destino[sensor1-6] PASSED [ 63%]
+test_traslado.py::test_regresion_fallo_de_scp_en_cada_destino[srvdmz-6] PASSED [ 66%]
+test_traslado.py::test_regresion_fallo_de_ssh[bastion-5] PASSED          [ 69%]
+test_traslado.py::test_regresion_fallo_de_ssh[sensor1-6] PASSED          [ 72%]
+test_traslado.py::test_regresion_tgz_truncado_en_la_transferencia PASSED [ 75%]
+test_traslado.py::test_regresion_destino_existente_en_un_host PASSED     [ 78%]
+test_traslado.py::test_regresion_un_host_correcto_y_otro_fallido PASSED  [ 81%]
+test_traslado.py::test_regresion_fallo_de_limpieza_en_el_portatil_tras_un_error PASSED [ 84%]
+test_traslado.py::test_referencia_git_inaccesible PASSED                 [ 87%]
+test_traslado.py::test_recuperacion_reintento_tras_copia_parcial PASSED  [ 90%]
+test_traslado.py::test_recuperacion_destino_sin_marca PASSED             [ 93%]
+test_traslado.py::test_recuperacion_con_restos_de_un_intento_interrumpido PASSED [ 96%]
+test_traslado.py::test_los_guiones_no_contienen_ordenes_prohibidas PASSED [100%]
+
+======================== 33 passed in 67.15s (0:01:07) =========================
+RC_PYTEST=0

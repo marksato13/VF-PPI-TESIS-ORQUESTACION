@@ -1,0 +1,107 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-8.3.5, pluggy-1.5.0 -- /usr/bin/python3
+rootdir: /t/pruebas
+collecting ... collected 33 items
+
+test_traslado.py::test_regresion_host_paquete_invalido[fichero-alterado-checksum-incorrecto] FAILED [  3%]
+test_traslado.py::test_regresion_host_paquete_invalido[fichero-esperado-ausente] FAILED [  6%]
+test_traslado.py::test_regresion_host_paquete_invalido[fichero-inesperado] FAILED [  9%]
+test_traslado.py::test_regresion_host_paquete_invalido[evaluador-distinto] FAILED [ 12%]
+test_traslado.py::test_regresion_host_paquete_invalido[version-incorrecta] FAILED [ 15%]
+test_traslado.py::test_regresion_host_paquete_invalido[manifiesto-ecarga-distinto] FAILED [ 18%]
+test_traslado.py::test_host_copia_correcta[bastion] FAILED               [ 21%]
+test_traslado.py::test_host_copia_correcta[sensor1] FAILED               [ 24%]
+test_traslado.py::test_host_copia_correcta[srvdmz] FAILED                [ 27%]
+test_traslado.py::test_host_tgz_truncado FAILED                          [ 30%]
+test_traslado.py::test_host_extraccion_fallida FAILED                    [ 33%]
+test_traslado.py::test_host_destino_ya_existente FAILED                  [ 36%]
+test_traslado.py::test_host_marca_de_otro_paquete FAILED                 [ 39%]
+test_traslado.py::test_regresion_host_fallo_al_crear_el_aviso FAILED     [ 42%]
+test_traslado.py::test_regresion_host_fallo_de_limpieza_tras_un_error FAILED [ 45%]
+test_traslado.py::test_host_reintento_con_paquete_ya_verificado FAILED   [ 48%]
+test_traslado.py::test_host_paquete_existente_alterado_despues FAILED    [ 51%]
+test_traslado.py::test_traslado_correcto_en_los_tres_hosts FAILED        [ 54%]
+test_traslado.py::test_regresion_manifiesto_interno_sin_autorreferencia FAILED [ 57%]
+test_traslado.py::test_regresion_fallo_de_scp_en_cada_destino[bastion-4] FAILED [ 60%]
+test_traslado.py::test_regresion_fallo_de_scp_en_cada_destino[sensor1-6] FAILED [ 63%]
+test_traslado.py::test_regresion_fallo_de_scp_en_cada_destino[srvdmz-6] FAILED [ 66%]
+test_traslado.py::test_regresion_fallo_de_ssh[bastion-5] FAILED          [ 69%]
+test_traslado.py::test_regresion_fallo_de_ssh[sensor1-6] FAILED          [ 72%]
+test_traslado.py::test_regresion_tgz_truncado_en_la_transferencia FAILED [ 75%]
+test_traslado.py::test_regresion_destino_existente_en_un_host FAILED     [ 78%]
+test_traslado.py::test_regresion_un_host_correcto_y_otro_fallido FAILED  [ 81%]
+test_traslado.py::test_regresion_fallo_de_limpieza_en_el_portatil_tras_un_error FAILED [ 84%]
+test_traslado.py::test_referencia_git_inaccesible FAILED                 [ 87%]
+test_traslado.py::test_recuperacion_reintento_tras_copia_parcial FAILED  [ 90%]
+test_traslado.py::test_recuperacion_destino_sin_marca FAILED             [ 93%]
+test_traslado.py::test_recuperacion_con_restos_de_un_intento_interrumpido FAILED [ 96%]
+test_traslado.py::test_los_guiones_no_contienen_ordenes_prohibidas PASSED [100%]
+
+=================================== FAILURES ===================================
+/t/pruebas/test_traslado.py:255: AssertionError: ÉXITO FALSO: op_host rc=0 con un paquete inválido (fichero-alterado-checksum-incorrecto)
+/t/pruebas/test_traslado.py:255: AssertionError: ÉXITO FALSO: op_host rc=0 con un paquete inválido (fichero-esperado-ausente)
+/t/pruebas/test_traslado.py:255: AssertionError: ÉXITO FALSO: op_host rc=0 con un paquete inválido (fichero-inesperado)
+/t/pruebas/test_traslado.py:255: AssertionError: ÉXITO FALSO: op_host rc=0 con un paquete inválido (evaluador-distinto)
+/t/pruebas/test_traslado.py:255: AssertionError: ÉXITO FALSO: op_host rc=0 con un paquete inválido (version-incorrecta)
+/t/pruebas/test_traslado.py:255: AssertionError: ÉXITO FALSO: op_host rc=0 con un paquete inválido (manifiesto-ecarga-distinto)
+/t/pruebas/test_traslado.py:265: AssertionError: bastion: SHA256SUMS verifica (480 ficheros)
+/t/pruebas/test_traslado.py:265: AssertionError: sensor1: SHA256SUMS verifica (480 ficheros)
+/t/pruebas/test_traslado.py:265: AssertionError: srvdmz: SHA256SUMS verifica (480 ficheros)
+/t/pruebas/test_traslado.py:277: AssertionError:
+/t/pruebas/test_traslado.py:286: AssertionError:
+/t/pruebas/test_traslado.py:297: AssertionError: sensor1: YA EXISTE ~/cf-e4/paquete-902991e: no se sobrescribe
+/t/pruebas/test_traslado.py:308: AssertionError: bastion: YA EXISTE ~/cf-e4/paquete-902991e: no se sobrescribe
+/t/pruebas/test_traslado.py:314: AssertionError: ÉXITO FALSO: el aviso no se creó y op_host terminó con rc 0
+/t/pruebas/test_traslado.py:323: AssertionError: ÉXITO FALSO
+/t/pruebas/test_traslado.py:335: AssertionError: srvdmz: YA EXISTE ~/cf-e4/paquete-902991e: no se sobrescribe
+/t/pruebas/test_traslado.py:347: AssertionError: sensor1: YA EXISTE ~/cf-e4/paquete-902991e: no se sobrescribe
+/t/pruebas/test_traslado.py:354: AssertionError: assert 'TRASLADO COMPLETO: bastion, sensor1 y srvdmz verificados (3/3)' in 'portátil: evaluar_ecarga.py 53e9f7bd578123f6499289ebbb92d8d6c71a6e56b7c1c35a59463b98aad5c23f; ecarga/SHA256SUMS e001352c2e6485d99e71b1e62ff68a4051bebdfc2bbb4fbd927000517d463b80\nportátil: ficheros 481; SHA256SUMS interno 7df9069056ae05cde0b4ea3c52f70f4ff31a09e50fdbc4b6bfc65e2a127666f8\nportátil: tgz 544b71e69e9cbf6d19d554298986025d208b89383a1730df6280b44eef8e5468\n./SHA256SUMS: FAILED\nsensor1: SHA256SUMS interno 7df9069056ae05cde0b4ea3c52f70f4ff31a09e50fdbc4b6bfc65e2a127666f8\nsensor1: evaluar_ecarga.py = publicado (53e9f7bd578123f6499289ebbb92d8d6c71a6e56b7c1c35a59463b98aad5c23f)\nsensor1: deploy/etapa4/ecarga/SHA256SUMS verifica\nsensor1: ecarga/SHA256SUMS = publicado (e001352c2e6485d99e71b1e62ff68a4051bebdfc2bbb4fbd927000517d463b80)\nsensor1: evaluar_s14.py VERSION 2026-11-06.2. Sustituye a la 2026-11-06.1 (producto a12deae), que solo abría la «cadena posible» en el primer\nsensor1: construir_entrada.py VERSION 2026-11-06.3: exige evaluar_s14 2026-11-06.2 (la .1 no contaba el hueco anterior a una saturación y\nsensor1: aviso creado junto a paquete-a12deae (su contenido no se toca)\nsensor1: cf-e4/paquete-902991e\nsensor1: cf-e4/paquete-902991e.tgz\nsensor1: cf-e4/paquete-a12...fc65e2a127666f8\nbastion: evaluar_ecarga.py = publicado (53e9f7bd578123f6499289ebbb92d8d6c71a6e56b7c1c35a59463b98aad5c23f)\nbastion: deploy/etapa4/ecarga/SHA256SUMS verifica\nbastion: ecarga/SHA256SUMS = publicado (e001352c2e6485d99e71b1e62ff68a4051bebdfc2bbb4fbd927000517d463b80)\nbastion: evaluar_s14.py VERSION 2026-11-06.2. Sustituye a la 2026-11-06.1 (producto a12deae), que solo abría la «cadena posible» en el primer\nbastion: construir_entrada.py VERSION 2026-11-06.3: exige evaluar_s14 2026-11-06.2 (la .1 no contaba el hueco anterior a una saturación y\nbastion: aviso creado junto a paquete-a12deae (su contenido no se toca)\nbastion: cf-e4/paquete-902991e\nbastion: cf-e4/paquete-902991e.tgz\nbastion: cf-e4/paquete-a12deae\nbastion: cf-e4/paquete-a12deae.NO-USAR.txt\nbastion: cf-e4/paquete-a12deae.tgz\nbastion: rc 0\nsha256sum: WARNING: 1 computed checksum did NOT match\nsha256sum: SHA256SUMS: no properly formatted checksum lines found\nsha256sum: WARNING: 1 computed checksum did NOT match\nsha256sum: SHA256SUMS: no properly formatted checksum lines found\nsha256sum: WARNING: 1 computed checksum did NOT match\nsha256sum: SHA256SUMS: no properly formatted checksum lines found\n'
+/t/pruebas/test_traslado.py:370: AssertionError: ÉXITO FALSO: rc 0 con un manifiesto interno que no verifica (481 entradas, propio=['e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  ./SHA256SUMS'])
+/t/pruebas/test_traslado.py:380: AssertionError: portátil: evaluar_ecarga.py 53e9f7bd578123f6499289ebbb92d8d6c71a6e56b7c1c35a59463b98aad5c23f; ecarga/SHA256SUMS e001352c2e6485d99e71b1e62ff68a4051bebdfc2bbb4fbd927000517d463b80
+/t/pruebas/test_traslado.py:379: AssertionError: ÉXITO FALSO con scp a sensor1 fallido
+/t/pruebas/test_traslado.py:379: AssertionError: ÉXITO FALSO con scp a srvdmz fallido
+/t/pruebas/test_traslado.py:398: AssertionError: portátil: evaluar_ecarga.py 53e9f7bd578123f6499289ebbb92d8d6c71a6e56b7c1c35a59463b98aad5c23f; ecarga/SHA256SUMS e001352c2e6485d99e71b1e62ff68a4051bebdfc2bbb4fbd927000517d463b80
+/t/pruebas/test_traslado.py:397: AssertionError: ÉXITO FALSO con ssh a sensor1 fallido
+/t/pruebas/test_traslado.py:410: AssertionError: ÉXITO FALSO con un tgz truncado
+/t/pruebas/test_traslado.py:421: AssertionError: ÉXITO FALSO con el destino ya existente
+/t/pruebas/test_traslado.py:428: AssertionError: ÉXITO FALSO con srvdmz sin verificar
+/t/pruebas/test_traslado.py:441: AssertionError: ÉXITO FALSO
+/t/pruebas/test_traslado.py:454: AssertionError: fatal: '/no/existe' does not appear to be a git repository
+/t/pruebas/test_traslado.py:461: AssertionError: ÉXITO FALSO en el primer intento
+/t/pruebas/test_traslado.py:477: AssertionError: ÉXITO FALSO: un paquete sin marca se aceptó
+/t/pruebas/test_traslado.py:494: AssertionError: portátil: evaluar_ecarga.py 53e9f7bd578123f6499289ebbb92d8d6c71a6e56b7c1c35a59463b98aad5c23f; ecarga/SHA256SUMS e001352c2e6485d99e71b1e62ff68a4051bebdfc2bbb4fbd927000517d463b80
+=========================== short test summary info ============================
+FAILED test_traslado.py::test_regresion_host_paquete_invalido[fichero-alterado-checksum-incorrecto]
+FAILED test_traslado.py::test_regresion_host_paquete_invalido[fichero-esperado-ausente]
+FAILED test_traslado.py::test_regresion_host_paquete_invalido[fichero-inesperado]
+FAILED test_traslado.py::test_regresion_host_paquete_invalido[evaluador-distinto]
+FAILED test_traslado.py::test_regresion_host_paquete_invalido[version-incorrecta]
+FAILED test_traslado.py::test_regresion_host_paquete_invalido[manifiesto-ecarga-distinto]
+FAILED test_traslado.py::test_host_copia_correcta[bastion] - AssertionError: ...
+FAILED test_traslado.py::test_host_copia_correcta[sensor1] - AssertionError: ...
+FAILED test_traslado.py::test_host_copia_correcta[srvdmz] - AssertionError: s...
+FAILED test_traslado.py::test_host_tgz_truncado - AssertionError: 
+FAILED test_traslado.py::test_host_extraccion_fallida - AssertionError: 
+FAILED test_traslado.py::test_host_destino_ya_existente - AssertionError: sen...
+FAILED test_traslado.py::test_host_marca_de_otro_paquete - AssertionError: ba...
+FAILED test_traslado.py::test_regresion_host_fallo_al_crear_el_aviso - Assert...
+FAILED test_traslado.py::test_regresion_host_fallo_de_limpieza_tras_un_error
+FAILED test_traslado.py::test_host_reintento_con_paquete_ya_verificado - Asse...
+FAILED test_traslado.py::test_host_paquete_existente_alterado_despues - Asser...
+FAILED test_traslado.py::test_traslado_correcto_en_los_tres_hosts - Assertion...
+FAILED test_traslado.py::test_regresion_manifiesto_interno_sin_autorreferencia
+FAILED test_traslado.py::test_regresion_fallo_de_scp_en_cada_destino[bastion-4]
+FAILED test_traslado.py::test_regresion_fallo_de_scp_en_cada_destino[sensor1-6]
+FAILED test_traslado.py::test_regresion_fallo_de_scp_en_cada_destino[srvdmz-6]
+FAILED test_traslado.py::test_regresion_fallo_de_ssh[bastion-5] - AssertionEr...
+FAILED test_traslado.py::test_regresion_fallo_de_ssh[sensor1-6] - AssertionEr...
+FAILED test_traslado.py::test_regresion_tgz_truncado_en_la_transferencia - As...
+FAILED test_traslado.py::test_regresion_destino_existente_en_un_host - Assert...
+FAILED test_traslado.py::test_regresion_un_host_correcto_y_otro_fallido - Ass...
+FAILED test_traslado.py::test_regresion_fallo_de_limpieza_en_el_portatil_tras_un_error
+FAILED test_traslado.py::test_referencia_git_inaccesible - AssertionError: fa...
+FAILED test_traslado.py::test_recuperacion_reintento_tras_copia_parcial - Ass...
+FAILED test_traslado.py::test_recuperacion_destino_sin_marca - AssertionError...
+FAILED test_traslado.py::test_recuperacion_con_restos_de_un_intento_interrumpido
+======================== 32 failed, 1 passed in 46.01s =========================
+RC_PYTEST=1

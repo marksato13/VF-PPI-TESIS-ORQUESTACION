@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+# DOBLE de scp para el banco. NO conecta con nada: copia local -> $SIM/<host>/tmp/... (solo destinos bajo /tmp/).
+# Fallos simulados: DOBLE_FALLA_SCP=host[,host] -> rc 1 sin copiar; DOBLE_TRUNCA_SCP=host[,host] -> copia la mitad
+# del fichero y devuelve rc 0 (transferencia truncada que scp no detecta).
+set -u
+: "${SIM:?SIM sin definir}"
+host_de() { case "${1#*@}" in 10.10.10.30) echo bastion;; 10.10.60.11) echo sensor1;; 10.10.30.10) echo srvdmz;; *) echo "";; esac; }
+pos=()
+while [ $# -gt 0 ]; do
+  case "$1" in
+    -o|-i|-P|-F|-l|-S) shift 2;;
+    --) shift;;
+    -*) shift;;
+    *) pos+=("$1"); shift;;
+  esac
+done
+mkdir -p "$SIM/log"
+n=${#pos[@]}
+if [ "$n" -lt 2 ]; then echo "scp(doble): uso" >&2; exit 1; fi
+destino=${pos[$((n - 1))]}
+remoto=${destino%%:*}; ruta=${destino#*:}
+h=$(host_de "$remoto")
+printf 'scp %s %s -> %s\n' "${h:-?}" "${pos[*]:0:$((n - 1))}" "$ruta" >> "$SIM/log/ordenes.log"
+if [ -z "$h" ] || [ "$remoto" = "$destino" ]; then echo "scp(doble): destino no remoto '$destino'" >&2; exit 1; fi
+case "$ruta" in */tmp/*) ;; *) echo "scp(doble): solo se admiten destinos bajo /tmp/" >&2; exit 1;; esac
+case ",${DOBLE_FALLA_SCP:-}," in *",$h,"*) echo "scp(doble): transferencia a $h fallida (simulada)" >&2; echo "scp $h rc=1 (simulado)" >> "$SIM/log/ordenes.log"; exit 1;; esac
+if [ "$h" = bastion ]; then base=/tmp; else base="$SIM/$h/tmp"; fi
+resto=${ruta##*/tmp/}
+mkdir -p "$base"
+for ((i = 0; i < n - 1; i++)); do
+  src=${pos[$i]}
+  d="$base/$resto"
+  case "$ruta" in */) d="$base/$resto$(basename -- "$src")";; esac
+  case ",${DOBLE_TRUNCA_SCP:-}," in
+    *",$h,"*) t=$(stat -c %s -- "$src") || exit 1; head -c $((t / 2)) -- "$src" > "$d" || exit 1
+              echo "scp $h TRUNCADO $(basename -- "$d") (simulado, rc 0)" >> "$SIM/log/ordenes.log";;
+    *) cp -- "$src" "$d" || exit 1;;
+  esac
+done
+exit 0

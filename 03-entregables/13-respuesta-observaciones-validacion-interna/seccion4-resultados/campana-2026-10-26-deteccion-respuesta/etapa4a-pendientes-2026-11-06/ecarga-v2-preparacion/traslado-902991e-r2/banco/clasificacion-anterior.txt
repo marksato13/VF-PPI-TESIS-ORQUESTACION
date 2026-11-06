@@ -1,0 +1,38 @@
+# Versión anterior (evidencia/13-correccion-s14) frente al banco r2: por qué falla cada prueba
+# OCULTA = la versión anterior termina con rc 0 o declara éxito ante un fallo (primera aserción «ÉXITO FALSO»).
+# CONTRATO = la anterior ya devolvía rc distinto de cero, o no tiene el mecanismo nuevo (marca VERIFICADO, códigos, YA_VERIFICADO); no oculta el fallo.
+
+OCULTA    test_regresion_host_paquete_invalido[fichero-alterado-checksum-incorrecto]  | ÉXITO FALSO: op_host rc=0 con un paquete inválido (fichero-alterado-checksum-incorrecto)
+OCULTA    test_regresion_host_paquete_invalido[fichero-esperado-ausente]  | ÉXITO FALSO: op_host rc=0 con un paquete inválido (fichero-esperado-ausente)
+OCULTA    test_regresion_host_paquete_invalido[fichero-inesperado]  | ÉXITO FALSO: op_host rc=0 con un paquete inválido (fichero-inesperado)
+OCULTA    test_regresion_host_paquete_invalido[evaluador-distinto]  | ÉXITO FALSO: op_host rc=0 con un paquete inválido (evaluador-distinto)
+OCULTA    test_regresion_host_paquete_invalido[version-incorrecta]  | ÉXITO FALSO: op_host rc=0 con un paquete inválido (version-incorrecta)
+OCULTA    test_regresion_host_paquete_invalido[manifiesto-ecarga-distinto]  | ÉXITO FALSO: op_host rc=0 con un paquete inválido (manifiesto-ecarga-distinto)
+CONTRATO  test_host_copia_correcta[bastion]  | bastion: SHA256SUMS verifica (480 ficheros)
+CONTRATO  test_host_copia_correcta[sensor1]  | sensor1: SHA256SUMS verifica (480 ficheros)
+CONTRATO  test_host_copia_correcta[srvdmz]  | srvdmz: SHA256SUMS verifica (480 ficheros)
+CONTRATO  test_host_tgz_truncado  | 
+CONTRATO  test_host_extraccion_fallida  | 
+CONTRATO  test_host_destino_ya_existente  | sensor1: YA EXISTE ~/cf-e4/paquete-902991e: no se sobrescribe
+CONTRATO  test_host_marca_de_otro_paquete  | bastion: YA EXISTE ~/cf-e4/paquete-902991e: no se sobrescribe
+OCULTA    test_regresion_host_fallo_al_crear_el_aviso  | ÉXITO FALSO: el aviso no se creó y op_host terminó con rc 0
+OCULTA    test_regresion_host_fallo_de_limpieza_tras_un_error  | ÉXITO FALSO
+CONTRATO  test_host_reintento_con_paquete_ya_verificado  | srvdmz: YA EXISTE ~/cf-e4/paquete-902991e: no se sobrescribe
+CONTRATO  test_host_paquete_existente_alterado_despues  | sensor1: YA EXISTE ~/cf-e4/paquete-902991e: no se sobrescribe
+CONTRATO  test_traslado_correcto_en_los_tres_hosts  | assert 'TRASLADO COMPLETO: bastion, sensor1 y srvdmz verificados (3/3)' in 'portátil: evaluar_ecarga.py 53e9f7
+OCULTA    test_regresion_manifiesto_interno_sin_autorreferencia  | ÉXITO FALSO: rc 0 con un manifiesto interno que no verifica (481 entradas, propio=['e3b0c44298fc1c149afbf4c899
+CONTRATO  test_regresion_fallo_de_scp_en_cada_destino[bastion-4]  | portátil: evaluar_ecarga.py 53e9f7bd578123f6499289ebbb92d8d6c71a6e56b7c1c35a59463b98aad5c23f; ecarga/SHA256SUM
+OCULTA    test_regresion_fallo_de_scp_en_cada_destino[sensor1-6]  | ÉXITO FALSO con scp a sensor1 fallido
+OCULTA    test_regresion_fallo_de_scp_en_cada_destino[srvdmz-6]  | ÉXITO FALSO con scp a srvdmz fallido
+CONTRATO  test_regresion_fallo_de_ssh[bastion-5]  | portátil: evaluar_ecarga.py 53e9f7bd578123f6499289ebbb92d8d6c71a6e56b7c1c35a59463b98aad5c23f; ecarga/SHA256SUM
+OCULTA    test_regresion_fallo_de_ssh[sensor1-6]  | ÉXITO FALSO con ssh a sensor1 fallido
+OCULTA    test_regresion_tgz_truncado_en_la_transferencia  | ÉXITO FALSO con un tgz truncado
+OCULTA    test_regresion_destino_existente_en_un_host  | ÉXITO FALSO con el destino ya existente
+OCULTA    test_regresion_un_host_correcto_y_otro_fallido  | ÉXITO FALSO con srvdmz sin verificar
+OCULTA    test_regresion_fallo_de_limpieza_en_el_portatil_tras_un_error  | ÉXITO FALSO
+CONTRATO  test_referencia_git_inaccesible  | fatal: '/no/existe' does not appear to be a git repository
+OCULTA    test_recuperacion_reintento_tras_copia_parcial  | ÉXITO FALSO en el primer intento
+OCULTA    test_recuperacion_destino_sin_marca  | ÉXITO FALSO: un paquete sin marca se aceptó
+CONTRATO  test_recuperacion_con_restos_de_un_intento_interrumpido  | portátil: evaluar_ecarga.py 53e9f7bd578123f6499289ebbb92d8d6c71a6e56b7c1c35a59463b98aad5c23f; ecarga/SHA256SUM
+
+OCULTA: 18   CONTRATO: 14   PASA: test_los_guiones_no_contienen_ordenes_prohibidas

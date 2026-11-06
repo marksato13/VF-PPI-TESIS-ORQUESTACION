@@ -232,6 +232,16 @@ y solo ilustra la estructura. La traza real la escribe la herramienta con su `VE
 
 ## 7. Paquete en los hosts: PENDIENTE antes de P0
 
+> **Nota posterior (06-nov): guiones SUSTITUIDOS.** Los dos guiones de abajo
+> (`../evidencia/13-correccion-s14/paquete_902991e.sh` y `op_host_902991e.sh`) **no deben usarse**:
+> - podían terminar con rc 0 aunque fallara la verificación de un host;
+> - su manifiesto interno podía listarse a sí mismo.
+>
+> Se conservan sin modificar como evidencia. Los sustituyen los guiones r2 de
+> [`traslado-902991e-r2/`](traslado-902991e-r2/), probados en banco (33/33). Las instrucciones, los códigos de salida y
+> la recuperación están en [`TRASLADO-PAQUETE-902991e-r2.md`](TRASLADO-PAQUETE-902991e-r2.md). La copia sigue **sin
+> ejecutar**.
+
 **No se ha copiado el paquete de `902991e` a los hosts.** El intento de copia (solo copiar y verificar, como el de
 `a12deae`) lo bloqueó el control de permisos de la sesión, por ser una escritura remota. El encargo autorizaba código,
 pruebas aisladas y documentación, así que no se buscó otra vía.
