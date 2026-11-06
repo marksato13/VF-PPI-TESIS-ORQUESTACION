@@ -1,0 +1,6 @@
+herramientas: /repo/deploy/etapa4/ecarga
+evaluar_s14 VERSION: evaluar_s14 2026-11-06.2
+A) lecturas completas: S14 = False | cpu = False | saturación nueva: 1 episodio(s) >= 8 s
+B) psi=None en [D+100, D+103): S14 = None | cpu = None | 1 posible(s) episodio(s) >= 8 s con datos ausentes (el primero 1794194199.0–1794194208.0: 5.0 s saturados observados + 4.0 s desconocidos): la saturación no se puede negar ni dar por demostrada
+   cobertura cpu: {'cubierto_s': 3596.0, 'fraccion': 0.9989, 'hueco_max_s': 4.0, 'ok': True} | episodios: [] | dudosos: [{'desde': 1794194199.0, 'hasta': 1794194208.0, 'duracion_posible_s': 9.0, 'saturado_observado_s': 5.0, 'desconocido_s': 4.0, 'desconocido_antes_s': 4.0, 'toca_borde': False}]
+C) punta a punta: S14 = None | veredicto = no demostrable | habilita_condicion_3 = False | rc = 1

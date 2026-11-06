@@ -1,5 +1,15 @@
 # Preparación de E-carga v2, revisión r2: defectos corregidos (06-nov, noche)
 
+> **Sustituida en parte por la r3** ([`PREPARACION-ECARGA-v2-r3.md`](PREPARACION-ECARGA-v2-r3.md), protocolo r4).
+> `evaluar_s14` 2026-11-06.1 de `a12deae` no contaba el hueco inmediatamente anterior a un tramo saturado. Con eso,
+> un caso con datos ausentes habilitaba la condición (3). Cambia lo siguiente:
+> - el paquete es `~/cf-e4/paquete-902991e`, no `paquete-a12deae`;
+> - los resultados van a `evidencia/14-ecarga-ejecucion/`, no a la 13;
+> - S14 sigue el protocolo r4 §3.6.1.1.
+>
+> El texto de abajo **no se ha modificado**: su sha256 en `b863634` es `78dfa8ca…`
+> (`../evidencia/13-correccion-s14/protocolo-v2-r3.sha256`).
+
 **Estado: preparación corregida. E-carga NO se ha ejecutado ni programado.** No se ha arrancado ningún generador, no
 se ha lanzado ningún ataque, no se ha activado ninguna restricción y no se ha iniciado la 4B, la 4C ni la campaña B. El
 modelo IF, las 28 características, α, los heurísticos y la política de respuesta no se han tocado. La ejecución exige una

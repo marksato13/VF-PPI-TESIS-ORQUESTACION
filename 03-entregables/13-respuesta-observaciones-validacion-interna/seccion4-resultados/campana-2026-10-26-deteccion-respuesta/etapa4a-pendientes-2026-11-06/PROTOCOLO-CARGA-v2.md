@@ -10,17 +10,22 @@ siga siendo identificable; la v1 no se llegó a ejecutar.
 **Base de la medida.** La observación del 06-nov (O12) sigue siendo **«carga insuficiente»**. Ni la v1 ni la v2 la
 sustituyen ni la reevalúan.
 
-**Revisión vigente: r3 (06-nov, noche).** Fija la definición operacional de S14 (§3.6.1) y precisa qué demuestran S2 y
-S3 (§3.6.2). Se publica **antes de cualquier ensayo** y **no se aplica a ninguna observación anterior**: la del 06-nov
-(O12) no se reevalúa. No cambia ningún otro criterio ni umbral; los cambios están en §0.2.
+**Revisión vigente: r4 (06-nov, noche).** Aclara cómo trata S14 el tiempo sin medida que puede alargar o unir un
+tramo saturado (§3.6.1.1). No cambia ningún umbral, la duración mínima, la cobertura ni ningún otro criterio; los
+cambios están en §0.3. Se publica **antes de cualquier ensayo** y **no se aplica a ninguna observación anterior**: no
+hay ninguna medida de S14 hecha con la r3, y la del 06-nov (O12) no se reevalúa.
 - La r1 es el texto de `8f17273` (sha256 en `evidencia/10-veredicto-contrato/protocolo-v2-r1.sha256`).
 - La r2 es el texto de `fef1ebd`, sha256 `d3be6f19…` (en `evidencia/12-correccion-preparacion/protocolo-v2-r2.sha256`);
   sus cambios están en §0.1.
+- La r3 es el texto de `b863634`, sha256 `92bb9294…` (en `evidencia/13-correccion-s14/protocolo-v2-r3.sha256`); fijó
+  S14 (§3.6.1) y S2/S3 (§3.6.2), con los cambios de §0.2.
 
-**Herramientas de E-carga (r3).** Producto **`a12deae`** (rama `recuperacion/etapa4a-pendientes-20261106`), carpeta
-canónica `deploy/etapa4/ecarga/` con su `SHA256SUMS`. Sustituye a las copias `guiones-c7f24510/` y
-`evaluacion-e83f4be6/`, que se conservan como evidencia sellada y **no se usan**. El evaluador sigue siendo
-`evaluar_ecarga.py` 2026-11-06.4 (`53e9f7bd…`), sin cambios.
+**Herramientas de E-carga (r4).** Producto **`902991e`** (rama `recuperacion/etapa4a-pendientes-20261106`), carpeta
+canónica `deploy/etapa4/ecarga/` con su `SHA256SUMS` (`e001352c…`): `evaluar_s14.py` **2026-11-06.2** y
+`construir_entrada.py` **2026-11-06.3**, que exige esa versión de `evaluar_s14`. El resto de herramientas son las de
+`a12deae`, sin cambios. `a12deae` (r3) lleva `evaluar_s14` 2026-11-06.1, con el defecto de §0.3: **no se usa**. Las
+copias `guiones-c7f24510/` y `evaluacion-e83f4be6/` se conservan como evidencia sellada y **no se usan**. El evaluador
+sigue siendo `evaluar_ecarga.py` 2026-11-06.4 (`53e9f7bd…`), sin cambios.
 
 **Herramientas.** Producto **`ae2900e`** (rama `recuperacion/etapa4a-pendientes-20261106`):
 - `evaluar_ecarga.py` **2026-11-06.4**: blob `06b84134…`, sha256 `53e9f7bd…`. Contrato de entrada estricto y contraste
@@ -96,6 +101,26 @@ están en `ecarga-v2-preparacion/PREPARACION-ECARGA-v2-r2.md`.
 | 1 | S14 se calcula con `evaluar_s14.py` según §3.6.1 (componentes, límites, duración, cobertura, línea base) y deja de ser manual | Un criterio sin regla no se puede medir ni auditar; no se fija un umbral después de ver los datos | El enunciado de S14 no cambia; se fija **cómo se mide**. Ninguna observación anterior se evalúa con esta regla |
 | 2 | S2 y S3 con la definición de §3.6.2: bordes cubiertos, continuidad, lectura completa; `false` = incumplimiento demostrado y `null` = evidencia insuficiente | La regla anterior solo miraba los ficheros cuyo nombre caía en la ventana | No: siguen siendo O2 y O3 (salto ≤ 7 s). Se precisa qué se exige para darlos por medidos |
 | 3 | §3.5: tres comprobaciones más en P0 (puntos 10–12) | Lo que la r3 necesita para medir: `PartOf` y argv de las unidades, retención del anillo ≥ 900 s y PSI legible | No |
+
+### 0.3 Revisión r4 (06-nov, noche): S14 con tiempo desconocido, antes de medir
+
+**Defecto reproducido** en `evaluar_s14.py` 2026-11-06.1 (`a12deae`). La cadena de posible saturación empezaba en el
+primer par saturado válido, así que un hueco **inmediatamente anterior** no se contaba. Caso: CPU al 100 % y PSI `cpu
+some` al 50 % en [D+100, D+108), con `psi` ausente en las muestras D+100 ≤ t < D+103. Hay 4 s sin medida, [D+99, D+103),
+pegados a 5 s saturados, [D+103, D+108): el episodio pudo durar 9 s. Cobertura 99,89 % y hueco máximo 4 s cumplen la
+§3.6.1. Resultado con `a12deae`: componente CPU `true`, S14 `true`, «estable con carga suficiente»,
+`habilita_condicion_3` = true y rc 0. Lo correcto es S14 `null` y «no demostrable». Reproducción:
+`evidencia/13-correccion-s14/repro-a12deae.txt` frente a `repro-nuevo.txt`.
+
+**Causa en el texto de la r3.** §3.6.1 decía «los pares saturados, más los huecos **intercalados**». No decía qué pasa
+con un hueco antes o después del tramo saturado, ni en los bordes de la ventana y de la línea base. La herramienta
+aplicó la lectura más estrecha.
+
+| # | Cambio en r4 | Por qué | ¿Cambia un criterio? |
+|---|---|---|---|
+| 1 | §3.6.1.1: el periodo se divide en intervalos S/N/U. El tiempo sin medida pegado a un tramo saturado (antes, dentro, después o en un borde) cuenta como **posible** saturación. Solo un intervalo medido y no saturado (N) corta un tramo | Un dato ausente no es «normal»: no se puede negar un episodio que pudo durar ≥ 8 s | No: umbrales, 8 s, 4 s y 99 % iguales. Se fija qué es «no se puede negar» |
+| 2 | La línea base con un posible episodio que no se puede negar es **dudosa** y no permite afirmar «nueva» | Una línea base dudosa no demuestra que la saturación de la ventana sea nueva | No: ya era `null` («nueva» no demostrable); se aclara el caso dudoso |
+| 3 | `evaluar_s14.py` 2026-11-06.2 y `construir_entrada.py` 2026-11-06.3 (producto `902991e`); P0 punto 13 | La herramienta de `a12deae` tiene el defecto | No |
 
 ## 1. Por qué hace falta (sin cambios respecto a la v1 §1)
 
@@ -302,6 +327,12 @@ posible pueda funcionar: no se han probado otras reglas ni se ha medido cuántos
 11. *(r3)* `sensor1_muestreadores.sh comprobar` con **rc 0**: el fichero más antiguo del anillo tiene ≥ 900 s, y PSI,
     `vmstat`, `diskstats` y `USER_HZ` se leen sin sudo.
 12. *(r3)* Los muestreadores (incluido S14) arrancados **antes** de T_g − 300 s, para cubrir la línea base de §3.6.1.
+13. *(r4)* El paquete de los puntos 10–12 es el de **`902991e`**, no el de `a12deae`:
+    - `ecarga/SHA256SUMS` con sha256 `e001352c2e6485d99e71b1e62ff68a4051bebdfc2bbb4fbd927000517d463b80`;
+    - `evaluar_s14.py` con `VERSION` 2026-11-06.2;
+    - `construir_entrada.py` con `VERSION` 2026-11-06.3.
+
+    Con `paquete-a12deae` no se deriva S14 ni se construye la entrada.
 
 ### 3.6 Criterios de estabilidad técnica (sin cambios de valor)
 
@@ -318,7 +349,8 @@ posible pueda funcionar: no se han probado otras reglas ni se ha medido cuántos
 **Fuente.** `muestreo_s14.py` en Sensor1, solo lectura y sin sudo, **cada 1 s**. Lee `/proc/pressure/{cpu,io,memory}`,
 `/proc/stat` (agregado y por CPU), `/proc/net/softnet_stat`, `/proc/diskstats`, `MemAvailable`, `/proc/vmstat`
 (`pswpin`, `pswpout`, `oom_kill`) y los ticks de los hilos `W#…` de Suricata. Cada error de lectura se escribe en la
-muestra. La evalúa `evaluar_s14.py` 2026-11-06.1 (producto `a12deae`).
+muestra. La evalúa `evaluar_s14.py` **2026-11-06.2** (producto `902991e`; *r4*: la 2026-11-06.1 de `a12deae` tiene el
+defecto de §0.3 y no se usa).
 
 **Ventanas.**
 - Ventana medida: la de E-carga, [1794194100, 1794197700).
@@ -355,7 +387,8 @@ y de K2. Una ráfaga más corta la absorbe el anillo de af-packet (ring-size 163
 - Un par con un dato ausente, un error de lectura, un contador que retrocede (reinicio) o un hilo de Suricata con otro
   PID no cuenta como cubierto e interrumpe el episodio.
 - Si los pares saturados, más los huecos intercalados, suman ≥ 8 s, el episodio **no se puede negar**: la componente
-  queda `null`, nunca `true`.
+  queda `null`, nunca `true`. *(r4)* «Intercalados» incluye los huecos antes y después del tramo saturado y los de los
+  bordes; la regla exacta está en §3.6.1.1.
 - Un reinicio de Suricata es además un incumplimiento de S1.
 
 **Resultado por componente.**
@@ -374,6 +407,50 @@ y de K2. Una ráfaga más corta la absorbe el anillo de af-packet (ring-size 163
   falta, se mediría `esxtop` en el host, fuera de esta revisión.
 - `/proc/pressure` existe en el kernel 6.8.0-53 de Sensor1 y se lee sin sudo (comprobado el 06-nov a las 15:45Z). Si
   en P0 no se leyera, S14 quedaría `null` y no se arrancaría (§3.5, punto 11).
+
+#### 3.6.1.1 Tiempo desconocido (r4, fijada antes de medir; no retroactiva)
+
+Vale para las cinco componentes de §3.6.1 y para la ventana y la línea base por igual.
+
+**Intervalos.** Cada periodo [desde, hasta) se divide en intervalos contiguos, sin solapes ni huecos:
+- **S**: un par válido de muestras consecutivas en el que la componente está saturada;
+- **N**: un par válido en el que no lo está;
+- **U** (desconocido): todo lo que no cubre un par válido. Es U un par de más de 4 s; un par con un dato ausente o
+  ilegible, con un contador que retrocede o con un hilo de Suricata de otro PID; y el tramo entre un borde del periodo y
+  la primera o la última muestra.
+
+Un par (t_a, t_b) ocupa [max(t_a, desde), min(t_b, hasta)): un par que cruza un borde se recorta a la parte de dentro.
+
+**Tramos posibles.** Un tramo posible es una sucesión **máxima** de intervalos S y U contiguos. Solo un N lo corta: un
+U no corta nada. Su **duración posible** es fin − inicio, e incluye los U de antes, de dentro y de después.
+
+**Clasificación** de cada tramo posible:
+- **episodio demostrado**: dentro del tramo hay intervalos S contiguos, sin ningún U entre ellos, que suman ≥ 8 s;
+- **dudoso**: no hay episodio demostrado, el tramo tiene algún U y su duración posible es ≥ 8 s;
+- **sin episodio**: la duración posible es < 8 s, o el tramo no tiene ningún S. Un hueco aislado entre N es un tramo
+  de solo U: cuenta para la cobertura, no como posible saturación.
+
+Lo que no se hace:
+- no se interpola;
+- un dato ausente no se toma por «no saturado»;
+- dos tramos separados por un N válido no se suman: la evidencia medida de no saturación sí corta.
+
+La comparación con 8 s es inclusiva: 8 s exactos de duración posible ya es dudoso.
+
+**Cobertura.** No cambia: la suma de S y N ≥ 99 % del periodo y ningún U > 4 s. La cobertura **no basta** por sí sola:
+con 99,89 % y un hueco de 4 s puede haber un tramo dudoso.
+
+**Resultado por componente** (la tabla de §3.6.1, con esta regla):
+- `false`: episodio demostrado en la ventana con una línea base de cobertura suficiente, **sin episodios ni dudosos**.
+  También un incumplimiento inmediato.
+- `null`:
+  - cobertura insuficiente en la ventana;
+  - un tramo dudoso en la ventana sin ningún episodio demostrado;
+  - un episodio demostrado con la línea base saturada, **dudosa** o sin cobertura («nueva» no demostrable).
+- `true`: cobertura suficiente, sin episodios y sin dudosos.
+
+Pruebas que fijan la regla: `test_s14_tiempo_desconocido`, `test_*s14_borde_*`, `test_*s14_base_*` y
+`test_regresion_s14_hueco_antes_en_cada_componente` (producto `902991e`).
 
 #### 3.6.2 S2 y S3: qué demuestra cada uno (r3)
 

@@ -1,0 +1,106 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-8.3.5, pluggy-1.5.0 -- /usr/bin/python3
+rootdir: /repo
+collecting ... collected 85 items / 47 deselected / 38 selected
+
+tests/test_etapa4_ecarga_prep.py::test_regresion_hash_completo_en_el_guion PASSED [  2%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_arranque_fallido_da_rc_distinto_de_cero PASSED [  5%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_arranque_parcial PASSED [  7%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_consulta_fallida_tras_arrancar_es_desconocido PASSED [ 10%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_argv_de_la_unidad_no_corresponde PASSED [ 13%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_sin_partof_no_arranca PASSED [ 15%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_no_arranca_con_procesos_previos PASSED [ 18%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_estado_con_consulta_fallida_no_parece_inactivo PASSED [ 21%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_parada_fallida PASSED   [ 23%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_parada_sin_efecto PASSED [ 26%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_parada_con_consulta_fallida_no_se_confirma PASSED [ 28%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_parada_detecta_proceso_huerfano PASSED [ 31%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_ssh_falla_en_parada_agota_sin_confirmar PASSED [ 34%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_parada_fallida_y_recuperacion PASSED [ 36%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_parada_no_confirmada_rc_remoto_4 PASSED [ 39%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_lecturas_fallidas_se_escriben_error PASSED [ 42%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_bastion_lectura_error_no_es_false PASSED [ 44%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_pcap_dos_ficheros_al_inicio_de_la_hora PASSED [ 47%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_pcap_falta_el_inicio PASSED [ 50%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_pcap_falta_el_final PASSED [ 52%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_pcap_observacion_truncada PASSED [ 55%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_pcap_primera_pasada_tardia PASSED [ 57%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_pcap_fichero_ilegible_es_sin_evidencia PASSED [ 60%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_pcap_duplicado_contradictorio PASSED [ 63%]
+tests/test_etapa4_ecarga_prep.py::test_s14_tiempo_desconocido[regresion-antes-repro-9s] FAILED [ 65%]
+tests/test_etapa4_ecarga_prep.py::test_s14_tiempo_desconocido[regresion-antes-posible-8s-exactos] FAILED [ 68%]
+tests/test_etapa4_ecarga_prep.py::test_s14_tiempo_desconocido[regresion-antes-posible-9s] FAILED [ 71%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_s14_borde_inicio_de_la_ventana FAILED [ 73%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_s14_base_dudosa_por_hueco_antes FAILED [ 76%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_s14_base_dudosa_en_su_borde_de_inicio FAILED [ 78%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_s14_hueco_antes_en_cada_componente[cpu] FAILED [ 81%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_s14_hueco_antes_en_cada_componente[hilos] FAILED [ 84%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_s14_hueco_antes_en_cada_componente[softirq] FAILED [ 86%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_s14_hueco_antes_en_cada_componente[disco] FAILED [ 89%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_s14_hueco_antes_en_cada_componente[memoria] FAILED [ 92%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_e2e_dos_pcap_no_habilita PASSED [ 94%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_e2e_pcap_falta_el_final_no_habilita PASSED [ 97%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_e2e_s14_hueco_antes_de_la_saturacion_no_habilita FAILED [100%]
+
+=================================== FAILURES ===================================
+____________ test_s14_tiempo_desconocido[regresion-antes-repro-9s] _____________
+tests/test_etapa4_ecarga_prep.py:719: in test_s14_tiempo_desconocido
+    assert c["valor"] is esperado, (explica, c["motivo"], c["ventana"])
+E   AssertionError: ('U[99,103)+S[103,108) = 9 s', 'sin episodios de saturación', {'cobertura': {'cubierto_s': 3596.0, 'fraccion': 0.9989, 'hueco_max_s': 4.0, 'ok': True}, 'dudosos': [], 'episodios': [], 'maximos': {'ocupada_pct': 100.0, 'psi_cpu_some_pct': 50.0}})
+E   assert True is None
+_______ test_s14_tiempo_desconocido[regresion-antes-posible-8s-exactos] ________
+tests/test_etapa4_ecarga_prep.py:719: in test_s14_tiempo_desconocido
+    assert c["valor"] is esperado, (explica, c["motivo"], c["ventana"])
+E   AssertionError: ('U[101,104)+S5 = 8 s', 'sin episodios de saturación', {'cobertura': {'cubierto_s': 3597.0, 'fraccion': 0.9992, 'hueco_max_s': 3.0, 'ok': True}, 'dudosos': [], 'episodios': [], 'maximos': {'ocupada_pct': 100.0, 'psi_cpu_some_pct': 50.0}})
+E   assert True is None
+___________ test_s14_tiempo_desconocido[regresion-antes-posible-9s] ____________
+tests/test_etapa4_ecarga_prep.py:719: in test_s14_tiempo_desconocido
+    assert c["valor"] is esperado, (explica, c["motivo"], c["ventana"])
+E   AssertionError: ('U[100,104)+S5 = 9 s', 'sin episodios de saturación', {'cobertura': {'cubierto_s': 3596.0, 'fraccion': 0.9989, 'hueco_max_s': 4.0, 'ok': True}, 'dudosos': [], 'episodios': [], 'maximos': {'ocupada_pct': 100.0, 'psi_cpu_some_pct': 50.0}})
+E   assert True is None
+________________ test_regresion_s14_borde_inicio_de_la_ventana _________________
+tests/test_etapa4_ecarga_prep.py:732: in test_regresion_s14_borde_inicio_de_la_ventana
+    assert r["componentes"]["cpu"]["valor"] is None and r["S14"]["valor"] is None      # U2 + S6 = 8 s
+E   assert (True is None)
+________________ test_regresion_s14_base_dudosa_por_hueco_antes ________________
+tests/test_etapa4_ecarga_prep.py:762: in test_regresion_s14_base_dudosa_por_hueco_antes
+    assert c["valor"] is None and "línea base dudosa" in c["motivo"], c["motivo"]
+E   AssertionError: saturación nueva: 1 episodio(s) >= 8 s
+E   assert (False is None)
+_____________ test_regresion_s14_base_dudosa_en_su_borde_de_inicio _____________
+tests/test_etapa4_ecarga_prep.py:773: in test_regresion_s14_base_dudosa_en_su_borde_de_inicio
+    assert c["valor"] is None and "línea base dudosa" in c["motivo"] and c["base"]["cobertura"]["ok"], c["motivo"]
+E   AssertionError: saturación nueva: 1 episodio(s) >= 8 s
+E   assert (False is None)
+____________ test_regresion_s14_hueco_antes_en_cada_componente[cpu] ____________
+tests/test_etapa4_ecarga_prep.py:796: in test_regresion_s14_hueco_antes_en_cada_componente
+    assert c["valor"] is None, (comp, c["motivo"], c["ventana"])                                    # U4 + S5 = 9 s
+E   AssertionError: ('cpu', 'sin episodios de saturación', {'cobertura': {'cubierto_s': 3596.0, 'fraccion': 0.9989, 'hueco_max_s': 4.0, 'ok': True}, 'dudosos': [], 'episodios': [], 'maximos': {'ocupada_pct': 100.0, 'psi_cpu_some_pct': 50.0}})
+E   assert True is None
+___________ test_regresion_s14_hueco_antes_en_cada_componente[hilos] ___________
+tests/test_etapa4_ecarga_prep.py:796: in test_regresion_s14_hueco_antes_en_cada_componente
+    assert c["valor"] is None, (comp, c["motivo"], c["ventana"])                                    # U4 + S5 = 9 s
+E   AssertionError: ('hilos', 'sin episodios de saturación', {'cobertura': {'cubierto_s': 3596.0, 'fraccion': 0.9989, 'hueco_max_s': 4.0, 'ok': True}, 'dudosos': [], 'episodios': [], 'maximos': {'hilo_max_pct': 100.0}})
+E   assert True is None
+__________ test_regresion_s14_hueco_antes_en_cada_componente[softirq] __________
+tests/test_etapa4_ecarga_prep.py:796: in test_regresion_s14_hueco_antes_en_cada_componente
+    assert c["valor"] is None, (comp, c["motivo"], c["ventana"])                                    # U4 + S5 = 9 s
+E   AssertionError: ('softirq', 'sin episodios de saturación', {'cobertura': {'cubierto_s': 3596.0, 'fraccion': 0.9989, 'hueco_max_s': 4.0, 'ok': True}, 'dudosos': [], 'episodios': [], 'maximos': {'softirq_cpu_max_pct': 96.0}})
+E   assert True is None
+___________ test_regresion_s14_hueco_antes_en_cada_componente[disco] ___________
+tests/test_etapa4_ecarga_prep.py:796: in test_regresion_s14_hueco_antes_en_cada_componente
+    assert c["valor"] is None, (comp, c["motivo"], c["ventana"])                                    # U4 + S5 = 9 s
+E   AssertionError: ('disco', 'sin episodios de saturación', {'cobertura': {'cubierto_s': 3596.0, 'fraccion': 0.9989, 'hueco_max_s': 4.0, 'ok': True}, 'dudosos': [], 'episodios': [], 'maximos': {'disco_ocupado_max_pct': 100.0, 'psi_io_full_pct': 20.0}})
+E   assert True is None
+__________ test_regresion_s14_hueco_antes_en_cada_componente[memoria] __________
+tests/test_etapa4_ecarga_prep.py:796: in test_regresion_s14_hueco_antes_en_cada_componente
+    assert c["valor"] is None, (comp, c["motivo"], c["ventana"])                                    # U4 + S5 = 9 s
+E   AssertionError: ('memoria', 'sin episodios de saturación', {'cobertura': {'cubierto_s': 3596.0, 'fraccion': 0.9989, 'hueco_max_s': 4.0, 'ok': True}, 'dudosos': [], 'episodios': [], 'maximos': {'mem_disponible_kb': 5200000, 'psi_mem_some_pct': 15.0}})
+E   assert True is None
+_______ test_regresion_e2e_s14_hueco_antes_de_la_saturacion_no_habilita ________
+tests/test_etapa4_ecarga_prep.py:902: in test_regresion_e2e_s14_hueco_antes_de_la_saturacion_no_habilita
+    assert e["S"]["S14"] is None, e["S"]
+E   AssertionError: {'S1': True, 'S10': True, 'S11': True, 'S12': True, ...}
+E   assert True is None
+================ 12 failed, 26 passed, 47 deselected in 48.48s =================
+RC_PYTEST=1
