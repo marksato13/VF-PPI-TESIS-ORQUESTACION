@@ -1,0 +1,7 @@
+== sin ningún muestreador: pgrep real (patrón con clases de caracteres)
+pgrep_rc=1
+== A. como en el P0 r2: bash -c "$txt"
+RESULTADO ya hay muestreadores en marcha
+== B. el mismo texto desde un fichero: bash fichero.sh
+RESULTADO ningún muestreador en marcha
+RC=0

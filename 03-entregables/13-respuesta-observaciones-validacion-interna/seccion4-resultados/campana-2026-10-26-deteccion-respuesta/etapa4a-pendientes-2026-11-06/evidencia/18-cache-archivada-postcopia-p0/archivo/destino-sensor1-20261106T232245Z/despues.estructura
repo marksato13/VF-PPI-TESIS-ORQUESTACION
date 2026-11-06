@@ -1,0 +1,566 @@
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/.github
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/.github/workflows
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/ansible
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/ansible/inventories
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/ansible/inventories/lab
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/ansible/inventories/lab/group_vars
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/ansible/playbooks
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/ansible/scripts
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/artifacts
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/artifacts/dataset
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/artifacts/model
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/artifacts/model/candidates
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/configs
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/campaigns
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/features
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/sensor
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/server
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/storage
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/suricata
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/time
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/dashboard
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/demo
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/demo/brute
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/enforcement
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/enforcement/candidato-etapa2
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/enforcement/candidato-etapa3
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa3
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa3/suricata
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/banco
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/banco/observado-sensor1
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/bastion
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/cierre
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/comun
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/ecarga
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/laptop
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/pendientes
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/sensor1
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/srvdmz
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/unidades
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/unidades/bastion
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/unidades/sensor1
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/unidades/sensor1/ppi-motor-capture.service.d
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/unidades/sensor1/ppi-motor.service.d
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/unidades/srvdmz
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/pruebas-aisladas
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/docs
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/dataset
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/evaluacion
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/evidencias
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/aprendizaje
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/guia
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/instalacion
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/readme
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/results
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/results/ablacion
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/results/f6
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/analysis
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/articulo
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/campaign
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/dataset
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/enforce
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/engine
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/entregables
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/etapa3
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/etapa4
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/evaluacion
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/f1
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/f6
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/features
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/kali
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/laboratorio
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/modeling
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/modeling/experiments
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/setup
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/storage
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/tests
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/datos
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/ecarga_banco
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/ecarga_banco/bin
+d 755 m4rk /home/m4rk/cf-e4/paquete-902991e/testsprite_tests
+f 644 10158 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_etapa4_vigia_decision.py
+f 644 10318 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/results/ablacion/significancia-modelos.json
+f 644 108549 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/instalacion/06-02-instalar-comprobar.png
+f 644 10892 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/testsprite_tests/standard_prd.json
+f 644 1097981 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/artifacts/model/candidates/if_exact_collapsed.joblib
+f 644 1097981 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/artifacts/model/candidates/if_uniform.joblib
+f 644 111 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/server/99-ppi-service-vips.yaml
+f 644 112 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/ansible/requirements.yml
+f 644 11390 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/campaigns/multilayer-v2-normal.json
+f 644 1147 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/unidades/sensor1/ppi-via-rapida@.service
+f 644 1176 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_entregables_cards.py
+f 644 1185 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/features/README.md
+f 644 121138 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/instalacion/07-01-doctor.png
+f 644 1214 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/LICENSE
+f 644 1218 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/unidades/srvdmz/ppi-enforce-agent-v2-dmz.service
+f 644 1248 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/enforcement/candidato-etapa2/ppi-enforce-agent-v2-dmz.service
+f 644 1258 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa3/suricata/cf-escaneo-temprano.rules
+f 644 1261 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/enforcement/candidato-etapa2/ppi-enforce-agent-v2-dns.service
+f 644 1280 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/unidades/sensor1/ppi-publicar-feed-v2.service
+f 644 1285 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_multilayer_v2_dataset.py
+f 644 130483 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/instalacion/07-02-anillo.png
+f 644 13133 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/GUIA-USUARIO.md
+f 644 13259 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_etapa4_compuerta_banco.py
+f 644 1327419 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/artifacts/model/candidates/if_scaled_weighted.joblib
+f 644 1332434 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/artifacts/model/candidates/if_primary_weighted.joblib
+f 644 13347 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_etapa4_salud_eve.py
+f 644 1341 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/unidades/sensor1/cf-tcpdump-estadisticas.service
+f 644 13829 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/FICHA-TECNICA-DESPLIEGUE-VIGENTE.md
+f 644 1408 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/sensor/ppi-dashboard.service
+f 644 141 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/sensor/ppi-metrics.sudoers.ejemplo
+f 644 141 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/sensor/useransible-ppi-metrics.sudoers
+f 644 141 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/time/chrony-sensor-vm01.sources
+f 644 1410 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/.zenodo.json
+f 644 14126 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_cyberflow_config.py
+f 644 142055 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/instalacion/06-01-asistente.png
+f 644 14340 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_auth_failure_vista.py
+f 644 1456 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/unidades/bastion/ppi-relay-eventos.service
+f 644 14583 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_multilayer_v2_features.py
+f 644 14641 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/laboratorio/BANCO-DE-PRUEBAS.md
+f 644 1466 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/dataset/SHA256SUMS
+f 644 15514 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_vista_vivo.py
+f 644 15574 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_aprendizaje.py
+f 644 1574 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/enforcement/candidato-etapa3/ppi-via-rapida@.service
+f 644 16001 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_etapa4_p4_paquete.py
+f 644 1602 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/comun/evidencia.sh
+f 644 16060 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/results/ablacion/ablacion-multicapa.json
+f 644 163738 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/instalacion/06-04-instalado.png
+f 644 165 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/enforcement/ppi-relay-feed.timer
+f 644 1657 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/modeling/README.md
+f 644 167656 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/artifacts/model/candidates/lof_scaled.joblib
+f 644 16808 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_f1_dataset_builder.py
+f 644 1682 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/sensor/ppi-motor.service
+f 644 1683 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/features/multilayer-v1.json
+f 644 1707 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/CITATION.cff
+f 644 171844 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/guia/G-01-decisiones.png
+f 644 171844 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/instalacion/07-03-decisiones.png
+f 644 172 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/enforcement/ppi-enforce-agent.timer
+f 644 181 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/suricata/local.rules
+f 644 1815 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/sensor/ppi-motor-capture.service
+f 644 1828 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/ansible/playbooks/00-validar-controlador.yml
+f 644 1836 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/LICENSE-DATA
+f 644 1846 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_modelo_vigente.py
+f 644 1860 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/banco/observado-sensor1/ppi-motor-capture.service
+f 644 18664 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/artifacts/model/candidates/elliptic_envelope_scaled.joblib
+f 644 187674 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/instalacion/06-06-config-mostrar.png
+f 644 1898 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/artifacts/dataset/partition-map-normal-v2.json
+f 644 1934 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/ansible/playbooks/05-ajustar-captura-suricata.yml
+f 644 1938 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/unidades/sensor1/ppi-motor.service.d/etapa4.conf
+f 644 196316 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/guia/G-03-panel-desarrollador.png
+f 644 2009 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/cierre/modo-panel-v2.conf
+f 644 2057 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/suricata/README.md
+f 644 206750 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/aprendizaje/AP-01-panel-demo.png
+f 644 2084 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_heuristicos.py
+f 644 2084 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_heuristicos_port_scan.py
+f 644 2089 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/testsprite_tests/DEMO-02_Polling_keeps_operational_dashboard_responsive.py
+f 644 21 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/ansible/requirements-controller.txt
+f 644 2114 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_topologia_aprendizaje.py
+f 644 2139 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_dashboard_escenarios.py
+f 644 2156 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_dashboard_counters.py
+f 644 21642 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/dataset/DATASHEET_MULTILAYER_V2.md
+f 644 21804 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_etapa2_correcciones.py
+f 644 2194 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/banco/observado-sensor1/ppi-motor.service
+f 644 2209 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/dataset/README.md
+f 644 221107 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/instalacion/06-03-instalar.png
+f 644 2218 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/.gitignore
+f 644 22403 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/instalacion/04-01-rx-packets.png
+f 644 2309 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/dataset/DOI-ZENODO.md
+f 644 23149 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/dataset/DICCIONARIO_VARIABLES.md
+f 644 232 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/enforcement/ppi-publicar-feed.timer
+f 644 2344 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/artifacts/dataset/multilayer-v2-audit-report.json
+f 644 2378 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/server/nginx-ppi.conf
+f 644 2379 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/PLAN-REENTRENAMIENTO.md
+f 644 2382 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/demo/brute/README.md
+f 644 2388 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/results/ablacion/validacion-cruzada-estabilidad.json
+f 644 239 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/requirements-model.txt
+f 644 2392 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_escalada.py
+f 644 2417 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_detector_alcance.py
+f 644 24422 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/results/f6/f6_resultados.pass1-contaminado.jsonl
+f 644 24445 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_etapa4_p4_instaladores.py
+f 644 2456 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/evaluacion/despliegue.json
+f 644 2464 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/ansible/playbooks/06-desplegar-orquestacion-campanas.yml
+f 644 2489 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_dashboard_detector.py
+f 644 2516 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_if_weighting_verification.py
+f 644 2546 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_pulso.py
+f 644 2549 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/enforcement/README-INSTALAR.md
+f 644 2549 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_f1_preflight.py
+f 644 2570 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_feed.py
+f 644 25947 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/results/f6/f6_resultados.jsonl
+f 644 26274 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_multilayer_v3_l2.py
+f 644 2637 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/testsprite_tests/DEMO-05_Unknown_file_path_is_denied_by_the_API.py
+f 644 26495 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_etapa4_ecarga.py
+f 644 2723 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_historial_acciones.py
+f 644 2742 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_variables_serie.py
+f 644 2766 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/ecarga/README.md
+f 644 27666 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_etapa4_verificadores.py
+f 644 28449 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/instalacion/05-02-eve-crece.png
+f 644 2887 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_motor_completitud.py
+f 644 2922 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_f1_matrix.py
+f 644 293 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/server/ppi-server-firewall.service
+f 644 29811 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/artifacts/model/manifest.json
+f 644 2984 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/MEJORA-PORT-SCAN.md
+f 644 3021 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/CUARENTENA-DECISION.md
+f 644 3045 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/testsprite_tests/DEMO-06_Guided_tour_opens_and_can_be_dismissed.py
+f 644 311 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/dashboard/README.md
+f 644 3151 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_dashboard_artefactos.py
+f 644 3180 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/sensor/cyberflow-admin.sudoers.ejemplo
+f 644 32265 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/engine/motor_incremental.py
+f 644 3242 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/laboratorio/README.md
+f 644 32519 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_etapa2_cadena.py
+f 644 3257 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/CASO-CAPA2-ARP.md
+f 644 326 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/results/ablacion/determinismo.json
+f 644 32741 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/instalacion/07-04-panel-login.png
+f 644 3320 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_storage_audit.py
+f 644 334 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/server/dnsmasq-ppi.conf
+f 644 335 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/server/ppi-api.service
+f 644 338 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/storage/evidence-v1.json
+f 644 34181 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/instalacion/05-01-suricata-test.png
+f 644 3431 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/dataset/README.md
+f 644 3432 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/ansible/playbooks/08-configurar-ntp-interno.yml
+f 644 3449 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/evaluacion/comparacion-suricata.json
+f 644 34495 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/guia/G-06-config.png
+f 644 35157 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/guia/G-05-desbloquear.png
+f 644 353 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/unidades/sensor1/cf-tcpdump-estadisticas.timer
+f 644 3539 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/f1/README.md
+f 644 35519 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/instalacion/02-02-outdiscards.png
+f 644 3597 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/testsprite_tests/DEMO-09_Mobile_viewport_does_not_scale_the_entire_document.py
+f 644 3640 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/escenarios.json
+f 644 3693 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_acumular_margen_eve.py
+f 644 37242 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/instalacion/04-02-tcpdump-vlan.png
+f 644 3791 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/testsprite_tests/DEMO-01_Demo_loads_without_login_and_identifies_sample_data.py
+f 644 3840 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/ansible/playbooks/02-auditar-recursos.yml
+f 644 38497 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/instalacion/02-01-span-switch.png
+f 644 38901 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/instalacion/A-01-bundle.png
+f 644 395 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/suricata/ppi-disable-offload.service
+f 644 39527 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/instalacion/A-02-offline.png
+f 644 39623 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/INSTALACION.md
+f 644 3973 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_comparacion.py
+f 644 402 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/ansible/inventories/lab/group_vars/all.yml
+f 644 4021 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/AUDITORIA-PANEL-2026-10-23.md
+f 644 40571 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/instalacion/08-01-recalibracion.png
+f 644 4077 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/features/multilayer-v2.json
+f 644 4105 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_observacion_dns.py
+f 644 4143 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/dataset/MODEL_CARD_IF_RECALIBRADO.md
+f 644 41603 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/engine/vista_vivo.py
+f 644 4184 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_verificar_equivalencia_umbral.py
+f 644 4218 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/PRUEBA-CONCEPTO.md
+f 644 435 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/server/ppi-iperf3.service
+f 644 4383 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/evidencias/tiempos-2026-10-15-cadena-10s.md
+f 644 4404 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_clientes_lab.py
+f 644 4419 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/testsprite_tests/DEMO-08_Model_and_Suricata_comparison_state_their_scope.py
+f 644 44243 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_etapa4_ecarga_prep.py
+f 644 4459 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/ansible/playbooks/07-configurar-almacenamiento-evidencia-vm01.yml
+f 644 4460 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/README.md
+f 644 4462 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/testsprite_tests/DEMO-07_Activity_range_selectors_handle_empty_demo_traffic.py
+f 644 4543 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/cyberflow.local.toml.pre-congelar
+f 644 459497 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/readme/R-02-desinstalar.png
+f 644 463 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/pruebas-aisladas/Dockerfile
+f 644 46496 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/instalacion/02-03-grupo-puertos.png
+f 644 4682 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_responder_iptables.py
+f 644 46893 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/instalacion/03-01-ip-br-link.png
+f 644 4717 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/testsprite_tests/testsprite_frontend_test_plan.json
+f 644 4742 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/VALIDACION-INTERNA-COBERTURA-AUDIOS.md
+f 644 4760 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_etapa4_trafico_observado.py
+f 644 4828 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/testsprite_tests/DEMO-04_Declared_source_code_opens_in_read_only_modal.py
+f 644 4859 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/cierre/CRITERIOS-ENSAYO-ANILLO.md
+f 644 486 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/ansible/ansible.cfg
+f 644 4876 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_pm_f1_calibration.py
+f 644 4941 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/campaigns/multilayer-v2-anomalies.json
+f 644 50611 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_motor_incremental.py
+f 644 50880 1793994597.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/SHA256SUMS
+f 644 512 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/unidades/sensor1/cyberflow-etapa4.logrotate
+f 644 5200 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_etapa3_http.py
+f 644 522 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/pruebas-aisladas/Dockerfile.ssh
+f 644 5274 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_etapa3_publicador.py
+f 644 5398 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_publicar_feed.py
+f 644 5400 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_salud_panel.py
+f 644 5431 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_agente_enforce.py
+f 644 547 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/server/ppi-server.nft
+f 644 5645 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/INVENTARIO.md
+f 644 5657 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/evidencias/tiempos-2026-10-06.md
+f 644 573 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/enforcement/ppi-relay-feed.service
+f 644 5886 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_puntuar_deteccion.py
+f 644 5941 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/CAPTURAS.md
+f 644 5960 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/testsprite_tests/DEMO-03_All_seven_system_views_render_in_development_mode.py
+f 644 5987 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_dashboard_gui_contract.py
+f 644 602 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/ansible/inventories/lab/hosts.yml
+f 644 6054 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_etapa4_evidencia_sellado.py
+f 644 6106 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/REPLICACION.md
+f 644 6111 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_etapa2_disparo.py
+f 644 621 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/ansible/playbooks/01-comprobar-conectividad.yml
+f 644 623 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/pruebas-aisladas/Dockerfile.etapa3
+f 644 6230 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_particionar_linea_base.py
+f 644 6243 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/RUNBOOK-REENTRENAMIENTO-DEMO.md
+f 644 6273 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/features/multilayer-v3.json
+f 644 6286 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_alertas_panel.py
+f 644 63 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/sensor/ppi-enforce.sudoers.ejemplo
+f 644 63 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/sensor/useransible-ppi-enforce.sudoers
+f 644 6304 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/campaigns/f1-normal-v1.json
+f 644 633372 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/artifacts/dataset/multilayer-v2-normal.csv
+f 644 6341 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/CONFIGURACION.md
+f 644 6422 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_dashboard_variables.py
+f 644 6503 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_dns_formato_suricata.py
+f 644 6518 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/cyberflow.local.toml
+f 644 653 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/enforcement/candidato-etapa2/cf-nft-helper.sudoers
+f 644 6551 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_clientes_config.py
+f 644 6587 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/pendientes/p4_comun.sh
+f 644 661 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/ansible/playbooks/04-configurar-cliente-f1.yml
+f 644 663 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/cierre/etapa4-primer-pcap.conf
+f 644 6763 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/RECONCILIACION-MANIFIESTO-MOTOR.md
+f 644 6866 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/features/descripciones.json
+f 644 6868 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/APRENDIZAJE.md
+f 644 693 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/.gitattributes
+f 644 6932 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/campaigns/f1-normal-v2.json
+f 644 7034 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/PLAN-IMPLEMENTACION-VALIDACION.md
+f 644 714291 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/instalacion/09-modo4-detalle.png
+f 644 7146 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_etapa4_salud_cobertura.py
+f 644 7156 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_etapa3_dns.py
+f 644 7183 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_etapa4_salud_captura.py
+f 644 7244 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/artifacts/model/candidates/ocsvm_scaled.joblib
+f 644 7244 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/artifacts/model/ocsvm_scaled.joblib
+f 644 729 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/evaluacion/modelo-vigente.json
+f 644 731 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/unidades/sensor1/ppi-motor-capture.service.d/etapa4.conf
+f 644 73543 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/instalacion/06-07-cuentas-panel.png
+f 644 7393 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_retraining_demo.py
+f 644 7440 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/REPLICACION.md
+f 644 746320 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/instalacion/00-modos-instalacion.png
+f 644 764 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/ansible/playbooks/09-configurar-kali-herramientas-v2.yml
+f 644 7681 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/dataset/SYSTEM_CARD_MOTOR.md
+f 644 773221 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/datos/eve-stats-20261104-0200-0740.jsonl
+f 644 7837 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/VALIDACION-INTERNA-TECNICA.md
+f 644 7856 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_multilayer_features.py
+f 644 7886 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_ppi_api_server.py
+f 644 7889 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/.github/workflows/ci.yml
+f 644 7949 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_promover_preliminar.py
+f 644 7990 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/ansible/playbooks/03-configurar-servicios-servidor.yml
+f 644 8143 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/cyberflow.toml
+f 644 8162 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_escaneo_temprano.py
+f 644 8163 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_f1_repetition_summary.py
+f 644 8249 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/ansible/README.md
+f 644 839 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/enforcement/candidato-etapa2/ppi-publicar-feed-v2.service
+f 644 8613 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/dataset/MODEL_CARD_OCSVM.md
+f 644 86297 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/artifacts/dataset/multilayer-v2-anomalies.csv
+f 644 87207 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/readme/R-01-demo.png
+f 644 891 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/enforcement/candidato-etapa2/ppi-relay-eventos.service
+f 644 8985 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_panel_auth.py
+f 644 90057 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/guia/G-04-panel-lector.png
+f 644 9044 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_panel_auth_e2e.py
+f 644 91 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/sensor/99-ppi-pcap-buffer.conf
+f 644 910 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/ecarga/SHA256SUMS
+f 644 9285 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_detector_rapido_flujo.py
+f 644 92897 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/guia/G-02-panel-operativo.png
+f 644 9362 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/README.md
+f 644 94 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/time/chrony-vm01-server.conf
+f 644 9444 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_etapa4_estado_sombra.py
+f 644 9458 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/CHANGELOG.md
+f 644 947 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/enforcement/ppi-publicar-feed.service
+f 644 96632 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/img/instalacion/06-05-sha256.png
+f 644 981 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/enforcement/ppi-enforce-agent.service
+f 644 9886 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/test_multilayer_v2_matrix.py
+f 644 990 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/enforcement/candidato-etapa3/ppi-publicar-feed-v2.service
+f 644 9937 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/docs/GUION-DEMO.md
+f 755 10105 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/entregables/editar_ppi_v3.py
+f 755 102 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/ecarga_banco/bin/curl
+f 755 10269 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/ecarga/muestreo_bastion.sh
+f 755 10372 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/sensor1/clasificar_periodo.py
+f 755 10469 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/pendientes/srvdmz_p4.sh
+f 755 10824 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/etapa3/anatomia_escaneos.py
+f 755 10855 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/etapa4/trafico_observado.py
+f 755 10863 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/features/acumular_v3.py
+f 755 11024 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/modeling/promover_preliminar.py
+f 755 11282 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/entregables/generar_justificacion_revista.py
+f 755 11318 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/enforcement/relay_eventos.py
+f 755 11550 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/pruebas-aisladas/ensayo_ssh_unidades.sh
+f 755 11704 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/f1/run-benign.sh
+f 755 11833 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/engine/feed.py
+f 755 11902 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/campaign/stop.sh
+f 755 11958 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/f1/preflight_profile.sh
+f 755 12240 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/engine/detector_rapido.py
+f 755 12601 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/ecarga/construir_entrada.py
+f 755 12661 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/f6/run_f6.py
+f 755 12831 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/ecarga/generadores.sh
+f 755 13136 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/analysis/summarize_f1_repetition.py
+f 755 13304 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/enforce/cf_nft_helper.py
+f 755 1343 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/analysis/pcap-ip-length-summary.sh
+f 755 1348 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/enforcement/relay-feed.sh
+f 755 1367 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/bastion/revertir_bastion.sh
+f 755 13737 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/engine/comparar_replays.py
+f 755 13823 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/ecarga/derivar_pcap.py
+f 755 13951 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/entregables/generar_plan_validacion_word.py
+f 755 13968 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/srvdmz/estado_sombra.py
+f 755 1415 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/campaign/common.sh
+f 755 1417 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/demo.sh
+f 755 14495 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/f1/run_matrix_profile.py
+f 755 14708 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/modeling/experiments/validacion_cruzada_estabilidad.py
+f 755 1498 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/cierre/cf-primer-pcap.sh
+f 755 15085 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/modeling/experiments/significancia_modelos.py
+f 755 15357 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/laboratorio/clientes_lab.py
+f 755 1545 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/features/extract_campaign_v2.sh
+f 755 1552 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/etapa3/segmento_pcap.py
+f 755 15837 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/ecarga/evaluar_s14.py
+f 755 16506 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/entregables/generar_diccionario_features.py
+f 755 16763 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/pruebas-aisladas/ensayo_netns_dns.py
+f 755 17115 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/modeling/experiments/ablacion_multicapa.py
+f 755 1761 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/features/extract_campaign.sh
+f 755 1781 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/cierre/cierre4a_bastion.sh
+f 755 1800 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/pendientes/sensor1_herramientas.sh
+f 755 18039 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/setup/instalar.sh
+f 755 18072 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/comun/verif_estado.py
+f 755 18422 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/pruebas-aisladas/ensayo_via_rapida.py
+f 755 1971 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/bastion/respaldo_bastion.sh
+f 755 2030 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/enforcement/candidato-etapa2/cf-feed-ssh.sh
+f 755 20311 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/features/extract_multilayer.py
+f 755 2041 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/banco/ensayo_helper_rechazo.sh
+f 755 20441 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/enforce/agente_enforce_v2.py
+f 755 2045 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/campaign/sample-sensor.sh
+f 755 20862 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/engine/replay_motor.py
+f 755 2102 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/sensor/ppi-suricata-metrics
+f 755 21362 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/sensor1/evaluar_ecarga.py
+f 755 2156 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/ansible/scripts/bootstrap-useransible.sh
+f 755 2165 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/dataset/build_multilayer_v2_dataset.py
+f 755 21650 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/entregables/generar_evaluacion_critica_word.py
+f 755 2197 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/sensor1/comprobar_importaciones.sh
+f 755 2218 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/srvdmz/revertir_srvdmz.sh
+f 755 2235 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/dataset/run_v2_anomaly.py
+f 755 2235 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/entregables/_omml.py
+f 755 2247 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/campaign/run-f1-kali.sh
+f 755 22531 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/engine/publicar_feed_v2.py
+f 755 22653 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/features/extract_multilayer_v3.py
+f 755 2314 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/ecarga_banco/bin/ssh
+f 755 23634 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/modeling/experiments/diagnose_v2_pipeline.py
+f 755 24030 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/entregables/generar_cards.py
+f 755 2406 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/etapa3/distribucion_flow_duration.py
+f 755 2541 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/laptop/paquete_candidata.sh
+f 755 25677 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/setup/cyberflow_config.py
+f 755 26246 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/entregables/generar_ficha_word.py
+f 755 2627 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/campaign/run-f1.sh
+f 755 2648 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/cierre/revertir_cierre4a.sh
+f 755 2726 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/server/ppi-api.py
+f 755 2861 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/srvdmz/respaldo_srvdmz.sh
+f 755 2895 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/modeling/experiments/verificar_determinismo.py
+f 755 2898 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/etapa3/contrastar_http_pcap.py
+f 755 29037 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/etapa4/vigia_4c.py
+f 755 2936 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/kali/run-anomaly-v2.sh
+f 755 29630 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/entregables/generar_datasheet.py
+f 755 29758 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/modeling/calibrate_multilayer_v2_v1.py
+f 755 2994 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/demo/brute/endpoint_401.py
+f 755 3018 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/bastion/verificar_bastion.sh
+f 755 3038 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/etapa3/margen_legitimo.py
+f 755 30719 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/dataset/build_f1_dataset.py
+f 755 30971 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/features/extract_multilayer_v2.py
+f 755 31179 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/modeling/calibrate_pm_f1_v1.py
+f 755 31475 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/articulo/generar_mapeo_estructura.py
+f 755 3264 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/setup/preparar-bundle.sh
+f 755 32795 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/entregables/generar_graficas.py
+f 755 3282 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/engine/escalada.py
+f 755 3328 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/etapa3/picos_http.py
+f 755 3338 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/engine/suricata_a_senal.py
+f 755 3361 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/etapa3/matriz_reglas.py
+f 755 33767 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/entregables/generar_informe_word.py
+f 755 3389 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/banco/simular_k4b.py
+f 755 3404 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/etapa3/http_no_registrado.py
+f 755 34413 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/articulo/generar_mapeo_secciones.py
+f 755 3444 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/ecarga/sensor1_post.sh
+f 755 3549 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/srvdmz/verificar_srvdmz.sh
+f 755 3630 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/etapa3/sensibilidad_flow_duration.py
+f 755 3695 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/dataset/run_v2_anomaly_kali.py
+f 755 372 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/ecarga_banco/bin/pgrep
+f 755 3810 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/etapa3/segmento_dns_dc1.py
+f 755 3846 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/dashboard/app.py
+f 755 3994 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/banco/ensayo_precondicion_v1.sh
+f 755 3998 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/bastion/instalar_bastion_sombra.sh
+f 755 4101 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/banco/ensayo_respaldos.sh
+f 755 4244 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/demo_datos.py
+f 755 42573 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/modeling/cyberflow_aprendizaje.py
+f 755 4310 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/entregables/calcular_sus.py
+f 755 4342 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/analysis/verificar_reproduccion.py
+f 755 4519 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/banco/ensayo_comprobaciones_4a.sh
+f 755 4575 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/modeling/train_multilayer_v2.py
+f 755 4617 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/etapa3/politica_limit_dns.py
+f 755 464 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/ecarga_banco/bin/sudo
+f 755 4654 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/dataset/detector_alcance.py
+f 755 4674 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/sensor1/revertir_sensor1.sh
+f 755 4700 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/f1/check_ntp_gate.sh
+f 755 47337 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/etapa4/salud_captura.py
+f 755 4757 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/dataset/audit_multilayer_v2.py
+f 755 4884 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/sensor/ppi-enforce
+f 755 4919 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/setup/desinstalar.sh
+f 755 4929 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/engine/tasa_dns_por_origen.py
+f 755 498 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/f1/run_matrix_profile_v2.sh
+f 755 4998 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/sensor1/ensayo_clasificar_periodo.py
+f 755 5132 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/etapa3/flujos_excluidos.py
+f 755 5171 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/cierre/muestreo_fino.py
+f 755 5176 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/laboratorio/servidor_lab.py
+f 755 5196 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/sensor1/obs_pcap.py
+f 755 5216 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/f6/analyze_f6.py
+f 755 524048 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/engine/dashboard.py
+f 755 5273 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/etapa3/cambios_auth_failure.py
+f 755 5358 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/engine/http_heuristica.py
+f 755 5385 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/etapa3/extraer_syn.py
+f 755 5393 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/etapa3/via_rapida_episodios.py
+f 755 5440 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/pruebas-aisladas/resumir_ensayo_via_rapida.py
+f 755 5457 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/cierre/analizar_fino.py
+f 755 5458 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/ecarga_banco/bin/systemctl
+f 755 5633 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/modeling/puntuar_deteccion.py
+f 755 5925 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/pendientes/bastion_p4.sh
+f 755 5943 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/etapa3/evaluar_dns_heuristica.py
+f 755 6105 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/campaign/archive-failed-attempt.sh
+f 755 6178 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/srvdmz/instalar_srvdmz_sombra.sh
+f 755 6200 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/demo_aprendizaje.py
+f 755 6245 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/banco/ensayo_p4_cadena.py
+f 755 628 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/dataset/generar_checksums.sh
+f 755 6298 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/sensor/install-ppi-motor.sh
+f 755 6315 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/modeling/entrenar_preliminar.py
+f 755 6343 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/etapa3/observacion_dns.py
+f 755 6352 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/campaign/start.sh
+f 755 6406 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/setup/configurar.sh
+f 755 6492 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/engine/dns_heuristica.py
+f 755 6556 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/enforce/limpiar_origen.py
+f 755 6579 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/banco/ensayo_unidades_importaciones.sh
+f 755 6624 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/ecarga/muestreo_s14.py
+f 755 6656 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/f1/validate_matrix.py
+f 755 6721 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/sensor1/respaldo_sensor1.sh
+f 755 6834 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/pruebas-aisladas/ensayo_limit_dns.py
+f 755 6857 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/engine/trocear_pcap.py
+f 755 6966 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/storage/audit_evidence_disk.py
+f 755 6981 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/analysis/compare_frozen_models_metrics.py
+f 755 7002 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/simular_ataque.py
+f 755 7032 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/banco/ensayo_estado_sombra.sh
+f 755 7034 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/modeling/reconstruir_limpio.py
+f 755 70581 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/engine/motor_decision.py
+f 755 7074 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/ecarga/guardia.py
+f 755 7160 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/entregables/_docx_estilo.py
+f 755 7278 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/sensor1/verificar_sensor1.sh
+f 755 7364 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/etapa3/atribucion_dns.py
+f 755 7407 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/engine/responder_iptables.py
+f 755 7436 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/engine/publicar_feed.py
+f 755 7664 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/evaluacion/comparacion.py
+f 755 7687 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/configs/sensor/ppi-pcap-control
+f 755 7846 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/setup/doctor.sh
+f 755 7880 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/pruebas-aisladas/ensayo_vlan_captura.py
+f 755 8036 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/modeling/comparar_reentrenamiento.py
+f 755 8061 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/laboratorio/clientes_config.py
+f 755 8141 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/entregables/verificar_consistencia.py
+f 755 8155 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/ecarga/derivar_bastion.py
+f 755 8156 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/pruebas-aisladas/ensayo_cadena_eventos.py
+f 755 8181 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/etapa3/evaluar_regla_temprana.py
+f 755 8199 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/modeling/verificar_equivalencia_umbral.py
+f 755 8539 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/sensor1/instalar_sensor1_sombra.sh
+f 755 8697 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/sensor1/comparar_suricata.py
+f 755 8998 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/dataset/particionar_linea_base.py
+f 755 9043 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/banco/ensayo_tcpdump_estadisticas.sh
+f 755 9155 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/ecarga/sensor1_muestreadores.sh
+f 755 92037 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/entregables/generar_matriz_revistas.py
+f 755 9340 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/enforce/agente_enforce.py
+f 755 9364 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/setup/cyberflow_usuarios.py
+f 755 9505 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/cierre/cierre4a_sensor1.sh
+f 755 9663 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/analysis/verify_if_weighting.py
+f 755 9708 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/engine/heuristicos.py
+f 755 9734 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/scripts/engine/escaneo_temprano.py
+f 755 98 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/tests/ecarga_banco/bin/nft
+f 755 994 1793985517.0000000000 m4rk /home/m4rk/cf-e4/paquete-902991e/deploy/pruebas-aisladas/helper_banco.py
