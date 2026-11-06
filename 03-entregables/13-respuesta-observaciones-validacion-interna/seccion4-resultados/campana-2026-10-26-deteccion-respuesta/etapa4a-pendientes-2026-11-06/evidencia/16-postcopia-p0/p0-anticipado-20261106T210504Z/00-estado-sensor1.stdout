@@ -1,0 +1,32 @@
+406ce22a2aa99cdaf2bc543b61257d675ab53fe38a4d65107cb10dd4f94c6cb0  -
+== sensor1 cyberflow-sensor m4rk
+epoch 1793999107.279988499 utc 2026-11-06T21:05:07Z
+Timezone=Etc/UTC
+LocalRTC=no
+NTP=yes
+NTPSynchronized=yes
+rc_timedatectl=0
+chrony=inactive chronyd=inactive systemd-timesyncd=active ntp=inactive ntpsec=inactive 
+       Server: 10.10.60.1 (10.10.60.1)
+Poll interval: 34min 8s (min: 32s; max 34min 8s)
+         Leap: normal
+      Version: 4
+      Stratum: 2
+    Reference: BAC09E93
+    Precision: 1us (-23)
+Root distance: 75.545ms (max: 5s)
+       Offset: +1.992ms
+        Delay: 372us
+       Jitter: 9.668ms
+ Packet count: 41
+rc_timesync_status=0
+-- procesos con --aplicar/--enforce:
+ninguno
+CON_APLICAR=no
+Filesystem                         Size  Used Avail Use% Mounted on
+/dev/mapper/ubuntu--vg-ubuntu--lv   37G   23G   12G  67% /
+/dev/mapper/ubuntu--vg-ubuntu--lv   37G   23G   12G  67% /
+               total        used        free      shared  buff/cache   available
+Mem:            7940        1338        2877           1        4000        6602
+Swap:           4030           0        4030
+ 21:05:07 up 21:08,  2 users,  load average: 0,07, 0,22, 0,22

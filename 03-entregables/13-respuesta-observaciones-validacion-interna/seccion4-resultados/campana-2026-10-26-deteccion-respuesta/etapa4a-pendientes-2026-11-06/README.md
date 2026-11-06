@@ -1,5 +1,17 @@
 # Etapa 4A: pendientes del cierre complementario (P1, P3, P4, P5) e integración en sombra (2026-11-06)
 
+> **Estado actualizado (06-nov, 21:06Z): comprobación posterior repetida (comprobador r2) CONFORME 3/3 y
+> precondiciones de P0 comprobadas de forma ANTICIPADA. E-carga NO ejecutada y NO programada.**
+> - Evidencia en [`evidencia/16-postcopia-p0/`](evidencia/16-postcopia-p0/).
+> - **Causa del `$'\r'`:** el `\r\n` final lo añadía PowerShell al canalizar la entrada (transporte); el fichero no tenía
+>   CR.
+> - **Comprobador r2:** bytes verificados por sha256 en el host y códigos propagados. En el banco, 27/27 (65534) y
+>   26 + 1 omitida (root).
+> - **P0 anticipado:** cumplen todos los puntos evaluables hoy. Quedan **no evaluables** el 5b (estar dentro de la
+>   franja) y el 12 (muestreadores antes de T_g − 300 s).
+> - **Retención del anillo:** 929 s sin carga, con un margen de 29 s.
+> - Lo de hoy no garantiza el estado del 09-nov: P0 debe repetirse en 1794191400.
+>
 > **Estado actualizado (06-nov, 19:50Z): paquete `902991e` COPIADO Y VERIFICADO en el bastión, Sensor1 y srv-dmz
 > (rc 0, 3/3).** Evidencia en [`evidencia/15-traslado-902991e/`](evidencia/15-traslado-902991e/). En los hosts, el
 > paquete utilizable es `~/cf-e4/paquete-902991e`, con su marca `VERIFICADO`. P0 y E-carga siguen pendientes; E-carga

@@ -1,0 +1,11 @@
+0b2fd4ab1238040d63cea84c96f1dfd630fbb66440c837c712ed5158ec384778  -
+== srvdmz srv-dmz 2026-11-06T21:05:17Z
+f6f72796cf527cc3e495af0f80a5c4fb8aedfafa9bc69faf4264aeaddb86bba9  /home/adminsrvdmz/cf-e4/paquete-902991e/deploy/etapa4/srvdmz/verificar_srvdmz.sh
+estado=sombra alcance=completo agentes=1 con_aplicar=0 tablas_cyberflow=0 eventos_aplicacion=0
+OK    estado de sombra demostrado (--alcance completo --respaldo /home/adminsrvdmz/respaldos-etapa4/srvdmz-p4-fase-c-20261106T043944Z)
+OK    feed v2 recibido hace < 60 s (feed.par)
+OK    reloj sincronizado
+INFO  rechazos por motivo:       1 "motivo": "feed_caducado"      14 "motivo": "firma_invalida"       1 "motivo": "misma_secuencia"  (recepciones: 7365)
+OK    helper rechaza un perfil ajeno
+VERIFICACIÓN SRV-DMZ OK
+rc_verificador=0

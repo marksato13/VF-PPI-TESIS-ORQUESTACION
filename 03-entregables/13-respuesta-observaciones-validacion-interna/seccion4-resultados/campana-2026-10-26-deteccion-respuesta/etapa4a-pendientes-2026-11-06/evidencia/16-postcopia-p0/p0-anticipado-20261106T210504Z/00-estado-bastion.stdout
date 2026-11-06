@@ -1,0 +1,35 @@
+406ce22a2aa99cdaf2bc543b61257d675ab53fe38a4d65107cb10dd4f94c6cb0  -
+== bastion VM-GESTION gadmin
+epoch 1793999105.650348967 utc 2026-11-06T21:05:05Z
+Timezone=America/Lima
+LocalRTC=no
+NTP=yes
+NTPSynchronized=yes
+rc_timedatectl=0
+chrony=active chronyd=active systemd-timesyncd=inactive ntp=inactive ntpsec=inactive 
+Reference ID    : C8594BC5 (200.89.75.197)
+Stratum         : 3
+Ref time (UTC)  : Fri Nov 06 21:04:04 2026
+System time     : 0.000242603 seconds slow of NTP time
+Last offset     : +0.000051961 seconds
+RMS offset      : 0.000354109 seconds
+Frequency       : 6.122 ppm slow
+Residual freq   : -0.006 ppm
+Skew            : 0.047 ppm
+Root delay      : 0.083259545 seconds
+Root dispersion : 0.001118335 seconds
+Update interval : 512.9 seconds
+Leap status     : Normal
+rc_chronyc=0
+Failed to query server: The name org.freedesktop.timesync1 was not provided by any .service files
+rc_timesync_status=1
+-- procesos con --aplicar/--enforce:
+ninguno
+CON_APLICAR=no
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        19G  3.9G   14G  23% /
+/dev/sda1        19G  3.9G   14G  23% /
+               total        used        free      shared  buff/cache   available
+Mem:            1973         465         608           1        1084        1508
+Swap:           1100           0        1100
+ 16:05:05 up 21:04,  2 users,  load average: 0.02, 0.06, 0.06

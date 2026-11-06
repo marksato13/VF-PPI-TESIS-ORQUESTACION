@@ -1,5 +1,12 @@
 # Traslado del paquete `902991e` (estado 2): copiado y verificado en los tres hosts
 
+> **Nota posterior (06-nov, 21:02Z).** `post-copia-3-hosts.txt` lleva al final de cada host
+> `bash: line 19: $'\r': command not found`. Ese `\r\n` lo añadió PowerShell al canalizar la entrada, no estaba en el
+> fichero.
+>
+> Ese fichero y `post_copia_host.sh` (r1) se conservan **sin cambios**. La comprobación repetida con el comprobador r2
+> sale CONFORME 3/3 y está en [`../16-postcopia-p0/`](../16-postcopia-p0/), con la causa comprobada.
+
 Mark lanzó el traslado con los guiones r2 de `../../ecarga-v2-preparacion/traslado-902991e-r2/`
 (`SHA256SUMS` comprobado antes de lanzarlo).
 
