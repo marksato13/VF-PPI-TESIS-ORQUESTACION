@@ -1,6 +1,28 @@
 # Etapa 4A: pendientes del cierre complementario (P1, P3, P4, P5) e integración en sombra (2026-11-06)
 
-> **Estado actualizado (06-nov, tarde): ejecución de E-carga v2 preparada. NO ejecutada y NO programada.**
+> **Estado actualizado (06-nov, noche): defectos de la preparación de E-carga v2 corregidos. E-carga NO ejecutada y NO
+> programada.**
+> - **Qué se corrigió.** `generadores.sh` daba rc 0 tras un start fallido. `muestreo_bastion.sh` daba la parada por
+>   hecha aunque fallara. `derivar_pcap.py` aprobaba S2 y S3 con observaciones incompletas (con dos PCAP de una hora
+>   habilitaba la condición (3) de punta a punta). S14 no tenía regla.
+> - **Resultado en banco.** Hay 13 defectos con prueba de regresión: 26 de 26 fallan con la versión anterior y 56 de 56
+>   pasan con la nueva. La suite completa no tiene fallos.
+> - **Producto `a12deae`.** Rama `recuperacion/etapa4a-pendientes-20261106`, sin fusionar en `main`. Ubicación canónica
+>   `deploy/etapa4/ecarga/`. Evaluador 2026-11-06.4 sin cambios.
+> - **En los hosts.** El paquete `~/cf-e4/paquete-a12deae` está copiado y verificado en el bastión, Sensor1 y srv-dmz.
+> - **Protocolo r3.** [`PROTOCOLO-CARGA-v2.md`](PROTOCOLO-CARGA-v2.md): S14 operacional (§3.6.1), S2/S3 precisados
+>   (§3.6.2) y P0 ampliado. Se publica antes de cualquier ensayo y no es retroactivo.
+> - **Documentos.** Preparación r2:
+>   [`ecarga-v2-preparacion/PREPARACION-ECARGA-v2-r2.md`](ecarga-v2-preparacion/PREPARACION-ECARGA-v2-r2.md). Evidencia:
+>   `evidencia/12-correccion-preparacion/`. Las copias `guiones-c7f24510/` y `evaluacion-e83f4be6/` quedan selladas y
+>   sustituidas.
+> - **Veredictos.**
+>   - Corregido en banco: **sí**.
+>   - Preparación lista: **sí, a falta de la orden de Mark**, que incluye aprobar la r3.
+>   - Pendiente de medir en vivo: arranque y parada con el systemd real, coste y cobertura del muestreo S14, y retención
+>     del anillo con carga.
+
+> **Estado anterior (06-nov, tarde): ejecución de E-carga v2 preparada. NO ejecutada y NO programada.**
 > - **Paquete.** El de `ae2900e` está copiado y verificado en el bastión, en Sensor1 y en srv-dmz
 >   (`~/cf-e4/paquete-ae2900e`):
 >   - `SHA256SUMS` `41f91787…`;

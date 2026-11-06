@@ -1,0 +1,70 @@
+fecha 2026-11-06T15:45:47Z host cyberflow-sensor kernel 6.8.0-53-generic
+nproc 4 cpus_en_stat 4
+      4 cpu MHz		: 1895.546
+      4 model name	: Intel(R) Xeon(R) Bronze 3204 CPU @ 1.90GHz
+MemTotal:        8131404 kB
+MemAvailable:    6769344 kB
+SwapTotal:       4127740 kB
+SwapFree:        4127740 kB
+--- PSI
+cpu:
+  some avg10=0.00 avg60=0.00 avg300=0.00 total=108568848
+  full avg10=0.00 avg60=0.00 avg300=0.00 total=0
+io:
+  some avg10=0.00 avg60=0.00 avg300=0.00 total=5810321
+  full avg10=0.00 avg60=0.00 avg300=0.00 total=4723230
+memory:
+  some avg10=0.00 avg60=0.00 avg300=0.00 total=47
+  full avg10=0.00 avg60=0.00 avg300=0.00 total=38
+cmdline sin psi=
+--- discos
+NAME ROTA  SIZE TYPE MODEL
+sda     0   40G disk Virtual disk
+sr0     1 1024M rom  VMware Virtual SATA CDRW Drive
+none [mq-deadline] 
+nr_requests 256
+Mounted on Filesystem                        1K-blocks    Avail
+/          /dev/mapper/ubuntu--vg-ubuntu--lv  37950976 12455468
+/          /dev/mapper/ubuntu--vg-ubuntu--lv  37950976 12455468
+/          /dev/mapper/ubuntu--vg-ubuntu--lv  37950976 12455468
+--- NIC ens37: colas e IRQ
+rx-0 rx-1 rx-2 rx-3 tx-0 tx-1 tx-2 tx-3 
+ 31:          0          0          0    2629675  PCI-MSIX-0000:02:05.0   0-edge      ens37-rxtx-0
+ 32:    2101893          0          0          0  PCI-MSIX-0000:02:05.0   1-edge      ens37-rxtx-1
+ 33:          0     516837          0          0  PCI-MSIX-0000:02:05.0   2-edge      ens37-rxtx-2
+ 34:          0          0    1452736          0  PCI-MSIX-0000:02:05.0   3-edge      ens37-rxtx-3
+ 35:          0          0          0          0  PCI-MSIX-0000:02:05.0   4-edge      ens37-event-4
+irq 31 afinidad 0-3
+irq 32 afinidad 0-3
+irq 33 afinidad 0-3
+irq 34 afinidad 0-3
+irq 35 afinidad 0-3
+rps: 0
+--- softnet_stat (por CPU: procesados, dropped, time_squeeze)
+cpu0 3645490 0 157
+cpu1 660156 0 77
+cpu2 2659087 0 105
+cpu3 4044704 0 211
+--- /proc/stat por CPU (cabecera de columnas: user nice system idle iowait irq softirq steal)
+cpu  1183010 19099 167242 21300267 1503 0 16011 0 0 0
+cpu0 298340 794 41542 5326261 401 0 5485 0 0 0
+cpu1 299651 3374 43052 5325954 299 0 2444 0 0 0
+cpu2 296392 10578 41406 5319512 284 0 4428 0 0 0
+cpu3 288625 4352 41241 5328539 518 0 3652 0 0 0
+USER_HZ 100
+--- vmstat swap y fallos
+pswpin 0
+pswpout 0
+pgmajfault 4611
+oom_kill 0
+--- hilos de Suricata
+
+--- legible para m4rk sin sudo
+OK /proc/pressure/cpu
+OK /proc/pressure/io
+OK /proc/pressure/memory
+OK /proc/vmstat
+OK /proc/diskstats
+OK /proc/net/softnet_stat
+ls: cannot access '/proc//task': No such file or directory
+rc=0

@@ -1,0 +1,68 @@
+##### 2026-11-06T16:35:34Z clientes: generadores.sh configuracion (a12deae)
+OK cyberflow-lab-ofimatica.service ofimatica 10.10.20.21
+OK cyberflow-lab-navegacion.service navegacion 10.10.20.22
+OK cyberflow-lab-descargas.service descargas 10.10.20.23
+OK cyberflow-lab-aplicacion.service aplicacion 10.10.20.24
+OK cyberflow-lab-ligero.service ligero 10.10.20.25
+OK cyberflow-lab-erratico.service erratico 10.10.20.26
+rc=0
+##### clientes: generadores.sh estado
+gen target=inactive carga=loaded habilitado=disabled hash=ae5134a7 procesos=0 unidades: ofimatica=inactive/dead/pid0/nr0 navegacion=inactive/dead/pid0/nr0 descargas=inactive/dead/pid0/nr0 aplicacion=inactive/dead/pid0/nr0 ligero=inactive/dead/pid0/nr0 erratico=inactive/dead/pid0/nr0 consulta=ok
+rc=0
+##### clientes: PartOf / ExecStart tal cual (systemctl show)
+Id=cyberflow-lab-ofimatica.service PartOf=cyberflow-lab.target WantedBy=cyberflow-lab.target LoadState=loaded UnitFileState=disabled 
+Id=cyberflow-lab-navegacion.service PartOf=cyberflow-lab.target WantedBy=cyberflow-lab.target LoadState=loaded UnitFileState=disabled 
+Id=cyberflow-lab-descargas.service PartOf=cyberflow-lab.target WantedBy=cyberflow-lab.target LoadState=loaded UnitFileState=disabled 
+Id=cyberflow-lab-aplicacion.service PartOf=cyberflow-lab.target WantedBy=cyberflow-lab.target LoadState=loaded UnitFileState=disabled 
+Id=cyberflow-lab-ligero.service PartOf=cyberflow-lab.target WantedBy=cyberflow-lab.target LoadState=loaded UnitFileState=disabled 
+Id=cyberflow-lab-erratico.service PartOf=cyberflow-lab.target WantedBy=cyberflow-lab.target LoadState=loaded UnitFileState=disabled 
+Id=cyberflow-lab.target Wants=cyberflow-lab-ofimatica.service cyberflow-lab-aplicacion.service cyberflow-lab-navegacion.service cyberflow-lab-ligero.service cyberflow-lab-descargas.service cyberflow-lab-erratico.service ConsistsOf=cyberflow-lab-aplicacion.service cyberflow-lab-erratico.service cyberflow-lab-ofimatica.service cyberflow-lab-ligero.service cyberflow-lab-descargas.service cyberflow-lab-navegacion.service UnitFileState=disabled 
+##### clientes: aviso junto a la copia sustituida
+aviso creado
+ecarga-v2-guiones-c7f24510 intacto
+ecarga-v2-guiones-c7f24510
+ecarga-v2-guiones-c7f24510.SUSTITUIDO.txt
+##### Sensor1: sensor1_muestreadores.sh comprobar en ~/cf-e4/ecarga-v2-seco-20261106T163537Z (sin carga)
+OK    paquete paquete-a12deae: SHA256SUMS verifica
+OK    evaluar_ecarga.py sha256 = publicado
+OK    evaluar_ecarga VERSION 2026-11-06.4
+OK    herramientas-20261106: SHA256SUMS verifica
+OK    salud_captura.py de herramientas = paquete
+OK    python del venv: Python 3.14.4
+OK    legible muestreo_fino.py
+OK    legible obs_pcap.py
+OK    legible clasificar_periodo.py
+OK    legible comparar_suricata.py
+OK    legible verificar_sensor1.sh
+OK    legible muestreo_s14.py
+OK    legible evaluar_s14.py
+OK    eve.json legible (101632186 B)
+OK    anillo legible (187 ficheros)
+OK    retención del anillo: el fichero más antiguo tiene 936 s (>= 900 s, la de derivar_pcap)
+OK    legible /proc/net/softnet_stat
+OK    legible /proc/pressure/cpu
+OK    legible /proc/pressure/io
+OK    legible /proc/pressure/memory
+OK    legible /proc/vmstat
+OK    legible /proc/diskstats
+OK    USER_HZ 100
+OK    journal de ppi-motor-capture legible (20 lecturas SIGUSR1 en 10 min)
+OK    journal de ppi-via-rapida@ens37 legible (20 lecturas SIGUSR1 en 10 min)
+OK    /home libre 12098 MiB (>= 2 GiB)
+OK    MemAvailable 6644 MiB (>= 1 GiB)
+OK    destino de evidencia escribible: /home/m4rk/cf-e4
+OK    DIR /home/m4rk/cf-e4/ecarga-v2-seco-20261106T163537Z libre
+OK    0 procesos con --aplicar/--enforce
+OK    ningún muestreador en marcha
+== obs_pcap --en-seco
+{"version": "2026-11-06.2", "fin_epoch": 1794197760.0, "fin_utc": "2026-11-09T04:16:00Z", "fin_peru": "2026-11-08 23:16:00 (UTC-5)", "parada_epoch": 1794197790.0, "faltan_s": 214822.2, "en_seco": true, "dir_existe": true}
+OK    obs_pcap --en-seco rc 0
+OK    obs_pcap en seco no creó salida
+fallo=0
+rc=0
+##### Sensor1: anillo y PSI (lectura directa)
+anillo ficheros=187 mas_antiguo=live-20261106162001.pcap edad_s=933
+psi cpu: some avg10=0.00 avg60=0.00 avg300=0.00 total=113962183 full avg10=0.00 avg60=0.00 avg300=0.00 total=0 
+psi io: some avg10=0.00 avg60=0.00 avg300=0.00 total=5933305 full avg10=0.00 avg60=0.00 avg300=0.00 total=4820381 
+psi memory: some avg10=0.00 avg60=0.00 avg300=0.00 total=47 full avg10=0.00 avg60=0.00 avg300=0.00 total=38 
+6.8.0-53-generic

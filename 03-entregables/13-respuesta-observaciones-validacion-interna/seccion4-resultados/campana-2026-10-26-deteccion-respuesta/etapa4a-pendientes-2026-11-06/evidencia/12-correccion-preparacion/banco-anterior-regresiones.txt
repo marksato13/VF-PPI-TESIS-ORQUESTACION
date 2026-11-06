@@ -1,0 +1,298 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-8.3.5, pluggy-1.5.0 -- /usr/bin/python3
+rootdir: /repo
+collecting ... collected 56 items / 30 deselected / 26 selected
+
+tests/test_etapa4_ecarga_prep.py::test_regresion_hash_completo_en_el_guion FAILED [  3%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_arranque_fallido_da_rc_distinto_de_cero FAILED [  7%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_arranque_parcial FAILED [ 11%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_consulta_fallida_tras_arrancar_es_desconocido FAILED [ 15%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_argv_de_la_unidad_no_corresponde FAILED [ 19%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_sin_partof_no_arranca FAILED [ 23%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_no_arranca_con_procesos_previos FAILED [ 26%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_estado_con_consulta_fallida_no_parece_inactivo FAILED [ 30%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_parada_fallida FAILED   [ 34%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_parada_sin_efecto FAILED [ 38%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_parada_con_consulta_fallida_no_se_confirma FAILED [ 42%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_parada_detecta_proceso_huerfano FAILED [ 46%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_ssh_falla_en_parada_agota_sin_confirmar FAILED [ 50%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_parada_fallida_y_recuperacion FAILED [ 53%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_parada_no_confirmada_rc_remoto_4 FAILED [ 57%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_lecturas_fallidas_se_escriben_error FAILED [ 61%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_bastion_lectura_error_no_es_false FAILED [ 65%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_pcap_dos_ficheros_al_inicio_de_la_hora FAILED [ 69%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_pcap_falta_el_inicio FAILED [ 73%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_pcap_falta_el_final FAILED [ 76%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_pcap_observacion_truncada FAILED [ 80%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_pcap_primera_pasada_tardia FAILED [ 84%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_pcap_fichero_ilegible_es_sin_evidencia FAILED [ 88%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_pcap_duplicado_contradictorio FAILED [ 92%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_e2e_dos_pcap_no_habilita FAILED [ 96%]
+tests/test_etapa4_ecarga_prep.py::test_regresion_e2e_pcap_falta_el_final_no_habilita FAILED [100%]
+
+=================================== FAILURES ===================================
+___________________ test_regresion_hash_completo_en_el_guion ___________________
+tests/test_etapa4_ecarga_prep.py:148: in test_regresion_hash_completo_en_el_guion
+    assert len(h) == 1 and len(h[0]) == 64 and all(c in "0123456789abcdef" for c in h[0]), h
+E   AssertionError: ['ae5134a7']
+E   assert (1 == 1 and 8 == 64)
+E    +  where 1 = len(['ae5134a7'])
+E    +  and   8 = len('ae5134a7')
+____________ test_regresion_arranque_fallido_da_rc_distinto_de_cero ____________
+tests/test_etapa4_ecarga_prep.py:162: in test_regresion_arranque_fallido_da_rc_distinto_de_cero
+    assert rc == 3, out
+E   AssertionError: start rc=1
+E     gen target=inactive habilitado=static procesos=0 hash=01aefbd6 unidades: cyberflow-lab-ofimatica.service=inactive cyberflow-lab-navegacion.service=inactive cyberflow-lab-descargas.service=inactive cyberflow-lab-aplicacion.service=inactive cyberflow-lab-ligero.service=inactive cyberflow-lab-erratico.service=inactive 
+E     Job for cyberflow-lab.target failed because a timeout was exceeded.
+E     
+E   assert 0 == 3
+_______________________ test_regresion_arranque_parcial ________________________
+tests/test_etapa4_ecarga_prep.py:170: in test_regresion_arranque_parcial
+    assert rc == 4, out
+E   AssertionError: start rc=0
+E     gen target=active habilitado=static procesos=4 hash=01aefbd6 unidades: cyberflow-lab-ofimatica.service=active cyberflow-lab-navegacion.service=active cyberflow-lab-descargas.service=active cyberflow-lab-aplicacion.service=active cyberflow-lab-ligero.service=failed cyberflow-lab-erratico.service=failed 
+E     
+E   assert 0 == 4
+_________ test_regresion_consulta_fallida_tras_arrancar_es_desconocido _________
+tests/test_etapa4_ecarga_prep.py:177: in test_regresion_consulta_fallida_tras_arrancar_es_desconocido
+    assert rc == 5, out
+E   AssertionError: start rc=0
+E     gen target= habilitado=Failed to connect to bus: No such file or directory procesos=6 hash=01aefbd6 unidades: 
+E     Failed to connect to bus: No such file or directory
+E     
+E   assert 0 == 5
+_______________ test_regresion_argv_de_la_unidad_no_corresponde ________________
+tests/test_etapa4_ecarga_prep.py:184: in test_regresion_argv_de_la_unidad_no_corresponde
+    assert rc == 4, out
+E   AssertionError: start rc=0
+E     gen target=active habilitado=static procesos=6 hash=01aefbd6 unidades: cyberflow-lab-ofimatica.service=active cyberflow-lab-navegacion.service=active cyberflow-lab-descargas.service=active cyberflow-lab-aplicacion.service=active cyberflow-lab-ligero.service=active cyberflow-lab-erratico.service=active 
+E     
+E   assert 0 == 4
+_____________________ test_regresion_sin_partof_no_arranca _____________________
+tests/test_etapa4_ecarga_prep.py:191: in test_regresion_sin_partof_no_arranca
+    assert rc == 2, out
+E   AssertionError: start rc=0
+E     gen target=active habilitado=static procesos=6 hash=01aefbd6 unidades: cyberflow-lab-ofimatica.service=active cyberflow-lab-navegacion.service=active cyberflow-lab-descargas.service=active cyberflow-lab-aplicacion.service=active cyberflow-lab-ligero.service=active cyberflow-lab-erratico.service=active 
+E     
+E   assert 0 == 2
+________________ test_regresion_no_arranca_con_procesos_previos ________________
+tests/test_etapa4_ecarga_prep.py:200: in test_regresion_no_arranca_con_procesos_previos
+    assert rc == 2 and "parado confirmado" in out, out
+E   AssertionError: start rc=0
+E     gen target=active habilitado=static procesos=7 hash=01aefbd6 unidades: cyberflow-lab-ofimatica.service=active cyberflow-lab-navegacion.service=active cyberflow-lab-descargas.service=active cyberflow-lab-aplicacion.service=active cyberflow-lab-ligero.service=active cyberflow-lab-erratico.service=active 
+E     
+E   assert (0 == 2)
+________ test_regresion_estado_con_consulta_fallida_no_parece_inactivo _________
+tests/test_etapa4_ecarga_prep.py:215: in test_regresion_estado_con_consulta_fallida_no_parece_inactivo
+    assert rc == 5, out
+E   AssertionError: gen target= habilitado=Failed to connect to bus: No such file or directory procesos=0 hash=01aefbd6 unidades: 
+E     Failed to connect to bus: No such file or directory
+E     
+E   assert 0 == 5
+________________________ test_regresion_parada_fallida _________________________
+tests/test_etapa4_ecarga_prep.py:230: in test_regresion_parada_fallida
+    assert rc == 3, out
+E   AssertionError: stop rc=1
+E     gen target=active habilitado=static procesos=6 hash=01aefbd6 unidades: cyberflow-lab-ofimatica.service=active cyberflow-lab-navegacion.service=active cyberflow-lab-descargas.service=active cyberflow-lab-aplicacion.service=active cyberflow-lab-ligero.service=active cyberflow-lab-erratico.service=active 
+E     QUEDAN PROCESOS O TARGET ACTIVO
+E     Failed to stop cyberflow-lab.target: Access denied
+E     
+E   assert 1 == 3
+_______________________ test_regresion_parada_sin_efecto _______________________
+tests/test_etapa4_ecarga_prep.py:239: in test_regresion_parada_sin_efecto
+    assert rc == 4, out
+E   AssertionError: stop rc=0
+E     gen target=active habilitado=static procesos=6 hash=01aefbd6 unidades: cyberflow-lab-ofimatica.service=active cyberflow-lab-navegacion.service=active cyberflow-lab-descargas.service=active cyberflow-lab-aplicacion.service=active cyberflow-lab-ligero.service=active cyberflow-lab-erratico.service=active 
+E     QUEDAN PROCESOS O TARGET ACTIVO
+E     
+E   assert 1 == 4
+__________ test_regresion_parada_con_consulta_fallida_no_se_confirma ___________
+tests/test_etapa4_ecarga_prep.py:256: in test_regresion_parada_con_consulta_fallida_no_se_confirma
+    assert rc == 5, out
+E   AssertionError: stop rc=0
+E     gen target= habilitado=Failed to connect to bus: No such file or directory procesos=0 hash=01aefbd6 unidades: 
+E     parados: target inactivo y 0 procesos
+E     Failed to connect to bus: No such file or directory
+E     Failed to connect to bus: No such file or directory
+E     
+E   assert 0 == 5
+________________ test_regresion_parada_detecta_proceso_huerfano ________________
+tests/test_etapa4_ecarga_prep.py:266: in test_regresion_parada_detecta_proceso_huerfano
+    assert rc == 4 and "procesos clientes_lab.py vivos: 4243" in out, out
+E   AssertionError: stop rc=0
+E     gen target=inactive habilitado=static procesos=1 hash=01aefbd6 unidades: cyberflow-lab-ofimatica.service=inactive cyberflow-lab-navegacion.service=inactive cyberflow-lab-descargas.service=inactive cyberflow-lab-aplicacion.service=inactive cyberflow-lab-ligero.service=inactive cyberflow-lab-erratico.service=inactive 
+E     QUEDAN PROCESOS O TARGET ACTIVO
+E     
+E   assert (1 == 4)
+____________ test_regresion_ssh_falla_en_parada_agota_sin_confirmar ____________
+tests/test_etapa4_ecarga_prep.py:302: in test_regresion_ssh_falla_en_parada_agota_sin_confirmar
+    assert rc == 4, out
+E   AssertionError: 2026-11-06T16:39:30Z 1793983170 PARADA de generadores: fin previsto (PARADA_EPOCH 1793983169)
+E     2026-11-06T16:39:30Z 1793983170 parada rc=255
+E     
+E   assert 0 == 4
+_________________ test_regresion_parada_fallida_y_recuperacion _________________
+tests/test_etapa4_ecarga_prep.py:317: in test_regresion_parada_fallida_y_recuperacion
+    assert [x["resultado"] for x in jl if x["resultado"] != "solicitada"] == ["fallida", "confirmada"]
+E   AssertionError: assert [] == ['fallida', 'confirmada']
+E     
+E     Right contains 2 more items, first extra item: 'fallida'
+E     
+E     Full diff:
+E     + []
+E     - [
+E     -     'fallida',
+E     -     'confirmada',
+E     - ]
+_______________ test_regresion_parada_no_confirmada_rc_remoto_4 ________________
+tests/test_etapa4_ecarga_prep.py:336: in test_regresion_parada_no_confirmada_rc_remoto_4
+    assert rc == 4, out
+E   AssertionError: 2026-11-06T16:40:31Z 1793983231 PARADA de generadores: fin previsto (PARADA_EPOCH 1793983230)
+E     2026-11-06T16:40:34Z 1793983234 parada rc=1
+E     
+E   assert 0 == 4
+______________ test_regresion_lecturas_fallidas_se_escriben_error ______________
+tests/test_etapa4_ecarga_prep.py:360: in test_regresion_lecturas_fallidas_se_escriben_error
+    assert "S ruleset=ERROR" in m, m
+E   AssertionError: ### 2026-11-06T16:41:00Z 1793983260
+E     B relay pid=0 nr=0 inactive v1timer=inactive v1=inactive
+E     tail: cannot open '/tmp/pytest-of-nobody/pytest-0/test_regresion_lecturas_fallid0/home/relay-v2/traza.jsonl' for reading: No such file or directory
+E     B panel_https=401 ultima_traza=
+E     S ppi-motor pid=0 nr=0 inactive
+E     S ppi-motor-capture pid=0 nr=0 inactive
+E     S ppi-via-rapida@ens37 pid=0 nr=0 inactive
+E     S suricata pid=0 nr=0 inactive
+E     S ppi-publicar-feed-v2 pid=0 nr=0 inactive
+E     S ppi-dashboard pid=0 nr=0 inactive
+E     S v1 inactive/inactive enforce_aplicar=0
+E     S feed_seq=Traceback (most recent call last):
+E       File "<string>", line 1, in <module>
+E         import json;print(json.load(open("/home/m4rk/feed-v2/feed.json"))["secuencia"])
+E                                     ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E     FileNotFoundError: [Errno 2] No such file or directory: '/home/m4rk/feed-v2/feed.json'
+E     S home_libre_kb=993841972 carga=0.21 0.36 0.37 memdisp_kb=15059684
+E     sudo: a password is required
+E     S ruleset=e3b0c44298fc1c14
+E     tail: cannot open '/var/log/suricata/eve.json' for reading: No such file or directory
+E     S eve_ultimo_stats=Traceback (most recent call last):
+E       File "<string>", line 1, in <module>
+E         import json,sys;e=json.load(sys.stdin);c=e["stats"]["capture"];print(e["timestamp"],e["stats"]["uptime"],c.get("kernel_packets"),c.get("kernel_drops"))
+E                           ~~~~~~~~~^^^^^^^^^^^
+E       File "/usr/lib/python3.13/json/__init__.py", line 293, in load
+E         return loads(fp.read(),
+E             cls=cls, object_hook=object_hook,
+E             parse_float=parse_float, parse_int=parse_int,
+E             parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+E       File "/usr/lib/python3.13/json/__init__.py", line 346, in loads
+E         return _default_decoder.decode(s)
+E                ~~~~~~~~~~~~~~~~~~~~~~~^^^
+E       File "/usr/lib/python3.13/json/decoder.py", line 345, in decode
+E         obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+E                    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+E       File "/usr/lib/python3.13/json/decoder.py", line 363, in raw_decode
+E         raise JSONDecodeError("Expecting value", s, err.value) from None
+E     json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+E     S anillo_ultimo=
+E     bash: line 3: /proc/999999/cmdline: No such file or directory
+E     D agente pid=999999 nr=0 active aplicar_cmd=0 v1=inactive
+E     sudo: a password is required
+E     sudo: a password is required
+E     sudo: a password is required
+E     sudo: a password is required
+E     D aplicacion= firma_invalida= paquete_invalido= ruleset=e3b0c44298fc1c14
+E     sudo: a password is required
+E     D ultima=
+E     C gen target=inactive habilitado=static procesos=0 hash=01aefbd6 unidades: cyberflow-lab-ofimatica.service=inactive cyberflow-lab-navegacion.service=inactive cyberflow-lab-descargas.service=inactive cyberflow-lab-aplicacion.service=inactive cyberflow-lab-ligero.service=inactive cyberflow-lab-erratico.service=inactive 
+E     
+E   assert 'S ruleset=ERROR' in '### 2026-11-06T16:41:00Z 1793983260\nB relay pid=0 nr=0 inactive v1timer=inactive v1=inactive\ntail: cannot open \'/tmp/pytest-of-nobody/pytest-0/test_regresion_lecturas_fallid0/home/relay-v2/traza.jsonl\' for reading: No such file or directory\nB panel_https=401 ultima_traza=\nS ppi-motor pid=0 nr=0 inactive\nS ppi-motor-capture pid=0 nr=0 inactive\nS ppi-via-rapida@ens37 pid=0 nr=0 inactive\nS suricata pid=0 nr=0 inactive\nS ppi-publicar-feed-v2 pid=0 nr=0 inactive\nS ppi-dashboard pid=0 nr=0 inactive\nS v1 inactive/inactive enforce_aplicar=0\nS feed_seq=Traceback (most recent call last):\n  File "<string>", line 1, in <module>\n    import json;print(json.load(open("/home/m4rk/feed-v2/feed.json"))["secuencia"])\n                                ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: \'/home/m4rk/feed-v2/feed.json\'\nS home_libre_kb=993841972 carga=0.21 0.36 0.37 memdisp_kb=15059684\nsudo: a password is required\nS ruleset=e3b0c44298fc1c14\ntail: cannot open \'/var/log/suricata/eve.json\' for reading: No such file or directory\nS eve_ultimo_stats=Traceback (most recent call last):\n  File "<string>", line 1, in <module>\n   ..._init__.py", line 346, in loads\n    return _default_decoder.decode(s)\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^\n  File "/usr/lib/python3.13/json/decoder.py", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File "/usr/lib/python3.13/json/decoder.py", line 363, in raw_decode\n    raise JSONDecodeError("Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\nS anillo_ultimo=\nbash: line 3: /proc/999999/cmdline: No such file or directory\nD agente pid=999999 nr=0 active aplicar_cmd=0 v1=inactive\nsudo: a password is required\nsudo: a password is required\nsudo: a password is required\nsudo: a password is required\nD aplicacion= firma_invalida= paquete_invalido= ruleset=e3b0c44298fc1c14\nsudo: a password is required\nD ultima=\nC gen target=inactive habilitado=static procesos=0 hash=01aefbd6 unidades: cyberflow-lab-ofimatica.service=inactive cyberflow-lab-navegacion.service=inactive cyberflow-lab-descargas.service=inactive cyberflow-lab-aplicacion.service=inactive cyberflow-lab-ligero.service=inactive cyberflow-lab-erratico.service=inactive \n'
+_______________ test_regresion_bastion_lectura_error_no_es_false _______________
+tests/test_etapa4_ecarga_prep.py:392: in test_regresion_bastion_lectura_error_no_es_false
+    assert False not in vals.values(), vals
+E   AssertionError: {'S1': False, 'S10': False, 'S6': True, 'S8': True, ...}
+E   assert False not in dict_values([False, True, True, True, False])
+E    +  where dict_values([False, True, True, True, False]) = <built-in method values of dict object at 0x7b479aaf8640>()
+E    +    where <built-in method values of dict object at 0x7b479aaf8640> = {'S1': False, 'S10': False, 'S6': True, 'S8': True, ...}.values
+____________ test_regresion_pcap_dos_ficheros_al_inicio_de_la_hora _____________
+tests/test_etapa4_ecarga_prep.py:442: in test_regresion_pcap_dos_ficheros_al_inicio_de_la_hora
+    assert v(r) != (True, True), r
+E   AssertionError: {'S2': {'errores': [], 'primero': 'live-20261109031502.pcap', 'primero_tras_desde_s': 2.0, 'registros': 1600, ...}, 'S3': {'esperados': 720, 'faltan_nombres': 718, 'hueco_max_paquetes_s': 0.11, 'salto_max_nombres_s': 5.0, ...}, 'ficheros': 2, 'periodo': [1794194100.0, 1794197700.0], ...}
+E   assert (True, True) != (True, True)
+E    +  where (True, True) = v({'S2': {'errores': [], 'primero': 'live-20261109031502.pcap', 'primero_tras_desde_s': 2.0, 'registros': 1600, ...}, 'S3': {'esperados': 720, 'faltan_nombres': 718, 'hueco_max_paquetes_s': 0.11, 'salto_max_nombres_s': 5.0, ...}, 'ficheros': 2, 'periodo': [1794194100.0, 1794197700.0], ...})
+_____________________ test_regresion_pcap_falta_el_inicio ______________________
+tests/test_etapa4_ecarga_prep.py:451: in test_regresion_pcap_falta_el_inicio
+    assert r["S3"]["valor"] is False and "DESDE" in r["S3"]["motivo"], r["S3"]
+E   AssertionError: {'esperados': 720, 'faltan_nombres': 4, 'hueco_max_paquetes_s': 0.11, 'salto_max_nombres_s': 5.0, ...}
+E   assert (True is False)
+______________________ test_regresion_pcap_falta_el_final ______________________
+tests/test_etapa4_ecarga_prep.py:457: in test_regresion_pcap_falta_el_final
+    assert r["S3"]["valor"] is False and "HASTA" in r["S3"]["motivo"], r["S3"]
+E   AssertionError: {'esperados': 720, 'faltan_nombres': 12, 'hueco_max_paquetes_s': 0.11, 'salto_max_nombres_s': 5.0, ...}
+E   assert (True is False)
+___________________ test_regresion_pcap_observacion_truncada ___________________
+tests/test_etapa4_ecarga_prep.py:465: in test_regresion_pcap_observacion_truncada
+    assert v(r) == (None, None), r
+E   AssertionError: {'S2': {'errores': [], 'primero': 'live-20261109031502.pcap', 'primero_tras_desde_s': 2.0, 'registros': 575200, ...}, 'S3': {'esperados': 720, 'faltan_nombres': 1, 'hueco_max_paquetes_s': 0.11, 'salto_max_nombres_s': 5.0, ...}, 'ficheros': 719, 'periodo': [1794194100.0, 1794197700.0], ...}
+E   assert (True, True) == (None, None)
+E     
+E     At index 0 diff: True != None
+E     
+E     Full diff:
+E       (
+E     -     None,
+E     -     None,...
+E     
+E     ...Full output truncated (3 lines hidden), use '-vv' to show
+__________________ test_regresion_pcap_primera_pasada_tardia ___________________
+tests/test_etapa4_ecarga_prep.py:472: in test_regresion_pcap_primera_pasada_tardia
+    assert v(r) == (None, None), r
+E   AssertionError: {'S2': {'errores': [], 'primero': 'live-20261109031502.pcap', 'primero_tras_desde_s': 2.0, 'registros': 576000, ...}, 'S3': {'esperados': 720, 'faltan_nombres': 0, 'hueco_max_paquetes_s': 0.11, 'salto_max_nombres_s': 5.0, ...}, 'ficheros': 720, 'periodo': [1794194100.0, 1794197700.0], ...}
+E   assert (True, True) == (None, None)
+E     
+E     At index 0 diff: True != None
+E     
+E     Full diff:
+E       (
+E     -     None,
+E     -     None,...
+E     
+E     ...Full output truncated (3 lines hidden), use '-vv' to show
+____________ test_regresion_pcap_fichero_ilegible_es_sin_evidencia _____________
+tests/test_etapa4_ecarga_prep.py:486: in test_regresion_pcap_fichero_ilegible_es_sin_evidencia
+    assert v(r) == (None, None), r
+E   AssertionError: {'S2': {'errores': ['live-20261109033957.pcap'], 'primero': 'live-20261109031502.pcap', 'primero_tras_desde_s': 2.0, 'registros': 575200, ...}, 'S3': {'esperados': 720, 'faltan_nombres': 0, 'hueco_max_paquetes_s': 0.11, 'salto_max_nombres_s': 5.0, ...}, 'ficheros': 720, 'periodo': [1794194100.0, 1794197700.0], ...}
+E   assert (False, True) == (None, None)
+E     
+E     At index 0 diff: False != None
+E     
+E     Full diff:
+E       (
+E     -     None,
+E     -     None,...
+E     
+E     ...Full output truncated (3 lines hidden), use '-vv' to show
+_________________ test_regresion_pcap_duplicado_contradictorio _________________
+tests/test_etapa4_ecarga_prep.py:521: in test_regresion_pcap_duplicado_contradictorio
+    assert v(r) == (None, None), r
+E   AssertionError: {'S2': {'errores': [], 'primero': 'live-20261109031502.pcap', 'primero_tras_desde_s': 2.0, 'registros': 576001, ...}, 'S3': {'esperados': 720, 'faltan_nombres': -1, 'hueco_max_paquetes_s': 0.11, 'salto_max_nombres_s': 5.0, ...}, 'ficheros': 721, 'periodo': [1794194100.0, 1794197700.0], ...}
+E   assert (True, True) == (None, None)
+E     
+E     At index 0 diff: True != None
+E     
+E     Full diff:
+E       (
+E     -     None,
+E     -     None,...
+E     
+E     ...Full output truncated (3 lines hidden), use '-vv' to show
+___________________ test_regresion_e2e_dos_pcap_no_habilita ____________________
+tests/test_etapa4_ecarga_prep.py:746: in test_regresion_e2e_dos_pcap_no_habilita
+    assert r["habilita_condicion_3"] is False and rc == 1, r
+E   AssertionError: {'K_no_cumplen': [], 'K_sin_medida': [], 'S_no_cumplen': [], 'S_sin_medida': [], ...}
+E   assert (True is False)
+______________ test_regresion_e2e_pcap_falta_el_final_no_habilita ______________
+tests/test_etapa4_ecarga_prep.py:752: in test_regresion_e2e_pcap_falta_el_final_no_habilita
+    assert r["habilita_condicion_3"] is False and e["S"]["S3"] is False, (r, e["S"])
+E   AssertionError: ({'K_no_cumplen': [], 'K_sin_medida': [], 'S_no_cumplen': [], 'S_sin_medida': [], ...}, {'S1': True, 'S10': True, 'S11': True, 'S12': True, ...})
+E   assert (True is False)
+================ 26 failed, 30 deselected in 170.24s (0:02:50) =================
+RC_PYTEST=1
