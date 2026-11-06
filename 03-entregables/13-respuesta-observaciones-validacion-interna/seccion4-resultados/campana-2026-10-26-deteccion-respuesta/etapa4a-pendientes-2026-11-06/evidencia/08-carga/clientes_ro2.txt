@@ -1,0 +1,122 @@
+== /home/adminclientes/cf-3b-20261101T0721Z/argv-aplicacion.txt
+/usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil aplicacion --origen 10.10.20.24 --servidor 10.10.30.10 --dns 10.10.10.20 
+
+== /home/adminclientes/cf-3b-20261101T0721Z/argv-descargas.txt
+/usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil descargas --origen 10.10.20.23 --servidor 10.10.30.10 --dns 10.10.10.20 
+
+== /home/adminclientes/cf-3b-20261101T0721Z/argv-erratico.txt
+/usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil erratico --origen 10.10.20.26 --servidor 10.10.30.10 --dns 10.10.10.20 
+
+== /home/adminclientes/cf-3b-20261101T0721Z/argv-ligero.txt
+/usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil ligero --origen 10.10.20.25 --servidor 10.10.30.10 --dns 10.10.10.20 
+
+== /home/adminclientes/cf-3b-20261101T0721Z/argv-navegacion.txt
+/usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil navegacion --origen 10.10.20.22 --servidor 10.10.30.10 --dns 10.10.10.20 
+
+== /home/adminclientes/cf-3b-20261101T0721Z/argv-ofimatica.txt
+/usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil ofimatica --origen 10.10.20.21 --servidor 10.10.30.10 --dns 10.10.10.20 
+
+== servicios-inicio
+  cyberflow-lab-ofimatica MainPID=7178 NRestarts=0 ActiveState=active ActiveEnterTimestamp=Sun 2026-11-01 04:19:09 UTC 
+  cyberflow-lab-navegacion MainPID=7177 NRestarts=0 ActiveState=active ActiveEnterTimestamp=Sun 2026-11-01 04:19:09 UTC 
+  cyberflow-lab-descargas MainPID=7174 NRestarts=0 ActiveState=active ActiveEnterTimestamp=Sun 2026-11-01 04:19:09 UTC 
+  cyberflow-lab-aplicacion MainPID=7173 NRestarts=0 ActiveState=active ActiveEnterTimestamp=Sun 2026-11-01 04:19:09 UTC 
+  cyberflow-lab-ligero MainPID=7176 NRestarts=0 ActiveState=active ActiveEnterTimestamp=Sun 2026-11-01 04:19:09 UTC 
+  cyberflow-lab-erratico MainPID=7175 NRestarts=0 ActiveState=active ActiveEnterTimestamp=Sun 2026-11-01 04:19:09 UTC 
+== servicios-fin
+MainPID=9830 NRestarts=0 Id=cyberflow-lab-ofimatica.service ActiveState=active ActiveEnterTimestamp=Sun 2026-11-01 10:36:59 UTC 
+MainPID=9829 NRestarts=0 Id=cyberflow-lab-navegacion.service ActiveState=active ActiveEnterTimestamp=Sun 2026-11-01 10:36:59 UTC 
+MainPID=9826 NRestarts=0 Id=cyberflow-lab-descargas.service ActiveState=active ActiveEnterTimestamp=Sun 2026-11-01 10:36:59 UTC 
+MainPID=9825 NRestarts=0 Id=cyberflow-lab-aplicacion.service ActiveState=active ActiveEnterTimestamp=Sun 2026-11-01 10:36:59 UTC 
+MainPID=9828 NRestarts=0 Id=cyberflow-lab-ligero.service ActiveState=active ActiveEnterTimestamp=Sun 2026-11-01 10:36:59 UTC 
+MainPID=9827 NRestarts=0 Id=cyberflow-lab-erratico.service ActiveState=active ActiveEnterTimestamp=Sun 2026-11-01 10:36:59 UTC 
+== restaurar.sh
+#!/usr/bin/env bash
+set -u
+B=$(cd "$(dirname "$0")" && pwd)
+bash $B/clientes_parar_factor1.sh
+echo "  generador sin cambios: $(sha256sum $HOME/laboratorio/clientes_lab.py | cut -c1-64)"
+sudo -n systemctl start cyberflow-lab.target; echo "  [$(date -u +%FT%T.%3NZ)] start cyberflow-lab.target rc=$?"
+sleep 15
+echo "  target: $(systemctl is-active cyberflow-lab.target)/$(systemctl is-enabled cyberflow-lab.target)"
+for s in ofimatica navegacion descargas aplicacion ligero erratico; do echo "  cyberflow-lab-$s $(systemctl is-active cyberflow-lab-$s) NR=$(systemctl show -p NRestarts --value cyberflow-lab-$s)"; done
+echo "  envoltorios vivos: $(pgrep -fc clientes_factor1.py)"
+== laboratorio/clientes_lab.py (cabecera)
+#!/usr/bin/env python3
+"""Genera el trafico de fondo del laboratorio, con un perfil por IP.
+
+No es parte del producto: es el aparato experimental que produce la linea
+base sobre la que se recalibra el modelo.
+
+Tres decisiones de diseno, y las tres importan para que la linea base sirva:
+
+1. UNA IP POR PERFIL. El motor puntua por IP, asi que cada alias es una
+   entidad distinta con su propio comportamiento. Seis entidades salen de una
+   sola maquina.
+
+2. LLEGADAS EXPONENCIALES, NO TEMPORIZADORES. Si las peticiones salen cada
+   segundo exacto, el modelo aprende un metronomo y marca como anomalia
+   cualquier variacion normal. El intervalo se sortea de una exponencial.
+
+3. CURVA DIARIA. La intensidad varia con la hora. Sin variacion diaria no se
+   puede demostrar que el modelo tolera la variacion normal, y la madrugada
+   saldria como anomala.
+
+Y una cuarta, menos obvia: una fraccion de las conexiones FALLA a proposito
+-puertos cerrados, cortes a mitad- porque syn_completion_ratio_10s,
+rst_ratio_10s y tcp_retransmission_ratio_10s no tienen varianza en una red
+donde todo funciona siempre.
+
+Uso:
+    python3 clientes_lab.py --perfil ofimatica --origen 10.10.20.21 \\
+        --servidor 10.10.30.10 --dns 10.10.10.20
+    python3 clientes_lab.py --listar-perfiles
+"""
+from __future__ import annotations
+
+import argparse
+import datetime
+import http.client
+import random
+import socket
+import ssl
+import struct
+import sys
+import time
+
+# --- perfiles ---------------------------------------------------------------
+# peso: cuantas acciones de cada tipo, relativo. ritmo: segundos medios entre
+# acciones en hora punta.
+PERFILES = {
+    "ofimatica": {
+        "ritmo": 3.0,
+        "acciones": {"web_pequena": 50, "web_media": 20, "dns": 25, "api_ok": 15,
+                     "api_auth": 3, "api_404": 4, "https": 20, "ping": 5},
+    },
+    "navegacion": {
+        "ritmo": 1.5,
+        "acciones": {"web_pequena": 40, "web_grande": 25, "https": 35, "dns": 30,
+                     "dns_inexistente": 4, "api_ok": 10, "abandono": 6},
+    },
+    "descargas": {
+        "ritmo": 8.0,
+        "acciones": {"web_grande": 60, "web_media": 25, "https": 10, "dns": 5},
+    },
+== IPs
+lo 127.0.0.1/8
+ens34 10.10.20.20/24
+ens34 10.10.20.21/24
+ens34 10.10.20.22/24
+ens34 10.10.20.23/24
+ens34 10.10.20.24/24
+ens34 10.10.20.25/24
+ens34 10.10.20.26/24
+== servicios del sistema con clientes
+blk-availability.service                     enabled         enabled
+cyberflow-lab-aplicacion.service             disabled        enabled
+cyberflow-lab-descargas.service              disabled        enabled
+cyberflow-lab-erratico.service               disabled        enabled
+cyberflow-lab-ligero.service                 disabled        enabled
+cyberflow-lab-navegacion.service             disabled        enabled
+cyberflow-lab-ofimatica.service              disabled        enabled
+cyberflow-lab.target                         disabled        enabled

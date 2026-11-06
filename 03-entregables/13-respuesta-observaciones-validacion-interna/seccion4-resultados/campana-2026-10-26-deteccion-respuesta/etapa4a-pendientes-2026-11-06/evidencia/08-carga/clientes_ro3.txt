@@ -1,0 +1,60 @@
+target: inactive/disabled
+cyberflow-lab-ofimatica MainPID=0 NRestarts=0 ActiveState=inactive ActiveEnterTimestamp= 
+cyberflow-lab-navegacion MainPID=0 NRestarts=0 ActiveState=inactive ActiveEnterTimestamp= 
+cyberflow-lab-descargas MainPID=0 NRestarts=0 ActiveState=inactive ActiveEnterTimestamp= 
+cyberflow-lab-aplicacion MainPID=0 NRestarts=0 ActiveState=inactive ActiveEnterTimestamp= 
+cyberflow-lab-ligero MainPID=0 NRestarts=0 ActiveState=inactive ActiveEnterTimestamp= 
+cyberflow-lab-erratico MainPID=0 NRestarts=0 ActiveState=inactive ActiveEnterTimestamp= 
+sha256 clientes_lab.py: ae5134a778e66d90f5c3fbcd47323e328f3422cf4ba8d5197649f402c1d4cdc3  timedatectl: Etc/UTC
+== curva y perfiles restantes
+17:3. CURVA DIARIA. La intensidad varia con la hora. Sin variacion diaria no se
+44:# peso: cuantas acciones de cada tipo, relativo. ritmo: segundos medios entre
+45:# acciones en hora punta.
+48:        "ritmo": 3.0,
+53:        "ritmo": 1.5,
+58:        "ritmo": 8.0,
+61:    "aplicacion": {
+62:        "ritmo": 2.0,
+66:    "ligero": {
+67:        "ritmo": 12.0,
+70:    "erratico": {
+73:        "ritmo": 5.0,
+84:def factor_horario(ahora: datetime.datetime, forzar_laborable: bool = False) -> float:
+94:    h = ahora.hour + ahora.minute / 60.0
+105:    if ahora.weekday() >= 5 and not forzar_laborable:
+138:            # descriptores a las horas.
+286:                   help="multiplica el ritmo; 2.0 = el doble de trafico")
+299:            print("%-12s ritmo %4.1f s   %s" % (
+300:                nombre, perfil["ritmo"], ", ".join(sorted(perfil["acciones"]))))
+332:        ahora = datetime.datetime.now()
+333:        factor = (factor_horario(ahora, args.forzar_laborable)
+343:                factor *= 6.0
+358:        time.sleep(random.expovariate(1.0 / max(perfil["ritmo"] / factor, 0.05)))
+== clientes_factor1.py (cabecera)
+#!/usr/bin/env python3
+"""PASO2 (20261101T0254Z): ejecuta el generador legitimo SIN modificarlo, con el factor horario fijado en 1,0.
+
+clientes_lab.py calcula factor = factor_horario(hora local, fin de semana) * --intensidad. Para la validacion
+tecnica del motor se fija factor_horario = 1,0 (hora punta de dia laborable, la misma carga que la campana A
+entre 08:00 y 13:00 UTC). Todo lo demas (perfiles, pesos, ritmos, rafagas x6 del perfil erratico, fallos
+intencionados, --intensidad 1,0, origen, servidor, DNS) queda igual. No cambia relojes ni zona horaria.
+
+Reversible: basta parar estos procesos (parar_factor1.sh); el fichero clientes_lab.py no se toca.
+"""
+import sys
+
+sys.path.insert(0, "/home/adminclientes/laboratorio")
+import clientes_lab  # noqa: E402
+
+_original = clientes_lab.factor_horario
+
+
+def factor_fijo(ahora, forzar_laborable=False):
+    return 1.0
+
+
+clientes_lab.factor_horario = factor_fijo
+print("PASO2: factor_horario fijado en 1.0 (original devolveria %.3f ahora)"
+      % _original(__import__("datetime").datetime.now()), file=sys.stderr, flush=True)
+sys.argv = ["clientes_lab.py"] + sys.argv[1:]
+raise SystemExit(clientes_lab.main())

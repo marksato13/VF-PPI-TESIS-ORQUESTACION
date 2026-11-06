@@ -8,6 +8,15 @@
 > integración verificada; la 4C y la campaña B **no** están autorizadas. Resultado de los pendientes:
 > [`../etapa4a-pendientes-2026-11-06/`](../etapa4a-pendientes-2026-11-06/README.md).
 >
+> **Actualización (06-nov, 06:29Z).** El criterio único vigente es el de
+> [`../etapa4a-pendientes-2026-11-06/README.md` §0](../etapa4a-pendientes-2026-11-06/README.md). Para iniciar el
+> control formal de la 4B hacen falta tres condiciones:
+> 1. verificadores sin FALLO: cumple;
+> 2. O1–O11: cumple;
+> 3. ensayo E-carga «estable con carga suficiente»: pendiente.
+>
+> La 4C y la campaña B siguen sin autorizar, e I5 se comprueba en los 30 min previos a su inicio real.
+>
 > Lo que está cerrado:
 > - **Panel:** corregido (**93f076e**) y desplegado con modo v2 explícito.
 > - **Primer PCAP ilegible:** corregido y verificado en arranque y rotaciones.
@@ -262,6 +271,13 @@ fondo eran los mismos y no hubo ataques. La intensidad se registró, no se eligi
 > driver (`drv dropped rx total` = 0), compatible con tramas 802.3/LLC dentro de VLAN sin interfaz VLAN en el host
 > (≈ 14,5/s en los PCAP frente a 14,0/s de `rx_dropped`), que **sí** están en los PCAP. Con incertidumbre declarada:
 > [`../etapa4a-pendientes-2026-11-06/README.md` §4](../etapa4a-pendientes-2026-11-06/README.md).
+>
+> **Precisión (06-nov, 06:29Z).** Lo comprobado es más limitado:
+> - Las tramas de ese tipo **examinadas** aparecen en los PCAP, y los contadores de descarte del driver y de softnet
+>   no subieron.
+> - **No se comprobó cada incremento de `rx_dropped` por separado.**
+>
+> Por eso no se afirma la ausencia universal de pérdida, solo que no hay evidencia de pérdida en lo examinado.
 
 **Interpretación.**
 - **Sin saturación.** No hay ninguna de CPU, softirq, disco ni memoria. `time_squeeze` sube con el tráfico, pero
@@ -381,6 +397,9 @@ planificación de reinicios (P3). **No se puede iniciar la 4C** hasta cerrar P1.
 > **Corrección (pendientes 4A, 06-nov).** Criterio unificado con el veredicto: la 4B puede prepararse; su control
 > formal espera a P1 cerrado e integración verificada; 4C y campaña B no autorizadas. Estado de P1, P3, P4 y P5:
 > [`../etapa4a-pendientes-2026-11-06/`](../etapa4a-pendientes-2026-11-06/README.md).
+> **Actualización (06-nov, 06:29Z):** criterio único vigente en
+> [`../etapa4a-pendientes-2026-11-06/README.md` §0](../etapa4a-pendientes-2026-11-06/README.md). Además de lo
+> anterior, exige el ensayo E-carga.
 
 ## 12. Evidencia
 

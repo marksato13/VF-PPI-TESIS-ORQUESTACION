@@ -1,0 +1,64 @@
+commit a1cea5e; banco Docker cyberflow-etapa3-banco:1, sin red, repo solo lectura, usuario root
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-8.3.5, pluggy-1.5.0 -- /usr/bin/python3
+rootdir: /src
+collecting ... collected 52 items
+
+tests/test_etapa4_verificadores.py::test_v1_retirado_correctamente_sensor1 PASSED [  1%]
+tests/test_etapa4_verificadores.py::test_v1_retirado_correctamente_bastion PASSED [  3%]
+tests/test_etapa4_verificadores.py::test_v1_unidades_no_instaladas_cuentan_como_retiradas PASSED [  5%]
+tests/test_etapa4_verificadores.py::test_v1_timer_reactivado[estado0] PASSED [  7%]
+tests/test_etapa4_verificadores.py::test_v1_timer_reactivado[estado1] PASSED [  9%]
+tests/test_etapa4_verificadores.py::test_v1_timer_reactivado[estado2] PASSED [ 11%]
+tests/test_etapa4_verificadores.py::test_v1_servicio_reactivado PASSED   [ 13%]
+tests/test_etapa4_verificadores.py::test_v1_servicio_habilitado PASSED   [ 15%]
+tests/test_etapa4_verificadores.py::test_v1_proceso_residual_con_timer_apagado PASSED [ 17%]
+tests/test_etapa4_verificadores.py::test_v1_proceso_residual_rele_bastion PASSED [ 19%]
+tests/test_etapa4_verificadores.py::test_v1_error_al_consultar_estado[falla] PASSED [ 21%]
+tests/test_etapa4_verificadores.py::test_v1_error_al_consultar_estado[salida_vacia] PASSED [ 23%]
+tests/test_etapa4_verificadores.py::test_v1_systemctl_inexistente PASSED [ 25%]
+tests/test_etapa4_verificadores.py::test_v1_proc_con_hidepid_no_demuestra PASSED [ 26%]
+tests/test_etapa4_verificadores.py::test_v1_proc_ilegible_no_demuestra PASSED [ 28%]
+tests/test_etapa4_verificadores.py::test_v1_cmdline_ilegible_no_demuestra SKIPPED [ 30%]
+tests/test_etapa4_verificadores.py::test_arranque_vigente_en_registro_actual PASSED [ 32%]
+tests/test_etapa4_verificadores.py::test_arranque_vigente_en_registro_rotado_estado_real PASSED [ 34%]
+tests/test_etapa4_verificadores.py::test_arranque_vigente_en_rotado_comprimido PASSED [ 36%]
+tests/test_etapa4_verificadores.py::test_solo_arranque_antiguo_correcto_pero_ajeno PASSED [ 38%]
+tests/test_etapa4_verificadores.py::test_solo_arranque_antiguo_en_gz_de_antes_del_inicio PASSED [ 40%]
+tests/test_etapa4_verificadores.py::test_arranque_con_configuracion_incorrecta[cambio0-threshold del evento] PASSED [ 42%]
+tests/test_etapa4_verificadores.py::test_arranque_con_configuracion_incorrecta[cambio1-disparo] PASSED [ 44%]
+tests/test_etapa4_verificadores.py::test_arranque_con_configuracion_incorrecta[cambio2-procesamiento] PASSED [ 46%]
+tests/test_etapa4_verificadores.py::test_arranque_con_configuracion_incorrecta[cambio3-detector_name] PASSED [ 48%]
+tests/test_etapa4_verificadores.py::test_arranque_con_configuracion_incorrecta[cambio4-step_seconds] PASSED [ 50%]
+tests/test_etapa4_verificadores.py::test_arranque_con_configuracion_incorrecta[cambio5-history_seconds] PASSED [ 51%]
+tests/test_etapa4_verificadores.py::test_arranque_con_configuracion_incorrecta[cambio6-model_path] PASSED [ 53%]
+tests/test_etapa4_verificadores.py::test_arranque_con_configuracion_incorrecta[cambio7-excluidas] PASSED [ 55%]
+tests/test_etapa4_verificadores.py::test_arranque_con_configuracion_incorrecta[cambio8-protocolos_excluidos] PASSED [ 57%]
+tests/test_etapa4_verificadores.py::test_arranque_con_configuracion_incorrecta[cambio9-eve_path] PASSED [ 59%]
+tests/test_etapa4_verificadores.py::test_ejecucion_con_otro_disparo PASSED [ 61%]
+tests/test_etapa4_verificadores.py::test_manifiesto_con_otro_umbral PASSED [ 63%]
+tests/test_etapa4_verificadores.py::test_manifiesto_ilegible PASSED      [ 65%]
+tests/test_etapa4_verificadores.py::test_registro_ausente PASSED         [ 67%]
+tests/test_etapa4_verificadores.py::test_rotado_comprimido_corrupto PASSED [ 69%]
+tests/test_etapa4_verificadores.py::test_rotado_ilegible_por_permisos SKIPPED [ 71%]
+tests/test_etapa4_verificadores.py::test_linea_de_arranque_corrupta PASSED [ 73%]
+tests/test_etapa4_verificadores.py::test_arranque_sin_marca_de_tiempo PASSED [ 75%]
+tests/test_etapa4_verificadores.py::test_dos_arranques_compatibles_ambiguo PASSED [ 76%]
+tests/test_etapa4_verificadores.py::test_arranque_posterior_al_proceso_vigente PASSED [ 78%]
+tests/test_etapa4_verificadores.py::test_motor_parado PASSED             [ 80%]
+tests/test_etapa4_verificadores.py::test_motor_systemctl_falla PASSED    [ 82%]
+tests/test_etapa4_verificadores.py::test_proceso_del_motor_ilegible PASSED [ 84%]
+tests/test_etapa4_verificadores.py::test_btime_ausente PASSED            [ 86%]
+tests/test_etapa4_verificadores.py::test_arranque_demasiado_tardio PASSED [ 88%]
+tests/test_etapa4_verificadores.py::test_bastion_estado_real_ok_y_regresion_v1 PASSED [ 90%]
+tests/test_etapa4_verificadores.py::test_bastion_v2_sin_modo_paquete PASSED [ 92%]
+tests/test_etapa4_verificadores.py::test_bastion_traza_ilegible_es_fallo PASSED [ 94%]
+tests/test_etapa4_verificadores.py::test_bastion_v1_reactivado_es_fallo PASSED [ 96%]
+tests/test_etapa4_verificadores.py::test_sensor1_guion_usa_las_comprobaciones_nuevas PASSED [ 98%]
+tests/test_etapa4_verificadores.py::test_bloque_de_sensor1_propaga_errores PASSED [100%]
+
+=========================== short test summary info ============================
+SKIPPED [1] tests/test_etapa4_verificadores.py:241: como root chmod 000 no impide leer
+SKIPPED [1] tests/test_etapa4_verificadores.py:411: como root chmod 000 no impide leer
+======================== 50 passed, 2 skipped in 7.71s =========================
+rc=0

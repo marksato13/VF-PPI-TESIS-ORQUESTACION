@@ -1,0 +1,46 @@
+2026-11-06T06:30:11Z
+== timers
+== procesos
+== home
+total 48
+drwxr-x--- 8 adminclientes adminclientes 4096 nov  1 07:23 .
+drwxr-xr-x 3 root          root          4096 sep 23 05:13 ..
+-rw------- 1 adminclientes adminclientes 3530 nov  3 11:34 .bash_history
+-rw-r--r-- 1 adminclientes adminclientes  220 mar 31  2024 .bash_logout
+-rw-r--r-- 1 adminclientes adminclientes 3771 mar 31  2024 .bashrc
+drwx------ 2 adminclientes adminclientes 4096 sep 23 05:24 .cache
+drwxrwxr-x 3 adminclientes adminclientes 4096 nov  1 10:37 cf-3b-20261101T0721Z
+drwxrwxr-x 3 adminclientes adminclientes 4096 nov  1 04:19 cf-paso2-20261101T0254Z
+drwxrwxr-x 3 adminclientes adminclientes 4096 oct 28 23:17 laboratorio
+drwx------ 3 adminclientes adminclientes 4096 sep 23 18:32 .local
+-rw-r--r-- 1 adminclientes adminclientes  807 mar 31  2024 .profile
+drwx------ 2 adminclientes adminclientes 4096 sep 23 05:22 .ssh
+-rw-r--r-- 1 adminclientes adminclientes    0 sep 23 18:32 .sudo_as_admin_successful
+/home/adminclientes/cf-3b-20261101T0721Z/:
+argv-aplicacion.txt
+argv-descargas.txt
+argv-erratico.txt
+argv-ligero.txt
+argv-navegacion.txt
+argv-ofimatica.txt
+clientes_factor1.py
+clientes_parar_factor1.sh
+clientes_restaurar.sh
+perfiles
+pids.parado-103658
+restaurar.out
+servicios-fin.txt
+servicios-inicio.txt
+
+/home/adminclientes/cf-paso2-20261101T0254Z/:
+c02_clientes_restaurar.sh
+clientes_arrancar_factor1.sh
+clientes_factor1.py
+clientes_parar_factor1.sh
+perfiles
+pids.parado-041909
+
+/home/adminclientes/laboratorio/:
+clientes_config.py
+clientes_lab.py
+__pycache__

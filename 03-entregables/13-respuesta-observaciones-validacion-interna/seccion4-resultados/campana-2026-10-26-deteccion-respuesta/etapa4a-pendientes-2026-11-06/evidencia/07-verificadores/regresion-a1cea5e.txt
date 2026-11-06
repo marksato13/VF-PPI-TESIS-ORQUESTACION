@@ -1,0 +1,38 @@
+commit a1cea5e; regresion completa; banco Docker sin red, repo solo lectura, root + NET_ADMIN
+    def test_patron_antiguo_falla(tmp_path):
+        """Reproduce el defecto de cierre4a_*.sh: hash con tee abierto + echo final -> sha256sum -c falla."""
+        d = tmp_path / "ev"
+        d.mkdir()
+        guion = ('exec > >(tee "$2/salida.txt") 2>&1; echo inicio; '
+                 '( cd "$2" && find . -type f ! -name SHA256SUMS -print0 | sort -z | xargs -0 sha256sum > SHA256SUMS ); '
+                 'echo "== fin"; sleep 0.5')
+        subprocess.run(["bash", "-c", guion, "x", str(EV), str(d)], capture_output=True, timeout=60)
+        v = subprocess.run(["sha256sum", "-c", "SHA256SUMS"], cwd=d, capture_output=True, text=True)
+>       assert v.returncode != 0 and "salida.txt" in v.stdout
+E       AssertionError: assert (0 != 0)
+E        +  where 0 = CompletedProcess(args=['sha256sum', '-c', 'SHA256SUMS'], returncode=0, stdout='-: OK\n', stderr='').returncode
+
+tests/test_etapa4_evidencia_sellado.py:41: AssertionError
+=========================== short test summary info ============================
+SKIPPED [1] tests/test_dashboard_gui_contract.py:30: sin node en esta máquina: no se puede comprobar la sintaxis del JS servido
+SKIPPED [1] tests/test_etapa4_compuerta_banco.py:157: repo de documentación no disponible
+SKIPPED [1] tests/test_etapa4_compuerta_banco.py:198: repo de documentación no disponible
+SKIPPED [1] tests/test_etapa4_compuerta_banco.py:217: repo de documentación no disponible
+SKIPPED [1] tests/test_etapa4_compuerta_banco.py:231: repo de documentación no disponible
+SKIPPED [1] tests/test_etapa4_compuerta_banco.py:243: repo de documentación no disponible
+SKIPPED [1] tests/test_etapa4_compuerta_banco.py:253: repo de documentación no disponible
+SKIPPED [1] tests/test_etapa4_verificadores.py:241: como root chmod 000 no impide leer
+SKIPPED [1] tests/test_etapa4_verificadores.py:411: como root chmod 000 no impide leer
+1 failed, 835 passed, 9 skipped in 169.72s (0:02:49)
+
+#### repeticion de tests/test_etapa4_evidencia_sellado.py (10 veces, sin cambios de codigo)
+3 passed in 4.19s
+3 passed in 4.34s
+3 passed in 4.37s
+3 passed in 4.03s
+1 failed, 2 passed in 4.13s
+3 passed in 4.22s
+3 passed in 3.96s
+3 passed in 4.17s
+3 passed in 4.13s
+3 passed in 4.23s

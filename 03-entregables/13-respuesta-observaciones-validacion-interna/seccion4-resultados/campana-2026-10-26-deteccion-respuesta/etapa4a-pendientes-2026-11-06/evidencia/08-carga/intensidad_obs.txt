@@ -1,0 +1,44 @@
+herramienta: /home/m4rk/cf-e4/paquete-a1cea5e/deploy/etapa4/sensor1/comparar_suricata.py 28c47a19693b76b7
+{
+ "etiqueta": "obs-06nov-0450",
+ "fuente_contadores": "eve stats",
+ "hueco_max_entre_bloques_s": 8.0,
+ "desde": 1793940600.0,
+ "hasta": 1793944200.0,
+ "duracion_s": 3600.0,
+ "bloques_stats": 450,
+ "intervalos_validos": 449,
+ "reinicios_suricata_en_ventana": 0,
+ "cobertura_stats_s": 3592.4,
+ "paquetes": 584616,
+ "descartes": 0,
+ "descartes_por_millon": 0.0,
+ "intervalos_con_descartes": [],
+ "paquetes_por_intervalo": {
+  "p50": 1304,
+  "p95": 1792,
+  "max": 3130,
+  "media": 1302.0
+ },
+ "pps_max_intervalo": 391.2,
+ "rafagas_ge_umbral": 0,
+ "umbral_rafaga_paquetes_8s": 5000,
+ "flujos_eve": 4398,
+ "flujos_grandes": 0,
+ "umbral_flujo_grande": 1000,
+ "flujos_grandes_top": [],
+ "paquetes_en_flujos_grandes": 0,
+ "volumen_srv_dmz_por_cliente": {
+  "10.10.10.30": {
+   "flujos": 241,
+   "paquetes": 12098,
+   "bytes": 2366540
+  },
+  "185.125.190.57": {
+   "flujos": 2,
+   "paquetes": 4,
+   "bytes": 376
+  }
+ }
+}
+rc=0
