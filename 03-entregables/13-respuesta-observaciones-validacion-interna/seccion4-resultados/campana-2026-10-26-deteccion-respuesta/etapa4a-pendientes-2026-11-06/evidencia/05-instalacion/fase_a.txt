@@ -1,0 +1,28 @@
+00b9d7ba6e9eb18f49ab694a642dabfc8d0a7e5baafb4004188edc31d2874779  /opt/cyberflow/agente-v2/agente_enforce_v2.py
+9aca9ddfd31965455340130a951c7e1fc01673be3a22a0ebd3a617dfceb592ce  /opt/cyberflow/agente-v2/feed.py
+7ce39571e282de7b3779f5d0f5f89f9c0f0dcaad7c4f88c16d53105c10198361  /opt/cyberflow/agente-v2/pub.pem
+39ac10391213c62f7ed12dff68fe6181874d226a3d8aa01fd16596f05a3da7f0  /usr/local/bin/cf-feed-ssh.sh
+3ba6374fea138618699f83d0d9571332a892626b08ff65f8bd2f5b672d3c9c87  /usr/local/sbin/cf-nft-helper
+2b5990e519d155732e8c08088e5434224c0f1f96905d1c75f36e0a34c2893c76  /etc/systemd/system/ppi-enforce-agent-v2-dmz.service
+MainPID=1013
+NRestarts=0
+ExecMainStartTimestamp=Fri 2026-11-06 00:00:27 UTC
+ActiveState=active
+OK    respaldo en /home/adminsrvdmz/respaldos-etapa4/srvdmz-p4-20261106T035127Z
+== fin 2026-11-06T03:51:27Z evidencia en /home/adminsrvdmz/respaldos-etapa4/srvdmz-p4-20261106T035127Z
+SELLADO /home/adminsrvdmz/respaldos-etapa4/srvdmz-p4-20261106T035127Z (13 ficheros)
+RESPALDO=/home/adminsrvdmz/respaldos-etapa4/srvdmz-p4-20261106T035127Z
+respaldo verifica
+OK    sombra: sin --aplicar y ruleset igual al del respaldo
+OK    agente recibe (1 recepciones válidas desde el arranque)
+OK    sombra: sin --aplicar y ruleset igual al del respaldo
+7884a6bae0f2278a1fb92c005008a210f35412bc70949222ad7f7825fc905865  /opt/cyberflow/agente-v2/agente_enforce_v2.py
+c41be50e6a44cda8fba856c87e5e1a0dd72853c34d8fc1bf29db92eb048577a9  /opt/cyberflow/agente-v2/feed.py
+7ce39571e282de7b3779f5d0f5f89f9c0f0dcaad7c4f88c16d53105c10198361  /opt/cyberflow/agente-v2/pub.pem
+c5701056cbc0ffeba074782daefd9666596c35ac615d0c2455542a6c86f33e1d  /usr/local/bin/cf-feed-ssh.sh
+3ba6374fea138618699f83d0d9571332a892626b08ff65f8bd2f5b672d3c9c87  /usr/local/sbin/cf-nft-helper
+2b5990e519d155732e8c08088e5434224c0f1f96905d1c75f36e0a34c2893c76  /etc/systemd/system/ppi-enforce-agent-v2-dmz.service
+OK    fase A: forzado admite paquete; agente nuevo en modo pareja (siguiente: bastion_p4.sh instalar, lo ejecuta Mark)
+== fin 2026-11-06T03:51:32Z evidencia en /home/adminsrvdmz/respaldos-etapa4/srvdmz-p4-20261106T035127Z/fase-a-20261106T035128Z
+SELLADO /home/adminsrvdmz/respaldos-etapa4/srvdmz-p4-20261106T035127Z/fase-a-20261106T035128Z (2 ficheros)
+rc_fase_a=0

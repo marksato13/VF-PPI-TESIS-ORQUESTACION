@@ -1,0 +1,11 @@
+ventana            06:26:55.000 – 07:26:55.000  (3600.0 s)
+A) comparador 4A: primera y última muestra DENTRO
+   06:26:55.135  kernel_packets=180418
+   07:26:47.545  kernel_packets=1373996
+   muestras 450, cobertura 3592.4 s, paquetes 1193578
+B) salud_captura .1: muestras que ACOTAN desde fuera (≤ desde, ≥ hasta, a ≤ 10 s)
+   06:26:47.134  kernel_packets=174661  (7.87 s antes de desde)
+   07:26:55.546  kernel_packets=1376365  (0.55 s después de hasta)
+   cobertura 3608.41 s, paquetes 1201704
+diferencia B−A = 8126 paquetes = 5757 (borde inicial 06:26:47.134→06:26:55.135) + 2369 (borde final 07:26:47.545→07:26:55.546)
+descartes: A 0, B 0

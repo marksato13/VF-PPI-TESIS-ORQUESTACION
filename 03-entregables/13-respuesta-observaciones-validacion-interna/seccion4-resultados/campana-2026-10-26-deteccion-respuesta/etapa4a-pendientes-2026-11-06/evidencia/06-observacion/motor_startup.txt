@@ -1,0 +1,56 @@
+-rw-r-----  1 m4rk m4rk 10900568 2026-11-06T05:54:31 motor_decision.log
+-rw-r-----  1 m4rk m4rk     1091 2026-11-05T23:59:03 motor_decision.log.1
+-rw-r-----  1 m4rk m4rk  1209314 2026-10-27T23:59:58 motor_decision.log.10.gz
+-rw-r-----  1 m4rk m4rk  1093521 2026-10-26T23:59:49 motor_decision.log.11.gz
+-rw-r-----  1 m4rk m4rk  1136806 2026-10-25T23:59:55 motor_decision.log.12.gz
+-rw-r-----  1 m4rk m4rk  1113640 2026-10-24T23:59:53 motor_decision.log.13.gz
+-rw-r-----  1 m4rk m4rk  1547071 2026-10-23T23:59:53 motor_decision.log.14.gz
+-rw-r-----  1 m4rk m4rk  3966014 2026-11-04T22:32:12 motor_decision.log.2.gz
+-rw-r-----  1 m4rk m4rk  2447435 2026-11-03T23:59:59 motor_decision.log.3.gz
+-rw-r-----  1 m4rk m4rk  2928362 2026-11-02T23:59:55 motor_decision.log.4.gz
+-rw-r-----  1 m4rk m4rk  2617494 2026-11-01T23:59:53 motor_decision.log.5.gz
+-rw-r-----  1 m4rk m4rk  1504748 2026-10-31T23:59:57 motor_decision.log.6.gz
+-rw-r-----  1 m4rk m4rk   413341 2026-10-30T23:59:55 motor_decision.log.7.gz
+-rw-r-----  1 m4rk m4rk  2659164 2026-10-29T21:22:17 motor_decision.log.8.gz
+-rw-r-----  1 m4rk m4rk  2480386 2026-10-28T23:59:52 motor_decision.log.9.gz
+motor activo desde: Thu 2026-11-05 23:59:01 UTC
+motor_startup en el registro actual: 0
+== /home/m4rk/cyberflow/logs/motor_decision.log.1
+{"ancla_reanudada": null, "capture_dir": "/var/lib/ppi-motor-capture", "ciclos_path": "/home/m4rk/cyberflow/logs/_state-e4/ciclos.jsonl", "claves_previas_cargadas": 0, "detector_name": "if_limpio_2026_10", "disparo": "eventos", "entity_network": "10.10.0.0/16", "eve_path": "/var/log/suricata/eve.json", "event": "motor_startup", "excluidas": ["10.10.60.11/32", "10.10.10.30/32", "10.10.60.2/32", "10.10.60.3/32", "10.10.60.10/32", "10.10.60.20/32", "10.10.60.21/32", "10.10.60.30/32", "10.10.60.40/32", "10.10.60.41/32", "10.10.60.50/32"], "history_seconds": 230, "horizonte": "por_ventana", "hueco_
+== /home/m4rk/cyberflow/logs/motor_decision.log.2.gz
+{"ancla_reanudada": 1793772760.0, "capture_dir": "/var/lib/ppi-motor-capture", "ciclos_path": "/home/m4rk/cyberflow/logs/_state-e4/ciclos.jsonl", "claves_previas_cargadas": 15524, "detector_name": "if_limpio_2026_10", "disparo": "eventos", "entity_network": "10.10.0.0/16", "eve_path": "/var/log/suricata/eve.json", "event": "motor_startup", "excluidas": ["10.10.60.11/32", "10.10.10.30/32", "10.10.60.2/32", "10.10.60.3/32", "10.10.60.10/32", "10.10.60.20/32", "10.10.60.21/32", "10.10.60.30/32", "10.10.60.40/32", "10.10.60.41/32", "10.10.60.50/32"], "history_seconds": 230, "horizonte": "por_venta
+primera línea del registro actual:
+{"auth_failure": null, "ciclo_n": 211, "decidido_en": 1793924302.8685107, "decision": "PERMIT", "decision_id": "10.10.10.20|2026-11-06T00:18:20+00:00", "decision_if": "PERMIT", "detector_name": "if_li
+/etc/logrotate.d/cyberflow
+# Generado por scripts/setup/cyberflow_config.py. NO editar a mano.
+# El motor escribe una linea JSON por decision y puede producir cientos por
+# minuto. Sin tope, este fichero llena la raiz, y un / lleno tumba la maquina
+# entera, incluido el SSH de gestion.
+#
+# Sin copytruncate a proposito: el motor abre el fichero en modo append en
+# cada escritura y lo cierra, asi que tras renombrarlo escribe en el nuevo sin
+# necesidad de senales ni de reiniciar el servicio. Lo mismo vale para
+# _state/ciclos.jsonl, el registro por ciclo del motor (~0,9 kB por ciclo,
+# ~8 MB al dia con paso de 10 s).
+/home/m4rk/cyberflow/logs/motor_decision.log /home/m4rk/cyberflow/logs/_state/ciclos.jsonl {
+    daily
+    maxsize 200M
+    rotate 14
+    missingok
+    notifempty
+    compress
+    delaycompress
+    create 0640 m4rk m4rk
+}
+# /etc/logrotate.d/cyberflow-etapa4  (0644 root:root) — Etapa 4.
+# El resumen de la vía rápida escribe una línea por tic (0,05 s): ~20 líneas/s, ~170 MB/día.
+# copytruncate: los procesos mantienen el fichero abierto y no reabren con señal. Se conservan 14
+# días comprimidos (la evidencia de 4B/4C se archiva aparte antes de que roten).
+/home/m4rk/feed-v2/*.jsonl {
+    su m4rk m4rk
+    daily
+    maxsize 200M
+    rotate 14
+    missingok
+disparo: eventos | umbral del manifiesto presente: True | detector: if_limpio_2026_10 | horizonte: por_ventana
+claves: ['ancla_reanudada', 'capture_dir', 'ciclos_path', 'claves_previas_cargadas', 'detector_name', 'disparo', 'entity_network', 'eve_path', 'event', 'excluidas', 'history_seconds', 'horizonte', 'hueco_arranque', 'manifest_path', 'model_path', 'procesamiento', 'protocolos_excluidos', 'recuperacion_eve', 'sondeo_segundos', 'step_seconds', 'threshold', 'timestamp']

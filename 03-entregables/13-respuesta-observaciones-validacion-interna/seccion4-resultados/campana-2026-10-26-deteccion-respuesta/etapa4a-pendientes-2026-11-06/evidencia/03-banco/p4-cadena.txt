@@ -1,0 +1,52 @@
+### pareja
+{
+ "aceptada_no_entregada": [],
+ "aceptadas": 56,
+ "aceptadas_en_orden": true,
+ "agente_stderr": "",
+ "entregadas": 400,
+ "generaciones": 400,
+ "hueco_ms": 3.0,
+ "modo": "pareja",
+ "periodo_s": 0.05,
+ "publicadas": 400,
+ "recepciones": 56,
+ "rechazos": {
+  "firma_invalida": 3
+ },
+ "recuperacion_tras_rechazo_s": [
+  0.512,
+  0.511,
+  0.51
+ ],
+ "retraso_pub_rec_s": {
+  "max": 0.13823294639587402,
+  "p50": 0.06757426261901855,
+  "p95": 0.11055397987365723
+ },
+ "ultima_aceptada": 400,
+ "ultima_publicada": 400
+}
+### paquete
+{
+ "aceptada_no_entregada": [],
+ "aceptadas": 57,
+ "aceptadas_en_orden": true,
+ "agente_stderr": "",
+ "entregadas": 400,
+ "generaciones": 400,
+ "hueco_ms": 3.0,
+ "modo": "paquete",
+ "periodo_s": 0.05,
+ "publicadas": 400,
+ "recepciones": 57,
+ "rechazos": {},
+ "recuperacion_tras_rechazo_s": [],
+ "retraso_pub_rec_s": {
+  "max": 0.46211719512939453,
+  "p50": 0.07001519203186035,
+  "p95": 0.10248875617980957
+ },
+ "ultima_aceptada": 400,
+ "ultima_publicada": 400
+}

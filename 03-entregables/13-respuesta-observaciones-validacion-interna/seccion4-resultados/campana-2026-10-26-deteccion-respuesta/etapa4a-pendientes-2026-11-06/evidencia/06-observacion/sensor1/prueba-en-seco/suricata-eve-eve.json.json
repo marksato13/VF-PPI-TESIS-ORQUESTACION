@@ -1,0 +1,24 @@
+{
+ "criterios": {
+  "eve_borde_s": 10.0,
+  "eve_intervalo_s": 8.0,
+  "eve_max_hueco_s": 20.0,
+  "eve_tolerancia_arranque_s": 3.0
+ },
+ "descartes": null,
+ "descartes_parciales": null,
+ "estado": "cobertura_insuficiente",
+ "fuente": "eve_stats",
+ "motivos": [
+  "sin muestra stats en [hasta, hasta + 10 s]"
+ ],
+ "paquetes": null,
+ "parciales": 0,
+ "periodo": [
+  1793940240.0,
+  1793940330.0
+ ],
+ "repetidas": 0,
+ "ultima_muestra": 1793940310.976607,
+ "version": "2026-11-06.1"
+}

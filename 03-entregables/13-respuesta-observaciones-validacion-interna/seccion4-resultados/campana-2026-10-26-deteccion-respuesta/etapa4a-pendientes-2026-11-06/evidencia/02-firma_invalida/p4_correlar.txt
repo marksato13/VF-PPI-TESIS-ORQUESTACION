@@ -1,0 +1,21 @@
+NUL en traza del rele: 219 bytes
+entregas del rele: 4163 desde 1793758731.0196974 hasta 1793934928.558575
+duracion traido->entregado (s): p50 0.062 p95 0.081 max 2.417
+recepciones agente: 4164  rechazos: 13
+motivos rechazo: Counter({'firma_invalida': 13})
+estados recepcion: Counter({'aceptado': 4163, 'rechazado': 1})
+rechazo 1793773586.981 | entrega seq 765 traido 1793773586.916 entregado 1793773586.988 -> rechazo DENTRO de la entrega (0.006 s antes de entregado) | siguiente aceptacion seq 765 a +0.510 s
+rechazo 1793778639.867 | entrega seq 1017 traido 1793778639.792 entregado 1793778639.873 -> rechazo DENTRO de la entrega (0.005 s antes de entregado) | siguiente aceptacion seq 1017 a +0.510 s
+rechazo 1793782428.630 | entrega seq 1206 traido 1793782428.576 entregado 1793782428.634 -> rechazo DENTRO de la entrega (0.004 s antes de entregado) | siguiente aceptacion seq 1206 a +0.509 s
+rechazo 1793787482.000 | entrega seq 1458 traido 1793787481.941 entregado 1793787482.005 -> rechazo DENTRO de la entrega (0.005 s antes de entregado) | siguiente aceptacion seq 1458 a +0.510 s
+rechazo 1793799852.126 | entrega seq 2075 traido 1793799852.070 entregado 1793799852.130 -> rechazo DENTRO de la entrega (0.004 s antes de entregado) | siguiente aceptacion seq 2075 a +0.510 s
+rechazo 1793813045.769 | entrega seq 2733 traido 1793813045.706 entregado 1793813045.775 -> rechazo DENTRO de la entrega (0.006 s antes de entregado) | siguiente aceptacion seq 2733 a +0.510 s
+rechazo 1793816494.240 | entrega seq 2905 traido 1793816494.169 entregado 1793816494.249 -> rechazo DENTRO de la entrega (0.009 s antes de entregado) | siguiente aceptacion seq 2905 a +0.512 s
+rechazo 1793817095.391 | entrega seq 2935 traido 1793817095.325 entregado 1793817095.398 -> rechazo DENTRO de la entrega (0.007 s antes de entregado) | siguiente aceptacion seq 2935 a +0.510 s
+rechazo 1793823171.211 | entrega seq 3238 traido 1793823171.158 entregado 1793823171.221 -> rechazo DENTRO de la entrega (0.010 s antes de entregado) | siguiente aceptacion seq 3238 a +0.513 s
+rechazo 1793827602.904 | entrega seq 3459 traido 1793827602.851 entregado 1793827602.908 -> rechazo DENTRO de la entrega (0.004 s antes de entregado) | siguiente aceptacion seq 3459 a +0.509 s
+rechazo 1793927371.804 | entrega seq 3867 traido 1793927371.727 entregado 1793927371.812 -> rechazo DENTRO de la entrega (0.008 s antes de entregado) | siguiente aceptacion seq 3867 a +0.512 s
+rechazo 1793930117.484 | entrega seq 4004 traido 1793930117.430 entregado 1793930117.488 -> rechazo DENTRO de la entrega (0.004 s antes de entregado) | siguiente aceptacion seq 4004 a +0.510 s
+rechazo 1793931239.796 | entrega seq 4060 traido 1793931239.725 entregado 1793931239.797 -> rechazo DENTRO de la entrega (0.001 s antes de entregado) | siguiente aceptacion seq 4060 a +0.509 s
+secuencias aceptadas: 4163 [24] [4244] huecos: 1 [(3654, 3713)]
+secuencias entregadas por el rele: 4163 no vistas como aceptadas: []

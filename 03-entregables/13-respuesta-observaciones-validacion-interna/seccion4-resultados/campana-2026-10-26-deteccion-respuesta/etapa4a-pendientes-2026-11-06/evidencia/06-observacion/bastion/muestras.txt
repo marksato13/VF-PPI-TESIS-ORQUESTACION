@@ -1,0 +1,2556 @@
+### 2026-11-06T04:41:05Z 1793940065
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940059.7655494}}, "entrega": "paquete", "evento": "reenvio", "huella": "7ad6aadf042624c3:58ecb20fb16b13c7", "secuencia": 4500, "sha256_feed": "7ad6aadf042624c3", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4500
+S home_libre_kb=12716868 carga=0.79 0.40 0.30 memdisp_kb=6136624
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:41:02.945044+0000 16922 3682854 0
+S anillo_ultimo=live-20261106044105.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940059.5594444, "ids": [], "motivo": "", "mtime_feed": 1793940059.743902, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T04:41:30Z 1793940090
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940080.0192375}}, "entrega": "paquete", "evento": "reenvio", "huella": "d7d4e95535c62f69:664ab073a3b75089", "secuencia": 4501, "sha256_feed": "d7d4e95535c62f69", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4501
+S home_libre_kb=12716140 carga=0.87 0.45 0.32 memdisp_kb=5747456
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:41:26.947183+0000 16946 3687184 0
+S anillo_ultimo=live-20261106044130.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940079.5989516, "ids": [], "motivo": "", "mtime_feed": 1793940080.000017, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T04:42:00Z 1793940120
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940100.2410007}}, "entrega": "paquete", "evento": "reenvio", "huella": "e20d7962e6772b55:d9cc5b7508a92e4f", "secuencia": 4502, "sha256_feed": "e20d7962e6772b55", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4503
+S home_libre_kb=12714408 carga=0.63 0.43 0.32 memdisp_kb=6773580
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:41:58.950950+0000 16978 3694701 0
+S anillo_ultimo=live-20261106044200.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940119.6890333, "ids": [], "motivo": "", "mtime_feed": 1793940120.465247, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T04:42:30Z 1793940150
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940140.7469168}}, "entrega": "paquete", "evento": "reenvio", "huella": "1a8e0fb6176a273e:d698bca5ebbd4601", "secuencia": 4504, "sha256_feed": "1a8e0fb6176a273e", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4504
+S home_libre_kb=12713372 carga=0.38 0.39 0.31 memdisp_kb=6770524
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:42:30.955518+0000 17010 3700371 0
+S anillo_ultimo=live-20261106044230.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940139.7357523, "ids": [], "motivo": "", "mtime_feed": 1793940140.7273624, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T04:43:00Z 1793940180
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940180.0799365}}, "entrega": "paquete", "evento": "reenvio", "huella": "1c6258d468bf27c2:14997cf736ec1a22", "secuencia": 4506, "sha256_feed": "1c6258d468bf27c2", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4506
+S home_libre_kb=12712232 carga=0.23 0.35 0.30 memdisp_kb=6763056
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:42:54.957856+0000 17034 3705164 0
+S anillo_ultimo=live-20261106044300.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940179.827091, "ids": [], "motivo": "", "mtime_feed": 1793940180.0615864, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T04:43:30Z 1793940210
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940200.276506}}, "entrega": "paquete", "evento": "reenvio", "huella": "61751fcf53ef2ce2:34ff5299608b2e0d", "secuencia": 4507, "sha256_feed": "61751fcf53ef2ce2", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4507
+S home_libre_kb=12711132 carga=0.14 0.32 0.29 memdisp_kb=6790080
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:43:26.961925+0000 17066 3711324 0
+S anillo_ultimo=live-20261106044330.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940199.8712928, "ids": [], "motivo": "", "mtime_feed": 1793940200.2587013, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T04:44:00Z 1793940240
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940220.517405}}, "entrega": "paquete", "evento": "reenvio", "huella": "1afcfd00fb2a7206:fb7564ceb355d859", "secuencia": 4508, "sha256_feed": "1afcfd00fb2a7206", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4509
+S home_libre_kb=12710196 carga=0.08 0.29 0.28 memdisp_kb=6793984
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:43:58.967784+0000 17098 3716370 0
+S anillo_ultimo=live-20261106044355.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940239.9607637, "ids": [], "motivo": "", "mtime_feed": 1793940240.7279322, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T04:44:30Z 1793940270
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940260.978028}}, "entrega": "paquete", "evento": "reenvio", "huella": "e5185e6f02eb81e6:46b29b8b14519fc1", "secuencia": 4510, "sha256_feed": "e5185e6f02eb81e6", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4510
+S home_libre_kb=12709228 carga=0.05 0.26 0.27 memdisp_kb=6774300
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:44:30.971194+0000 17130 3721461 0
+S anillo_ultimo=live-20261106044431.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940260.0045764, "ids": [], "motivo": "", "mtime_feed": 1793940260.9570475, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T04:45:00Z 1793940300
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940300.3966238}}, "entrega": "paquete", "evento": "reenvio", "huella": "14d9a14f80b76553:158a2441f2674cc1", "secuencia": 4512, "sha256_feed": "14d9a14f80b76553", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4512
+S home_libre_kb=12747628 carga=0.03 0.23 0.26 memdisp_kb=6787032
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:44:54.974793+0000 17154 3725180 0
+S anillo_ultimo=live-20261106044501.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940300.0942397, "ids": [], "motivo": "", "mtime_feed": 1793940300.3662727, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T04:45:30Z 1793940330
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940320.6042752}}, "entrega": "paquete", "evento": "reenvio", "huella": "d17f808c049a47c6:e545f7d1e9f3e165", "secuencia": 4513, "sha256_feed": "d17f808c049a47c6", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4513
+S home_libre_kb=12746388 carga=0.02 0.21 0.25 memdisp_kb=6785380
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:45:26.978382+0000 17186 3732077 0
+S anillo_ultimo=live-20261106044531.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940320.136812, "ids": [], "motivo": "", "mtime_feed": 1793940320.5753882, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T04:46:00Z 1793940360
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940340.787083}}, "entrega": "paquete", "evento": "reenvio", "huella": "f9f4a1096fda9d6e:6dda4c427c108511", "secuencia": 4514, "sha256_feed": "f9f4a1096fda9d6e", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4515
+S home_libre_kb=12745284 carga=0.01 0.19 0.24 memdisp_kb=6769396
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:45:58.982688+0000 17218 3737175 0
+S anillo_ultimo=live-20261106044601.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940360.2263272, "ids": [], "motivo": "", "mtime_feed": 1793940360.9806192, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T04:46:30Z 1793940390
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940381.2644496}}, "entrega": "paquete", "evento": "reenvio", "huella": "510844327bf24d4a:a705f0eccc282310", "secuencia": 4516, "sha256_feed": "510844327bf24d4a", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4516
+S home_libre_kb=12744448 carga=0.00 0.17 0.23 memdisp_kb=6794872
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:46:22.985113+0000 17242 3740906 0
+S anillo_ultimo=live-20261106044626.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940380.270013, "ids": [], "motivo": "", "mtime_feed": 1793940381.2427351, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T04:47:00Z 1793940420
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940420.6682553}}, "entrega": "paquete", "evento": "reenvio", "huella": "23d5c48ebf8e136e:06420da4efd37fc0", "secuencia": 4518, "sha256_feed": "23d5c48ebf8e136e", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4518
+S home_libre_kb=12743388 carga=0.00 0.15 0.22 memdisp_kb=6798480
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:46:54.988741+0000 17274 3745899 0
+S anillo_ultimo=live-20261106044701.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940420.3628047, "ids": [], "motivo": "", "mtime_feed": 1793940420.6379604, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T04:47:30Z 1793940450
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940440.964438}}, "entrega": "paquete", "evento": "reenvio", "huella": "7659614c063108bc:1cb2dc316ec781c7", "secuencia": 4519, "sha256_feed": "7659614c063108bc", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4519
+S home_libre_kb=12742384 carga=0.00 0.13 0.21 memdisp_kb=6781240
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:47:26.993276+0000 17306 3751838 0
+S anillo_ultimo=live-20261106044726.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940440.4080532, "ids": [], "motivo": "", "mtime_feed": 1793940440.939077, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T04:48:00Z 1793940480
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940461.210914}}, "entrega": "paquete", "evento": "reenvio", "huella": "d78eb92ebf5a6f13:09cb19c28b758e84", "secuencia": 4520, "sha256_feed": "d78eb92ebf5a6f13", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4521
+S home_libre_kb=12741336 carga=0.00 0.12 0.20 memdisp_kb=6798544
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:47:58.996448+0000 17338 3757282 0
+S anillo_ultimo=live-20261106044756.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940480.5003295, "ids": [], "motivo": "", "mtime_feed": 1793940481.4533088, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T04:48:30Z 1793940510
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940500.6590438}}, "entrega": "paquete", "evento": "reenvio", "huella": "4b2c5e6ec09fe53c:db8a7d22346b3c11", "secuencia": 4522, "sha256_feed": "4b2c5e6ec09fe53c", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4522
+S home_libre_kb=12740280 carga=0.08 0.12 0.20 memdisp_kb=6797672
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:48:22.999558+0000 17362 3761338 0
+S anillo_ultimo=live-20261106044827.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940500.544566, "ids": [], "motivo": "", "mtime_feed": 1793940500.635419, "perfil": "dmz", "rechazadas": [], "recibido_en": 17
+### 2026-11-06T04:49:00Z 1793940540
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940520.8864417}}, "entrega": "paquete", "evento": "reenvio", "huella": "69b31fee0f674188:aac8b2c8f94d0b89", "secuencia": 4523, "sha256_feed": "69b31fee0f674188", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4524
+S home_libre_kb=12739364 carga=0.05 0.11 0.19 memdisp_kb=6772000
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:48:55.002882+0000 17395 3766531 0
+S anillo_ultimo=live-20261106044857.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940540.6346524, "ids": [], "motivo": "", "mtime_feed": 1793940541.1886513, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T04:49:30Z 1793940570
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940561.4368527}}, "entrega": "paquete", "evento": "reenvio", "huella": "ab5de0ebec4fc042:7965cd85ffb1d519", "secuencia": 4525, "sha256_feed": "ab5de0ebec4fc042", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4525
+S home_libre_kb=12738448 carga=0.03 0.10 0.18 memdisp_kb=6796360
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:49:27.007121+0000 17427 3771711 0
+S anillo_ultimo=live-20261106044927.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940560.6790574, "ids": [], "motivo": "", "mtime_feed": 1793940561.4187675, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T04:50:00Z 1793940600
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940581.662472}}, "entrega": "paquete", "evento": "reenvio", "huella": "2c2a34ad2b503356:a77e30c2733fc383", "secuencia": 4526, "sha256_feed": "2c2a34ad2b503356", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4527
+S home_libre_kb=12793880 carga=0.14 0.12 0.19 memdisp_kb=6769080
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:49:59.010631+0000 17459 3776324 0
+S anillo_ultimo=live-20261106044957.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940600.7689354, "ids": [], "motivo": "", "mtime_feed": 1793940600.8269935, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T04:50:30Z 1793940630
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940621.0830472}}, "entrega": "paquete", "evento": "reenvio", "huella": "caa5bac7356e5ddf:92da78c061c457c1", "secuencia": 4528, "sha256_feed": "caa5bac7356e5ddf", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4528
+S home_libre_kb=12792932 carga=0.48 0.21 0.21 memdisp_kb=6488052
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:50:31.016437+0000 17491 3781454 0
+S anillo_ultimo=live-20261106045027.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940620.810547, "ids": [], "motivo": "", "mtime_feed": 1793940621.0651097, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T04:51:00Z 1793940660
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940641.3884726}}, "entrega": "paquete", "evento": "reenvio", "huella": "34fb36a5b7f80fb8:c8f2c293e0ee2203", "secuencia": 4529, "sha256_feed": "34fb36a5b7f80fb8", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4529
+S home_libre_kb=12791892 carga=0.80 0.31 0.25 memdisp_kb=6066036
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:50:55.018758+0000 17515 3785517 0
+S anillo_ultimo=live-20261106045057.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940640.8494956, "ids": [], "motivo": "", "mtime_feed": 1793940641.3662262, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T04:51:30Z 1793940690
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940681.9153569}}, "entrega": "paquete", "evento": "reenvio", "huella": "e82969b50b1920ec:9627686e2ba2833d", "secuencia": 4531, "sha256_feed": "e82969b50b1920ec", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4531
+S home_libre_kb=12790712 carga=0.66 0.33 0.26 memdisp_kb=6777784
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:51:27.023143+0000 17547 3790601 0
+S anillo_ultimo=live-20261106045127.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940680.9333432, "ids": [], "motivo": "", "mtime_feed": 1793940681.8975708, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T04:52:00Z 1793940720
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940701.0579512}}, "entrega": "paquete", "evento": "reenvio", "huella": "b836b6604a723ec7:bf5e2bcbbcc7ac94", "secuencia": 4532, "sha256_feed": "b836b6604a723ec7", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4533
+S home_libre_kb=12789760 carga=0.40 0.30 0.25 memdisp_kb=6757524
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:51:59.026256+0000 17579 3795284 0
+S anillo_ultimo=live-20261106045157.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940721.0230823, "ids": [], "motivo": "", "mtime_feed": 1793940721.2759511, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T04:52:30Z 1793940750
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940741.4467208}}, "entrega": "paquete", "evento": "reenvio", "huella": "b6da26d311f7dcee:52b47f6beb9149bb", "secuencia": 4534, "sha256_feed": "b6da26d311f7dcee", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4534
+S home_libre_kb=12788920 carga=0.24 0.27 0.24 memdisp_kb=6777704
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:52:23.028433+0000 17603 3798969 0
+S anillo_ultimo=live-20261106045227.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940741.0681636, "ids": [], "motivo": "", "mtime_feed": 1793940741.4251418, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T04:53:00Z 1793940780
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940761.6553195}}, "entrega": "paquete", "evento": "reenvio", "huella": "c6206617d5ce91ed:773949d625fcef23", "secuencia": 4535, "sha256_feed": "c6206617d5ce91ed", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4536
+S home_libre_kb=12787992 carga=0.14 0.24 0.23 memdisp_kb=6790216
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:52:55.032092+0000 17635 3804021 0
+S anillo_ultimo=live-20261106045258.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940781.1629338, "ids": [], "motivo": "", "mtime_feed": 1793940781.829517, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T04:53:30Z 1793940810
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940802.1385956}}, "entrega": "paquete", "evento": "reenvio", "huella": "4fc4183e58b83b8a:9386be3dcbcfaef5", "secuencia": 4537, "sha256_feed": "4fc4183e58b83b8a", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4537
+S home_libre_kb=12787076 carga=0.26 0.26 0.24 memdisp_kb=6760528
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:53:27.035580+0000 17667 3809138 0
+S anillo_ultimo=live-20261106045328.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940801.2082303, "ids": [], "motivo": "", "mtime_feed": 1793940802.1207018, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T04:54:00Z 1793940840
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940821.337143}}, "entrega": "paquete", "evento": "reenvio", "huella": "016e26b1b579c059:6d3d8e5f17248ab7", "secuencia": 4538, "sha256_feed": "016e26b1b579c059", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4538
+S home_libre_kb=12786156 carga=0.23 0.25 0.24 memdisp_kb=6790548
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:53:59.039141+0000 17699 3813655 0
+S anillo_ultimo=live-20261106045358.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940841.2982986, "ids": [], "motivo": "", "mtime_feed": 1793940841.524054, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T04:54:30Z 1793940870
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940861.6591299}}, "entrega": "paquete", "evento": "reenvio", "huella": "defeae5e759a893d:7ff0a01ca32f0bae", "secuencia": 4540, "sha256_feed": "defeae5e759a893d", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4540
+S home_libre_kb=12785244 carga=0.26 0.26 0.24 memdisp_kb=6764776
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:54:31.042576+0000 17731 3818724 0
+S anillo_ultimo=live-20261106045428.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940861.3430502, "ids": [], "motivo": "", "mtime_feed": 1793940861.643231, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T04:55:00Z 1793940900
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940881.8811555}}, "entrega": "paquete", "evento": "reenvio", "huella": "f9398d53d8306356:11ddacc05099d85c", "secuencia": 4541, "sha256_feed": "f9398d53d8306356", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4541
+S home_libre_kb=12791712 carga=0.21 0.25 0.24 memdisp_kb=6791248
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:54:55.045831+0000 17755 3822520 0
+S anillo_ultimo=live-20261106045458.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940881.3881803, "ids": [], "motivo": "", "mtime_feed": 1793940881.8624067, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T04:55:30Z 1793940930
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940922.2423623}}, "entrega": "paquete", "evento": "reenvio", "huella": "d686f7e09981465c:3725f35e52b2ce1e", "secuencia": 4543, "sha256_feed": "d686f7e09981465c", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4543
+S home_libre_kb=12790784 carga=0.19 0.24 0.24 memdisp_kb=6790516
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:55:27.050504+0000 17787 3827710 0
+S anillo_ultimo=live-20261106045528.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940921.4826784, "ids": [], "motivo": "", "mtime_feed": 1793940922.2257519, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T04:56:00Z 1793940960
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940942.4959729}}, "entrega": "paquete", "evento": "reenvio", "huella": "38678187ef486e1f:afaa67b59b061dd1", "secuencia": 4544, "sha256_feed": "38678187ef486e1f", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4544
+S home_libre_kb=12789724 carga=0.18 0.23 0.23 memdisp_kb=6765136
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:55:59.054596+0000 17819 3832563 0
+S anillo_ultimo=live-20261106045558.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940961.571238, "ids": [], "motivo": "", "mtime_feed": 1793940961.6650825, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T04:56:30Z 1793940990
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793940981.875417}}, "entrega": "paquete", "evento": "reenvio", "huella": "e316084fee92fcce:55b4ca6aa030da80", "secuencia": 4546, "sha256_feed": "e316084fee92fcce", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4546
+S home_libre_kb=12788852 carga=0.16 0.22 0.23 memdisp_kb=6788176
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:56:31.058712+0000 17851 3837639 0
+S anillo_ultimo=live-20261106045628.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793940981.6171525, "ids": [], "motivo": "", "mtime_feed": 1793940981.858249, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T04:57:00Z 1793941020
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941002.019617}}, "entrega": "paquete", "evento": "reenvio", "huella": "8fffa26ca7430f54:ac0706e939a53cb0", "secuencia": 4547, "sha256_feed": "8fffa26ca7430f54", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4547
+S home_libre_kb=12787972 carga=0.28 0.25 0.24 memdisp_kb=6790860
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:56:55.061887+0000 17875 3841410 0
+S anillo_ultimo=live-20261106045659.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941001.6611469, "ids": [], "motivo": "", "mtime_feed": 1793941002.0024137, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T04:57:30Z 1793941050
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941042.3926542}}, "entrega": "paquete", "evento": "reenvio", "huella": "2d4541f71feca405:22834ecab8184fd1", "secuencia": 4549, "sha256_feed": "2d4541f71feca405", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4549
+S home_libre_kb=12787036 carga=0.17 0.22 0.23 memdisp_kb=6764544
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:57:27.065885+0000 17907 3846469 0
+S anillo_ultimo=live-20261106045729.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941041.7497175, "ids": [], "motivo": "", "mtime_feed": 1793941042.3747394, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T04:58:00Z 1793941080
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941062.5792544}}, "entrega": "paquete", "evento": "reenvio", "huella": "e8b23d68993e432a:e746a4366dc40be7", "secuencia": 4550, "sha256_feed": "e8b23d68993e432a", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4550
+S home_libre_kb=12786176 carga=0.16 0.22 0.23 memdisp_kb=6791836
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:57:59.070548+0000 17939 3850953 0
+S anillo_ultimo=live-20261106045759.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941061.7936754, "ids": [], "motivo": "", "mtime_feed": 1793941062.5629003, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T04:58:30Z 1793941110
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941102.968063}}, "entrega": "paquete", "evento": "reenvio", "huella": "d631714a1a3657a0:9fc1d1136927a20f", "secuencia": 4552, "sha256_feed": "d631714a1a3657a0", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4552
+S home_libre_kb=12785300 carga=0.16 0.21 0.22 memdisp_kb=6788872
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:58:23.073209+0000 17963 3854757 0
+S anillo_ultimo=live-20261106045829.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941101.8832154, "ids": [], "motivo": "", "mtime_feed": 1793941102.9522178, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T04:59:00Z 1793941140
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941122.1313107}}, "entrega": "paquete", "evento": "reenvio", "huella": "d36824b8eedb5703:7f9a57cec1fbd60e", "secuencia": 4553, "sha256_feed": "d36824b8eedb5703", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4553
+S home_libre_kb=12784400 carga=0.21 0.22 0.23 memdisp_kb=6765448
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:58:55.076311+0000 17995 3859784 0
+S anillo_ultimo=live-20261106045859.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941141.9746654, "ids": [], "motivo": "", "mtime_feed": 1793941142.373523, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T04:59:30Z 1793941170
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941162.6155875}}, "entrega": "paquete", "evento": "reenvio", "huella": "9ecca2a7039763cf:91c04cf3c2911d22", "secuencia": 4555, "sha256_feed": "9ecca2a7039763cf", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4555
+S home_libre_kb=12783548 carga=0.13 0.20 0.22 memdisp_kb=6790320
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:59:27.080266+0000 18027 3864794 0
+S anillo_ultimo=live-20261106045929.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941162.0194492, "ids": [], "motivo": "", "mtime_feed": 1793941162.5986779, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:00:00Z 1793941200
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941182.823643}}, "entrega": "paquete", "evento": "reenvio", "huella": "167783c9aaf3d6ae:fb6acb57a39f07a5", "secuencia": 4556, "sha256_feed": "167783c9aaf3d6ae", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4556
+S home_libre_kb=12791716 carga=0.14 0.20 0.22 memdisp_kb=6773520
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T04:59:59.083711+0000 18059 3869316 0
+S anillo_ultimo=live-20261106045959.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941182.0639486, "ids": [], "motivo": "", "mtime_feed": 1793941182.8058314, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:00:30Z 1793941230
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941223.231676}}, "entrega": "paquete", "evento": "reenvio", "huella": "73c52f8accee0c40:e5fe460484e1c300", "secuencia": 4558, "sha256_feed": "73c52f8accee0c40", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4558
+S home_libre_kb=12790316 carga=0.81 0.35 0.27 memdisp_kb=6503840
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:00:31.086646+0000 18091 3875010 0
+S anillo_ultimo=live-20261106050029.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941222.1482549, "ids": [], "motivo": "", "mtime_feed": 1793941223.2161355, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:01:00Z 1793941260
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941242.4103756}}, "entrega": "paquete", "evento": "reenvio", "huella": "d108c8651465f045:2fc3f1a9d2be7a3e", "secuencia": 4559, "sha256_feed": "d108c8651465f045", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4559
+S home_libre_kb=12789324 carga=0.89 0.42 0.29 memdisp_kb=6104204
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:00:55.088873+0000 18115 3879013 0
+S anillo_ultimo=live-20261106050059.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941242.1876595, "ids": [], "motivo": "", "mtime_feed": 1793941242.3852782, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:01:30Z 1793941290
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941282.8656852}}, "entrega": "paquete", "evento": "reenvio", "huella": "4b14d419ce3b931a:af379dac8e876c22", "secuencia": 4561, "sha256_feed": "4b14d419ce3b931a", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4561
+S home_libre_kb=12787968 carga=0.71 0.42 0.30 memdisp_kb=6776852
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:01:27.092118+0000 18147 3884472 0
+S anillo_ultimo=live-20261106050130.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941282.2671487, "ids": [], "motivo": "", "mtime_feed": 1793941282.8415768, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:02:00Z 1793941320
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941303.0683963}}, "entrega": "paquete", "evento": "reenvio", "huella": "ac756769e8268c2a:e57d9e73abb38eb8", "secuencia": 4562, "sha256_feed": "ac756769e8268c2a", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4562
+S home_libre_kb=12787040 carga=0.43 0.38 0.29 memdisp_kb=6759160
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:01:59.096138+0000 18179 3889001 0
+S anillo_ultimo=live-20261106050200.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941302.3067842, "ids": [], "motivo": "", "mtime_feed": 1793941303.0517244, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:02:30Z 1793941350
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941343.5172951}}, "entrega": "paquete", "evento": "reenvio", "huella": "2da039fed8e23f9d:35be79a303ec209a", "secuencia": 4564, "sha256_feed": "2da039fed8e23f9d", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4564
+S home_libre_kb=12786080 carga=0.26 0.34 0.27 memdisp_kb=6785616
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:02:23.098547+0000 18203 3892861 0
+S anillo_ultimo=live-20261106050230.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941342.3987458, "ids": [], "motivo": "", "mtime_feed": 1793941343.502018, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T05:03:00Z 1793941380
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941362.6361089}}, "entrega": "paquete", "evento": "reenvio", "huella": "574c62387fa3bae6:1049f71f687101c1", "secuencia": 4565, "sha256_feed": "574c62387fa3bae6", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4565
+S home_libre_kb=12785184 carga=0.16 0.31 0.27 memdisp_kb=6789852
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:02:55.101830+0000 18235 3898058 0
+S anillo_ultimo=live-20261106050300.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941362.441828, "ids": [], "motivo": "", "mtime_feed": 1793941362.6121557, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T05:03:30Z 1793941410
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941403.086117}}, "entrega": "paquete", "evento": "reenvio", "huella": "710795aeb0905413:74c65a28212e874e", "secuencia": 4567, "sha256_feed": "710795aeb0905413", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4567
+S home_libre_kb=12784128 carga=0.09 0.28 0.26 memdisp_kb=6765684
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:03:27.105701+0000 18267 3903682 0
+S anillo_ultimo=live-20261106050330.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941402.53014, "ids": [], "motivo": "", "mtime_feed": 1793941403.0674446, "perfil": "dmz", "rechazadas": [], "recibido_en": 17
+### 2026-11-06T05:04:00Z 1793941440
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941423.3191783}}, "entrega": "paquete", "evento": "reenvio", "huella": "d396867050c08d46:f90c3eecda1dfc70", "secuencia": 4568, "sha256_feed": "d396867050c08d46", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4568
+S home_libre_kb=12783216 carga=0.06 0.25 0.25 memdisp_kb=6788204
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:03:59.108969+0000 18299 3908197 0
+S anillo_ultimo=live-20261106050400.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941422.5739524, "ids": [], "motivo": "", "mtime_feed": 1793941423.301588, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T05:04:30Z 1793941470
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941462.749907}}, "entrega": "paquete", "evento": "reenvio", "huella": "11d776bc69e35f54:c91cb814ce7c5a2c", "secuencia": 4570, "sha256_feed": "11d776bc69e35f54", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4570
+S home_libre_kb=12782292 carga=0.03 0.23 0.24 memdisp_kb=6764072
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:04:31.112339+0000 18331 3913273 0
+S anillo_ultimo=live-20261106050430.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941462.662659, "ids": [], "motivo": "", "mtime_feed": 1793941462.7328658, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T05:05:00Z 1793941500
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941482.9930596}}, "entrega": "paquete", "evento": "reenvio", "huella": "9814183298f07e0e:234eacdcc54d379c", "secuencia": 4571, "sha256_feed": "9814183298f07e0e", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4571
+S home_libre_kb=12789744 carga=0.02 0.20 0.23 memdisp_kb=6778548
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:04:55.114906+0000 18355 3917080 0
+S anillo_ultimo=live-20261106050500.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941482.7102597, "ids": [], "motivo": "", "mtime_feed": 1793941482.9750073, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:05:30Z 1793941530
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941523.5273144}}, "entrega": "paquete", "evento": "reenvio", "huella": "de6a804a6e22f088:d971945783587f71", "secuencia": 4573, "sha256_feed": "de6a804a6e22f088", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4573
+S home_libre_kb=12788808 carga=0.01 0.18 0.22 memdisp_kb=6787364
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:05:27.118713+0000 18387 3922121 0
+S anillo_ultimo=live-20261106050531.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941522.7975013, "ids": [], "motivo": "", "mtime_feed": 1793941523.5102892, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:06:00Z 1793941560
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941543.774005}}, "entrega": "paquete", "evento": "reenvio", "huella": "243e60e87018aec3:9a75e647f1535a11", "secuencia": 4574, "sha256_feed": "243e60e87018aec3", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4574
+S home_libre_kb=12787912 carga=0.00 0.16 0.21 memdisp_kb=6759244
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:05:59.122759+0000 18419 3926697 0
+S anillo_ultimo=live-20261106050556.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941542.8510695, "ids": [], "motivo": "", "mtime_feed": 1793941543.752429, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T05:06:30Z 1793941590
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941583.163357}}, "entrega": "paquete", "evento": "reenvio", "huella": "1f38b8621e955efc:87c0b9e8e948cfde", "secuencia": 4576, "sha256_feed": "1f38b8621e955efc", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4576
+S home_libre_kb=12786856 carga=0.00 0.15 0.20 memdisp_kb=6794612
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:06:31.126146+0000 18451 3932070 0
+S anillo_ultimo=live-20261106050626.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941582.9398696, "ids": [], "motivo": "", "mtime_feed": 1793941583.1476996, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:07:00Z 1793941620
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941603.3654647}}, "entrega": "paquete", "evento": "reenvio", "huella": "6e5dc28325a92437:7e3bf45ba059b9e5", "secuencia": 4577, "sha256_feed": "6e5dc28325a92437", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4577
+S home_libre_kb=12785936 carga=0.08 0.15 0.20 memdisp_kb=6765676
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:06:55.129007+0000 18475 3935911 0
+S anillo_ultimo=live-20261106050701.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941602.984124, "ids": [], "motivo": "", "mtime_feed": 1793941603.349838, "perfil": "dmz", "rechazadas": [], "recibido_en": 17
+### 2026-11-06T05:07:30Z 1793941650
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941643.768381}}, "entrega": "paquete", "evento": "reenvio", "huella": "9e5a583b839e231d:09791b3a0824258c", "secuencia": 4579, "sha256_feed": "9e5a583b839e231d", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4579
+S home_libre_kb=12785076 carga=0.05 0.13 0.19 memdisp_kb=6773916
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:07:27.132971+0000 18507 3941010 0
+S anillo_ultimo=live-20261106050726.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941643.0752313, "ids": [], "motivo": "", "mtime_feed": 1793941643.7521129, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:08:00Z 1793941680
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941664.0096116}}, "entrega": "paquete", "evento": "reenvio", "huella": "41ada1ce9d1c4a71:776fafa3abb20a60", "secuencia": 4580, "sha256_feed": "41ada1ce9d1c4a71", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4580
+S home_libre_kb=12784184 carga=0.19 0.15 0.19 memdisp_kb=6790792
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:07:59.136145+0000 18539 3945510 0
+S anillo_ultimo=live-20261106050756.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941663.1196032, "ids": [], "motivo": "", "mtime_feed": 1793941663.99225, "perfil": "dmz", "rechazadas": [], "recibido_en": 17
+### 2026-11-06T05:08:30Z 1793941710
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941703.3394852}}, "entrega": "paquete", "evento": "reenvio", "huella": "f652d925b2af0e47:b85151f3cb6533b8", "secuencia": 4582, "sha256_feed": "f652d925b2af0e47", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4582
+S home_libre_kb=12783268 carga=0.18 0.15 0.19 memdisp_kb=6765820
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:08:31.139240+0000 18571 3950597 0
+S anillo_ultimo=live-20261106050826.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941703.2156878, "ids": [], "motivo": "", "mtime_feed": 1793941703.3145149, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:09:00Z 1793941740
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941723.6398134}}, "entrega": "paquete", "evento": "reenvio", "huella": "5e58b733fef618ff:64ace9db4c52b6fd", "secuencia": 4583, "sha256_feed": "5e58b733fef618ff", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4583
+S home_libre_kb=12782408 carga=0.11 0.14 0.18 memdisp_kb=6778956
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:08:55.141953+0000 18595 3954254 0
+S anillo_ultimo=live-20261106050856.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941723.2626812, "ids": [], "motivo": "", "mtime_feed": 1793941723.6126513, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:09:30Z 1793941770
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941764.0869873}}, "entrega": "paquete", "evento": "reenvio", "huella": "7305496bdf2f1fae:e88486ad88dfc0ec", "secuencia": 4585, "sha256_feed": "7305496bdf2f1fae", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4585
+S home_libre_kb=12781460 carga=0.15 0.14 0.18 memdisp_kb=6767124
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:09:27.145304+0000 18627 3959329 0
+S anillo_ultimo=live-20261106050931.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941763.3559456, "ids": [], "motivo": "", "mtime_feed": 1793941764.0709217, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:10:00Z 1793941800
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941784.3738081}}, "entrega": "paquete", "evento": "reenvio", "huella": "90968bc00214d122:9003d7e2c0b26b91", "secuencia": 4586, "sha256_feed": "90968bc00214d122", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4586
+S home_libre_kb=12788176 carga=0.09 0.12 0.18 memdisp_kb=6769016
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:09:59.149920+0000 18659 3963860 0
+S anillo_ultimo=live-20261106050957.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941783.4070141, "ids": [], "motivo": "", "mtime_feed": 1793941784.3550565, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:10:30Z 1793941830
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941823.8541396}}, "entrega": "paquete", "evento": "reenvio", "huella": "28b3dcb0890c0a06:99c60bc5d2a7e93e", "secuencia": 4588, "sha256_feed": "28b3dcb0890c0a06", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4588
+S home_libre_kb=12787236 carga=0.51 0.23 0.21 memdisp_kb=6531468
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:10:31.153029+0000 18691 3969001 0
+S anillo_ultimo=live-20261106051027.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941823.4920986, "ids": [], "motivo": "", "mtime_feed": 1793941823.8363187, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:11:00Z 1793941860
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941844.0734901}}, "entrega": "paquete", "evento": "reenvio", "huella": "19a3941f5bf45495:6c68b6f09d1ec3a1", "secuencia": 4589, "sha256_feed": "19a3941f5bf45495", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4589
+S home_libre_kb=12786388 carga=0.70 0.30 0.23 memdisp_kb=6079024
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:10:55.155732+0000 18715 3972749 0
+S anillo_ultimo=live-20261106051057.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941843.5410347, "ids": [], "motivo": "", "mtime_feed": 1793941844.0524523, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:11:30Z 1793941890
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941884.5247056}}, "entrega": "paquete", "evento": "reenvio", "huella": "0029ce514af3134a:6c1931a1c8df311c", "secuencia": 4591, "sha256_feed": "0029ce514af3134a", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4591
+S home_libre_kb=12785036 carga=0.66 0.33 0.25 memdisp_kb=6778500
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:11:27.159402+0000 18747 3978102 0
+S anillo_ultimo=live-20261106051127.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941883.6220677, "ids": [], "motivo": "", "mtime_feed": 1793941884.496719, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T05:12:00Z 1793941920
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941904.7384815}}, "entrega": "paquete", "evento": "reenvio", "huella": "f7133ffa6b53dbdb:61ea2ea85ae3264c", "secuencia": 4592, "sha256_feed": "f7133ffa6b53dbdb", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4592
+S home_libre_kb=12784116 carga=0.40 0.30 0.24 memdisp_kb=6760232
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:11:59.162460+0000 18779 3982625 0
+S anillo_ultimo=live-20261106051157.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941903.6628795, "ids": [], "motivo": "", "mtime_feed": 1793941904.7238517, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:12:30Z 1793941950
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941944.1286168}}, "entrega": "paquete", "evento": "reenvio", "huella": "3488867d32ea6e33:c05e52061a88c900", "secuencia": 4594, "sha256_feed": "3488867d32ea6e33", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4594
+S home_libre_kb=12783276 carga=0.32 0.29 0.24 memdisp_kb=6786288
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:12:23.165641+0000 18803 3986379 0
+S anillo_ultimo=live-20261106051227.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941943.7514377, "ids": [], "motivo": "", "mtime_feed": 1793941944.11411, "perfil": "dmz", "rechazadas": [], "recibido_en": 17
+### 2026-11-06T05:13:00Z 1793941980
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793941964.3595033}}, "entrega": "paquete", "evento": "reenvio", "huella": "3b65ab52eae4b7f9:7173c532b30331d6", "secuencia": 4595, "sha256_feed": "3b65ab52eae4b7f9", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4595
+S home_libre_kb=12782356 carga=0.19 0.26 0.23 memdisp_kb=6783028
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:12:55.169060+0000 18835 3991525 0
+S anillo_ultimo=live-20261106051257.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793941963.7986007, "ids": [], "motivo": "", "mtime_feed": 1793941964.344242, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T05:13:30Z 1793942010
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942004.7699423}}, "entrega": "paquete", "evento": "reenvio", "huella": "a2b55e87bca53b62:6aa60efb4f622644", "secuencia": 4597, "sha256_feed": "a2b55e87bca53b62", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4597
+S home_libre_kb=12781460 carga=0.17 0.25 0.23 memdisp_kb=6762064
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:13:27.172306+0000 18867 3996576 0
+S anillo_ultimo=live-20261106051327.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942003.8868084, "ids": [], "motivo": "", "mtime_feed": 1793942004.7545054, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:14:00Z 1793942040
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942024.9461014}}, "entrega": "paquete", "evento": "reenvio", "huella": "baebc11c633fcf9a:fef565cdb85baf56", "secuencia": 4598, "sha256_feed": "baebc11c633fcf9a", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4598
+S home_libre_kb=12780592 carga=0.10 0.22 0.22 memdisp_kb=6779536
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:13:59.175898+0000 18899 4001113 0
+S anillo_ultimo=live-20261106051358.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942023.931168, "ids": [], "motivo": "", "mtime_feed": 1793942024.9286368, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T05:14:30Z 1793942070
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942064.33775}}, "entrega": "paquete", "evento": "reenvio", "huella": "dfce8a6ee361a26f:2999195dca4a5ebf", "secuencia": 4600, "sha256_feed": "dfce8a6ee361a26f", "traido_en": 1
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4600
+S home_libre_kb=12779624 carga=0.06 0.20 0.21 memdisp_kb=6768976
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:14:31.181294+0000 18931 4006190 0
+S anillo_ultimo=live-20261106051428.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942064.0248697, "ids": [], "motivo": "", "mtime_feed": 1793942064.3228922, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:15:00Z 1793942100
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942084.579431}}, "entrega": "paquete", "evento": "reenvio", "huella": "f281a467466f71e8:7077eac842e963ac", "secuencia": 4601, "sha256_feed": "f281a467466f71e8", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4601
+S home_libre_kb=12786276 carga=0.28 0.23 0.22 memdisp_kb=6786348
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:14:55.183935+0000 18955 4009818 0
+S anillo_ultimo=live-20261106051458.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942084.0747418, "ids": [], "motivo": "", "mtime_feed": 1793942084.5590231, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:15:30Z 1793942130
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942125.0792623}}, "entrega": "paquete", "evento": "reenvio", "huella": "b5c750d222b05e40:b666b17089dd7e2c", "secuencia": 4603, "sha256_feed": "b5c750d222b05e40", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4603
+S home_libre_kb=12784992 carga=0.17 0.21 0.21 memdisp_kb=6789424
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:15:27.187907+0000 18987 4016240 0
+S anillo_ultimo=live-20261106051528.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942124.1655781, "ids": [], "motivo": "", "mtime_feed": 1793942125.0572848, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:16:00Z 1793942160
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942145.2861292}}, "entrega": "paquete", "evento": "reenvio", "huella": "4d81fc3d8e95cb38:79747fb71db3f5ff", "secuencia": 4604, "sha256_feed": "4d81fc3d8e95cb38", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4604
+S home_libre_kb=12783924 carga=0.10 0.19 0.20 memdisp_kb=6766424
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:15:59.192832+0000 19019 4021238 0
+S anillo_ultimo=live-20261106051558.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942144.209678, "ids": [], "motivo": "", "mtime_feed": 1793942145.266415, "perfil": "dmz", "rechazadas": [], "recibido_en": 17
+### 2026-11-06T05:16:30Z 1793942190
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942184.7686725}}, "entrega": "paquete", "evento": "reenvio", "huella": "2df1d9efa2567870:42a9b8da9b8d75bb", "secuencia": 4606, "sha256_feed": "2df1d9efa2567870", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4606
+S home_libre_kb=12782852 carga=0.06 0.17 0.19 memdisp_kb=6790228
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:16:23.195067+0000 19043 4025305 0
+S anillo_ultimo=live-20261106051628.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942184.298624, "ids": [], "motivo": "", "mtime_feed": 1793942184.7516692, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T05:17:00Z 1793942220
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942205.0174103}}, "entrega": "paquete", "evento": "reenvio", "huella": "070e44f5595a5c66:e96007e008fffb30", "secuencia": 4607, "sha256_feed": "070e44f5595a5c66", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4607
+S home_libre_kb=12781916 carga=0.03 0.15 0.18 memdisp_kb=6765004
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:16:55.199151+0000 19075 4030411 0
+S anillo_ultimo=live-20261106051658.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942204.3423774, "ids": [], "motivo": "", "mtime_feed": 1793942205.0027993, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:17:30Z 1793942250
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942245.496544}}, "entrega": "paquete", "evento": "reenvio", "huella": "552adf8caceaa0c4:e75a2ff4b25fe69e", "secuencia": 4609, "sha256_feed": "552adf8caceaa0c4", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4609
+S home_libre_kb=12780916 carga=0.08 0.15 0.18 memdisp_kb=6793068
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:17:27.202892+0000 19107 4035811 0
+S anillo_ultimo=live-20261106051728.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942244.4311066, "ids": [], "motivo": "", "mtime_feed": 1793942245.4810588, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:18:00Z 1793942280
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942264.6671207}}, "entrega": "paquete", "evento": "reenvio", "huella": "49e7c74386090172:13e49ef56171d888", "secuencia": 4610, "sha256_feed": "49e7c74386090172", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4610
+S home_libre_kb=12779996 carga=0.05 0.13 0.17 memdisp_kb=6778908
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:17:59.207019+0000 19139 4040450 0
+S anillo_ultimo=live-20261106051758.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942264.476709, "ids": [], "motivo": "", "mtime_feed": 1793942264.6521814, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T05:18:30Z 1793942310
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942305.0372834}}, "entrega": "paquete", "evento": "reenvio", "huella": "ad29371aa1b81d4c:2406587d5bb87cb4", "secuencia": 4612, "sha256_feed": "ad29371aa1b81d4c", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4612
+S home_libre_kb=12778892 carga=0.23 0.17 0.18 memdisp_kb=6759156
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:18:31.211046+0000 19171 4046162 0
+S anillo_ultimo=live-20261106051829.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942304.5655696, "ids": [], "motivo": "", "mtime_feed": 1793942305.0214398, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:19:00Z 1793942340
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942325.2849824}}, "entrega": "paquete", "evento": "reenvio", "huella": "677b74e11352aab1:a731601ecf9156e4", "secuencia": 4613, "sha256_feed": "677b74e11352aab1", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4613
+S home_libre_kb=12778008 carga=0.27 0.19 0.19 memdisp_kb=6784120
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:18:55.214422+0000 19195 4050088 0
+S anillo_ultimo=live-20261106051859.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942324.614725, "ids": [], "motivo": "", "mtime_feed": 1793942325.2675688, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T05:19:30Z 1793942370
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942365.7040303}}, "entrega": "paquete", "evento": "reenvio", "huella": "c7719603792cca4f:4945fe9f7fb75ef0", "secuencia": 4615, "sha256_feed": "c7719603792cca4f", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4615
+S home_libre_kb=12775864 carga=0.29 0.20 0.19 memdisp_kb=6763148
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:19:27.219446+0000 19227 4056929 0
+S anillo_ultimo=live-20261106051929.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942364.7076714, "ids": [], "motivo": "", "mtime_feed": 1793942365.6888266, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:20:00Z 1793942400
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942384.8385937}}, "entrega": "paquete", "evento": "reenvio", "huella": "4e9522c6b2022af6:3bf2d011b3d5a3b9", "secuencia": 4616, "sha256_feed": "4e9522c6b2022af6", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4616
+S home_libre_kb=12783096 carga=0.35 0.23 0.20 memdisp_kb=6768536
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:19:59.222457+0000 19259 4063443 0
+S anillo_ultimo=live-20261106051959.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942384.7500448, "ids": [], "motivo": "", "mtime_feed": 1793942384.8239486, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:20:30Z 1793942430
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942425.33173}}, "entrega": "paquete", "evento": "reenvio", "huella": "7780f29fd37a4171:8b6bd8e3a67caacd", "secuencia": 4618, "sha256_feed": "7780f29fd37a4171", "traido_en": 1
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4618
+S home_libre_kb=12782016 carga=0.80 0.35 0.24 memdisp_kb=6543264
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:20:31.225673+0000 19291 4068856 0
+S anillo_ultimo=live-20261106052029.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942424.8354268, "ids": [], "motivo": "", "mtime_feed": 1793942425.3172064, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:21:00Z 1793942460
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942445.5730727}}, "entrega": "paquete", "evento": "reenvio", "huella": "61d0e8859fea05c9:ddf5cebf557bb4c6", "secuencia": 4619, "sha256_feed": "61d0e8859fea05c9", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4619
+S home_libre_kb=12781136 carga=1.10 0.46 0.28 memdisp_kb=6064396
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:20:55.227950+0000 19315 4072651 0
+S anillo_ultimo=live-20261106052059.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942444.877386, "ids": [], "motivo": "", "mtime_feed": 1793942445.5563347, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T05:21:30Z 1793942490
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942486.0052948}}, "entrega": "paquete", "evento": "reenvio", "huella": "0952757466b068b5:0b4f6d8315a3f800", "secuencia": 4621, "sha256_feed": "0952757466b068b5", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4621
+S home_libre_kb=12779732 carga=0.84 0.46 0.29 memdisp_kb=6768684
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:21:27.230920+0000 19347 4077902 0
+S anillo_ultimo=live-20261106052129.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942484.9552217, "ids": [], "motivo": "", "mtime_feed": 1793942485.9875915, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:22:00Z 1793942520
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942505.1982765}}, "entrega": "paquete", "evento": "reenvio", "huella": "6a7cb0335feca417:b1b70ee6193372c3", "secuencia": 4622, "sha256_feed": "6a7cb0335feca417", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4622
+S home_libre_kb=12778832 carga=0.62 0.45 0.29 memdisp_kb=6746556
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:21:59.234957+0000 19379 4082523 0
+S anillo_ultimo=live-20261106052159.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942504.996993, "ids": [], "motivo": "", "mtime_feed": 1793942505.181713, "perfil": "dmz", "rechazadas": [], "recibido_en": 17
+### 2026-11-06T05:22:30Z 1793942550
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942545.6369612}}, "entrega": "paquete", "evento": "reenvio", "huella": "7c46c5320553d2a7:cf74f3e493f3aaa7", "secuencia": 4624, "sha256_feed": "7c46c5320553d2a7", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4624
+S home_libre_kb=12777984 carga=0.59 0.46 0.30 memdisp_kb=6756060
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:22:23.237751+0000 19403 4086292 0
+S anillo_ultimo=live-20261106052229.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942545.0960708, "ids": [], "motivo": "", "mtime_feed": 1793942545.616969, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T05:23:00Z 1793942580
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942565.8628244}}, "entrega": "paquete", "evento": "reenvio", "huella": "25b9a6f1e64819a5:4e8a22fd4b9cfd87", "secuencia": 4625, "sha256_feed": "25b9a6f1e64819a5", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4625
+S home_libre_kb=12777040 carga=0.43 0.43 0.29 memdisp_kb=6785288
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:22:55.241284+0000 19435 4091238 0
+S anillo_ultimo=live-20261106052259.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942565.1414206, "ids": [], "motivo": "", "mtime_feed": 1793942565.8470974, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:23:30Z 1793942610
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942606.319026}}, "entrega": "paquete", "evento": "reenvio", "huella": "44fbce4899cfade0:cd5ad4d341ed817c", "secuencia": 4627, "sha256_feed": "44fbce4899cfade0", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4627
+S home_libre_kb=12776056 carga=0.37 0.42 0.29 memdisp_kb=6755340
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:23:27.244529+0000 19467 4096744 0
+S anillo_ultimo=live-20261106052329.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942605.2298293, "ids": [], "motivo": "", "mtime_feed": 1793942606.3043532, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:24:00Z 1793942640
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942625.4720294}}, "entrega": "paquete", "evento": "reenvio", "huella": "4f0f08e66e201798:6a543f8f04f7946f", "secuencia": 4628, "sha256_feed": "4f0f08e66e201798", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4628
+S home_libre_kb=12775184 carga=0.41 0.43 0.30 memdisp_kb=6786928
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:23:59.247765+0000 19499 4101590 0
+S anillo_ultimo=live-20261106052359.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942625.274917, "ids": [], "motivo": "", "mtime_feed": 1793942625.4494743, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T05:24:30Z 1793942670
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942665.9797158}}, "entrega": "paquete", "evento": "reenvio", "huella": "7c0be92e47155118:cbf54cbc04bbcd85", "secuencia": 4630, "sha256_feed": "7c0be92e47155118", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4630
+S home_libre_kb=12774088 carga=0.40 0.42 0.30 memdisp_kb=6759416
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:24:31.250832+0000 19531 4106797 0
+S anillo_ultimo=live-20261106052429.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942665.3655055, "ids": [], "motivo": "", "mtime_feed": 1793942665.95473, "perfil": "dmz", "rechazadas": [], "recibido_en": 17
+### 2026-11-06T05:25:00Z 1793942700
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942686.187069}}, "entrega": "paquete", "evento": "reenvio", "huella": "55f527302eac7bcb:37ae30d468a0f165", "secuencia": 4631, "sha256_feed": "55f527302eac7bcb", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4631
+S home_libre_kb=12780236 carga=0.46 0.43 0.30 memdisp_kb=6793716
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:24:55.253326+0000 19555 4112873 0
+S anillo_ultimo=live-20261106052459.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942685.4097059, "ids": [], "motivo": "", "mtime_feed": 1793942686.1708577, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:25:30Z 1793942730
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942726.6024163}}, "entrega": "paquete", "evento": "reenvio", "huella": "34ac51414feac1f7:43452def2dadeb9e", "secuencia": 4633, "sha256_feed": "34ac51414feac1f7", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4633
+S home_libre_kb=12779244 carga=0.34 0.40 0.30 memdisp_kb=6785916
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:25:27.257317+0000 19587 4118318 0
+S anillo_ultimo=live-20261106052529.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942725.4978886, "ids": [], "motivo": "", "mtime_feed": 1793942726.5871184, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:26:00Z 1793942760
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942745.8248615}}, "entrega": "paquete", "evento": "reenvio", "huella": "79c652d1195f0046:c8246cceecfb2a99", "secuencia": 4634, "sha256_feed": "79c652d1195f0046", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4634
+S home_libre_kb=12778120 carga=0.34 0.39 0.30 memdisp_kb=6760444
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:25:59.261235+0000 19619 4124115 0
+S anillo_ultimo=live-20261106052559.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942745.541642, "ids": [], "motivo": "", "mtime_feed": 1793942745.809244, "perfil": "dmz", "rechazadas": [], "recibido_en": 17
+### 2026-11-06T05:26:30Z 1793942790
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942786.308699}}, "entrega": "paquete", "evento": "reenvio", "huella": "041942ca50d8c073:b278533a9eb72846", "secuencia": 4636, "sha256_feed": "041942ca50d8c073", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4636
+S home_libre_kb=12776968 carga=0.21 0.35 0.28 memdisp_kb=6791732
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:26:23.263483+0000 19643 4128626 0
+S anillo_ultimo=live-20261106052630.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942785.632097, "ids": [], "motivo": "", "mtime_feed": 1793942786.292508, "perfil": "dmz", "rechazadas": [], "recibido_en": 17
+### 2026-11-06T05:27:00Z 1793942820
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942806.4911954}}, "entrega": "paquete", "evento": "reenvio", "huella": "22cebfcc7e3c9578:cc5e62be49b80cf1", "secuencia": 4637, "sha256_feed": "22cebfcc7e3c9578", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4637
+S home_libre_kb=12775864 carga=0.12 0.32 0.27 memdisp_kb=6794128
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:26:55.267468+0000 19675 4134051 0
+S anillo_ultimo=live-20261106052700.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942805.6789637, "ids": [], "motivo": "", "mtime_feed": 1793942806.4696395, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:27:30Z 1793942850
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942845.9739017}}, "entrega": "paquete", "evento": "reenvio", "huella": "9c3adecaca9536b1:d724df98110c0819", "secuencia": 4639, "sha256_feed": "9c3adecaca9536b1", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4639
+S home_libre_kb=12774812 carga=0.13 0.30 0.27 memdisp_kb=6770824
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:27:27.270609+0000 19707 4139686 0
+S anillo_ultimo=live-20261106052730.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942845.7750876, "ids": [], "motivo": "", "mtime_feed": 1793942845.9568958, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:28:00Z 1793942880
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942866.2512424}}, "entrega": "paquete", "evento": "reenvio", "huella": "02b5244c9c521ae9:56d4e83a805ce3a2", "secuencia": 4640, "sha256_feed": "02b5244c9c521ae9", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4640
+S home_libre_kb=12773932 carga=0.08 0.27 0.26 memdisp_kb=6794740
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:27:59.273689+0000 19739 4144689 0
+S anillo_ultimo=live-20261106052800.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942865.8302822, "ids": [], "motivo": "", "mtime_feed": 1793942866.233027, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T05:28:30Z 1793942910
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942906.6200655}}, "entrega": "paquete", "evento": "reenvio", "huella": "91373746d75c83be:2ab297edc1ce6a60", "secuencia": 4642, "sha256_feed": "91373746d75c83be", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4642
+S home_libre_kb=12772940 carga=0.04 0.24 0.25 memdisp_kb=6764176
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:28:31.277561+0000 19771 4149384 0
+S anillo_ultimo=live-20261106052830.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942905.9219627, "ids": [], "motivo": "", "mtime_feed": 1793942906.6012886, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:29:00Z 1793942940
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942926.8958855}}, "entrega": "paquete", "evento": "reenvio", "huella": "d1108861566fbb58:0c4be0699ee05ace", "secuencia": 4643, "sha256_feed": "d1108861566fbb58", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4643
+S home_libre_kb=12772112 carga=0.03 0.22 0.24 memdisp_kb=6787536
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:28:55.280125+0000 19795 4153045 0
+S anillo_ultimo=live-20261106052900.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942925.9657342, "ids": [], "motivo": "", "mtime_feed": 1793942926.8764193, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:29:30Z 1793942970
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942966.33403}}, "entrega": "paquete", "evento": "reenvio", "huella": "d1eaf4188cda17c8:b2e0e39075c7ad4f", "secuencia": 4645, "sha256_feed": "d1eaf4188cda17c8", "traido_en": 1
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4645
+S home_libre_kb=12771172 carga=0.07 0.21 0.24 memdisp_kb=6783912
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:29:27.283283+0000 19827 4158092 0
+S anillo_ultimo=live-20261106052930.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942966.0547888, "ids": [], "motivo": "", "mtime_feed": 1793942966.3186736, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:30:00Z 1793943000
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793942986.594733}}, "entrega": "paquete", "evento": "reenvio", "huella": "da19e7a9416a5e55:0e1f5a97e97cc8c5", "secuencia": 4646, "sha256_feed": "da19e7a9416a5e55", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4646
+S home_libre_kb=12777780 carga=0.04 0.19 0.23 memdisp_kb=6753348
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:29:59.286942+0000 19859 4162912 0
+S anillo_ultimo=live-20261106053001.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793942986.1026483, "ids": [], "motivo": "", "mtime_feed": 1793942986.571804, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T05:30:30Z 1793943030
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943027.0417142}}, "entrega": "paquete", "evento": "reenvio", "huella": "ee879c630e8aefb8:3af994a6106e88eb", "secuencia": 4648, "sha256_feed": "ee879c630e8aefb8", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4648
+S home_libre_kb=12776884 carga=0.47 0.29 0.26 memdisp_kb=6557284
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:30:23.290501+0000 19883 4166789 0
+S anillo_ultimo=live-20261106053026.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943026.187314, "ids": [], "motivo": "", "mtime_feed": 1793943027.027064, "perfil": "dmz", "rechazadas": [], "recibido_en": 17
+### 2026-11-06T05:31:00Z 1793943060
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943047.2676215}}, "entrega": "paquete", "evento": "reenvio", "huella": "093f86084a7e36e8:0592b1636337cba7", "secuencia": 4649, "sha256_feed": "093f86084a7e36e8", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4649
+S home_libre_kb=12775440 carga=0.73 0.37 0.29 memdisp_kb=6074772
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:30:55.294190+0000 19915 4172779 0
+S anillo_ultimo=live-20261106053101.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943046.2280953, "ids": [], "motivo": "", "mtime_feed": 1793943047.253194, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T05:31:30Z 1793943090
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943086.748824}}, "entrega": "paquete", "evento": "reenvio", "huella": "bcdc66887bba581e:151a1cc8fb0f11dd", "secuencia": 4651, "sha256_feed": "bcdc66887bba581e", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4651
+S home_libre_kb=12774192 carga=0.79 0.43 0.31 memdisp_kb=6763404
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:31:27.297198+0000 19947 4179140 0
+S anillo_ultimo=live-20261106053126.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943086.3111403, "ids": [], "motivo": "", "mtime_feed": 1793943086.7214472, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:32:00Z 1793943120
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943106.972002}}, "entrega": "paquete", "evento": "reenvio", "huella": "bbfc9707628ad7de:0b2c1b19fb01aa9c", "secuencia": 4652, "sha256_feed": "bbfc9707628ad7de", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4652
+S home_libre_kb=12773100 carga=0.48 0.39 0.30 memdisp_kb=6772928
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:31:59.300176+0000 19979 4184249 0
+S anillo_ultimo=live-20261106053156.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943106.3510578, "ids": [], "motivo": "", "mtime_feed": 1793943106.9575768, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:32:30Z 1793943150
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943147.4189632}}, "entrega": "paquete", "evento": "reenvio", "huella": "a7a06cc8e7b07751:f86b8328dc614280", "secuencia": 4654, "sha256_feed": "a7a06cc8e7b07751", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4654
+S home_libre_kb=12772084 carga=0.29 0.35 0.29 memdisp_kb=6779776
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:32:23.302892+0000 20003 4188279 0
+S anillo_ultimo=live-20261106053226.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943146.454423, "ids": [], "motivo": "", "mtime_feed": 1793943147.4018352, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T05:33:00Z 1793943180
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943166.6275358}}, "entrega": "paquete", "evento": "reenvio", "huella": "1d2705307ddff6ba:cb496bf58c2d2992", "secuencia": 4655, "sha256_feed": "1d2705307ddff6ba", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4655
+S home_libre_kb=12771212 carga=0.17 0.31 0.28 memdisp_kb=6776724
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:32:55.306981+0000 20035 4193112 0
+S anillo_ultimo=live-20261106053256.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943166.4995701, "ids": [], "motivo": "", "mtime_feed": 1793943166.6129582, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:33:30Z 1793943210
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943207.0533485}}, "entrega": "paquete", "evento": "reenvio", "huella": "7aae8dd216e41253:e459e78965fb7fcc", "secuencia": 4657, "sha256_feed": "7aae8dd216e41253", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4657
+S home_libre_kb=12770036 carga=0.22 0.31 0.28 memdisp_kb=6751112
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:33:27.310277+0000 20067 4198729 0
+S anillo_ultimo=live-20261106053331.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943206.5885153, "ids": [], "motivo": "", "mtime_feed": 1793943207.039216, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T05:34:00Z 1793943240
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943227.3085036}}, "entrega": "paquete", "evento": "reenvio", "huella": "312c81c96755d9b4:f373788b3e21500a", "secuencia": 4658, "sha256_feed": "312c81c96755d9b4", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4658
+S home_libre_kb=12769176 carga=0.13 0.28 0.27 memdisp_kb=6775716
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:33:59.314128+0000 20099 4204010 0
+S anillo_ultimo=live-20261106053356.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943226.6324797, "ids": [], "motivo": "", "mtime_feed": 1793943227.2933452, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:34:30Z 1793943270
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943267.76965}}, "entrega": "paquete", "evento": "reenvio", "huella": "2df0898413b0d8e6:306b4b3d3f05d18d", "secuencia": 4660, "sha256_feed": "2df0898413b0d8e6", "traido_en": 1
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4660
+S home_libre_kb=12768292 carga=0.13 0.27 0.27 memdisp_kb=6773612
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:34:23.317303+0000 20123 4207776 0
+S anillo_ultimo=live-20261106053427.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943266.730314, "ids": [], "motivo": "", "mtime_feed": 1793943267.753603, "perfil": "dmz", "rechazadas": [], "recibido_en": 17
+### 2026-11-06T05:35:00Z 1793943300
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943286.9807441}}, "entrega": "paquete", "evento": "reenvio", "huella": "6455db0e13f98557:b73fbd61455aae3a", "secuencia": 4661, "sha256_feed": "6455db0e13f98557", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4661
+S home_libre_kb=12776832 carga=0.08 0.24 0.26 memdisp_kb=6753356
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:34:55.321308+0000 20155 4212400 0
+S anillo_ultimo=live-20261106053457.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943286.776711, "ids": [], "motivo": "", "mtime_feed": 1793943286.9627254, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T05:35:30Z 1793943330
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943327.461836}}, "entrega": "paquete", "evento": "reenvio", "huella": "75888a10856ae584:23a8f5df5e518178", "secuencia": 4663, "sha256_feed": "75888a10856ae584", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4663
+S home_libre_kb=12775832 carga=0.13 0.24 0.25 memdisp_kb=6775228
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:35:27.325224+0000 20187 4218291 0
+S anillo_ultimo=live-20261106053527.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943326.8642628, "ids": [], "motivo": "", "mtime_feed": 1793943327.442983, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T05:36:00Z 1793943360
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943347.6655612}}, "entrega": "paquete", "evento": "reenvio", "huella": "217c87cd3f36a99c:0565d052469d89f9", "secuencia": 4664, "sha256_feed": "217c87cd3f36a99c", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4664
+S home_libre_kb=12774688 carga=0.08 0.21 0.24 memdisp_kb=6767820
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:35:59.329199+0000 20219 4223944 0
+S anillo_ultimo=live-20261106053557.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943346.9157705, "ids": [], "motivo": "", "mtime_feed": 1793943347.6511111, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:36:30Z 1793943390
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943387.1208863}}, "entrega": "paquete", "evento": "reenvio", "huella": "dd825633ea86a3f8:42c860fdef26d342", "secuencia": 4666, "sha256_feed": "dd825633ea86a3f8", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4666
+S home_libre_kb=12773680 carga=0.04 0.19 0.24 memdisp_kb=6782076
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:36:23.332196+0000 20243 4228647 0
+S anillo_ultimo=live-20261106053627.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943387.0049531, "ids": [], "motivo": "", "mtime_feed": 1793943387.0953617, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:37:00Z 1793943420
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943407.3275921}}, "entrega": "paquete", "evento": "reenvio", "huella": "9b5623132beb35ce:9bc33b75e5b0ec5d", "secuencia": 4667, "sha256_feed": "9b5623132beb35ce", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4667
+S home_libre_kb=12772528 carga=0.03 0.17 0.23 memdisp_kb=6779840
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:36:55.335465+0000 20275 4233977 0
+S anillo_ultimo=live-20261106053657.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943407.0497162, "ids": [], "motivo": "", "mtime_feed": 1793943407.3104901, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:37:30Z 1793943450
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943447.728765}}, "entrega": "paquete", "evento": "reenvio", "huella": "0e132707cdc95f55:ad62c51629d53244", "secuencia": 4669, "sha256_feed": "0e132707cdc95f55", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4669
+S home_libre_kb=12771580 carga=0.01 0.15 0.22 memdisp_kb=6751644
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:37:27.338769+0000 20307 4239364 0
+S anillo_ultimo=live-20261106053727.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943447.1391363, "ids": [], "motivo": "", "mtime_feed": 1793943447.7127461, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:38:00Z 1793943480
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943467.932805}}, "entrega": "paquete", "evento": "reenvio", "huella": "36bdad677014ab9e:920eff7b5bce5927", "secuencia": 4670, "sha256_feed": "36bdad677014ab9e", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4670
+S home_libre_kb=12770748 carga=0.08 0.15 0.22 memdisp_kb=6772668
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:37:59.343579+0000 20339 4244287 0
+S anillo_ultimo=live-20261106053757.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943467.1891708, "ids": [], "motivo": "", "mtime_feed": 1793943467.9168742, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:38:30Z 1793943510
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943507.409227}}, "entrega": "paquete", "evento": "reenvio", "huella": "7fd79ebbddece2d9:1654ee91c03d701d", "secuencia": 4672, "sha256_feed": "7fd79ebbddece2d9", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4672
+S home_libre_kb=12769820 carga=0.04 0.14 0.21 memdisp_kb=6776096
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:38:23.346962+0000 20363 4247862 0
+S anillo_ultimo=live-20261106053827.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943507.2767508, "ids": [], "motivo": "", "mtime_feed": 1793943507.3911245, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:39:00Z 1793943540
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943527.585313}}, "entrega": "paquete", "evento": "reenvio", "huella": "4b011053ee7381f4:9f1f787479b7c096", "secuencia": 4673, "sha256_feed": "4b011053ee7381f4", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4673
+S home_libre_kb=12768912 carga=0.03 0.12 0.20 memdisp_kb=6774444
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:38:55.351140+0000 20395 4252726 0
+S anillo_ultimo=live-20261106053858.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943527.3206928, "ids": [], "motivo": "", "mtime_feed": 1793943527.5642521, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:39:30Z 1793943570
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943568.056573}}, "entrega": "paquete", "evento": "reenvio", "huella": "efe4524c42716f77:a8b7b7f6d085e605", "secuencia": 4675, "sha256_feed": "efe4524c42716f77", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4675
+S home_libre_kb=12767984 carga=0.01 0.11 0.19 memdisp_kb=6780020
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:39:27.354635+0000 20427 4257861 0
+S anillo_ultimo=live-20261106053928.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943567.410262, "ids": [], "motivo": "", "mtime_feed": 1793943568.029508, "perfil": "dmz", "rechazadas": [], "recibido_en": 17
+### 2026-11-06T05:40:00Z 1793943600
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943588.359431}}, "entrega": "paquete", "evento": "reenvio", "huella": "f8dcc5610b8fcca4:3cd119786a463b27", "secuencia": 4676, "sha256_feed": "f8dcc5610b8fcca4", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4676
+S home_libre_kb=12775292 carga=0.01 0.10 0.18 memdisp_kb=6737336
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:39:59.358770+0000 20459 4263239 0
+S anillo_ultimo=live-20261106053958.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943587.4567366, "ids": [], "motivo": "", "mtime_feed": 1793943588.3366368, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:40:30Z 1793943630
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943627.715039}}, "entrega": "paquete", "evento": "reenvio", "huella": "8ae4b988ac8ad96f:48b11c44ebb58580", "secuencia": 4678, "sha256_feed": "8ae4b988ac8ad96f", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4678
+S home_libre_kb=12774112 carga=0.40 0.19 0.21 memdisp_kb=6561112
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:40:23.361161+0000 20483 4266835 0
+S anillo_ultimo=live-20261106054028.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943627.54355, "ids": [], "motivo": "", "mtime_feed": 1793943627.7008855, "perfil": "dmz", "rechazadas": [], "recibido_en": 17
+### 2026-11-06T05:41:00Z 1793943660
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943647.9184446}}, "entrega": "paquete", "evento": "reenvio", "huella": "d94e6a4ff103948b:3ccb9199445fbae9", "secuencia": 4679, "sha256_feed": "d94e6a4ff103948b", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4679
+S home_libre_kb=12772992 carga=0.75 0.30 0.24 memdisp_kb=6098864
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:40:55.364892+0000 20515 4272977 0
+S anillo_ultimo=live-20261106054058.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943647.585111, "ids": [], "motivo": "", "mtime_feed": 1793943647.9040132, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T05:41:30Z 1793943690
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943688.331747}}, "entrega": "paquete", "evento": "reenvio", "huella": "96333793095f06af:89a187a11ac60a53", "secuencia": 4681, "sha256_feed": "96333793095f06af", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4681
+S home_libre_kb=12771564 carga=0.63 0.31 0.25 memdisp_kb=6749024
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:41:27.367860+0000 20547 4278836 0
+S anillo_ultimo=live-20261106054128.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943687.667195, "ids": [], "motivo": "", "mtime_feed": 1793943688.3162682, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T05:42:00Z 1793943720
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943708.5974712}}, "entrega": "paquete", "evento": "reenvio", "huella": "496278ed2bfd9b90:8500d4627563e139", "secuencia": 4682, "sha256_feed": "496278ed2bfd9b90", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4682
+S home_libre_kb=12770408 carga=0.38 0.28 0.24 memdisp_kb=6774888
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:41:59.372122+0000 20579 4284310 0
+S anillo_ultimo=live-20261106054158.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943707.7101243, "ids": [], "motivo": "", "mtime_feed": 1793943708.5783963, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:42:30Z 1793943750
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943748.0189557}}, "entrega": "paquete", "evento": "reenvio", "huella": "062b7e1591567fce:8c9034493fef73e4", "secuencia": 4684, "sha256_feed": "062b7e1591567fce", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4684
+S home_libre_kb=12769316 carga=0.23 0.25 0.24 memdisp_kb=6767808
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:42:31.375183+0000 20611 4289469 0
+S anillo_ultimo=live-20261106054228.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943747.805804, "ids": [], "motivo": "", "mtime_feed": 1793943748.004645, "perfil": "dmz", "rechazadas": [], "recibido_en": 17
+### 2026-11-06T05:43:00Z 1793943780
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943768.300042}}, "entrega": "paquete", "evento": "reenvio", "huella": "c7f1bcaec6f51377:17e32e43ae1ef21c", "secuencia": 4685, "sha256_feed": "c7f1bcaec6f51377", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4685
+S home_libre_kb=12768396 carga=0.14 0.23 0.23 memdisp_kb=6790712
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:42:55.377871+0000 20635 4293663 0
+S anillo_ultimo=live-20261106054259.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943767.8514256, "ids": [], "motivo": "", "mtime_feed": 1793943768.270773, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T05:43:30Z 1793943810
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943808.8544743}}, "entrega": "paquete", "evento": "reenvio", "huella": "12fcc9fada3d2634:69d2fc5df742938a", "secuencia": 4687, "sha256_feed": "12fcc9fada3d2634", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4687
+S home_libre_kb=12767288 carga=0.13 0.22 0.22 memdisp_kb=6788284
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:43:27.381228+0000 20667 4299816 0
+S anillo_ultimo=live-20261106054329.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943807.946124, "ids": [], "motivo": "", "mtime_feed": 1793943808.837029, "perfil": "dmz", "rechazadas": [], "recibido_en": 17
+### 2026-11-06T05:44:00Z 1793943840
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943829.0929034}}, "entrega": "paquete", "evento": "reenvio", "huella": "a429788cb4098892:8cd561702cf30f0f", "secuencia": 4688, "sha256_feed": "a429788cb4098892", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4688
+S home_libre_kb=12766396 carga=0.34 0.26 0.24 memdisp_kb=6751656
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:43:59.384525+0000 20699 4304832 0
+S anillo_ultimo=live-20261106054359.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943827.9905193, "ids": [], "motivo": "", "mtime_feed": 1793943829.0781565, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:44:30Z 1793943870
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943868.4908586}}, "entrega": "paquete", "evento": "reenvio", "huella": "fb3ea83f39824ea1:577cd42e59c2b719", "secuencia": 4690, "sha256_feed": "fb3ea83f39824ea1", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4690
+S home_libre_kb=12765568 carga=0.21 0.24 0.23 memdisp_kb=6780432
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:44:23.388594+0000 20723 4308506 0
+S anillo_ultimo=live-20261106054429.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943868.0796793, "ids": [], "motivo": "", "mtime_feed": 1793943868.4754047, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:45:00Z 1793943900
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943888.7337532}}, "entrega": "paquete", "evento": "reenvio", "huella": "efca8ccc9b275b20:97c7490dc4ba0951", "secuencia": 4691, "sha256_feed": "efca8ccc9b275b20", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4691
+S home_libre_kb=12772796 carga=0.18 0.23 0.23 memdisp_kb=6779860
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:44:55.392890+0000 20755 4313155 0
+S anillo_ultimo=live-20261106054459.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943888.1237755, "ids": [], "motivo": "", "mtime_feed": 1793943888.7185323, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:45:30Z 1793943930
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943929.1537216}}, "entrega": "paquete", "evento": "reenvio", "huella": "57b07de76807f9cf:5c46272b1f4b2a52", "secuencia": 4693, "sha256_feed": "57b07de76807f9cf", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4693
+S home_libre_kb=12771880 carga=0.18 0.22 0.22 memdisp_kb=6755996
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:45:27.397742+0000 20787 4318223 0
+S anillo_ultimo=live-20261106054529.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943928.2125218, "ids": [], "motivo": "", "mtime_feed": 1793943929.137787, "perfil": "dmz", "rechazadas": [], "recibido_en": 1
+### 2026-11-06T05:46:00Z 1793943960
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943949.3811069}}, "entrega": "paquete", "evento": "reenvio", "huella": "8177e8206855fd5b:57e431ffab1d9d32", "secuencia": 4694, "sha256_feed": "8177e8206855fd5b", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4694
+S home_libre_kb=12770900 carga=0.18 0.22 0.22 memdisp_kb=6784572
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:45:59.400739+0000 20819 4323471 0
+S anillo_ultimo=live-20261106054559.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943948.2564065, "ids": [], "motivo": "", "mtime_feed": 1793943949.3619146, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:46:30Z 1793943990
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793943988.7370658}}, "entrega": "paquete", "evento": "reenvio", "huella": "6db675a03726ef58:7d00699a04301d01", "secuencia": 4696, "sha256_feed": "6db675a03726ef58", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4696
+S home_libre_kb=12769964 carga=0.35 0.26 0.23 memdisp_kb=6758924
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:46:31.403703+0000 20851 4328101 0
+S anillo_ultimo=live-20261106054629.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793943988.3472712, "ids": [], "motivo": "", "mtime_feed": 1793943988.7201624, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:47:00Z 1793944020
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793944009.0123992}}, "entrega": "paquete", "evento": "reenvio", "huella": "04520d81e3c00ab7:e6f3cbc9068fe1c6", "secuencia": 4697, "sha256_feed": "04520d81e3c00ab7", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4697
+S home_libre_kb=12768836 carga=0.35 0.26 0.24 memdisp_kb=6781700
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:46:55.405999+0000 20875 4332426 0
+S anillo_ultimo=live-20261106054659.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793944008.3907957, "ids": [], "motivo": "", "mtime_feed": 1793944008.99729, "perfil": "dmz", "rechazadas": [], "recibido_en": 17
+### 2026-11-06T05:47:30Z 1793944050
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793944049.493508}}, "entrega": "paquete", "evento": "reenvio", "huella": "a1e38a912324e44f:d12ff5960820b713", "secuencia": 4699, "sha256_feed": "a1e38a912324e44f", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4699
+S home_libre_kb=12767764 carga=0.21 0.24 0.23 memdisp_kb=6788516
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:47:27.409524+0000 20907 4338075 0
+S anillo_ultimo=live-20261106054730.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793944048.4807656, "ids": [], "motivo": "", "mtime_feed": 1793944049.4765449, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:48:00Z 1793944080
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793944068.6517763}}, "entrega": "paquete", "evento": "reenvio", "huella": "e43d9be82726a3e5:69ccbdbf77f24990", "secuencia": 4700, "sha256_feed": "e43d9be82726a3e5", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4700
+S home_libre_kb=12766868 carga=0.13 0.21 0.22 memdisp_kb=6754884
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:47:59.413677+0000 20939 4343097 0
+S anillo_ultimo=live-20261106054800.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793944068.5310342, "ids": [], "motivo": "", "mtime_feed": 1793944068.6376655, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:48:30Z 1793944110
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793944109.1218219}}, "entrega": "paquete", "evento": "reenvio", "huella": "bf7d1600ee7c57b7:47d96d2bbd7251db", "secuencia": 4702, "sha256_feed": "bf7d1600ee7c57b7", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4702
+S home_libre_kb=12765800 carga=0.08 0.19 0.21 memdisp_kb=6775016
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:48:23.416126+0000 20963 4347095 0
+S anillo_ultimo=live-20261106054830.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793944108.6221485, "ids": [], "motivo": "", "mtime_feed": 1793944109.1059203, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:49:00Z 1793944140
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793944129.3576095}}, "entrega": "paquete", "evento": "reenvio", "huella": "6b52676dd856920d:c1765ffaae8b3931", "secuencia": 4703, "sha256_feed": "6b52676dd856920d", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4703
+S home_libre_kb=12756620 carga=0.05 0.17 0.20 memdisp_kb=6748144
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:48:55.419262+0000 20995 4352233 0
+S anillo_ultimo=live-20261106054900.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793944128.6674128, "ids": [], "motivo": "", "mtime_feed": 1793944129.3410475, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:49:30Z 1793944170
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793944169.754864}}, "entrega": "paquete", "evento": "reenvio", "huella": "a7c4260cb2f9e2c3:4084b05ef9f10da6", "secuencia": 4705, "sha256_feed": "a7c4260cb2f9e2c3", "traido_en": 
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4705
+S home_libre_kb=12755704 carga=0.03 0.15 0.19 memdisp_kb=6785688
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:49:27.423952+0000 21027 4357290 0
+S anillo_ultimo=live-20261106054930.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793944168.7566397, "ids": [], "motivo": "", "mtime_feed": 1793944169.7393017, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:50:00Z 1793944200
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793944188.9866095}}, "entrega": "paquete", "evento": "reenvio", "huella": "e87401fb59bba229:a5f176ea8c9dad1e", "secuencia": 4706, "sha256_feed": "e87401fb59bba229", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4706
+S home_libre_kb=12762980 carga=0.02 0.14 0.18 memdisp_kb=6759912
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:49:59.428027+0000 21059 4362551 0
+S anillo_ultimo=live-20261106055000.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793944188.8033311, "ids": [], "motivo": "", "mtime_feed": 1793944188.9714224, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:50:30Z 1793944230
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793944229.3531945}}, "entrega": "paquete", "evento": "reenvio", "huella": "089adfd30a292252:3f53679648a4158b", "secuencia": 4708, "sha256_feed": "089adfd30a292252", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4708
+S home_libre_kb=12762072 carga=0.46 0.24 0.22 memdisp_kb=6538520
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:50:23.430971+0000 21083 4366524 0
+S anillo_ultimo=live-20261106055030.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793944228.8857408, "ids": [], "motivo": "", "mtime_feed": 1793944229.3386765, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:51:00Z 1793944260
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793944249.5339022}}, "entrega": "paquete", "evento": "reenvio", "huella": "4745e15c9a8112c5:5ef7e89a871b3501", "secuencia": 4709, "sha256_feed": "4745e15c9a8112c5", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4709
+S home_libre_kb=12761108 carga=0.73 0.33 0.25 memdisp_kb=6096060
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:50:55.434181+0000 21115 4371689 0
+S anillo_ultimo=live-20261106055100.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793944248.9320881, "ids": [], "motivo": "", "mtime_feed": 1793944249.5178032, "perfil": "dmz", "rechazadas": [], "recibido_en": 
+### 2026-11-06T05:51:30Z 1793944290
+B relay pid=70246 nr=0 active v1timer=inactive v1=inactive
+B panel_https=401 ultima_traza={"destinos": {"srv-dmz": {"entregado_en": 1793944290.0251565}}, "entrega": "paquete", "evento": "reenvio", "huella": "f209b7c0ef002635:aaf2bb9e6f45c368", "secuencia": 4711, "sha256_feed": "f209b7c0ef002635", "traido_en":
+S ppi-motor pid=1384 nr=0 active
+S ppi-motor-capture pid=1355 nr=0 active
+S ppi-via-rapida@ens37 pid=1387 nr=0 active
+S suricata pid=1351 nr=0 active
+S ppi-publicar-feed-v2 pid=1386 nr=0 active
+S ppi-dashboard pid=1385 nr=0 active
+S v1 inactive/inactive enforce_aplicar=0
+S feed_seq=4711
+S home_libre_kb=12759712 carga=0.62 0.34 0.26 memdisp_kb=6737232
+S ruleset=24c320e3e9538573
+S eve_ultimo_stats=2026-11-06T05:51:27.438030+0000 21147 4377509 0
+S anillo_ultimo=live-20261106055131.pcap
+D agente pid=15020 nr=0 active aplicar_cmd=0 v1=inactive
+D aplicacion=0 firma_invalida=14 paquete_invalido=0 ruleset=e3b0c44298fc1c14
+D ultima={"ajenas": 0, "estado": "aceptado", "evento": "recepcion", "generado": 1793944289.0129466, "ids": [], "motivo": "", "mtime_feed": 1793944290.0110579, "perfil": "dmz", "rechazadas": [], "recibido_en": 

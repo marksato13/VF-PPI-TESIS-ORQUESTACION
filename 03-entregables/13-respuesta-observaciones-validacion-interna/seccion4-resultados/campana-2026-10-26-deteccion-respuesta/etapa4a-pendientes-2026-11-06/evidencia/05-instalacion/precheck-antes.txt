@@ -1,0 +1,66 @@
+######## precheck-antes 2026-11-06T03:51:07Z
+## SENSOR1
+df547da098e51171aa267c8466edc6624bc1bd5c6b602639cc00bd4711a2fd60  /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib
+b3ad680595128189574527208e53058f613822f56f542f914faef6495aa2a9e7  /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json
+e032a1a28650d438ae707c93b3045801770b3a069b4395426077af3bbd2b0e33  /home/m4rk/cyberflow/configs/features/multilayer-v2.json
+if_limpio_2026_10_desplegable.joblib
+if_limpio_2026_10.joblib
+if_limpio_2026_10.json
+manifest-if-limpio-2026-10.json
+particionado-limpio.csv
+verif_vigente.joblib
+verif_vigente.json
+df547da098e51171aa267c8466edc6624bc1bd5c6b602639cc00bd4711a2fd60  /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib
+fb6b8ed2b677056f0c23d267a1d38a988d7d1d993f980b050f0a63665543bbf4  /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10.joblib
+cb67b3ee608ad6e79cd8dbda436beaa33086ec9ce0e00a034dee6f8e0c14be8e  /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10.json
+b3ad680595128189574527208e53058f613822f56f542f914faef6495aa2a9e7  /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json
+5ef83b32469238b74eb16c2c2ff422a7757711318c0c77646e67bb966e61b573  /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/particionado-limpio.csv
+9a4e02645df9484037ba9386c488cc431cba4b8564c3b4892de3c5ed210c579d  /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/verif_vigente.joblib
+558774cbf24ea38e6d427e883f30b957e885d4d6e446173d412236939d1c25c2  /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/verif_vigente.json
+/home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow-e4/ec78ca5/scripts/engine/motor_decision.py --eve-path /var/log/suricata/eve.json --capture-dir /var/lib/ppi-motor-capture --model-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib --manifest-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json --detector-name if_limpio_2026_10 --schema /home/m4rk/cyberflow/configs/features/multilayer-v2.json --entity-network 10.10.0.0/16 --excluir 10.10.60.11/32,10.10.10.30/32,10.10.60.2/32,10.10.60.3/32,10.10.60.10/32,10.10.60.20/32,10.10.60.21/32,10.10.60.30/32,10.10.60.40/32,10.10.60.41/32,10.10.60.50/32 --excluir-protocolos 112,240 --log-path /home/m4rk/cyberflow/logs/motor_decision.log --state-dir /home/m4rk/cyberflow/logs/_state-e4 --step-seconds 10 --history-seconds 230 --disparo eventos 
+
+ec78ca5 SHA256SUMS OK
+0962ce68b565c237ded37313f578e1a1b05229206741e76f7d3a2daaa6e694d0  /etc/suricata/suricata.yaml
+24c320e3e953857317c08beb04e34f34c6f132bb6cccd0f1b4c7ab98b621a21e  ruleset-sensor1-normalizado
+ppi-motor pid=1384 NRestarts=0 active
+ppi-motor-capture pid=1355 NRestarts=0 active
+ppi-via-rapida@ens37 pid=1387 NRestarts=0 active
+suricata pid=1351 NRestarts=0 active
+ppi-publicar-feed-v2 pid=1386 NRestarts=0 active
+ppi-dashboard pid=1385 NRestarts=0 active
+v1 ppi-publicar-feed.timer disabled/inactive
+v1 ppi-publicar-feed static/inactive
+procesos con --enforce/--aplicar: 0
+feed-v2 secuencia: 4350
+  13G
+ 03:51:09 up  3:54,  2 users,  load average: 0,97, 0,42, 0,27
+## BASTION
+ppi-relay-eventos enabled/active pid=1292 NRestarts=0
+ppi-relay-feed.timer disabled/inactive pid= NRestarts=
+/usr/bin/python3 -I /opt/cyberflow/relay-v2/relay_eventos.py --origen m4rk@10.10.60.11:/home/m4rk/feed-v2,/home/gadmin/.ssh/cyberflow-feed-v2-sensor --destino srv-dmz=cffeed@10.10.30.10:/var/lib/cyberflow/feed,/home/gadmin/.ssh/cyberflow-feed-v2-srv --clave-publica /opt/cyberflow/relay-v2/pub.pem --traza /home/gadmin/relay-v2/traza.jsonl --sondeo-segundos 1 
+9aca9ddfd31965455340130a951c7e1fc01673be3a22a0ebd3a617dfceb592ce  /opt/cyberflow/relay-v2/feed.py
+7ce39571e282de7b3779f5d0f5f89f9c0f0dcaad7c4f88c16d53105c10198361  /opt/cyberflow/relay-v2/pub.pem
+e24aefb23121cd546a5d1fc6135328b18221bec172645bb9526ec6970a3a810f  /opt/cyberflow/relay-v2/relay_eventos.py
+ae5b85f10b8c9a92fe3b5a4587af361934ec81e3bc106cb871cdf41c29f26c48  /etc/systemd/system/ppi-relay-eventos.service
+panel desde bastion: 401
+## SRV-DMZ
+ppi-enforce-agent-v2-dmz enabled/active pid=1013 NRestarts=0
+ppi-enforce-agent.timer disabled/inactive pid= NRestarts=
+ppi-enforce-agent static/inactive pid=0 NRestarts=0
+ppi-brute-lab disabled/inactive pid=0 NRestarts=0
+/usr/bin/python3 -I /opt/cyberflow/agente-v2/agente_enforce_v2.py --perfil dmz --feed /var/lib/cyberflow/feed/feed.json --firma /var/lib/cyberflow/feed/feed.sig --clave-publica /opt/cyberflow/agente-v2/pub.pem --estado /var/lib/cyberflow/agente/estado.json --traza /var/lib/cyberflow/agente/traza.jsonl --helper sudo -n /usr/local/sbin/cf-nft-helper --seguir 
+00b9d7ba6e9eb18f49ab694a642dabfc8d0a7e5baafb4004188edc31d2874779  /opt/cyberflow/agente-v2/agente_enforce_v2.py
+9aca9ddfd31965455340130a951c7e1fc01673be3a22a0ebd3a617dfceb592ce  /opt/cyberflow/agente-v2/feed.py
+7ce39571e282de7b3779f5d0f5f89f9c0f0dcaad7c4f88c16d53105c10198361  /opt/cyberflow/agente-v2/pub.pem
+39ac10391213c62f7ed12dff68fe6181874d226a3d8aa01fd16596f05a3da7f0  /usr/local/bin/cf-feed-ssh.sh
+3ba6374fea138618699f83d0d9571332a892626b08ff65f8bd2f5b672d3c9c87  /usr/local/sbin/cf-nft-helper
+2b5990e519d155732e8c08088e5434224c0f1f96905d1c75f36e0a34c2893c76  /etc/systemd/system/ppi-enforce-agent-v2-dmz.service
+tablas: []
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  ruleset-srvdmz
+eventos aplicacion: 0
+rechazos:       1 "motivo": "feed_caducado"      13 "motivo": "firma_invalida" 
+total 16
+drwxr-s--- 2 cffeed cfagente 4096 03:50:53 .
+drwxr-xr-x 5 root   root     4096 02:18:46 ..
+-rw-r----- 1 cffeed cfagente  148 03:50:53 feed.json
+-rw-r----- 1 cffeed cfagente   64 03:50:53 feed.sig

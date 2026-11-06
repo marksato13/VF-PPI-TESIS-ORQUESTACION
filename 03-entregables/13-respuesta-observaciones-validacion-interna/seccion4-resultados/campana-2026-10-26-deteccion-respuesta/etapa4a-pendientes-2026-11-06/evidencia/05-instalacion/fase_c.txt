@@ -1,0 +1,49 @@
+1793939984
+ls: cannot open directory '/var/lib/cyberflow/feed/': Permission denied
+p4-instalador 2026-11-06.2 · srvdmz_p4.sh fase-c · paquete /home/adminsrvdmz/cf-e4/paquete-b18c286 · respaldo /home/adminsrvdmz/respaldos-etapa4/srvdmz-p4-fase-c-20261106T043944Z · evidencia /home/adminsrvdmz/evidencia-etapa4/srvdmz-p4-fase-c-20261106T043944Z
+2026-11-06T04:39:44Z ok    paquete verifica
+2026-11-06T04:39:44Z ok    ppi-enforce-agent-v2-dmz activo
+2026-11-06T04:39:44Z ok    código de la fase A instalado (hashes = paquete)
+2026-11-06T04:39:44Z ok    feed.par existe y se actualiza (relé en modo paquete)
+2026-11-06T04:39:44Z ok    unidad nueva con --paquete
+2026-11-06T04:39:44Z ok    unidad nueva sin --aplicar
+2026-11-06T04:39:45Z ok    systemd-analyze verify de la unidad NUEVA (antes de instalarla)
+2026-11-06T04:39:45Z ok    crear respaldo /home/adminsrvdmz/respaldos-etapa4/srvdmz-p4-fase-c-20261106T043944Z
+2026-11-06T04:39:45Z ok    leer ruleset para el respaldo
+2026-11-06T04:39:45Z ok    crear respaldo /home/adminsrvdmz/respaldos-etapa4/srvdmz-p4-fase-c-20261106T043944Z
+2026-11-06T04:39:45Z ok    respaldar /opt/cyberflow/agente-v2/agente_enforce_v2.py
+2026-11-06T04:39:45Z ok    anotar modo de /opt/cyberflow/agente-v2/agente_enforce_v2.py
+2026-11-06T04:39:45Z ok    respaldar /opt/cyberflow/agente-v2/feed.py
+2026-11-06T04:39:45Z ok    anotar modo de /opt/cyberflow/agente-v2/feed.py
+2026-11-06T04:39:45Z ok    respaldar /opt/cyberflow/agente-v2/pub.pem
+2026-11-06T04:39:45Z ok    anotar modo de /opt/cyberflow/agente-v2/pub.pem
+2026-11-06T04:39:45Z ok    respaldar /usr/local/bin/cf-feed-ssh.sh
+2026-11-06T04:39:45Z ok    anotar modo de /usr/local/bin/cf-feed-ssh.sh
+2026-11-06T04:39:45Z ok    respaldar /usr/local/sbin/cf-nft-helper
+2026-11-06T04:39:45Z ok    anotar modo de /usr/local/sbin/cf-nft-helper
+2026-11-06T04:39:45Z ok    respaldar /etc/systemd/system/ppi-enforce-agent-v2-dmz.service
+2026-11-06T04:39:45Z ok    anotar modo de /etc/systemd/system/ppi-enforce-agent-v2-dmz.service
+2026-11-06T04:39:45Z ok    hashes previos
+2026-11-06T04:39:45Z ok    dueño del respaldo
+2026-11-06T04:39:45Z ok    sellar respaldo
+2026-11-06T04:39:45Z ok    respaldo de solo lectura
+2026-11-06T04:39:45Z ok    verificar respaldo (estricto)
+2026-11-06T04:39:45Z ok    unidad sin --aplicar
+2026-11-06T04:39:45Z ok    proceso sin --aplicar
+2026-11-06T04:39:45Z ok    ruleset igual al del respaldo
+2026-11-06T04:39:45Z ok    instalar la unidad
+2026-11-06T04:39:45Z ok    daemon-reload
+2026-11-06T04:39:46Z ok    systemd-analyze verify de la unidad instalada
+2026-11-06T04:39:49Z ok    reiniciar ppi-enforce-agent-v2-dmz
+2026-11-06T04:39:49Z ok    ppi-enforce-agent-v2-dmz activo
+2026-11-06T04:39:49Z ok    el agente lee feed.par
+recepciones válidas: 1
+2026-11-06T04:39:49Z ok    el agente recibe
+2026-11-06T04:39:49Z ok    unidad sin --aplicar
+2026-11-06T04:39:49Z ok    proceso sin --aplicar
+2026-11-06T04:39:49Z ok    ruleset igual al del respaldo
+2026-11-06T04:39:49Z ok    hashes instalados = paquete
+RESULTADO: OK — fase C: el agente v2 lee el paquete; sombra mantenida. RESPALDO=/home/adminsrvdmz/respaldos-etapa4/srvdmz-p4-fase-c-20261106T043944Z EVIDENCIA=/home/adminsrvdmz/evidencia-etapa4/srvdmz-p4-fase-c-20261106T043944Z
+== fin 2026-11-06T04:39:49Z evidencia en /home/adminsrvdmz/evidencia-etapa4/srvdmz-p4-fase-c-20261106T043944Z
+SELLADO /home/adminsrvdmz/evidencia-etapa4/srvdmz-p4-fase-c-20261106T043944Z (2 ficheros)
+rc_fase_c=0

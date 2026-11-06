@@ -1,0 +1,45 @@
+[BASTIÓN gadmin] ejecutado por Mark (sudo con contraseña), 2026-11-06 04:38:48–04:39:07Z. Salida copiada de su terminal.
+El «Sorry, try again» es un primer intento de contraseña de sudo; sudo volvió a preguntar y el paso «respaldar» terminó ok.
+
+gadmin@VM-GESTION:~$ bash ~/cf-e4/paquete-b18c286/deploy/etapa4/pendientes/bastion_p4.sh instalar ~/cf-e4/paquete-b18c286; echo "rc=$?"
+
+p4-instalador 2026-11-06.2 · bastion_p4.sh instalar · paquete /home/gadmin/cf-e4/paquete-b18c286 · respaldo /home/gadmin/respaldos-etapa4/bastion-p4-20261106T043848Z · evidencia /home/gadmin/evidencia-etapa4/bastion-p4-20261106T043848Z
+2026-11-06T04:38:48Z ok    paquete verifica
+2026-11-06T04:38:48Z ok    relé v2 activo
+relé v1 antes: disabled inactive
+2026-11-06T04:38:48Z ok    unidad nueva: --entrega paquete y sin dc1
+2026-11-06T04:38:49Z ok    systemd-analyze verify de la unidad NUEVA (antes de instalarla)
+2026-11-06T04:38:49Z ok    srv-dmz admite el paquete (fase A hecha)
+2026-11-06T04:38:49Z ok    crear respaldo /home/gadmin/respaldos-etapa4/bastion-p4-20261106T043848Z
+[sudo] password for gadmin:
+Sorry, try again.
+[sudo] password for gadmin:
+2026-11-06T04:39:03Z ok    respaldar /opt/cyberflow/relay-v2/relay_eventos.py
+2026-11-06T04:39:03Z ok    anotar modo de /opt/cyberflow/relay-v2/relay_eventos.py
+2026-11-06T04:39:03Z ok    respaldar /opt/cyberflow/relay-v2/feed.py
+2026-11-06T04:39:03Z ok    anotar modo de /opt/cyberflow/relay-v2/feed.py
+2026-11-06T04:39:03Z ok    respaldar /opt/cyberflow/relay-v2/pub.pem
+2026-11-06T04:39:03Z ok    anotar modo de /opt/cyberflow/relay-v2/pub.pem
+2026-11-06T04:39:03Z ok    respaldar /etc/systemd/system/ppi-relay-eventos.service
+2026-11-06T04:39:03Z ok    anotar modo de /etc/systemd/system/ppi-relay-eventos.service
+2026-11-06T04:39:03Z ok    hashes previos
+2026-11-06T04:39:03Z ok    dueño del respaldo
+2026-11-06T04:39:03Z ok    sellar respaldo
+2026-11-06T04:39:03Z ok    respaldo de solo lectura
+2026-11-06T04:39:03Z ok    verificar respaldo (estricto)
+2026-11-06T04:39:03Z ok    instalar relay_eventos.py y feed.py
+2026-11-06T04:39:03Z ok    instalar la unidad
+2026-11-06T04:39:04Z ok    daemon-reload
+2026-11-06T04:39:04Z ok    systemd-analyze verify de la unidad instalada
+2026-11-06T04:39:07Z ok    reiniciar ppi-relay-eventos
+2026-11-06T04:39:07Z ok    ppi-relay-eventos activo
+2026-11-06T04:39:07Z ok    proceso con --entrega paquete
+entregas en modo paquete: 1
+2026-11-06T04:39:07Z ok    entrega a srv-dmz en modo paquete
+2026-11-06T04:39:07Z ok    hashes instalados = paquete
+2026-11-06T04:39:07Z ok    relé v1 sin cambios
+RESULTADO: OK — relé en modo paquete. RESPALDO=/home/gadmin/respaldos-etapa4/bastion-p4-20261106T043848Z EVIDENCIA=/home/gadmin/evidencia-etapa4/bastion-p4-20261106T043848Z
+Siguiente (Claude): srvdmz_p4.sh fase-c
+== fin 2026-11-06T04:39:07Z evidencia en /home/gadmin/evidencia-etapa4/bastion-p4-20261106T043848Z
+SELLADO /home/gadmin/evidencia-etapa4/bastion-p4-20261106T043848Z (2 ficheros)
+rc=0
