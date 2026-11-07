@@ -1,5 +1,20 @@
 # Etapa 4A: pendientes del cierre complementario (P1, P3, P4, P5) e integración en sombra (2026-11-06)
 
+> **Estado actualizado (07-nov, 00:20Z): falso positivo de P11 corregido; P0 r3 anticipado rc 0. E-carga NO ejecutada
+> y NO programada; no se avanza a 4B/4C.** Evidencia en [`evidencia/19-correccion-p11/`](evidencia/19-correccion-p11/).
+> - **Causa:** `pgrep -af` coincidía con el propio `bash -c "$txt"` del mecanismo sin escritura y con cualquier proceso
+>   ajeno que llevara los nombres como texto.
+> - **Corrección:** producto `975e715` (`sensor1_muestreadores.sh` 2026-11-06.4, sha `63f74957…`). Identifica por el
+>   ejecutable Python y el guion de su argv, con tres estados: ausencia, presencia y DESCONOCIDO, que nunca se aprueba.
+> - **Pruebas:** banco aislado conforme; las regresiones fallan con la versión anterior.
+> - **Laboratorio (solo lectura):**
+>   - previa sin procesos del ensayo en los 4 hosts;
+>   - post-copia r3 CONFORME 3/3;
+>   - **P0 r3 anticipado rc 0**: 51/51 anticipables, P11 y P11.muestreadores CUMPLE;
+>   - paquete `902991e` idéntico antes y después.
+> - El P0 r2 con rc 5 (entrega 18) se conserva como histórico. El anticipado **no sustituye al P0 inmediato** (P5b) y
+>   no autoriza E-carga.
+>
 > **Estado actualizado (06-nov, 23:26Z): caché archivada, post-copia r3 CONFORME 3/3 y P0 r2 anticipado con rc 5
 > (P11 NO_CUMPLE por autocoincidencia de la herramienta, diagnosticada y sin corregir). E-carga NO ejecutada y NO
 > programada.** Evidencia en [`evidencia/18-cache-archivada-postcopia-p0/`](evidencia/18-cache-archivada-postcopia-p0/).

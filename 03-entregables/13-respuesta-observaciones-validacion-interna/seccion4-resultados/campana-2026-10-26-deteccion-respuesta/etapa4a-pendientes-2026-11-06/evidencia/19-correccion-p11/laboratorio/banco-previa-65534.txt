@@ -1,0 +1,7 @@
+PASA  sensor1 sin procesos: cribado y argv sin nada (rc 0)
+PASA  clientes sin procesos (rc 0)
+PASA  texto incrustado: el cribado conservador lo señala (detiene, no aprueba); argv: ausencia (rc 1)
+PASA  muestreador real: cribado y argv lo detectan (rc 1)
+PASA  generador real en clientes: lo detecta (rc 1)
+RESULTADO_BANCO fallos=0
+RC_BANCO=0

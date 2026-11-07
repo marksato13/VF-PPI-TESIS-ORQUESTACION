@@ -1,0 +1,31 @@
+........................................................................ [ 51%]
+...............F............FF.ssssssssssssssssssssssssssssssssssssss    [100%]
+=================================== FAILURES ===================================
+_______ test_regresion_muestreadores_sin_ninguno_por_el_mecanismo_del_p0 _______
+tests/test_etapa4_ecarga_prep.py:1109: in test_regresion_muestreadores_sin_ninguno_por_el_mecanismo_del_p0
+    assert v.startswith(AUSENCIA), v
+E   AssertionError: FALLO ya hay muestreadores en marcha
+E   assert False
+E    +  where False = <built-in method startswith of str object at 0x75b7f7778b70>('OK    ningún muestreador en marcha')
+E    +    where <built-in method startswith of str object at 0x75b7f7778b70> = 'FALLO ya hay muestreadores en marcha'.startswith
+_____ test_regresion_procesos_ajenos_con_los_nombres_en_el_texto[fichero] ______
+tests/test_etapa4_ecarga_prep.py:1165: in test_regresion_procesos_ajenos_con_los_nombres_en_el_texto
+    assert v.startswith(AUSENCIA), v
+E   AssertionError: FALLO ya hay muestreadores en marcha
+E   assert False
+E    +  where False = <built-in method startswith of str object at 0x75b7f6a05390>('OK    ningún muestreador en marcha')
+E    +    where <built-in method startswith of str object at 0x75b7f6a05390> = 'FALLO ya hay muestreadores en marcha'.startswith
+______ test_regresion_procesos_ajenos_con_los_nombres_en_el_texto[bash-c] ______
+tests/test_etapa4_ecarga_prep.py:1165: in test_regresion_procesos_ajenos_con_los_nombres_en_el_texto
+    assert v.startswith(AUSENCIA), v
+E   AssertionError: FALLO ya hay muestreadores en marcha
+E   assert False
+E    +  where False = <built-in method startswith of str object at 0x75b7f6a056b0>('OK    ningún muestreador en marcha')
+E    +    where <built-in method startswith of str object at 0x75b7f6a056b0> = 'FALLO ya hay muestreadores en marcha'.startswith
+=========================== short test summary info ============================
+FAILED tests/test_etapa4_ecarga_prep.py::test_regresion_muestreadores_sin_ninguno_por_el_mecanismo_del_p0
+FAILED tests/test_etapa4_ecarga_prep.py::test_regresion_procesos_ajenos_con_los_nombres_en_el_texto[fichero]
+FAILED tests/test_etapa4_ecarga_prep.py::test_regresion_procesos_ajenos_con_los_nombres_en_el_texto[bash-c]
+SKIPPED [38] tests/test_etapa4_ecarga_prep.py:1036: la versión probada no tiene MUESTREADORES_PY (identificación por argv nueva en 2026-11-06.4)
+3 failed, 100 passed, 38 skipped in 77.20s (0:01:17)
+RC_PYTEST=1
