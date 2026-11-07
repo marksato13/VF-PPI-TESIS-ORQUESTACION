@@ -1,0 +1,77 @@
+......FFFF...............................................                [100%]
+=================================== FAILURES ===================================
+___________ test_regresion_c1_reloj_supera_tg_durante_el_registro[1] ___________
+tests/test_etapa4_ecarga_guardia_s7.py:385: in test_regresion_c1_reloj_supera_tg_durante_el_registro
+    denegado_por_hora(r)
+tests/test_etapa4_ecarga_guardia_s7.py:365: in denegado_por_hora
+    assert r["rc"] == 2, r["out"]
+E   AssertionError: 2026-11-09T03:00:00.000000000Z
+E     OK cyberflow-lab-ofimatica.service ofimatica 10.10.20.21
+E     OK cyberflow-lab-navegacion.service navegacion 10.10.20.22
+E     OK cyberflow-lab-descargas.service descargas 10.10.20.23
+E     OK cyberflow-lab-aplicacion.service aplicacion 10.10.20.24
+E     OK cyberflow-lab-ligero.service ligero 10.10.20.25
+E     OK cyberflow-lab-erratico.service erratico 10.10.20.26
+E     2026-11-09T03:00:01Z ARRANQUE solicitado: sudo -n systemctl start cyberflow-lab.target
+E     start rc=0 
+E     gen target=active carga=loaded habilitado=static hash=01aefbd6 procesos=6 unidades: ofimatica=active/running/pid1640/nr0 navegacion=active/running/pid1471/nr0 descargas=active/running/pid3172/nr0 aplicacion=active/running/pid1683/nr0 ligero=active/running/pid1124/nr0 erratico=active/running/pid1985/nr0 consulta=ok
+E     ARRANQUE_CONFIRMADO: target active, 6 unidades running con su perfil e IP, procesos = MainPID (1124 1471 1640 1683 1985 3172 )
+E     arrancar rc=0
+E     {"version": "2026-11-07.2", "resultado": "ARRANCADO", "rc": 0, "motivo": "", "t": 1794193202}
+E     
+E   assert 0 == 2
+__________ test_regresion_c1_reloj_supera_tg_durante_el_registro[45] ___________
+tests/test_etapa4_ecarga_guardia_s7.py:385: in test_regresion_c1_reloj_supera_tg_durante_el_registro
+    denegado_por_hora(r)
+tests/test_etapa4_ecarga_guardia_s7.py:365: in denegado_por_hora
+    assert r["rc"] == 2, r["out"]
+E   AssertionError: 2026-11-09T03:00:00.000000000Z
+E     OK cyberflow-lab-ofimatica.service ofimatica 10.10.20.21
+E     OK cyberflow-lab-navegacion.service navegacion 10.10.20.22
+E     OK cyberflow-lab-descargas.service descargas 10.10.20.23
+E     OK cyberflow-lab-aplicacion.service aplicacion 10.10.20.24
+E     OK cyberflow-lab-ligero.service ligero 10.10.20.25
+E     OK cyberflow-lab-erratico.service erratico 10.10.20.26
+E     2026-11-09T03:00:45Z ARRANQUE solicitado: sudo -n systemctl start cyberflow-lab.target
+E     start rc=0 
+E     gen target=active carga=loaded habilitado=static hash=01aefbd6 procesos=6 unidades: ofimatica=active/running/pid1610/nr0 navegacion=active/running/pid2331/nr0 descargas=active/running/pid2852/nr0 aplicacion=active/running/pid2013/nr0 ligero=active/running/pid2774/nr0 erratico=active/running/pid2045/nr0 consulta=ok
+E     ARRANQUE_CONFIRMADO: target active, 6 unidades running con su perfil e IP, procesos = MainPID (1610 2013 2045 2331 2774 2852 )
+E     arrancar rc=0
+E     {"version": "2026-11-07.2", "resultado": "ARRANCADO", "rc": 0, "motivo": "", "t": 1794193246}
+E     
+E   assert 0 == 2
+___________ test_regresion_c1_parada_solicitada_durante_el_registro ____________
+tests/test_etapa4_ecarga_guardia_s7.py:413: in test_regresion_c1_parada_solicitada_durante_el_registro
+    assert rc == 2 and fin["resultado"] == "NO_AUTORIZADO" and "solicitud de parada" in fin["motivo"], out
+E   AssertionError: 2026-11-09T03:00:00.000000000Z
+E     OK cyberflow-lab-ofimatica.service ofimatica 10.10.20.21
+E     OK cyberflow-lab-navegacion.service navegacion 10.10.20.22
+E     OK cyberflow-lab-descargas.service descargas 10.10.20.23
+E     OK cyberflow-lab-aplicacion.service aplicacion 10.10.20.24
+E     OK cyberflow-lab-ligero.service ligero 10.10.20.25
+E     OK cyberflow-lab-erratico.service erratico 10.10.20.26
+E     2026-11-09T03:00:00Z ARRANQUE solicitado: sudo -n systemctl start cyberflow-lab.target
+E     start rc=0 
+E     gen target=active carga=loaded habilitado=static hash=01aefbd6 procesos=6 unidades: ofimatica=active/running/pid2060/nr0 navegacion=active/running/pid2061/nr0 descargas=active/running/pid2292/nr0 aplicacion=active/running/pid2463/nr0 ligero=active/running/pid2984/nr0 erratico=active/running/pid2105/nr0 consulta=ok
+E     ARRANQUE_CONFIRMADO: target active, 6 unidades running con su perfil e IP, procesos = MainPID (2060 2061 2105 2292 2463 2984 )
+E     arrancar rc=0
+E     2026-11-09T03:00:01Z PARADA solicitada: sudo -n systemctl stop cyberflow-lab.target
+E     stop rc=0 
+E     gen target=inactive carga=loaded habilitado=static hash=01aefbd6 procesos=0 unidades: ofimatica=inactive/dead/pid0/nr0 navegacion=inactive/dead/pid0/nr0 descargas=inactive/dead/pid0/nr0 aplicacion=inactive/dead/pid0/nr0 ligero=inactive/dead/pid0/nr0 erratico=inactive/dead/pid0/nr0 consulta=ok
+E     PARADA_CONFIRMADA: target inactivo, 6 unidades inactivas con MainPID 0 y 0 procesos clientes_lab.py
+E     parar intento 1 rc=0
+E     E-carga ABORTADA en el arranque: no hay ventana que evaluar (solicitud de parada durante el arranque)
+E     {"version": "2026-11-07.2", "resultado": "ABORTADO_PARADO", "rc": 3, "motivo": "solicitud de parada durante el arranque", "t": 1794193201}
+E     
+E   assert (3 == 2)
+_________________ test_regresion_cruce_arranque_lento_y_parada _________________
+tests/test_etapa4_ecarga_guardia_s7.py:492: in test_regresion_cruce_arranque_lento_y_parada
+    assert fin["orden_enviada"] is True and fin["t_envio"], fin        # pedir parar durante el arranque: la orden ya salió
+E   KeyError: 'orden_enviada'
+=========================== short test summary info ============================
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_regresion_c1_reloj_supera_tg_durante_el_registro[1]
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_regresion_c1_reloj_supera_tg_durante_el_registro[45]
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_regresion_c1_parada_solicitada_durante_el_registro
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_regresion_cruce_arranque_lento_y_parada
+4 failed, 53 passed, 176 deselected in 121.11s (0:02:01)
+RC_PYTEST=1
