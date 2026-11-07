@@ -1,0 +1,18 @@
+.....................F.................................................. [ 32%]
+........................................................................ [ 64%]
+........................................................................ [ 97%]
+......                                                                   [100%]
+=================================== FAILURES ===================================
+______________ test_puerta_solicitud_previa[PARADA-NO-CONFIRMADA] ______________
+tests/test_etapa4_ecarga_guardia_s7.py:261: in test_puerta_solicitud_previa
+    c1_denegado(falso, fichero)
+tests/test_etapa4_ecarga_guardia_s7.py:181: in c1_denegado
+    assert fin["resultado"] == "NO_AUTORIZADO" and fragmento in fin["motivo"], fin
+E   AssertionError: {'motivo': 'T_g ya pasó al llegar a C1', 'rc': 2, 'resultado': 'NO_AUTORIZADO', 't': 1794032920, ...}
+E   assert ('NO_AUTORIZADO' == 'NO_AUTORIZADO'
+E     
+E       NO_AUTORIZADO and 'PARADA-NO-CONFIRMADA' in 'T_g ya pasó al llegar a C1')
+=========================== short test summary info ============================
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_puerta_solicitud_previa[PARADA-NO-CONFIRMADA]
+1 failed, 221 passed in 948.96s (0:15:48)
+RC_PYTEST=1

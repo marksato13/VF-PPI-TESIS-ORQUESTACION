@@ -1,0 +1,13 @@
+....................................F................................... [ 32%]
+........................................................................ [ 64%]
+........................................................................ [ 97%]
+......                                                                   [100%]
+=================================== FAILURES ===================================
+____________________ test_regresion_cruce_arranque_parcial _____________________
+tests/test_etapa4_ecarga_guardia_s7.py:368: in test_regresion_cruce_arranque_parcial
+    assert rc == 3 and "arrancar rc=4" in lee(x / "manual" / "arranque.rc") and p.returncode == 0
+E   assert (2 == 3)
+=========================== short test summary info ============================
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_regresion_cruce_arranque_parcial
+1 failed, 221 passed in 1028.37s (0:17:08)
+RC_PYTEST=1

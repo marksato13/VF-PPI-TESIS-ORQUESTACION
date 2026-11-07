@@ -1,0 +1,55 @@
+# Reproducción con la versión nueva. Dobles y reloj simulado; sin hosts. 2026-11-07T13:50:47Z
+# arrancar_c1.sh: 2026-11-07.2.
+
+## H1. Arranque con la guardia ya parada, y cruce con la parada
+
+| Caso | rc C1 | Órdenes de start | Vivos tras C1 | Vivos al final | rc muestreo | Parada |
+|---|---:|---:|---:|---:|---:|---|
+| Parada confirmada antes de T_g | 2 | 0 | 0 | 0 | 0 | solicitada confirmada comprobacion_final |
+
+Motivo verificable: `{"version": "2026-11-07.2", "resultado": "NO_AUTORIZADO", "rc": 2, "motivo": "solicitud de parada: existe PARADA-SOLICITADA; solicitud de parada: parada.jsonl con contenido; solicitud de parada: alguna lectura de la guardia pide parar", "t": 1794059449}`
+
+| Parada durante un start lento | 3 | 1 | 0 | 0 | 0 | solicitada confirmada comprobacion_final |
+
+Orden de las órdenes al host: arrancar -> parar -> parar
+
+## H1b. T_g superado después de la comprobación inicial, reloj y ssh simulados
+
+Reloj en T_g - 1, muestreador vivo, lectura válida, sin solicitud de parada, parada en T_g + 40.
+
+| Caso | rc C1 | Órdenes de arranque | Start | Vivos | RESULTADO-C1 |
+|---|---:|---:|---:|---:|---|
+| Salto en la espera a T_g + 45 | 2 | 0 | 0 | 0 | NO_AUTORIZADO: T_g ya pasó antes de emitir la orden (ahora=1794193245, T_G=1794193200) |
+| Salto en la espera a T_g + 1 | 2 | 0 | 0 | 0 | NO_AUTORIZADO: T_g ya pasó antes de emitir la orden (ahora=1794193201, T_G=1794193200) |
+| Salto al evaluar la puerta a T_g + 45 | 2 | 0 | 0 | 0 | NO_AUTORIZADO: T_g ya pasó antes de emitir la orden (ahora=1794193245, T_G=1794193200) |
+| Salto al evaluar la puerta a T_g + 1 | 2 | 0 | 0 | 0 | NO_AUTORIZADO: T_g ya pasó antes de emitir la orden (ahora=1794193201, T_G=1794193200) |
+| Control: llega exactamente a T_g | 0 | 1 | 1 | 6 | ARRANCADO:  |
+
+## H2. Parada al salir del bucle, reloj simulado
+
+T0 = 1794193200, PARADA = T0+60, FIN = T0+120, intervalo 30 s. El salto ocurre en la primera espera: de T0 a T0+125.
+
+| Caso | Órdenes de parada | Estado final | rc | Parados | RESULTADO-PARADA |
+|---|---:|---|---:|---|---|
+| Parada normal | 1 | confirmada | 0 | sí | confirmada |
+| Salto de reloj | 1 | confirmada | 0 | sí | confirmada |
+| Parada ya confirmada | 1 | confirmada | 0 | sí | confirmada |
+| Salto + fallo transitorio | 2 | confirmada | 0 | sí | confirmada |
+| Salto + intentos agotados | 3 | agotada | 4 | no | agotada |
+| Salto en modo seco | 0 | ninguna | 0 | no | seco_sin_orden |
+
+## H3. S7 sin secuencia del publicador
+
+`obs_p4_post.sh`, sellado y sin cambios: rc 0
+    O7 entregas del relé en la ventana: 1 modos: Counter({'pareja': 1})
+    aceptadas en orden: True
+    entregadas NO aceptadas: 0 []
+    publicador: secuencia [] … [] sin retroceso: True
+
+`derivar_s7.py` con los mismos datos, y con una segunda entrega para aislar la secuencia del publicador:
+    una entrega:  {"valor": null, "motivo": "aceptadas_en_orden: 1 aceptada(s): no hay orden que comparar; publicador_sin_retroceso: ninguna lectura feed_seq en la ventana"}
+    dos entregas: {"valor": null, "motivo": "publicador_sin_retroceso: ninguna lectura feed_seq en la ventana"}
+
+Entrada: S7 = null. Veredicto: «no demostrable», habilita_condicion_3 = false, rc 1
+`--manual S7=true`: rc 2, no se construye la entrada: --manual solo admite S11, S15, no S7
+RC=0

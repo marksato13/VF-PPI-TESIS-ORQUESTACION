@@ -1,0 +1,4 @@
+t_g=int(now)+1, fracción .985 (lo que hace la prueba, peor caso): 18/40 «T_g ya pasó»; otros motivos: {'muestreador: muestreo.pid ausente o vacío; guardia: sin lect': 22}
+t_g=int(now)+1, fracción .900: 0/40 «T_g ya pasó»; otros motivos: {'muestreador: muestreo.pid ausente o vacío; guardia: sin lect': 40}
+t_g=int(now)+1, fracción .050 (control): 0/40 «T_g ya pasó»; otros motivos: {'muestreador: muestreo.pid ausente o vacío; guardia: sin lect': 40}
+t_g=int(now)+3, fracción .985 (con la corrección): 0/12 «T_g ya pasó»; otros motivos: {'muestreador: muestreo.pid ausente o vacío; guardia: sin lect': 12}

@@ -8,6 +8,9 @@
 > **Revisión del 07-nov (06:00Z).** Corregidos con dobles y reloj simulado tres fallos de C1, de la parada al salir y de S7:
 > [`evidencia/21-correccion-guardia-parada-s7/`](evidencia/21-correccion-guardia-parada-s7/README.md), producto `27bcd46`. Las herramientas vigentes del paso A1
 > pasan a esa carpeta. Los hosts siguen con `902991e`; hace falta un traslado autorizado. E-carga NO ejecutada ni programada.
+>
+> **Revisión del 07-nov (13:52Z).** C1 relee la hora antes de emitir y se estabilizan las pruebas: [`evidencia/23-correccion-c1-tg-estabilidad-banco/`](evidencia/23-correccion-c1-tg-estabilidad-banco/README.md), código `f24c922`, pruebas `ea3f356`.
+> Los pasos A1, T y A3b pasan a esa carpeta. El traslado es el de `f24c922`, sin autorizar. E-carga NO ejecutada ni programada.
 > - **Requisitos:** P5b y P12 siguen sin observar. P8 tiene evidencia documental verificada el 07-nov y se repite antes
 >   de T_g.
 > - **Franja:** coherente en epoch, UTC y Perú, y aún viable. No se desplaza.

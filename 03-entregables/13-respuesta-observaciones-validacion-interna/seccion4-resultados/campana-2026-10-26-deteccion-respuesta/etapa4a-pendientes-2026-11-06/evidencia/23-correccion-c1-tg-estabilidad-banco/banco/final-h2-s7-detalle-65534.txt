@@ -1,0 +1,42 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-8.3.5, pluggy-1.5.0 -- /usr/bin/python3
+rootdir: /r
+collecting ... collected 86 items / 52 deselected / 34 selected
+
+tests/test_etapa4_ecarga_guardia_s7.py::test_h2_parada_normal PASSED     [  2%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_regresion_h2_salto_de_reloj_antes_de_parada_hasta_despues_de_fin PASSED [  5%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_h2_parada_ya_confirmada_no_repite PASSED [  8%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_regresion_h2_salto_con_fallo_transitorio_que_se_recupera PASSED [ 11%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_regresion_h2_salto_con_intentos_agotados PASSED [ 14%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_h2_seco_con_salto_no_envia_ordenes PASSED [ 17%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_h2_comprobacion_final_fallida_reabre_y_se_recupera PASSED [ 20%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_h2_comprobacion_final_nunca_confirma_es_acotada PASSED [ 23%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_h2_bucle_sin_ninguna_vuelta PASSED [ 26%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_h2_parada_posterior_a_fin_no_se_acepta PASSED [ 29%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_h2_senal_deja_resultado_interrumpido PASSED [ 32%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_h2_resultado_se_escribe_tambien_en_segundo_plano PASSED [ 35%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_s7_caso_original_entrega_aceptada_sin_feed_seq PASSED [ 38%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_s7_lista_vacia_de_lecturas_del_publicador PASSED [ 41%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_s7_una_sola_lectura PASSED  [ 44%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_s7_lectura_fallida_en_medio PASSED [ 47%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_s7_lectura_fallida_sin_linea PASSED [ 50%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_s7_secuencia_valida PASSED  [ 52%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_s7_secuencia_constante_no_es_retroceso PASSED [ 55%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_s7_retroceso_es_false PASSED [ 58%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_s7_retroceso_prevalece_sobre_lectura_fallida PASSED [ 61%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_s7_entregada_sin_aceptar_es_false PASSED [ 64%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_s7_aceptadas_fuera_de_orden_es_false PASSED [ 67%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_s7_sin_entregas_es_null PASSED [ 70%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_s7_una_aceptada_no_permite_comparar_orden PASSED [ 73%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_s7_hueco_de_lecturas_sin_cobertura PASSED [ 76%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_s7_lecturas_fuera_de_la_ventana_no_cuentan PASSED [ 79%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_s7_traza_del_agente_no_legible_con_rc PASSED [ 82%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_s7_traza_vacia_o_ilegible[agente] PASSED [ 85%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_s7_traza_vacia_o_ilegible[rele] PASSED [ 88%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_s7_fichero_inexistente_no_rompe PASSED [ 91%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_s7_datos_reales_del_06_nov_coinciden_con_obs_post_p4 PASSED [ 94%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_s7_post_copia_trazas_y_falla_a_null PASSED [ 97%]
+tests/test_etapa4_ecarga_guardia_s7.py::test_regresion_manual_s7_ya_no_se_admite PASSED [100%]
+
+====================== 34 passed, 52 deselected in 31.14s ======================
+RC_PYTEST=0
