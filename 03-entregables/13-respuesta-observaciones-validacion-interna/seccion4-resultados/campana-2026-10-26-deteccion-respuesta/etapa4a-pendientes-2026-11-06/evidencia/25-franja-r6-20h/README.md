@@ -47,3 +47,20 @@ La rotación real de esta noche no se ha observado todavía: el paso A0b la exig
 - Sin cambios: traslado y variante de la evidencia 24. El nombre `variante-r5` y el drop-in `10-forzar-laborable-r5.conf` se mantienen, porque ya están aplicados.
 
 `00_referencias.sh` 2026-11-07.6 sirve también para la r5 de respaldo: el 2026-11-07.5 rechazaría el commit de esta revisión.
+
+## 5. Lanzadores de la fase A
+
+Publicados después de la primera versión de esta carpeta, a raíz de la revisión de Mark. Son `lanzadores/lanzar_a1.sh`, `lanzar_a2.sh` y `rearmar_r5.sh`.
+
+| Comportamiento | Banco con reloj, ssh y herramientas simulados |
+|---|---|
+| A0b distinto de rc 0: rc 10 y ningún paso posterior | OK |
+| Cualquier otro paso con fallo: se detiene ahí | OK |
+| A7b espera a las 00:35Z, también si el P0 acaba antes | OK, lanzado en 1794098110 con mínimo 1794098100 |
+| `rearmar_r5.sh` mueve los A* a `intento-r6-20h/` y comprueba sus hashes después de mover | OK |
+| Se niega a repetir sobre un A0.txt existente | OK |
+| Se niega a rearmar si la r6 pasó de la fase A, si su carpeta existe en los hosts, o a la hora de la r5 | OK |
+| La r5 corre después del rearme, y la evidencia r6 sigue intacta | OK |
+
+19 casos, 0 fallos (`banco/lanzadores-gitbash.txt`). El primer intento se colgó en el banco, no en los lanzadores: un caso dejaba el reloj simulado parado dentro de la espera de A7b. Se conserva su salida parcial, en `banco/lanzadores-intento1-colgado-defecto-del-banco.txt`.
+Todo con dobles: los lanzadores no se han ejecutado contra los hosts.
