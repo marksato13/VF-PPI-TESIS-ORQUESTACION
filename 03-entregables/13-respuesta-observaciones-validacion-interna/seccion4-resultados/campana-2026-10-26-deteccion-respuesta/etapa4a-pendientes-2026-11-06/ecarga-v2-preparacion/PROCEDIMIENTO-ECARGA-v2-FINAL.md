@@ -24,16 +24,18 @@ cambian el detector, el modelo IF, las características, α, los heurísticos ni
 2026-11-07.2, producto `f24c922`. También se estabilizan las pruebas. Solo con dobles ([`evidencia/23-correccion-c1-tg-estabilidad-banco/`](../evidencia/23-correccion-c1-tg-estabilidad-banco/README.md)). El traslado
 pasa a `f24c922`: sigue sin autorizar y los hosts siguen con `902991e`.
 
-## 1. Referencias confirmadas (07-nov, 13:52Z)
+**Revisión del 07-nov (16:45Z).** Antes de enviar la orden, C1 escribe el registro y luego hace la última comprobación, sin ninguna escritura hasta el ssh. `arrancar_c1.sh` 2026-11-07.3, producto `0a794f4`. Solo con dobles ([`evidencia/24-c1-registro-franja-domingo/`](../evidencia/24-c1-registro-franja-domingo/README.md)). El traslado pasa a `0a794f4`: sigue sin autorizar y los hosts siguen con `902991e`. **La franja de este documento sigue siendo la del protocolo r4 y queda como antecedente si Mark aprueba la r5.** Para la franja del domingo 8 de noviembre, la secuencia es [`PROCEDIMIENTO-ECARGA-v2-VARIANTE-r5.md`](PROCEDIMIENTO-ECARGA-v2-VARIANTE-r5.md).
+
+## 1. Referencias confirmadas (07-nov, 16:45Z)
 
 Consulta a los remotos sin ningún cambio posterior a las referencias revisadas.
 
 | Qué | Referencia exacta |
 |---|---|
-| Documentación | `VF-PPI-TESIS-ORQUESTACION`, main, última revisada `0597f0646abe4c0e750dba38ba1e52dd777b6a20`, más el commit que publica esta revisión |
-| Producto | rama `recuperacion/etapa4a-pendientes-20261106` en `ea3f3561cac20021cfcefed338600e7c938e93a6`. Último código: `f24c9221dc99b6f716a27d5ce55f9ea0dfa795cc`; después solo cambian pruebas. main del producto sigue en `7b275b8` |
+| Documentación | `VF-PPI-TESIS-ORQUESTACION`, main, última revisada `b9828ad5fcdd931e3c3960afb795094bb0f2ca76`, protocolo r5 `70b945b`, más el commit que publica esta revisión |
+| Producto | rama `recuperacion/etapa4a-pendientes-20261106` en `f3de3fc6c7cbe08700575b22a2d47167cf606584`. Último código: `0a794f4d06ecf795c4fb991b858eeab3ed64ca98`; después solo cambian pruebas. main del producto sigue en `7b275b8` |
 | Paquete en los hosts | `~/cf-e4/paquete-902991e`, SHA256SUMS interno `8480f0e02952216d0a371f13201657e81e27ccc53fef2d5917d5dc74a68df30c`; `ecarga/SHA256SUMS` `e001352c2e6485d99e71b1e62ff68a4051bebdfc2bbb4fbd927000517d463b80`. **No se modifica** |
-| Herramientas del bastión | `~/cf-e4/ecarga-bastion-f24c922`, carpeta aparte con 8 ficheros de `f24c922`, `SHA256SUMS` `439ccc0f34730af26245ac8b060dbca658e1146fb31fc2e3807b8fb16750466e`, tgz `3cc7aa3fd424fbdb253ada8b8d840d046e83e7e629fac1221a7a2aa02acada9a`. **Todavía no existe en el bastión**: la crea la fase T |
+| Herramientas del bastión | `~/cf-e4/ecarga-bastion-0a794f4`, carpeta aparte con 8 ficheros de `0a794f4`, `SHA256SUMS` `fa9b4c7b661677fc2ab7d434017d67cafd85e5e77a08ea56d6b89aa4b571cf89`, tgz `08b8bea3ffb7a6104a1dd0a43af52d827a4e77e2f03f2ece8e8238fd5955dfd6`. **Todavía no existe en el bastión**: la crea la fase T |
 | Protocolo vigente | `PROTOCOLO-CARGA-v2.md` r4, commit `034d57d` |
 | Evaluador | `evaluar_ecarga.py` 2026-11-06.4, `53e9f7bd578123f6499289ebbb92d8d6c71a6e56b7c1c35a59463b98aad5c23f` |
 
@@ -41,8 +43,8 @@ Consulta a los remotos sin ningún cambio posterior a las referencias revisadas.
 
 | Uso | Herramienta | Versión o sha256 | Dónde corre |
 |---|---|---|---|
-| Referencias e integridad | `evidencia/23-correccion-c1-tg-estabilidad-banco/herramientas/00_referencias.sh` | 2026-11-07.4 | laptop |
-| Traslado y su verificación | `evidencia/23-correccion-c1-tg-estabilidad-banco/traslado/trasladar_bastion.sh` + `instalar_bastion_host.sh` | 2026-11-07.2 | laptop → bastión |
+| Referencias e integridad | `evidencia/24-c1-registro-franja-domingo/herramientas/00_referencias.sh` | 2026-11-07.5 | laptop |
+| Traslado y su verificación | `evidencia/24-c1-registro-franja-domingo/traslado/trasladar_bastion.sh` + `instalar_bastion_host.sh` | 2026-11-07.3 | laptop → bastión |
 | Procesos del ensayo | `evidencia/19-correccion-p11/laboratorio/previa.sh` + `previa_host.sh` | `4e1dd442…` | laptop → 4 hosts |
 | Post-copia | **r3**: `evidencia/18-cache-archivada-postcopia-p0/comprobador-r3/comprobar_post_copia_r3.sh` | host `799af8f1…` | laptop → 3 hosts |
 | P0 | **r3**: `evidencia/19-correccion-p11/p0-r3/p0_r3.sh` | 2026-11-06.r3; bloque Sensor1 `5ef3372a…` | laptop → 3 hosts + clientes |
@@ -50,10 +52,10 @@ Consulta a los remotos sin ningún cambio posterior a las referencias revisadas.
 | P12 | `evidencia/20-procedimiento-final/herramientas/comprobar_p12.sh` + `comprobar_p12_host.sh` | host `b45e950b…` | laptop → Sensor1 |
 | Instantáneas | `evidencia/18-cache-archivada-postcopia-p0/instantaneas/tomar.sh` | la publicada | laptop → 3 hosts |
 | Muestreadores de Sensor1 | paquete: `sensor1_muestreadores.sh` | 2026-11-06.2 | Sensor1 |
-| Muestreo y guardia | `ecarga-bastion-f24c922`: `muestreo_bastion.sh` 2026-11-07.1, `guardia.py` 2026-11-06.2 | ver §1 | bastión |
-| Autorización de C1 | `ecarga-bastion-f24c922`: `arrancar_c1.sh` 2026-11-07.2, `puerta_c1.py` 2026-11-07.1, `generadores.sh` 2026-11-06.2 (mismos bytes que el paquete) | ver §1 | bastión → clientes |
-| S7 | `ecarga-bastion-f24c922`: `s7_post.sh` y `derivar_s7.py` 2026-11-07.1 | ver §1 | bastión |
-| Análisis | paquete: `sensor1_post.sh`, `derivar_bastion.py` (.2), `evaluar_s14.py` (.2). `ecarga-bastion-f24c922`: `construir_entrada.py` 2026-11-07.1 | r3 §6 | hosts |
+| Muestreo y guardia | `ecarga-bastion-0a794f4`: `muestreo_bastion.sh` 2026-11-07.1, `guardia.py` 2026-11-06.2 | ver §1 | bastión |
+| Autorización de C1 | `ecarga-bastion-0a794f4`: `arrancar_c1.sh` 2026-11-07.3, `puerta_c1.py` 2026-11-07.1, `generadores.sh` 2026-11-06.2 (mismos bytes que el paquete) | ver §1 | bastión → clientes |
+| S7 | `ecarga-bastion-0a794f4`: `s7_post.sh` y `derivar_s7.py` 2026-11-07.1 | ver §1 | bastión |
+| Análisis | paquete: `sensor1_post.sh`, `derivar_bastion.py` (.2), `evaluar_s14.py` (.2). `ecarga-bastion-0a794f4`: `construir_entrada.py` 2026-11-07.1 | r3 §6 | hosts |
 
 **Mecanismo sin escritura de P0 r3.** El paquete sigue con `sensor1_muestreadores.sh` 2026-11-06.2. El bloque
 `sensor1_r3.sh` deriva en memoria la versión .4, sin escribir nada:
@@ -83,7 +85,7 @@ Si un hash no coincide, no ejecuta nada y da ERROR. Lo deja registrado en `REQ X
 verificadores son los mismos bytes de `a1cea5e`. El protocolo no se ha editado.
 
 **Diferencia con la letra del protocolo.** El protocolo r4 §3.5 sitúa las herramientas en `902991e`. Con esta revisión,
-seis ficheros de análisis y operación del bastión salen de `f24c922`. No cambia ningún K, S, umbral, franja ni el evaluador.
+seis ficheros de análisis y operación del bastión salen de `0a794f4`. No cambia ningún K, S, umbral, franja ni el evaluador.
 S7 sí se vuelve más estricto en la práctica: lo que antes aprobaba sin datos ahora queda `null`. Mark debe aceptarlo al
 aprobar el protocolo (§7, orden 3).
 
@@ -150,7 +152,7 @@ W="/c/Users/markp/cf-ecarga-v2-1"               # copia publicada de las herrami
 ```bash
 # [BASTIÓN gadmin]
 P=~/cf-e4/paquete-902991e; E=$P/deploy/etapa4/ecarga; X=~/cf-e4/ecarga-v2-ejecucion-20261109T0300Z
-B=~/cf-e4/ecarga-bastion-f24c922
+B=~/cf-e4/ecarga-bastion-0a794f4
 CLI="ssh -o BatchMode=yes -i $HOME/.ssh/cyberflow-to-clientes adminclientes@10.10.20.20"
 ```
 
@@ -163,18 +165,18 @@ carpeta nueva y no toca el paquete, ningún servicio ni los otros hosts. No hay 
 
 | Paso | Clase | Host y versión | Código esperado | Evidencia |
 |---|---|---|---|---|
-| T1 | [LECTURA] | laptop, `00_referencias.sh` y `trasladar_bastion.sh preparar` | rc 0 y 0 `FALLO`; tgz `3cc7aa3f…` construido con `git show f24c922` | `$EJ/T1-referencias.txt`, `$EJ/T1-preparar.txt` |
+| T1 | [LECTURA] | laptop, `00_referencias.sh` y `trasladar_bastion.sh preparar` | rc 0 y 0 `FALLO`; tgz `08b8bea3…` construido con `git show 0a794f4` | `$EJ/T1-referencias.txt`, `$EJ/T1-preparar.txt` |
 | T2 | [ESCRITURA] | laptop → bastión, `trasladar_bastion.sh copiar` | rc 0, `ESTADO_FINAL=VERIFICADO` | `$EJ/T2-copiar.txt` |
-| T3 | [LECTURA] | bastión, `trasladar_bastion.sh verificar` | rc 0, `ESTADO_FINAL=VERIFICADO`: lista exacta, `SHA256SUMS` `439ccc0f…`, `generadores.sh` y `guardia.py` iguales que en el paquete, `flock` presente | `$EJ/T3-verificar.txt` |
+| T3 | [LECTURA] | bastión, `trasladar_bastion.sh verificar` | rc 0, `ESTADO_FINAL=VERIFICADO`: lista exacta, `SHA256SUMS` `fa9b4c7b…`, `generadores.sh` y `guardia.py` iguales que en el paquete, `flock` presente | `$EJ/T3-verificar.txt` |
 
 `[LAPTOP Git Bash] → lo ejecuto yo` (solo con la orden de traslado)
 ```bash
 mkdir "$EJ" || exit 2; cd "$HOME" || exit 2
-bash "$R/evidencia/23-correccion-c1-tg-estabilidad-banco/herramientas/00_referencias.sh" "$W-traslado" 2>&1 | tee "$EJ/T1-referencias.txt"; echo "rc=${PIPESTATUS[0]}"
+bash "$R/evidencia/24-c1-registro-franja-domingo/herramientas/00_referencias.sh" "$W-traslado" 2>&1 | tee "$EJ/T1-referencias.txt"; echo "rc=${PIPESTATUS[0]}"
 CT=$(sed -n 's/^COPIA //p' "$EJ/T1-referencias.txt")
-bash "$CT/evidencia/23-correccion-c1-tg-estabilidad-banco/traslado/trasladar_bastion.sh" preparar "$W-tgz" 2>&1 | tee "$EJ/T1-preparar.txt"; echo "rc=${PIPESTATUS[0]}"
-bash "$CT/evidencia/23-correccion-c1-tg-estabilidad-banco/traslado/trasladar_bastion.sh" copiar "$W-tgz" 2>&1 | tee "$EJ/T2-copiar.txt"; echo "rc=${PIPESTATUS[0]}"
-bash "$CT/evidencia/23-correccion-c1-tg-estabilidad-banco/traslado/trasladar_bastion.sh" verificar 2>&1 | tee "$EJ/T3-verificar.txt"; echo "rc=${PIPESTATUS[0]}"
+bash "$CT/evidencia/24-c1-registro-franja-domingo/traslado/trasladar_bastion.sh" preparar "$W-tgz" 2>&1 | tee "$EJ/T1-preparar.txt"; echo "rc=${PIPESTATUS[0]}"
+bash "$CT/evidencia/24-c1-registro-franja-domingo/traslado/trasladar_bastion.sh" copiar "$W-tgz" 2>&1 | tee "$EJ/T2-copiar.txt"; echo "rc=${PIPESTATUS[0]}"
+bash "$CT/evidencia/24-c1-registro-franja-domingo/traslado/trasladar_bastion.sh" verificar 2>&1 | tee "$EJ/T3-verificar.txt"; echo "rc=${PIPESTATUS[0]}"
 ```
 
 Si T2 o T3 no dan rc 0, no se pasa a la fase A. Una carpeta a medias no existe: el guion verifica en un temporal antes de
@@ -185,7 +187,7 @@ renombrar. Esta parte **no se ha probado contra el bastión**: solo en un conten
 | Paso | Clase | Host y versión | Código esperado | Evidencia |
 |---|---|---|---|---|
 | A0 | [LECTURA] | laptop | `date +%s` < 1794191400; Mark confirma que el laboratorio está libre | `$EJ/A0.txt` |
-| A1 | [LECTURA] | laptop, `00_referencias.sh` 2026-11-07.4 | rc 0 | `$EJ/A1-referencias.txt` |
+| A1 | [LECTURA] | laptop, `00_referencias.sh` 2026-11-07.5 | rc 0 | `$EJ/A1-referencias.txt` |
 | A2 | [LECTURA] | 4 hosts, `previa.sh`, `4e1dd442…` | rc 0, 4 × `SIN_PROCESOS_DEL_ENSAYO` | `$EJ/A2-previa/` |
 | A3 | [LECTURA] | 3 hosts, post-copia r3 | rc 0, `CONFORME 3/3` | `$EJ/A3-postcopia-r3/` |
 | A3b | [LECTURA] | bastión, `trasladar_bastion.sh verificar` | rc 0, `ESTADO_FINAL=VERIFICADO` | `$EJ/A3b-verificar.txt` |
@@ -199,12 +201,12 @@ renombrar. Esta parte **no se ha probado contra el bastión**: solo en un conten
 ```bash
 [ -d "$EJ" ] || exit 2; cd "$HOME" || exit 2
 { date -u +%FT%TZ; date +%s; [ "$(date +%s)" -lt 1794191400 ] && echo "ANTES DE P0: viable"; } | tee "$EJ/A0.txt"
-bash "$R/evidencia/23-correccion-c1-tg-estabilidad-banco/herramientas/00_referencias.sh" "$W" 2>&1 | tee "$EJ/A1-referencias.txt"; echo "rc=${PIPESTATUS[0]}"
+bash "$R/evidencia/24-c1-registro-franja-domingo/herramientas/00_referencias.sh" "$W" 2>&1 | tee "$EJ/A1-referencias.txt"; echo "rc=${PIPESTATUS[0]}"
 C=$(sed -n 's/^COPIA //p' "$EJ/A1-referencias.txt")
-cmp "$R/evidencia/23-correccion-c1-tg-estabilidad-banco/herramientas/00_referencias.sh" "$C/evidencia/23-correccion-c1-tg-estabilidad-banco/herramientas/00_referencias.sh"
+cmp "$R/evidencia/24-c1-registro-franja-domingo/herramientas/00_referencias.sh" "$C/evidencia/24-c1-registro-franja-domingo/herramientas/00_referencias.sh"
 bash "$C/evidencia/19-correccion-p11/laboratorio/previa.sh" "$EJ/A2-previa"; echo "rc=$?"
 bash "$C/evidencia/18-cache-archivada-postcopia-p0/comprobador-r3/comprobar_post_copia_r3.sh" "$EJ/A3-postcopia-r3"; echo "rc=$?"
-bash "$C/evidencia/23-correccion-c1-tg-estabilidad-banco/traslado/trasladar_bastion.sh" verificar 2>&1 | tee "$EJ/A3b-verificar.txt"; echo "rc=${PIPESTATUS[0]}"
+bash "$C/evidencia/24-c1-registro-franja-domingo/traslado/trasladar_bastion.sh" verificar 2>&1 | tee "$EJ/A3b-verificar.txt"; echo "rc=${PIPESTATUS[0]}"
 bash "$C/evidencia/18-cache-archivada-postcopia-p0/instantaneas/tomar.sh" antes-p0-inmediato; echo "rc=$?"
 bash "$C/evidencia/20-procedimiento-final/herramientas/comprobar_p8.sh" "$EJ/A5-p8"; echo "rc=$?"
 ```
@@ -277,7 +279,7 @@ bash ~/cf-e4/paquete-902991e/deploy/etapa4/ecarga/sensor1_muestreadores.sh estad
 
 | Paso | Clase | Host y versión | Código esperado | Evidencia |
 |---|---|---|---|---|
-| C1 | **[ARRANCA]** | bastión → clientes, `$B/arrancar_c1.sh` 2026-11-07.2 | rc 0, `RESULTADO-C1` = `ARRANCADO`, `ARRANQUE_CONFIRMADO`: seis PID estables 5 s | `$X/manual/c1-puerta.jsonl`, `arranque.rc`, `arranque.txt`, `RESULTADO-C1` |
+| C1 | **[ARRANCA]** | bastión → clientes, `$B/arrancar_c1.sh` 2026-11-07.3 | rc 0, `RESULTADO-C1` = `ARRANCADO`, con `orden_enviada` y `arranque_confirmado` en true; `ARRANQUE_CONFIRMADO`: seis PID estables 5 s | `$X/manual/c1-puerta.jsonl`, `arranque.rc`, `arranque.txt`, `RESULTADO-C1` |
 | C2 | [LECTURA] | calentamiento, 03:00–03:15Z. No cuenta | sin parada de guardia | lecturas de vigilancia |
 | C3 | [LECTURA] | ventana fija, 03:15–04:15Z. No se corta, no se mueve y no se prolonga | sin parada de guardia | `muestras.txt`, `guardia.jsonl`, `s14.jsonl` |
 | C4 | **[DETIENE]** automático | 04:16Z los muestreadores terminan solos. 04:17Z `muestreo_bastion.sh` para los generadores | `RESULTADO-PARADA` = `confirmada`, rc 0, `comprobacion_final_rc` 0 | `RESULTADO-PARADA`, `parada.jsonl`, `eventos.log` |
@@ -289,8 +291,10 @@ El guion espera a T_g y decide justo antes de emitir la orden, dentro del cerroj
 - ninguna solicitud de parada, ni previa ni en el historial de la guardia;
 - última lectura de la guardia válida, completa y de hace ≤ 60 s.
 
-Si algo falla, no emite la orden y deja el motivo. Si T_g ya pasó, también durante la espera o al evaluar la puerta, **no se arranca** (rc 2, cero órdenes): el protocolo no fija tolerancia y no se
-inventa una. Al volver de `arrancar`, relee la solicitud y el muestreador, y para si hace falta.
+Si algo falla, no emite la orden y deja el motivo. Si T_g ya pasó, también durante la espera, al evaluar la puerta o al escribir el registro, **no se arranca** (rc 2, cero órdenes): el protocolo no fija
+tolerancia y no se inventa una. Vale todo el segundo de T_g, porque la comparación es en segundos enteros. Entre la última comprobación y el ssh no se escribe
+nada. `orden_enviada` solo dice que el ssh se lanzó; el arranque está confirmado si `arranque_confirmado` es true. Al volver de `arrancar`, relee la solicitud
+y el muestreador, y para si hace falta.
 ```bash
 bash $B/arrancar_c1.sh "$X" 1794193200; echo "arrancar_c1 rc=$?"; cat "$X/manual/RESULTADO-C1"
 ```
@@ -449,13 +453,13 @@ el resultado como dice §4.1. E-carga no evalúa I5 ni admite episodios en la po
 
 Ninguna de estas órdenes está dada. El texto propuesto para Mark:
 
-0. **Traslado, antes que nada:** «Autorizo el traslado aditivo de `f24c922` al bastión según la fase T: crear `~/cf-e4/ecarga-bastion-f24c922`, sin tocar `paquete-902991e`, y verificarlo». El P0 inmediato no se autoriza sin esta orden cumplida.
+0. **Traslado, antes que nada:** «Autorizo el traslado aditivo de `0a794f4` al bastión según la fase T: crear `~/cf-e4/ecarga-bastion-0a794f4`, sin tocar `paquete-902991e`, y verificarlo». El P0 inmediato no se autoriza sin esta orden cumplida.
 1. **Fase A:** «Autorizo ejecutar las verificaciones de solo lectura de la fase A y el P0 r3 inmediato en la franja
    publicada, desde las 02:05Z del lun 09-nov (21:05 del dom 08-nov en Perú), y confirmo que el laboratorio está libre».
 2. **Ejecución:** «Autorizo ejecutar E-carga v2 según `PROCEDIMIENTO-ECARGA-v2-FINAL.md`, si se supera la puerta G: arrancar
    los muestreadores y el muestreo del bastión a las 02:50Z, arrancar `cyberflow-lab.target` en T_g 1794193200, y pararlo a
    las 04:17Z o por la guardia».
-3. **Protocolo:** «Apruebo `PROTOCOLO-CARGA-v2` r4, con las herramientas del bastión de `f24c922` y S7 derivado según §4.4».
+3. **Protocolo:** «Apruebo `PROTOCOLO-CARGA-v2` r4, con las herramientas del bastión de `0a794f4` y S7 derivado según §4.4».
 4. **Resultados:** «Se publican en `evidencia/14-ecarga-ejecucion/` sea cual sea el resultado».
 5. **Disponibilidad:** Mark disponible durante la ventana para la intervención de `PARADA-NO-CONFIRMADA`, que necesita su
    contraseña de sudo o la consola física.
@@ -481,3 +485,4 @@ La orden debe darse en el chat de una sesión activa. Nada queda programado ni e
 | 13 | Una espera real de la franja puede dejar la lectura de la guardia cerca del límite de 60 s si una muestra tarda mucho | Efecto seguro: C1 rc 2. Sin ajustar el límite; se observará en el ensayo |
 | 14 | C1 emitía la orden si el reloj superaba T_g durante la espera o al evaluar la puerta | `arrancar_c1.sh` 2026-11-07.2, `f24c922`. Con dobles, `evidencia/23-correccion-c1-tg-estabilidad-banco/` |
 | 15 | Pruebas de `27bcd46` intermitentes: T_g con margen casi nulo y parada demasiado cerca de T_g | Solo pruebas, hasta `ea3f356`. `evidencia/23-correccion-c1-tg-estabilidad-banco/` |
+| 16 | Un salto de reloj durante `date … | tee` emitía la orden y daba rc 0, porque la última comparación iba antes del registro | `arrancar_c1.sh` 2026-11-07.3, `0a794f4`. Con dobles, `evidencia/24-c1-registro-franja-domingo/` |
