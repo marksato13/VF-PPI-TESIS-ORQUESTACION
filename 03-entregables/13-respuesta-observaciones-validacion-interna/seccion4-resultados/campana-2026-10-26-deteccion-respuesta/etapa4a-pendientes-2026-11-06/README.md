@@ -1,5 +1,14 @@
 # Etapa 4A: pendientes del cierre complementario (P1, P3, P4, P5) e integración en sombra (2026-11-06)
 
+> **Estado actualizado (07-nov, 02:30Z): procedimiento final consolidado. E-carga NO ejecutada y NO programada.** La única
+> secuencia vigente está en
+> [`ecarga-v2-preparacion/PROCEDIMIENTO-ECARGA-v2-FINAL.md`](ecarga-v2-preparacion/PROCEDIMIENTO-ECARGA-v2-FINAL.md); sus
+> herramientas, en [`evidencia/20-procedimiento-final/`](evidencia/20-procedimiento-final/).
+> - **Requisitos:** P5b y P12 siguen sin observar. P8 tiene evidencia documental verificada el 07-nov y se repite antes
+>   de T_g.
+> - **Franja:** coherente en epoch, UTC y Perú, y aún viable. No se desplaza.
+> - **Pendiente:** la orden de Mark; las mediciones bajo carga no están demostradas.
+>
 > **Estado actualizado (07-nov, 00:20Z): falso positivo de P11 corregido; P0 r3 anticipado rc 0. E-carga NO ejecutada
 > y NO programada; no se avanza a 4B/4C.** Evidencia en [`evidencia/19-correccion-p11/`](evidencia/19-correccion-p11/).
 > - **Causa:** `pgrep -af` coincidía con el propio `bash -c "$txt"` del mecanismo sin escritura y con cualquier proceso

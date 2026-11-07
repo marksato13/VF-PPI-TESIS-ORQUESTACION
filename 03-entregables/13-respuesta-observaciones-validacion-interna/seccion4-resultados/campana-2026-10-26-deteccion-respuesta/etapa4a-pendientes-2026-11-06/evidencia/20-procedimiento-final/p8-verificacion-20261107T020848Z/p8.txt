@@ -1,0 +1,19 @@
+INFO p8 2026-11-07T02:08:48Z epoch 1794017328; T_g 1794193200 (2026-11-09T03:00:00Z)
+INFO origin/main 999bce698d508cbb51f7ae0a1bcb792367ff165d
+INFO 8f17273b51ea72d94c394ef740b2dc9456690f45 está en origin/main (2026-11-06 02:26:43 -0500, «E-carga v2 publicado (no ejecutado): clases del clasificador, K4a/K4b, alcance unificado y sellado determinista»)
+INFO 034d57d66b12960901e0d342de110544559453bf está en origin/main (2026-11-06 12:26:26 -0500, «E-carga v2: protocolo r4 y preparacion r3 (S14 con tiempo desconocido), NO ejecutada ni programada»)
+INFO tabla §3.2 en 8f17273 sha256 d450f44d1720eab6a1a02e6c27e52337cd26e70ee4a64c2dc66ed99f4cc40460
+INFO tabla §3.2 en origin/main sha256 d450f44d1720eab6a1a02e6c27e52337cd26e70ee4a64c2dc66ed99f4cc40460
+TABLA | Paso | Epoch | UTC | Perú (UTC−5) |
+TABLA | P0, comprobación previa | 1794191400 | lun 09-nov 02:30:00 | dom 08-nov 21:30:00 |
+TABLA | T_g, arranque de generadores | **1794193200** | lun 09-nov 03:00:00 | dom 08-nov 22:00:00 |
+TABLA | Calentamiento (no cuenta) | 1794193200–1794194100 | 03:00:00–03:15:00 | 22:00:00–22:15:00 |
+TABLA | **Ventana fija** | **1794194100–1794197700** | **03:15:00–04:15:00** | **22:15:00–23:15:00** |
+TABLA | Fin de `obs_pcap.py` (ventana + 60 s; deja de leer a +30 s y hace una pasada final) | 1794197760 | 04:16:00 | 23:16:00 |
+TABLA | Parada de generadores | 1794197820 | 04:17:00 | 23:17:00 |
+TABLA | Análisis de perfiles, no antes de | 1794198600 | 04:30:00 | 23:30:00 |
+TABLA | Lecturas posteriores y verificadores, hasta | 1794200400 | 05:00:00 | 00:00:00 (lun) |
+INFO push a main de 8f17273: 2026-11-06T07:26:48Z (epoch 1793950008, push desde 36a3739)
+INFO push a main de 034d57d: 2026-11-06T17:26:31Z (epoch 1793985991, push desde b863634)
+REQ P8 CUMPLE franja publicada en 8f17273 (push 2026-11-06T07:26:48Z) y sin cambios hasta origin/main 999bce6; protocolo vigente r4 (034d57d, push 2026-11-06T17:26:31Z); tabla §3.2 sha256 d450f44d1720eab6a1a02e6c27e52337cd26e70ee4a64c2dc66ed99f4cc40460; T_g 2026-11-09T03:00:00Z
+FIN_P8 rc=0
