@@ -1,0 +1,68 @@
+#!/usr/bin/env python3
+"""DOBLE de ssh para probar los BLOQUES de P0 r2 por dentro (saltos que hace el propio bloque). NO conecta con nada.
+
+Destinos:
+  m4rk@10.10.60.11 / adminsrvdmz@10.10.30.10  (precheck.sh): imprime la sección real del 06-nov (ficheros
+      PRE_SENSOR1 / PRE_SRVDMZ). PRE_FALLA=sensor1|srvdmz -> rc 255; PRE_SUDO=1 -> en srv-dmz escribe en stderr el
+      error de sudo -n (y la salida que daría: tablas vacías y sha de la cadena vacía); PRE_SURICATA=hex -> otro sha.
+  adminclientes@10.10.20.20  (clientes_r2): «bash -s ORDEN» lee stdin y sale con CLI_RC[ORDEN] (JSON); otra orden =
+      lecturas: imprime EPOCH/GEN/Timezone/NTPSynchronized (CLI_GEN, CLI_TZ, CLI_NTP) o sale con CLI_LECTURAS_RC.
+      CLI_FALLA=1 -> rc 255 en todo.
+"""
+import json, os, sys
+
+args = sys.argv[1:]
+dest, rest, i = None, [], 0
+while i < len(args):
+    a = args[i]
+    if a in ("-o", "-i", "-p", "-F", "-l", "-E"):
+        i += 2; continue
+    if a.startswith("-"):
+        i += 1; continue
+    if dest is None:
+        dest = a
+    else:
+        rest.append(a)
+    i += 1
+cmd = " ".join(rest)
+with open(os.environ.get("DOBLE_LOG", "/dev/null"), "a") as f:
+    f.write(f"{dest} {cmd[:40]!r}\n")
+
+
+def falla():
+    sys.stderr.write(f"ssh: connect to host {dest} port 22: Connection timed out (doble)\n")
+    sys.exit(255)
+
+
+if dest == "m4rk@10.10.60.11":
+    if os.environ.get("PRE_FALLA") == "sensor1":
+        falla()
+    t = open(os.environ["PRE_SENSOR1"]).read()
+    if os.environ.get("PRE_SURICATA"):
+        t = t.replace("0962ce68b565c237ded37313f578e1a1b05229206741e76f7d3a2daaa6e694d0", os.environ["PRE_SURICATA"])
+    sys.stdout.write(t)
+elif dest == "adminsrvdmz@10.10.30.10":
+    if os.environ.get("PRE_FALLA") == "srvdmz":
+        falla()
+    t = open(os.environ["PRE_SRVDMZ"]).read()
+    if os.environ.get("PRE_SUDO"):
+        sys.stderr.write("sudo: a password is required\n")
+    sys.stdout.write(t)
+elif dest == "adminclientes@10.10.20.20":
+    if os.environ.get("CLI_FALLA"):
+        falla()
+    if cmd.startswith("bash -s "):
+        orden = cmd.split()[2]
+        sys.stdin.read()
+        print(f"salida doble de generadores.sh {orden}")
+        sys.exit(json.loads(os.environ.get("CLI_RC", "{}")).get(orden, 0))
+    rc = int(os.environ.get("CLI_LECTURAS_RC", "0"))
+    if rc:
+        sys.exit(rc)
+    print("EPOCH 1793999126")
+    print("GEN " + os.environ.get("CLI_GEN", "ae5134a778e66d90f5c3fbcd47323e328f3422cf4ba8d5197649f402c1d4cdc3"))
+    print("Timezone=" + os.environ.get("CLI_TZ", "Etc/UTC"))
+    print("NTPSynchronized=" + os.environ.get("CLI_NTP", "yes"))
+else:
+    sys.stderr.write(f"ssh(doble): destino desconocido {dest}\n")
+    sys.exit(255)

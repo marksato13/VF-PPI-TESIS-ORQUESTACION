@@ -1,0 +1,53 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-8.3.5, pluggy-1.5.0 -- /usr/bin/python3
+rootdir: /c/pruebas
+collecting ... collected 67 items / 63 deselected / 4 selected
+
+test_p0_r3.py::test_regresion_p11_sin_muestreadores_cumple[paquete-.2] FAILED [ 25%]
+test_p0_r3.py::test_regresion_p11_sin_muestreadores_cumple[paquete-.3] FAILED [ 50%]
+test_p0_r3.py::test_regresion_p11_sin_muestreadores_cumple[paquete-.4] FAILED [ 75%]
+test_p0_r3.py::test_regresion_p11_ajenos_con_los_nombres_no_son_muestreadores FAILED [100%]
+
+=================================== FAILURES ===================================
+___________ test_regresion_p11_sin_muestreadores_cumple[paquete-.2] ____________
+test_p0_r3.py:634: in test_regresion_p11_sin_muestreadores_cumple
+    assert reqs["P11"] == "CUMPLE", fallos
+E   AssertionError: ['FALLO ya hay muestreadores en marcha']
+E   assert 'NO_CUMPLE' == 'CUMPLE'
+E     
+E     - CUMPLE
+E     + NO_CUMPLE
+E     ? +++
+___________ test_regresion_p11_sin_muestreadores_cumple[paquete-.3] ____________
+test_p0_r3.py:634: in test_regresion_p11_sin_muestreadores_cumple
+    assert reqs["P11"] == "CUMPLE", fallos
+E   AssertionError: ['FALLO ya hay muestreadores en marcha']
+E   assert 'NO_CUMPLE' == 'CUMPLE'
+E     
+E     - CUMPLE
+E     + NO_CUMPLE
+E     ? +++
+___________ test_regresion_p11_sin_muestreadores_cumple[paquete-.4] ____________
+test_p0_r3.py:634: in test_regresion_p11_sin_muestreadores_cumple
+    assert reqs["P11"] == "CUMPLE", fallos
+E   AssertionError: []
+E   assert 'ERROR' == 'CUMPLE'
+E     
+E     - CUMPLE
+E     + ERROR
+________ test_regresion_p11_ajenos_con_los_nombres_no_son_muestreadores ________
+test_p0_r3.py:661: in test_regresion_p11_ajenos_con_los_nombres_no_son_muestreadores
+    assert reqs["P11"] == "CUMPLE", fallos
+E   AssertionError: ['FALLO ya hay muestreadores en marcha']
+E   assert 'NO_CUMPLE' == 'CUMPLE'
+E     
+E     - CUMPLE
+E     + NO_CUMPLE
+E     ? +++
+=========================== short test summary info ============================
+FAILED test_p0_r3.py::test_regresion_p11_sin_muestreadores_cumple[paquete-.2]
+FAILED test_p0_r3.py::test_regresion_p11_sin_muestreadores_cumple[paquete-.3]
+FAILED test_p0_r3.py::test_regresion_p11_sin_muestreadores_cumple[paquete-.4]
+FAILED test_p0_r3.py::test_regresion_p11_ajenos_con_los_nombres_no_son_muestreadores
+======================= 4 failed, 63 deselected in 1.20s =======================
+RC_PYTEST=1
