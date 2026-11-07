@@ -14,6 +14,8 @@ OK    A7b rc 1: se detiene antes de A8
 OK    A3 rc 1: se detiene antes de A3b
 OK    A2 a las 19:50: se niega
 OK    A8 ocupada: rc 1
+OK    A8 con ssh rc 255 aunque imprima LIBRE: rc 1 y rc registrado
+OK    A8 conforme: dos ssh rc 0 y LIBRE registrados
 OK    rearme con fase B: se niega y no mueve nada
 OK    rearme con carpeta r6 en los hosts: se niega
 OK    rearme a la hora de la r5: se niega

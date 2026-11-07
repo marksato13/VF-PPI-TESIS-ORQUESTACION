@@ -34,9 +34,11 @@ if [ "$F" = r6 ]; then
   echo "A7b rc=$r"; [ "$r" = 0 ] || para "A7b rc=$r"
 fi
 S="[ ! -e ~/cf-e4/$X ] && echo LIBRE || echo OCUPADA"
-O="-n -o BatchMode=yes -i"
-a=$(ssh $O ~/.ssh/id_ed25519 gadmin@10.10.10.30 "$S"); b=$(ssh $O ~/.ssh/id_ed25519 gadmin@10.10.10.30 "ssh $O ~/.ssh/cyberflow-to-sensor m4rk@10.10.60.11 '$S'")
-{ date -u +%FT%TZ; echo "bastion $a"; echo "sensor1 $b"; } | tee "$EJ/A8.txt"
-[ "$a" = LIBRE ] && [ "$b" = LIBRE ] || para "A8: carpeta X no libre"
+O="-n -o BatchMode=yes -o ConnectTimeout=10 -i"
+a=$(ssh $O ~/.ssh/id_ed25519 gadmin@10.10.10.30 "$S" 2>&1); ra=$?
+b=$(ssh $O ~/.ssh/id_ed25519 gadmin@10.10.10.30 "ssh $O ~/.ssh/cyberflow-to-sensor m4rk@10.10.60.11 '$S'" 2>&1); rb=$?
+{ date -u +%FT%TZ; echo "bastion ssh_rc=$ra salida=$a"; echo "sensor1 ssh_rc=$rb salida=$b"; } | tee "$EJ/A8.txt"
+[ "$ra" = 0 ] && [ "$rb" = 0 ] && [ "$a" = LIBRE ] && [ "$b" = LIBRE ] || para "A8: las dos consultas deben dar ssh rc 0 y LIBRE (bastión rc $ra «$a», Sensor1 rc $rb «$b»)"
+echo "A8 CONFORME: bastión y Sensor1 con ssh rc 0 y LIBRE" | tee -a "$EJ/A8.txt"
 date -u +%FT%TZ
 echo "RESULTADO_A2 $F rc=0"

@@ -11,7 +11,7 @@ if [ "${1:-}" = +%s ]; then e=$(cat "$RELOJ"); echo "$e"; echo $((e + ${PASO:-0}
 FIN
 cat > "$T/bin/ssh" <<'FIN'
 #!/usr/bin/env bash
-echo "${SSH_RESP:-LIBRE}"
+echo "${SSH_RESP:-LIBRE}"; exit "${SSH_RC:-0}"
 FIN
 cat > "$T/bin/sleep" <<'FIN'
 #!/usr/bin/env bash
@@ -77,7 +77,11 @@ monta 6; hora 1794096300; bash "$L/lanzar_a1.sh" r6 >/dev/null; hora 1794097800;
 monta 7; hora 1794096300; RC_A3=1 bash "$L/lanzar_a1.sh" r6 >/dev/null; r=$?
 [ $r = 1 ] && ! tiene traslado && [ ! -e "$EJ/A1-lanzador.ok" ] && ok "A3 rc 1: se detiene antes de A3b" || no "A3 r=$r"
 monta 8; hora 1794096300; bash "$L/lanzar_a1.sh" r6 >/dev/null; hora 1794099000; bash "$L/lanzar_a2.sh" r6 >/dev/null; [ $? = 1 ] && ! tiene p0 && ok "A2 a las 19:50: se niega" || no "A2 tarde"
-hora 1794097800; PASO=5 SSH_RESP=OCUPADA bash "$L/lanzar_a2.sh" r6 >/dev/null; [ $? = 1 ] && ok "A8 ocupada: rc 1" || no "A8"
+hora 1794097800; PASO=5 SSH_RESP=OCUPADA bash "$L/lanzar_a2.sh" r6 >/dev/null; [ $? = 1 ] && ! grep -q 'A8 CONFORME' "$EJ/A8.txt" && ok "A8 ocupada: rc 1" || no "A8"
+hora 1794097800; PASO=5 SSH_RC=255 bash "$L/lanzar_a2.sh" r6 >/dev/null; r=$?
+[ $r = 1 ] && grep -q 'ssh_rc=255 salida=LIBRE' "$EJ/A8.txt" && ! grep -q 'A8 CONFORME' "$EJ/A8.txt" && ok "A8 con ssh rc 255 aunque imprima LIBRE: rc 1 y rc registrado" || no "A8 ssh rc r=$r"
+monta 10; hora 1794096300; bash "$L/lanzar_a1.sh" r6 >/dev/null; hora 1794097800; PASO=5 bash "$L/lanzar_a2.sh" r6 >/dev/null; r=$?
+[ $r = 0 ] && [ "$(grep -c 'ssh_rc=0 salida=LIBRE' "$EJ/A8.txt")" = 2 ] && grep -q 'A8 CONFORME' "$EJ/A8.txt" && ok "A8 conforme: dos ssh rc 0 y LIBRE registrados" || no "A8 conforme r=$r"
 monta 9; hora 1794096300; RC_A0B=1 bash "$L/lanzar_a1.sh" r6 >/dev/null; touch "$EJ/B3-p12"; hora 1794098000; bash "$L/rearmar_r5.sh" x >/dev/null; [ $? = 1 ] && [ -e "$EJ/A0.txt" ] && ok "rearme con fase B: se niega y no mueve nada" || no "rearme B"
 rm "$EJ/B3-p12"; hora 1794098000; SSH_RESP=OCUPADA bash "$L/rearmar_r5.sh" x >/dev/null; [ $? = 1 ] && [ -e "$EJ/A0.txt" ] && ok "rearme con carpeta r6 en los hosts: se niega" || no "rearme X"
 hora 1794103500; bash "$L/rearmar_r5.sh" x >/dev/null; [ $? = 1 ] && [ -e "$EJ/A0.txt" ] && ok "rearme a la hora de la r5: se niega" || no "rearme tarde"

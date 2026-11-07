@@ -10,7 +10,7 @@
 
 Los K, los S, sus umbrales y la duración no cambian. Tampoco cambian el detector, el modelo IF, las características, α, los heurísticos ni la política de respuesta.
 
-## 1. Referencias confirmadas (07-nov, 20:34Z)
+## 1. Referencias confirmadas (07-nov, 20:44Z)
 
 Consulta a los remotos sin ningún cambio posterior a las referencias revisadas.
 
@@ -169,7 +169,7 @@ Mark las autorizó el 07-nov. No dependen de la franja. La fase A las vuelve a c
 | A6 | [LECTURA] | 4 hosts, P0 r3 `inmediato` | rc 0, `P0 INMEDIATO CONFORME`, 9/9, todas las anticipables CUMPLE y P5b CUMPLE | `$EJ/A6-p0-r3-inmediato/` y `.rc-driver` |
 | A7 | [LECTURA] | 3 hosts, `tomar.sh` | `comparar` rc 0, 3 × IDENTICAS | `$EJ/A7-comparacion-paquete.txt` |
 | A7b | [LECTURA] | Sensor1, `comprobar_rotacion.sh aprendizaje`, no antes de las 00:35Z | rc 0, `REQ ROTACION.aprendizaje CUMPLE`: el reentrenamiento nocturno terminó bien | `$EJ/A7b-aprendizaje/` |
-| A8 | [LECTURA] | laptop | carpeta `X` libre en bastión y Sensor1 | `$EJ/A8.txt` |
+| A8 | [LECTURA] | laptop | las dos consultas ssh, a bastión y a Sensor1, terminan con rc 0 y devuelven `LIBRE`; los rc y las salidas quedan registrados | `$EJ/A8.txt` con `A8 CONFORME` |
 
 Los bloques se ejecutan con `evidencia/25-franja-r6-20h/lanzadores/lanzar_a1.sh r6` y `lanzar_a2.sh r6`: mismos pasos, y se detienen en el primero que no dé rc 0.
 
@@ -212,7 +212,7 @@ bash "$C/evidencia/25-franja-r6-20h/herramientas/comprobar_rotacion.sh" aprendiz
 
 **Puerta G.** Solo se pasa a la fase B si se cumplen todas:
 - F0, F3, T3, A0b, A1, A2, A3, A3b, A3c, A5, A6, A7 y A7b con su código esperado;
-- A8 `LIBRE` en los dos hosts;
+- A8: las dos consultas ssh con rc 0 y `LIBRE`, registradas en `A8.txt`. Si alguna falla, Claude avisa a Mark y se detiene;
 - la orden de ejecución de §7 está dada en el chat;
 - la hora es anterior a las 00:50Z, con margen para terminar B2 antes de las 00:55:00Z.
 
