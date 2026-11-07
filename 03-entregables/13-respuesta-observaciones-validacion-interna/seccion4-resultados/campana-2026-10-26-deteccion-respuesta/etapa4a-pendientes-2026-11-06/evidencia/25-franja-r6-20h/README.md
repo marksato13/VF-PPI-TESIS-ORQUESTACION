@@ -64,3 +64,8 @@ Publicados después de la primera versión de esta carpeta, a raíz de la revisi
 
 19 casos, 0 fallos (`banco/lanzadores-gitbash.txt`). El primer intento se colgó en el banco, no en los lanzadores: un caso dejaba el reloj simulado parado dentro de la espera de A7b. Se conserva su salida parcial, en `banco/lanzadores-intento1-colgado-defecto-del-banco.txt`.
 Todo con dobles: los lanzadores no se han ejecutado contra los hosts.
+
+## 6. A8 registra el rc de cada ssh (07-nov, tras la aprobación de la r6)
+
+A petición de Mark, `lanzar_a2.sh` guarda en `A8.txt` el rc y la salida de las dos consultas, a bastión y a Sensor1. Solo escribe `A8 CONFORME` si las dos dan rc 0 y `LIBRE`; si no, se detiene con rc 1.
+El banco añade dos casos: un ssh con rc 255 que imprime `LIBRE`, que se rechaza, y el caso conforme con los dos rc registrados. Total: 21 casos, 0 fallos.
