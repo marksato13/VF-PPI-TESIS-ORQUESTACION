@@ -10,7 +10,7 @@
 
 Los K, los S, sus umbrales y la duración no cambian. Tampoco cambian el detector, el modelo IF, las características, α, los heurísticos ni la política de respuesta.
 
-## 1. Referencias confirmadas (07-nov, 20:18Z)
+## 1. Referencias confirmadas (07-nov, 20:34Z)
 
 Consulta a los remotos sin ningún cambio posterior a las referencias revisadas.
 
@@ -171,11 +171,13 @@ Mark las autorizó el 07-nov. No dependen de la franja. La fase A las vuelve a c
 | A7b | [LECTURA] | Sensor1, `comprobar_rotacion.sh aprendizaje`, no antes de las 00:35Z | rc 0, `REQ ROTACION.aprendizaje CUMPLE`: el reentrenamiento nocturno terminó bien | `$EJ/A7b-aprendizaje/` |
 | A8 | [LECTURA] | laptop | carpeta `X` libre en bastión y Sensor1 | `$EJ/A8.txt` |
 
+Los bloques se ejecutan con `evidencia/25-franja-r6-20h/lanzadores/lanzar_a1.sh r6` y `lanzar_a2.sh r6`: mismos pasos, y se detienen en el primero que no dé rc 0.
+
 `[LAPTOP Git Bash] → lo ejecuto yo` (solo si Mark autoriza la fase A)
 ```bash
 [ -d "$EJ" ] || exit 2; cd "$HOME" || exit 2
 { date -u +%FT%TZ; date +%s; [ "$(date +%s)" -lt 1794097800 ] && echo "ANTES DE P0: viable"; } | tee "$EJ/A0.txt"
-bash "$R/evidencia/25-franja-r6-20h/herramientas/comprobar_rotacion.sh" rotacion "$EJ/A0b-rotacion"; echo "rc=$?"   # si no da 0: parar y seguir con la r5
+bash "$R/evidencia/25-franja-r6-20h/herramientas/comprobar_rotacion.sh" rotacion "$EJ/A0b-rotacion"; r=$?; echo "rc=$r"; [ "$r" = 0 ] || exit 10   # parar: §5, rearmar la r5
 bash "$R/evidencia/25-franja-r6-20h/herramientas/00_referencias.sh" "$W" 2>&1 | tee "$EJ/A1-referencias.txt"; echo "rc=${PIPESTATUS[0]}"
 C=$(sed -n 's/^COPIA //p' "$EJ/A1-referencias.txt")
 cmp "$R/evidencia/25-franja-r6-20h/herramientas/00_referencias.sh" "$C/evidencia/25-franja-r6-20h/herramientas/00_referencias.sh"
@@ -194,8 +196,8 @@ bash "$C/evidencia/25-franja-r6-20h/p0-r3w/p0_r3.sh" inmediato "$EJ/A6-p0-r3-inm
 echo "$rc" > "$EJ/A6-p0-r3-inmediato.rc-driver"; echo "rc=$rc"
 T="$C/evidencia/18-cache-archivada-postcopia-p0/instantaneas/tomar.sh"
 bash "$T" despues-p0-inmediato; bash "$T" comparar antes-p0-inmediato despues-p0-inmediato | tee "$EJ/A7-comparacion-paquete.txt"
-[ "$(date +%s)" -ge 1794098100 ] || echo "A7b espera a las 00:35Z"
-bash "$C/evidencia/25-franja-r6-20h/herramientas/comprobar_rotacion.sh" aprendizaje "$EJ/A7b-aprendizaje"; echo "rc=$?"
+while [ "$(date +%s)" -lt 1794098100 ]; do sleep 5; done   # A7b no se lanza antes de las 00:35Z
+bash "$C/evidencia/25-franja-r6-20h/herramientas/comprobar_rotacion.sh" aprendizaje "$EJ/A7b-aprendizaje"; r=$?; echo "rc=$r"; [ "$r" = 0 ] || exit 1
 ```
 
 `[BASTIÓN gadmin] → lo ejecuto yo`
@@ -416,7 +418,7 @@ Identificador de la corrida: **`E-carga-v2-1`, variante r6**. El README de `evid
 | Puerta G sin orden de Mark | Falta autorización | No se pasa de la fase A. No se espera por iniciativa propia | Mark |
 | B2 rc 3 o B3 NO_CUMPLE o ERROR | Muestreadores incompletos o tarde. No hay línea base válida para S14 | **[DETIENE]** `sensor1_muestreadores.sh parar "$X/sensor1"`, confirmar `PARADA_CONFIRMADA`. No se lanza C1. Se publica «no ejecutado» | Claude |
 | B4 o B5 sin muestras antes de T_g | Sin guardia | **[DETIENE]** `kill -TERM $(cat "$X/bastion.pid")`, parar los muestreadores. No se lanza C1 | Claude |
-| A0b rc ≠ 0 o `eve.json` sin eventos nuevos | Rotación sin terminar o sensor sin registrar con normalidad | Parar. Avisar a Mark. Se sigue con la r5 de las 22:00 | Claude; Mark decide |
+| A0b rc ≠ 0 o `eve.json` sin eventos nuevos | Rotación sin terminar o sensor sin registrar con normalidad | Parar y avisar a Mark. `lanzadores/rearmar_r5.sh` aparta el intento en `$EJ/intento-r6-20h/`, sin borrar nada, y sigue la r5 de las 22:00 | Claude; Mark decide |
 | A7b rc ≠ 0 | El reentrenamiento nocturno sigue en marcha o falló | Parar antes de la puerta G. Avisar a Mark | Claude; Mark decide |
 | F0, F3 o A3c rc ≠ 0 | La configuración de las seis unidades no es la esperada | Parar. No se pasa a la fase A ni a la puerta G. Sin F2 no hay E-carga formal | Claude; Mark decide |
 | C1b rc ≠ 0 | Los procesos no llevan la opción | **[DETIENE]** antes de la ventana. Se publica como ensayo técnico, no como E-carga formal | Claude |
@@ -488,3 +490,4 @@ La orden debe darse en el chat de una sesión activa.
 | 17 | La rotación de `eve.json` cae 5 min antes de la fase A y `AccuracySec=1h` admite un retraso | Paso A0b, `comprobar_rotacion.sh rotacion`. Si no se cumple, sigue la r5 |
 | 18 | El reentrenamiento nocturno de Sensor1 arranca junto al P0 de la r6 | Es de baja prioridad y no cambia el modelo. Paso A7b antes de la puerta G |
 | 19 | `00_referencias.sh` 2026-11-07.5 falla ante cualquier commit posterior, y publicar la r6 rompía la r5 de respaldo | Versión 2026-11-07.6 en la evidencia 25, que sirve para las dos |
+| 20 | Mark advirtió que el bloque publicado imprimía el aviso de A7b sin esperar y que un fallo de A0b no detenía el bloque. Además, repetir la fase A sobrescribía `A0.txt` del intento anterior | El bloque ahora para y espera. Lanzadores y `rearmar_r5.sh` en la evidencia 25, probados con dobles |

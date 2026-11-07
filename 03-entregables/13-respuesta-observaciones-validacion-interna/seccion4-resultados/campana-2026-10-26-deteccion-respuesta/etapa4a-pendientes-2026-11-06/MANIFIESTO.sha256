@@ -19,7 +19,7 @@ f439d1dfd9403859aab10465edb0251956d7bcb7683b0f6b64f8069fdbe4e29c  ecarga-v2-prep
 c8d0909f4c1380e7f7afdb57cfe91ed96c6dcae383eb364feabf7f3e6cfa8b08  ecarga-v2-preparacion/PREPARACION-ECARGA-v2.md
 03e30d65d8c07a3f1ddf0dd8429806c634c38b58c602aa82c47fa2bb470c9072  ecarga-v2-preparacion/PROCEDIMIENTO-ECARGA-v2-FINAL.md
 245ead5f19a61a1bac35bc549b4382e799d048148b9c2a6ea07560f1d457a032  ecarga-v2-preparacion/PROCEDIMIENTO-ECARGA-v2-VARIANTE-r5.md
-1f244196e29d6f127b1270510cf47ebe7be0d060de00a8741ce5be45090e5b1a  ecarga-v2-preparacion/PROCEDIMIENTO-ECARGA-v2-VARIANTE-r6.md
+612b85ceee0207afcda04daacd63f625fab22815981bb015da2ae3d16796d4d4  ecarga-v2-preparacion/PROCEDIMIENTO-ECARGA-v2-VARIANTE-r6.md
 ecadfb9eb0ed7bc08e1a53e78eaf03377cb16bf8892d1a6d99892354c2a98522  ecarga-v2-preparacion/traslado-902991e-r2/banco/anterior-detalle.txt
 866ae778439f88094b07445b625c688f55228a417decfd4bfe467efa1affc6ed  ecarga-v2-preparacion/traslado-902991e-r2/banco/banco-anterior-65534.txt
 f01b4200686a68ce6b383c128e40eefba810b11a607a82ac86bc4bd554814145  ecarga-v2-preparacion/traslado-902991e-r2/banco/banco-r2-65534.txt
@@ -705,11 +705,14 @@ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  evidencia/24-c
 b58594cfaee013fc3add80cc1370b5b3745e864c5b7169c0b463645025f3cfa5  evidencia/24-c1-registro-franja-domingo/variante/lectura-real-sin-20261107/resumen.txt
 c868b411128f082e4ee65792f7b3d421b25b83ceb27f7c845e7a4ba54c25aa89  evidencia/25-franja-r6-20h/banco/banco_curva_r6.py
 77deb24a731d9a4f2c1e2b406d06f29359e53a08cf34d03e264d9f30a16e2fdb  evidencia/25-franja-r6-20h/banco/banco_franja_r6.py
+d4c8ca31306c5547f1c0b5efe09895528bbcc75962eb31da5a879f87cfa347b4  evidencia/25-franja-r6-20h/banco/banco_lanzadores.sh
 c8264e0398d7f7a93db9c53d17e9a3f0505260ff5eab2283991ddbe5f7bc15ab  evidencia/25-franja-r6-20h/banco/banco_p12.sh
 9a6923243317e6392591cb9ba8602cbeff89c0d98dadcac7d5f3e7eb9f5ce310  evidencia/25-franja-r6-20h/banco/banco_rotacion.sh
 8fa0c467fd4cba7f899303864f62f9073c44ed250cc3cffba158d9ceca09be1d  evidencia/25-franja-r6-20h/banco/curva-65534.txt
 f6b4b2d8718c6a71187349dd9a8a0a939dadd5de547004ef1a0a4d9e1828ab14  evidencia/25-franja-r6-20h/banco/franja-26h-65534.txt
 464fee9e82aa5421839b3a13484fa7f59f633747319678d64bbd58aa79ddad09  evidencia/25-franja-r6-20h/banco/franja-26h-intento1-defecto-del-banco-65534.txt
+8702b01fe3512dddaf04ffa99e96aa480da9fba5a25592264ccff21d63360e4d  evidencia/25-franja-r6-20h/banco/lanzadores-gitbash.txt
+70af96008fcd707a9c4002a50c9e02f6e80536a988c8f5fcae280fe6ceada499  evidencia/25-franja-r6-20h/banco/lanzadores-intento1-colgado-defecto-del-banco.txt
 7caa38edfd9bf6e820ef4a910d0d12b5a76252b4ed261898c71e347381a716fe  evidencia/25-franja-r6-20h/banco/p0r3w-65534.txt
 730676ae9c16cc230d401aa36ac7251b95594a7affea1771a61d5a0b6ac61504  evidencia/25-franja-r6-20h/banco/p0r3w-root.txt
 a9e2e4cbc26419d2d04027e0daf6f7d92f096c1373ae4b88dacd36d1dfb41897  evidencia/25-franja-r6-20h/banco/p12-65534.txt
@@ -722,6 +725,9 @@ a9e2e4cbc26419d2d04027e0daf6f7d92f096c1373ae4b88dacd36d1dfb41897  evidencia/25-f
 54e637882ab9d6d536aa85f74f0faf112f569dcc9addae543856f35c497314b1  evidencia/25-franja-r6-20h/herramientas/comprobar_p8_r6.sh
 5b7909b75900be293290ef30fb5dcb74bd4dccb88b3719e878521fc94a47363b  evidencia/25-franja-r6-20h/herramientas/comprobar_rotacion.sh
 c4df64e4c2e1c2f71ea316e1e7e9c4ccaea3b3f65594fbf556bd23f7abffca2f  evidencia/25-franja-r6-20h/herramientas/comprobar_rotacion_host.sh
+6bbf1c87e7d6face47c685d609f0800061feaa2f6a629d442225d52ec0ebf5eb  evidencia/25-franja-r6-20h/lanzadores/lanzar_a1.sh
+6358789ab897545bbc9afac39e070060b343c70f2a9e651ca35c0a33f28cf26b  evidencia/25-franja-r6-20h/lanzadores/lanzar_a2.sh
+479108465922d9d2bba837543cfc501ff96d18635918b9f149b645f853da5d00  evidencia/25-franja-r6-20h/lanzadores/rearmar_r5.sh
 e63f9ea0c4f16cc6946cdee539e85ea9b4dc552ce6887e7a80559e0f6a925315  evidencia/25-franja-r6-20h/lecturas/aprendizaje-seco-20261107/resumen.txt
 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa  evidencia/25-franja-r6-20h/lecturas/aprendizaje-seco-20261107/sensor1.rc
 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  evidencia/25-franja-r6-20h/lecturas/aprendizaje-seco-20261107/sensor1.stderr
@@ -788,8 +794,8 @@ ca14ccda86465d5531de52d2e8af7d4c228eded34d60b6b4df7e3e52002c6dd9  evidencia/25-f
 2bd0b7c1a79fb72866e0b4a677999960aca38ca2c1c5f5925351c013fc1d661d  evidencia/25-franja-r6-20h/p0-r3w/pruebas/fuente/sensor1_r3.plantilla.sh
 89a49dffee4278059ef650bbf8d44c826460611fbb29faa9ea5862433b96891f  evidencia/25-franja-r6-20h/p0-r3w/pruebas/muestras.py
 74c4ad2e8b4e7e38de208dfd7f3104ef4fb7ae25990f12420bd9edeb6f446e28  evidencia/25-franja-r6-20h/p0-r3w/pruebas/test_p0_r3.py
-884833fe05cec410df4ebea1cce108e6479f25b5b65df000304cb8289d87d5da  evidencia/25-franja-r6-20h/README.md
-5a9fece845dec40dc69d26170127d822a6cc391b54ff00e7015daa0245d4a150  evidencia/25-franja-r6-20h/SHA256SUMS
+f4d2e900a9976b3ea49fcca1754157516536ef3ee4be7c6ba473fce4395e9e05  evidencia/25-franja-r6-20h/README.md
+083ac270c471c53434f87b4ae7c238eb4c13a6e2745cc53fcd43d7d713a891cd  evidencia/25-franja-r6-20h/SHA256SUMS
 d8e01f0b6688f946c0234ff8239d84bd2934b5b6f85512052f132b0f77275b97  PROTOCOLO-CARGA-v2-r5.md
 8479984e26e2cc280a47b4c38adaa1161b53333f31c71d3b7985a23223b21e84  PROTOCOLO-CARGA-v2-r6.md
 8d8e38cbb194bd5ea557f0f469a514830ebeaeecf54670334128bfcb13f308a0  PROTOCOLO-CARGA-v2.md

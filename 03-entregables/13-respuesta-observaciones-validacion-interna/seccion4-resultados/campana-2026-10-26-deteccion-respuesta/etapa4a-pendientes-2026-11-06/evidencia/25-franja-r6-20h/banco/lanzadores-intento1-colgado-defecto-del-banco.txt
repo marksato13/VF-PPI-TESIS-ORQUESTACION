@@ -1,0 +1,19 @@
+OK    A1 r6 antes de 19:05: no empieza
+OK    A0b rc 1: rc 10, ningún paso posterior
+OK    segundo intento sobre un A0.txt existente: se niega
+OK    A0b error de transporte: rc 10
+OK    A2 antes del P0: no empieza
+OK    A2 sin A0–A5 conformes: se niega
+OK    rearme: intento r6 apartado con los mismos hashes; T1 no se mueve
+OK    A1 r5 tras el rearme: rc 0, evidencia r6 intacta
+OK    A2 r5 tras el rearme: rc 0, sin A7b
+OK    A1 r6 completo
+OK    A7b lanzado en 1794098110, no antes de 1794098100, tras el P0
+OK    P0 rc 5: se detiene antes de A7b
+OK    A7b rc 1: se detiene antes de A8
+OK    A3 rc 1: se detiene antes de A3b
+OK    A2 a las 19:50: se niega
+/c/Users/markp/AppData/Local/Temp/claude/f17b3819211dc686/51c74eee-a71d-4dd3-9ea4-b614ec3c2579/scratchpad/e10/lanzar_a2.sh: line 31: [: : integer expected
+OK    A8 ocupada: rc 1
+OK    rearme con fase B: se niega y no mueve nada
+/c/Users/markp/AppData/Local/Temp/claude/f17b3819211dc686/51c74eee-a71d-4dd3-9ea4-b614ec3c2579/scratchpad/e10/banco_lanzadores.sh: line 85: unexpected EOF while looking for matching `"'
