@@ -1,0 +1,18 @@
+8714361effd4c1fee6f8fce7a3fba546bd3e8fa5840dc1acebb101b2523c4a9b  -
+INFO == bastion VM-GESTION 2026-11-07T20:03:52Z
+INFO b50c48f45f480d21d79664cf78cb0fde3159cf935b76cbdc112e6ad3b5b58a2a  /home/gadmin/cf-e4/paquete-902991e/deploy/etapa4/bastion/verificar_bastion.sh
+-------- salida del verificador
+OK    relé v2 activo
+OK    relé v2 solo con destino srv-dmz (sin dc1)
+OK    relé v2 en modo --entrega paquete
+OK    v1 ppi-relay-feed.timer inactivo y no habilitado (LoadState=loaded ActiveState=inactive UnitFileState=disabled)
+OK    v1 ppi-relay-feed.service inactivo y no habilitado (LoadState=loaded ActiveState=inactive UnitFileState=static)
+OK    sin procesos v1 en ejecución (relay-feed.sh)
+OK    entrega reciente a srv-dmz (hace 13.0 s)
+INFO  entregas: 11490; traído->entregado p50/máx: 0.050/0.381 s
+INFO  última hora: parejas inconsistentes 0, errores 0
+OK    reloj sincronizado
+VERIFICACIÓN BASTIÓN OK
+-------- fin de la salida del verificador
+REQ P1.bastion CUMPLE verificador rc 0
+FIN_BLOQUE verificador_r2 rc=0

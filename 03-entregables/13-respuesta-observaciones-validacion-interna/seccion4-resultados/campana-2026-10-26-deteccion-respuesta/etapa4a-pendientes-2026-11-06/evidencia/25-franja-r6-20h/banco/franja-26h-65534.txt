@@ -1,0 +1,9 @@
+........................................................................ [ 30%]
+........................................................................ [ 61%]
+........................................................................ [ 92%]
+.................                                                        [100%]
+233 passed in 933.17s (0:15:33)
+tests/test_etapa4_ecarga_guardia_s7.py: 7 epochs, 5 fechas desplazadas, 0 fechas sin hora completa
+tests/test_etapa4_ecarga_prep.py: 6 epochs, 4 fechas desplazadas, 0 fechas sin hora completa
+total 22 sustituciones; T_g de prueba 1794099600
+RC_PYTEST=0

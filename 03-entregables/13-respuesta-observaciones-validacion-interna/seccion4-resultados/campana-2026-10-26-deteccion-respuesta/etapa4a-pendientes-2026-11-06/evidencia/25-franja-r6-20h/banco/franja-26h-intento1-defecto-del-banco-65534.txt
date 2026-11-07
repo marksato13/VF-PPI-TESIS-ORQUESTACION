@@ -1,0 +1,22 @@
+...............................................................F........ [ 30%]
+...........s.................................s............s............. [ 61%]
+........................................................................ [ 92%]
+.................                                                        [100%]
+=================================== FAILURES ===================================
+__________________ test_recorrido_completo_con_reloj_simulado __________________
+tests/test_etapa4_ecarga_guardia_s7.py:720: in test_recorrido_completo_con_reloj_simulado
+    assert ini.startswith("2026-11-09T03:00:0"), ini                     # 03:00:00Z = T_g, la orden no se adelanta
+E   AssertionError: 2026-11-08T01:00:00.000000000Z
+E   assert False
+E    +  where False = <built-in method startswith of str object at 0x748d47ba0350>('2026-11-09T03:00:0')
+E    +    where <built-in method startswith of str object at 0x748d47ba0350> = '2026-11-08T01:00:00.000000000Z'.startswith
+=========================== short test summary info ============================
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_recorrido_completo_con_reloj_simulado
+SKIPPED [1] tests/test_etapa4_ecarga_guardia_s7.py:876: sin OBS06
+SKIPPED [1] tests/test_etapa4_ecarga_prep.py:381: OBS06 no definido
+SKIPPED [1] tests/test_etapa4_ecarga_prep.py:534: OBS06 no definido
+1 failed, 229 passed, 3 skipped in 996.29s (0:16:36)
+tests/test_etapa4_ecarga_guardia_s7.py: 7 epochs, 4 fechas desplazadas, 1 fechas sin hora completa
+tests/test_etapa4_ecarga_prep.py: 6 epochs, 4 fechas desplazadas, 0 fechas sin hora completa
+total 21 sustituciones; T_g de prueba 1794099600
+RC_PYTEST=1
