@@ -31,7 +31,7 @@ Consulta a los remotos sin ningún cambio posterior a las referencias revisadas.
 
 | Uso | Herramienta | Versión o sha256 | Dónde corre |
 |---|---|---|---|
-| Referencias e integridad | `evidencia/20-procedimiento-final/herramientas/00_referencias.sh` | 2026-11-07.1 | laptop |
+| Referencias e integridad | `evidencia/20-procedimiento-final/herramientas/00_referencias.sh` | 2026-11-07.2 | laptop |
 | Procesos del ensayo | `evidencia/19-correccion-p11/laboratorio/previa.sh` + `previa_host.sh` | `4e1dd442…` | laptop → 4 hosts |
 | Post-copia | **r3**: `evidencia/18-cache-archivada-postcopia-p0/comprobador-r3/comprobar_post_copia_r3.sh` | host `799af8f1…` | laptop → 3 hosts |
 | P0 | **r3**: `evidencia/19-correccion-p11/p0-r3/p0_r3.sh` | 2026-11-06.r3; bloque Sensor1 `5ef3372a…` | laptop → 3 hosts + clientes |
@@ -136,7 +136,7 @@ CLI="ssh -o BatchMode=yes -i $HOME/.ssh/cyberflow-to-clientes adminclientes@10.1
 | Paso | Clase | Host y versión | Código esperado | Evidencia |
 |---|---|---|---|---|
 | A0 | [LECTURA] | laptop | `date +%s` < 1794191400; Mark confirma que el laboratorio está libre | `$EJ/A0.txt` |
-| A1 | [LECTURA] | laptop, `00_referencias.sh` 2026-11-07.1 | rc 0 | `$EJ/A1-referencias.txt` |
+| A1 | [LECTURA] | laptop, `00_referencias.sh` 2026-11-07.2 | rc 0 | `$EJ/A1-referencias.txt` |
 | A2 | [LECTURA] | 4 hosts, `previa.sh`, `4e1dd442…` | rc 0, 4 × `SIN_PROCESOS_DEL_ENSAYO` | `$EJ/A2-previa/` |
 | A3 | [LECTURA] | 3 hosts, post-copia r3 | rc 0, `CONFORME 3/3` | `$EJ/A3-postcopia-r3/` |
 | A4 | [LECTURA] | 3 hosts, `tomar.sh` | rc 0 | `$C/…/instantaneas/antes-p0-inmediato/` |
@@ -413,3 +413,4 @@ La orden debe darse en el chat de una sesión activa. Nada queda programado ni e
 | 6 | `clasificar_periodo.py` carga `salud_captura.py` de `herramientas-20261106` sin `-B`: puede dejar caché allí, no en el paquete | No comprobado. No afecta a la medida. E2 compara el paquete después del ensayo |
 | 7 | El procedimiento no fija tolerancia para T_g porque el protocolo tampoco lo hace | Si T_g ya pasó al llegar a C1, no se arranca |
 | 8 | Coste de los muestreadores sin métrica por proceso | Declarado en §6. No se añade instrumentación nueva en este encargo |
+| 9 | La primera pasada de `00_referencias.sh` (2026-11-07.1) tras publicar dio rc 1 con 4 FALLO falsos: `git.exe` no arranca con el directorio de trabajo en la copia de ruta larga | Corregido en la .2 (`cd "$HOME"` antes de esas consultas). Salida conservada en `evidencia/20-procedimiento-final/banco/referencias-primera-pasada-rc1.txt` |

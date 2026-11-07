@@ -1,0 +1,52 @@
+INFO referencias 2026-11-07T03:22:39Z
+INFO docs origin/main ea9ebcd1e16ad54c50e53239f26f052c7600d2ca
+OK    docs contiene 999bce6 (corrección de P11)
+OK    procedimiento final publicado en ea9ebcd (2026-11-06 22:22:33 -0500)
+OK    ningún commit posterior al procedimiento toca etapa4a-pendientes-2026-11-06
+OK    MANIFIESTO.sha256 verifica (527 ficheros, sha 6359154042d95c50…)
+OK    conjunto de ficheros = manifiesto
+OK    evidencia/18-cache-archivada-postcopia-p0: SHA256SUMS verifica
+OK    evidencia/19-correccion-p11: SHA256SUMS verifica
+OK    evidencia/20-procedimiento-final: SHA256SUMS verifica
+INFO herramientas del día (sha256 en la copia publicada):
+      090243ce0cc8989acc38d71930bc282aca3faab1af30766db1ef662dbcabf6f4  evidencia/20-procedimiento-final/herramientas/00_referencias.sh
+      44f3503b0529cc95ae27ace620c91c471051587e4cb34324899da7095178af7d  evidencia/20-procedimiento-final/herramientas/comprobar_p8.sh
+      e970f061dbfe9b4a9f4ac9e25d828484298dc81e6c9b854117cd604af5df87fa  evidencia/20-procedimiento-final/herramientas/comprobar_p12.sh
+      b45e950b9ad60fb3a9a1319705a3822de5ca034d94f5cf1eb9d81202c2459d5b  evidencia/20-procedimiento-final/herramientas/comprobar_p12_host.sh
+      234d89a589cec18a564db50188afe71609b531ae9fc3141a1270dfcc98ca7426  evidencia/19-correccion-p11/laboratorio/previa.sh
+      4e1dd442a81329f6e499dd505d3f511dd96799e7094638a0a69e9f354e6fdddf  evidencia/19-correccion-p11/laboratorio/previa_host.sh
+      9810b8550d45c3204a507b7bd3500c9a9052504b06a676f04a1582d7b994c813  evidencia/18-cache-archivada-postcopia-p0/comprobador-r3/comprobar_post_copia_r3.sh
+      799af8f10d4f6dce5abd37ac6fa1ac250d14aadfd03bb7654dab8b070d1965d6  evidencia/18-cache-archivada-postcopia-p0/comprobador-r3/post_copia_host_r3.sh
+      5ff7c9f586df070e5d15ce3650136c83261cb891735548bbd4d3e73ae1550174  evidencia/19-correccion-p11/p0-r3/p0_r3.sh
+      5ef3372a671d0b41d928823caa6a92d8f109b5c329a56e1719ab5979f4f911cd  evidencia/19-correccion-p11/p0-r3/bloques/sensor1_r3.sh
+      5bd4096c4f2a48eeb98185879e944183ebc6fc25aca60fa7d9dd3d35deccb3b3  evidencia/18-cache-archivada-postcopia-p0/instantaneas/tomar.sh
+      b4dfd6df2341fdac57c8330f610c11283956366576adff683dceaf6b7e1e28f6  evidencia/18-cache-archivada-postcopia-p0/instantaneas/instantanea_host.sh
+      25d8d3697087d9c7c035986ec42d2f4d15e1fc9a6bf5c0e083d55a2a34a6db62  evidencia/06-observacion/obs_p4_post.sh
+OK    bloque sensor1_r3.sh = 5ef3372a… (P0 r3)
+OK    obs_p4_post.sh = 25d8d369… (S7)
+Error: Current working directory has a path longer than allowed for a
+Win32 working directory.
+Can't start native Windows application from here.
+
+03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/campana-2026-10-26-deteccion-respuesta/etapa4a-pendientes-2026-11-06/evidencia/20-procedimiento-final/herramientas/00_referencias.sh: line 62: /ucrt64/bin/git: File name too long
+FALLO producto rama =  (se esperaba 975e715: revisar)
+Error: Current working directory has a path longer than allowed for a
+Win32 working directory.
+Can't start native Windows application from here.
+
+03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/campana-2026-10-26-deteccion-respuesta/etapa4a-pendientes-2026-11-06/evidencia/20-procedimiento-final/herramientas/00_referencias.sh: line 64: /ucrt64/bin/git: File name too long
+FALLO 902991e no es antecesor
+Error: Current working directory has a path longer than allowed for a
+Win32 working directory.
+Can't start native Windows application from here.
+
+03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/campana-2026-10-26-deteccion-respuesta/etapa4a-pendientes-2026-11-06/evidencia/20-procedimiento-final/herramientas/00_referencias.sh: line 65: /ucrt64/bin/git: File name too long
+FALLO ecarga/SHA256SUMS de 902991e distinto
+Error: Current working directory has a path longer than allowed for a
+Win32 working directory.
+Can't start native Windows application from here.
+
+03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/campana-2026-10-26-deteccion-respuesta/etapa4a-pendientes-2026-11-06/evidencia/20-procedimiento-final/herramientas/00_referencias.sh: line 67: /ucrt64/bin/git: File name too long
+FALLO sensor1_muestreadores.sh de 975e715 distinto
+COPIA /c/Users/markp/AppData/Local/Temp/claude/f17b3819211dc686/51c74eee-a71d-4dd3-9ea4-b614ec3c2579/scratchpad/e9/copia-post/03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/campana-2026-10-26-deteccion-respuesta/etapa4a-pendientes-2026-11-06
+RESULTADO_REFERENCIAS rc=1
