@@ -13,6 +13,7 @@ El procedimiento está en
 | `banco/banco_p12.sh` | Banco con marcas simuladas; no arranca nada |
 | `banco/banco-p12-65534.txt` | Docker sin red, 65534: 15 casos, fallos=0 |
 | `banco/banco-p12-root.txt` | Docker sin red, root: 14 casos y 1 omitido (`chmod 000`, sin efecto como root), fallos=0 |
+| `banco/referencias-primera-pasada-rc1.txt` | Salida de `00_referencias.sh` 2026-11-07.1 sobre `ea9ebcd`: rc 1 por el límite de ruta de `git.exe`, corregido en la .2 |
 | `p8-verificacion-20261107T020848Z/` | Salida real de `comprobar_p8.sh`: `REQ P8 CUMPLE`, rc 0 |
 
 Límites:

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # [LAPTOP Git Bash] Paso A1 del procedimiento final de E-carga v2: referencias e integridad. SOLO LECTURA sobre los
-# repositorios (git fetch, git archive) y sobre GitHub; no se conecta a ningún host. VERSION 2026-11-07.1
+# repositorios (git fetch, git archive) y sobre GitHub; no se conecta a ningún host. VERSION 2026-11-07.2
 #   00_referencias.sh COPIA_NUEVA
 # Extrae a COPIA_NUEVA la carpeta etapa4a-pendientes-2026-11-06 de origin/main TAL COMO ESTÁ PUBLICADA (git archive) y
 # comprueba, sobre esa copia, todo lo que se va a ejecutar. Las herramientas del día se lanzan desde esa copia, no desde
@@ -59,6 +59,7 @@ done
   && ok "bloque sensor1_r3.sh = 5ef3372a… (P0 r3)" || no "bloque sensor1_r3.sh distinto"
 [ "$(sha256sum < evidencia/06-observacion/obs_p4_post.sh | cut -c1-64)" = 25d8d3697087d9c7c035986ec42d2f4d15e1fc9a6bf5c0e083d55a2a34a6db62 ] \
   && ok "obs_p4_post.sh = 25d8d369… (S7)" || no "obs_p4_post.sh distinto"
+cd "$HOME" || exit 1   # 2026-11-07.2: desde la copia, con ruta larga, git.exe no arranca (límite Win32) y daba 4 FALLO falsos
 R=$(git -C "$PR" rev-parse origin/recuperacion/etapa4a-pendientes-20261106)
 [ "$R" = 975e715808f3ad454055712660414f2e8fd50878 ] && ok "producto rama = 975e715" || no "producto rama = $R (se esperaba 975e715: revisar)"
 git -C "$PR" merge-base --is-ancestor 902991ec077c9495a99e1075cb26af35ae980507 "$R" && ok "902991e es antecesor de la rama" || no "902991e no es antecesor"
