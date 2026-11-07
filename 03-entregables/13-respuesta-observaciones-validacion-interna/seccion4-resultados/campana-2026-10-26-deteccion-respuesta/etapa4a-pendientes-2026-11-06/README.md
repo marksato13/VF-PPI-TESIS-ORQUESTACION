@@ -9,6 +9,8 @@
 > [`evidencia/21-correccion-guardia-parada-s7/`](evidencia/21-correccion-guardia-parada-s7/README.md), producto `27bcd46`. Las herramientas vigentes del paso A1
 > pasan a esa carpeta. Los hosts siguen con `902991e`; hace falta un traslado autorizado. E-carga NO ejecutada ni programada.
 >
+> **Revisión del 07-nov (noche).** Propuesta para adelantar E-carga 2 h: [`PROTOCOLO-CARGA-v2-r6.md`](PROTOCOLO-CARGA-v2-r6.md), [`ecarga-v2-preparacion/PROCEDIMIENTO-ECARGA-v2-VARIANTE-r6.md`](ecarga-v2-preparacion/PROCEDIMIENTO-ECARGA-v2-VARIANTE-r6.md) y [`evidencia/25-franja-r6-20h/`](evidencia/25-franja-r6-20h/README.md). La r5 aprobada sigue activa hasta que Mark apruebe la r6. E-carga NO ejecutada ni programada.
+>
 > **Revisión del 07-nov (tarde).** C1 ya no escribe nada entre la última comprobación y el envío (producto `0a794f4`). Para decidir: [`PROTOCOLO-CARGA-v2-r5.md`](PROTOCOLO-CARGA-v2-r5.md), propuesta de franja del domingo 8 de noviembre; [`ecarga-v2-preparacion/PROCEDIMIENTO-ECARGA-v2-VARIANTE-r5.md`](ecarga-v2-preparacion/PROCEDIMIENTO-ECARGA-v2-VARIANTE-r5.md), su secuencia; [`ecarga-v2-preparacion/CRONOGRAMA-HASTA-CAMPANA-B.md`](ecarga-v2-preparacion/CRONOGRAMA-HASTA-CAMPANA-B.md), el cronograma; y [`evidencia/24-c1-registro-franja-domingo/`](evidencia/24-c1-registro-franja-domingo/README.md), la evidencia. E-carga NO ejecutada ni programada.
 >
 > **Revisión del 07-nov (13:52Z).** C1 relee la hora antes de emitir y se estabilizan las pruebas: [`evidencia/23-correccion-c1-tg-estabilidad-banco/`](evidencia/23-correccion-c1-tg-estabilidad-banco/README.md), código `f24c922`, pruebas `ea3f356`.

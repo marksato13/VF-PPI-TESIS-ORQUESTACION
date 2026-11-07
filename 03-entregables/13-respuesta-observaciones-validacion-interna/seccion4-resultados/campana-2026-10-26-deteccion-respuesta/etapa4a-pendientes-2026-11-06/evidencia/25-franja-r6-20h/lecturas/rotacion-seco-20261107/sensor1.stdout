@@ -1,0 +1,13 @@
+c4df64e4c2e1c2f71ea316e1e7e9c4ccaea3b3f65594fbf556bd23f7abffca2f  -
+INFO rotacion rotacion cyberflow-sensor 2026-11-07T19:44:03Z epoch 1794080643 minimo 1794009600 (2026-11-07T00:00:00Z)
+INFO   Result=success
+INFO   ExecMainStartTimestamp=Sat 2026-11-07 00:00:00 UTC
+INFO   ExecMainStatus=0
+INFO   ActiveState=inactive
+INFO   InactiveEnterTimestamp=Sat 2026-11-07 00:00:08 UTC
+OK    logrotate.service de 00:00:00 a 00:00:08, 8 s
+OK    /var/log/suricata/eve.json.1.gz de 2026-11-07T00:00:04Z
+OK    suricata activo
+INFO eve tamaño 102115421 → 102176056; último evento 1794080643 → 1794080664 (ahora 1794080664); último stats 1794080663
+REQ ROTACION.rotacion CUMPLE rotación terminada y eve.json recibe eventos nuevos
+FIN_ROTACION rc=0
