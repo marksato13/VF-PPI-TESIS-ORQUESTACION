@@ -1,0 +1,16 @@
+OK    uso sin argumentos: rc=2 USO
+OK    verificar sin instalar: rc=5 NO_VERIFICA
+OK    tgz ausente: rc=4 TGZ_DISTINTO
+OK    tgz distinto: rc=4 TGZ_DISTINTO
+OK    SHA256SUMS esperado distinto: rc=5 NO_VERIFICA
+OK    sin carpeta tras no verificar
+OK    instalación: rc=0 VERIFICADO
+OK    tgz retirado de /tmp
+OK    verificar instalado: rc=0 VERIFICADO
+OK    segunda instalación: rc=3 CARPETA_EXISTENTE
+OK    paquete-902991e intacto
+OK    fichero alterado: rc=5 NO_VERIFICA
+OK    fichero de más: rc=5 NO_VERIFICA
+OK    guardia distinta del paquete: rc=5 NO_VERIFICA
+casos=11 fallos=0
+RC_BANCO=0

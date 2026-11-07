@@ -1,0 +1,36 @@
+# Reproducción con la versión 975e715. Dobles y reloj simulado; sin hosts. 2026-11-07T04:58:52Z
+
+## H1. Arranque con la guardia ya parada, y cruce con la parada
+
+| Caso | rc C1 | Órdenes de start | Vivos tras C1 | Vivos al final | rc muestreo | Parada |
+|---|---:|---:|---:|---:|---:|---|
+| Parada confirmada antes de T_g | 0 | 1 | 6 | 6 | 0 | solicitada confirmada |
+| Parada durante un start lento | 0 | 1 | 6 | 6 | 0 | solicitada confirmada |
+
+Orden de las órdenes al host: arrancar -> parar
+
+## H2. Parada al salir del bucle, reloj simulado
+
+T0 = 1794193200, PARADA = T0+60, FIN = T0+120, intervalo 30 s. El salto ocurre en la primera espera: de T0 a T0+125.
+
+| Caso | Órdenes de parada | Estado final | rc | Parados | RESULTADO-PARADA |
+|---|---:|---|---:|---|---|
+| Parada normal | 1 | confirmada | 0 | sí | no existe |
+| Salto de reloj | 0 | ninguna | 0 | no | no existe |
+| Parada ya confirmada | 1 | confirmada | 0 | sí | no existe |
+| Salto + fallo transitorio | 0 | ninguna | 0 | no | no existe |
+| Salto + intentos agotados | 0 | ninguna | 0 | no | no existe |
+| Salto en modo seco | 0 | ninguna | 0 | no | no existe |
+
+## H3. S7 sin secuencia del publicador
+
+`obs_p4_post.sh`, sellado y sin cambios: rc 0
+    O7 entregas del relé en la ventana: 1 modos: Counter({'pareja': 1})
+    aceptadas en orden: True
+    entregadas NO aceptadas: 0 []
+    publicador: secuencia [] … [] sin retroceso: True
+
+Con esa salida, la regla escrita de D4 permite `--manual S7=true`, que `construir_entrada.py` acepta:
+
+Entrada: S7 = true. Veredicto: «estable con carga suficiente», habilita_condicion_3 = true, rc 0
+RC=0

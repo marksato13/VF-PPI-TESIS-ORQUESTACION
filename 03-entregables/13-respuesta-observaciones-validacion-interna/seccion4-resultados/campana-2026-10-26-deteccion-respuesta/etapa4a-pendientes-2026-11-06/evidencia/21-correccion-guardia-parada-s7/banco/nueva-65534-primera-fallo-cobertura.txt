@@ -1,0 +1,63 @@
+....................................................F................... [ 32%]
+........................................................................ [ 64%]
+........................................................................ [ 97%]
+......                                                                   [100%]
+=================================== FAILURES ===================================
+__________________ test_recorrido_completo_con_reloj_simulado __________________
+tests/test_etapa4_ecarga_guardia_s7.py:598: in test_recorrido_completo_con_reloj_simulado
+    assert json.loads(lee(x / "manual" / "s7" / "s7.json"))["S7"]["valor"] is True, lee(x / "manual" / "s7" / "s7.json")
+E   AssertionError: {
+E      "version": "derivar_s7 2026-11-07.1",
+E      "periodo": [
+E       1794194100.0,
+E       1794197700.0
+E      ],
+E      "comprobaciones": {
+E       "entregas_aceptadas": {
+E        "valor": true,
+E        "motivo": null,
+E        "entregas": 4,
+E        "recepciones": 4,
+E        "estados": {
+E         "aceptado": 4
+E        },
+E        "no_aceptadas": 0,
+E        "secuencia_ini_fin": [
+E         100,
+E         103
+E        ]
+E       },
+E       "aceptadas_en_orden": {
+E        "valor": true,
+E        "motivo": null,
+E        "aceptadas": 4
+E       },
+E       "publicador_sin_retroceso": {
+E        "valor": null,
+E        "motivo": "cobertura de lecturas insuficiente (criterio <= 60 s)",
+E        "lecturas": 123,
+E        "lecturas_fallidas": 0,
+E        "secuencia_ini_fin": [
+E         5897,
+E         5897
+E        ],
+E        "cobertura": {
+E         "muestras": 123,
+E         "antes_de_desde_s": 29.0,
+E         "despues_de_hasta_s": 1.0,
+E         "hueco_max_s": 61.0,
+E         "ok": false
+E        }
+E       }
+E      },
+E      "S7": {
+E       "valor": null,
+E       "motivo": "publicador_sin_retroceso: cobertura de lecturas insuficiente (criterio <= 60 s)"
+E      }
+E     }
+E     
+E   assert None is True
+=========================== short test summary info ============================
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_recorrido_completo_con_reloj_simulado
+1 failed, 221 passed in 718.69s (0:11:58)
+RC_PYTEST=1

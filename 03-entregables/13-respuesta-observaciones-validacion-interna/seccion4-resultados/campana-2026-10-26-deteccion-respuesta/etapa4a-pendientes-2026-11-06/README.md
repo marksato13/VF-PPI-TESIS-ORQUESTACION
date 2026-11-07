@@ -4,6 +4,10 @@
 > secuencia vigente está en
 > [`ecarga-v2-preparacion/PROCEDIMIENTO-ECARGA-v2-FINAL.md`](ecarga-v2-preparacion/PROCEDIMIENTO-ECARGA-v2-FINAL.md); sus
 > herramientas, en [`evidencia/20-procedimiento-final/`](evidencia/20-procedimiento-final/).
+>
+> **Revisión del 07-nov (06:00Z).** Corregidos con dobles y reloj simulado tres fallos de C1, de la parada al salir y de S7:
+> [`evidencia/21-correccion-guardia-parada-s7/`](evidencia/21-correccion-guardia-parada-s7/README.md), producto `27bcd46`. Las herramientas vigentes del paso A1
+> pasan a esa carpeta. Los hosts siguen con `902991e`; hace falta un traslado autorizado. E-carga NO ejecutada ni programada.
 > - **Requisitos:** P5b y P12 siguen sin observar. P8 tiene evidencia documental verificada el 07-nov y se repite antes
 >   de T_g.
 > - **Franja:** coherente en epoch, UTC y Perú, y aún viable. No se desplaza.
