@@ -1,0 +1,20 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-8.3.5, pluggy-1.5.0
+rootdir: /r
+collected 86 items
+
+tests/test_etapa4_ecarga_guardia_s7.py ................................. [ 38%]
+........................F............................                    [100%]
+
+=================================== FAILURES ===================================
+__________________ test_recorrido_completo_con_reloj_simulado __________________
+tests/test_etapa4_ecarga_guardia_s7.py:632: in test_recorrido_completo_con_reloj_simulado
+    assert rc == 0, out
+E   AssertionError: NO AUTORIZADO, ninguna orden emitida: T_g ya pasó antes de emitir la orden (ahora=1794193201, T_G=1794193200)
+E     {"version": "2026-11-07.2", "resultado": "NO_AUTORIZADO", "rc": 2, "motivo": "T_g ya pasó antes de emitir la orden (ahora=1794193201, T_G=1794193200)", "t": 1794193201}
+E     
+E   assert 2 == 0
+=========================== short test summary info ============================
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_recorrido_completo_con_reloj_simulado
+=================== 1 failed, 85 passed in 292.44s (0:04:52) ===================
+RC_PYTEST=1

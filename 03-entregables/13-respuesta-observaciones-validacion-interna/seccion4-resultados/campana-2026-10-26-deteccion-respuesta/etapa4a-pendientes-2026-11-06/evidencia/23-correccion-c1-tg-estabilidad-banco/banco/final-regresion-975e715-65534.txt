@@ -1,0 +1,154 @@
+FFFFFFFFFFFF..........................................                   [100%]
+=================================== FAILURES ===================================
+________ test_regresion_c1_no_arranca_con_parada_confirmada_antes_de_tg ________
+tests/test_etapa4_ecarga_guardia_s7.py:116: in test_regresion_c1_no_arranca_con_parada_confirmada_antes_de_tg
+    assert r["ordenes_arrancar"] == 0 and r["vivos_tras_c1"] == 0 and r["vivos_al_final"] == 0, r
+E   AssertionError: {'c1_rc': 0, 'ordenes_arrancar': 1, 'rc_muestreo': 0, 'salida': '2026-11-07T13:40:06.048466599Z
+E     OK cyberflow-lab-ofim...ive, 6 unidades running con su perfil e IP, procesos = MainPID (1885 1970 2003 2054 2232 3501 )
+E     arrancar rc=0
+E     ', ...}
+E   assert (1 == 0)
+______________ test_regresion_parada_confirmada_no_es_definitiva _______________
+tests/test_etapa4_ecarga_guardia_s7.py:132: in test_regresion_parada_confirmada_no_es_definitiva
+    assert lab.parado() and p.returncode == 0, lee(x / "bastion" / "eventos.log")
+E   AssertionError: 2026-11-07T13:40:10Z 1794058810 PARADA solicitada (intento 1/6): guardia: 1794058810: MemAvailable 500000 kB < 1 GiB
+E       [parar intento 1] 2026-11-07T13:40:10Z PARADA solicitada: sudo -n systemctl stop cyberflow-lab.target
+E       [parar intento 1] stop rc=0 
+E       [parar intento 1] gen target=inactive carga=loaded habilitado=static hash=01aefbd6 procesos=0 unidades: ofimatica=inactive/dead/pid0/nr0 navegacion=inactive/dead/pid0/nr0 descargas=inactive/dead/pid0/nr0 aplicacion=inactive/dead/pid0/nr0 ligero=inactive/dead/pid0/nr0 erratico=inactive/dead/pid0/nr0 consulta=ok
+E       [parar intento 1] PARADA_CONFIRMADA: target inactivo, 6 unidades inactivas con MainPID 0 y 0 procesos clientes_lab.py
+E     2026-11-07T13:40:11Z 1794058811 PARADA confirmada (intento 1)
+E     2026-11-07T13:40:19Z 1794058819 fin del muestreo: parada=confirmada intentos=1
+E     
+E   assert (False)
+E    +  where False = parado()
+E    +    where parado = <test_etapa4_ecarga_prep.Lab object at 0x79628f23f390>.parado
+____________ test_regresion_c1_reloj_supera_tg_durante_la_espera[1] ____________
+tests/test_etapa4_ecarga_guardia_s7.py:367: in test_regresion_c1_reloj_supera_tg_durante_la_espera
+    denegado_por_hora(caso_c1_tardio(lab, salto_espera=salto))
+tests/test_etapa4_ecarga_guardia_s7.py:359: in denegado_por_hora
+    assert r["rc"] == 2, r["out"]
+E   AssertionError: 2026-11-09T03:00:01.000000000Z
+E     OK cyberflow-lab-ofimatica.service ofimatica 10.10.20.21
+E     OK cyberflow-lab-navegacion.service navegacion 10.10.20.22
+E     OK cyberflow-lab-descargas.service descargas 10.10.20.23
+E     OK cyberflow-lab-aplicacion.service aplicacion 10.10.20.24
+E     OK cyberflow-lab-ligero.service ligero 10.10.20.25
+E     OK cyberflow-lab-erratico.service erratico 10.10.20.26
+E     2026-11-09T03:00:01Z ARRANQUE solicitado: sudo -n systemctl start cyberflow-lab.target
+E     start rc=0 
+E     gen target=active carga=loaded habilitado=static hash=01aefbd6 procesos=6 unidades: ofimatica=active/running/pid1810/nr0 navegacion=active/running/pid1641/nr0 descargas=active/running/pid3132/nr0 aplicacion=active/running/pid2443/nr0 ligero=active/running/pid2214/nr0 erratico=active/running/pid2725/nr0 consulta=ok
+E     ARRANQUE_CONFIRMADO: target active, 6 unidades running con su perfil e IP, procesos = MainPID (1641 1810 2214 2443 2725 3132 )
+E     arrancar rc=0
+E     
+E   assert 0 == 2
+___________ test_regresion_c1_reloj_supera_tg_durante_la_espera[45] ____________
+tests/test_etapa4_ecarga_guardia_s7.py:367: in test_regresion_c1_reloj_supera_tg_durante_la_espera
+    denegado_por_hora(caso_c1_tardio(lab, salto_espera=salto))
+tests/test_etapa4_ecarga_guardia_s7.py:359: in denegado_por_hora
+    assert r["rc"] == 2, r["out"]
+E   AssertionError: 2026-11-09T03:00:45.000000000Z
+E     OK cyberflow-lab-ofimatica.service ofimatica 10.10.20.21
+E     OK cyberflow-lab-navegacion.service navegacion 10.10.20.22
+E     OK cyberflow-lab-descargas.service descargas 10.10.20.23
+E     OK cyberflow-lab-aplicacion.service aplicacion 10.10.20.24
+E     OK cyberflow-lab-ligero.service ligero 10.10.20.25
+E     OK cyberflow-lab-erratico.service erratico 10.10.20.26
+E     2026-11-09T03:00:45Z ARRANQUE solicitado: sudo -n systemctl start cyberflow-lab.target
+E     start rc=0 
+E     gen target=active carga=loaded habilitado=static hash=01aefbd6 procesos=6 unidades: ofimatica=active/running/pid3030/nr0 navegacion=active/running/pid1331/nr0 descargas=active/running/pid2922/nr0 aplicacion=active/running/pid3163/nr0 ligero=active/running/pid1214/nr0 erratico=active/running/pid2895/nr0 consulta=ok
+E     ARRANQUE_CONFIRMADO: target active, 6 unidades running con su perfil e IP, procesos = MainPID (1214 1331 2895 2922 3030 3163 )
+E     arrancar rc=0
+E     
+E   assert 0 == 2
+__________ test_regresion_c1_reloj_supera_tg_al_evaluar_la_puerta[1] ___________
+tests/test_etapa4_ecarga_guardia_s7.py:372: in test_regresion_c1_reloj_supera_tg_al_evaluar_la_puerta
+    denegado_por_hora(caso_c1_tardio(lab, salto_puerta=salto))
+tests/test_etapa4_ecarga_guardia_s7.py:359: in denegado_por_hora
+    assert r["rc"] == 2, r["out"]
+E   AssertionError: 2026-11-09T03:00:00.000000000Z
+E     OK cyberflow-lab-ofimatica.service ofimatica 10.10.20.21
+E     OK cyberflow-lab-navegacion.service navegacion 10.10.20.22
+E     OK cyberflow-lab-descargas.service descargas 10.10.20.23
+E     OK cyberflow-lab-aplicacion.service aplicacion 10.10.20.24
+E     OK cyberflow-lab-ligero.service ligero 10.10.20.25
+E     OK cyberflow-lab-erratico.service erratico 10.10.20.26
+E     2026-11-09T03:00:00Z ARRANQUE solicitado: sudo -n systemctl start cyberflow-lab.target
+E     start rc=0 
+E     gen target=active carga=loaded habilitado=static hash=01aefbd6 procesos=6 unidades: ofimatica=active/running/pid2060/nr0 navegacion=active/running/pid3421/nr0 descargas=active/running/pid1652/nr0 aplicacion=active/running/pid3173/nr0 ligero=active/running/pid2824/nr0 erratico=active/running/pid2195/nr0 consulta=ok
+E     ARRANQUE_CONFIRMADO: target active, 6 unidades running con su perfil e IP, procesos = MainPID (1652 2060 2195 2824 3173 3421 )
+E     arrancar rc=0
+E     
+E   assert 0 == 2
+__________ test_regresion_c1_reloj_supera_tg_al_evaluar_la_puerta[45] __________
+tests/test_etapa4_ecarga_guardia_s7.py:372: in test_regresion_c1_reloj_supera_tg_al_evaluar_la_puerta
+    denegado_por_hora(caso_c1_tardio(lab, salto_puerta=salto))
+tests/test_etapa4_ecarga_guardia_s7.py:359: in denegado_por_hora
+    assert r["rc"] == 2, r["out"]
+E   AssertionError: 2026-11-09T03:00:00.000000000Z
+E     OK cyberflow-lab-ofimatica.service ofimatica 10.10.20.21
+E     OK cyberflow-lab-navegacion.service navegacion 10.10.20.22
+E     OK cyberflow-lab-descargas.service descargas 10.10.20.23
+E     OK cyberflow-lab-aplicacion.service aplicacion 10.10.20.24
+E     OK cyberflow-lab-ligero.service ligero 10.10.20.25
+E     OK cyberflow-lab-erratico.service erratico 10.10.20.26
+E     2026-11-09T03:00:00Z ARRANQUE solicitado: sudo -n systemctl start cyberflow-lab.target
+E     start rc=0 
+E     gen target=active carga=loaded habilitado=static hash=01aefbd6 procesos=6 unidades: ofimatica=active/running/pid1530/nr0 navegacion=active/running/pid1861/nr0 descargas=active/running/pid2772/nr0 aplicacion=active/running/pid2293/nr0 ligero=active/running/pid2744/nr0 erratico=active/running/pid1125/nr0 consulta=ok
+E     ARRANQUE_CONFIRMADO: target active, 6 unidades running con su perfil e IP, procesos = MainPID (1125 1530 1861 2293 2744 2772 )
+E     arrancar rc=0
+E     
+E   assert 0 == 2
+_________________ test_regresion_cruce_arranque_lento_y_parada _________________
+tests/test_etapa4_ecarga_guardia_s7.py:420: in test_regresion_cruce_arranque_lento_y_parada
+    assert r["vivos_al_final"] == 0 and r["parado"], r
+E   AssertionError: {'c1_rc': 0, 'ordenes': ['bash -s arrancar', 'bash -s parar'], 'parado': False, 'rc_muestreo': 0, ...}
+E   assert (6 == 0)
+____________________ test_regresion_cruce_arranque_parcial _____________________
+tests/test_etapa4_ecarga_guardia_s7.py:435: in test_regresion_cruce_arranque_parcial
+    assert rc == 3 and "arrancar rc=4" in lee(x / "manual" / "arranque.rc") and p.returncode == 0, lee(x / "manual" / "RESULTADO-C1")
+E   AssertionError: 
+E   assert (0 == 3)
+____ test_regresion_h2_salto_de_reloj_antes_de_parada_hasta_despues_de_fin _____
+tests/test_etapa4_ecarga_guardia_s7.py:510: in test_regresion_h2_salto_de_reloj_antes_de_parada_hasta_despues_de_fin
+    assert (r["rc"], r["ordenes_parar"], r["estado"], r["parado"]) == (0, 1, "confirmada", True), r
+E   AssertionError: {'estado': 'ninguna', 'o': PosixPath('/tmp/bt/test_regresion_h2_salto_de_rel0/obs'), 'ordenes_parar': 0, 'parado': False, ...}
+E   assert (0, 0, 'ninguna', False) == (0, 1, 'confirmada', True)
+E     
+E     At index 1 diff: 0 != 1
+E     Use -v to get more diff
+________ test_regresion_h2_salto_con_fallo_transitorio_que_se_recupera _________
+tests/test_etapa4_ecarga_guardia_s7.py:527: in test_regresion_h2_salto_con_fallo_transitorio_que_se_recupera
+    assert (r["rc"], r["ordenes_parar"], r["estado"], r["parado"]) == (0, 2, "confirmada", True), r
+E   AssertionError: {'estado': 'ninguna', 'o': PosixPath('/tmp/bt/test_regresion_h2_salto_con_fa0/obs'), 'ordenes_parar': 0, 'parado': False, ...}
+E   assert (0, 0, 'ninguna', False) == (0, 2, 'confirmada', True)
+E     
+E     At index 1 diff: 0 != 2
+E     Use -v to get more diff
+________________ test_regresion_h2_salto_con_intentos_agotados _________________
+tests/test_etapa4_ecarga_guardia_s7.py:536: in test_regresion_h2_salto_con_intentos_agotados
+    assert (r["rc"], r["ordenes_parar"], r["estado"], r["parado"]) == (4, 3, "agotada", False), r
+E   AssertionError: {'estado': 'ninguna', 'o': PosixPath('/tmp/bt/test_regresion_h2_salto_con_in0/obs'), 'ordenes_parar': 0, 'parado': False, ...}
+E   assert (0, 0, 'ninguna', False) == (4, 3, 'agotada', False)
+E     
+E     At index 0 diff: 0 != 4
+E     Use -v to get more diff
+___________________ test_regresion_manual_s7_ya_no_se_admite ___________________
+tests/test_etapa4_ecarga_guardia_s7.py:894: in test_regresion_manual_s7_ya_no_se_admite
+    assert rc == 2 and "--manual solo admite" in err, (rc, err)
+E   AssertionError: (0, '')
+E   assert (0 == 2)
+=========================== short test summary info ============================
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_regresion_c1_no_arranca_con_parada_confirmada_antes_de_tg
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_regresion_parada_confirmada_no_es_definitiva
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_regresion_c1_reloj_supera_tg_durante_la_espera[1]
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_regresion_c1_reloj_supera_tg_durante_la_espera[45]
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_regresion_c1_reloj_supera_tg_al_evaluar_la_puerta[1]
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_regresion_c1_reloj_supera_tg_al_evaluar_la_puerta[45]
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_regresion_cruce_arranque_lento_y_parada
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_regresion_cruce_arranque_parcial
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_regresion_h2_salto_de_reloj_antes_de_parada_hasta_despues_de_fin
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_regresion_h2_salto_con_fallo_transitorio_que_se_recupera
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_regresion_h2_salto_con_intentos_agotados
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_regresion_manual_s7_ya_no_se_admite
+12 failed, 42 passed, 173 deselected in 101.19s (0:01:41)
+RC_PYTEST=1

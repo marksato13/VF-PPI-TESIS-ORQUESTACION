@@ -1,0 +1,74 @@
+FFFFFFFF..........................................                       [100%]
+=================================== FAILURES ===================================
+________ test_regresion_c1_no_arranca_con_parada_confirmada_antes_de_tg ________
+tests/test_etapa4_ecarga_guardia_s7.py:116: in test_regresion_c1_no_arranca_con_parada_confirmada_antes_de_tg
+    assert r["ordenes_arrancar"] == 0 and r["vivos_tras_c1"] == 0 and r["vivos_al_final"] == 0, r
+E   AssertionError: {'c1_rc': 0, 'ordenes_arrancar': 1, 'rc_muestreo': 0, 'salida': '2026-11-07T10:39:15.114105812Z
+E     OK cyberflow-lab-ofim...ive, 6 unidades running con su perfil e IP, procesos = MainPID (1342 2190 2194 2485 3423 3521 )
+E     arrancar rc=0
+E     ', ...}
+E   assert (1 == 0)
+______________ test_regresion_parada_confirmada_no_es_definitiva _______________
+tests/test_etapa4_ecarga_guardia_s7.py:132: in test_regresion_parada_confirmada_no_es_definitiva
+    assert lab.parado() and p.returncode == 0, lee(x / "bastion" / "eventos.log")
+E   AssertionError: 2026-11-07T10:39:20Z 1794047960 PARADA solicitada (intento 1/6): guardia: 1794047959: MemAvailable 500000 kB < 1 GiB
+E       [parar intento 1] 2026-11-07T10:39:20Z PARADA solicitada: sudo -n systemctl stop cyberflow-lab.target
+E       [parar intento 1] stop rc=0 
+E       [parar intento 1] gen target=inactive carga=loaded habilitado=static hash=01aefbd6 procesos=0 unidades: ofimatica=inactive/dead/pid0/nr0 navegacion=inactive/dead/pid0/nr0 descargas=inactive/dead/pid0/nr0 aplicacion=inactive/dead/pid0/nr0 ligero=inactive/dead/pid0/nr0 erratico=inactive/dead/pid0/nr0 consulta=ok
+E       [parar intento 1] PARADA_CONFIRMADA: target inactivo, 6 unidades inactivas con MainPID 0 y 0 procesos clientes_lab.py
+E     2026-11-07T10:39:20Z 1794047960 PARADA confirmada (intento 1)
+E     2026-11-07T10:39:27Z 1794047967 fin del muestreo: parada=confirmada intentos=1
+E     
+E   assert (False)
+E    +  where False = parado()
+E    +    where parado = <test_etapa4_ecarga_prep.Lab object at 0x7fec976d2fd0>.parado
+_________________ test_regresion_cruce_arranque_lento_y_parada _________________
+tests/test_etapa4_ecarga_guardia_s7.py:359: in test_regresion_cruce_arranque_lento_y_parada
+    assert r["vivos_al_final"] == 0 and r["parado"], r
+E   AssertionError: {'c1_rc': 0, 'ordenes': ['bash -s arrancar', 'bash -s parar'], 'parado': False, 'rc_muestreo': 0, ...}
+E   assert (6 == 0)
+____________________ test_regresion_cruce_arranque_parcial _____________________
+tests/test_etapa4_ecarga_guardia_s7.py:374: in test_regresion_cruce_arranque_parcial
+    assert rc == 3 and "arrancar rc=4" in lee(x / "manual" / "arranque.rc") and p.returncode == 0, lee(x / "manual" / "RESULTADO-C1")
+E   AssertionError: 
+E   assert (0 == 3)
+____ test_regresion_h2_salto_de_reloj_antes_de_parada_hasta_despues_de_fin _____
+tests/test_etapa4_ecarga_guardia_s7.py:449: in test_regresion_h2_salto_de_reloj_antes_de_parada_hasta_despues_de_fin
+    assert (r["rc"], r["ordenes_parar"], r["estado"], r["parado"]) == (0, 1, "confirmada", True), r
+E   AssertionError: {'estado': 'ninguna', 'o': PosixPath('/tmp/bt/test_regresion_h2_salto_de_rel0/obs'), 'ordenes_parar': 0, 'parado': False, ...}
+E   assert (0, 0, 'ninguna', False) == (0, 1, 'confirmada', True)
+E     
+E     At index 1 diff: 0 != 1
+E     Use -v to get more diff
+________ test_regresion_h2_salto_con_fallo_transitorio_que_se_recupera _________
+tests/test_etapa4_ecarga_guardia_s7.py:466: in test_regresion_h2_salto_con_fallo_transitorio_que_se_recupera
+    assert (r["rc"], r["ordenes_parar"], r["estado"], r["parado"]) == (0, 2, "confirmada", True), r
+E   AssertionError: {'estado': 'ninguna', 'o': PosixPath('/tmp/bt/test_regresion_h2_salto_con_fa0/obs'), 'ordenes_parar': 0, 'parado': False, ...}
+E   assert (0, 0, 'ninguna', False) == (0, 2, 'confirmada', True)
+E     
+E     At index 1 diff: 0 != 2
+E     Use -v to get more diff
+________________ test_regresion_h2_salto_con_intentos_agotados _________________
+tests/test_etapa4_ecarga_guardia_s7.py:475: in test_regresion_h2_salto_con_intentos_agotados
+    assert (r["rc"], r["ordenes_parar"], r["estado"], r["parado"]) == (4, 3, "agotada", False), r
+E   AssertionError: {'estado': 'ninguna', 'o': PosixPath('/tmp/bt/test_regresion_h2_salto_con_in0/obs'), 'ordenes_parar': 0, 'parado': False, ...}
+E   assert (0, 0, 'ninguna', False) == (4, 3, 'agotada', False)
+E     
+E     At index 0 diff: 0 != 4
+E     Use -v to get more diff
+___________________ test_regresion_manual_s7_ya_no_se_admite ___________________
+tests/test_etapa4_ecarga_guardia_s7.py:825: in test_regresion_manual_s7_ya_no_se_admite
+    assert rc == 2 and "--manual solo admite" in err, (rc, err)
+E   AssertionError: (0, '')
+E   assert (0 == 2)
+=========================== short test summary info ============================
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_regresion_c1_no_arranca_con_parada_confirmada_antes_de_tg
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_regresion_parada_confirmada_no_es_definitiva
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_regresion_cruce_arranque_lento_y_parada
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_regresion_cruce_arranque_parcial
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_regresion_h2_salto_de_reloj_antes_de_parada_hasta_despues_de_fin
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_regresion_h2_salto_con_fallo_transitorio_que_se_recupera
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_regresion_h2_salto_con_intentos_agotados
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_regresion_manual_s7_ya_no_se_admite
+8 failed, 42 passed, 172 deselected in 103.29s (0:01:43)
+RC_PYTEST=1

@@ -1,0 +1,16 @@
+.......................................F................................ [ 32%]
+........................................................................ [ 64%]
+........................................................................ [ 97%]
+......                                                                   [100%]
+=================================== FAILURES ===================================
+______________ test_cruce_parada_no_confirmada_exige_intervencion ______________
+tests/test_etapa4_ecarga_guardia_s7.py:416: in test_cruce_parada_no_confirmada_exige_intervencion
+    assert rc == 4, out
+E   AssertionError: NO AUTORIZADO, ninguna orden emitida: cerrojo ocupado: hay una parada en curso
+E     {"version": "2026-11-07.1", "resultado": "NO_AUTORIZADO", "rc": 2, "motivo": "cerrojo ocupado: hay una parada en curso", "t": 1794042086}
+E     
+E   assert 2 == 4
+=========================== short test summary info ============================
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_cruce_parada_no_confirmada_exige_intervencion
+1 failed, 221 passed in 965.81s (0:16:05)
+RC_PYTEST=1
