@@ -1,0 +1,33 @@
+..F..................................................................... [ 32%]
+........................................................................ [ 64%]
+........................................................................ [ 97%]
+......                                                                   [100%]
+=================================== FAILURES ===================================
+__________________ test_c1_arranque_normal_y_parada_a_su_hora __________________
+tests/test_etapa4_ecarga_guardia_s7.py:135: in test_c1_arranque_normal_y_parada_a_su_hora
+    assert rc == 0, out
+E   AssertionError: 2026-11-07T05:13:48.320655066Z
+E     OK cyberflow-lab-ofimatica.service ofimatica 10.10.20.21
+E     OK cyberflow-lab-navegacion.service navegacion 10.10.20.22
+E     OK cyberflow-lab-descargas.service descargas 10.10.20.23
+E     OK cyberflow-lab-aplicacion.service aplicacion 10.10.20.24
+E     OK cyberflow-lab-ligero.service ligero 10.10.20.25
+E     OK cyberflow-lab-erratico.service erratico 10.10.20.26
+E     2026-11-07T05:13:50Z ARRANQUE solicitado: sudo -n systemctl start cyberflow-lab.target
+E     start rc=0 
+E     gen target=active carga=loaded habilitado=static hash=01aefbd6 procesos=6 unidades: ofimatica=active/running/pid1410/nr0 navegacion=active/running/pid2451/nr0 descargas=active/running/pid2612/nr0 aplicacion=active/running/pid2523/nr0 ligero=active/running/pid3004/nr0 erratico=active/running/pid3415/nr0 consulta=ok
+E     ARRANQUE_CONFIRMADO: target active, 6 unidades running con su perfil e IP, procesos = MainPID (1410 2451 2523 2612 3004 3415 )
+E     arrancar rc=0
+E     2026-11-07T05:13:54Z PARADA solicitada: sudo -n systemctl stop cyberflow-lab.target
+E     stop rc=0 
+E     gen target=inactive carga=loaded habilitado=static hash=01aefbd6 procesos=0 unidades: ofimatica=inactive/dead/pid0/nr0 navegacion=inactive/dead/pid0/nr0 descargas=inactive/dead/pid0/nr0 aplicacion=inactive/dead/pid0/nr0 ligero=inactive/dead/pid0/nr0 erratico=inactive/dead/pid0/nr0 consulta=ok
+E     PARADA_CONFIRMADA: target inactivo, 6 unidades inactivas con MainPID 0 y 0 procesos clientes_lab.py
+E     parar intento 1 rc=0
+E     E-carga ABORTADA en el arranque: no hay ventana que evaluar (solicitud de parada durante el arranque)
+E     {"version": "2026-11-07.1", "resultado": "ABORTADO_PARADO", "rc": 3, "motivo": "solicitud de parada durante el arranque", "t": 1794028436}
+E     
+E   assert 3 == 0
+=========================== short test summary info ============================
+FAILED tests/test_etapa4_ecarga_guardia_s7.py::test_c1_arranque_normal_y_parada_a_su_hora
+1 failed, 221 passed in 712.53s (0:11:52)
+RC_PYTEST=1
