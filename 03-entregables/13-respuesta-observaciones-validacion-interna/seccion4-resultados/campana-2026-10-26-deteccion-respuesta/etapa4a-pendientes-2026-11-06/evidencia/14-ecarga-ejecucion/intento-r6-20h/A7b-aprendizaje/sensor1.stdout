@@ -1,0 +1,10 @@
+c4df64e4c2e1c2f71ea316e1e7e9c4ccaea3b3f65594fbf556bd23f7abffca2f  -
+INFO rotacion aprendizaje cyberflow-sensor 2026-11-08T00:35:08Z epoch 1794098108 minimo 1794097800 (2026-11-08T00:30:00Z)
+INFO   Result=success
+INFO   ExecMainStartTimestamp=Sun 2026-11-08 00:31:18 UTC
+INFO   ExecMainStatus=0
+INFO   ActiveState=inactive
+INFO   InactiveEnterTimestamp=Sun 2026-11-08 00:32:51 UTC
+OK    cyberflow-aprendizaje.service de 00:31:18 a 00:32:51, 93 s
+REQ ROTACION.aprendizaje CUMPLE reentrenamiento nocturno terminado; prepara y evalúa, no cambia el modelo en uso
+FIN_ROTACION rc=0

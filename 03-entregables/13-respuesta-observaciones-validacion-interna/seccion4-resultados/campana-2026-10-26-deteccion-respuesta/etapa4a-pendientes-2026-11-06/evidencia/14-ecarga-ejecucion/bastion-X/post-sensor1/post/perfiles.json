@@ -1,0 +1,117 @@
+{
+ "version": "2026-11-06.4",
+ "desde": 1794107700.0,
+ "hasta": 1794111300.0,
+ "eve": [
+  "/var/log/suricata/eve.json"
+ ],
+ "K4a": {
+  "cumple": true,
+  "tramos": 6,
+  "tramo_s": 600.0,
+  "perfiles": {
+   "ofimatica": {
+    "ip": "10.10.20.21",
+    "flujos_por_tramo": [
+     64,
+     46,
+     68,
+     40,
+     56,
+     70
+    ],
+    "tramos_sin_flujos": []
+   },
+   "navegacion": {
+    "ip": "10.10.20.22",
+    "flujos_por_tramo": [
+     84,
+     116,
+     110,
+     96,
+     88,
+     96
+    ],
+    "tramos_sin_flujos": []
+   },
+   "descargas": {
+    "ip": "10.10.20.23",
+    "flujos_por_tramo": [
+     28,
+     22,
+     10,
+     14,
+     16,
+     10
+    ],
+    "tramos_sin_flujos": []
+   },
+   "aplicacion": {
+    "ip": "10.10.20.24",
+    "flujos_por_tramo": [
+     80,
+     50,
+     64,
+     88,
+     78,
+     78
+    ],
+    "tramos_sin_flujos": []
+   },
+   "ligero": {
+    "ip": "10.10.20.25",
+    "flujos_por_tramo": [
+     10,
+     6,
+     6,
+     10,
+     16,
+     14
+    ],
+    "tramos_sin_flujos": []
+   },
+   "erratico": {
+    "ip": "10.10.20.26",
+    "flujos_por_tramo": [
+     27,
+     42,
+     20,
+     22,
+     18,
+     19
+    ],
+    "tramos_sin_flujos": []
+   }
+  }
+ },
+ "K4b": {
+  "estado": "rafaga_detectada",
+  "informativo": true,
+  "intervalos": 450,
+  "flujos": 148,
+  "intervalos_con_actividad": 65,
+  "media_por_intervalo": 0.3289,
+  "mediana_por_intervalo": 0.0,
+  "lambda_diseno": 0.192,
+  "lambda_ref": 0.3289,
+  "umbral_suma_40s": 6,
+  "max_suma_40s": 14,
+  "episodios": [
+   {
+    "desde": 1794108660.0,
+    "hasta": 1794108732.0,
+    "flujos": 16
+   },
+   {
+    "desde": 1794108892.0,
+    "hasta": 1794108932.0,
+    "flujos": 6
+   },
+   {
+    "desde": 1794110588.0,
+    "hasta": 1794110636.0,
+    "flujos": 6
+   }
+  ]
+ }
+}

@@ -1,0 +1,35 @@
+990da8503fce0b317836deaaac888539ad96df08966883e5d05cf2376a03c7d8  -
+INFO == bastion VM-GESTION gadmin epoch 1794112212 utc 2026-11-08T04:30:12Z
+INFO timedatectl Timezone=America/Lima
+INFO timedatectl NTP=yes
+INFO timedatectl NTPSynchronized=yes
+REQ X.sincronizado.bastion CUMPLE NTPSynchronized=yes
+INFO servicio chrony=active
+INFO servicio chronyd=active
+INFO servicio systemd-timesyncd=inactive
+INFO servicio ntp=inactive
+INFO servicio ntpsec=inactive
+INFO chronyc Reference ID    : A8B57E1C (168.181.126.28)
+INFO chronyc Stratum         : 3
+INFO chronyc Ref time (UTC)  : Sun Nov 08 04:26:24 2026
+INFO chronyc System time     : 0.000080859 seconds fast of NTP time
+INFO chronyc Last offset     : -0.000041268 seconds
+INFO chronyc RMS offset      : 0.000352865 seconds
+INFO chronyc Frequency       : 6.252 ppm slow
+INFO chronyc Residual freq   : -0.001 ppm
+INFO chronyc Skew            : 0.013 ppm
+INFO chronyc Root delay      : 0.100682393 seconds
+INFO chronyc Root dispersion : 0.018046940 seconds
+INFO chronyc Update interval : 1031.2 seconds
+INFO chronyc Leap status     : Normal
+INFO rc_chronyc=0
+INFO timesync Failed to query server: The name org.freedesktop.timesync1 was not provided by any .service files
+REQ P3.procesos.bastion CUMPLE 0 procesos con --aplicar/--enforce
+INFO df Filesystem      Size  Used Avail Use% Mounted on
+INFO df /dev/sda1        19G  4.0G   14G  23% /
+INFO df /dev/sda1        19G  4.0G   14G  23% /
+INFO free                total        used        free      shared  buff/cache   available
+INFO free Mem:            1973         507         406           1        1244        1466
+INFO free Swap:           1100           0        1100
+INFO uptime  23:30:12 up 2 days,  4:30,  4 users,  load average: 0.11, 0.10, 0.09
+FIN_BLOQUE estado_r2 rc=0

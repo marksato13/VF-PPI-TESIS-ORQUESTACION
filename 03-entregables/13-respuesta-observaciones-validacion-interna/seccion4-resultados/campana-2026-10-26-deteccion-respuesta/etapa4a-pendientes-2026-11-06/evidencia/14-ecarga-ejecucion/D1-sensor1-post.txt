@@ -1,0 +1,18 @@
+######## post 2026-11-08T04:30:05Z ventana 1794107700–1794111300 base 1794106500–1794106800 paquete paquete-902991e
+muestreadores terminados (pgrep rc 1)
+clasificar_periodo rc=0
+comparar_suricata rc=0
+evaluar_ecarga perfiles rc=0
+derivar_pcap rc=0
+evaluar_s14 rc=0
+S2 {'valor': True, 'motivo': '717 ficheros leídos sin error, incluidos los de los bordes'}
+S3 {'valor': True, 'motivo': 'cadena continua de 718 ficheros, salto máximo 6.0 s'}
+S14 {'valor': True, 'no_cumplen': [], 'sin_medida': []}
+ruleset después: 24c320e3e9538573
+sellado /home/m4rk/cf-e4/ecarga-v2-ejecucion-20261108T0300Z/sensor1/post/SHA256SUMS
+D1 rc=0
+clasificar_periodo rc=0
+comparar_suricata rc=0
+evaluar_ecarga perfiles rc=0
+derivar_pcap rc=0
+evaluar_s14 rc=0

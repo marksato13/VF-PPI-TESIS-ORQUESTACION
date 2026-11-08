@@ -1,0 +1,23 @@
+INFO p8 r5 2026-11-08T02:05:46Z epoch 1794103546; T_g 1794106800 (2026-11-08T03:00:00Z)
+INFO origin/main b2df722ca5ecac07f7a69e1f30f70f82028b7fac
+INFO 034d57d66b12960901e0d342de110544559453bf está en origin/main (2026-11-06 12:26:26 -0500, «E-carga v2: protocolo r4 y preparacion r3 (S14 con tiempo desconocido), NO ejecutada ni programada»)
+INFO 70b945bd3fd3b07c5bfb379e4928e2b291186ef2 está en origin/main (2026-11-07 11:31:34 -0500, «Etapa 4A: propuesta de protocolo E-carga v2 r5, franja del domingo 8 de noviembre»)
+INFO tabla r5 en 70b945b sha256 4b9265c99e7004e4f5f6016e057aacde73f9948091c5c8597429d5a8032754ea
+INFO tabla r5 en origin/main sha256 4b9265c99e7004e4f5f6016e057aacde73f9948091c5c8597429d5a8032754ea
+INFO tabla r4 en origin/main sha256 d450f44d1720eab6a1a02e6c27e52337cd26e70ee4a64c2dc66ed99f4cc40460
+TABLA | Paso | Epoch | UTC (dom 08-nov) | Perú (UTC−5) |
+TABLA | Traslado ya verificado e inicio de la fase A | 1794103500 | 02:05:00 | sáb 07-nov 21:05:00 |
+TABLA | P0, comprobación previa | 1794105000 | 02:30:00 | sáb 21:30:00 |
+TABLA | Arranque de muestreadores | 1794106200 | 02:50:00 | sáb 21:50:00 |
+TABLA | Límite P12 e inicio de la base de S14 | 1794106500 | 02:55:00 | sáb 21:55:00 |
+TABLA | T_g, arranque de generadores | **1794106800** | 03:00:00 | sáb 22:00:00 |
+TABLA | Calentamiento (no cuenta) | 1794106800–1794107700 | 03:00:00–03:15:00 | sáb 22:00:00–22:15:00 |
+TABLA | **Ventana fija** | **1794107700–1794111300** | **03:15:00–04:15:00** | **sáb 22:15:00–23:15:00** |
+TABLA | Fin de `obs_pcap.py` y muestreadores de Sensor1 | 1794111360 | 04:16:00 | sáb 23:16:00 |
+TABLA | Parada de generadores | 1794111420 | 04:17:00 | sáb 23:17:00 |
+TABLA | Fin del muestreo del bastión | 1794111480 | 04:18:00 | sáb 23:18:00 |
+TABLA | Análisis de perfiles, no antes de | 1794112200 | 04:30:00 | sáb 23:30:00 |
+TABLA | Lecturas posteriores y verificadores, hasta | 1794114000 | 05:00:00 | dom 00:00:00 |
+INFO push a main de 70b945b: 2026-11-07T16:31:39Z (epoch 1794069099, push desde b9828ad)
+REQ P8 CUMPLE franja r5 publicada en 70b945b (push 2026-11-07T16:31:39Z) y sin cambios hasta origin/main b2df722; tabla sha256 4b9265c99e7004e4f5f6016e057aacde73f9948091c5c8597429d5a8032754ea; T_g 2026-11-08T03:00:00Z
+FIN_P8 rc=0
