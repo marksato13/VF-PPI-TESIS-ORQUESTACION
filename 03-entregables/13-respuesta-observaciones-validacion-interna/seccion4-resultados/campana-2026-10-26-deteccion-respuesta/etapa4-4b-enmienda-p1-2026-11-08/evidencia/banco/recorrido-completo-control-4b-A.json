@@ -1,0 +1,131 @@
+{
+ "detector": {
+  "motivos_por_clase": {
+   "C3": {
+    "Suricata sin medida completa en el periodo": 2644
+   }
+  },
+  "no_evaluadas_por_clase": {
+   "C0": 0,
+   "C1": 0,
+   "C2": 0,
+   "C3": 0,
+   "insuficiente": 0,
+   "sin_medida": 0
+  },
+  "por_clase": {
+   "C3": {
+    "nota": "excluida de toda tasa (SALUD-CAPTURA §4.3)",
+    "ventanas": 2644
+   }
+  },
+  "ventanas_decididas": 2644,
+  "ventanas_no_evaluadas": 0,
+  "ventanas_por_clase": {
+   "C0": 0,
+   "C1": 0,
+   "C2": 0,
+   "C3": 2644,
+   "insuficiente": 0,
+   "sin_medida": 0
+  }
+ },
+ "duplicados": 0,
+ "fuentes": {
+  "config": {
+   "archivo": "/tmp/h-A/cf-e4/herramientas/config-campana-4c.json",
+   "sha256": "f177d9bb18c2b9c93f3829f6ffd60a65a81e42d598d3b587719f0d3a1f2da5f9"
+  },
+  "incrementos": "/tmp/h-A/cf-e4/4b/analisis/incrementos.jsonl",
+  "motor": {
+   "archivo": "/tmp/h-A/cf-e4/4b/copias/motor_decision.log",
+   "sha256": "bf51f308dfa0bd66bbb782a540a154df90642d5d35d92e92fe60457e01919501"
+  },
+  "salud_captura": {
+   "archivo": "/tmp/h-A/cyberflow-e4/ec78ca5/scripts/etapa4/salud_captura.py",
+   "sha256": "0ed014cc7d06dee187142768797af7e9f6bcdbe905f0d935dd6be392442594ef",
+   "version": "2026-11-02.2"
+  },
+  "tcpdump_anillo": "/tmp/h-A/cf-e4/4b/salud/tcpdump-anillo.log",
+  "tcpdump_via": "/tmp/h-A/cf-e4/4b/salud/tcpdump-via.log"
+ },
+ "incidencias_motor": [],
+ "intervalo_utc": [
+  "2026-11-01T07:32:00+00:00",
+  "2026-11-01T08:05:00+00:00"
+ ],
+ "poblacion": {
+  "conversion": [],
+  "en_ambas_listas": [],
+  "excepciones_respuesta": [
+   {
+    "ip": "10.10.10.30/32",
+    "nota": "bastion"
+   },
+   {
+    "ip": "10.10.60.11/32",
+    "nota": "sensor"
+   },
+   {
+    "ip": "10.10.30.1/32",
+    "nota": "gateway VLAN 30"
+   },
+   {
+    "ip": "10.10.40.1/32",
+    "nota": "gateway VLAN 40"
+   },
+   {
+    "ip": "10.10.60.1/32",
+    "nota": "gateway VLAN 60"
+   },
+   {
+    "ip": "10.10.20.1/32",
+    "nota": "gateway VLAN 20"
+   },
+   {
+    "ip": "10.10.10.20/32",
+    "nota": "DNS/AD: sigue en la poblacion evaluada (decision 3A)"
+   }
+  ],
+  "exclusiones_poblacion": [],
+  "formato": "nuevo(poblacion)",
+  "significado": {
+   "excepciones_respuesta": "no reciben restricciones; SIGUEN en la población evaluada y sus señales del detector cuentan (una excepción de bloqueo no borra una señal)",
+   "exclusiones_poblacion": "fuera del denominador de la evaluación, cada una con justificación"
+  }
+ },
+ "propuestas_publicador_v2": {
+  "por_accion": {},
+  "por_entidad": {},
+  "por_regla": {},
+  "por_tipo": {},
+  "propuestas": 0,
+  "rechazadas": 0,
+  "rechazadas_por_motivo": {},
+  "significado": "propuestas en SOMBRA del publicador v2: nadie las aplica; no son detecciones"
+ },
+ "seleccion": "ventanas con window_end_utc en [desde, hasta] (ambos incluidos), deduplicadas como analizar.py; clase de la ventana = clase de [w − 60, w]",
+ "umbrales": {
+  "0.01": -0.6223889502095352,
+  "0.03": -0.5898535710336618,
+  "0.05": -0.5694578968203694
+ },
+ "version": "2026-11-02.1",
+ "via_rapida": {
+  "clase_por_hora": [
+   {
+    "clase": "C3",
+    "desde_utc": "2026-11-01T07:32:00+00:00",
+    "hasta_utc": "2026-11-01T08:05:00+00:00",
+    "motivos": [
+     "Suricata sin medida completa en el periodo"
+    ]
+   }
+  ],
+  "por_origen_destino": {},
+  "por_regla": {},
+  "retraso_emision_s": [],
+  "senales": 0,
+  "significado": "sin ataques en el control: toda señal es falsa alarma"
+ }
+}

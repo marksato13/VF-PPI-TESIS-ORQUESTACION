@@ -1,0 +1,38 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-8.3.5, pluggy-1.5.0 -- /usr/bin/python3
+rootdir: /e
+collecting ... collected 31 items
+
+tests/test_control_4b_eve.py::test_sin_eventos_todo_cero_descartes PASSED [  3%]
+tests/test_control_4b_eve.py::test_descartes_hacen_c1_y_datos_faltantes_hacen_c3 PASSED [  6%]
+tests/test_control_4b_eve.py::test_las_tasas_no_mezclan_clases PASSED    [  9%]
+tests/test_control_4b_eve.py::test_periodo_completo_distingue_los_tres_resultados[eve0-C0-cero_descartes-cero_explicito] PASSED [ 12%]
+tests/test_control_4b_eve.py::test_periodo_completo_distingue_los_tres_resultados[eve1-C1-descartes-descartes] PASSED [ 16%]
+tests/test_control_4b_eve.py::test_periodo_completo_distingue_los_tres_resultados[eve2-C3-datos_faltantes-cobertura_insuficiente] PASSED [ 19%]
+tests/test_control_4b_eve.py::test_periodo_completo_distingue_los_tres_resultados[eve3-C3-datos_faltantes-ausente] PASSED [ 22%]
+tests/test_control_4b_eve.py::test_periodo_completo_distingue_los_tres_resultados[eve4-C3-datos_faltantes-cobertura_insuficiente] PASSED [ 25%]
+tests/test_control_4b_eve.py::test_periodo_completo_distingue_los_tres_resultados[eve5-C3-datos_faltantes-error_lectura] PASSED [ 29%]
+tests/test_control_4b_eve.py::test_descartes_y_hueco_en_el_mismo_periodo_ganan_los_datos_faltantes PASSED [ 32%]
+tests/test_control_4b_eve.py::test_desactualizada_si_la_fuente_se_corta_antes_del_fin PASSED [ 35%]
+tests/test_control_4b_eve.py::test_error_de_lectura_no_es_cero PASSED    [ 38%]
+tests/test_control_4b_eve.py::test_categoria_suricata PASSED             [ 41%]
+tests/test_control_4b_eve.py::test_eve_con_salud_congelada_se_niega PASSED [ 45%]
+tests/test_control_4b_eve.py::test_eve_inexistente_se_para PASSED        [ 48%]
+tests/test_control_4b_eve.py::test_sin_eve_se_comporta_como_antes PASSED [ 51%]
+tests/test_control_4b_eve.py::test_sin_salud_es_sin_medida PASSED        [ 54%]
+tests/test_control_4b_eve.py::test_ventanas_no_evaluadas_tambien_se_categorizan PASSED [ 58%]
+tests/test_control_4b.py::test_por_clase_regla_y_entidad PASSED          [ 61%]
+tests/test_control_4b.py::test_c3_no_entra_en_tasas PASSED               [ 64%]
+tests/test_control_4b.py::test_via_rapida_y_propuestas PASSED            [ 67%]
+tests/test_control_4b.py::test_cli_sin_salud_es_sin_medida PASSED        [ 70%]
+tests/test_limites_db3.py::test_marcar_faltantes_como_alert_une_avisos PASSED [ 74%]
+tests/test_limites_db3.py::test_faltantes_lejanas_pueden_crear_avisos_nuevos PASSED [ 77%]
+tests/test_limites_db3.py::test_faltantes_cerca_de_una_alert_no_crean_aviso_nuevo PASSED [ 80%]
+tests/test_limites_db3.py::test_separacion_estricta PASSED               [ 83%]
+tests/test_limites_db3.py::test_cotas_de_tiempo PASSED                   [ 87%]
+tests/test_limites_db3.py::test_decision_con_cota PASSED                 [ 90%]
+tests/test_limites_db3.py::test_entidad_concluyente_y_no_concluyente PASSED [ 93%]
+tests/test_limites_db3.py::test_alfa_elegible_solo_si_todas_cumplen_y_empate_al_menor PASSED [ 96%]
+tests/test_limites_db3.py::test_sin_elegibles_distingue_ninguno_de_no_concluyente PASSED [100%]
+
+============================== 31 passed in 1.60s ==============================

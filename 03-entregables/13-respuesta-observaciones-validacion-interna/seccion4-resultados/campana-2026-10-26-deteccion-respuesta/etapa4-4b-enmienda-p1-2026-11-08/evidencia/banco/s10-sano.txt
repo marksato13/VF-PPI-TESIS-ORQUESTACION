@@ -1,0 +1,13 @@
+  Suricata medido por EVE stats (10 min previos): cero_explicito
+## s10-e4 4b 2026-11-08T14:11:28.788Z
+{"t": 1794147088.8131454, "inode": 3, "size": 56482}
+  stats.log inicial (0 bytes)
+  motor_decision.log inicio: inodo 25 tam 0
+  arranque del motor (epoch): 1794147087.79
+  archivador PID=91  ESTADO: OK  ficheros=0
+  primero: 2026-11-08T14:11:28Z OK live-20261108000000.pcap
+  recursos PID=86 muestras=9
+  salud PID=88 vivo=si muestras=5
+  fuentes: {'anillo': True, 'archivador': True, 'interfaz': False, 'motor': False, 'suricata': False, 'unidades': None, 'via_rapida': True}
+  salud: /tmp/tmp.CmLF2qKfQz/h-sano/cyberflow-e4/herramientas-20261106/salud_captura.py (sha 274b4d613357be60e362f13ce007f07b6bb8055e0e0029316f7bafaa845344d2)  Suricata inicial (EVE): cero_explicito
+## fin 2026-11-08T14:12:14.089Z

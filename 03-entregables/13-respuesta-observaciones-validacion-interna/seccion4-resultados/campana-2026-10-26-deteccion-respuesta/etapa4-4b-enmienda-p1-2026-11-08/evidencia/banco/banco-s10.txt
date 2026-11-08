@@ -1,0 +1,16 @@
+## 1. Sensor1 sano (EVE con cero descartes)
+OK    S0 el guion de banco difiere del publicado en UNA línea (el hash del archivador)
+OK    S1 s10 termina con rc 0 y '## fin'
+OK    S2 mide Suricata por EVE antes de empezar: cero_explicito
+OK    S3 el muestreador es el de P1 (VERSION 2026-11-06.1) y escribe muestras
+OK    S4 guarda la medida EVE inicial
+OK    S5 el muestreador en marcha usa herramientas-20261106 y no ec78ca5
+OK    S6 el archivador y el muestreador de recursos están vivos
+OK    S7 la línea final imprime la herramienta, su sha y el estado de Suricata
+## 2. Casos en que s10 NO debe empezar
+OK    S8 EVE sin kernel_drops (ausente): rc 2, PARAR, no crea la carpeta de la fase
+OK    S9 EVE que dejó de producir (desactualizada): rc 2 y no crea la carpeta
+OK    S10 hueco de EVE en los 10 min previos (cobertura insuficiente): rc 2
+OK    S11 salud_captura con hash distinto del fijado (aunque su SHA256SUMS cuadre): rc 2
+OK    S12 carpeta de la fase ya existente: rc 2 (no se pisa)
+RESULTADO: todas las comprobaciones OK

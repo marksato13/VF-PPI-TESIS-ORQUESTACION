@@ -1,0 +1,37 @@
+sintaxis OK s10_sensor_archivo_e4.sh
+sintaxis OK s50_analisis_e4.sh
+corrida A: rc=0
+corrida B: rc=0
+corrida C: rc=0
+corrida D: rc=2
+OK    A: el control original termina y escribe control-4b.json
+OK    A: 2 644 ventanas decididas del control del 3B (2644)
+OK    A: DEFECTO REPRODUCIDO: con la salud congelada (stats.log sin kernel_drops) las 2 644 ventanas son C3 y ninguna C0
+OK    A: el motivo del C3 es «Suricata sin medida completa»
+OK    B: s50 enmendado con datos sanos: rc 0 (0)
+OK    B: control-4b.json escrito
+OK    B: las 2 644 ventanas son C0 ({'C0': 2644, 'C1': 0, 'C2': 0, 'C3': 0, 'insuficiente': 0, 'sin_medida': 0})
+OK    B: las cifras de C0 coinciden con el control publicado del 3B (IF 395/254/83, HEUR 92, HIB 466/336/171)
+OK    B: las tres categorías por ventana: {'cero_descartes': 2644, 'datos_faltantes': 0, 'descartes': 0}
+OK    B: periodo completo C0 / cero_descartes / cero_explicito
+OK    B: muestras EVE leídas > 400
+OK    B: a2/a3 (anillo) clasifican el periodo con EVE: C0 / cero_explicito
+OK    B: a2/a3 (via) clasifican el periodo con EVE: C0 / cero_explicito
+OK    C: s50 enmendado con eventos: rc 0 (0)
+OK    C: ventanas por clase C0/C1/C3 = 2232/73/339 (suman 2644)
+OK    C: categorías de Suricata = clases ({'cero_descartes': 2232, 'datos_faltantes': 339, 'descartes': 73})
+OK    C: estados de datos faltantes conservados ({'ausente': 133, 'cobertura_insuficiente': 206})
+OK    C: dos tramos con datos faltantes ([['2026-11-01T07:51:10+00:00', '2026-11-01T07:54:50+00:00'], ['2026-11-01T07:57:00+00:00', '2026-11-01T07:59:40+00:00']])
+OK    C: periodo completo C3 / datos_faltantes (ausente)
+OK    C: el periodo informa 23 descartes parciales observados y NO afirma un total (hay datos faltantes)
+OK    C: las tasas de C0 usan solo ventanas con cero descartes y no superan el control completo del 3B
+OK    C: C1 se publica aparte y C3 no entra en ninguna tasa
+OK    C: el oráculo ve las mismas 2644 decisiones
+OK    C: clases dentro de las cotas del oráculo geométrico (seguras C0/C1/C3 = 2059/36/194, inseguras 355)
+OK    C: a2/a3 (anillo) clasifican el periodo con EVE: C3 y estado «ausente»
+OK    C: a2/a3 (via) clasifican el periodo con EVE: C3 y estado «ausente»
+OK    D: sin eve-segmento.json s50 se detiene con rc 2 (2)
+OK    D: el mensaje dice que falta el segmento EVE
+OK    D: no se escribe ningún control sin datos de Suricata
+RESULTADO: todas las comprobaciones OK
+RC_VERIFICAR=0
