@@ -1,0 +1,186 @@
+{
+ "version": "evaluar_s14 2026-11-06.2",
+ "periodo": [
+  1794136500.0,
+  1794140100.0
+ ],
+ "base": [
+  1794135300.0,
+  1794135600.0
+ ],
+ "muestras": 5155,
+ "lineas_no_interpretables": 0,
+ "componentes": {
+  "cpu": {
+   "ventana": {
+    "episodios": [],
+    "dudosos": [],
+    "cobertura": {
+     "cubierto_s": 3600.0,
+     "fraccion": 1.0,
+     "hueco_max_s": 0.0,
+     "ok": true
+    },
+    "maximos": {
+     "ocupada_pct": 54.0,
+     "psi_cpu_some_pct": 2.8
+    }
+   },
+   "base": {
+    "episodios": [],
+    "dudosos": [],
+    "cobertura": {
+     "cubierto_s": 300.0,
+     "fraccion": 1.0,
+     "hueco_max_s": 0.0,
+     "ok": true
+    },
+    "maximos": {
+     "ocupada_pct": 34.43,
+     "psi_cpu_some_pct": 1.24
+    }
+   },
+   "valor": true,
+   "motivo": "sin episodios de saturación"
+  },
+  "hilos": {
+   "ventana": {
+    "episodios": [],
+    "dudosos": [],
+    "cobertura": {
+     "cubierto_s": 3600.0,
+     "fraccion": 1.0,
+     "hueco_max_s": 0.0,
+     "ok": true
+    },
+    "maximos": {
+     "hilo_max_pct": 3.02
+    }
+   },
+   "base": {
+    "episodios": [],
+    "dudosos": [],
+    "cobertura": {
+     "cubierto_s": 300.0,
+     "fraccion": 1.0,
+     "hueco_max_s": 0.0,
+     "ok": true
+    },
+    "maximos": {
+     "hilo_max_pct": 2.0
+    }
+   },
+   "valor": true,
+   "motivo": "sin episodios de saturación"
+  },
+  "softirq": {
+   "ventana": {
+    "episodios": [],
+    "dudosos": [],
+    "cobertura": {
+     "cubierto_s": 3600.0,
+     "fraccion": 1.0,
+     "hueco_max_s": 0.0,
+     "ok": true
+    },
+    "maximos": {
+     "softirq_cpu_max_pct": 4.04
+    }
+   },
+   "base": {
+    "episodios": [],
+    "dudosos": [],
+    "cobertura": {
+     "cubierto_s": 300.0,
+     "fraccion": 1.0,
+     "hueco_max_s": 0.0,
+     "ok": true
+    },
+    "maximos": {
+     "softirq_cpu_max_pct": 1.01
+    }
+   },
+   "valor": true,
+   "motivo": "sin episodios de saturación"
+  },
+  "disco": {
+   "ventana": {
+    "episodios": [],
+    "dudosos": [],
+    "cobertura": {
+     "cubierto_s": 3600.0,
+     "fraccion": 1.0,
+     "hueco_max_s": 0.0,
+     "ok": true
+    },
+    "maximos": {
+     "disco_ocupado_max_pct": 1.5,
+     "psi_io_full_pct": 0.94
+    }
+   },
+   "base": {
+    "episodios": [],
+    "dudosos": [],
+    "cobertura": {
+     "cubierto_s": 300.0,
+     "fraccion": 1.0,
+     "hueco_max_s": 0.0,
+     "ok": true
+    },
+    "maximos": {
+     "disco_ocupado_max_pct": 0.6,
+     "psi_io_full_pct": 0.11
+    }
+   },
+   "valor": true,
+   "motivo": "sin episodios de saturación"
+  },
+  "memoria": {
+   "ventana": {
+    "episodios": [],
+    "dudosos": [],
+    "cobertura": {
+     "cubierto_s": 3600.0,
+     "fraccion": 1.0,
+     "hueco_max_s": 0.0,
+     "ok": true
+    },
+    "maximos": {
+     "psi_mem_some_pct": 0.0,
+     "mem_disponible_kb": 5229036
+    }
+   },
+   "base": {
+    "episodios": [],
+    "dudosos": [],
+    "cobertura": {
+     "cubierto_s": 300.0,
+     "fraccion": 1.0,
+     "hueco_max_s": 0.0,
+     "ok": true
+    },
+    "maximos": {
+     "psi_mem_some_pct": 0.0,
+     "mem_disponible_kb": 6628212
+    }
+   },
+   "valor": true,
+   "motivo": "sin episodios de saturación"
+  },
+  "softnet_dropped": {
+   "valor": true,
+   "incremento": 0,
+   "motivo": "0 descartes de softnet"
+  },
+  "oom_kill": {
+   "valor": true,
+   "incremento": 0,
+   "motivo": "sin oom_kill"
+  }
+ },
+ "S14": {
+  "valor": true,
+  "no_cumplen": [],
+  "sin_medida": []
+ }
+}

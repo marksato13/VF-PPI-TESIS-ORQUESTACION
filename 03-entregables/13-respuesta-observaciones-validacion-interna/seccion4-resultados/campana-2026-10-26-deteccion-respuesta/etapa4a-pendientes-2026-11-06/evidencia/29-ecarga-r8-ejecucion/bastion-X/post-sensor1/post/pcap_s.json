@@ -1,0 +1,52 @@
+{
+ "version": "derivar_pcap 2026-11-06.2",
+ "periodo": [
+  1794136500.0,
+  1794140100.0
+ ],
+ "salto_max_s": 7.0,
+ "retencion_s": 900.0,
+ "avisos": [],
+ "lectura": {
+  "primera_pasada": 1794135004.7737565,
+  "ultima_pasada": 1794140198.5345194,
+  "hueco_max_entre_pasadas_s": 30.0,
+  "fin_normal_en_log": true,
+  "lineas_sin_leido_en": 0,
+  "completa": true,
+  "motivos": []
+ },
+ "cadena": {
+  "ficheros_en_ventana": 716,
+  "ficheros_cadena": 717,
+  "fichero_de_desde": "live-20261108111458.pcap",
+  "desde_menos_inicio_s": 2.0,
+  "primero_tras_hasta": "live-20261108121500.pcap",
+  "inicio_cubierto": true,
+  "fin_cubierto": true,
+  "hueco_inicio_s": null,
+  "hueco_fin_s": null,
+  "saltos_mayores": [],
+  "n_saltos_mayores": 0,
+  "salto_max_s": 6.0,
+  "cadencia_mediana_s": 5.0,
+  "esperados_aprox": 721,
+  "errores_formato": [],
+  "no_comprobados": [],
+  "vacios": [],
+  "registros": 2038927,
+  "hueco_max_paquetes_s": 0.437,
+  "lineas_no_interpretables": [],
+  "duplicados_contradictorios": [],
+  "duplicados_identicos": 0,
+  "lineas_desordenadas": 0
+ },
+ "S2": {
+  "valor": true,
+  "motivo": "716 ficheros leídos sin error, incluidos los de los bordes"
+ },
+ "S3": {
+  "valor": true,
+  "motivo": "cadena continua de 717 ficheros, salto máximo 6.0 s"
+ }
+}

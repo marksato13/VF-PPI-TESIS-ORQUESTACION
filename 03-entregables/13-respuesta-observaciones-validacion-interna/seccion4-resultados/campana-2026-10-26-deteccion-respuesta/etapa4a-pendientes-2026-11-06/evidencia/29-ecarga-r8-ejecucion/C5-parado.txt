@@ -1,0 +1,8 @@
+gen target=inactive carga=loaded habilitado=disabled hash=ae5134a7 procesos=0 unidades: ofimatica=inactive/dead/pid0/nr0 navegacion=inactive/dead/pid0/nr0 descargas=inactive/dead/pid0/nr0 aplicacion=inactive/dead/pid0/nr0 ligero=inactive/dead/pid0/nr0 erratico=inactive/dead/pid0/nr0 consulta=ok
+PARADO_CONFIRMADO
+rc=0
+cat: /home/gadmin/cf-e4/ecarga-v2-ejecucion-20261108T1100Z/bastion/RESULTADO-PARADA: No such file or directory
+{"t": 1794140224, "intento": 1, "motivo": "fin previsto (PARADA_EPOCH 1794140220)", "resultado": "solicitada", "rc": null, "rc_comprobacion": null}
+{"t": 1794140226, "intento": 1, "motivo": "fin previsto (PARADA_EPOCH 1794140220)", "resultado": "confirmada", "rc": 0, "rc_comprobacion": null}
+2026-11-08T12:17:04Z 1794140224 PARADA solicitada (intento 1/6): fin previsto (PARADA_EPOCH 1794140220)
+2026-11-08T12:17:06Z 1794140226 PARADA confirmada (intento 1)

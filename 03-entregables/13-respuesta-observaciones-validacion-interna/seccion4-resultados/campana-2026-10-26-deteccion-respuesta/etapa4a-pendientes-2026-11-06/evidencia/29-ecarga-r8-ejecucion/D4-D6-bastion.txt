@@ -1,0 +1,89 @@
+2026-11-08T13:18:27Z
+post sellado rc=0
+18bca16ad12c359cb748792add0b5a04477f41831dae524df99a008572c6cb03  /home/gadmin/cf-e4/ecarga-v2-ejecucion-20261108T1100Z/manual/obs_p4_post.derivado.sh
+25d8d3697087d9c7c035986ec42d2f4d15e1fc9a6bf5c0e083d55a2a34a6db62  /home/gadmin/cf-e4/ecarga-v2-ejecucion-20261108T1100Z/manual/obs_p4_post.sh
+copias: agente rc=0, relé rc=0
+S7 {"valor": true, "motivo": null}
+s7_post rc=0
+cruce informativo rc=0
+derivar_bastion rc=0
+{"entrada": "/home/gadmin/cf-e4/ecarga-v2-ejecucion-20261108T1100Z/entrada-veredicto.json", "sin_medida": [], "avisos": []}
+construir rc=0
+veredicto rc=0
+sellado rc=0 63 ficheros
+--- s7.json
+{
+ "version": "derivar_s7 2026-11-07.1",
+ "periodo": [
+  1794136500.0,
+  1794140100.0
+ ],
+ "comprobaciones": {
+  "entregas_aceptadas": {
+   "valor": true,
+   "motivo": null,
+   "entregas": 180,
+   "recepciones": 180,
+   "estados": {
+    "aceptado": 180
+   },
+   "no_aceptadas": 0,
+   "secuencia_ini_fin": [
+    14300,
+    14479
+   ]
+  },
+  "aceptadas_en_orden": {
+   "valor": true,
+   "motivo": null,
+   "aceptadas": 180
+  },
+  "publicador_sin_retroceso": {
+   "valor": true,
+   "motivo": null,
+   "lecturas": 125,
+   "lecturas_fallidas": 0,
+   "secuencia_ini_fin": [
+    14296,
+    14482
+   ],
+   "cobertura": {
+    "muestras": 125,
+    "antes_de_desde_s": 0.0,
+    "despues_de_hasta_s": 0.0,
+    "hueco_max_s": 31.0,
+    "ok": true
+   }
+  }
+ },
+ "S7": {
+  "valor": true,
+  "motivo": null
+ }
+}
+
+--- veredicto.json
+{
+ "version": "2026-11-06.4",
+ "estabilidad_tecnica": "estable con carga suficiente",
+ "habilita_condicion_3": true,
+ "motivos_no_demostrable": [],
+ "K_no_cumplen": [],
+ "K_sin_medida": [],
+ "S_no_cumplen": [],
+ "S_sin_medida": [],
+ "hallazgos_S_aunque_carga_insuficiente": [],
+ "clase_captura": "C0",
+ "motivos_clase": [],
+ "suricata": {
+  "estado": "cero_explicito",
+  "paquetes": 2042668,
+  "descartes": 0
+ },
+ "descartes_por_millon": 0.0,
+ "i5": "no evaluado: I5 se mide en los 30 min previos al inicio real de la 4C, con lectura propia",
+ "poblacion_principal": "cumple la condición de calidad de la población principal (C0) en esta ventana; E-carga no produce episodios, así que no admite ninguno",
+ "habilita": "condición (3) del criterio único para el control formal de la 4B",
+ "limitaciones": [],
+ "incoherencias": []
+}

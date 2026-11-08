@@ -1,0 +1,142 @@
+{
+ "version": "2026-11-06.4",
+ "desde": 1794136500.0,
+ "hasta": 1794140100.0,
+ "eve": [
+  "/var/log/suricata/eve.json"
+ ],
+ "K4a": {
+  "cumple": true,
+  "tramos": 6,
+  "tramo_s": 600.0,
+  "perfiles": {
+   "ofimatica": {
+    "ip": "10.10.20.21",
+    "flujos_por_tramo": [
+     352,
+     386,
+     362,
+     430,
+     444,
+     397
+    ],
+    "tramos_sin_flujos": []
+   },
+   "navegacion": {
+    "ip": "10.10.20.22",
+    "flujos_por_tramo": [
+     799,
+     836,
+     780,
+     780,
+     764,
+     786
+    ],
+    "tramos_sin_flujos": []
+   },
+   "descargas": {
+    "ip": "10.10.20.23",
+    "flujos_por_tramo": [
+     146,
+     150,
+     136,
+     184,
+     130,
+     146
+    ],
+    "tramos_sin_flujos": []
+   },
+   "aplicacion": {
+    "ip": "10.10.20.24",
+    "flujos_por_tramo": [
+     580,
+     512,
+     540,
+     522,
+     518,
+     592
+    ],
+    "tramos_sin_flujos": []
+   },
+   "ligero": {
+    "ip": "10.10.20.25",
+    "flujos_por_tramo": [
+     90,
+     100,
+     92,
+     82,
+     84,
+     90
+    ],
+    "tramos_sin_flujos": []
+   },
+   "erratico": {
+    "ip": "10.10.20.26",
+    "flujos_por_tramo": [
+     242,
+     330,
+     404,
+     254,
+     443,
+     297
+    ],
+    "tramos_sin_flujos": []
+   }
+  }
+ },
+ "K4b": {
+  "estado": "rafaga_detectada",
+  "informativo": true,
+  "intervalos": 450,
+  "flujos": 1970,
+  "intervalos_con_actividad": 360,
+  "media_por_intervalo": 4.3778,
+  "mediana_por_intervalo": 3.0,
+  "lambda_diseno": 0.192,
+  "lambda_ref": 4.3778,
+  "umbral_suma_40s": 66,
+  "max_suma_40s": 90,
+  "episodios": [
+   {
+    "desde": 1794136612.0,
+    "hasta": 1794136668.0,
+    "flujos": 73
+   },
+   {
+    "desde": 1794137444.0,
+    "hasta": 1794137524.0,
+    "flujos": 144
+   },
+   {
+    "desde": 1794137756.0,
+    "hasta": 1794137828.0,
+    "flujos": 130
+   },
+   {
+    "desde": 1794138140.0,
+    "hasta": 1794138212.0,
+    "flujos": 140
+   },
+   {
+    "desde": 1794138876.0,
+    "hasta": 1794138932.0,
+    "flujos": 94
+   },
+   {
+    "desde": 1794139164.0,
+    "hasta": 1794139252.0,
+    "flujos": 161
+   },
+   {
+    "desde": 1794139460.0,
+    "hasta": 1794139532.0,
+    "flujos": 133
+   },
+   {
+    "desde": 1794139604.0,
+    "hasta": 1794139660.0,
+    "flujos": 96
+   }
+  ]
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "version": "2026-11-06.4",
+ "estabilidad_tecnica": "estable con carga suficiente",
+ "habilita_condicion_3": true,
+ "motivos_no_demostrable": [],
+ "K_no_cumplen": [],
+ "K_sin_medida": [],
+ "S_no_cumplen": [],
+ "S_sin_medida": [],
+ "hallazgos_S_aunque_carga_insuficiente": [],
+ "clase_captura": "C0",
+ "motivos_clase": [],
+ "suricata": {
+  "estado": "cero_explicito",
+  "paquetes": 2042668,
+  "descartes": 0
+ },
+ "descartes_por_millon": 0.0,
+ "i5": "no evaluado: I5 se mide en los 30 min previos al inicio real de la 4C, con lectura propia",
+ "poblacion_principal": "cumple la condición de calidad de la población principal (C0) en esta ventana; E-carga no produce episodios, así que no admite ninguno",
+ "habilita": "condición (3) del criterio único para el control formal de la 4B",
+ "limitaciones": [],
+ "incoherencias": []
+}

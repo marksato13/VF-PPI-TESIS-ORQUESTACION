@@ -1,0 +1,25 @@
+2026-11-08T10:02:02Z
+Timezone=America/Lima
+NEXT                            LEFT LAST                              PASSED UNIT                         ACTIVATES
+Sun 2026-11-08 05:13:44 -05    11min Sun 2026-11-08 04:58:44 -05 3min 17s ago sysvol-sync.timer            sysvol-sync.service
+Sun 2026-11-08 06:16:01 -05 1h 13min Sun 2026-11-08 00:19:37 -05 4h 42min ago francos-exportar-red.timer   francos-exportar-red.service
+Sun 2026-11-08 06:53:20 -05 1h 51min Sat 2026-11-07 06:08:37 -05      22h ago apt-daily-upgrade.timer      apt-daily-upgrade.service
+Sun 2026-11-08 07:53:34 -05 2h 51min Sat 2026-11-07 09:12:46 -05      19h ago man-db.timer                 man-db.service
+Sun 2026-11-08 15:56:14 -05      10h Sun 2026-11-08 02:43:37 -05 2h 18min ago apt-daily.timer              apt-daily.service
+Sun 2026-11-08 19:16:46 -05      14h Sat 2026-11-07 19:16:46 -05       9h ago systemd-tmpfiles-clean.timer systemd-tmpfiles-clean.service
+Mon 2026-11-09 00:00:00 -05      18h Sun 2026-11-08 00:00:15 -05  5h 1min ago dpkg-db-backup.timer         dpkg-db-backup.service
+Mon 2026-11-09 00:12:02 -05      19h Sun 2026-11-08 00:23:37 -05 4h 38min ago logrotate.timer              logrotate.service
+Mon 2026-11-09 01:03:53 -05      20h Mon 2026-11-02 00:45:23 -05            - fstrim.timer                 fstrim.service
+Sun 2026-11-15 03:10:25 -05   6 days Sun 2026-11-08 03:10:37 -05 1h 51min ago e2scrub_all.timer            e2scrub_all.service
+
+10 timers listed.
+-- activos
+inactive inactive inactive 
+-- crontab
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+17 *	* * *	root	cd / && run-parts --report /etc/cron.hourly
+25 6	* * *	root	test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.daily; }
+47 6	* * 7	root	test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.weekly; }
+52 6	1 * *	root	test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.monthly; }
+total 0

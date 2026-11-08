@@ -1,0 +1,82 @@
+REQ anticipable CUMPLE P1.bastion: verificador rc 0
+REQ anticipable CUMPLE P1.sensor1: verificador rc 0
+REQ anticipable CUMPLE P1.srvdmz: verificador rc 0
+8714361effd4c1fee6f8fce7a3fba546bd3e8fa5840dc1acebb101b2523c4a9b  -
+INFO == bastion VM-GESTION 2026-11-08T13:17:28Z
+INFO b50c48f45f480d21d79664cf78cb0fde3159cf935b76cbdc112e6ad3b5b58a2a  /home/gadmin/cf-e4/paquete-902991e/deploy/etapa4/bastion/verificar_bastion.sh
+-------- salida del verificador
+OK    relé v2 activo
+OK    relé v2 solo con destino srv-dmz (sin dc1)
+OK    relé v2 en modo --entrega paquete
+OK    v1 ppi-relay-feed.timer inactivo y no habilitado (LoadState=loaded ActiveState=inactive UnitFileState=disabled)
+OK    v1 ppi-relay-feed.service inactivo y no habilitado (LoadState=loaded ActiveState=inactive UnitFileState=static)
+OK    sin procesos v1 en ejecución (relay-feed.sh)
+OK    entrega reciente a srv-dmz (hace 7.4 s)
+INFO  entregas: 14584; traído->entregado p50/máx: 0.048/0.381 s
+INFO  última hora: parejas inconsistentes 0, errores 0
+OK    reloj sincronizado
+VERIFICACIÓN BASTIÓN OK
+-------- fin de la salida del verificador
+REQ P1.bastion CUMPLE verificador rc 0
+FIN_BLOQUE verificador_r2 rc=0
+8714361effd4c1fee6f8fce7a3fba546bd3e8fa5840dc1acebb101b2523c4a9b  -
+INFO == sensor1 cyberflow-sensor 2026-11-08T13:17:32Z
+INFO a9fe1d49c5c4a533693b76571478b2ccde7b1b922d7ae2b2849dcc7f533c41e0  /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/sensor1/verificar_sensor1.sh
+-------- salida del verificador
+OK    ppi-motor activo
+OK    ppi-motor-capture activo
+OK    ppi-via-rapida@ens37 activo
+OK    ppi-publicar-feed-v2 activo
+OK    cf-tcpdump-estadisticas.timer activo
+OK    suricata activo
+OK    v1 ppi-publicar-feed.timer inactivo y no habilitado (LoadState=loaded ActiveState=inactive UnitFileState=disabled)
+OK    v1 ppi-publicar-feed.service inactivo y no habilitado (LoadState=loaded ActiveState=inactive UnitFileState=static)
+OK    sin procesos v1 en ejecución (publicar_feed.py)
+OK    motor = candidato ec78ca5 con --disparo eventos
+OK    motor SIN --enforce
+OK    captura con -G 5
+OK    código candidato sin cambios (SHA256SUMS)
+OK    importaciones desde el candidato
+INFO  NRestarts motor/captura/vía: 0/0/0
+INFO  motor PID 1384, inicio real 1793923142.37; registros leídos: motor_decision.log, motor_decision.log.1, motor_decision.log.2.gz, motor_decision.log.3.gz (11 rotados anteriores al inicio, no pueden contener su arranque)
+OK    motor_startup del proceso vigente (PID 1384, inicio 1793923142.37, evento +1.47 s en motor_decision.log.3.gz; disparo eventos, incremental, umbral -0.5693969936322356 = manifiesto; 11 opciones de la ejecución coinciden)
+INFO  decisiones en la cola del registro actual: 1995 (1995 con decision_if)
+OK    decisiones con decision_if y auth_failure
+OK    decisiones con http_vista y dns_vista
+INFO  decisiones con registros HTTP tardíos excluidos de la vista: 77 de 1995
+INFO  auth_failure solo histórico (no aceptado por la vista HTTP): 0
+INFO  último ciclo: {"ciclo_n": 43939, "decididas": 5, "disparo": "pcap_cerrado", "duracion_s": 0.4349, "entidades": 13, "etapas_s": {"decision_y_registro": 0.0003, "eve_lectura": 0.0012, "eve_poda": 0.0001, "expiracion_y_escritura": 0.0006, "filtro_plano_control": 0.0091, "pcap_parseo": 0.0473, "pcap_poda": 0.0241, "p
+OK    resumen de la vía rápida avanza (1794143853.954859 -> 1794143857.03943)
+INFO  resumen vía rápida: {"bloque_hasta": 1794143857.03943, "paquetes_tcp": 101955, "bytes_pendientes": 0, "cpu_s": 2117.137911}
+INFO  señales rápidas: 0 líneas (sin ataques, 0 sobre legítimos)
+INFO  tcpdump de la vía rápida: PID 1389; estadísticas en journalctl -u ppi-via-rapida@ens37
+OK    feed v2 reciente (< 60 s)
+OK    firma del feed v2 verifica con la clave PÚBLICA
+INFO  traza del publicador (última): {"entradas": [], "evento": "publicacion", "expira": 1794143900.470057, "generado": 1794143840.470057, "nuevos": [], "politica": "if_senal", "publicado_en": 1794143840.4781792, "secuencia": 14666}
+INFO  eventos 'rechazada' en la traza: 0
+INFO  menciones de dns_entropy en el feed v2 actual: 0 (no hay agente DNS: nada se aplica en DC1)
+OK    SIGUSR1 periódico del anillo en el journal (últimos 2 min)
+OK    SIGUSR1 periódico de la vía rápida en el journal (últimos 2 min)
+INFO  anillo: 212 ficheros; últimos: live-20261108131726.pcap live-20261108131731.pcap live-20261108131736.pcap 
+INFO  suricata: capture.kernel_packets | Total | 40634033 capture.kernel_packets | Total | 40637014 
+OK    reloj sincronizado
+INFO  recursos: load average: 0,08, 0,19, 0,24; mem 1494/7940 MB; /home libre   12G
+OK    logrotate de feed-v2 instalado
+VERIFICACIÓN SENSOR1 OK
+-------- fin de la salida del verificador
+REQ P1.sensor1 CUMPLE verificador rc 0
+FIN_BLOQUE verificador_r2 rc=0
+8714361effd4c1fee6f8fce7a3fba546bd3e8fa5840dc1acebb101b2523c4a9b  -
+INFO == srvdmz srv-dmz 2026-11-08T13:17:40Z
+INFO f6f72796cf527cc3e495af0f80a5c4fb8aedfafa9bc69faf4264aeaddb86bba9  /home/adminsrvdmz/cf-e4/paquete-902991e/deploy/etapa4/srvdmz/verificar_srvdmz.sh
+-------- salida del verificador
+estado=sombra alcance=completo agentes=1 con_aplicar=0 tablas_cyberflow=0 eventos_aplicacion=0
+OK    estado de sombra demostrado (--alcance completo --respaldo /home/adminsrvdmz/respaldos-etapa4/srvdmz-p4-fase-c-20261106T043944Z)
+OK    feed v2 recibido hace < 60 s (feed.par)
+OK    reloj sincronizado
+INFO  rechazos por motivo:       1 "motivo": "feed_caducado"      14 "motivo": "firma_invalida"       1 "motivo": "misma_secuencia"  (recepciones: 14585)
+OK    helper rechaza un perfil ajeno
+VERIFICACIÓN SRV-DMZ OK
+-------- fin de la salida del verificador
+REQ P1.srvdmz CUMPLE verificador rc 0
+FIN_BLOQUE verificador_r2 rc=0

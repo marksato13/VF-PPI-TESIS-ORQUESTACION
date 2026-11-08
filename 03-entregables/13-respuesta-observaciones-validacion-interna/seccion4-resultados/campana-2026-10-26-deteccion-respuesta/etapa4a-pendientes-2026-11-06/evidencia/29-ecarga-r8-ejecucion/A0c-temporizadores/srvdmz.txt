@@ -1,0 +1,35 @@
+2026-11-08T10:02:11Z
+Timezone=Etc/UTC
+NEXT                            LEFT LAST                              PASSED UNIT                           ACTIVATES
+Sun 2026-11-08 10:09:55 UTC     7min Sun 2026-11-08 09:06:37 UTC    55min ago fwupd-refresh.timer            fwupd-refresh.service
+Sun 2026-11-08 10:10:00 UTC     7min Sun 2026-11-08 10:00:14 UTC 1min 56s ago sysstat-collect.timer          sysstat-collect.service
+Sun 2026-11-08 19:10:53 UTC       9h Sun 2026-11-08 02:05:16 UTC       7h ago motd-news.timer                motd-news.service
+Mon 2026-11-09 00:00:00 UTC      13h Sun 2026-11-08 00:00:30 UTC      10h ago dpkg-db-backup.timer           dpkg-db-backup.service
+Mon 2026-11-09 00:00:00 UTC      13h Sun 2026-11-08 00:00:30 UTC      10h ago logrotate.timer                logrotate.service
+Mon 2026-11-09 00:05:46 UTC      14h Sun 2026-11-08 00:05:46 UTC       9h ago update-notifier-download.timer update-notifier-download.service
+Mon 2026-11-09 00:07:00 UTC      14h Sun 2026-11-08 00:07:37 UTC       9h ago sysstat-summary.timer          sysstat-summary.service
+Mon 2026-11-09 00:15:33 UTC      14h Sun 2026-11-08 00:15:32 UTC       9h ago systemd-tmpfiles-clean.timer   systemd-tmpfiles-clean.service
+Mon 2026-11-09 01:20:53 UTC      15h Mon 2026-11-02 01:19:04 UTC            - fstrim.timer                   fstrim.service
+Mon 2026-11-09 11:42:18 UTC 1 day 1h Sun 2026-11-08 07:42:37 UTC 2h 19min ago man-db.timer                   man-db.service
+Wed 2026-11-11 13:38:16 UTC   3 days Tue 2026-11-03 16:22:26 UTC            - update-notifier-motd.timer     update-notifier-motd.service
+Sun 2026-11-15 03:10:37 UTC   6 days Sun 2026-11-08 03:10:32 UTC       6h ago e2scrub_all.timer              e2scrub_all.service
+-                                  - -                                      - apport-autoreport.timer        apport-autoreport.service
+-                                  - -                                      - apt-daily-upgrade.timer        -
+-                                  - -                                      - apt-daily.timer                -
+-                                  - -                                      - snapd.snap-repair.timer        snapd.snap-repair.service
+-                                  - -                                      - ua-timer.timer                 ua-timer.service
+
+17 timers listed.
+-- activos
+inactive inactive inactive 
+-- crontab
+SHELL=/bin/sh
+17 *	* * *	root	cd / && run-parts --report /etc/cron.hourly
+25 6	* * *	root	test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.daily; }
+47 6	* * 7	root	test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.weekly; }
+52 6	1 * *	root	test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.monthly; }
+total 0
+-rw-r--r-- 1 root root 0 2026-09-20T16:28:47+0000 download-upgradeable-stamp
+-rw-r--r-- 1 root root 0 2026-09-20T06:23:41+0000 unattended-upgrades-stamp
+-rw-r--r-- 1 root root 0 2026-09-20T21:17:21+0000 update-success-stamp
+-rw-r--r-- 1 root root 0 2026-09-20T06:23:41+0000 upgrade-stamp

@@ -1,0 +1,11 @@
+2026-11-08T12:18:41Z
+{"version": "2026-11-07.1", "modo": "real", "resultado": "confirmada", "rc": 0, "intentos": 1, "comprobacion_final_rc": 0, "intervencion_necesaria": false, "motivo": "fin previsto (PARADA_EPOCH 1794140220)", "t": 1794140312}
+ls: cannot access '/home/gadmin/cf-e4/ecarga-v2-ejecucion-20261108T1100Z/bastion/PARADA-NO-CONFIRMADA': No such file or directory
+ls: cannot access '/home/gadmin/cf-e4/ecarga-v2-ejecucion-20261108T1100Z/bastion/C1-PARADA-NO-CONFIRMADA': No such file or directory
+2026-11-08T12:17:06Z 1794140226 PARADA confirmada (intento 1)
+2026-11-08T12:18:32Z 1794140312 fin del muestreo: parada=confirmada intentos=1
+bash: line 1: kill: (870176) - No such process
+MUESTREO_TERMINADO
+  [comprobación final] gen target=inactive carga=loaded habilitado=disabled hash=ae5134a7 procesos=0 unidades: ofimatica=inactive/dead/pid0/nr0 navegacion=inactive/dead/pid0/nr0 descargas=inactive/de
+  [comprobación final] PARADO_CONFIRMADO
+2026-11-08T12:18:32Z 1794140312 fin del muestreo: parada=confirmada intentos=1

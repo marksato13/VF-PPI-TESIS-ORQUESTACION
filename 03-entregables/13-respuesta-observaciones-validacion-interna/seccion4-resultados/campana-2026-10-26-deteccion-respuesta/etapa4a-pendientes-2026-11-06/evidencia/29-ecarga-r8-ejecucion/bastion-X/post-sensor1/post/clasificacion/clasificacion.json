@@ -1,0 +1,179 @@
+{
+ "capturas": {
+  "captura": {
+   "acotado_por": [
+    1794136497.81,
+    1794140109.073
+   ],
+   "clase": "C0",
+   "continuidad": {
+    "cobertura_tcpdump_ok": true,
+    "descartados_kernel": 0,
+    "lecturas": 122,
+    "pids": [
+     1355
+    ]
+   },
+   "info": {
+    "motor_retraso_pcap_max_s": 1.548,
+    "suricata": {
+     "acotado_por": [
+      1794136493.615439,
+      1794140102.009934
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 2042668
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794136470.082709,
+     "hasta": 1794140100.660191,
+     "lecturas": 122,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1355,
+     "pids": [
+      1355
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": 0.021,
+     "medida": true
+    }
+   },
+   "journal": {
+    "error": "",
+    "lecturas_sigusr1": 123,
+    "ok": true,
+    "orden": "journalctl --no-pager -o short-iso-precise -u ppi-motor-capture --since @1794136465 --until @1794140136",
+    "rc": 0
+   },
+   "motivos": [],
+   "unidad": "ppi-motor-capture"
+  },
+  "via-rapida": {
+   "acotado_por": [
+    1794136497.81,
+    1794140109.073
+   ],
+   "clase": "C0",
+   "continuidad": {
+    "cobertura_tcpdump_ok": true,
+    "descartados_kernel": 0,
+    "lecturas": 122,
+    "pids": [
+     1389
+    ]
+   },
+   "info": {
+    "motor_retraso_pcap_max_s": 1.548,
+    "suricata": {
+     "acotado_por": [
+      1794136493.615439,
+      1794140102.009934
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 2042668
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794136470.127664,
+     "hasta": 1794140100.707206,
+     "lecturas": 122,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1389,
+     "pids": [
+      1389
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": 0.021,
+     "medida": true
+    }
+   },
+   "journal": {
+    "error": "",
+    "lecturas_sigusr1": 123,
+    "ok": true,
+    "orden": "journalctl --no-pager -o short-iso-precise -u ppi-via-rapida@ens37 --since @1794136465 --until @1794140136",
+    "rc": 0
+   },
+   "motivos": [],
+   "unidad": "ppi-via-rapida@ens37"
+  }
+ },
+ "clase_periodo": "C0",
+ "muestras": {
+  "n": 513,
+  "primera_t": 1794135004.835,
+  "ultima_t": 1794140169.615
+ },
+ "periodo": {
+  "desde": 1794136500.0,
+  "duracion_s": 3600.0,
+  "hasta": 1794140100.0,
+  "origen": "indicado"
+ },
+ "salud_captura": "2026-11-06.1",
+ "suricata": {
+  "ficheros": [
+   {
+    "muestras": 961,
+    "ruta": "/var/log/suricata/eve.json",
+    "tam": 114861994
+   }
+  ],
+  "fuente": "eve_stats",
+  "medida": {
+   "acotado_por": [
+    1794136493.615439,
+    1794140102.009934
+   ],
+   "arranque_estimado": [
+    1793923140,
+    1793923141
+   ],
+   "criterios": {
+    "eve_borde_s": 10.0,
+    "eve_intervalo_s": 8.0,
+    "eve_max_hueco_s": 20.0,
+    "eve_tolerancia_arranque_s": 3.0
+   },
+   "descartes": 0,
+   "descartes_parciales": 0,
+   "estado": "cero_explicito",
+   "fuente": "eve_stats",
+   "intervalos_con_descartes": [],
+   "motivos": [],
+   "muestras": 452,
+   "paquetes": 2042668,
+   "parciales": 0,
+   "periodo": [
+    1794136500.0,
+    1794140100.0
+   ],
+   "reinicios": [],
+   "repetidas": 0,
+   "ultima_muestra": 1794143822.443449,
+   "version": "2026-11-06.1"
+  },
+  "reinicios_dentro_del_periodo": 0,
+  "stats_log_informativo": {
+   "segmentos": []
+  }
+ },
+ "version": "clasificar_periodo 2026-11-06.1"
+}
