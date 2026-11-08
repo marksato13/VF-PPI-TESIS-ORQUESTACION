@@ -1,0 +1,85 @@
+######## bastion
+2026-11-08T05:56:02Z
+NEXT                            LEFT LAST                              PASSED UNIT                         ACTIVATES
+Sun 2026-11-08 01:04:58 -05     8min Sun 2026-11-08 00:49:58 -05     6min ago sysvol-sync.timer            sysvol-sync.service
+Sun 2026-11-08 02:43:36 -05 1h 47min Sat 2026-11-07 06:52:37 -05      18h ago apt-daily.timer              apt-daily.service
+Sun 2026-11-08 03:10:04 -05 2h 14min Sun 2026-11-01 03:10:32 -05            - e2scrub_all.timer            e2scrub_all.service
+Sun 2026-11-08 06:16:01 -05 5h 19min Sun 2026-11-08 00:19:37 -05    36min ago francos-exportar-red.timer   francos-exportar-red.service
+Sun 2026-11-08 06:53:20 -05 5h 57min Sat 2026-11-07 06:08:37 -05      18h ago apt-daily-upgrade.timer      apt-daily-upgrade.service
+Sun 2026-11-08 07:53:34 -05       6h Sat 2026-11-07 09:12:46 -05      15h ago man-db.timer                 man-db.service
+Sun 2026-11-08 19:16:46 -05      18h Sat 2026-11-07 19:16:46 -05 5h 39min ago systemd-tmpfiles-clean.timer systemd-tmpfiles-clean.service
+Mon 2026-11-09 00:00:00 -05      23h Sun 2026-11-08 00:00:15 -05    55min ago dpkg-db-backup.timer         dpkg-db-backup.service
+Mon 2026-11-09 00:12:02 -05      23h Sun 2026-11-08 00:23:37 -05    32min ago logrotate.timer              logrotate.service
+Mon 2026-11-09 01:03:53 -05      24h Mon 2026-11-02 00:45:23 -05            - fstrim.timer                 fstrim.service
+
+10 timers listed.
+-- cron
+e2scrub_all 
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+17 *	* * *	root	cd / && run-parts --report /etc/cron.hourly
+25 6	* * *	root	test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.daily; }
+47 6	* * 7	root	test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.weekly; }
+52 6	1 * *	root	test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.monthly; }
+######## sensor1
+2026-11-08T05:56:05Z
+NEXT                            LEFT LAST                              PASSED UNIT                           ACTIVATES
+Sun 2026-11-08 05:56:30 UTC      24s Sun 2026-11-08 05:56:00 UTC       4s ago cf-tcpdump-estadisticas.timer  cf-tcpdump-estadisticas.service
+Sun 2026-11-08 06:00:00 UTC 3min 54s Sun 2026-11-08 05:50:00 UTC     6min ago cyberflow-acumular.timer       cyberflow-acumular.service
+Sun 2026-11-08 06:00:00 UTC 3min 54s Sun 2026-11-08 05:55:00 UTC  1min 4s ago cyberflow-limpieza.timer       cyberflow-limpieza.service
+Sun 2026-11-08 06:00:00 UTC 3min 54s Sun 2026-11-08 05:50:00 UTC     6min ago sysstat-collect.timer          sysstat-collect.service
+Sun 2026-11-08 06:28:48 UTC    32min Sun 2026-11-08 05:28:27 UTC    27min ago apt-daily.timer                apt-daily.service
+Sun 2026-11-08 06:34:41 UTC    38min Sat 2026-11-07 06:08:53 UTC      23h ago apt-daily-upgrade.timer        apt-daily-upgrade.service
+Sun 2026-11-08 06:49:54 UTC    53min Sun 2026-11-08 05:42:30 UTC    13min ago fwupd-refresh.timer            fwupd-refresh.service
+Sun 2026-11-08 11:25:36 UTC 5h 29min Sat 2026-11-07 15:37:53 UTC      14h ago motd-news.timer                motd-news.service
+Sun 2026-11-08 11:37:15 UTC 5h 41min Sat 2026-11-07 05:20:40 UTC      24h ago man-db.timer                   man-db.service
+Mon 2026-11-09 00:00:00 UTC      18h Sun 2026-11-08 00:00:00 UTC 5h 56min ago dpkg-db-backup.timer           dpkg-db-backup.service
+Mon 2026-11-09 00:00:00 UTC      18h Sun 2026-11-08 00:00:00 UTC 5h 56min ago logrotate.timer                logrotate.service
+Mon 2026-11-09 00:02:30 UTC      18h Sun 2026-11-08 00:02:30 UTC 5h 53min ago update-notifier-download.timer update-notifier-download.service
+Mon 2026-11-09 00:07:00 UTC      18h Sun 2026-11-08 00:07:00 UTC 5h 49min ago sysstat-summary.timer          sysstat-summary.service
+Mon 2026-11-09 00:08:09 UTC      18h Mon 2026-11-02 00:36:50 UTC            - fstrim.timer                   fstrim.service
+Mon 2026-11-09 00:12:30 UTC      18h Sun 2026-11-08 00:12:30 UTC 5h 43min ago systemd-tmpfiles-clean.timer   systemd-tmpfiles-clean.service
+Mon 2026-11-09 00:30:00 UTC      18h Sun 2026-11-08 00:30:00 UTC 5h 26min ago cyberflow-aprendizaje.timer    cyberflow-aprendizaje.service
+Wed 2026-11-11 20:01:31 UTC   3 days Wed 2026-11-04 06:12:46 UTC            - update-notifier-motd.timer     update-notifier-motd.service
+Sun 2026-11-15 03:10:23 UTC   6 days Sun 2026-11-08 03:10:24 UTC 2h 45min ago e2scrub_all.timer              e2scrub_all.service
+-                                  - -                                      - apport-autoreport.timer        apport-autoreport.service
+-                                  - -                                      - snapd.snap-repair.timer        snapd.snap-repair.service
+-                                  - -                                      - ua-timer.timer                 ua-timer.service
+
+21 timers listed.
+-- cron
+e2scrub_all sysstat 
+SHELL=/bin/sh
+17 *	* * *	root	cd / && run-parts --report /etc/cron.hourly
+25 6	* * *	root	test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.daily; }
+47 6	* * 7	root	test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.weekly; }
+52 6	1 * *	root	test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.monthly; }
+######## clientes
+2026-11-08T05:56:08Z
+NEXT                            LEFT LAST                              PASSED UNIT                           ACTIVATES
+Sun 2026-11-08 06:00:00 UTC 3min 51s Sun 2026-11-08 05:50:42 UTC     5min ago sysstat-collect.timer          sysstat-collect.service
+Sun 2026-11-08 06:18:25 UTC    22min Sun 2026-11-08 05:18:22 UTC    37min ago fwupd-refresh.timer            fwupd-refresh.service
+Sun 2026-11-08 06:48:20 UTC    52min Sat 2026-11-07 06:24:42 UTC      23h ago apt-daily-upgrade.timer        apt-daily-upgrade.service
+Sun 2026-11-08 09:03:51 UTC  3h 7min Sat 2026-11-07 19:32:42 UTC      10h ago apt-daily.timer                apt-daily.service
+Sun 2026-11-08 16:34:52 UTC      10h Sat 2026-11-07 16:34:52 UTC      13h ago update-notifier-download.timer update-notifier-download.service
+Sun 2026-11-08 16:44:42 UTC      10h Sat 2026-11-07 16:44:42 UTC      13h ago systemd-tmpfiles-clean.timer   systemd-tmpfiles-clean.service
+Sun 2026-11-08 22:59:14 UTC      17h Sun 2026-11-08 00:16:50 UTC 5h 39min ago motd-news.timer                motd-news.service
+Mon 2026-11-09 00:00:00 UTC      18h Sun 2026-11-08 00:00:42 UTC 5h 55min ago dpkg-db-backup.timer           dpkg-db-backup.service
+Mon 2026-11-09 00:00:00 UTC      18h Sun 2026-11-08 00:00:42 UTC 5h 55min ago logrotate.timer                logrotate.service
+Mon 2026-11-09 00:07:00 UTC      18h Sun 2026-11-08 00:07:42 UTC 5h 48min ago sysstat-summary.timer          sysstat-summary.service
+Mon 2026-11-09 00:31:32 UTC      18h Mon 2026-11-02 00:48:58 UTC            - fstrim.timer                   fstrim.service
+Mon 2026-11-09 02:00:35 UTC      20h Sun 2026-11-08 02:45:50 UTC 3h 10min ago man-db.timer                   man-db.service
+Wed 2026-11-11 15:25:11 UTC   3 days Tue 2026-11-03 04:30:47 UTC            - update-notifier-motd.timer     update-notifier-motd.service
+Sun 2026-11-15 03:10:54 UTC   6 days Sun 2026-11-08 03:10:45 UTC 2h 45min ago e2scrub_all.timer              e2scrub_all.service
+-                                  - -                                      - apport-autoreport.timer        apport-autoreport.service
+-                                  - -                                      - snapd.snap-repair.timer        snapd.snap-repair.service
+-                                  - -                                      - ua-timer.timer                 ua-timer.service
+
+17 timers listed.
+-- cron
+e2scrub_all sysstat 
+SHELL=/bin/sh
+17 *	* * *	root	cd / && run-parts --report /etc/cron.hourly
+25 6	* * *	root	test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.daily; }
+47 6	* * 7	root	test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.weekly; }
+52 6	1 * *	root	test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.monthly; }
