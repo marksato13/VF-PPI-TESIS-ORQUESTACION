@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# [LAPTOP Git Bash] Fase A, pasos A6–A8, de la variante r8 (T_g 11:00Z del 08-nov). SOLO LECTURA en los hosts. VERSION 2026-11-08.2
+# [LAPTOP Git Bash] Fase A, pasos A6–A8, de la variante r8 (T_g 11:00Z del 08-nov). SOLO LECTURA en los hosts. VERSION 2026-11-08.3
 #   lanzar_a2.sh r8
 # Derivado de evidencia/25-franja-r6-20h/lanzadores/lanzar_a2.sh, rama r5 (sin A7b), con la franja r8 y su evidencia.
 # No arranca antes de la hora del P0. Se detiene en el primer paso que no da rc 0.
@@ -12,7 +12,7 @@ case "$F" in
   *) echo "uso: lanzar_a2.sh r8"; exit 2;;
 esac
 R="${CF_R:-/c/Users/markp/Desktop/PY-MEGATRON/PY - PERSONAL/TESIS/CYBERFLOW/orquestacion-limpio/03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/campana-2026-10-26-deteccion-respuesta/etapa4a-pendientes-2026-11-06}"
-EJ="$R/evidencia/27-ecarga-r8-ejecucion"
+EJ="$R/evidencia/29-ecarga-r8-ejecucion"
 para() { echo "DETENIDO_A2 $F: $1"; echo "RESULTADO_A2 $F rc=1"; exit 1; }
 ahora=$(date +%s)
 [ "$ahora" -ge "$P0" ] || { echo "todavía no: P5b exige la franja"; exit 2; }

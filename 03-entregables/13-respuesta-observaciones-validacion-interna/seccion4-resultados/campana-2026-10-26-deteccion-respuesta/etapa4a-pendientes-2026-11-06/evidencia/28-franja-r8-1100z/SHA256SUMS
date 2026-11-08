@@ -1,5 +1,5 @@
 e50c8de78a4d3a6d51c7d07141d5b6720fe0f966bbff2f7d3c2ee48bf7d44e18  ./README.md
-92ba8c2f6437922e90c63851ea94f1171a780d2b3c1283d713b05eae5fa834f6  ./banco/banco_lanzadores.sh
+42587d788d3c4a4fdf958df19a689b81fdc2dd17b44eb105bc5967edfa3e11bc  ./banco/banco_lanzadores.sh
 23b2fc75c9c498fd9c68907dda76bafa3020b0e97dd46303827699ce7afa022b  ./banco/banco_p12.sh
 c2d3444ad1695f477c28ea5c504fa27b3332432211625ec19ea65a59315c948c  ./banco/lanzadores-gitbash.txt
 d602c3029dfcbf50204970438af9ed9eb1eab473dfb3126861fbbae005376e24  ./banco/p0r3y-65534.txt
@@ -11,8 +11,9 @@ ef687b14a77a69bd3d8e9870d0367f7af3b4a3018c84600e7b1d6807452d5ad9  ./banco/p12-ro
 46020119678b8487ca1593050869c95be04b7ab9080a21c67de2621029e45274  ./herramientas/comprobar_p12_host.sh
 686a780c8d789b958018944ff98496d5b8a23be9ad951bbd7a6f05655fc5bb18  ./herramientas/comprobar_p8_r8.sh
 5f49f013bd5c3e98d4ab36846e6445203250e84e7bdc4bc0af0bbca8addf96fd  ./herramientas/leer_temporizadores.sh
-a1fd4f9f7ef9645f1e0fc0f4da2f3ca3e42a4adeaef2c6e944a85647bb79ce55  ./lanzadores/lanzar_a1.sh
-1c7e7a4fa04e837d3b817e5adedb33c614cab806a8a3cf82950fe02275f7ff13  ./lanzadores/lanzar_a2.sh
+7563f1bd9903c2bd637e1a86e339a30e3ddde06bd24513b05ca74a14d5c3e028  ./lanzadores/lanzar_a1.sh
+93a15477e17056ce269653d7900b00321fb014c335bf671131d996163c51fe70  ./lanzadores/lanzar_a2.sh
+03a6057f380dea975413814f512ecc3a2eea7c5ab3a9d579a9c63cbe4c007273  ./lecturas/lanzar-a1-intento1-carpeta-erronea.txt
 5cf24b2e360ef9e810d5e2fbb7193a8bbed0688aadc97204d18c828881d53432  ./lecturas/p0-r3y-anticipado-20261108/00-estado-bastion.motivo
 9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa  ./lecturas/p0-r3y-anticipado-20261108/00-estado-bastion.rc
 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  ./lecturas/p0-r3y-anticipado-20261108/00-estado-bastion.stderr
