@@ -1,0 +1,685 @@
+{
+ "detector": {
+  "motivos_por_clase": {
+   "C1": {
+    "Suricata (EVE)": 73
+   },
+   "C3": {
+    "Suricata (EVE) ausente": 133,
+    "Suricata (EVE) cobertura_insuficiente": 206
+   }
+  },
+  "no_evaluadas_por_clase": {
+   "C0": 0,
+   "C1": 0,
+   "C2": 0,
+   "C3": 0,
+   "insuficiente": 0,
+   "sin_medida": 0
+  },
+  "por_clase": {
+   "C0": {
+    "emisiones_reales": {
+     "alert_por_detector": {
+      "if_limpio_2026_10": 322
+     },
+     "alert_total": 322
+    },
+    "heuristicos": {
+     "auth_failure_heuristic_alert_heredada": 0,
+     "por_regla": {
+      "dns_entropy": 73,
+      "http_abuse": 4
+     }
+    },
+    "if_y_configuraciones": {
+     "HEUR": {
+      "falsas_alarmas": 77,
+      "tasa": 0.034498
+     },
+     "HIB_0.01": {
+      "falsas_alarmas": 139,
+      "tasa": 0.062276
+     },
+     "HIB_0.03": {
+      "falsas_alarmas": 274,
+      "tasa": 0.12276
+     },
+     "HIB_0.05": {
+      "falsas_alarmas": 383,
+      "tasa": 0.171595
+     },
+     "IF_0.01": {
+      "falsas_alarmas": 66,
+      "tasa": 0.02957
+     },
+     "IF_0.03": {
+      "falsas_alarmas": 206,
+      "tasa": 0.092294
+     },
+     "IF_0.05": {
+      "falsas_alarmas": 322,
+      "tasa": 0.144265
+     },
+     "ventanas": 2232
+    },
+    "por_entidad": {
+     "10.10.10.1": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 75
+     },
+     "10.10.10.20": {
+      "HEUR": 73,
+      "HIB_0.01": 73,
+      "HIB_0.03": 76,
+      "HIB_0.05": 80,
+      "IF_0.01": 1,
+      "IF_0.03": 8,
+      "IF_0.05": 19,
+      "ventanas": 165
+     },
+     "10.10.10.21": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 2,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 2,
+      "ventanas": 165
+     },
+     "10.10.10.51": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 1
+     },
+     "10.10.20.20": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 1
+     },
+     "10.10.20.21": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 3,
+      "HIB_0.05": 14,
+      "IF_0.01": 0,
+      "IF_0.03": 3,
+      "IF_0.05": 14,
+      "ventanas": 165
+     },
+     "10.10.20.22": {
+      "HEUR": 0,
+      "HIB_0.01": 36,
+      "HIB_0.03": 104,
+      "HIB_0.05": 138,
+      "IF_0.01": 36,
+      "IF_0.03": 104,
+      "IF_0.05": 138,
+      "ventanas": 165
+     },
+     "10.10.20.23": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 1,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 1,
+      "ventanas": 165
+     },
+     "10.10.20.24": {
+      "HEUR": 0,
+      "HIB_0.01": 9,
+      "HIB_0.03": 58,
+      "HIB_0.05": 102,
+      "IF_0.01": 9,
+      "IF_0.03": 58,
+      "IF_0.05": 102,
+      "ventanas": 165
+     },
+     "10.10.20.25": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 165
+     },
+     "10.10.20.26": {
+      "HEUR": 4,
+      "HIB_0.01": 21,
+      "HIB_0.03": 33,
+      "HIB_0.05": 42,
+      "IF_0.01": 20,
+      "IF_0.03": 33,
+      "IF_0.05": 42,
+      "ventanas": 165
+     },
+     "10.10.20.30": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 1
+     },
+     "10.10.30.10": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 11
+     },
+     "10.10.40.10": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 165
+     },
+     "10.10.50.51": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 2,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 2,
+      "ventanas": 165
+     },
+     "10.10.50.52": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 2,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 2,
+      "ventanas": 165
+     },
+     "10.10.60.12": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 165
+     },
+     "10.10.99.10": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 36
+     },
+     "10.10.99.2": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 32
+     },
+     "10.10.99.5": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 32
+     },
+     "10.10.99.7": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 32
+     },
+     "10.10.99.8": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 31
+     }
+    }
+   },
+   "C1": {
+    "emisiones_reales": {
+     "alert_por_detector": {
+      "if_limpio_2026_10": 12
+     },
+     "alert_total": 12
+    },
+    "heuristicos": {
+     "auth_failure_heuristic_alert_heredada": 0,
+     "por_regla": {}
+    },
+    "if_y_configuraciones": {
+     "HEUR": {
+      "falsas_alarmas": 0,
+      "tasa": 0.0
+     },
+     "HIB_0.01": {
+      "falsas_alarmas": 4,
+      "tasa": 0.054795
+     },
+     "HIB_0.03": {
+      "falsas_alarmas": 9,
+      "tasa": 0.123288
+     },
+     "HIB_0.05": {
+      "falsas_alarmas": 12,
+      "tasa": 0.164384
+     },
+     "IF_0.01": {
+      "falsas_alarmas": 4,
+      "tasa": 0.054795
+     },
+     "IF_0.03": {
+      "falsas_alarmas": 9,
+      "tasa": 0.123288
+     },
+     "IF_0.05": {
+      "falsas_alarmas": 12,
+      "tasa": 0.164384
+     },
+     "ventanas": 73
+    },
+    "por_entidad": {
+     "10.10.10.20": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 6
+     },
+     "10.10.10.21": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 6
+     },
+     "10.10.20.21": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 1,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 1,
+      "ventanas": 6
+     },
+     "10.10.20.22": {
+      "HEUR": 0,
+      "HIB_0.01": 4,
+      "HIB_0.03": 6,
+      "HIB_0.05": 6,
+      "IF_0.01": 4,
+      "IF_0.03": 6,
+      "IF_0.05": 6,
+      "ventanas": 6
+     },
+     "10.10.20.23": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 6
+     },
+     "10.10.20.24": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 3,
+      "HIB_0.05": 5,
+      "IF_0.01": 0,
+      "IF_0.03": 3,
+      "IF_0.05": 5,
+      "ventanas": 6
+     },
+     "10.10.20.25": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 6
+     },
+     "10.10.20.26": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 6
+     },
+     "10.10.40.10": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 6
+     },
+     "10.10.50.51": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 6
+     },
+     "10.10.50.52": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 6
+     },
+     "10.10.60.12": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 6
+     },
+     "10.10.99.10": {
+      "HEUR": 0,
+      "HIB_0.01": 0,
+      "HIB_0.03": 0,
+      "HIB_0.05": 0,
+      "IF_0.01": 0,
+      "IF_0.03": 0,
+      "IF_0.05": 0,
+      "ventanas": 1
+     }
+    }
+   },
+   "C3": {
+    "nota": "excluida de toda tasa (SALUD-CAPTURA §4.3)",
+    "ventanas": 339
+   }
+  },
+  "suricata_por_ventana": {
+   "datos_faltantes_decididas_por_estado": {
+    "ausente": 133,
+    "cobertura_insuficiente": 206
+   },
+   "fuente": "eve_stats",
+   "significado": "categoría de Suricata de [w − 60, w] por ventana; independiente de las demás causas de C3",
+   "tramos_con_datos_faltantes": [
+    [
+     "2026-11-01T07:51:10+00:00",
+     "2026-11-01T07:54:50+00:00"
+    ],
+    [
+     "2026-11-01T07:57:00+00:00",
+     "2026-11-01T07:59:40+00:00"
+    ]
+   ],
+   "tramos_con_datos_faltantes_total": 2,
+   "ventanas_decididas_por_categoria": {
+    "cero_descartes": 2232,
+    "datos_faltantes": 339,
+    "descartes": 73
+   },
+   "ventanas_no_evaluadas_por_categoria": {
+    "cero_descartes": 0,
+    "datos_faltantes": 0,
+    "descartes": 0
+   }
+  },
+  "ventanas_decididas": 2644,
+  "ventanas_no_evaluadas": 0,
+  "ventanas_por_clase": {
+   "C0": 2232,
+   "C1": 73,
+   "C2": 0,
+   "C3": 339,
+   "insuficiente": 0,
+   "sin_medida": 0
+  }
+ },
+ "duplicados": 0,
+ "fuentes": {
+  "config": {
+   "archivo": "/tmp/h-C/cf-e4/herramientas/config-campana-4c.json",
+   "sha256": "f177d9bb18c2b9c93f3829f6ffd60a65a81e42d598d3b587719f0d3a1f2da5f9"
+  },
+  "incrementos": "/tmp/h-C/cf-e4/4b/analisis/incrementos.jsonl",
+  "motor": {
+   "archivo": "/tmp/h-C/cf-e4/4b/copias/motor_decision.log",
+   "sha256": "bf51f308dfa0bd66bbb782a540a154df90642d5d35d92e92fe60457e01919501"
+  },
+  "salud_captura": {
+   "archivo": "/tmp/h-C/cyberflow-e4/herramientas-20261106/salud_captura.py",
+   "sha256": "274b4d613357be60e362f13ce007f07b6bb8055e0e0029316f7bafaa845344d2",
+   "version": "2026-11-06.1"
+  },
+  "suricata_eve": {
+   "ahora_epoch": 1794147013.5933745,
+   "conflictos": 0,
+   "errores": [],
+   "ficheros": [
+    {
+     "archivo": "/tmp/h-C/cf-e4/4b/copias/eve-segmento.json",
+     "sha256": "2bde2e2370382eb18b4625c1fafcd433e93e798374327add232769cbfa9c761f"
+    }
+   ],
+   "invalidas": 0,
+   "muestras_leidas": 423,
+   "parciales": 0,
+   "repetidas": 0
+  },
+  "tcpdump_anillo": "/tmp/h-C/cf-e4/4b/salud/tcpdump-anillo.log",
+  "tcpdump_via": "/tmp/h-C/cf-e4/4b/salud/tcpdump-via.log"
+ },
+ "incidencias_motor": [],
+ "intervalo_utc": [
+  "2026-11-01T07:32:00+00:00",
+  "2026-11-01T08:05:00+00:00"
+ ],
+ "periodo_completo": {
+  "anillo_if_heur": {
+   "clase": "C3",
+   "motivos": [
+    "Suricata (EVE) ausente: 5 muestra(s) del tramo sin kernel_drops/kernel_packets/uptime"
+   ],
+   "suricata": {
+    "descartes": null,
+    "descartes_parciales": 23,
+    "estado": "ausente",
+    "motivos": [
+     "5 muestra(s) del tramo sin kernel_drops/kernel_packets/uptime"
+    ],
+    "paquetes": null
+   },
+   "suricata_categoria": "datos_faltantes",
+   "suricata_estado": "ausente"
+  },
+  "intervalo_utc": [
+   "2026-11-01T07:32:00+00:00",
+   "2026-11-01T08:05:00+00:00"
+  ],
+  "por_hora": [
+   {
+    "clase": "C3",
+    "desde_utc": "2026-11-01T07:32:00+00:00",
+    "hasta_utc": "2026-11-01T08:05:00+00:00",
+    "motivos": [
+     "Suricata (EVE) ausente: 5 muestra(s) del tramo sin kernel_drops/kernel_packets/uptime"
+    ],
+    "suricata": {
+     "descartes": null,
+     "descartes_parciales": 23,
+     "estado": "ausente",
+     "motivos": [
+      "5 muestra(s) del tramo sin kernel_drops/kernel_packets/uptime"
+     ],
+     "paquetes": null
+    },
+    "suricata_categoria": "datos_faltantes",
+    "suricata_estado": "ausente"
+   }
+  ],
+  "via_rapida": {
+   "clase": "C3",
+   "motivos": [
+    "Suricata (EVE) ausente: 5 muestra(s) del tramo sin kernel_drops/kernel_packets/uptime"
+   ],
+   "suricata": {
+    "descartes": null,
+    "descartes_parciales": 23,
+    "estado": "ausente",
+    "motivos": [
+     "5 muestra(s) del tramo sin kernel_drops/kernel_packets/uptime"
+    ],
+    "paquetes": null
+   },
+   "suricata_categoria": "datos_faltantes",
+   "suricata_estado": "ausente"
+  }
+ },
+ "poblacion": {
+  "conversion": [],
+  "en_ambas_listas": [],
+  "excepciones_respuesta": [
+   {
+    "ip": "10.10.10.30/32",
+    "nota": "bastion"
+   },
+   {
+    "ip": "10.10.60.11/32",
+    "nota": "sensor"
+   },
+   {
+    "ip": "10.10.30.1/32",
+    "nota": "gateway VLAN 30"
+   },
+   {
+    "ip": "10.10.40.1/32",
+    "nota": "gateway VLAN 40"
+   },
+   {
+    "ip": "10.10.60.1/32",
+    "nota": "gateway VLAN 60"
+   },
+   {
+    "ip": "10.10.20.1/32",
+    "nota": "gateway VLAN 20"
+   },
+   {
+    "ip": "10.10.10.20/32",
+    "nota": "DNS/AD: sigue en la poblacion evaluada (decision 3A)"
+   }
+  ],
+  "exclusiones_poblacion": [],
+  "formato": "nuevo(poblacion)",
+  "significado": {
+   "excepciones_respuesta": "no reciben restricciones; SIGUEN en la población evaluada y sus señales del detector cuentan (una excepción de bloqueo no borra una señal)",
+   "exclusiones_poblacion": "fuera del denominador de la evaluación, cada una con justificación"
+  }
+ },
+ "propuestas_publicador_v2": {
+  "por_accion": {},
+  "por_entidad": {},
+  "por_regla": {},
+  "por_tipo": {},
+  "propuestas": 0,
+  "rechazadas": 0,
+  "rechazadas_por_motivo": {},
+  "significado": "propuestas en SOMBRA del publicador v2: nadie las aplica; no son detecciones"
+ },
+ "seleccion": "ventanas con window_end_utc en [desde, hasta] (ambos incluidos), deduplicadas como analizar.py; clase de la ventana = clase de [w − 60, w]",
+ "umbrales": {
+  "0.01": -0.6223889502095352,
+  "0.03": -0.5898535710336618,
+  "0.05": -0.5694578968203694
+ },
+ "version": "2026-11-08.1",
+ "via_rapida": {
+  "clase_por_hora": [
+   {
+    "clase": "C3",
+    "desde_utc": "2026-11-01T07:32:00+00:00",
+    "hasta_utc": "2026-11-01T08:05:00+00:00",
+    "motivos": [
+     "Suricata (EVE) ausente: 5 muestra(s) del tramo sin kernel_drops/kernel_packets/uptime"
+    ],
+    "suricata_categoria": "datos_faltantes",
+    "suricata_estado": "ausente"
+   }
+  ],
+  "por_origen_destino": {},
+  "por_regla": {},
+  "retraso_emision_s": [],
+  "senales": 0,
+  "significado": "sin ataques en el control: toda señal es falsa alarma"
+ }
+}

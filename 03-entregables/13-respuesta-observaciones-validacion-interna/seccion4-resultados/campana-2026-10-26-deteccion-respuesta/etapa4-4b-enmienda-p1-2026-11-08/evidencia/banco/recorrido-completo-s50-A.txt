@@ -1,0 +1,30 @@
+## s50-e4 4b 2026-11-08T14:10:05.587Z inventario=[2026-11-01T07:24:40Z, 2026-11-01T10:05:30Z] control=[2026-11-01T07:32:00Z, 2026-11-01T08:05:00Z] reanudar=0
+## a1
+336 incrementos; con reinicio: 0
+  a1 OK
+## a2
+  control (IF/heur):  "clase": "C3",
+  a2 OK
+## a3
+  control (vía rápida):  "clase": "C3",
+  a3 OK
+## b
+  {"ventanas_por_clase": {"C0": 0, "C1": 0, "C2": 0, "C3": 2644, "insuficiente": 0, "sin_medida": 0}, "C0": null, "sin_medida": null}
+  b OK
+## c
+{
+ "tabla_principal": {},
+ "inventario": {
+  "requeridas": 12667,
+  "estados": {
+   "decidida_a_tiempo": 12012,
+   "decidida_tardia": 655,
+   "no_evaluada": 0,
+   "ausente": 0
+  },
+  "solo_en_vivo": 0,
+  "cobertura_total": 1.0
+ }
+}
+  c OK
+## ANÁLISIS COMPLETO 2026-11-08T14:10:08.377Z

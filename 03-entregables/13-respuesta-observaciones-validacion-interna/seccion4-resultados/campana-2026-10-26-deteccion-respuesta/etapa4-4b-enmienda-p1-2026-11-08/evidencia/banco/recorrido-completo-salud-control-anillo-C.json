@@ -1,0 +1,63 @@
+{
+ "acotado_por": [
+  1793518320.0,
+  1793520300.0
+ ],
+ "clase": "C3",
+ "criterios": {
+  "eve_borde_s": 10.0,
+  "eve_intervalo_s": 8.0,
+  "eve_max_hueco_s": 20.0,
+  "eve_tolerancia_arranque_s": 3.0,
+  "max_hueco_muestras_s": 30.0,
+  "motor_retraso_max_s": 25.0,
+  "rotacion_s": 5.0,
+  "tcpdump_periodo_s": 30.0,
+  "tcpdump_tolerancia_s": 2.0,
+  "tolerancia_rotacion_s": 2.0,
+  "via_antiguedad_max_s": 2.0
+ },
+ "info": {
+  "motor_retraso_pcap_max_s": 3.0,
+  "suricata": {
+   "acotado_por": [
+    1793518316.0,
+    1793520300.0
+   ],
+   "descartes": null,
+   "descartes_parciales": 23,
+   "estado": "ausente",
+   "fuente": "eve_stats",
+   "motivos": [
+    "5 muestra(s) del tramo sin kernel_drops/kernel_packets/uptime"
+   ],
+   "paquetes": null
+  },
+  "tcpdump": {
+   "descartados_kernel": 0,
+   "desde": 1793518320.0,
+   "hasta": 1793520300.0,
+   "lecturas": 67,
+   "lecturas_sin_hora_o_pid": 0,
+   "limite_s": 32.0,
+   "motivos_c3": [],
+   "ok": true,
+   "pid": 777,
+   "pids": [
+    777
+   ]
+  },
+  "via_rapida": {
+   "antiguedad_max_s": 0.4,
+   "medida": true
+  }
+ },
+ "motivos": [
+  "Suricata (EVE) ausente: 5 muestra(s) del tramo sin kernel_drops/kernel_packets/uptime"
+ ],
+ "periodo": [
+  1793518320.0,
+  1793520300.0
+ ],
+ "version": "2026-11-06.1"
+}

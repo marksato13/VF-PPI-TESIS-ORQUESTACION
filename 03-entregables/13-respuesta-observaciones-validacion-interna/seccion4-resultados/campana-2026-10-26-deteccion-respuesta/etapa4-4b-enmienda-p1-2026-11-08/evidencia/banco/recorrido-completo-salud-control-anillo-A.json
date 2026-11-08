@@ -1,0 +1,49 @@
+{
+ "acotado_por": [
+  1793518320.0,
+  1793520300.0
+ ],
+ "clase": "C3",
+ "criterios": {
+  "max_hueco_muestras_s": 30.0,
+  "motor_retraso_max_s": 25.0,
+  "rotacion_s": 5.0,
+  "tcpdump_periodo_s": 30.0,
+  "tcpdump_tolerancia_s": 2.0,
+  "tolerancia_rotacion_s": 2.0,
+  "via_antiguedad_max_s": 2.0
+ },
+ "info": {
+  "motor_retraso_pcap_max_s": 3.0,
+  "suricata": {
+   "descartes": 0,
+   "intervalos": 0,
+   "paquetes": 0
+  },
+  "tcpdump": {
+   "descartados_kernel": 0,
+   "desde": 1793518320.0,
+   "hasta": 1793520300.0,
+   "lecturas": 67,
+   "lecturas_sin_hora_o_pid": 0,
+   "limite_s": 32.0,
+   "motivos_c3": [],
+   "ok": true,
+   "pid": 777,
+   "pids": [
+    777
+   ]
+  },
+  "via_rapida": {
+   "antiguedad_max_s": 0.4,
+   "medida": true
+  }
+ },
+ "motivos": [
+  "Suricata sin medida completa en el periodo"
+ ],
+ "periodo": [
+  1793518320.0,
+  1793520300.0
+ ]
+}
