@@ -3,7 +3,7 @@
 
   falso_systemd.py systemctl  <args>      is-active U | show U -pP... | start U | stop U...
   falso_systemd.py systemd-run <args>     crea la unidad transitoria (timer o servicio)
-Fallos inducidos con $FAKE_FALLA (separados por comas): run-tope, run-vigia, elapse-distinto, vigia-cae, stop-no-para, timer-dispara.
+Fallos inducidos con $FAKE_FALLA (separados por comas): run-tope, run-vigia, elapse-distinto, vigia-cae, stop-no-para, timer-dispara, start-falla (systemctl start logrotate.timer falla).
 """
 import datetime as dt
 import os
@@ -47,6 +47,8 @@ def systemctl(a):
             print(f"{k}={prop(u, k)}")
         return 0
     if cmd == "start":
+        if a[1] == "logrotate.timer" and "start-falla" in FALLA:
+            print("Failed to start logrotate.timer: Unit is masked / sin permiso"); return 1
         poner(a[1], "active"); return 0
     if cmd == "stop":
         for u in a[1:]:

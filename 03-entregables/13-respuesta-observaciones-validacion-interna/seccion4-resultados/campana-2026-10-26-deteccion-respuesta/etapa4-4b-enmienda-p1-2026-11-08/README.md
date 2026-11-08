@@ -51,5 +51,5 @@ Corridas del recorrido completo: **A** guiones originales + salud congelada (def
 ## 5. Cómo se instalaría (solo tras la orden de Mark; el 7.1 del protocolo cambia en dos ficheros)
 
 `[LAPTOP Git Bash]` → lo ejecuto yo. Igual que §7.1, pero `control_4b.py` y `herramientas-e4.sha256` salen de esta carpeta, y los guiones `s10`/`s50` se ejecutan desde ella con `r4.sh`:
-`G="…/etapa4-4b-enmienda-p1-2026-11-08/guiones"` para `s10` y `s50`; el resto de guiones (`k01`, `b01`, `s20`, `s30`, `s40`, `p10b`) siguen en `etapa4-preparacion-2026-11-02/guiones`, y `k20` y `r4.sh` en la reconciliación.
+`G="…/etapa4-4b-enmienda-p1-2026-11-08/guiones"` para `s10` y `s50`, y **`s40` v2** (`guiones/s40_cierre_e4.sh`, propuesto el 08-nov: comprueba cada copia; ver `PROPUESTA-APLAZAR-LOGROTATE.md` §4; hash en `guiones/s40_cierre_e4.sha256`; sustituye al `s40` de la preparación solo si se aprueba); el resto de guiones (`k01`, `b01`, `s20`, `s30`, `p10b`) siguen en `etapa4-preparacion-2026-11-02/guiones`, y `k20` y `r4.sh` en la reconciliación.
 Se esperan las mismas 12 líneas `OK` en el bastión y en el Sensor1, con el nuevo `herramientas-e4.sha256`.

@@ -81,21 +81,28 @@ def cierre_completo(ent):
     B = ent.home / "cf-e4/4b"; C = B / "copias"; (C / "feed-v2").mkdir(parents=True, exist_ok=True)
     (B / "replay").mkdir(exist_ok=True); (B / "replay/rc.txt").write_text("rc=0\n"); (B / "cierre.t").write_text("1.0\n")
     (B / "archivo-pcap.rc").write_text("0\n")
-    # copias FIELES: la fuente tal como estaba en la línea base más lo que se escribió después (lo que hace cp en s40)
-    fiel = lambda ruta: ruta.read_bytes() + b"escrito despues\n"
-    for n, c in (("motor_decision.log", fiel(ent.motor)), ("ciclos.jsonl", fiel(ent.home / "cyberflow/logs/_state-e4/ciclos.jsonl")),
-                 ("eve-segmento.json", b"e\n"), ("stats-fin.log", fiel(ent.suri / "stats.log")),
-                 ("muestras.jsonl", b"m\n"), ("archivar.log", b"2026 OK live-x.pcap\n"), ("archivador-ESTADO.txt", b"OK vistos=1\n"),
-                 ("servicios-fin.txt", b"x\n"), ("sha256-feed-final.txt", b"h\n"), ("feed-v2/feed.json", b"{}\n"),
-                 ("feed-v2/via-rapida-resumen.jsonl", fiel(ent.home / "feed-v2/via-rapida-resumen.jsonl")),
-                 ("feed-v2/traza.jsonl", fiel(ent.home / "feed-v2/traza.jsonl")),
-                 ("feed-v2/senales-if.jsonl", fiel(ent.home / "feed-v2/senales-if.jsonl")),
-                 ("feed-v2/senales-rapidas.jsonl", b"")):
+    # La corrida escribió en las fuentes (registros de la 4B) y s40 las copió enteras: copia == fuente al empezar s40.
+    fuentes = {"motor_decision.log": ent.motor, "ciclos.jsonl": ent.home / "cyberflow/logs/_state-e4/ciclos.jsonl", "stats-fin.log": ent.suri / "stats.log",
+               "feed-v2/via-rapida-resumen.jsonl": ent.home / "feed-v2/via-rapida-resumen.jsonl", "feed-v2/traza.jsonl": ent.home / "feed-v2/traza.jsonl",
+               "feed-v2/senales-if.jsonl": ent.home / "feed-v2/senales-if.jsonl", "feed-v2/senales-rapidas.jsonl": ent.home / "feed-v2/senales-rapidas.jsonl"}
+    for n, ruta in fuentes.items():
+        if n != "feed-v2/senales-rapidas.jsonl":                       # esta puede no crecer en toda la corrida
+            with open(ruta, "ab") as fh:
+                fh.write(b"registro de la 4B\n")
+        (C / n).write_bytes(ruta.read_bytes())
+    for n, c in (("eve-segmento.json", b"e\n"), ("muestras.jsonl", b"m\n"), ("archivar.log", b"2026 OK live-x.pcap\n"), ("archivador-ESTADO.txt", b"OK vistos=1\n"),
+                 ("servicios-fin.txt", b"x\n"), ("sha256-feed-final.txt", b"h\n"), ("feed-v2/feed.json", b"{}\n")):
         (C / n).write_bytes(c)
-    sumas = "".join(f"{hashlib.sha256((C / n).read_bytes()).hexdigest()}  ./{n}\n" for n in sorted(
-        str(p.relative_to(C)) for p in C.rglob("*") if p.is_file() and p.name != "SHA256SUMS"))
-    (C / "SHA256SUMS").write_text(sumas)
+    (C / "FUENTES-al-copiar.tsv").write_text("".join(f"{n}\t{(C / n).stat().st_size}\n" for n in fuentes))
+    reescribir_sumas(C)
+    (C / "COPIAS-COMPLETAS.ok").write_text("ok 2026\n")
     return B, C
+
+
+def reescribir_sumas(C):
+    """Como s40: el manifiesto se genera con lo que haya quedado, también de una copia truncada."""
+    (C / "SHA256SUMS").write_text("".join(f"{hashlib.sha256((C / n).read_bytes()).hexdigest()}  ./{n}\n" for n in sorted(
+        str(p.relative_to(C)) for p in C.rglob("*") if p.is_file() and p.name not in ("SHA256SUMS", "COPIAS-COMPLETAS.ok"))))
 
 
 # ------------------------------------------------------------------------------------------------ armar
@@ -317,3 +324,84 @@ def test_desarmar_a_mano(ent):
     assert ent.run("desarmar").returncode == 0 and ent.timer() == "active"
     c = ent.calls()
     assert any("stop cf-4b-vigia.service" in l for l in c) and any("stop cf-4b-tope.timer" in l for l in c)
+    ini = max(n for n, l in enumerate(c) if l.endswith("start logrotate.timer"))
+    desde = c[ini:]
+    assert next(n for n, l in enumerate(desde) if "is-active logrotate.timer" in l) < next(n for n, l in enumerate(desde) if "stop cf-4b-vigia.service" in l), \
+        "se comprueba que el timer está activo ANTES de retirar la recuperación"
+
+
+def test_desarmar_si_el_timer_no_arranca_no_retira_la_recuperacion(ent):
+    """Si `systemctl start logrotate.timer` falla, desarmar NO devuelve 0 ni cancela el vigía y el tope: son lo único que queda para reanudar."""
+    armado(ent)
+    n0 = len(ent.calls())
+    r = ent.run("desarmar", falla="start-falla")
+    assert r.returncode == 1 and "DESARMAR FALLÓ" in r.stderr, r.stdout + r.stderr
+    assert ent.timer() == "inactive"
+    nuevas = ent.calls()[n0:]
+    assert not any(l.startswith("systemctl stop cf-4b") for l in nuevas), nuevas
+    assert sum(l.endswith("start logrotate.timer") for l in nuevas) == 3, "reintenta antes de rendirse"
+    assert "DESARMAR FALLÓ" in ent.log() and "SIGUEN armados" in ent.log()
+    assert (ent.estado / "parado.json").exists(), "el vigía debe seguir actuando"
+    # cuando el arranque vuelve a funcionar, el desarme sí completa y retira la recuperación
+    r2 = ent.run("desarmar")
+    assert r2.returncode == 0 and ent.timer() == "active"
+    assert any("stop cf-4b-vigia.service" in l for l in ent.calls()[n0:]) and not (ent.estado / "parado.json").exists()
+
+
+def test_armar_revertido_con_start_fallido_deja_la_recuperacion_y_sale_con_error(ent):
+    r = ent.run("armar", "--tope", str(ent.tope()), falla="timer-dispara,start-falla")
+    assert r.returncode == 3
+    assert ent.timer() == "inactive"
+    assert not any(l.startswith("systemctl stop cf-4b") for l in ent.calls()), "no se retira el tope ni el vigía si el timer no volvió"
+    assert "ARMAR FALLÓ" in ent.log() and "DESARMAR FALLÓ" in ent.log()
+
+
+@pytest.mark.parametrize("caso", ["identica_a_la_base", "parcial_en_linea_valida", "fuentes_anotadas_como_base", "sin_marca_completa", "sin_fuentes"])
+def test_copia_que_no_cubre_la_corrida_no_cierra_aunque_el_manifiesto_verifique(ent, caso):
+    """Una copia de motor_decision.log idéntica a la línea base (o cortada en una línea válida) con SHA256SUMS correcto y la fuente ya con
+    registros de la 4B NO es un cierre: el timer no se reanuda por el camino normal."""
+    armado(ent); B, C = cierre_completo(ent)
+    base = json.loads((ent.estado / "base.json").read_text())["ficheros"][str(ent.motor)]
+    original = ent.motor.read_bytes()[: base["tam"]]
+    motor_copia = C / "motor_decision.log"
+    tsv = C / "FUENTES-al-copiar.tsv"
+    def anotar(nombre, tam):
+        lin = [l for l in tsv.read_text().splitlines() if not l.startswith(nombre + "\t")]
+        tsv.write_text("\n".join(lin + [f"{nombre}\t{tam}"]) + "\n")
+    if caso == "identica_a_la_base":
+        motor_copia.write_bytes(original)
+    elif caso == "parcial_en_linea_valida":
+        with open(ent.motor, "ab") as fh:
+            fh.write(b"registro 2 de la 4B\nregistro 3 de la 4B\n")            # la fuente siguió creciendo antes de que s40 la leyera
+        anotar("motor_decision.log", ent.motor.stat().st_size)
+        assert motor_copia.read_bytes().endswith(b"\n") and len(motor_copia.read_bytes()) > base["tam"]
+    elif caso == "fuentes_anotadas_como_base":
+        motor_copia.write_bytes(original); anotar("motor_decision.log", base["tam"])
+    elif caso == "sin_marca_completa":
+        os.remove(C / "COPIAS-COMPLETAS.ok")
+    elif caso == "sin_fuentes":
+        os.remove(tsv)
+    reescribir_sumas(C)
+    r = ent.run("cierre")
+    assert "OK    copias/SHA256SUMS" in r.stdout, "el manifiesto es correcto: " + r.stdout
+    assert r.returncode == 1 and "FALLO" in r.stdout, r.stdout
+    if caso in ("identica_a_la_base", "parcial_en_linea_valida", "fuentes_anotadas_como_base"):
+        assert "FALLO copia fiel de motor_decision.log" in r.stdout and "NO cubre la corrida" in r.stdout, r.stdout
+    t0 = time.time()
+    ent.run("vigilar", "--tope", str(int(t0) + 3), "--intervalo", "0.3", timeout=30)
+    assert "REANUDADO_NORMAL" not in ent.log() and "REANUDADO_POR_TOPE" in ent.log()
+
+
+def test_cierre_acepta_copia_que_cubre_la_corrida(ent):
+    armado(ent); cierre_completo(ent)
+    r = ent.run("cierre")
+    assert r.returncode == 0 and "RESULTADO_CIERRE OK" in r.stdout, r.stdout
+
+
+def test_formato_de_fuentes_al_copiar_lo_lee_el_cierre(tmp_path):
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("cf_rot2", SCRIPT); m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+    p = tmp_path / "f.tsv"; p.write_text("motor_decision.log\t123\nfeed-v2/traza.jsonl\t0\n")
+    assert m.leer_fuentes(str(p)) == {"motor_decision.log": 123, "feed-v2/traza.jsonl": 0}
+    p.write_text("motor_decision.log\tmucho\n"); assert m.leer_fuentes(str(p)) == {}
+    assert m.leer_fuentes(str(tmp_path / "no-existe")) == {}
