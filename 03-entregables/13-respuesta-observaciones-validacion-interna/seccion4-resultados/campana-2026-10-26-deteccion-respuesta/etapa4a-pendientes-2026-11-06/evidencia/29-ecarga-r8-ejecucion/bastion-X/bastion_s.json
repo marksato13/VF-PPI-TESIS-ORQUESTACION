@@ -1,0 +1,91 @@
+{
+ "version": "derivar_bastion 2026-11-06.2",
+ "periodo": [
+  1794136500.0,
+  1794140100.0
+ ],
+ "cobertura": {
+  "muestras_margen": 125,
+  "muestras_ventana": 121,
+  "antes_de_desde_s": 0.0,
+  "despues_de_hasta_s": 0.0,
+  "hueco_max_s": 31.0,
+  "ok": true
+ },
+ "S1": {
+  "valor": true,
+  "pid_nr": {
+   "relay": [
+    "70246",
+    "0"
+   ],
+   "ppi-motor": [
+    "1384",
+    "0"
+   ],
+   "ppi-motor-capture": [
+    "1355",
+    "0"
+   ],
+   "ppi-via-rapida@ens37": [
+    "1387",
+    "0"
+   ],
+   "suricata": [
+    "1351",
+    "0"
+   ],
+   "ppi-publicar-feed-v2": [
+    "1386",
+    "0"
+   ],
+   "agente": [
+    "15020",
+    "0"
+   ]
+  },
+  "cambios": [],
+  "inactivos": [],
+  "muestras_sin_dato": []
+ },
+ "S6": {
+  "valor": true,
+  "home_libre_min_kb": 12227924,
+  "memdisp_min_kb": 5362792,
+  "carga1_max": 1.17,
+  "carga1_mediana": 0.36,
+  "muestras_sin_dato": []
+ },
+ "S8": {
+  "valor": true,
+  "firma_invalida_ini_fin": [
+   14,
+   14
+  ],
+  "paquete_invalido_ini_fin": [
+   0,
+   0
+  ],
+  "muestras_sin_dato": []
+ },
+ "S9": {
+  "valor": true,
+  "panel_401": "121/121",
+  "no_401": [],
+  "agente_no_activo": [],
+  "muestras_sin_dato": []
+ },
+ "S10": {
+  "valor": true,
+  "aplicaciones_nuevas": 0,
+  "rulesets_sensor1": [
+   "24c320e3e9538573"
+  ],
+  "rulesets_srvdmz": [
+   "e3b0c44298fc1c14"
+  ],
+  "con_aplicar_o_enforce": [],
+  "v1_no_inactivo": [],
+  "muestras_sin_dato": []
+ }
+}

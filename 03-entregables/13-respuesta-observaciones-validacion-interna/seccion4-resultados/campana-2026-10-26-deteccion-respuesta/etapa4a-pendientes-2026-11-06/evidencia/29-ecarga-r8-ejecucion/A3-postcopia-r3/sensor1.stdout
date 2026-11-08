@@ -1,0 +1,17 @@
+799af8f10d4f6dce5abd37ac6fa1ac250d14aadfd03bb7654dab8b070d1965d6  -
+INFO sensor1 m4rk cyberflow-sensor 2026-11-08T10:07:03Z post_copia_host r3 2026-11-06.2
+CHECK paquete OK /home/m4rk/cf-e4/paquete-902991e
+CHECK marca OK SUMAS=8480f0e02952216d0a371f13201657e81e27ccc53fef2d5917d5dc74a68df30c
+CHECK sumas-interno OK 8480f0e02952216d0a371f13201657e81e27ccc53fef2d5917d5dc74a68df30c
+CHECK hashes OK sha256sum -c --strict: todos correctos
+CHECK inventario OK 480 ficheros, ninguno ausente, ninguno inesperado
+CHECK evaluador OK 53e9f7bd578123f6499289ebbb92d8d6c71a6e56b7c1c35a59463b98aad5c23f
+CHECK ecarga-sha256sums OK e001352c2e6485d99e71b1e62ff68a4051bebdfc2bbb4fbd927000517d463b80
+CHECK ecarga-verifica OK sha256sum -c
+CHECK version-evaluar_s14 OK VERSION = "evaluar_s14 2026-11-06.2"
+CHECK version-construir_entrada OK VERSION = "construir_entrada 2026-11-06.3"
+CHECK aviso OK paquete-a12deae SUSTITUIDO por ~/cf-e4/paquete-902991e (verificado; RUN=20261106T194952Z-10146; PROTOCOLO-CARGA-v2 r4).
+CHECK sin-parciales OK ningún .paquete-902991e.parcial.*
+INFO registro traslado-902991e.20261106T194952Z-10146.sensor1.log: 2026-11-06T19:50:09Z sensor1: ESTADO_FINAL=VERIFICADO rc=0
+INFO paquete-a12deae ecarga/SHA256SUMS 9ff24889 verifica_rc=0 ficheros=482
+RESULTADO sensor1 rc=0 estado=CONFORME ok=12/12

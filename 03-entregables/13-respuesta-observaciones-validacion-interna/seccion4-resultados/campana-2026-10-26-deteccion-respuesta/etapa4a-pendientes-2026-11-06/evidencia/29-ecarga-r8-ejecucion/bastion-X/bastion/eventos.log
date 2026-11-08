@@ -1,0 +1,9 @@
+2026-11-08T12:17:04Z 1794140224 PARADA solicitada (intento 1/6): fin previsto (PARADA_EPOCH 1794140220)
+  [parar intento 1] 2026-11-08T12:17:04Z PARADA solicitada: sudo -n systemctl stop cyberflow-lab.target
+  [parar intento 1] stop rc=0 
+  [parar intento 1] gen target=inactive carga=loaded habilitado=disabled hash=ae5134a7 procesos=0 unidades: ofimatica=inactive/dead/pid0/nr0 navegacion=inactive/dead/pid0/nr0 descargas=inactive/dead/pid0/nr0 aplicacion=inactive/dead/pid0/nr0 ligero=inactive/dead/pid0/nr0 erratico=inactive/dead/pid0/nr0 consulta=ok
+  [parar intento 1] PARADA_CONFIRMADA: target inactivo, 6 unidades inactivas con MainPID 0 y 0 procesos clientes_lab.py
+2026-11-08T12:17:06Z 1794140226 PARADA confirmada (intento 1)
+  [comprobación final] gen target=inactive carga=loaded habilitado=disabled hash=ae5134a7 procesos=0 unidades: ofimatica=inactive/dead/pid0/nr0 navegacion=inactive/dead/pid0/nr0 descargas=inactive/dead/pid0/nr0 aplicacion=inactive/dead/pid0/nr0 ligero=inactive/dead/pid0/nr0 erratico=inactive/dead/pid0/nr0 consulta=ok
+  [comprobación final] PARADO_CONFIRMADO
+2026-11-08T12:18:32Z 1794140312 fin del muestreo: parada=confirmada intentos=1

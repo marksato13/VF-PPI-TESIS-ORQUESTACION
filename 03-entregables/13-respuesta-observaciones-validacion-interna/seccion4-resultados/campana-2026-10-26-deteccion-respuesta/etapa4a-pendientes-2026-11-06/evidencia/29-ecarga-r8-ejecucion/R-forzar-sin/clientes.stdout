@@ -1,0 +1,10 @@
+cbe47213493aac9b18719e296fb44d27100470769ac3b54f9fb7009f6df6004c  -
+INFO forzar sin adminclientes clientesadmin 2026-11-08T13:14:34Z
+NO_CUMPLE cyberflow-lab-ofimatica.service: argv «/usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil ofimatica --origen 10.10.20.21 --servidor 10.10.30.10 --dns 10.10.10.20 --forzar-laborable», drop-ins «/etc/systemd/system/cyberflow-lab-ofimatica.service.d/10-forzar-laborable-r5.conf»
+NO_CUMPLE cyberflow-lab-navegacion.service: argv «/usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil navegacion --origen 10.10.20.22 --servidor 10.10.30.10 --dns 10.10.10.20 --forzar-laborable», drop-ins «/etc/systemd/system/cyberflow-lab-navegacion.service.d/10-forzar-laborable-r5.conf»
+NO_CUMPLE cyberflow-lab-descargas.service: argv «/usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil descargas --origen 10.10.20.23 --servidor 10.10.30.10 --dns 10.10.10.20 --forzar-laborable», drop-ins «/etc/systemd/system/cyberflow-lab-descargas.service.d/10-forzar-laborable-r5.conf»
+NO_CUMPLE cyberflow-lab-aplicacion.service: argv «/usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil aplicacion --origen 10.10.20.24 --servidor 10.10.30.10 --dns 10.10.10.20 --forzar-laborable», drop-ins «/etc/systemd/system/cyberflow-lab-aplicacion.service.d/10-forzar-laborable-r5.conf»
+NO_CUMPLE cyberflow-lab-ligero.service: argv «/usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil ligero --origen 10.10.20.25 --servidor 10.10.30.10 --dns 10.10.10.20 --forzar-laborable», drop-ins «/etc/systemd/system/cyberflow-lab-ligero.service.d/10-forzar-laborable-r5.conf»
+NO_CUMPLE cyberflow-lab-erratico.service: argv «/usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil erratico --origen 10.10.20.26 --servidor 10.10.30.10 --dns 10.10.10.20 --forzar-laborable», drop-ins «/etc/systemd/system/cyberflow-lab-erratico.service.d/10-forzar-laborable-r5.conf»
+REQ FORZAR.sin NO_CUMPLE
+FIN_FORZAR rc=1
