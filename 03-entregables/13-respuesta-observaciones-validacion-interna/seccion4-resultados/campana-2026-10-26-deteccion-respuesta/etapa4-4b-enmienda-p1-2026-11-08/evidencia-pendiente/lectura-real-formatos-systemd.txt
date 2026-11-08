@@ -1,0 +1,16 @@
+systemctl show logrotate.service: {'ExecMainStartTimestampMonotonic': '172985493987', 'ActiveEnterTimestampMonotonic': '0', 'InvocationID': 'a7dbc89c2de845adba94ef55e629a795'}
+systemctl show logrotate.timer:   {'LastTriggerUSec': 'Sun 2026-11-08 00:00:00 UTC', 'LastTriggerUSecMonotonic': '2d 3min 5.469186s'} | is-active: active
+NextElapseUSecRealtime (apt-daily.timer): {'NextElapseUSecRealtime': 'Sun 2026-11-08 22:41:52 UTC'} -> epoch 1794177712.0
+NextElapseUSecRealtime (logrotate.timer): {'NextElapseUSecRealtime': 'Mon 2026-11-09 00:00:00 UTC'} -> epoch 1794182400.0
+línea base en memoria: 0.4 s
+   /var/log/suricata/eve.json (663679, 128304928, 16777216, 'f31303553acf')
+   /var/log/suricata/stats.log (663680, 64142459, 16777216, '3f6b591fea36')
+   /home/m4rk/cyberflow/logs/motor_decision.log (671352, 35376975, 16777216, '6e5e20b334bc')
+   /home/m4rk/cyberflow/logs/_state-e4/ciclos.jsonl (1048633, 56766543, 16777216, 'f1671b9bbef7')
+   /home/m4rk/feed-v2/via-rapida-resumen.jsonl (1184468, 106600289, 16777216, '57ef1a3869be')
+   /home/m4rk/feed-v2/traza.jsonl (1184474, 551912, 551912, '03740aa284d9')
+   /home/m4rk/feed-v2/senales-if.jsonl (1184470, 416948, 416948, '90454897498f')
+   /home/m4rk/feed-v2/senales-rapidas.jsonl (1184469, 0, 0, 'e3b0c44298fc')
+hermanos existentes: 67
+comprobar inmediato: OK
+  (sin fallos)
