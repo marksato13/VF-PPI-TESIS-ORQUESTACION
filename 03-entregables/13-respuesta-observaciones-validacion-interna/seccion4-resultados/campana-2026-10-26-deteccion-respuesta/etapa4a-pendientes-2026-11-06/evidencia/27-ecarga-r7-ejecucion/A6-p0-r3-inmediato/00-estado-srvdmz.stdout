@@ -1,0 +1,32 @@
+990da8503fce0b317836deaaac888539ad96df08966883e5d05cf2376a03c7d8  -
+INFO == srvdmz srv-dmz adminsrvdmz epoch 1794128418 utc 2026-11-08T09:00:18Z
+INFO timedatectl Timezone=Etc/UTC
+INFO timedatectl NTP=yes
+INFO timedatectl NTPSynchronized=yes
+REQ X.sincronizado.srvdmz CUMPLE NTPSynchronized=yes
+INFO servicio chrony=inactive
+INFO servicio chronyd=inactive
+INFO servicio systemd-timesyncd=active
+INFO servicio ntp=inactive
+INFO servicio ntpsec=inactive
+INFO timesync        Server: 185.125.190.57 (ntp.ubuntu.com)
+INFO timesync Poll interval: 34min 8s (min: 32s; max 34min 8s)
+INFO timesync          Leap: normal
+INFO timesync       Version: 4
+INFO timesync       Stratum: 2
+INFO timesync     Reference: 1D586304
+INFO timesync     Precision: 1us (-25)
+INFO timesync Root distance: 3.508ms (max: 5s)
+INFO timesync        Offset: -107us
+INFO timesync         Delay: 154.089ms
+INFO timesync        Jitter: 256us
+INFO timesync  Packet count: 105
+REQ P3.procesos.srvdmz CUMPLE 0 procesos con --aplicar/--enforce
+INFO df Filesystem                         Size  Used Avail Use% Mounted on
+INFO df /dev/mapper/ubuntu--vg-ubuntu--lv   17G  6,6G  9,6G  41% /
+INFO df /dev/mapper/ubuntu--vg-ubuntu--lv   17G  6,6G  9,6G  41% /
+INFO free                total        used        free      shared  buff/cache   available
+INFO free Mem:            1967         411         994           1         725        1555
+INFO free Swap:           1882           0        1882
+INFO uptime  09:00:18 up 2 days,  9:00,  2 users,  load average: 0,00, 0,00, 0,00
+FIN_BLOQUE estado_r2 rc=0

@@ -1,0 +1,58 @@
+e040baa2fdac5ffd28b3223b9ef36be7b07ddffd4bee075a2fdbdc04fefdbc1d  -
+REQ P5b CUMPLE ahora 1794128455 dentro de la franja [1794128400,1794137400]
+REQ P5a.sensor1 CUMPLE Timezone=Etc/UTC
+REQ P13.sumas CUMPLE SHA256SUMS 8480f0e02952216d0a371f13201657e81e27ccc53fef2d5917d5dc74a68df30c
+REQ P13.hashes CUMPLE sha256sum -c --strict rc 0
+REQ P13.inventario CUMPLE 480 ficheros = manifiesto
+REQ X.mecanismo_sin_escritura CUMPLE derivada en memoria la 2026-11-06.4 (63f7495714bf43c750748a1a6aad1e0506d10478b67034e41bd395490c05f823) desde la .2 del paquete (paso .3 4ed4385674e9f731c7d50f12b132d86a0a3625355df24ebaf4fa9fa0c8342b6e); nada escrito
+######## sensor1_muestreadores.sh comprobar /home/m4rk/cf-e4/p0-inmediato-20261108T090006Z 1794134760 2026-11-08T10:46:00Z (2026-11-08T09:00:55Z)
+| OK    paquete paquete-902991e: SHA256SUMS verifica
+| OK    evaluar_ecarga.py sha256 = publicado
+| OK    evaluar_ecarga VERSION 2026-11-06.4
+| OK    herramientas-20261106: SHA256SUMS verifica
+| OK    salud_captura.py de herramientas = paquete
+| OK    python del venv: Python 3.14.4
+| OK    legible muestreo_fino.py
+| OK    legible obs_pcap.py
+| OK    legible clasificar_periodo.py
+| OK    legible comparar_suricata.py
+| OK    legible verificar_sensor1.sh
+| OK    legible muestreo_s14.py
+| OK    legible evaluar_s14.py
+| OK    eve.json legible (61754199 B)
+| OK    anillo legible (191 ficheros)
+| OK    retención del anillo: el fichero más antiguo tiene 958 s (>= 900 s, la de derivar_pcap)
+| OK    legible /proc/net/softnet_stat
+| OK    legible /proc/pressure/cpu
+| OK    legible /proc/pressure/io
+| OK    legible /proc/pressure/memory
+| OK    legible /proc/vmstat
+| OK    legible /proc/diskstats
+| OK    USER_HZ 100
+| OK    journal de ppi-motor-capture legible (20 lecturas SIGUSR1 en 10 min)
+| OK    journal de ppi-via-rapida@ens37 legible (20 lecturas SIGUSR1 en 10 min)
+| OK    /home libre 12107 MiB (>= 2 GiB)
+| OK    MemAvailable 5888 MiB (>= 1 GiB)
+| OK    destino de evidencia escribible: /home/m4rk/cf-e4
+| OK    DIR /home/m4rk/cf-e4/p0-inmediato-20261108T090006Z libre
+| OK    0 procesos con --aplicar/--enforce
+| INFO  muestreadores: CONSULTA revisados=213 desaparecidos=0 ilegibles=0 presentes=0
+| OK    ningún muestreador en marcha (ausencia confirmada: revisados=213 desaparecidos=0 ilegibles=0 presentes=0)
+| == obs_pcap --en-seco
+| {"version": "2026-11-06.2", "fin_epoch": 1794134760.0, "fin_utc": "2026-11-08T10:46:00Z", "fin_peru": "2026-11-08 05:46:00 (UTC-5)", "parada_epoch": 1794134790.0, "faltan_s": 6303.8, "en_seco": true, "dir_existe": true}
+| OK    obs_pcap --en-seco rc 0
+| OK    obs_pcap en seco no creó salida
+| fallo=0
+INFO rc_comprobar=0
+REQ P11 CUMPLE comprobar rc 0
+REQ P11.muestreadores CUMPLE ningún muestreador en marcha (ausencia confirmada: revisados=213 desaparecidos=0 ilegibles=0 presentes=0)
+REQ P11.retencion CUMPLE retención del anillo: el fichero más antiguo tiene 958 s (>= 900 s, la de derivar_pcap)
+REQ P6.home CUMPLE /home libre 12107 MiB (>= 2 GiB)
+REQ P6.mem CUMPLE MemAvailable 5888 MiB (>= 1 GiB)
+REQ P7 CUMPLE obs_pcap --en-seco rc 0 y sin salida
+REQ X.dir_no_creado CUMPLE no creó /home/m4rk/cf-e4/p0-inmediato-20261108T090006Z ni salida en seco
+REQ X.paquete_sin_cambios CUMPLE inventario (tipo, modo, tamaño, mtime, ruta) idéntico antes y después: 566 entradas
+REQ P9 CUMPLE SHA256SUMS OK, evaluador 53e9f7bd…, VERSION 2026-11-06.4. Reglas fijadas en 
+INFO eve: -rw-r--r-- 1 root root 61754199 2026-11-08T09:00:55 /var/log/suricata/eve.json
+INFO anillo: 191 ficheros; primero live-20261108084457.pcap; ahora 20261108090056
+FIN_BLOQUE sensor1_r3 rc=0

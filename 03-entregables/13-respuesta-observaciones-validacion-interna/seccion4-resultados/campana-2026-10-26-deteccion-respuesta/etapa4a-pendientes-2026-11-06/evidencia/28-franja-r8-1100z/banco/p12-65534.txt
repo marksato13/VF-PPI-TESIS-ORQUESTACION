@@ -1,0 +1,17 @@
+PASA  arranque a las 02:50Z, confirmado: CUMPLE (rc 0, CUMPLE)
+PASA  límite exacto 02:55:00Z en la confirmación: NO_CUMPLE (rc 1, NO_CUMPLE)
+PASA  arrancados tarde (02:56Z): NO_CUMPLE (rc 1, NO_CUMPLE)
+PASA  arrancar rc 3 (uno no quedó vivo): NO_CUMPLE (rc 1, NO_CUMPLE)
+PASA  arrancar rc 2 (DIR ya usado): NO_CUMPLE (rc 1, NO_CUMPLE)
+PASA  sin transcripción: ERROR (rc 3, ERROR)
+PASA  transcripción sin FIN_ARRANCAR: ERROR (rc 3, ERROR)
+PASA  dos líneas FIN_ARRANCAR: ERROR (rc 3, ERROR)
+PASA  rc 0 sin ARRANQUE_CONFIRMADO: ERROR (incoherente) (rc 3, ERROR)
+PASA  rc 0 con 3 vivos: ERROR (incoherente) (rc 3, ERROR)
+PASA  sin eventos.log: ERROR (rc 3, ERROR)
+PASA  s14.jsonl sin «inicio»: ERROR (rc 3, ERROR)
+PASA  sin s14.jsonl: ERROR (rc 3, ERROR)
+PASA  marca de arranque posterior a la confirmación: ERROR (rc 3, ERROR)
+PASA  eventos.log ilegible: ERROR (rc 3, ERROR)
+RESULTADO_BANCO_P12 fallos=0 guion_sha=46020119678b8487ca1593050869c95be04b7ab9080a21c67de2621029e45274
+RC_BANCO=0
