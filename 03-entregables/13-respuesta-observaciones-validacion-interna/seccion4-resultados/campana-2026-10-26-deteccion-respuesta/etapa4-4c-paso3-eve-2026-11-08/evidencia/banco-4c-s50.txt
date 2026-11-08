@@ -1,0 +1,17 @@
+## R1 guion 4C enmendado, EVE con ráfaga y hueco
+OK    R1a rc 0 y análisis COMPLETO
+OK    R1b paso 3 OK y suricata-stats.json con muestras de EVE (formato momento/kernel_*)
+OK    R1c los pasos 5, 6, c y 7 ya no quedan omitidos
+OK    R1d paso 7: episodio limpio C0, con ráfaga C1 (descartes), con hueco C3 (datos faltantes)
+OK    R1e el consumidor (generar_respaldos) ve +23 descartes solo en el periodo del episodio con ráfaga
+## R2 guion ORIGINAL con stats.log como el real (sin kernel_drops): el defecto
+OK    R2a rc 1 (análisis PARCIAL)
+OK    R2b DEFECTO REPRODUCIDO: el paso 3 falla («sin muestras de stats.log…») y quedan omitidos 5, 6 y c
+OK    R2c y, además, el paso 7 original da C3 («Suricata sin medida») en los tres episodios
+## R3 EVE con una línea stats corrupta
+OK    R3a rc 1; paso 3 en fallo con el motivo; 5, 6, c y 9 omitidos; sin SHA256SUMS completo
+## R4 EVE sano
+OK    R4a rc 0 y los tres episodios C0 / cero_explicito
+## Guion de la 4B y guion de la 4C: solo difieren en el paso 3
+OK    D1 el guion de la 4C difiere del de la 4B solo en comentarios de cabecera y en la función p_3 (todo lo demás es idéntico)
+RESULTADO: todas las comprobaciones OK

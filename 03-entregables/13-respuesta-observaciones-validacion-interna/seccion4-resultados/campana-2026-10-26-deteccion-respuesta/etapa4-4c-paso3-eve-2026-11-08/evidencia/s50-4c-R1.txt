@@ -1,0 +1,38 @@
+## s50-e4 4c 2026-11-08T15:01:52.121Z inventario=[2026-11-01T07:24:40Z, 2026-11-01T10:05:30Z] control=[2026-11-01T07:29:00Z, 2026-11-01T08:05:00Z] reanudar=0
+## a1
+336 incrementos; con reinicio: 0
+  a1 OK
+## a2
+  control (IF/heur):  "clase": "C3",  Suricata (EVE): cobertura_insuficiente
+  a2 OK
+## a3
+  control (vía rápida):  "clase": "C3",  Suricata (EVE): cobertura_insuficiente
+  a3 OK
+## b
+  control_4b.py ok
+  b OK
+## 1
+  1 OK
+## 2
+  2 OK
+## 3
+  muestras: 423 omitidas por faltar campos: 0 | drops 0 -> 23 | procesos Suricata (arranque estimado): 1
+  3 OK
+## 4
+  4 OK
+## 5
+  5 OK
+## 6
+  6 OK
+## 7
+  clases IF/heur: {'C0': 1, 'C1': 1, 'C3': 1}
+  7 OK
+## 8
+  8 OK
+## c
+analizar_3b.py ok
+  c OK
+## 9
+  referencia_trafico_4c.py ok
+  9 OK
+## ANÁLISIS COMPLETO 2026-11-08T15:01:52.799Z
