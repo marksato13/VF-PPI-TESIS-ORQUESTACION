@@ -1,0 +1,24 @@
+INFO p8 r7 2026-11-08T08:36:13Z epoch 1794126973; T_g 1794130200 (2026-11-08T09:30:00Z)
+INFO origin/main 7cd92b73892f76b55bc1fdb8e79c5827c873e457
+INFO 034d57d66b12960901e0d342de110544559453bf está en origin/main (2026-11-06 12:26:26 -0500, «E-carga v2: protocolo r4 y preparacion r3 (S14 con tiempo desconocido), NO ejecutada ni programada»)
+INFO 70b945bd3fd3b07c5bfb379e4928e2b291186ef2 está en origin/main (2026-11-07 11:31:34 -0500, «Etapa 4A: propuesta de protocolo E-carga v2 r5, franja del domingo 8 de noviembre»)
+INFO 04465555434ea67ec2a40fd61451e70291dc3480 está en origin/main (2026-11-08 01:04:04 -0500, «Etapa 4A: protocolo E-carga v2 r7, franja diurna del domingo 8 (T_g 09:30Z, base 1,0 con --forzar-laborable); propuesta, no ejecutada»)
+INFO tabla r7 en 0446555 sha256 58c0eeeab6d52d2e3dcfbab21b0128f7040c57f3dee51a4ea72396b8a93600b1
+INFO tabla r7 en origin/main sha256 58c0eeeab6d52d2e3dcfbab21b0128f7040c57f3dee51a4ea72396b8a93600b1
+INFO tabla r4 en origin/main sha256 d450f44d1720eab6a1a02e6c27e52337cd26e70ee4a64c2dc66ed99f4cc40460
+TABLA | Paso | Epoch | UTC (dom 08-nov) | Perú (UTC−5, dom 08-nov) |
+TABLA | Traslado ya verificado, drop-ins aplicados (F3) e inicio de la fase A | 1794126900 | 08:35:00 | 03:35:00 |
+TABLA | P0, comprobación previa | 1794128400 | 09:00:00 | 04:00:00 |
+TABLA | Arranque de muestreadores | 1794129600 | 09:20:00 | 04:20:00 |
+TABLA | Límite P12 e inicio de la base de S14 | 1794129900 | 09:25:00 | 04:25:00 |
+TABLA | T_g, arranque de generadores | **1794130200** | 09:30:00 | 04:30:00 |
+TABLA | Calentamiento (no cuenta) | 1794130200–1794131100 | 09:30:00–09:45:00 | 04:30:00–04:45:00 |
+TABLA | **Ventana fija** | **1794131100–1794134700** | **09:45:00–10:45:00** | **04:45:00–05:45:00** |
+TABLA | Fin de `obs_pcap.py` y muestreadores de Sensor1 | 1794134760 | 10:46:00 | 05:46:00 |
+TABLA | Parada de generadores | 1794134820 | 10:47:00 | 05:47:00 |
+TABLA | Fin del muestreo del bastión | 1794134880 | 10:48:00 | 05:48:00 |
+TABLA | Análisis de perfiles, no antes de | 1794135600 | 11:00:00 | 06:00:00 |
+TABLA | Lecturas posteriores y verificadores, hasta | 1794137400 | 11:30:00 | 06:30:00 |
+INFO push a main de 0446555: 2026-11-08T06:04:08Z (epoch 1794117848, push desde e8fbd00)
+REQ P8 CUMPLE franja r7 publicada en 0446555 (push 2026-11-08T06:04:08Z) y sin cambios hasta origin/main 7cd92b7; tabla sha256 58c0eeeab6d52d2e3dcfbab21b0128f7040c57f3dee51a4ea72396b8a93600b1; T_g 2026-11-08T09:30:00Z
+FIN_P8 rc=0

@@ -1,0 +1,63 @@
+INFO referencias 2026-11-08T08:35:28Z
+INFO docs origin/main 7cd92b73892f76b55bc1fdb8e79c5827c873e457
+OK    docs contiene 55f560a
+OK    procedimiento final publicado en 7cd92b7 (2026-11-08 01:07:25 -0500)
+OK    ningún commit posterior al procedimiento toca etapa4a-pendientes-2026-11-06
+OK    MANIFIESTO.sha256 verifica (1210 ficheros, sha 6d36c1977de6c386…)
+OK    conjunto de ficheros = manifiesto
+OK    evidencia/18-cache-archivada-postcopia-p0: SHA256SUMS verifica
+OK    evidencia/19-correccion-p11: SHA256SUMS verifica
+OK    evidencia/20-procedimiento-final: SHA256SUMS verifica
+OK    evidencia/21-correccion-guardia-parada-s7: SHA256SUMS verifica
+OK    evidencia/22-banco-temporizacion-8x-pendiente: SHA256SUMS verifica
+OK    evidencia/23-correccion-c1-tg-estabilidad-banco: SHA256SUMS verifica
+OK    evidencia/24-c1-registro-franja-domingo: SHA256SUMS verifica
+OK    evidencia/25-franja-r6-20h: SHA256SUMS verifica
+OK    evidencia/26-franja-r7-0930z: SHA256SUMS verifica
+INFO herramientas del día (sha256 en la copia publicada):
+      c0724c9280f7e9b1a4d67feb09c331d9a1aa2b94cfc0ae756f65e7509946ee9e  evidencia/26-franja-r7-0930z/herramientas/00_referencias.sh
+      0becbf9f74b38928cb62153b6303f754fa24ddee28e5cffec05a2207af9830b3  evidencia/26-franja-r7-0930z/herramientas/comprobar_p8_r7.sh
+      d44514b9e8512b3131f306cf5533077b75cc6af1895bc29550d374a84b5cef41  evidencia/26-franja-r7-0930z/herramientas/comprobar_p12.sh
+      40d677819c8c1665de7407f1e8b952ee07e4db81b101d8de61f9a6f00926e291  evidencia/26-franja-r7-0930z/herramientas/comprobar_p12_host.sh
+      a0c082c0679b82e5e9a4e0fcc75df6c2305cb941eea3730736f4f029a16bebf2  evidencia/26-franja-r7-0930z/p0-r3x/p0_r3.sh
+      e040baa2fdac5ffd28b3223b9ef36be7b07ddffd4bee075a2fdbdc04fefdbc1d  evidencia/26-franja-r7-0930z/p0-r3x/bloques/sensor1_r3.sh
+      42adbd870ebbf07f897d83b518d5e824e0cbfc3dd790f3769d43737ec6fb4951  evidencia/26-franja-r7-0930z/lanzadores/lanzar_a1.sh
+      e41b2240e72c5a1625d46a963ac8479256d8c08fe9070c3c336bbd614a916d1c  evidencia/26-franja-r7-0930z/lanzadores/lanzar_a2.sh
+      d3381ce0df549a890288f573fdd0718ae08fbb4ee405ecee971150ec1788fddd  evidencia/24-c1-registro-franja-domingo/herramientas/00_referencias.sh
+      d78dd99ee9f2060879956fbead737d4f5d2b2c6e96893f59acf8109f5d0f28a0  evidencia/24-c1-registro-franja-domingo/traslado/trasladar_bastion.sh
+      550943a0b1789cb94c01f987fcfe7e9a78d9c499f070f1d3e34eafc44d3a1e3f  evidencia/24-c1-registro-franja-domingo/traslado/instalar_bastion_host.sh
+      afe81a881b9aedfd61ba9d36dbb3f3690b824ea2c378fc4c235027cfee15cb73  evidencia/24-c1-registro-franja-domingo/herramientas/comprobar_p8_r5.sh
+      4a1004685a2db7462cacb0917af0ed7e412e25d86049028ef06f9fca204982fb  evidencia/24-c1-registro-franja-domingo/herramientas/comprobar_p12.sh
+      5740a9689ad0fa52691b4db1e0293c4d22cad60df571dd4c569e45cf0d78d591  evidencia/24-c1-registro-franja-domingo/herramientas/comprobar_p12_host.sh
+      9c00cc13c47fa7cacbf131773fe2584cc1f37c36fcafda401eca29e701c47d22  evidencia/24-c1-registro-franja-domingo/p0-r3v/p0_r3.sh
+      23781bcfa126460c57e30e4dbbb62d5872a2907777a869bf3d175f4c4fbf2357  evidencia/24-c1-registro-franja-domingo/p0-r3v/bloques/sensor1_r3.sh
+      19f07ea1a1f986f86cd1aaefcdf65d9767aef482f8b0568806ff0a151a811fed  evidencia/24-c1-registro-franja-domingo/variante/forzar_laborable.sh
+      6539d7a1d0c6bc5ce50242b9984a017ceeaa520d24117a2329a7bfceeda5d462  evidencia/24-c1-registro-franja-domingo/variante/comprobar_forzar.sh
+      cbe47213493aac9b18719e296fb44d27100470769ac3b54f9fb7009f6df6004c  evidencia/24-c1-registro-franja-domingo/variante/comprobar_forzar_host.sh
+      44f3503b0529cc95ae27ace620c91c471051587e4cb34324899da7095178af7d  evidencia/20-procedimiento-final/herramientas/comprobar_p8.sh
+      e970f061dbfe9b4a9f4ac9e25d828484298dc81e6c9b854117cd604af5df87fa  evidencia/20-procedimiento-final/herramientas/comprobar_p12.sh
+      b45e950b9ad60fb3a9a1319705a3822de5ca034d94f5cf1eb9d81202c2459d5b  evidencia/20-procedimiento-final/herramientas/comprobar_p12_host.sh
+      234d89a589cec18a564db50188afe71609b531ae9fc3141a1270dfcc98ca7426  evidencia/19-correccion-p11/laboratorio/previa.sh
+      4e1dd442a81329f6e499dd505d3f511dd96799e7094638a0a69e9f354e6fdddf  evidencia/19-correccion-p11/laboratorio/previa_host.sh
+      9810b8550d45c3204a507b7bd3500c9a9052504b06a676f04a1582d7b994c813  evidencia/18-cache-archivada-postcopia-p0/comprobador-r3/comprobar_post_copia_r3.sh
+      799af8f10d4f6dce5abd37ac6fa1ac250d14aadfd03bb7654dab8b070d1965d6  evidencia/18-cache-archivada-postcopia-p0/comprobador-r3/post_copia_host_r3.sh
+      5ff7c9f586df070e5d15ce3650136c83261cb891735548bbd4d3e73ae1550174  evidencia/19-correccion-p11/p0-r3/p0_r3.sh
+      5ef3372a671d0b41d928823caa6a92d8f109b5c329a56e1719ab5979f4f911cd  evidencia/19-correccion-p11/p0-r3/bloques/sensor1_r3.sh
+      5bd4096c4f2a48eeb98185879e944183ebc6fc25aca60fa7d9dd3d35deccb3b3  evidencia/18-cache-archivada-postcopia-p0/instantaneas/tomar.sh
+      b4dfd6df2341fdac57c8330f610c11283956366576adff683dceaf6b7e1e28f6  evidencia/18-cache-archivada-postcopia-p0/instantaneas/instantanea_host.sh
+      25d8d3697087d9c7c035986ec42d2f4d15e1fc9a6bf5c0e083d55a2a34a6db62  evidencia/06-observacion/obs_p4_post.sh
+OK    bloque sensor1_r3.sh = 5ef3372a… (P0 r3)
+OK    obs_p4_post.sh = 25d8d369… (S7)
+OK    protocolo r5 publicado en 70b945b
+OK    protocolo r6 publicado en eca1fae
+OK    resultado r5 publicado en e8fbd00
+OK    protocolo r7 publicado en 0446555
+OK    producto rama = f3de3fc
+OK    0a794f4 es antecesor de la rama
+OK    deploy/ idéntico a 0a794f4
+OK    902991e es antecesor de la rama
+OK    ecarga/SHA256SUMS de 902991e = e001352c… (paquete de los hosts)
+OK    sensor1_muestreadores.sh de 0a794f4 = 63f74957… (2026-11-06.4)
+OK    ecarga/SHA256SUMS de 0a794f4 = 8606fae1…
+COPIA /c/Users/markp/cf-ecarga-v2-r7/03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/campana-2026-10-26-deteccion-respuesta/etapa4a-pendientes-2026-11-06
+RESULTADO_REFERENCIAS rc=0

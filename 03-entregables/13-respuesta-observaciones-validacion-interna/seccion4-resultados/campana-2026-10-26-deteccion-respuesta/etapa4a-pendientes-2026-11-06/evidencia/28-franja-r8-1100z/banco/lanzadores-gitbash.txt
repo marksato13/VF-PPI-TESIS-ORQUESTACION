@@ -1,0 +1,16 @@
+OK    A1 r8 antes de las 10:05Z: no empieza
+OK    A1 con otra franja (r5): uso
+OK    sin F3: rc 1, ni A0 ni A1
+OK    F3 NO_CUMPLE: rc 1, no empieza
+OK    A1 r8 completo: escribe en la 27 y no toca la 14
+OK    segundo intento sobre A0.txt existente: se niega
+OK    A2 antes de las 10:30Z: no empieza
+OK    A2 r8 completo: P0 r3x inmediato, A7, A8 conforme
+OK    A3 rc 1: se detiene antes de A3b
+OK    A1 a la hora del P0: se niega
+OK    P0 rc 5: se detiene antes de A7 y A8
+OK    A2 a las 10:50Z: se niega
+OK    A8 ocupada: rc 1
+OK    A8 con ssh rc 255 aunque imprima LIBRE: rc 1 y rc registrado
+OK    A8 consulta la carpeta ecarga-v2-ejecucion-20261108T1100Z
+FALLOS=0
