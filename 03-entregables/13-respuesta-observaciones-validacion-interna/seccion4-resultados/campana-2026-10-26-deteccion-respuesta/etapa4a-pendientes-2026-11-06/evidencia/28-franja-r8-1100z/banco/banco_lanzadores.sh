@@ -3,7 +3,7 @@
 #   banco_lanzadores.sh CARPETA_DE_LOS_LANZADORES
 # Derivado de evidencia/25-franja-r6-20h/banco/banco_lanzadores.sh, con la franja r8 y la exigencia de F3.
 L=${1:?}; T=$(mktemp -d); f=0
-E24=evidencia/24-c1-registro-franja-domingo; E26=evidencia/28-franja-r8-1100z; EJR=evidencia/27-ecarga-r8-ejecucion
+E24=evidencia/24-c1-registro-franja-domingo; E26=evidencia/28-franja-r8-1100z; EJR=evidencia/29-ecarga-r8-ejecucion
 ok() { echo "OK    $*"; }; no() { echo "FALLO $*"; f=$((f + 1)); }
 mkdir -p "$T/bin"
 cat > "$T/bin/date" <<'FIN'
