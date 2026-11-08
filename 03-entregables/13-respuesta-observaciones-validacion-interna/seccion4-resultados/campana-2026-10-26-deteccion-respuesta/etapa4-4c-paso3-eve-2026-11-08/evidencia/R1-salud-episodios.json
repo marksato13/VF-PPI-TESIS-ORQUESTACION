@@ -1,0 +1,297 @@
+{
+ "e1-r1": {
+  "if_heur": {
+   "acotado_por": [
+    1793518140.0,
+    1793518440.0
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 3.0,
+    "suricata": {
+     "acotado_por": [
+      1793518140.0,
+      1793518444.0
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 304000
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1793518140.0,
+     "hasta": 1793518440.0,
+     "lecturas": 11,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 777,
+     "pids": [
+      777
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": 0.4,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1793518140.0,
+    1793518440.0
+   ]
+  },
+  "suricata_estado": "cero_explicito",
+  "via_rapida": {
+   "acotado_por": [
+    1793518140.0,
+    1793518440.0
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 3.0,
+    "suricata": {
+     "acotado_por": [
+      1793518140.0,
+      1793518444.0
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 304000
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1793518140.0,
+     "hasta": 1793518440.0,
+     "lecturas": 11,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 888,
+     "pids": [
+      888
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": 0.4,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1793518140.0,
+    1793518440.0
+   ]
+  }
+ },
+ "e2-r1": {
+  "if_heur": {
+   "acotado_por": [
+    1793518990.0,
+    1793519250.0
+   ],
+   "clase": "C1",
+   "info": {
+    "motor_retraso_pcap_max_s": 3.0,
+    "suricata": {
+     "acotado_por": [
+      1793518988.0,
+      1793519252.0
+     ],
+     "descartes": 23,
+     "descartes_parciales": 23,
+     "estado": "descartes",
+     "fuente": "eve_stats",
+     "motivos": [
+      "Suricata: 23 descartes de 264000 paquetes"
+     ],
+     "paquetes": 264000
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1793518980.0,
+     "hasta": 1793519250.0,
+     "lecturas": 10,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 777,
+     "pids": [
+      777
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": 0.4,
+     "medida": true
+    }
+   },
+   "motivos": [
+    "Suricata (EVE): 23 descartes de 264000 paquetes"
+   ],
+   "periodo": [
+    1793518990.0,
+    1793519250.0
+   ]
+  },
+  "suricata_estado": "descartes",
+  "via_rapida": {
+   "acotado_por": [
+    1793518990.0,
+    1793519250.0
+   ],
+   "clase": "C1",
+   "info": {
+    "motor_retraso_pcap_max_s": 3.0,
+    "suricata": {
+     "acotado_por": [
+      1793518988.0,
+      1793519252.0
+     ],
+     "descartes": 23,
+     "descartes_parciales": 23,
+     "estado": "descartes",
+     "fuente": "eve_stats",
+     "motivos": [
+      "Suricata: 23 descartes de 264000 paquetes"
+     ],
+     "paquetes": 264000
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1793518980.0,
+     "hasta": 1793519250.0,
+     "lecturas": 10,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 888,
+     "pids": [
+      888
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": 0.4,
+     "medida": true
+    }
+   },
+   "motivos": [
+    "Suricata (EVE): 23 descartes de 264000 paquetes"
+   ],
+   "periodo": [
+    1793518990.0,
+    1793519250.0
+   ]
+  }
+ },
+ "e3-r1": {
+  "if_heur": {
+   "acotado_por": [
+    1793519490.0,
+    1793519660.0
+   ],
+   "clase": "C3",
+   "info": {
+    "motor_retraso_pcap_max_s": 3.0,
+    "suricata": {
+     "acotado_por": [
+      1793519484.0,
+      1793519660.0
+     ],
+     "descartes": null,
+     "descartes_parciales": 0,
+     "estado": "cobertura_insuficiente",
+     "fuente": "eve_stats",
+     "motivos": [
+      "1 hueco(s) entre muestras stats > 20.0 s (m\u00e1ximo 112.0 s desde 1793519524.0)"
+     ],
+     "paquetes": null
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1793519490.0,
+     "hasta": 1793519670.0,
+     "lecturas": 7,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 777,
+     "pids": [
+      777
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": 0.4,
+     "medida": true
+    }
+   },
+   "motivos": [
+    "Suricata (EVE) cobertura_insuficiente: 1 hueco(s) entre muestras stats > 20.0 s (m\u00e1ximo 112.0 s desde 1793519524.0)"
+   ],
+   "periodo": [
+    1793519490.0,
+    1793519660.0
+   ]
+  },
+  "suricata_estado": "cobertura_insuficiente",
+  "via_rapida": {
+   "acotado_por": [
+    1793519490.0,
+    1793519660.0
+   ],
+   "clase": "C3",
+   "info": {
+    "motor_retraso_pcap_max_s": 3.0,
+    "suricata": {
+     "acotado_por": [
+      1793519484.0,
+      1793519660.0
+     ],
+     "descartes": null,
+     "descartes_parciales": 0,
+     "estado": "cobertura_insuficiente",
+     "fuente": "eve_stats",
+     "motivos": [
+      "1 hueco(s) entre muestras stats > 20.0 s (m\u00e1ximo 112.0 s desde 1793519524.0)"
+     ],
+     "paquetes": null
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1793519490.0,
+     "hasta": 1793519670.0,
+     "lecturas": 7,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 888,
+     "pids": [
+      888
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": 0.4,
+     "medida": true
+    }
+   },
+   "motivos": [
+    "Suricata (EVE) cobertura_insuficiente: 1 hueco(s) entre muestras stats > 20.0 s (m\u00e1ximo 112.0 s desde 1793519524.0)"
+   ],
+   "periodo": [
+    1793519490.0,
+    1793519660.0
+   ]
+  }
+ }
+}

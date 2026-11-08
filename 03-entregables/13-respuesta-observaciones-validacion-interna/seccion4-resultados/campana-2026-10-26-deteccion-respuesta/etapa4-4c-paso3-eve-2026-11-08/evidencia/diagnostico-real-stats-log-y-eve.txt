@@ -1,0 +1,3 @@
+stats.log real: bloques 326 | líneas capture.kernel_drops: 0
+paso 3 ORIGINAL: muestras con packets Y drops: 0 -> FALLA: sin muestras de stats.log
+EVE real: eventos stats 400 | con kernel_drops: 400 | min/max kernel_drops: 0 0

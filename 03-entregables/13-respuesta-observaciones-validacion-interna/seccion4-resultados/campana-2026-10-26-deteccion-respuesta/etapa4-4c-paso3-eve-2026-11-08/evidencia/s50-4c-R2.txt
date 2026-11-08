@@ -1,0 +1,32 @@
+## s50-e4 4c 2026-11-08T15:01:53.065Z inventario=[2026-11-01T07:24:40Z, 2026-11-01T10:05:30Z] control=[2026-11-01T07:29:00Z, 2026-11-01T08:05:00Z] reanudar=0
+## a1
+336 incrementos; con reinicio: 0
+  a1 OK
+## a2
+  control (IF/heur):  "clase": "C3",
+  a2 OK
+## a3
+  control (vía rápida):  "clase": "C3",
+  a3 OK
+## b
+  control_4b.py ok
+  b OK
+## 1
+  1 OK
+## 2
+  2 OK
+## 3
+sin muestras de stats.log posteriores a inicio - 600 s
+  FALLO 3 rc=1 (salidas parciales conservadas)
+## 4
+  4 OK
+## 5: OMITIDO (depende de 3, estado fallo)
+## 6: OMITIDO (depende de 5, estado omitido_dependencia)
+## 7
+  clases IF/heur: {'C3': 3}
+  7 OK
+## 8
+  8 OK
+## c: OMITIDO (depende de 6, estado omitido_dependencia)
+## 9: OMITIDO (depende de c, estado omitido_dependencia)
+## ANÁLISIS PARCIAL: c=omitido_dependencia 3=fallo 5=omitido_dependencia 6=omitido_dependencia 9=omitido_dependencia 2026-11-08T15:01:53.484Z

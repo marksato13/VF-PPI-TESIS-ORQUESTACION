@@ -1,0 +1,21 @@
+rc=0 limpio: {"0.05": "no_cumple", "0.03": "no_cumple", "0.01": "no_cumple"}
+rc=0 eventos: {"0.05": "no_cumple", "0.03": "no_cumple", "0.01": "no_cumple"}
+OK    población de selección = los seis perfiles
+OK    limpio α 0.05: ninguna ventana faltante en las entidades de selección
+OK    limpio α 0.05: sin faltantes las cotas de L1 coinciden con lo observado
+OK    limpio α 0.05: sin faltantes las cotas de L2 coinciden con lo observado
+OK    limpio α 0.05: con 33 min de control ninguna entidad llega a 2 h C0
+OK    limpio α 0.03: ninguna ventana faltante en las entidades de selección
+OK    limpio α 0.03: sin faltantes las cotas de L1 coinciden con lo observado
+OK    limpio α 0.03: sin faltantes las cotas de L2 coinciden con lo observado
+OK    limpio α 0.03: con 33 min de control ninguna entidad llega a 2 h C0
+OK    limpio α 0.01: ninguna ventana faltante en las entidades de selección
+OK    limpio α 0.01: sin faltantes las cotas de L1 coinciden con lo observado
+OK    limpio α 0.01: sin faltantes las cotas de L2 coinciden con lo observado
+OK    limpio α 0.01: con 33 min de control ninguna entidad llega a 2 h C0
+OK    eventos: hay ventanas faltantes en las entidades de selección (C1/C3 y ausentes)
+OK    eventos: mínimo ≤ observado ≤ máximo en L2
+OK    eventos: mínimo ≤ observado ≤ máximo en L1
+OK    la elegibilidad de un α = todas las entidades de selección «cumple»
+OK    los perfiles no se repiten en «reportadas aparte»
+RESULTADO: todas las comprobaciones OK
