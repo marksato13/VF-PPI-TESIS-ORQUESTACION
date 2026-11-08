@@ -1,6 +1,6 @@
-# Propuesta v2: aplazar la rotación diaria de las 00:00Z (19:00 de Perú) hasta cerrar la corrida (08-nov-2026)
+# Propuesta v2.1: aplazar la rotación diaria de las 00:00Z (19:00 de Perú) hasta cerrar la corrida (08-nov-2026)
 
-**Estado: PROPUESTA corregida y probada en banco. No se aplicó nada en ningún host.** Sustituye a la v1, que tenía un tope **relativo**
+**Estado: PROPUESTA corregida (v2.1, revisión del 08-nov) y probada en banco y en systemd real. No se aplicó nada en ningún host.** Sustituye a la v1, que tenía un tope **relativo**
 (4,5 h desde el momento de aplicarla: aplicada a las 10:55 reanudaba a las 15:25, antes de las 19:00, y la rotación habría caído dentro del control).
 La aplicación del cambio y el inicio de la 4B van por orden separada de Mark.
 
@@ -12,6 +12,8 @@ La aplicación del cambio y el inicio de la 4B van por orden separada de Mark.
 | El aplazamiento se hacía a la vez que se armaba la reanudación | **Primero** se arma y se **verifica** la recuperación; **solo después** se para `logrotate.timer`; si cualquier verificación falla, no se para (y si falla tras parar, se revierte) |
 | Reanudaba al aparecer un fichero | La reanudación **normal** exige el **cierre exitoso** de la corrida y **copias verificadas** (§4) y **ausencia de rotación** (§5); sin eso, solo reanuda el tope |
 | Se comprobaba la rotación por el inodo | §5: inodo, tamaño, hash de los primeros bytes, ficheros rotados y ejecuciones de systemd |
+| **v2.1** · `cierre` aceptaba una copia de `motor_decision.log` idéntica a la línea base aunque la fuente ya tuviera registros de la 4B, y `s40` no comprobaba ningún `cp` | `s40` v2 comprueba cada copia, anota el tamaño de cada fuente antes de copiarla y solo escribe `COPIAS-COMPLETAS.ok` y `SHA256SUMS` si todo salió bien; `cierre` exige la marca, los tamaños anotados y que cada copia los cubra (§4) |
+| **v2.1** · `desarmar` devolvía 0 y cancelaba vigía y tope aunque `systemctl start logrotate.timer` fallara | `desarmar` arranca el timer (3 intentos), **verifica que está activo** y solo entonces retira vigía y tope; si no, sale con 1, deja la recuperación armada y lo registra (§3) |
 
 ## 2. Por qué no se puede aislar solo `eve.json` (sin cambios respecto a la v1)
 
@@ -19,16 +21,16 @@ Comparte bloque con `stats.log`, `fast.log` y `suricata.log` (`sharedscripts`, `
 y se vacían `feed-v2/*.jsonl`, que `s40` copia al final. Los bloques `cyberflow` y `cyberflow-etapa4` son generados («NO editar a mano»).
 Por eso se aplaza toda la ejecución diaria de `logrotate`, con reanudación automática.
 
-## 3. Qué hace `cf-4b-rotacion` (`herramientas/cf_4b_rotacion.py`, sha256 `11a923240f510ab2…`)
+## 3. Qué hace `cf-4b-rotacion` (`herramientas/cf_4b_rotacion.py`, sha256 `524562a2d7ef131d…`)
 
 | Subcomando | Qué hace |
 |---|---|
-| `armar --tope EPOCH` (root) | 1) línea base en `/var/lib/cf-4b-rotacion/base.json`; 2) arma `cf-4b-tope.timer` (absoluto) y `cf-4b-vigia.service`; 3) **verifica** que el tope armado coincide (±5 s) y que el vigía sigue activo; 4) solo entonces `systemctl stop logrotate.timer`, comprueba que paró y que no disparó; 5) escribe `parado.json`. Cualquier fallo: revierte (arranca el timer y retira las unidades) y sale con 3 |
+| `armar --tope EPOCH` (root) | 1) línea base en `/var/lib/cf-4b-rotacion/base.json`; 2) arma `cf-4b-tope.timer` (absoluto) y `cf-4b-vigia.service`; 3) **verifica** que el tope armado coincide (±5 s) y que el vigía sigue activo; 4) solo entonces `systemctl stop logrotate.timer`, comprueba que paró y que no disparó; 5) escribe `parado.json`. Cualquier fallo: revierte con `desarmar` (arranca el timer, comprueba que está activo y solo entonces retira las unidades; si el timer no arranca, las deja armadas) y sale con 3 |
 | `comprobar` (solo lectura) | §5 |
 | `cierre` (solo lectura) | §4 |
 | `vigilar` (lo lanza `armar`) | Espera `parado.json`; cada 30 s: si cierre **y** comprobar dan OK, arranca el timer y se retira; en el tope arranca el timer pase lo que pase; si el timer ya estaba activo (alguien lo arrancó), termina sin tocar nada |
 | `reanudar-tope` | Lo lanza el temporizador absoluto: arranca el timer si sigue parado (idempotente) |
-| `desarmar` (root) | Manual: arranca el timer y retira las unidades |
+| `desarmar` (root) | Arranca el timer (3 intentos), **comprueba que está activo** y solo entonces retira vigía y tope y borra `parado.json`. Si no arranca: rc 1, mensaje en stderr y en `log.txt` (`DESARMAR FALLÓ … SIGUEN armados`), deja `parado.json` y las unidades para que el vigía y el tope sigan intentándolo |
 
 ## 4. «Cierre exitoso con copias verificadas» (reanudación normal)
 
@@ -36,7 +38,11 @@ Todo esto debe cumplirse a la vez:
 1. `replay/rc.txt` empieza por `rc=0`; existe `cierre.t` (`s40` empezó);
 2. `archivo-pcap.rc` = 0 y `copias/archivador-ESTADO.txt` empieza por `OK`; `copias/archivar.log` sin `FALLO` ni `PERDIDO`;
 3. `copias/SHA256SUMS` existe, **cada fichero listado verifica** y están listados los imprescindibles: `motor_decision.log`, `ciclos.jsonl`, `eve-segmento.json`, `stats-fin.log`, `muestras.jsonl`, `archivar.log`, `archivador-ESTADO.txt`, `servicios-fin.txt`, `sha256-feed-final.txt`, `feed-v2/feed.json`, `feed-v2/via-rapida-resumen.jsonl`, `feed-v2/traza.jsonl`;
-4. la copia del motor no es menor que la línea base y el segmento EVE no está vacío.
+4. el segmento EVE no está vacío;
+5. **`copias/COPIAS-COMPLETAS.ok`**: `s40` v2 (`guiones/s40_cierre_e4.sh`) lo escribe solo si **todas** las operaciones de copia tuvieron éxito y cada fuente que crece quedó cubierta; si algo falla escribe `COPIAS-INCOMPLETAS.txt`, no genera `SHA256SUMS` y sale con 1;
+6. **cobertura de la corrida**: `copias/FUENTES-al-copiar.tsv` (tamaño de cada fuente anotado justo antes de copiarla). Para `motor_decision.log`, `ciclos.jsonl`, `stats-fin.log` y `feed-v2/{via-rapida-resumen,traza,senales-if,senales-rapidas}.jsonl`: la copia no es menor que la línea base, empieza por los mismos bytes, termina en salto de línea, **no es menor que el tamaño anotado** y el tamaño anotado no es menor que la línea base. Además, para el motor, los ciclos y `stats`, si la fuente **ya creció** respecto a la línea base, la copia debe superar la línea base (una copia idéntica a la línea base no cubre una corrida de 8 h aunque su `SHA256SUMS` sea correcto ni aunque `s40` haya anotado mal el tamaño).
+
+Un manifiesto que verifica **no** prueba que la copia esté completa: `s40` v1 lo generaba con lo que hubiera quedado. Está probado con copias idénticas a la base, parciales terminadas en una línea válida, tamaños anotados como la base, y sin marca o sin tamaños.
 
 Esto decide solo si ya es **seguro dejar rotar**, no si la 4B fue válida (un AVISO de servicios de `s40` no lo impide; el análisis lo trata como C3).
 
@@ -45,10 +51,12 @@ Esto decide solo si ya es **seguro dejar rotar**, no si la 4B fue válida (un AV
 Para `eve.json`, `stats.log`, `motor_decision.log`, `_state-e4/ciclos.jsonl` y `feed-v2/{via-rapida-resumen,traza,senales-if,senales-rapidas}.jsonl`:
 mismo inodo; tamaño **no menor**; hash de los **primeros N bytes** (N = min(tamaño de la base, 16 MiB)) igual al de la base (un `copytruncate` seguido de escritura, aunque iguale o supere el tamaño, lo cambia);
 ningún fichero rotado nuevo ni modificado (`eve.json.*`, `stats.log.*`, `suricata.log.*`, `fast.log.*`, `motor_decision.log.*`, `feed-v2/*.jsonl.*`: 67 hoy);
-y en systemd: `logrotate.service` sin ejecuciones desde la base (`InvocationID`, `ExecMainStartTimestampMonotonic`) y `logrotate.timer` sin disparos (`LastTriggerUSec*`).
+y en systemd: `logrotate.service` sin ejecuciones desde la base (`InvocationID`, `ExecMainStartTimestampMonotonic`) y `logrotate.timer` sin disparos (`LastTriggerUSec`, solo si ambos lados traen valor: un timer parado lo informa vacío).
 Lectura real del Sensor1 (08-nov, solo lectura, script por stdin sin guardarlo): los formatos de `systemctl show` coinciden con lo previsto, la base se toma en 0,4 s y la comprobación inmediata da OK.
 
 ## 6. El cambio (lo ejecuta Mark, con su sudo, solo tras su orden; **después** de `CON_SUDO=1 verificar_srvdmz.sh` y **antes** de `s10`)
+
+Antes de nada, el `s40` v2 se copia al Sensor1 (`~/cf-e4/herramientas/`, sin sudo; **lo ejecuto yo** tras tu orden, con `sha256sum -c` de `guiones/s40_cierre_e4.sha256`).
 
 `[SENSOR1 m4rk]` → **lo ejecutas tú** (`install` y `armar` piden sudo). `<TOPE>` = epoch de `hasta + 5 h` (lo calculo y lo fijo en tu orden):
 ```bash
@@ -67,11 +75,14 @@ A mano: `sudo /usr/local/sbin/cf-4b-rotacion desarmar` o `sudo systemctl start l
 
 ## 8. Pruebas
 
-`tests/test_cf_4b_rotacion.py`: **46 pruebas OK** (banco sin red, systemd **falso**): orden armar→verificar→parar; no se para si falla el tope, el vigía, la coincidencia del tope o si el vigía cae; reversión si el timer no para o dispara durante el stop;
-tope en fecha absoluta (nunca `--on-active`); ocho formas de rotación detectadas (incluida «mismo inodo y mayor tamaño», que solo delata el prefijo); once roturas del cierre;
-**copia fallida con manifiesto consistente** (truncada, sin salto final, otro contenido del mismo tamaño, vacía, `cp` cortado): `SHA256SUMS` verifica pero el cierre da FALLO por «copia fiel» y no se reanuda en normal (5 casos);
-reanudación normal solo con cierre OK y sin rotación; sin cierre solo reanuda el tope; con rotación detectada no hay reanudación normal; vigía armado antes de parar no confunde «timer activo» con reanudación; idempotencia; desarmado;
-y la regresión del hallazgo de §9. Registro: `evidencia-pendiente/pytest-cf-4b-rotacion.txt`.
+Banco sin red, usuario 65534, systemd **falso**: `tests/test_cf_4b_rotacion.py` (**55 pruebas OK**) y `tests/test_s40_copias.py` (**7 pruebas OK**, el guion REAL con bash, HOME y `sudo/journalctl/systemctl` falsos). Registros: `evidencia-pendiente/pytest-cf-4b-rotacion.txt`, `pytest-s40-copias.txt`.
+
+- Orden armar→verificar→parar; no se para si falla el tope, el vigía, la coincidencia del tope o si el vigía cae; reversión si el timer no para o dispara durante el stop; tope en fecha absoluta (nunca `--on-active`).
+- Ocho formas de rotación detectadas (incluida «mismo inodo y mayor tamaño», que solo delata el prefijo); once roturas del cierre.
+- **Copia incompleta con manifiesto correcto** (5 casos de v2: truncada, sin salto final, otro contenido del mismo tamaño, vacía, `cp` cortado) y **v2.1** (5 casos: copia idéntica a la línea base con la fuente ya crecida, parcial terminada en línea válida, tamaño anotado como la base, sin `COPIAS-COMPLETAS.ok`, sin tamaños): `SHA256SUMS` verifica, el cierre da FALLO, no hay reanudación normal y solo reanuda el tope. Y un cierre que sí cubre la corrida da OK.
+- **`desarmar` con el arranque fallido** (`start-falla`): rc 1, no se emite ningún `stop cf-4b-*`, 3 intentos, `parado.json` presente, registro `DESARMAR FALLÓ`; al volver a funcionar el arranque, `desarmar` completa y retira la recuperación. Y `armar` revertido con el arranque fallido sale con 3 sin retirar el tope ni el vigía. En un desarme normal se comprueba que el timer está activo **antes** de parar el vigía.
+- `s40` v2: todo bien → `COPIAS COMPLETAS`, `SHA256SUMS` verifica y los tamaños anotados los lee `cierre`; fuente del motor ausente, `traza` ausente, `stats.log` ausente, destinos no escribibles → rc 1, `COPIAS-INCOMPLETAS.txt`, **sin** `SHA256SUMS` ni marca; un `cp` que deja `motor_decision.log` más corto que la fuente al empezar → detectado; una segunda ejecución no hereda marcas viejas.
+- Regresión del hallazgo de §9 (timer parado informa `LastTriggerUSec` vacío).
 
 ## 9. Validación en systemd real (08-nov, Sensor1, systemd 255, gestor de **usuario** de `m4rk`, sin root)
 

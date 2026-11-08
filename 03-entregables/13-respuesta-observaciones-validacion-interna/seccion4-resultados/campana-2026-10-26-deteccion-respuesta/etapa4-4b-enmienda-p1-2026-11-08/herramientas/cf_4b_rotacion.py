@@ -34,7 +34,7 @@ import subprocess
 import sys
 import time
 
-VERSION = "2026-11-08.1"
+VERSION = "2026-11-08.2"
 HOME = os.environ.get("CF_HOME", "/home/m4rk")
 ESTADO = os.environ.get("CF_ESTADO", "/var/lib/cf-4b-rotacion")
 SYSTEMCTL = os.environ.get("CF_SYSTEMCTL", "systemctl")
@@ -204,6 +204,21 @@ def sumas_ok(carpeta: str) -> tuple[bool, str, set]:
     return True, f"{len(nombres)} ficheros verifican", nombres
 
 
+CRECEN = ("motor_decision.log", "ciclos.jsonl", "stats-fin.log")        # crecen siempre durante una corrida de 8 h
+
+
+def leer_fuentes(ruta: str) -> dict:
+    """FUENTES-al-copiar.tsv: «nombre<TAB>tamaño» por línea, escrito por s40 v2 justo antes de cada cp. Ilegible o incompleto -> {}."""
+    out = {}
+    try:
+        for l in open(ruta, encoding="utf-8").read().splitlines():
+            n, t = l.split("\t")[:2]
+            out[n] = int(t)
+    except (OSError, ValueError):
+        return {}
+    return out
+
+
 def cierre(fase: str, base: dict) -> tuple[bool, list[str]]:
     B = f"{HOME}/cf-e4/{fase}"
     C, D = f"{B}/copias", f"{B}/archivo-pcap"
@@ -235,6 +250,15 @@ def cierre(fase: str, base: dict) -> tuple[bool, list[str]]:
              ("stats-fin.log", f"{SURICATA}/stats.log"), ("feed-v2/via-rapida-resumen.jsonl", f"{HOME}/feed-v2/via-rapida-resumen.jsonl"),
              ("feed-v2/traza.jsonl", f"{HOME}/feed-v2/traza.jsonl"), ("feed-v2/senales-if.jsonl", f"{HOME}/feed-v2/senales-if.jsonl"),
              ("feed-v2/senales-rapidas.jsonl", f"{HOME}/feed-v2/senales-rapidas.jsonl")]
+    # Una copia idéntica a la línea base o cortada en una línea válida PASA los controles anteriores aunque la fuente ya tenga registros de la
+    # corrida. Por eso s40 (v2) declara «copias completas» solo si todos los cp tuvieron éxito (COPIAS-COMPLETAS.ok) y anota el tamaño de cada
+    # fuente justo antes de copiarla (FUENTES-al-copiar.tsv); la copia debe cubrir ese tamaño. Si la fuente ya creció respecto a la línea base,
+    # una copia que no supera la línea base no cubre la corrida (motor, ciclos y stats crecen siempre durante ella).
+    marca = leer(f"{C}/COPIAS-COMPLETAS.ok").strip()
+    f(marca.startswith("ok"), "s40 declaró las copias completas (todas las operaciones de copia con éxito)" if marca.startswith("ok")
+      else "s40 NO declaró copias completas (falta COPIAS-COMPLETAS.ok o hubo copias fallidas)")
+    fuentes = leer_fuentes(f"{C}/FUENTES-al-copiar.tsv")
+    f(bool(fuentes), "tamaños de las fuentes anotados por s40 (FUENTES-al-copiar.tsv)" if fuentes else "faltan los tamaños de las fuentes (FUENTES-al-copiar.tsv)")
     for nombre, fuente in pares:
         b0 = base["ficheros"].get(fuente)
         if not b0:
@@ -247,8 +271,19 @@ def cierre(fase: str, base: dict) -> tuple[bool, list[str]]:
                 if tam:
                     fh.seek(-1, 2)
                 fin = (not tam) or fh.read(1) == b"\n"
-            fiel = tam >= b0["tam"] and pref and fin
-            motivo = f"{tam} B (línea base {b0['tam']} B)" + ("" if pref else ", NO empieza por los bytes de la fuente") + ("" if fin else ", termina a mitad de línea")
+            ini = fuentes.get(nombre)
+            try:
+                actual = os.path.getsize(fuente)
+            except OSError:
+                actual = None
+            cubre = ini is not None and ini >= b0["tam"] and tam >= ini
+            creció = actual is not None and actual > b0["tam"]
+            if nombre in CRECEN and creció:
+                cubre = cubre and ini > b0["tam"] and tam > b0["tam"]
+            fiel = tam >= b0["tam"] and pref and fin and cubre
+            motivo = (f"{tam} B (línea base {b0['tam']} B; s40 anotó {ini if ini is not None else 'nada'} B; fuente ahora {actual} B)"
+                      + ("" if pref else ", NO empieza por los bytes de la fuente") + ("" if fin else ", termina a mitad de línea")
+                      + ("" if cubre else ", NO cubre la corrida"))
         except OSError:
             fiel, motivo = False, "no se puede leer"
         f(fiel, f"copia fiel de {nombre}: {motivo}")
@@ -317,11 +352,28 @@ def siguiente_elapse(unit: str) -> float | None:
 
 
 def desarmar(_a=None) -> int:
+    """Arranca logrotate.timer y SOLO cuando está activo retira el vigía y el tope. Si no arranca, deja la recuperación en pie
+    (y la marca parado.json para que el vigía siga intentándolo y el tope actúe) y devuelve 1."""
+    for _ in range(3):
+        run([SYSTEMCTL, "start", TIMER])
+        time.sleep(0.2 if os.environ.get("CF_PRUEBA") else 2)
+        if activo(TIMER) == "active":
+            break
+    else:
+        try:
+            os.makedirs(ESTADO, exist_ok=True)
+            if not os.path.exists(os.path.join(ESTADO, "parado.json")):
+                with open(os.path.join(ESTADO, "parado.json"), "w", encoding="utf-8") as fh:
+                    json.dump({"parado_en": ahora(), "tope_epoch": None, "origen": "desarmar fallido"}, fh)
+        except OSError:
+            pass
+        log(f"DESARMAR FALLÓ: no se pudo arrancar logrotate.timer ({activo(TIMER)}); el vigía y el tope SIGUEN armados. Arránquelo a mano: sudo systemctl start logrotate.timer")
+        print("DESARMAR FALLÓ: logrotate.timer no arrancó; la recuperación sigue armada", file=sys.stderr)
+        return 1
     try:
         os.remove(os.path.join(ESTADO, "parado.json"))
     except OSError:
         pass
-    run([SYSTEMCTL, "start", TIMER])
     for u in (f"{UNIT_VIGIA}.service", f"{UNIT_TOPE}.timer", f"{UNIT_TOPE}.service"):
         run([SYSTEMCTL, "stop", u])
     log(f"desarmado: logrotate.timer {activo(TIMER)}; unidades de recuperación retiradas")

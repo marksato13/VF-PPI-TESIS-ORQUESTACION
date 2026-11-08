@@ -1,47 +1,65 @@
-######## 2026-11-08T15:50:42Z  systemd 255 (gestor de usuario)
+######## 2026-11-08T16:26:03Z  systemd 255 (gestor de usuario)
 
 ======== S1 · tope ABSOLUTO + recuperación + Persistent (el elapse del 'logrotate' cae con el timer parado)
-  timer de prueba: elapse diario a las 15:52:12 UTC; Sun 2026-11-08 15:52:12 UTC; activo=active
-  tope absoluto: 2026-11-08 15:53:22 UTC (epoch 1794153202)
-2026-11-08T15:50:42Z línea base: 8 ficheros protegidos, 0 rotados existentes
-2026-11-08T15:50:43Z recuperación ARMADA y verificada: tope 2026-11-08 15:53:22 UTC, vigía activo
-2026-11-08T15:50:43Z logrotate.timer PARADO; reanudación: normal (cierre y copias verificados) o tope absoluto 2026-11-08 15:53:22 UTC
+  timer de prueba: elapse diario a las 16:27:34 UTC; Sun 2026-11-08 16:27:34 UTC; activo=active
+  tope absoluto: 2026-11-08 16:28:45 UTC (epoch 1794155325)
+2026-11-08T16:26:05Z línea base: 8 ficheros protegidos, 0 rotados existentes
+2026-11-08T16:26:05Z recuperación ARMADA y verificada: tope 2026-11-08 16:28:45 UTC, vigía activo
+2026-11-08T16:26:05Z logrotate.timer PARADO; reanudación: normal (cierre y copias verificados) o tope absoluto 2026-11-08 16:28:45 UTC
   armar rc=0
-  tras armar: timer de prueba=inactive tope=active siguiente=Sun 2026-11-08 15:53:22 UTC vigía=active
-  2026-11-08T15:52:23Z (ya pasó el elapse diario de la prueba, antes del tope): marcas del 'logrotate' = 0 ; timer=inactive
-  2026-11-08T15:53:35Z (después del tope): timer=active ; marcas del 'logrotate' = 1 -> 2026-11-08T15:53:23Z 
+  tras armar: timer de prueba=inactive tope=active siguiente=Sun 2026-11-08 16:28:45 UTC vigía=active
+  2026-11-08T16:27:45Z (ya pasó el elapse diario de la prueba, antes del tope): marcas del 'logrotate' = 0 ; timer=inactive
+  2026-11-08T16:28:57Z (después del tope): timer=active ; marcas del 'logrotate' = 1 -> 2026-11-08T16:28:46Z 
   tope armado ya retirado: inactive ; vigía: active
   --- log.txt
-    2026-11-08T15:50:42Z línea base: 8 ficheros protegidos, 0 rotados existentes
-    2026-11-08T15:50:42Z vigía 2026-11-08.1 en marcha: tope 2026-11-08T15:53:22Z
-    2026-11-08T15:50:43Z recuperación ARMADA y verificada: tope 2026-11-08 15:53:22 UTC, vigía activo
-    2026-11-08T15:50:43Z logrotate.timer PARADO; reanudación: normal (cierre y copias verificados) o tope absoluto 2026-11-08 15:53:22 UTC
-    2026-11-08T15:53:23Z REANUDADO_POR_TOPE_SIN_CIERRE_VERIFICADO: logrotate.timer activo
+    2026-11-08T16:26:05Z línea base: 8 ficheros protegidos, 0 rotados existentes
+    2026-11-08T16:26:05Z vigía 2026-11-08.2 en marcha: tope 2026-11-08T16:28:45Z
+    2026-11-08T16:26:05Z recuperación ARMADA y verificada: tope 2026-11-08 16:28:45 UTC, vigía activo
+    2026-11-08T16:26:05Z logrotate.timer PARADO; reanudación: normal (cierre y copias verificados) o tope absoluto 2026-11-08 16:28:45 UTC
+    2026-11-08T16:28:46Z REANUDADO_POR_TOPE_SIN_CIERRE_VERIFICADO: logrotate.timer activo
 
 ======== S2 · cierre exitoso con copias verificadas => reanudación NORMAL antes del tope
-  timer de prueba: elapse diario a las 16:08:35 UTC; Sun 2026-11-08 16:08:35 UTC; activo=active
+  timer de prueba: elapse diario a las 16:43:58 UTC; Sun 2026-11-08 16:43:58 UTC; activo=active
   armado rc=0; timer de prueba=inactive
-  2026-11-08T15:54:16Z SIN cierre todavía, tras 40 s: timer=inactive (debe seguir parado)
-  2026-11-08T15:54:16Z cierre y copias fieles escritos; cierre => RESULTADO_CIERRE OK (cf-4b-rotacion 2026-11-08.1)
-  2026-11-08T15:54:37Z timer REANUDADO por el vigía: active (antes del tope: faltaban 359 s)
-    2026-11-08T15:53:36Z vigía 2026-11-08.1 en marcha: tope 2026-11-08T16:00:36Z
-    2026-11-08T15:53:36Z recuperación ARMADA y verificada: tope 2026-11-08 16:00:36 UTC, vigía activo
-    2026-11-08T15:53:36Z logrotate.timer PARADO; reanudación: normal (cierre y copias verificados) o tope absoluto 2026-11-08 16:00:36 UTC
-    2026-11-08T15:54:36Z REANUDADO_NORMAL (cierre y copias verificados, sin rotación): logrotate.timer activo
+  2026-11-08T16:29:39Z SIN cierre todavía, tras 40 s: timer=inactive (debe seguir parado)
+  2026-11-08T16:29:39Z cierre y copias fieles escritos; cierre => RESULTADO_CIERRE OK (cf-4b-rotacion 2026-11-08.2)
+  2026-11-08T16:29:59Z timer REANUDADO por el vigía: active (antes del tope: faltaban 359 s)
+    2026-11-08T16:28:58Z vigía 2026-11-08.2 en marcha: tope 2026-11-08T16:35:58Z
+    2026-11-08T16:28:59Z recuperación ARMADA y verificada: tope 2026-11-08 16:35:58 UTC, vigía activo
+    2026-11-08T16:28:59Z logrotate.timer PARADO; reanudación: normal (cierre y copias verificados) o tope absoluto 2026-11-08 16:35:58 UTC
+    2026-11-08T16:29:59Z REANUDADO_NORMAL (cierre y copias verificados, sin rotación): logrotate.timer activo
 
-======== S3 · copia FALLIDA de s40 con manifiesto consistente => NO reanuda en normal; solo el tope
-  timer de prueba: elapse diario a las 16:09:37 UTC; Sun 2026-11-08 16:09:37 UTC; activo=active
+======== S3 · copia incompleta con manifiesto consistente => NO reanuda en normal; solo el tope
+  --- variante cierre-roto
+  timer de prueba: elapse diario a las 16:45:00 UTC; Sun 2026-11-08 16:45:00 UTC; activo=active
   armado rc=0
-  2026-11-08T15:54:44Z manifiesto presente y consistente: sha256sum -c OK; cierre => OK    archivar.log sin FALLO ni PERDIDO|FALLO copia fiel de motor_decision.log: 37508 B (línea base 75000 B), NO empieza por los bytes de la fuente, termina a mitad de línea|RESULTADO_CIERRE FALLO (cf-4b-rotacion 2026-11-08.1)|
-  2026-11-08T15:55:29Z a los ~50 s de la copia rota: timer=inactive (debe seguir parado)
-  2026-11-08T15:56:29Z timer reanudado (tope era 15:56:27)
-    2026-11-08T15:54:37Z vigía 2026-11-08.1 en marcha: tope 2026-11-08T15:56:27Z
-    2026-11-08T15:54:38Z recuperación ARMADA y verificada: tope 2026-11-08 15:56:27 UTC, vigía activo
-    2026-11-08T15:54:38Z logrotate.timer PARADO; reanudación: normal (cierre y copias verificados) o tope absoluto 2026-11-08 15:56:27 UTC
-    2026-11-08T15:56:28Z REANUDADO_POR_TOPE_SIN_CIERRE_VERIFICADO: logrotate.timer activo
+  2026-11-08T16:30:07Z manifiesto consistente: sha256sum -c OK; cierre => OK    archivar.log sin FALLO ni PERDIDO|FALLO copia fiel de motor_decision.log: 37680 B (línea base 75000 B; s40 anotó 75360 B; fuente ahora 75360 B), NO empieza por los bytes de la fuente, termina a mitad de línea, NO cubre la corrida|RESULTADO_CIERRE FALLO (cf-4b-rotacion 2026-11-08.2)|
+  2026-11-08T16:30:37Z a los ~36 s: timer=inactive (debe seguir parado)
+  2026-11-08T16:31:21Z timer reanudado (tope era 16:31:20)
+    2026-11-08T16:30:01Z logrotate.timer PARADO; reanudación: normal (cierre y copias verificados) o tope absoluto 2026-11-08 16:31:20 UTC
+    2026-11-08T16:31:21Z REANUDADO_POR_TOPE_SIN_CIERRE_VERIFICADO: logrotate.timer activo
+  --- variante cierre-base
+  timer de prueba: elapse diario a las 16:46:22 UTC; Sun 2026-11-08 16:46:22 UTC; activo=active
+  armado rc=0
+  2026-11-08T16:31:29Z manifiesto consistente: sha256sum -c OK; cierre => OK    archivar.log sin FALLO ni PERDIDO|FALLO copia fiel de motor_decision.log: 75000 B (línea base 75000 B; s40 anotó 75360 B; fuente ahora 75360 B), NO cubre la corrida|RESULTADO_CIERRE FALLO (cf-4b-rotacion 2026-11-08.2)|
+  2026-11-08T16:31:59Z a los ~36 s: timer=inactive (debe seguir parado)
+  2026-11-08T16:32:43Z timer reanudado (tope era 16:32:42)
+    2026-11-08T16:31:22Z logrotate.timer PARADO; reanudación: normal (cierre y copias verificados) o tope absoluto 2026-11-08 16:32:42 UTC
+    2026-11-08T16:32:43Z REANUDADO_POR_TOPE_SIN_CIERRE_VERIFICADO: logrotate.timer activo
+
+======== S4 · desarmar con el arranque del timer FALLIDO (unidad inexistente): no retira vigía ni tope
+  timer de prueba: elapse diario a las 16:47:43 UTC; Sun 2026-11-08 16:47:43 UTC; activo=active
+  armado rc=0; timer=inactive
+  desarmar con el start imposible: rc=1 ; DESARMAR FALLÓ: logrotate.timer no arrancó; la recuperación sigue armada
+  tras el fallo: timer=inactive vigía=active tope=active parado.json=sí
+  desarmar con el start posible: rc=0 ; timer=active vigía=inactive tope=inactive
+    2026-11-08T16:32:44Z recuperación ARMADA y verificada: tope 2026-11-08 16:35:14 UTC, vigía activo
+    2026-11-08T16:32:44Z logrotate.timer PARADO; reanudación: normal (cierre y copias verificados) o tope absoluto 2026-11-08 16:35:14 UTC
+    2026-11-08T16:32:45Z DESARMAR FALLÓ: no se pudo arrancar logrotate.timer (inactive); el vigía y el tope SIGUEN armados. Arránquelo a mano: sudo systemctl start logrotate.timer
+    2026-11-08T16:32:46Z desarmado: logrotate.timer active; unidades de recuperación retiradas
 
 ######## limpieza
   unidades de prueba restantes: 0 ; ~/cf-prueba-rot: ls: cannot access '/home/m4rk/cf-prueba-rot': No such file or directory
   logrotate.timer (sistema) sin tocar: active ; último disparo Sun 2026-11-08 00:00:00 UTC
-######## FIN 2026-11-08T15:56:30Z
+######## FIN 2026-11-08T16:32:46Z
 rc=0
