@@ -1,0 +1,21 @@
+2026-11-08T05:57:22Z
+total 0
+-rw-r--r-- 1 root root 0 2026-11-07T06:00:03+0000 download-upgradeable-stamp
+-rw-r--r-- 1 root root 0 2026-11-07T06:25:33+0000 unattended-upgrades-stamp
+-rw-r--r-- 1 root root 0 2026-11-07T05:59:55+0000 update-stamp
+-rw-r--r-- 1 root root 0 2026-11-07T05:59:47+0000 update-success-stamp
+-rw-r--r-- 1 root root 0 2026-11-07T06:25:33+0000 upgrade-stamp
+APT::Periodic "";
+APT::Periodic::Update-Package-Lists "1";
+APT::Periodic::Download-Upgradeable-Packages "0";
+APT::Periodic::AutocleanInterval "0";
+APT::Periodic::Unattended-Upgrade "1";
+APT::Update::Post-Invoke-Success:: "touch /var/lib/apt/periodic/update-success-stamp 2>/dev/null || true";
+2026-11-07T06:00:03+00:00 clientesadmin systemd[1]: apt-daily.service: Consumed 18.692s CPU time.
+2026-11-07T14:18:50+00:00 clientesadmin systemd[1]: Starting apt-daily.service - Daily apt download activities...
+2026-11-07T14:18:53+00:00 clientesadmin systemd[1]: apt-daily.service: Deactivated successfully.
+2026-11-07T14:18:53+00:00 clientesadmin systemd[1]: Finished apt-daily.service - Daily apt download activities.
+2026-11-07T14:18:53+00:00 clientesadmin systemd[1]: apt-daily.service: Consumed 2.659s CPU time.
+2026-11-07T19:32:42+00:00 clientesadmin systemd[1]: Starting apt-daily.service - Daily apt download activities...
+2026-11-07T19:32:43+00:00 clientesadmin systemd[1]: apt-daily.service: Deactivated successfully.
+2026-11-07T19:32:43+00:00 clientesadmin systemd[1]: Finished apt-daily.service - Daily apt download activities.

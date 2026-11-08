@@ -1,0 +1,7 @@
+-- variante
+total 12
+drwxrwxr-x 2 adminclientes adminclientes 4096 nov  7 19:02 .
+drwxrwxr-x 4 adminclientes adminclientes 4096 nov  7 19:02 ..
+-r--r--r-- 1 adminclientes adminclientes 3013 nov  7 19:02 forzar_laborable.sh
+19f07ea1a1f986f86cd1aaefcdf65d9767aef482f8b0568806ff0a151a811fed  /home/adminclientes/cf-e4/variante-r5/forzar_laborable.sh
+ls: cannot access '/etc/systemd/system/cyberflow-lab-*.service.d/': No such file or directory

@@ -1,0 +1,60 @@
+######## srvdmz
+2026-11-08T05:56:50Z
+Timezone=Etc/UTC
+NEXT                            LEFT LAST                              PASSED UNIT                           ACTIVATES
+Sun 2026-11-08 06:00:00 UTC  3min 9s Sun 2026-11-08 05:50:26 UTC     6min ago sysstat-collect.timer          sysstat-collect.service
+Sun 2026-11-08 06:41:28 UTC    44min Sun 2026-11-08 05:00:13 UTC    56min ago fwupd-refresh.timer            fwupd-refresh.service
+Sun 2026-11-08 07:42:19 UTC 1h 45min Sat 2026-11-07 04:45:56 UTC 1 day 1h ago man-db.timer                   man-db.service
+Sun 2026-11-08 19:10:53 UTC      13h Sun 2026-11-08 02:05:16 UTC 3h 51min ago motd-news.timer                motd-news.service
+Mon 2026-11-09 00:00:00 UTC      18h Sun 2026-11-08 00:00:30 UTC 5h 56min ago dpkg-db-backup.timer           dpkg-db-backup.service
+Mon 2026-11-09 00:00:00 UTC      18h Sun 2026-11-08 00:00:30 UTC 5h 56min ago logrotate.timer                logrotate.service
+Mon 2026-11-09 00:05:46 UTC      18h Sun 2026-11-08 00:05:46 UTC 5h 51min ago update-notifier-download.timer update-notifier-download.service
+Mon 2026-11-09 00:07:00 UTC      18h Sun 2026-11-08 00:07:37 UTC 5h 49min ago sysstat-summary.timer          sysstat-summary.service
+Mon 2026-11-09 00:15:33 UTC      18h Sun 2026-11-08 00:15:32 UTC 5h 41min ago systemd-tmpfiles-clean.timer   systemd-tmpfiles-clean.service
+Mon 2026-11-09 01:20:53 UTC      19h Mon 2026-11-02 01:19:04 UTC            - fstrim.timer                   fstrim.service
+Wed 2026-11-11 13:38:16 UTC   3 days Tue 2026-11-03 16:22:26 UTC            - update-notifier-motd.timer     update-notifier-motd.service
+Sun 2026-11-15 03:10:37 UTC   6 days Sun 2026-11-08 03:10:32 UTC 2h 46min ago e2scrub_all.timer              e2scrub_all.service
+-                                  - -                                      - apport-autoreport.timer        apport-autoreport.service
+-                                  - -                                      - apt-daily-upgrade.timer        -
+-                                  - -                                      - apt-daily.timer                -
+-                                  - -                                      - snapd.snap-repair.timer        snapd.snap-repair.service
+-                                  - -                                      - ua-timer.timer                 ua-timer.service
+
+17 timers listed.
+-- cron
+e2scrub_all sysstat 
+SHELL=/bin/sh
+17 *	* * *	root	cd / && run-parts --report /etc/cron.hourly
+25 6	* * *	root	test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.daily; }
+47 6	* * 7	root	test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.weekly; }
+52 6	1 * *	root	test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.monthly; }
+######## bastion tz y francos-exportar-red
+Timezone=America/Lima
+# /etc/systemd/system/francos-exportar-red.timer
+[Unit]
+Description=Franco's: exportar configuraciones de red cada 6 horas
+[Timer]
+OnCalendar=*-*-* 00/6:15:00
+RandomizedDelaySec=300
+Persistent=true
+[Install]
+WantedBy=timers.target
+# /etc/systemd/system/francos-exportar-red.service
+[Unit]
+Description=Franco's: exportar y versionar configuraciones de red (bastion)
+After=network-online.target tailscaled.service
+Wants=network-online.target
+[Service]
+Type=oneshot
+User=gadmin
+Group=gadmin
+ExecStart=/usr/local/bin/francos-exportar-red
+Nice=10
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ReadWritePaths=/var/backups/francos-red
+apt-compat dpkg logrotate man-db 
+######## clientes y sensor1: anacron
+apport apt-compat dpkg logrotate man-db sysstat ######## sha publicado
+19f07ea1a1f986f86cd1aaefcdf65d9767aef482f8b0568806ff0a151a811fed */c/Users/markp/Desktop/PY-MEGATRON/PY - PERSONAL/TESIS/CYBERFLOW/orquestacion-limpio/03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/campana-2026-10-26-deteccion-respuesta/etapa4a-pendientes-2026-11-06/evidencia/24-c1-registro-franja-domingo/variante/forzar_laborable.sh
