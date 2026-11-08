@@ -9,7 +9,7 @@
 
 Los K, los S, sus umbrales y la duración no cambian. Tampoco cambian el detector, el modelo IF ni su umbral desplegado, las características, α, los heurísticos ni la política de respuesta.
 
-## 1. Referencias confirmadas (08-nov, 06:05Z)
+## 1. Referencias confirmadas (08-nov, 06:10Z)
 
 Consulta a los remotos sin ningún cambio posterior a las referencias revisadas.
 
