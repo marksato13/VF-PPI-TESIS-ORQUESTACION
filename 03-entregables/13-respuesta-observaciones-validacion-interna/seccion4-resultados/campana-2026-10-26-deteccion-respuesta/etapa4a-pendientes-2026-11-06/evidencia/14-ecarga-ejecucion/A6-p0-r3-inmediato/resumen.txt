@@ -1,0 +1,72 @@
+p0_r3 2026-11-07.r3v modo=inmediato paquete=902991e sumas=8480f0e02952216d0a371f13201657e81e27ccc53fef2d5917d5dc74a68df30c
+inicio 2026-11-08T02:30:10Z portatil_epoch 1794105010 franja=[1794105000,1794114000]
+BLOQUE 00-estado-bastion host=bastion rc=0 estado=OK motivo=sin errores bloque=estado_r2.sh sha=990da8503fce
+BLOQUE 00-estado-sensor1 host=sensor1 rc=0 estado=OK motivo=sin errores bloque=estado_r2.sh sha=990da8503fce
+BLOQUE 00-estado-srvdmz host=srvdmz rc=0 estado=OK motivo=sin errores bloque=estado_r2.sh sha=990da8503fce
+BLOQUE 01-verificar-bastion host=bastion rc=0 estado=OK motivo=sin errores bloque=verificador_r2.sh sha=8714361effd4
+BLOQUE 02-verificar-sensor1 host=sensor1 rc=0 estado=OK motivo=sin errores bloque=verificador_r2.sh sha=8714361effd4
+BLOQUE 03-verificar-srvdmz host=srvdmz rc=0 estado=OK motivo=sin errores bloque=verificador_r2.sh sha=8714361effd4
+BLOQUE 04-precheck-s11 host=bastion rc=0 estado=OK motivo=sin errores bloque=precheck_r2.sh sha=131f0a562bb0
+BLOQUE 05-clientes host=bastion rc=0 estado=OK motivo=sin errores bloque=clientes_r2.sh sha=a1adfa790954
+BLOQUE 06-sensor1 host=sensor1 rc=0 estado=OK motivo=sin errores bloque=sensor1_r3.sh sha=23781bcfa126
+== DETALLE DE PRECONDICIONES (categoría estado id: detalle)
+REQ anticipable CUMPLE P1.bastion: verificador rc 0
+REQ anticipable CUMPLE P1.sensor1: verificador rc 0
+REQ anticipable CUMPLE P1.srvdmz: verificador rc 0
+REQ anticipable CUMPLE P2.ec78ca5: ec78ca5 SHA256SUMS OK
+REQ anticipable CUMPLE P2.esquema: esquema e032a1a2…
+REQ anticipable CUMPLE P2.manifiesto: manifiesto b3ad6805…
+REQ anticipable CUMPLE P2.modelo: modelo df547da0…
+REQ anticipable CUMPLE P2.suricata: suricata.yaml 0962ce68…
+REQ anticipable CUMPLE P3.procesos.bastion: 0 procesos con --aplicar/--enforce
+REQ anticipable CUMPLE P3.procesos.precheck: 0 procesos con --enforce/--aplicar en Sensor1
+REQ anticipable CUMPLE P3.procesos.sensor1: 0 procesos con --aplicar/--enforce
+REQ anticipable CUMPLE P3.procesos.srvdmz: 0 procesos con --aplicar/--enforce
+REQ anticipable CUMPLE P3.ruleset.sensor1: ruleset Sensor1 24c320e3…
+REQ anticipable CUMPLE P3.ruleset.srvdmz: ruleset srv-dmz e3b0c442… (vacío; vale solo con stderr vacío)
+REQ anticipable CUMPLE P3.tablas.srvdmz: srv-dmz sin tablas nft
+REQ anticipable CUMPLE P4.generador: clientes_lab.py ae5134a778e66d90f5c3fbcd47323e328f3422cf4ba8d5197649f402c1d4cdc3
+REQ anticipable CUMPLE P4.parado: generadores.sh comprobar-parado rc 0
+REQ anticipable CUMPLE P5a.clientes: Timezone=Etc/UTC
+REQ anticipable CUMPLE P5a.sensor1: Timezone=Etc/UTC
+REQ momento CUMPLE P5b: ahora 1794105054 dentro de la franja [1794105000,1794114000]
+REQ anticipable CUMPLE P5c: domingo UTC (ISO 7), franja del protocolo r5; el factor de laborable lo comprueba comprobar_forzar.sh con (F2)
+REQ anticipable CUMPLE P6.home: /home libre 12198 MiB (>= 2 GiB)
+REQ anticipable CUMPLE P6.mem: MemAvailable 6305 MiB (>= 1 GiB)
+REQ anticipable CUMPLE P7: obs_pcap --en-seco rc 0 y sin salida
+REQ documental NO_EVALUABLE P8: documental: la ventana está publicada en el protocolo r4 §3.2; esta herramienta no lo comprueba
+REQ anticipable CUMPLE P9: SHA256SUMS OK, evaluador 53e9f7bd…, VERSION 2026-11-06.4. Reglas fijadas en 
+REQ anticipable CUMPLE P10: generadores.sh configuracion rc 0
+REQ anticipable CUMPLE P11: comprobar rc 0
+REQ anticipable CUMPLE P11.muestreadores: ningún muestreador en marcha (ausencia confirmada: revisados=215 desaparecidos=0 ilegibles=0 presentes=0)
+REQ anticipable CUMPLE P11.retencion: retención del anillo: el fichero más antiguo tiene 955 s (>= 900 s, la de derivar_pcap)
+REQ ejecucion NO_EVALUABLE P12: se cumple en la ejecución (arranque de los muestreadores antes de T_g-300 s), después de P0
+REQ anticipable CUMPLE P13.hashes: sha256sum -c --strict rc 0
+REQ anticipable CUMPLE P13.inventario: 480 ficheros = manifiesto
+REQ anticipable CUMPLE P13.sumas: SHA256SUMS 8480f0e02952216d0a371f13201657e81e27ccc53fef2d5917d5dc74a68df30c
+REQ anticipable CUMPLE X.permisos: generadores.sh permisos rc 0
+REQ anticipable CUMPLE X.sincronizado.bastion: NTPSynchronized=yes
+REQ anticipable CUMPLE X.sincronizado.clientes: NTPSynchronized=yes
+REQ anticipable CUMPLE X.sincronizado.sensor1: NTPSynchronized=yes
+REQ anticipable CUMPLE X.sincronizado.srvdmz: NTPSynchronized=yes
+REQ anticipable CUMPLE X.v1.bastion: ppi-relay-feed.timer disabled/inactive
+REQ anticipable CUMPLE X.v1.sensor1: ppi-publicar-feed.timer disabled/inactive y servicio inactive
+REQ anticipable CUMPLE X.v1.srvdmz: ppi-enforce-agent.timer disabled/inactive
+REQ anticipable CUMPLE X.agente_v2: agente v2 enabled/active
+REQ anticipable CUMPLE X.cadena_v2.sensor1: motor, captura, vía rápida, suricata y feed v2 active
+REQ anticipable CUMPLE X.dir_no_creado: no creó /home/m4rk/cf-e4/p0-inmediato-20261108T023010Z ni salida en seco
+REQ anticipable CUMPLE X.estado_generadores: estado leído (rc 0)
+REQ anticipable CUMPLE X.eventos_aplicacion: 0 eventos de aplicación en la traza del agente
+REQ anticipable CUMPLE X.generadores_sh: generadores.sh 0badeac51ccf2339122412a7607b01176b22f97413e927134bb11ab208a3f662 (VERSION=2026-11-06.2)
+REQ anticipable CUMPLE X.mecanismo_sin_escritura: derivada en memoria la 2026-11-06.4 (63f7495714bf43c750748a1a6aad1e0506d10478b67034e41bd395490c05f823) desde la .2 del paquete (paso .3 4ed4385674e9f731c7d50f12b132d86a0a3625355df24ebaf4fa9fa0c8342b6e); nada escrito
+REQ anticipable CUMPLE X.paquete_sin_cambios: inventario (tipo, modo, tamaño, mtime, ruta) idéntico antes y después: 566 entradas
+REQ anticipable CUMPLE X.precheck_identico: precheck.sh b3127eddb28978c38295a425f8e672d7476d9ab4e5a779c656e19e3d65f980b8
+REQ anticipable CUMPLE X.precheck_rc: rc 0
+REQ anticipable CUMPLE X.precheck_stderr: stderr vacío
+REQ anticipable CUMPLE X.relay_v2: relé v2 enabled/active
+== RESUMEN
+BLOQUES 9/9 ejecutados sin errores
+PRECONDICIONES anticipables: 51/51 CUMPLE
+PRECONDICIONES de momento, documentales y de ejecución: P5b=CUMPLE P8=NO_EVALUABLE P12=NO_EVALUABLE
+fin 2026-11-08T02:30:59Z portatil_epoch 1794105059
+RESULTADO_GLOBAL rc=0 modo=inmediato P0 INMEDIATO CONFORME (P8 documental y P12 de la ejecución quedan fuera de esta herramienta)

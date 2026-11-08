@@ -1,0 +1,246 @@
+{
+ "version": "construir_entrada 2026-11-07.1",
+ "periodo": [
+  1794107700.0,
+  1794111300.0
+ ],
+ "fuentes": {
+  "clasificacion": {
+   "fichero": "/home/gadmin/cf-e4/ecarga-v2-ejecucion-20261108T0300Z/post-sensor1/post/clasificacion/clasificacion.json",
+   "sha256": "27d3bb2a14dd0402777a8a9c53cd9605e01454b224e0d0adcf0c2e458e9b1b94",
+   "estado": "leída"
+  },
+  "comparar": {
+   "fichero": "/home/gadmin/cf-e4/ecarga-v2-ejecucion-20261108T0300Z/post-sensor1/post/comparar.json",
+   "sha256": "ab76c0304a86de999a1e46d7d2c49ce6a578e8e722c13f17139398fefa16a890",
+   "estado": "leída"
+  },
+  "perfiles": {
+   "fichero": "/home/gadmin/cf-e4/ecarga-v2-ejecucion-20261108T0300Z/post-sensor1/post/perfiles.json",
+   "sha256": "1692a3acaa4d9b9861b32b641f7933912ac1c745c1341e318579a4d670b51ae3",
+   "estado": "leída"
+  },
+  "bastion": {
+   "fichero": "/home/gadmin/cf-e4/ecarga-v2-ejecucion-20261108T0300Z/bastion_s.json",
+   "sha256": "69fc31e8b23a7a6c699991e303fff7eaf13aca62668a5c66ce095637203a9b0b",
+   "estado": "leída"
+  },
+  "pcap": {
+   "fichero": "/home/gadmin/cf-e4/ecarga-v2-ejecucion-20261108T0300Z/post-sensor1/post/pcap_s.json",
+   "sha256": "56b3702e932188f4855e57c8196b5b4b7b376b28d032d7b6bfca1ddf52cd3b1a",
+   "estado": "leída"
+  },
+  "s14": {
+   "fichero": "/home/gadmin/cf-e4/ecarga-v2-ejecucion-20261108T0300Z/post-sensor1/post/s14.json",
+   "sha256": "780e33ec0f01097ec0faeaeb5c32e1d5482fc1dac0c0c8473d01219c62e94e60",
+   "estado": "leída"
+  },
+  "s7": {
+   "fichero": "/home/gadmin/cf-e4/ecarga-v2-ejecucion-20261108T0300Z/manual/s7/s7.json",
+   "sha256": "b332c1819ab9c6a36f41cb9f873b08d236eacc9535eb9629a44e1542aa5ee8d7",
+   "estado": "leída"
+  },
+  "manual_S11": {
+   "fichero": "/home/gadmin/cf-e4/ecarga-v2-ejecucion-20261108T0300Z/manual/s11-comparacion.txt",
+   "sha256": "7f6bb3da310d95bf5e670f83a0232bdaf745c23e737acdb3a4782515acf9db36",
+   "estado": "leída"
+  },
+  "manual_S15": {
+   "fichero": "/home/gadmin/cf-e4/ecarga-v2-ejecucion-20261108T0300Z/manual/s15-verificadores-despues.txt",
+   "sha256": "a4f3d9b2eaf50b3947844a7f2db666020838f8bc7413d79c2abcfc6a65a11b43",
+   "estado": "leída"
+  }
+ },
+ "campos": {
+  "clasificacion": {
+   "valor": {
+    "clase_periodo": "C0",
+    "motivos": []
+   },
+   "fuente": "clasificacion",
+   "campo": "clase_periodo; capturas.{captura,via-rapida}.motivos; motivo",
+   "regla": "copiados tal cual; cada motivo con el nombre de su captura delante"
+  },
+  "suricata": {
+   "valor": {
+    "estado": "cero_explicito",
+    "paquetes": 1084173,
+    "descartes": 0
+   },
+   "fuente": "clasificacion",
+   "campo": "suricata.medida.{estado,paquetes,descartes}",
+   "regla": "copiados; sin medida, paquetes y descartes null"
+  },
+  "descartes_por_millon": {
+   "valor": 0.0,
+   "fuente": "clasificacion",
+   "campo": "suricata.medida",
+   "regla": "descartes × 10⁶ / paquetes, sin redondeo; null sin medida o con 0 paquetes"
+  },
+  "K.K5": {
+   "valor": true,
+   "fuente": "clasificacion",
+   "campo": "suricata.medida.estado",
+   "regla": "cero_explicito|descartes -> true; cobertura_insuficiente -> false; otro estado -> null"
+  },
+  "S.S4": {
+   "valor": true,
+   "fuente": "clasificacion",
+   "campo": "suricata.medida.estado",
+   "regla": "igual que K5 (O4: sin hueco > 20 s, un proceso)"
+  },
+  "S.S5": {
+   "valor": true,
+   "fuente": "clasificacion",
+   "campo": "clase_periodo; suricata.medida.estado",
+   "regla": "O5: clasificación hecha y con estado de Suricata medido"
+  },
+  "S.S12": {
+   "valor": true,
+   "fuente": "clasificacion",
+   "campo": "suricata.medida.estado",
+   "regla": "medido -> true; cualquier otro estado -> false"
+  },
+  "S.S13": {
+   "valor": true,
+   "fuente": "clasificacion",
+   "campo": "suricata.medida.{descartes,paquetes}",
+   "regla": "descartes × 10⁸ < 1 495 × paquetes (< 14,95/M exacto); null sin medida"
+  },
+  "K.K1": {
+   "valor": true,
+   "fuente": "comparar",
+   "campo": "paquetes",
+   "regla": ">= 596789 (método del comparador con el que se fijó el umbral, O12)"
+  },
+  "K.K2": {
+   "valor": true,
+   "fuente": "comparar",
+   "campo": "rafagas_ge_umbral",
+   "regla": ">= 9 con umbral_rafaga_paquetes_8s = 5000"
+  },
+  "K.K3": {
+   "valor": false,
+   "fuente": "comparar",
+   "campo": "flujos_grandes",
+   "regla": ">= 50 con umbral_flujo_grande = 1000; null si no se leyó ningún flujo (falta --eve)"
+  },
+  "K.K4a": {
+   "valor": true,
+   "fuente": "perfiles",
+   "campo": "K4a.cumple",
+   "regla": "copiado si rc 0/1, mismo periodo y evaluador 2026-11-06.4; si no, null"
+  },
+  "S.S1": {
+   "valor": true,
+   "fuente": "bastion",
+   "campo": "S1.valor",
+   "regla": "copiado; null si falta, es de otro periodo o de otra versión de la herramienta"
+  },
+  "S.S6": {
+   "valor": true,
+   "fuente": "bastion",
+   "campo": "S6.valor",
+   "regla": "copiado; null si falta, es de otro periodo o de otra versión de la herramienta"
+  },
+  "S.S8": {
+   "valor": true,
+   "fuente": "bastion",
+   "campo": "S8.valor",
+   "regla": "copiado; null si falta, es de otro periodo o de otra versión de la herramienta"
+  },
+  "S.S9": {
+   "valor": true,
+   "fuente": "bastion",
+   "campo": "S9.valor",
+   "regla": "copiado; null si falta, es de otro periodo o de otra versión de la herramienta"
+  },
+  "S.S10": {
+   "valor": true,
+   "fuente": "bastion",
+   "campo": "S10.valor",
+   "regla": "copiado; null si falta, es de otro periodo o de otra versión de la herramienta"
+  },
+  "S.S2": {
+   "valor": true,
+   "fuente": "pcap",
+   "campo": "S2.valor",
+   "regla": "copiado; null si falta, es de otro periodo o de otra versión de la herramienta",
+   "motivo_fuente": "717 ficheros leídos sin error, incluidos los de los bordes"
+  },
+  "S.S3": {
+   "valor": true,
+   "fuente": "pcap",
+   "campo": "S3.valor",
+   "regla": "copiado; null si falta, es de otro periodo o de otra versión de la herramienta",
+   "motivo_fuente": "cadena continua de 718 ficheros, salto máximo 6.0 s"
+  },
+  "S.S14": {
+   "valor": true,
+   "fuente": "s14",
+   "campo": "S14.valor",
+   "regla": "copiado; null si falta, es de otro periodo o de otra versión de la herramienta",
+   "componentes": {
+    "cpu": true,
+    "hilos": true,
+    "softirq": true,
+    "disco": true,
+    "memoria": true,
+    "softnet_dropped": true,
+    "oom_kill": true
+   }
+  },
+  "S.S7": {
+   "valor": true,
+   "fuente": "s7",
+   "campo": "S7.valor",
+   "regla": "copiado; null si falta, es de otro periodo o de otra versión de la herramienta"
+  },
+  "S.S11": {
+   "valor": true,
+   "fuente": "manual_S11",
+   "campo": "(lectura documentada)",
+   "regla": "valor dado con --manual a partir de la evidencia indicada"
+  },
+  "S.S15": {
+   "valor": true,
+   "fuente": "manual_S15",
+   "campo": "(lectura documentada)",
+   "regla": "valor dado con --manual a partir de la evidencia indicada"
+  }
+ },
+ "avisos": [],
+ "informativo_paquetes_medida_acotada": 1084173,
+ "K4b_informativo": {
+  "estado": "rafaga_detectada",
+  "informativo": true,
+  "intervalos": 450,
+  "flujos": 148,
+  "intervalos_con_actividad": 65,
+  "media_por_intervalo": 0.3289,
+  "mediana_por_intervalo": 0.0,
+  "lambda_diseno": 0.192,
+  "lambda_ref": 0.3289,
+  "umbral_suma_40s": 6,
+  "max_suma_40s": 14,
+  "episodios": [
+   {
+    "desde": 1794108660.0,
+    "hasta": 1794108732.0,
+    "flujos": 16
+   },
+   {
+    "desde": 1794108892.0,
+    "hasta": 1794108932.0,
+    "flujos": 6
+   },
+   {
+    "desde": 1794110588.0,
+    "hasta": 1794110636.0,
+    "flujos": 6
+   }
+  ]
+ },
+ "sin_medida": [],
+ "entrada_sha256": "00a06a26ad485ea026fcb8c6a54e5a04186ac8abdb1d7d9a9897bfedf09253ad"
+}

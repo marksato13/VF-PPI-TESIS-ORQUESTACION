@@ -1,0 +1,47 @@
+8714361effd4c1fee6f8fce7a3fba546bd3e8fa5840dc1acebb101b2523c4a9b  -
+INFO == sensor1 cyberflow-sensor 2026-11-08T00:30:34Z
+INFO a9fe1d49c5c4a533693b76571478b2ccde7b1b922d7ae2b2849dcc7f533c41e0  /home/m4rk/cf-e4/paquete-902991e/deploy/etapa4/sensor1/verificar_sensor1.sh
+-------- salida del verificador
+OK    ppi-motor activo
+OK    ppi-motor-capture activo
+OK    ppi-via-rapida@ens37 activo
+OK    ppi-publicar-feed-v2 activo
+OK    cf-tcpdump-estadisticas.timer activo
+OK    suricata activo
+OK    v1 ppi-publicar-feed.timer inactivo y no habilitado (LoadState=loaded ActiveState=inactive UnitFileState=disabled)
+OK    v1 ppi-publicar-feed.service inactivo y no habilitado (LoadState=loaded ActiveState=inactive UnitFileState=static)
+OK    sin procesos v1 en ejecución (publicar_feed.py)
+OK    motor = candidato ec78ca5 con --disparo eventos
+OK    motor SIN --enforce
+OK    captura con -G 5
+OK    código candidato sin cambios (SHA256SUMS)
+OK    importaciones desde el candidato
+INFO  NRestarts motor/captura/vía: 0/0/0
+INFO  motor PID 1384, inicio real 1793923142.37; registros leídos: motor_decision.log, motor_decision.log.1, motor_decision.log.2.gz, motor_decision.log.3.gz (11 rotados anteriores al inicio, no pueden contener su arranque)
+OK    motor_startup del proceso vigente (PID 1384, inicio 1793923142.37, evento +1.47 s en motor_decision.log.3.gz; disparo eventos, incremental, umbral -0.5693969936322356 = manifiesto; 11 opciones de la ejecución coinciden)
+INFO  decisiones en la cola del registro actual: 1189 (1189 con decision_if)
+OK    decisiones con decision_if y auth_failure
+OK    decisiones con http_vista y dns_vista
+INFO  decisiones con registros HTTP tardíos excluidos de la vista: 0 de 1189
+INFO  auth_failure solo histórico (no aceptado por la vista HTTP): 0
+INFO  último ciclo: {"ciclo_n": 34778, "decididas": 7, "disparo": "pcap_cerrado", "duracion_s": 0.455, "entidades": 11, "etapas_s": {"decision_y_registro": 0.0003, "eve_lectura": 0.0018, "eve_poda": 0.0001, "expiracion_y_escritura": 0.0006, "filtro_plano_control": 0.0088, "pcap_parseo": 0.0552, "pcap_poda": 0.0236, "pe
+OK    resumen de la vía rápida avanza (1794097836.032883 -> 1794097839.077497)
+INFO  resumen vía rápida: {"bloque_hasta": 1794097839.127757, "paquetes_tcp": 40655, "bytes_pendientes": 0, "cpu_s": 1579.789512}
+INFO  señales rápidas: 0 líneas (sin ataques, 0 sobre legítimos)
+INFO  tcpdump de la vía rápida: PID 1389; estadísticas en journalctl -u ppi-via-rapida@ens37
+OK    feed v2 reciente (< 60 s)
+OK    firma del feed v2 verifica con la clave PÚBLICA
+INFO  traza del publicador (última): {"entradas": [], "evento": "publicacion", "expira": 1794097894.4528198, "generado": 1794097834.4528198, "nuevos": [], "politica": "if_senal", "publicado_en": 1794097834.4609296, "secuencia": 12371}
+INFO  eventos 'rechazada' en la traza: 0
+INFO  menciones de dns_entropy en el feed v2 actual: 0 (no hay agente DNS: nada se aplica en DC1)
+OK    SIGUSR1 periódico del anillo en el journal (últimos 2 min)
+OK    SIGUSR1 periódico de la vía rápida en el journal (últimos 2 min)
+INFO  anillo: 188 ficheros; últimos: live-20261108003028.pcap live-20261108003033.pcap live-20261108003038.pcap 
+INFO  suricata: capture.kernel_packets | Total | 27346065 capture.kernel_packets | Total | 27348206 
+OK    reloj sincronizado
+INFO  recursos: load average: 0,54, 0,25, 0,22; mem 1684/7940 MB; /home libre   13G
+OK    logrotate de feed-v2 instalado
+VERIFICACIÓN SENSOR1 OK
+-------- fin de la salida del verificador
+REQ P1.sensor1 CUMPLE verificador rc 0
+FIN_BLOQUE verificador_r2 rc=0

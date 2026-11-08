@@ -1,0 +1,16 @@
+2026-11-08T03:00:00.130666262Z
+ORDEN_PREPARADA: falta la última comprobación; todavía no se ha enviado nada
+OK cyberflow-lab-ofimatica.service ofimatica 10.10.20.21
+OK cyberflow-lab-navegacion.service navegacion 10.10.20.22
+OK cyberflow-lab-descargas.service descargas 10.10.20.23
+OK cyberflow-lab-aplicacion.service aplicacion 10.10.20.24
+OK cyberflow-lab-ligero.service ligero 10.10.20.25
+OK cyberflow-lab-erratico.service erratico 10.10.20.26
+2026-11-08T03:00:02Z ARRANQUE solicitado: sudo -n systemctl start cyberflow-lab.target
+start rc=0 
+gen target=active carga=loaded habilitado=disabled hash=ae5134a7 procesos=6 unidades: ofimatica=active/running/pid50074/nr0 navegacion=active/running/pid50073/nr0 descargas=active/running/pid50070/nr0 aplicacion=active/running/pid50069/nr0 ligero=active/running/pid50072/nr0 erratico=active/running/pid50071/nr0 consulta=ok
+ARRANQUE_CONFIRMADO: target active, 6 unidades running con su perfil e IP, procesos = MainPID (50069 50070 50071 50072 50073 50074 )
+arrancar rc=0
+{"version": "2026-11-07.3", "resultado": "ARRANCADO", "rc": 0, "motivo": "", "t": 1794106809, "orden_enviada": true, "t_envio": "1794106800.133682120", "arranque_confirmado": true}
+arrancar_c1 rc=0
+{"version": "2026-11-07.3", "resultado": "ARRANCADO", "rc": 0, "motivo": "", "t": 1794106809, "orden_enviada": true, "t_envio": "1794106800.133682120", "arranque_confirmado": true}

@@ -1,0 +1,32 @@
+990da8503fce0b317836deaaac888539ad96df08966883e5d05cf2376a03c7d8  -
+INFO == sensor1 cyberflow-sensor m4rk epoch 1794105016 utc 2026-11-08T02:30:16Z
+INFO timedatectl Timezone=Etc/UTC
+INFO timedatectl NTP=yes
+INFO timedatectl NTPSynchronized=yes
+REQ X.sincronizado.sensor1 CUMPLE NTPSynchronized=yes
+INFO servicio chrony=inactive
+INFO servicio chronyd=inactive
+INFO servicio systemd-timesyncd=active
+INFO servicio ntp=inactive
+INFO servicio ntpsec=inactive
+INFO timesync        Server: 10.10.60.1 (10.10.60.1)
+INFO timesync Poll interval: 34min 8s (min: 32s; max 34min 8s)
+INFO timesync          Leap: normal
+INFO timesync       Version: 4
+INFO timesync       Stratum: 2
+INFO timesync     Reference: BAC09E93
+INFO timesync     Precision: 1us (-23)
+INFO timesync Root distance: 77.239ms (max: 5s)
+INFO timesync        Offset: +198us
+INFO timesync         Delay: 414us
+INFO timesync        Jitter: 496us
+INFO timesync  Packet count: 93
+REQ P3.procesos.sensor1 CUMPLE 0 procesos con --aplicar/--enforce
+INFO df Filesystem                         Size  Used Avail Use% Mounted on
+INFO df /dev/mapper/ubuntu--vg-ubuntu--lv   37G   23G   12G  66% /
+INFO df /dev/mapper/ubuntu--vg-ubuntu--lv   37G   23G   12G  66% /
+INFO free                total        used        free      shared  buff/cache   available
+INFO free Mem:            7940        1512        2500           1        4209        6428
+INFO free Swap:           4030           0        4030
+INFO uptime  02:30:17 up 2 days,  2:33,  3 users,  load average: 0,60, 0,25, 0,24
+FIN_BLOQUE estado_r2 rc=0

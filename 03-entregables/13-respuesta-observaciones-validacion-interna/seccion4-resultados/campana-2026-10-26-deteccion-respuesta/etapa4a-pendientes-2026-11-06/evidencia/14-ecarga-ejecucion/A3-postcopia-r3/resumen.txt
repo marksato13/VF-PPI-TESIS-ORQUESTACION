@@ -1,0 +1,8 @@
+comprobar_post_copia r3 2026-11-06.2
+inicio 2026-11-08T02:05:21Z
+guion post_copia_host_r3.sh sha256 799af8f10d4f6dce5abd37ac6fa1ac250d14aadfd03bb7654dab8b070d1965d6 bytes 8687 CR 0
+HOST bastion rc=0 estado=CONFORME recibido=799af8f10d4f6dce5abd37ac6fa1ac250d14aadfd03bb7654dab8b070d1965d6 ok=12/12
+HOST sensor1 rc=0 estado=CONFORME recibido=799af8f10d4f6dce5abd37ac6fa1ac250d14aadfd03bb7654dab8b070d1965d6 ok=12/12
+HOST srvdmz rc=0 estado=CONFORME recibido=799af8f10d4f6dce5abd37ac6fa1ac250d14aadfd03bb7654dab8b070d1965d6 ok=12/12
+fin 2026-11-08T02:05:31Z
+RESULTADO_GLOBAL rc=0 CONFORME 3/3 (bastion, sensor1, srvdmz)

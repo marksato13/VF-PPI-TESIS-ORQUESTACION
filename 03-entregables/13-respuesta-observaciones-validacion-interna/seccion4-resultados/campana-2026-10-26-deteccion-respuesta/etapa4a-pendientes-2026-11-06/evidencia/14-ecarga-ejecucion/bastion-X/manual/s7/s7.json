@@ -1,0 +1,49 @@
+{
+ "version": "derivar_s7 2026-11-07.1",
+ "periodo": [
+  1794107700.0,
+  1794111300.0
+ ],
+ "comprobaciones": {
+  "entregas_aceptadas": {
+   "valor": true,
+   "motivo": null,
+   "entregas": 179,
+   "recepciones": 179,
+   "estados": {
+    "aceptado": 179
+   },
+   "no_aceptadas": 0,
+   "secuencia_ini_fin": [
+    12864,
+    13042
+   ]
+  },
+  "aceptadas_en_orden": {
+   "valor": true,
+   "motivo": null,
+   "aceptadas": 179
+  },
+  "publicador_sin_retroceso": {
+   "valor": true,
+   "motivo": null,
+   "lecturas": 125,
+   "lecturas_fallidas": 0,
+   "secuencia_ini_fin": [
+    12860,
+    13045
+   ],
+   "cobertura": {
+    "muestras": 125,
+    "antes_de_desde_s": 0.0,
+    "despues_de_hasta_s": 0.0,
+    "hueco_max_s": 31.0,
+    "ok": true
+   }
+  }
+ },
+ "S7": {
+  "valor": true,
+  "motivo": null
+ }
+}
