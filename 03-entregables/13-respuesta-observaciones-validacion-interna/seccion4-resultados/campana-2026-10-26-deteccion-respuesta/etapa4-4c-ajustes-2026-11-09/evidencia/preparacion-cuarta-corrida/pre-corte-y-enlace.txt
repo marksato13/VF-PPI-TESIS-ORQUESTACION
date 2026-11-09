@@ -1,0 +1,17 @@
+-- NIC ens37 (vmxnet3): carrier_changes=1 up=1 down=0 carrier=1 speed=10000
+-- kernel/journal sobre ens37/vmxnet3 desde 15:00Z:
+nov 09 16:22:22 cyberflow-sensor sudo[2203955]:     m4rk : PWD=/home/m4rk ; USER=root ; COMMAND=/usr/bin/journalctl --no-pager -u ppi-motor-capture -u suricata -u ppi-via-rapida@ens37 -u ppi-publicar-
+(fin; si no hay líneas, no hubo eventos de enlace registrados)
+tráfico en los 6 s previos a cada corte (pkt/s) y rx_dropped en ese lapso:
+  corte 16:35:30 | previos: [142, 1481, 181, 3023, 218, 83] | rx_dropped +78
+  corte 16:36:07 | previos: [151, 166, 146, 948, 2414, 246] | rx_dropped +84
+  corte 16:37:41 | previos: [134, 162, 167, 2572, 201, 33] | rx_dropped +62
+  corte 16:38:23 | previos: [219, 182, 1478, 234, 194, 177] | rx_dropped +85
+  corte 16:41:41 | previos: [1076, 230, 243, 198, 432, 30] | rx_dropped +62
+  corte 16:41:43 | previos: [243, 198, 432, 30, 3, 31] | rx_dropped +34
+  corte 16:42:08 | previos: [0, 0, 0, 26, 212, 23] | rx_dropped +22
+  corte 16:42:59 | previos: [204, 415, 178, 174, 215, 136] | rx_dropped +63
+  corte 16:45:07 | previos: [166, 158, 805, 933, 1164, 2504] | rx_dropped +84
+  corte 16:45:56 | previos: [176, 267, 214, 172, 178, 23] | rx_dropped +78
+picos más altos: [('16:33:44', 22680), ('16:33:20', 19728), ('16:33:22', 19640), ('16:33:21', 17981), ('16:33:15', 16314)]
+## r4 rc=0 (sed=0 ssh=0 tee=0) 2026-11-09T16:47:46.030Z
