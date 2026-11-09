@@ -1,0 +1,7 @@
+## s20-e4 2026-11-09T12:55:53.974Z  fin_ultimo=2026-11-09T12:49:54.000Z
+  1) ultimo PCAP OK live-20261109125529.pcap -> inicio+5=2026-11-09T12:55:34.000Z  >= fin+300=2026-11-09T12:54:54.000Z : True
+  2) archivar.log FALLO/PERDIDO: 0 lineas : True []
+  3) EVE ultimo evento 2026-11-09T12:55:53.718Z > fin+300 : True
+  4) motor: window_end maximo 2026-11-09T12:55:40.000Z >= fin+60=2026-11-09T12:50:54.000Z : True
+  RESULTADO 1-4: CUMPLE
+## r4 rc=0 (sed=0 ssh=0 tee=0) 2026-11-09T12:55:52.957Z

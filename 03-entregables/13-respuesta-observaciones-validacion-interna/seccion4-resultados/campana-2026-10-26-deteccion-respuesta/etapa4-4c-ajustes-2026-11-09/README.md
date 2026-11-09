@@ -26,3 +26,6 @@ Desde el bastión, la orden del sensor del vigía por `ssh sensor1`, con las car
 
 ## Límites
 No se probó la batería completa ni se ejecutó `g01` v2 (necesita la Kali y el control declarado). El `vigia_4c.py` del repositorio del producto (`2fe00200…`) **no es** el del paquete que corre en el Sensor1 (`62260830…`); se probó el del Sensor1.
+
+## Actualización 09-nov (tarde): estado real
+Esta carpeta ya NO está «sin usar»: `g01` v4 (`8f5a5529…`, commit `39732c3`) y `b20` v2 (`24688206…`) se usaron en dos baterías canceladas por el protocolo (X1 por la medida de Suricata del vigía viejo; X3 por las consultas DNS inversas de nmap). Ver `CAMBIO-NMAP-N-2026-11-09.md` (causa, cambio, pruebas, despliegue), `evidencia/vigia-final-repeticion/` (prueba del vigía 2026-11-06.1) y `evidencia/x3-y-nmap-n/`.

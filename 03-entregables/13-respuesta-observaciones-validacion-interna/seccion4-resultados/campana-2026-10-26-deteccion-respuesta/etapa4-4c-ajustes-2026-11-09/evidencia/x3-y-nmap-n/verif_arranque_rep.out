@@ -1,0 +1,26 @@
+## 2026-11-09T12:11:53Z
+== BASTIÓN: vigía
+   proceso: 1252211 python3 -I /home/gadmin/cf-e4/vigia-20261106/vigia_4c.py bucle --dir /home/gadmin/
+   vigia.pid=1252211 | nonce=4c-20261109T121126Z-05ed6aa511c8
+   vigia.jsonl: 2 ronda(s); última:
+      {'evento': 'ronda', 'epoch': 1794226286.3022444, 'permiso': '…', 'kali_rc': 0, 'marcas_nuevas': 0, 'desfases': '…', 'srvdmz': '…', 'sensor_ok': True}
+      permiso: continuar | causas: [] | kali_rc 0
+   vigia.stderr: 0 bytes
+== KALI: generador
+   lanzado.txt: 2026-11-09T12:11:36.331Z
+   permiso.json: {'nonce': '4c-20261109T121126Z-05ed6aa511c8', 'estado': 'continuar', 'causas': [], 'secuencia': 1, 'emitido_epoch': 1794226295.613, 'valido_hasta_epoch': 1794226445.613}
+   generador.rc: 
+zsh:3: number expected
+  58065      17 SNs  bash -c python3 -u /home/adminatacante/cf-campana-A/scripts-4c/generar_campana.py --config /home/adminatacante/cf-campana-A/escenarios/escenario
+  58067      17 SN   python3 -u /home/adminatacante/cf-campana-A/scripts-4c/generar_campana.py --config /home/adminatacante/cf-campana-A/escenarios/escenarios-4c.jso
+   conteo de procesos del generador: 2
+   corrida/: config-efectiva.json marcas.jsonl 
+   marcas.jsonl: 1 líneas; eventos: {'campana_inicio': 1}
+   últimas marcas:
+     {"evento": "campana_inicio", "modo": "AUTORIZADO (lanza tráfico)", "orden": ["inundacion_http-r4", "fuerza_bruta_http-r4", "dns_inusual-r1", "fuerza_bruta_http-r3", "dns_inusual-r3", "inundacion_http-r3", "fue
+   generador.stdout (últimas): AUTORIZADO (lanza tráfico) · 25 episodios · calentamiento 60 s · contexto previo 120 s · observación 90 s|
+   generador.stderr: 0 bytes
+== SENSOR1 sin cambios: motor active NR=0 ; srv-dmz brute-lab: active
+== control declarado intacto: 9d2f5ec23f7ded2b (esperado b3e90a87…) ; ['declarado_en', 'fase', 'control_normal', 'inicio_archivo', 'requisito', 'perfiles']
+== accesos-kali.log (4c): 2 línea(s)
+## r4 rc=0 (sed=0 ssh=0 tee=0) 2026-11-09T12:11:53.477Z
