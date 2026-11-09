@@ -1,0 +1,14 @@
+(la copia ya existe; solo verificación)
+   copiado 19:07:46Z
+inventario (tipo, modo, tamaño, mtime en s, ruta): sensor=2672 bastión=2672 -> IGUAL | ficheros=2660 dirs=12 enlaces=0
+sha256 de todos los ficheros: sensor=2660 bastión=2660 -> IGUAL
+huella del listado sha256 (sensor|bastión): f8da76d1c092cd7d | f8da76d1c092cd7d
+bytes en ficheros bastión: 1664539255 | original en sensor: 1664539255
+ruta: /home/gadmin/cf-e4/archivo-sensor1/4c-cancelada-20261109T1058Z
+original sigue en el sensor: /home/m4rk/cf-e4/4c-cancelada-20261109T1058Z
+bastión libres 9.0G (usado 49%)
+== horas reales de ejecución de los replays (mtime de replay/rc.txt y de stdout)
+4c-cancelada-20261109T1058Z: inicio(args)=2026-11-09 10:55:51.355169818 +0000 rc.txt=2026-11-09 10:55:51.356169830 +0000 args-motor.txt=2026-11-09 10:38:00.855314105 +0000 rc=0 
+4c-x3-cancelada-20261109T1350Z: inicio(args)=2026-11-09 13:11:40.219719776 +0000 rc.txt=2026-11-09 13:11:40.219719776 +0000 args-motor.txt=2026-11-09 12:56:42.152960108 +0000 rc=0 
+4c-x3b-cancelada-20261109T1625Z: inicio(args)=2026-11-09 16:20:51.981342615 +0000 rc.txt=2026-11-09 16:20:51.981342615 +0000 args-motor.txt=2026-11-09 16:05:11.915775753 +0000 rc=0 
+## r4 rc=0 (sed=0 ssh=0 tee=0) 2026-11-09T19:08:04.329Z
