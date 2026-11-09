@@ -1,0 +1,42 @@
+2026-11-09T03:22:24Z
+== cierre (herramienta):
+OK    replay terminó con rc=0
+OK    s40 empezó (cierre.t)
+OK    archivador terminó con rc=0
+OK    ESTADO del archivador: OK
+OK    archivar.log sin FALLO ni PERDIDO
+OK    copias/SHA256SUMS: 30 ficheros verifican
+OK    copias imprescindibles incluidas en SHA256SUMS
+OK    s40 declaró las copias completas (todas las operaciones de copia con éxito)
+OK    tamaños de las fuentes anotados por s40 (FUENTES-al-copiar.tsv)
+OK    copia fiel de motor_decision.log: 80505592 B (línea base 38366285 B; s40 anotó 80505592 B; fuente ahora 26439 B)
+OK    copia fiel de ciclos.jsonl: 64526168 B (línea base 57882978 B; s40 anotó 64526168 B; fuente ahora 64766968 B)
+OK    copia fiel de stats-fin.log: 111587936 B (línea base 70966581 B; s40 anotó 111578649 B; fuente ahora 18572 B)
+OK    copia fiel de feed-v2/via-rapida-resumen.jsonl: 183825039 B (línea base 118065164 B; s40 anotó 183824307 B; fuente ahora 21689 B)
+OK    copia fiel de feed-v2/traza.jsonl: 956949 B (línea base 610443 B; s40 anotó 956949 B; fuente ahora 197 B)
+OK    copia fiel de feed-v2/senales-if.jsonl: 2269858 B (línea base 432032 B; s40 anotó 2269858 B; fuente ahora 863 B)
+OK    copia fiel de feed-v2/senales-rapidas.jsonl: 0 B (línea base 0 B; s40 anotó 0 B; fuente ahora 0 B)
+OK    segmento EVE copiado y no vacío
+RESULTADO_CIERRE OK (cf-4b-rotacion 2026-11-08.2)
+== vigia / timer:
+logrotate.timer=active tope=inactive vigia=inactive
+== log del aplazamiento (ultimas 5):
+2026-11-08T17:14:20Z línea base: 8 ficheros protegidos, 67 rotados existentes
+2026-11-08T17:14:20Z vigía 2026-11-08.2 en marcha: tope 2026-11-09T07:00:00Z
+2026-11-08T17:14:23Z recuperación ARMADA y verificada: tope 2026-11-09 07:00:00 UTC, vigía activo
+2026-11-08T17:14:24Z logrotate.timer PARADO; reanudación: normal (cierre y copias verificados) o tope absoluto 2026-11-09 07:00:00 UTC
+2026-11-09T03:22:13Z REANUDADO_NORMAL (cierre y copias verificados, sin rotación): logrotate.timer activo
+== marcas: COMPLETAS.ok=ok s40b 2026-11-09T03:22:02.196Z | SHA256SUMS lineas=30 verifica=OK
+== hashes aparte salud/ (verifican: OK):
+b64cf99fb81a2712b2b97c6321e358765059decbec65cfcaf51ea1a2847da74e  tcpdump-anillo.log
+d29c13b6ec4d0b9b1ad049a6623593c4d940ea28ac406b509dc70257f7eb67c2  tcpdump-via.log
+== los logs de salud NO estan en copias/SHA256SUMS: 0 coincidencias
+== evidencia conservada:
+drwxrwxr-x 2 m4rk m4rk 4096 nov  9 03:21 .
+drwxrwxr-x 5 m4rk m4rk 4096 nov  9 03:22 ..
+-rw-rw-r-- 1 m4rk m4rk  322 nov  9 03:01 COPIAS-INCOMPLETAS.txt
+-rw-rw-r-- 1 m4rk m4rk  264 nov  9 03:21 estado-antes.txt
+-rw-rw-r-- 1 m4rk m4rk  453 nov  9 03:21 extraccion.txt
+cierre.t=1794193222.815926128 (sin cambios respecto a 1794193222.815926128)
+COPIAS-INCOMPLETAS.txt original: 2 lineas (se conserva)
+== servicios: motor=active cap=active via=active suricata=active
