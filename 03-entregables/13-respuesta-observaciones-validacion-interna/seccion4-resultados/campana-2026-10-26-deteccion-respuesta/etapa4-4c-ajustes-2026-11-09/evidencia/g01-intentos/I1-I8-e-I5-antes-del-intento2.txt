@@ -1,0 +1,27 @@
+=== PREVIA A g01 - SENSOR1 2026-11-09T09:19:38Z: 30 min previos al lanzamiento [1794214178, 1794215978] = 30 min 0 s
+=== I1 servicios, NRestarts y antigüedad
+   ppi-motor active NR=0
+   ppi-motor-capture active NR=0
+   ppi-via-rapida@ens37 active NR=0
+   ppi-publicar-feed-v2 active NR=0
+   suricata active NR=0
+   cf-tcpdump-estadisticas.timer active NR=
+   PID y NRestarts iguales a los del inicio
+   motor activo hace 292835 s; captura 292835 s (>= 600 s)
+=== I3/I4/I6 clasificación de la ventana (anillo y vía por separado)
+611 incrementos; con reinicio: 0
+   lecturas SIGUSR1: anillo 64, vía 64; última muestra de salud: 1794215969
+   fin del periodo evaluado = última lectura SIGUSR1 (anillo 1794215954, vía 1794215954); ventana efectiva: 29 min
+   [anillo] clase=C0 | tcpdump ok=True lecturas=61 descartados_kernel=0 pids=[1355] | motor_retraso_max=1.452 s | vía antigüedad máx=-0.002 s | suricata=cero_explicito | motivos=[]
+   [via] clase=C0 | tcpdump ok=True lecturas=61 descartados_kernel=0 pids=[1389] | motor_retraso_max=1.452 s | vía antigüedad máx=-0.002 s | suricata=cero_explicito | motivos=[]
+   archivador: OK: vistos=1422 archivados=1422, sin fallos  (2026-11-09T09:19:22Z); FALLO/PERDIDO: 0
+=== I5 (ventana de 30 min)
+   I5=cumple estado=cero_explicito descartes=0 parciales=0 muestras=226 paquetes=1119053
+   rc_i5=0 (0 cumple)
+=== I6 motor y vía rápida
+   ciclos recientes: máx duración 1.4245 s; edad del último 1.5 s
+   vía rápida: antigüedad de bloque_hasta = 0.15 s (<= 2 exigido)
+=== I7 disco
+   libres 8G (usado 78%)
+=== rotación
+   logrotate.timer=active; próxima: Tue 2026-11-10 00:00:00 UTC  14h Mon 2026-11-09 

@@ -1,0 +1,24 @@
+## 2026-11-09T09:20:40Z
+== KALI:
+   generadores reales: 0
+   lanzado.txt: no
+   comando.txt: no
+   generador.rc: no
+   terminado.txt: no
+   permiso.json: no
+   corrida/: ls: no se puede acceder a '/home/adminatacante/cf-e4-4c/corrida': No existe el fichero o el directorio 
+zsh:5: no existe el fichero o el directorio: /home/adminatacante/cf-e4-4c/corrida/marcas.jsonl
+   marcas.jsonl:  líneas
+   generador.stdout (primeras): 
+   generador.stderr: 
+== BASTIÓN:
+   vigía vivo: 
+   vigia.pid:  | vigia.jsonl líneas: 
+   ultima ronda: 
+   vigia.stderr: 
+   vigia.stdout: 
+   nonce actual: 4c-20261109T092011Z-a15dba8ea50b
+   accesos-kali.log (4c):
+     ## lanzamiento en la Kali [ACCESO SSH A KALI 2026-11-09T08:46:32.490Z: abrir canal de control y lanzar el generador; nonce 4c-20261109T084632Z-0ec0efdc5515]
+     ## lanzamiento en la Kali [ACCESO SSH A KALI 2026-11-09T09:20:11.869Z: abrir canal de control y lanzar el generador; nonce 4c-20261109T092011Z-a15dba8ea50b]
+bash: line 14: /home/gadmin/cf-e4/4c/vigia/vigia.jsonl: No such file or directory

@@ -1,0 +1,6 @@
+Dos intentos de g01 el 09-nov-2026. Ninguno inició episodios.
+1) 08:46Z (03:46 Perú), g01 v2: PARAR: ya hay un generador. Causa: la comprobación pgrep se contaba a sí misma (falso positivo). Corregido en g01 v3 (commit 38dd9543, sha256 05b729eb...).
+2) 09:20Z (04:20 Perú), g01 v3 (hash verificado): pasó las comprobaciones (sombra del sensor y de srv-dmz, c05, relojes, hashes de la Kali) y TERMINÓ con rc 0 sin lanzar la batería:
+   no hay vigia.stdout/vigia.jsonl/vigia.pid, ni lanzado.txt, comando.txt, corrida/ ni generador en la Kali. La salida se corta justo tras el ssh a la Kali sin -n (líneas 57 y 84 de g01),
+   con el guion enviado a bash -s por stdin (r4.sh): causa probable = ese ssh consume el resto del guion. No reproducida en el banco mínimo; supuesta por el patrón del fallo.
+El control declarado [08:15:00Z, 08:45:00Z] no se toca. Vigilancia, canal SSH a la Kali (ctl-kali, ControlPersist 5 h) y nonce: el nonce del intento 2 es 4c-20261109T092011Z-a15dba8ea50b.

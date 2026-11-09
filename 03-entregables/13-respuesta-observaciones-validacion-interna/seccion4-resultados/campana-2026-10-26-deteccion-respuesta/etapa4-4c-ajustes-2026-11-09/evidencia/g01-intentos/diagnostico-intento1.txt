@@ -1,0 +1,20 @@
+## 2026-11-09T08:47:06Z
+== KALI (procesos reales de ataque/generación, con patrón que no se autocoincide):
+  13552       0 zsh -c ps -eo pid,etimes,args | grep -E "[g]enerar_campana|[n]map|[h]ydra|[m]edusa" | cut -c1-150; echo "conteo real: $(ps -eo args | 
+conteo real: 2
+== la comprobación de g01, tal cual, sobre un shell remoto (autocoincidencia):
+   pgrep -fc de g01 dentro de bash -c: 1
+== lo que g01 pudo haber dejado en la Kali:
+   4096 .
+   4096 ..
+   765 sha256-esperado.txt
+   permiso.json: no | corrida/: no | lanzado.txt: no | comando.txt: no
+== BASTIÓN: lo que dejó g01:
+   4096 .
+   4096 ..
+   0 ctl-kali
+   33 nonce.txt
+   vigia.jsonl: no | proceso vigia_4c: 0 | ssh master a la Kali: 1 -> 1200676 ssh: /home/gadmin/cf-e4/4c/vigia/ctl-kali [mux]
+   accesos-kali.log (4c):
+     ## lanzamiento en la Kali [ACCESO SSH A KALI 2026-11-09T08:46:32.490Z: abrir canal de control y lanzar el generador; nonce 4c-20261109T084632Z-0ec0efdc5515]
+== sensor y srv-dmz sin cambios: motor=active NR=0 ; brute-lab active
