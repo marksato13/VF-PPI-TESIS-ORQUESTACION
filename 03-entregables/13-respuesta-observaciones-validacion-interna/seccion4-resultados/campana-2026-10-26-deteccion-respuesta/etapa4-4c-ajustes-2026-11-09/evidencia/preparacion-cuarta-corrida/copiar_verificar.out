@@ -1,0 +1,33 @@
+## 4c-x3-cancelada-20261109T1350Z 16:33:12Z
+   copiado 16:33:26Z; inventario y sha256 en el sensor...
+2324
+2312
+   inventario DISTINTO:
+1c1
+< d 775 106496 1794232048 archivo-pcap
+---
+> d 775 118784 1794232048 archivo-pcap
+2282c2282
+< d 775 4096 1794232053 d 775 4096 1794232053.6126156310 
+---
+> d 775 4096 1794232053 d 775 4096 1794232053.0000000000 
+   sha256 de todos los ficheros: IGUAL (2312 ficheros)
+   bytes (suma de ficheros) bastión: 1533068754  | du: 1.5G  | ruta: /home/gadmin/cf-e4/archivo-sensor1/4c-x3-cancelada-20261109T1350Z
+   sha256 del listado de sha256 (sensor|bastión): 84c6163c8d125d3e | 84c6163c8d125d3e
+## 4c-x3b-cancelada-20261109T1625Z 16:33:43Z
+   copiado 16:33:57Z; inventario y sha256 en el sensor...
+2024
+2012
+   inventario DISTINTO:
+1c1
+< d 775 86016 1794241335 archivo-pcap
+---
+> d 775 98304 1794241335 archivo-pcap
+1982c1982
+< d 775 4096 1794241339 d 775 4096 1794241339.5254206790 
+---
+> d 775 4096 1794241339 d 775 4096 1794241339.0000000000 
+   sha256 de todos los ficheros: IGUAL (2012 ficheros)
+   bytes (suma de ficheros) bastión: 1539943267  | du: 1.5G  | ruta: /home/gadmin/cf-e4/archivo-sensor1/4c-x3b-cancelada-20261109T1625Z
+   sha256 del listado de sha256 (sensor|bastión): 29239c6f6b176ee3 | 29239c6f6b176ee3
+## r4 rc=0 (sed=0 ssh=0 tee=0) 2026-11-09T16:34:12.559Z
