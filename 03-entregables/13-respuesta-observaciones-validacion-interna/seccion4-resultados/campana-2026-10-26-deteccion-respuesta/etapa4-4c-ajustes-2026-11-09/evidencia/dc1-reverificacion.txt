@@ -1,0 +1,11 @@
+## 2026-11-09T07:12:01Z
+ficheros de referencia:
+  0 B 2026-11-09_01:03:09 
+sha256 almacenado ahora: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /home/dcadmin/dc1-ruleset-20261109T060309Z.nft
+ruleset nft ahora: rc=0 lineas=0 errores=0 bytes
+diff contra la referencia: SIN_CAMBIOS
+tablas nft: 0
+iptables/ip6tables (otro mecanismo): no_instalado / no_instalado
+servicio nftables: inactive / disabled
+ufw/firewalld: inactive / inactive
+puertos en escucha (resumen): 22 53 88 135 139 389 445 464 636 3268 3269 49152 49153 49154 
