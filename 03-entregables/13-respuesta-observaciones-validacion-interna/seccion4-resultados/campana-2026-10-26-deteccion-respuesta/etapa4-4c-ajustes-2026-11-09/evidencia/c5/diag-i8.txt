@@ -1,0 +1,19 @@
+## 2026-11-09T07:30:30Z
+== hashes de los scripts de srvdmz: paquete (el que usé) vs paquete-a1cea5e (el validado el 8-nov)
+   verificar_srvdmz.sh: paquete=2d146d29eb24 a1cea5e=f6f72796cf52 -> DISTINTO
+   estado_sombra.py: paquete=8a1417bf2467 a1cea5e=8a1417bf2467 -> IGUAL
+   respaldo_srvdmz.sh: paquete=ead1d83b25be a1cea5e=ead1d83b25be -> IGUAL
+== VERSION de cada paquete:
+   paquete: candidato=ec78ca56a3a8f4bb17fda967a7f0abe0e9a2c742 herramientas=26944fa11dd78dc171a1aa528d62025147c7deab construido_utc=
+   paquete-a1cea5e: 
+== el verificador de ~/cf-e4/paquete: ¿lee el feed con sudo bajo CON_SUDO? lineas relevantes
+34:  "m=\$(stat -c %Y /var/lib/cyberflow/feed/feed.json) && [ \$(( \$(date +%s) - m )) -lt 60 ]"
+== el de a1cea5e:
+35:SUDO_STAT=""; [ "${CON_SUDO:-0}" = 1 ] && SUDO_STAT="sudo -n"
+36:# P4 (2026-11-06): con la entrega por paquete el agente lee feed.par; feed.json deja de actualizarse.
+37:FE=/var/lib/cyberflow/feed/feed.json
+38:systemctl cat ppi-enforce-agent-v2-dmz 2>/dev/null | grep -v '^[[:space:]]*#' | grep -q -- '--paquete' && FE=/var/lib/cyberflow/feed/feed.par
+40:  "m=\$($SUDO_STAT stat -c %Y $FE) && [ \$(( \$(date +%s) - m )) -lt 60 ]"
+== permisos reales del feed: drwxr-s--- cffeed cfagente ; ficheros: feed.json(146B) feed.par(515B) feed.sig(64B) 
+== antigüedad del feed (sudo): feed.par 1794209430 ; ahora 1794209432 ; feed.json 1793939939
+== la unidad v2 usa --paquete?: 1

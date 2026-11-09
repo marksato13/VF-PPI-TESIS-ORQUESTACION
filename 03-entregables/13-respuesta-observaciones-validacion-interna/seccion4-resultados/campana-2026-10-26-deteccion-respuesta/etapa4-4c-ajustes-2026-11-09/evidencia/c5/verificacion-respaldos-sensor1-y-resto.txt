@@ -1,0 +1,19 @@
+## 2026-11-09T07:24:13Z
+directorio: /home/m4rk/respaldos-etapa4/sensor1-20261109T072310Z (creado 2026-11-09 07:23:22)
+RESPALDO.txt: ok    ruleset nft (sudo)|RESPALDO OK /home/m4rk/respaldos-etapa4/sensor1-20261109T072310Z|
+SHA256SUMS: verifica (65 lineas)
+ruleset.nft: 175 B ; primeras lineas: table inet cyberflow_panel {|	chain entrada {|		type filter hook input priority filter; policy accept;|
+getcap.txt: 
+sudoers.d: 90-cyberflow cyberflow-captura cyberflow-operacio cyberflow-operacion README 
+bash: line 9: /home/m4rk/respaldos-etapa4/sensor1-20261109T072310Z/cmdline-motor.txt: No such file or directory
+cmdline del motor guardada: 
+enforce en esa cmdline: 
+ficheros: 27
+--- bastión:
+bastion SHA256SUMS verifica; RESPALDO OK /home/gadmin/respaldos-etapa4/bastion-20261109T071738Z
+--- srv-dmz:
+srv-dmz SHA256SUMS verifica; RESPALDO OK /home/adminsrvdmz/respaldos-etapa4/srvdmz-20261109T072027Z; ruleset.lectura: rc=0 bytes=0 utc=20261109T072027Z
+--- ¿se ha tocado algo desde los respaldos? Kali: permisos/corrida, brute-lab:
+ls: no se puede acceder a '/home/adminatacante/cf-e4-4c': No existe el fichero o el directorio /home/adminatacante/cf-campana-A 
+generadores: 0
+ppi-brute-lab: inactive
