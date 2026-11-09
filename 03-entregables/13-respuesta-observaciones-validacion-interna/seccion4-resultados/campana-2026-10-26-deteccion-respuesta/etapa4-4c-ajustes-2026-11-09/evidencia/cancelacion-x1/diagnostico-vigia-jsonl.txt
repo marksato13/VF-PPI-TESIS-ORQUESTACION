@@ -1,0 +1,17 @@
+## 2026-11-09T10:30:46Z
+rondas: 37 | tipos de evento: {'vigia_inicio': 1, 'ronda': 35, 'vigia_fin': 1}
+claves de la última ronda: ['evento', 'campana_fin', 'clases', 'epoch']
+--- permisos a lo largo del tiempo (cambios de estado):
+   09:34:48Z continuar []
+   10:06:48Z cancelar ['X1 6 episodios en C2/C3 > 20% de 25: ya no puede quedar por debajo']
+--- eventos que no son 'ronda':
+   {"evento": "vigia_inicio", "version": "2026-11-02.1", "nonce": "4c-20261109T093448Z-96a2520f2a6d", "crit": {"intervalo_s": 60.0, "validez_s": 150.0, "reanudar_limpio_s": 300.0, "historia_motor_s": 230.0, "desfase_max_s": 1.0, "salto_anillo_max_s": 7.0, "sin_sigusr1_max_s": 90.0, "c1_consecutivos": 3, "x1_fraccion": 0.2, "cada_srvdmz_s": 300.0}, "epoch": 1794216888.1872807}
+   {"evento": "vigia_fin", "campana_fin": "cancelada", "clases": {"inundacion_http-r4": "C3", "fuerza_bruta_http-r4": "C3", "dns_inusual-r1": "C3", "fuerza_bruta_http-r3": "C3", "dns_inusual-r3": "C3", "inundacion_http-r3": "C3"}, "epoch": 1794218929.0632143}
+--- episodios en C2/C3 según el vigía (última ronda con 'clases'):
+   inundacion_http-r4 "C3"
+   fuerza_bruta_http-r4 "C3"
+   dns_inusual-r1 "C3"
+   fuerza_bruta_http-r3 "C3"
+   dns_inusual-r3 "C3"
+   inundacion_http-r3 "C3"
+--- tcpdump del vigía (última ronda): {"evento": "vigia_fin", "campana_fin": "cancelada", "clases": {"inundacion_http-r4": "C3", "fuerza_bruta_http-r4": "C3", "dns_inusual-r1": "C3", "fuerza_bruta_http-r3": "C3", "dns_inusual-r3": "C3", "inundacion_http-r3": "C3"}, "epoch": 1794218929.0632143}

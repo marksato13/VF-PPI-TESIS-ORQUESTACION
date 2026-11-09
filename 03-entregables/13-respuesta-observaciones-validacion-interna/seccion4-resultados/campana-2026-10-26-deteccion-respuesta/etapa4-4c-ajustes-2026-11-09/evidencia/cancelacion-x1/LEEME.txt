@@ -1,0 +1,6 @@
+Batería de la Campaña A (4C) del 09-nov-2026: CANCELADA por el vigía a las 10:06:48Z (05:06:48 Perú) por X1, tras 6 de 25 episodios; el generador terminó con rc 3 a las 10:07:50Z.
+Causa: el vigía (vigia_4c.py, paquete del 4-nov) importa salud_captura 2026-11-02.2 (0ed014cc...), que mide Suricata por stats.log; Suricata 7 no escribe capture.kernel_drops cuando es 0, de modo que
+da «Suricata sin medida completa» = C3 en toda ventana. Con salud_captura 2026-11-06.1 (enmienda P1, 274b4d61..., Suricata por EVE) los mismos 6 periodos salen C0, cero_explicito, 0 descartes,
+tcpdump OK y D=0 (clasificacion-OLD-vs-P1-de-los-6-episodios.txt). I5 cumplió en todas las lecturas: la captura estaba sana; el C3 es un artefacto de la medición del vigía.
+Revisé g01 v2/v3 y comprobé que el vigía leyera tcpdump, pero NO su clasificación de Suricata (omisión). El protocolo dice «Cancelar: no se reanuda» (SALUD-CAPTURA §4.2).
+Estado del laboratorio tras la cancelación (sin tocar): archivador, muestreadores y clientes (factor 1,0) siguen en marcha; ppi-brute-lab activo; generador terminado; vigía terminado.

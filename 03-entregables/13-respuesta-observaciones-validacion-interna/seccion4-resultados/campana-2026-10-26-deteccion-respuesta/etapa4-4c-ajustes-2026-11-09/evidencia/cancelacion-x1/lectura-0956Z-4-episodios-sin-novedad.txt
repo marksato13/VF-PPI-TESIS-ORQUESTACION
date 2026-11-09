@@ -1,0 +1,19 @@
+## 2026-11-09T09:56:13Z
+[vigilancia 4c] 2026-11-09T09:55:53Z motor=active NR=0 enforce=0 cap=active/NR=0 via=active sur=active drops_sur= | tcpdump:  | dur=[0.45, 1.28, 0.38, 1.32, 0.38, 1.17] pend=[75, 72, 74, 64, 69, 65] edad=0 | arch: OK: vistos=1856 archivados=1856, sin fallos  (2026-1
+[vigía] vivo: 1 | rondas: 23
+   última ronda: 09:55:48Z | permiso: continuar | causas: [] | kali_rc 0 | sensor_ok True
+   srvdmz: null
+   pausas/cancelaciones en vigia.jsonl: pausar=0 cancelar=0; stderr: 0 B
+[Kali: generador]
+   procesos: 2 | generador.rc: corre
+   eventos: {'campana_inicio': 1, 'inicio': 4, 'fin': 4}
+   episodios iniciados: 4 | terminados: 4 | de 25
+   última marca: {'evento': 'inicio', 'escenario': 'fuerza_bruta_http', 'repeticion': 3} 2026-11-09T09:52:50
+   última marca: {'evento': 'fin'} 2026-11-09T09:54:20
+   stdout: [4/25] fuerza_bruta_http-r3: bash -c c=0; fin=$((SECONDS+90)); while [ $SECONDS -lt $fin ]; do curl -s -o /dev/null -w "%{http_code}\n" --max-time 2 -u fake:fake$RANDOM h
+   stdout:         -> completo
+   stderr: 0 B
+[Sensor1] motor=active NR=0 cap=active via=active suricata=active
+disco 79% (7,5G libres)
+[Suricata EVE reciente] I5(30min)=cumple estado=cero_explicito descartes=0 muestras=226
+[srv-dmz] brute-lab=active líneas brute.log=75578
