@@ -1,0 +1,3 @@
+PID 980094 = vigilancia de b01 de la 4B (bash /home/gadmin/cf-e4/4b/vigilar.sh, usuario gadmin, 40394 s de ejecución), verificada antes de detenerla.
+Detenida con kill -TERM a las 05:06Z del 9-nov-2026; el log dejó de crecer (1326 -> 1326 líneas en 62 s); 0 procesos de vigilancia de la 4B restantes.
+No se tocó nada más: vigilar.pid, vigilancia.log (198445 B) y control-declarado.json de la 4B siguen en su sitio. 4c=0, k20=0, vigia_4c=0 en marcha.
