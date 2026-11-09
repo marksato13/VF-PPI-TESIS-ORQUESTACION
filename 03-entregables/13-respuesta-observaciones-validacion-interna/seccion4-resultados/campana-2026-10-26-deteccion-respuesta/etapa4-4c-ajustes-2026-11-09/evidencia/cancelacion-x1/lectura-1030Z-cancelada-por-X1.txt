@@ -1,0 +1,22 @@
+## 2026-11-09T10:30:20Z
+[vigilancia 4c] 2026-11-09T10:29:26Z motor=active NR=0 enforce=0 cap=active/NR=0 via=active sur=active drops_sur= | tcpdump:  | dur=[0.31, 1.17, 0.29, 1.02, 0.25, 1.0] pend=[65, 64, 64, 76, 76, 74] edad=1 | arch: OK: vistos=2256 archivados=2256, sin fallos  (2026-11
+[vigía] vivo: 0 | rondas: 37
+Traceback (most recent call last):
+  File "<string>", line 3, in <module>
+    r=json.load(sys.stdin); p=r['permiso']
+                              ~^^^^^^^^^^^
+KeyError: 'permiso'
+   pausas/cancelaciones en vigia.jsonl: pausar=0 cancelar=3; stderr: 0 B
+[Kali: generador]
+   procesos: 0 | generador.rc: 3
+   eventos: {'campana_inicio': 1, 'inicio': 6, 'fin': 6, 'cancelacion': 1, 'campana_fin': 1}
+   episodios iniciados: 6 | terminados: 6 | de 25
+   última marca: {'evento': 'cancelacion', 'causa': 'X1 6 episodios en C2/C3 > 20% de 25: ya no puede quedar por debajo'} 2026-11-09T10:07:50
+   última marca: {'evento': 'campana_fin'} 2026-11-09T10:07:50
+   stdout:         -> completo
+   stdout: CANCELADA por la vigilancia: X1 6 episodios en C2/C3 > 20% de 25: ya no puede quedar por debajo
+   stderr: 0 B
+[Sensor1] motor=active NR=0 cap=active via=active suricata=active
+disco 80% (7,2G libres)
+[Suricata EVE reciente] I5(30min)=cumple estado=cero_explicito descartes=0 muestras=226
+[srv-dmz] brute-lab=active líneas brute.log=75578

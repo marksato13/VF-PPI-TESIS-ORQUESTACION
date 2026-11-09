@@ -1,0 +1,17 @@
+sha256 OLD 0ed014cc7d06dee1  NEW 274b4d613357be60
+versiones: OLD=2026-11-02.2 NEW=2026-11-06.1
+1039 incrementos; con reinicio: 0
+lecturas SIGUSR1 del anillo desde 09:30Z: 124
+episodio               periodo [ini-60, fin+60]   | vigía (OLD)         | enmienda P1 (NEW, EVE)
+inundacion_http-r4     09:37:50-09:39:20 ±60 | C3  ['Suricata sin medida completa en el periodo']
+                                                  | NEW: C0  suricata=cero_explicito descartes=0 tcpdump_ok=True D=0 motivos=[]
+fuerza_bruta_http-r4   09:42:50-09:44:20 ±60 | C3  ['Suricata sin medida completa en el periodo']
+                                                  | NEW: C0  suricata=cero_explicito descartes=0 tcpdump_ok=True D=0 motivos=[]
+dns_inusual-r1         09:47:50-09:49:20 ±60 | C3  ['Suricata sin medida completa en el periodo']
+                                                  | NEW: C0  suricata=cero_explicito descartes=0 tcpdump_ok=True D=0 motivos=[]
+fuerza_bruta_http-r3   09:52:50-09:54:20 ±60 | C3  ['Suricata sin medida completa en el periodo']
+                                                  | NEW: C0  suricata=cero_explicito descartes=0 tcpdump_ok=True D=0 motivos=[]
+dns_inusual-r3         09:57:50-09:59:20 ±60 | C3  ['Suricata sin medida completa en el periodo']
+                                                  | NEW: C0  suricata=cero_explicito descartes=0 tcpdump_ok=True D=0 motivos=[]
+inundacion_http-r3     10:02:50-10:04:20 ±60 | C3  ['Suricata sin medida completa en el periodo']
+                                                  | NEW: C0  suricata=cero_explicito descartes=0 tcpdump_ok=True D=0 motivos=[]
