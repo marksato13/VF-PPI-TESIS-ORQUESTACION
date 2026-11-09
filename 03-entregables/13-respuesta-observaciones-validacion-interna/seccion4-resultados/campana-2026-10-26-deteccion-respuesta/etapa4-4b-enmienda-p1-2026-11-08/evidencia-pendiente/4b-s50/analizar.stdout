@@ -1,0 +1,14 @@
+{
+ "tabla_principal": {},
+ "inventario": {
+  "requeridas": 36724,
+  "estados": {
+   "decidida_a_tiempo": 36724,
+   "decidida_tardia": 0,
+   "no_evaluada": 0,
+   "ausente": 0
+  },
+  "solo_en_vivo": 0,
+  "cobertura_total": 1.0
+ }
+}

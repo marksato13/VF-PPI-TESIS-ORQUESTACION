@@ -1,0 +1,31 @@
+## s50-e4 4b 2026-11-09T03:30:13.322Z inventario=[2026-11-08T17:15:48Z, 2026-11-09T02:05:00Z] control=[2026-11-08T18:00:00Z, 2026-11-09T02:00:00Z] reanudar=0
+## a1
+3480 incrementos; con reinicio: 0
+  a1 OK
+## a2
+  control (IF/heur):  "clase": "C0",  Suricata (EVE): cero_explicito
+  a2 OK
+## a3
+  control (vía rápida):  "clase": "C0",  Suricata (EVE): cero_explicito
+  a3 OK
+## b
+  {"ventanas_por_clase": {"C0": 34548, "C1": 0, "C2": 0, "C3": 0, "insuficiente": 0, "sin_medida": 0}, "C0": {"ventanas": 34548, "IF_0.05": {"falsas_alarmas": 5527, "tasa": 0.15998}, "IF_0.03": {"falsas_alarmas": 3451, "tasa": 0.09989}, "IF_0.01": {"falsas_alarmas": 1089, "tasa": 0.031521}, "HEUR": {"
+  b OK
+## c
+{
+ "tabla_principal": {},
+ "inventario": {
+  "requeridas": 36724,
+  "estados": {
+   "decidida_a_tiempo": 36724,
+   "decidida_tardia": 0,
+   "no_evaluada": 0,
+   "ausente": 0
+  },
+  "solo_en_vivo": 0,
+  "cobertura_total": 1.0
+ }
+}
+  c OK
+## ANÁLISIS COMPLETO 2026-11-09T03:31:47.977Z
+## r4 rc=0 (sed=0 ssh=0 tee=0) 2026-11-09T03:31:47.627Z
