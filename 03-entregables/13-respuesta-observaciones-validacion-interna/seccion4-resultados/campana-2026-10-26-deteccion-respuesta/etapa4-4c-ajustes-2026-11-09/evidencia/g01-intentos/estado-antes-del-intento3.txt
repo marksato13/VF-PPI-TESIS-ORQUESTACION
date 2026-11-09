@@ -1,0 +1,16 @@
+## 2026-11-09T09:33:12Z
+== KALI:
+   procesos de generador/ataque (patrón sin autocoincidencia): 0
+   permiso.json: no | corrida/: no | lanzado.txt: no | comando.txt: no | generador.rc: no
+   marcas.jsonl (episodios): 0 fichero(s); conexiones nmap/ssh de ataque hacia la lista blanca: 0
+   4096 .
+   4096 ..
+   765 sha256-esperado.txt
+== BASTIÓN:
+   vigia.jsonl: no | procesos vigia_4c: 0 | master ssh a la Kali: 1
+   nonce del intento fallido: 4c-20261109T092011Z-a15dba8ea50b
+   accesos-kali.log (4c): 2 línea(s):
+     ## lanzamiento en la Kali [ACCESO SSH A KALI 2026-11-09T08:46:32.490Z: abrir canal de control y lanzar el generador; nonce 4c-20261109T084632Z-0ec0efdc5515]
+     ## lanzamiento en la Kali [ACCESO SSH A KALI 2026-11-09T09:20:11.869Z: abrir canal de control y lanzar el generador; nonce 4c-20261109T092011Z-a15dba8ea50b]
+== SRV-DMZ y brute-lab: brute-lab=active lineas-brute.log=62756
+== EVE de la Kali -> destinos desde el fin del control (08:45:00Z) hasta ahora (no debe haber ataque): lo mide el análisis; aquí solo ssh y procesos.

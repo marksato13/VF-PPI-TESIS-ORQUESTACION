@@ -1,0 +1,25 @@
+== r4.sh (stdin):
+HOME=/home/gadmin
+PWD=/home/gadmin
+USER=gadmin
+SHELL=/bin/bash
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/games
+ARGS=[2026-11-09T08:45:00Z] [srvdmz-20261109T072027Z] n=2
+umask=0002
+ENV=2db456bb6a6e
+stdin: pipe
+== desde fichero (ssh -n):
+HOME=/home/gadmin
+PWD=/home/gadmin
+USER=gadmin
+SHELL=/bin/bash
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/games
+ARGS=[2026-11-09T08:45:00Z] [srvdmz-20261109T072027Z] n=2
+umask=0002
+ENV=1282bd57e2bb
+stdin: pipe
+== diferencias:
+8c8
+< ENV=2db456bb6a6e
+---
+> ENV=1282bd57e2bb
