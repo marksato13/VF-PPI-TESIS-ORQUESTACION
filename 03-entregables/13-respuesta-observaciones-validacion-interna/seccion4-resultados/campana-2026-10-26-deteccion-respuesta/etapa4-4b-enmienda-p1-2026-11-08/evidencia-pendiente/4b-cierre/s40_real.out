@@ -1,0 +1,35 @@
+## s40-e4 4b 2026-11-09T03:00:22.810Z
+  archivador PID=875557 -> TERM (barrido final)
+  archivador rc=0  ESTADO: OK: vistos=7173 archivados=7173, sin fallos  (2026-11-09T03:01:13Z)
+   | 2026-11-09T03:00:59Z OK live-20261109030026.pcap (408666 bytes) sha=c749f6a15b5d51c440db82bcc5263ea6be4185c1b61300265f717c6c1003083f
+   | 2026-11-09T03:00:59Z OK live-20261109030031.pcap (561371 bytes) sha=123026788507a87c270e4553d841d7c967ef150b03a88bc04282665f687acc77
+   | 2026-11-09T03:00:59Z OK live-20261109030036.pcap (388660 bytes) sha=efea04d32eb8add8a3aa3beb473ac6dd6abf7df5d1481b1c2df2436373dd98c5
+   | 2026-11-09T03:01:13Z FIN OK: vistos=7173 archivados=7173, sin fallos  (2026-11-09T03:01:13Z)
+  pcaps archivados: 7173  tamaño: 2,4G
+  FALLO/PERDIDO en archivar.log: 0
+  muestreador de recursos 875550 parado (6951 muestras)
+  muestreador de salud 875552 parado (3481 muestras)
+  FALLO COPIA: sh -c sudo -n journalctl -u ppi-motor-capture --since '2026-11-08 17:13:48 UTC' -o short-iso-precise --no-pager > '/home/m4rk/cf-e4/4b/salud/tcpdump-anillo.log'
+sudo: a password is required
+sudo: a password is required
+  FALLO COPIA: sh -c sudo -n journalctl -u ppi-via-rapida@ens37 --since '2026-11-08 17:13:48 UTC' -o short-iso-precise --no-pager > '/home/m4rk/cf-e4/4b/salud/tcpdump-via.log'
+  lecturas SIGUSR1: anillo 0 / vía 0
+  motor_decision.log: inodo 671352 (inicio:   motor_decision.log inicio: inodo 671352 tam 38420840)
+  a6317b0c7552a66d7373c59481e5549b659e0d1b8a76d31ed2a8720288f63652  /home/m4rk/cf-e4/4b/copias/feed-v2/feed.json
+  976f3780460d3bb182c2200c849c7d71148be70ffdd03c156b0e22a8d273d2ab  /home/m4rk/cf-e4/4b/copias/feed-v2/feed.sig
+  ee0bd4ca7943c13580e388d4f20338d731e60740b7ec330978f3adf968bd0b6d  /home/m4rk/cf-e4/4b/copias/feed-v2/estado.json
+  0428848f9b8ceac80b26513ed4faf4c2918c3c9e132722406aee6fdcdb04b02e  /home/m4rk/cf-e4/4b/copias/feed-v1/estado.json
+  65d8dec368d2c3434c9f92bd438b12fda07b4b99ef2492011836e7f732d2a323  /home/m4rk/cf-e4/4b/copias/feed-v1/feed.json
+  484bd4eae8f23f1747c16d9776f3d550937da08c2937ce5b4c4b60ee0b540bb7  /home/m4rk/cf-e4/4b/copias/feed-v1/feed.sig
+  journal motor: 1 líneas, trazas: 0 | avisos: 568
+  ppi-motor active NR=0 PID=1384
+  ppi-motor-capture active NR=0 PID=1355
+  ppi-via-rapida@ens37 active NR=0 PID=1387
+  ppi-publicar-feed-v2 active NR=0 PID=1386
+  suricata active NR=0 PID=1351
+  servicios: mismos PID y NRestarts que al empezar
+  candidato: SHA256SUMS OK
+  --enforce en argv: ''
+## COPIAS INCOMPLETAS (2 fallos, ver /home/m4rk/cf-e4/4b/copias/COPIAS-INCOMPLETAS.txt): NO se genera SHA256SUMS ni COPIAS-COMPLETAS.ok; el aplazamiento NO se levanta por el camino normal
+## fin 2026-11-09T03:01:18.887Z
+## r4 rc=1 (sed=0 ssh=1 tee=0) 2026-11-09T03:01:18.575Z

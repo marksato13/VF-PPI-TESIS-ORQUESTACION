@@ -1,0 +1,11 @@
+## s40b 4b 2026-11-09T03:21:57.211Z
+  ventana requerida: desde <= 1794158188.6629803 (inicio+40 s) hasta >= 1794193162.815926 (cierre.t-60 s); INI journal '2026-11-08 17:13:48 UTC'; PID anillo=1355 vía=1387,1389,1390
+  journalctl -u ppi-motor-capture -> rc=0, 395200 bytes
+    [tcpdump-anillo.log] {"lecturas": 1216, "primera": 1794158040.93737, "ultima": 1794194490.137744, "pids": [1355], "descartes_ultima_lectura": 0, "hueco_max_s": 30.9}
+  journalctl -u ppi-via-rapida@ens37 -> rc=0, 198208 bytes
+    [tcpdump-via.log] {"lecturas": 1216, "primera": 1794158040.976621, "ultima": 1794194490.176195, "pids": [1389], "descartes_ultima_lectura": 0, "hueco_max_s": 30.9}
+  hash (aparte, fuera de copias/SHA256SUMS) b64cf99fb81a2712b2b97c6321e358765059decbec65cfcaf51ea1a2847da74e  tcpdump-anillo.log
+  hash (aparte, fuera de copias/SHA256SUMS) d29c13b6ec4d0b9b1ad049a6623593c4d940ea28ac406b509dc70257f7eb67c2  tcpdump-via.log
+## COPIAS COMPLETAS (recuperadas por s40b)
+## fin 2026-11-09T03:22:02.198Z
+## r4 rc=0 (sed=0 ssh=0 tee=0) 2026-11-09T03:22:01.838Z
