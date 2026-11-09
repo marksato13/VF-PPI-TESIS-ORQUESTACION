@@ -1,0 +1,10 @@
+## s30-e4 2026-11-09T16:05:10.345Z desde=2026-11-09T13:54:57Z hasta=2026-11-09T16:04:01Z
+  eve segmento desde byte 480271013: 262196871 bytes, sha256 0f6a1923dcb922b430fb3e28f59920873d0498c470f8bd46ebb12defd0694aca
+  args: --model-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib --manifest-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json --detector-name if_limpio_2026_10 --schema /home/m4rk/cyberflow/configs/features/multilayer-v2.json --entity-network 10.10.0.0/16 --excluir 10.10.60.11/32,10.10.10.30/32,10.10.60.2/32,10.10.60.3/32,10.10.60.10/32,10.10.60.20/32,10.10.60.21/32,10.10.60.30/32,10.10.60.40/32,10.10.60.41/32,10.10.60.50/32 --excluir-protocolos 112,240 --step-seconds 10 --history-seconds 230
+  af43e14147663f9f74c355c73500d559bfed98a1045071cf7e6d31ca84158502  /home/m4rk/cyberflow-e4/ec78ca5/scripts/engine/replay_motor.py
+  b652582dd9ac8ee5754bde9fb1b9cb90bc713575320685232353033014dfc565  /home/m4rk/cyberflow-e4/ec78ca5/scripts/engine/motor_decision.py
+  95f3cd2ec46fee01abc1dd6a314c2aa18196fa4900f7625e6a9fdfb7d70146d2  /home/m4rk/cyberflow-e4/ec78ca5/scripts/engine/motor_incremental.py
+  0f6a1923dcb922b430fb3e28f59920873d0498c470f8bd46ebb12defd0694aca  /home/m4rk/cf-e4/4c/copias/eve-segmento.json
+  replay lanzado: 2071042 2071044 2071045 
+## fin 2026-11-09T16:05:18.108Z
+## r4 rc=0 (sed=0 ssh=0 tee=0) 2026-11-09T16:05:16.723Z
