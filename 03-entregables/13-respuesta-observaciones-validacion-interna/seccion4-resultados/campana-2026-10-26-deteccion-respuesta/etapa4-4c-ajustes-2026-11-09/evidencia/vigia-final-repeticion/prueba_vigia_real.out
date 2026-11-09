@@ -1,0 +1,16 @@
+== VIEJO (paquete 2026-11-02.1): versión 2026-11-02.1
+   inundacion_http-r4     C3  ['Suricata sin medida completa en el periodo'] 
+   fuerza_bruta_http-r4   C3  ['Suricata sin medida completa en el periodo'] 
+   dns_inusual-r1         C3  ['Suricata sin medida completa en el periodo'] 
+   fuerza_bruta_http-r3   C3  ['Suricata sin medida completa en el periodo'] 
+   dns_inusual-r3         C3  ['Suricata sin medida completa en el periodo'] 
+   inundacion_http-r3     C3  ['Suricata sin medida completa en el periodo'] 
+   tcpdump ok: True | anillo ok: True | i5_informativo: None
+== NUEVO (2026-11-06.1): versión 2026-11-06.1
+   inundacion_http-r4     C0   {'estado': 'cero_explicito', 'paquetes': 405986, 'descartes': 0}
+   fuerza_bruta_http-r4   C0   {'estado': 'cero_explicito', 'paquetes': 193938, 'descartes': 0}
+   dns_inusual-r1         C0   {'estado': 'cero_explicito', 'paquetes': 39591, 'descartes': 0}
+   fuerza_bruta_http-r3   C0   {'estado': 'cero_explicito', 'paquetes': 224767, 'descartes': 0}
+   dns_inusual-r3         C0   {'estado': 'cero_explicito', 'paquetes': 64042, 'descartes': 0}
+   inundacion_http-r3     C0   {'estado': 'cero_explicito', 'paquetes': 405212, 'descartes': 0}
+   tcpdump ok: True | anillo ok: True | i5_informativo: {'i5': 'cumple', 'estado': 'cero_explicito', 'descartes': 0, 'motivos': []}

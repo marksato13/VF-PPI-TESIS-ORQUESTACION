@@ -1,0 +1,32 @@
+## prueba final del vigía desplegado 2026-11-09T11:38:09Z
+== 1) hashes (esperado 2fe00200e755fd02 / 274b4d613357be60)
+2fe00200e755fd02
+274b4d613357be60
+== 2) el vigía importa la salud_captura de su directorio y pasa el EVE al clasificador
+64:    import salud_captura as sc  # noqa: E402
+189:                se = sc.medida_suricata_eve(sc.leer_eve_stats(eves, desde=de), de, ha, time.time())
+190:            r = sc.clasificar(incs, td, de, ha, dict(sc.CRITERIOS), suricata_eve=se)
+   vigia 2026-11-06.1 | salud_captura 2026-11-06.1 | /home/m4rk/cf-e4/vigia-20261106/salud_captura.py
+== 3) eve filtrado SIN eventos stats (para provocar medida faltante)
+   bytes 239550585
+== 4) los seis intervalos de la corrida cancelada, EVE real
+   inundacion_http-r4     C0  motivos=None suricata={'estado': 'cero_explicito', 'paquetes': 405986, 'descartes': 0}
+   fuerza_bruta_http-r4   C0  motivos=None suricata={'estado': 'cero_explicito', 'paquetes': 193938, 'descartes': 0}
+   dns_inusual-r1         C0  motivos=None suricata={'estado': 'cero_explicito', 'paquetes': 39591, 'descartes': 0}
+   fuerza_bruta_http-r3   C0  motivos=None suricata={'estado': 'cero_explicito', 'paquetes': 224767, 'descartes': 0}
+   dns_inusual-r3         C0  motivos=None suricata={'estado': 'cero_explicito', 'paquetes': 64042, 'descartes': 0}
+   inundacion_http-r3     C0  motivos=None suricata={'estado': 'cero_explicito', 'paquetes': 405212, 'descartes': 0}
+== 5) mismos seis intervalos, EVE SIN medida de Suricata (debe dar C3)
+   inundacion_http-r4     C3  motivos=['Suricata (EVE) ausente: el EVE no tiene eventos stats'] suricata={'estado': 'ausente', 'paquetes': None, 'descartes': None}
+   fuerza_bruta_http-r4   C3  motivos=['Suricata (EVE) ausente: el EVE no tiene eventos stats'] suricata={'estado': 'ausente', 'paquetes': None, 'descartes': None}
+   dns_inusual-r1         C3  motivos=['Suricata (EVE) ausente: el EVE no tiene eventos stats'] suricata={'estado': 'ausente', 'paquetes': None, 'descartes': None}
+   fuerza_bruta_http-r3   C3  motivos=['Suricata (EVE) ausente: el EVE no tiene eventos stats'] suricata={'estado': 'ausente', 'paquetes': None, 'descartes': None}
+   dns_inusual-r3         C3  motivos=['Suricata (EVE) ausente: el EVE no tiene eventos stats'] suricata={'estado': 'ausente', 'paquetes': None, 'descartes': None}
+   inundacion_http-r3     C3  motivos=['Suricata (EVE) ausente: el EVE no tiene eventos stats'] suricata={'estado': 'ausente', 'paquetes': None, 'descartes': None}
+== 6) intervalo fuera de las muestras de salud (debe dar C3), EVE real
+   sin_muestras-0800      C0  motivos=None suricata={'estado': 'cero_explicito', 'paquetes': 38031, 'descartes': 0}
+== 7) X1 con el decidir() del vigía desplegado y las clases reales obtenidas
+   6 episodios con EVE real (C0): X1 = no
+   6 episodios con EVE sin stats (C3): X1 = SÍ -> X1 6 episodios en C2/C3 > 20% de 25: ya no puede quedar por debajo
+## fin (temporales propios borrados)
+## r4 rc=0 (sed=0 ssh=0 tee=0) 2026-11-09T11:43:39.500Z
