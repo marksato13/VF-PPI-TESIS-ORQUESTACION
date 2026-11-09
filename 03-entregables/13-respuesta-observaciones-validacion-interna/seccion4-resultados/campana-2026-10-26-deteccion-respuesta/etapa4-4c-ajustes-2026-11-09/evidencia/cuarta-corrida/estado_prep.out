@@ -1,0 +1,21 @@
+hora bastión: 19:15:24Z
+hora sensor: 19:15:25Z
+libres bytes: 3305848832 (usado 92%)
+1664539255	/home/m4rk/cf-e4/4c-cancelada-20261109T1058Z
+1539943267	/home/m4rk/cf-e4/4c-x3b-cancelada-20261109T1625Z
+1533068754	/home/m4rk/cf-e4/4c-x3-cancelada-20261109T1350Z
+-- servicios
+ppi-motor active NR=0
+ppi-motor-capture active NR=0
+ppi-via-rapida@ens37 active NR=0
+ppi-publicar-feed-v2 active NR=0
+suricata active NR=0
+-- aplazamiento/rotación
+NEXT                            LEFT LAST                         PASSED UNIT            ACTIVATES
+Tue 2026-11-10 00:00:00 UTC 4h 44min Mon 2026-11-09 03:22:11 UTC 15h ago logrotate.timer logrotate.service
+ls: cannot access '/etc/systemd/system/logrotate.timer.d': No such file or directory
+-- procesos que escriben en ~/cf-e4 o dependen de 4c:
+2264580 bash -c  echo "hora sensor: $(date -u +%T)Z" df -B1 / | tail -1 | awk "{print \"libres bytes: \" \$4 \
+-- espejo: 120 s de muestreo 1 s
+min 24 media 209 segundos <20: 0
+## r4 rc=0 (sed=0 ssh=0 tee=0) 2026-11-09T19:17:24.156Z

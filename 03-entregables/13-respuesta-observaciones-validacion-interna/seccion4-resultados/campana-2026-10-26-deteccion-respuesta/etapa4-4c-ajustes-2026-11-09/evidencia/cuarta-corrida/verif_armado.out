@@ -1,0 +1,29 @@
+hora 19:36:09Z
+logrotate.timer: inactive / enabled=enabled
+cf-4b-tope.timer: active | Mon 2026-11-09 19:35:21 UTC
+cf-4b-tope.service: inactive | 
+cf-4b-vigia.service: active | Mon 2026-11-09 19:35:21 UTC
+-- tope: Tue 2026-11-10 01:30:00 UTC
+Tue 2026-11-10 01:30:00 UTC 5h 53min -                                      - cf-4b-tope.timer               cf-4b-tope.service
+-                                  - Mon 2026-11-09 03:22:11 UTC            - logrotate.timer                logrotate.service
+-- vigía proceso: 4149 python3 /usr/local/sbin/cf-4b-rotacion vigilar --tope 1794274200 --fase 4c
+4573 bash -c  echo "hora $(date -u +%T)Z" echo "logrotate.timer: $(systemctl is-active logrotate.timer) / enabled=$(syst
+4595 bash -c  echo "hora $(date -u +%T)Z" echo "logrotate.timer: $(systemctl is-active logrotate.timer) / enabled=$(syst
+-- log:
+2026-11-09T19:35:20Z línea base: 8 ficheros protegidos, 70 rotados existentes
+2026-11-09T19:35:21Z vigía 2026-11-08.2 en marcha: tope 2026-11-10T01:30:00Z
+2026-11-09T19:35:24Z recuperación ARMADA y verificada: tope 2026-11-10 01:30:00 UTC, vigía activo
+2026-11-09T19:35:24Z logrotate.timer PARADO; reanudación: normal (cierre y copias verificados) o tope absoluto 2026-11-10 01:30:00 UTC
+-- comprobar (solo lectura):
+OK    /var/log/suricata/eve.json: inodo 663679 -> 663679
+OK    /var/log/suricata/eve.json: tamaño 818297750 -> 818472500 (no debe decrecer)
+OK    /var/log/suricata/eve.json: los primeros 16777216 bytes iguales
+OK    /var/log/suricata/stats.log: inodo 663680 -> 663680
+OK    /var/log/suricata/stats.log: tamaño 67575336 -> 67619450 (no debe decrecer)
+OK    /var/log/suricata/stats.log: los primeros 16777216 bytes iguales
+OK    ficheros rotados: 70 -> 70
+OK    logrotate.service: sin ejecuciones desde la línea base
+OK    logrotate.timer: sin ejecuciones desde la línea base
+RESULTADO_COMPROBAR OK (cf-4b-rotacion 2026-11-08.2)
+-- medición F: 168 s; procesos: 1
+## r4 rc=0 (sed=0 ssh=0 tee=0) 2026-11-09T19:36:08.882Z
