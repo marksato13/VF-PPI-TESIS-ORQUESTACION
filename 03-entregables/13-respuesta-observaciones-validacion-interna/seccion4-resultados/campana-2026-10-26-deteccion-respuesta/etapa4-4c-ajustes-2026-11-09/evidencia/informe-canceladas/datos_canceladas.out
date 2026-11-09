@@ -1,0 +1,59 @@
+===== 4c-cancelada-20261109T1058Z
+  evento: cancelacion {'evento': 'cancelacion', 'siguiente_no_lanzado': 'fuerza_bruta_http-r1', 'punto': 'antes_del_lanzamiento', 'causa': 'X1 6 episodios en C2/C3 > 20% de 25: ya no puede quedar por debajo', 'reloj': {'pared_utc': '2026-11-09T10:07:50.063063+00:00', 'monotonico': 
+  evento: campana_fin {'evento': 'campana_fin', 'estado': 'cancelada', 'reloj': {'pared_utc': '2026-11-09T10:07:50.064114+00:00', 'monotonico': 236322.016646}}
+  iniciados 6 | terminados 6 | clasificados 6 | rondas 35 | campana_fin cancelada
+   inundacion_http-r4       09:37:50 -> 09:39:20 estado=completo clase=C3
+   fuerza_bruta_http-r4     09:42:50 -> 09:44:20 estado=completo clase=C3
+   dns_inusual-r1           09:47:50 -> 09:49:20 estado=completo clase=C3
+   fuerza_bruta_http-r3     09:52:50 -> 09:54:20 estado=completo clase=C3
+   dns_inusual-r3           09:57:50 -> 09:59:20 estado=completo clase=C3
+   inundacion_http-r3       10:02:50 -> 10:04:20 estado=completo clase=C3
+  primera cancelación: [('10:06:48Z', 'X1 6 episodios en C2/C3 > 20% de 25: ya no puede quedar por debajo')]
+  rondas en pausa: 0 | primeras/últimas: [] []
+  ficheros clave: corrida/marcas.jsonl, vigia/vigia.jsonl, vigilancia.log, control-declarado.json, fin-ultimo.txt
+===== 4c-x3-cancelada-20261109T1350Z
+  evento: cancelacion {'evento': 'cancelacion', 'siguiente_no_lanzado': 'escaneo_sostenido-r5', 'punto': 'antes_del_contexto', 'causa': 'X3 tráfico de la Kali a 10.10.10.21:53 (dns) durante un episodio', 'reloj': {'pared_utc': '2026-11-09T12:51:24.038670+00:00', 'monotonico': 24613
+  evento: campana_fin {'evento': 'campana_fin', 'estado': 'cancelada', 'reloj': {'pared_utc': '2026-11-09T12:51:24.039729+00:00', 'monotonico': 246135.992255}}
+  iniciados 8 | terminados 8 | clasificados 7 | rondas 41 | campana_fin cancelada
+   inundacion_http-r4       12:14:36 -> 12:16:06 estado=completo clase=C0
+   fuerza_bruta_http-r4     12:19:36 -> 12:21:06 estado=completo clase=C0
+   dns_inusual-r1           12:24:36 -> 12:26:06 estado=completo clase=C0
+   fuerza_bruta_http-r3     12:29:36 -> 12:31:06 estado=completo clase=C0
+   dns_inusual-r3           12:34:36 -> 12:36:06 estado=completo clase=C0
+   inundacion_http-r3       12:39:36 -> 12:41:06 estado=completo clase=C0
+   fuerza_bruta_http-r1     12:44:36 -> 12:46:06 estado=completo clase=C0
+   escaneo_breve-r4         12:49:36 -> 12:49:54 estado=completo clase=sin clasificar
+  primera cancelación: [('12:50:26Z', 'X3 tráfico de la Kali a 10.10.10.21:53 (dns) durante un episodio')]
+  rondas en pausa: 0 | primeras/últimas: [] []
+  ficheros clave: corrida/marcas.jsonl, vigia/vigia.jsonl, vigilancia.log, control-declarado.json, fin-ultimo.txt
+===== 4c-x3b-cancelada-20261109T1625Z
+  evento: pausa {'evento': 'pausa', 'siguiente': 'inundacion_http-r3', 'punto': 'antes_del_contexto', 'motivo': 'P3 salto del anillo 16 s > 7 s', 'reloj': {'pared_utc': '2026-11-09T15:30:29.086885+00:00', 'monotonico': 255681.039418}}
+  evento: pausa {'evento': 'pausa', 'siguiente': 'inundacion_http-r3', 'punto': 'antes_del_contexto', 'motivo': 'P3 salto del anillo 15 s > 7 s', 'reloj': {'pared_utc': '2026-11-09T15:30:34.088297+00:00', 'monotonico': 255686.040838}}
+  evento: pausa {'evento': 'pausa', 'siguiente': 'inundacion_http-r3', 'punto': 'antes_del_contexto', 'motivo': 'reanudación: 60 s sin condición de 300 s', 'reloj': {'pared_utc': '2026-11-09T15:31:39.095533+00:00', 'monotonico': 255751.048081}}
+  evento: pausa {'evento': 'pausa', 'siguiente': 'inundacion_http-r3', 'punto': 'antes_del_contexto', 'motivo': 'P3 salto del anillo 15 s > 7 s', 'reloj': {'pared_utc': '2026-11-09T15:32:34.101380+00:00', 'monotonico': 255806.053939}}
+  evento: pausa {'evento': 'pausa', 'siguiente': 'inundacion_http-r3', 'punto': 'antes_del_contexto', 'motivo': 'reanudación: 60 s sin condición de 300 s', 'reloj': {'pared_utc': '2026-11-09T15:33:34.107714+00:00', 'monotonico': 255866.060247}}
+  evento: pausa {'evento': 'pausa', 'siguiente': 'inundacion_http-r3', 'punto': 'antes_del_contexto', 'motivo': 'reanudación: 120 s sin condición de 300 s', 'reloj': {'pared_utc': '2026-11-09T15:34:34.114726+00:00', 'monotonico': 255926.067273}}
+  evento: pausa {'evento': 'pausa', 'siguiente': 'inundacion_http-r3', 'punto': 'antes_del_contexto', 'motivo': 'reanudación: 180 s sin condición de 300 s', 'reloj': {'pared_utc': '2026-11-09T15:35:34.121425+00:00', 'monotonico': 255986.07396}}
+  evento: pausa {'evento': 'pausa', 'siguiente': 'inundacion_http-r3', 'punto': 'antes_del_contexto', 'motivo': 'reanudación: 240 s sin condición de 300 s', 'reloj': {'pared_utc': '2026-11-09T15:36:34.128194+00:00', 'monotonico': 256046.080742}}
+  evento: reanudacion {'evento': 'reanudacion', 'siguiente': 'inundacion_http-r3', 'punto': 'antes_del_contexto', 'pausa_s': 425.048, 'reloj': {'pared_utc': '2026-11-09T15:37:34.135372+00:00', 'monotonico': 256106.087935}}
+  evento: cancelacion {'evento': 'cancelacion', 'siguiente_no_lanzado': 'escaneo_breve-r2', 'punto': 'antes_del_contexto', 'causa': 'X3 tráfico de la Kali a 10.10.10.30:41410 (flow) durante un episodio', 'reloj': {'pared_utc': '2026-11-09T16:00:31.021587+00:00', 'monotonico': 25748
+  evento: campana_fin {'evento': 'campana_fin', 'estado': 'cancelada', 'reloj': {'pared_utc': '2026-11-09T16:00:31.022515+00:00', 'monotonico': 257482.975041}}
+  iniciados 10 | terminados 10 | clasificados 9 | rondas 57 | campana_fin cancelada
+   inundacion_http-r4       15:07:29 -> 15:08:59 estado=completo clase=C0
+   fuerza_bruta_http-r4     15:12:29 -> 15:13:59 estado=completo clase=C0
+   dns_inusual-r1           15:17:29 -> 15:18:59 estado=completo clase=C0
+   fuerza_bruta_http-r3     15:22:29 -> 15:23:59 estado=completo clase=C0
+   dns_inusual-r3           15:27:29 -> 15:28:59 estado=completo clase=C3
+   inundacion_http-r3       15:39:34 -> 15:41:04 estado=completo clase=C0
+   fuerza_bruta_http-r1     15:44:34 -> 15:46:04 estado=completo clase=C0
+   escaneo_breve-r4         15:49:34 -> 15:49:39 estado=completo clase=C0
+   escaneo_sostenido-r5     15:53:09 -> 15:54:01 estado=completo clase=C0
+   fuerza_bruta_http-r5     15:57:31 -> 15:59:01 estado=completo clase=sin clasificar
+  primera cancelación: [('15:59:19Z', 'X3 tráfico de la Kali a 10.10.10.30:41410 (flow) durante un episodio')]
+  rondas en pausa: 10 | primeras/últimas: [('15:27:19Z', 'P3 salto del anillo 15 s > 7 s')] [('15:36:19Z', 'reanudación: 240 s sin condición de 300 s')]
+  ficheros clave: corrida/marcas.jsonl, vigia/vigia.jsonl, vigilancia.log, control-declarado.json, fin-ultimo.txt
+== sha de marcas (b20) y control
+4c-cancelada-20261109T1058Z marcas bb5cfb282719b80c control {'desde': '2026-11-09T08:15:00Z', 'hasta': '2026-11-09T08:45:00Z', 'duracion_s': 1800, 'seleccion': 'window_en
+4c-x3-cancelada-20261109T1350Z marcas cb6e43b94b041a85 control {'desde': '2026-11-09T11:39:00Z', 'hasta': '2026-11-09T12:09:00Z', 'duracion_s': 1800, 'seleccion': 'window_en
+4c-x3b-cancelada-20261109T1625Z marcas df530599ffc13aa0 control {'desde': '2026-11-09T14:32:30Z', 'hasta': '2026-11-09T15:02:30Z', 'duracion_s': 1800, 'seleccion': 'window_en
+## r4 rc=0 (sed=0 ssh=0 tee=0) 2026-11-09T19:03:47.254Z
