@@ -1,0 +1,18 @@
+## 2026-11-09T04:12:33Z
+== BASTION procesos reales (sin autocoincidencia):
+   k20 canal: 0 | vigilancia b01: 1134918 bash -c echo "## $(date -u +%FT%TZ)" echo "== BASTION procesos reales (sin autocoincidencia):" echo " 
+1134923 bash -c echo "## $(date -u +%FT%TZ)" echo "== BASTION procesos reales (sin autocoincidencia):" echo " 
+2026-11-09T04:11:45Z motor=active NR=0 enforce=0 cap=active/NR=0 via=active sur=active drops_sur= | tcpdump:  | dur=[0.5
+== KALI procesos reales:
+conteo=0
+== CLIENTES (desde el bastion):
+target=active
+active active active active active active 
+== I5 por EVE (ventana 30 min; incluye eve.json y el rotado .1 por si la rotacion cae en la ventana):
+  File "<string>", line 3
+    j=json.load(open(/tmp/i5.1436))
+                     ^
+SyntaxError: invalid syntax
+   rc de salud_captura i5 = 2 (0 cumple, 1 no cumple, 2 no demostrable)
+awk: cmd. line:1: {print
+awk: cmd. line:1:       ^ unexpected newline or end of string

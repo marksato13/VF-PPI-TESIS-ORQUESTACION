@@ -1,0 +1,25 @@
+## 2026-11-09T04:09:37Z
+== BASTION: VM-GESTION
+VERIFICACIÓN BASTIÓN OK
+== relojes: sensor +0.0079 SI;kali +0.0052 SI;srv-dmz +0.0063 SI;clientes +0.0053 SI;
+== canal k20 de la 4B: 1 procesos (debe ser 0); vigilancia b01 viva: 2
+== Kali (solo lectura): procesos de ataque/carga
+hostname=kali NTP=yes
+nmap/hydra/generadores: 1 ; permisos continuar: 0
+escenarios
+scripts
+== SRV-DMZ sin sudo: ppi-brute-lab=inactive/disabled/
+== SENSOR1: servicios: motor=active NR=0 cap=active via=active feed2=active suricata=active stats.timer=active
+   --enforce en argv del motor: []
+   logrotate.timer=active | list-timers: Tue 2026-11-10 00:00:00 UTC  19h Mon 2026-11-09 03:22:11 UTC 47min ago logrotate.timer logrotate.ser
+   eve.json: inodo 663679, 7626681 B, modif 2026-11-09 04:09:54
+   I5 (0 kernel_drops en 30 min, por EVE):
+  File "<string>", line 3
+    j=json.loads(t); print( ,{k:j[k] for k in j if not isinstance(j[k],(list,dict))})
+                            ^
+SyntaxError: invalid syntax
+   (rc de i5 = 1 solo del ultimo pipe; 0 cumple, 1 no cumple, 2 no demostrable)
+   disco: 7,9G libres (78% usado); 4B archivo-pcap: 2,4G
+   archivador/muestreadores vivos de la 4B (deben ser 0): 0
+   carpeta cf-e4/4c existe? no
+   estado de los clientes: target=Warning: Identity file /home/m4rk/.ssh/cyberflow-to-clientes not accessible: No such file or directory. (el 4c los pone a factor 1,0 con k01)
