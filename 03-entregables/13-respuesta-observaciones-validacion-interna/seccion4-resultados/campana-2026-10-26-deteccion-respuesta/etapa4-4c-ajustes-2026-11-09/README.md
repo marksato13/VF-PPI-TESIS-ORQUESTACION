@@ -10,12 +10,12 @@ El sudoers de `m4rk` en el Sensor1 solo permite `/usr/bin/journalctl --no-pager 
 ## Qué cambia
 | Guion | Cambio (única diferencia de código frente a la versión anterior) | sha256 |
 |---|---|---|
-| `guiones/g01_lanzar_bateria_e4.sh` v2 | `OS=` añade `--journalctl 'sudo -n journalctl --no-pager'` | `861c064c6b768652db47ee6de4537524788af26100497f128b9dc5350ab8f017` |
+| `guiones/g01_lanzar_bateria_e4.sh` v3 | (1) `OS=` añade `--journalctl 'sudo -n journalctl --no-pager'`; (2) la comprobación «ya hay un generador» pasa de `pgrep -fc 'generar_campana.py --config'` a `pgrep -fc '[g]enerar_campana.py --config'` (la original se contaba a sí misma dentro del `bash -c` remoto y paraba `g01` con «PARAR: ya hay un generador» sin ningún generador; ocurrió en el primer intento real, 09-nov 03:46 Perú, ver `evidencia/g01-primer-intento-parar-generador.txt`) | `05b729ebe5cefed543eadceb4a8aa0bf0d9e3fc7511de3f8922c5f296af4d0c2` |
 | `guiones/s40_cierre_e4.sh` v3 (parte de `s40` v2 de `etapa4-4b-enmienda-p1-2026-11-08`) | las dos extracciones pasan a `jtcp`: `journalctl --no-pager -u … -o short-iso-precise` **sin sudo**, con respaldo `sudo -n journalctl --no-pager …`, y **se verifica cada log por separado**: rc=0, no vacío, lecturas SIGUSR1 completas (sin truncar), de procesos del **cgroup de su unidad** (anillo = tcpdump de `ppi-motor-capture`; vía = hijo de `ppi-via-rapida@ens37`), y cobertura de la ventana (primera lectura ≤ inicio del archivo + 40 s, última ≥ `cierre.t` − 60 s); los dos logs no pueden ser idénticos. Cualquier fallo = FALLO (→ `COPIAS INCOMPLETAS`, sin `SHA256SUMS` ni `COPIAS-COMPLETAS.ok`) | `d7c13bef6ac9d158978db123a8372801fcb987f1fa9b8a6b1712cb2687261546` |
 
 `s40b` se conserva como recurso de reserva.
 
-## Pruebas (`tests/test_ajustes_4c.py`, 13 OK; `evidencia/pytest-ajustes-4c.txt`)
+## Pruebas (`tests/test_ajustes_4c.py`, 15 OK; `evidencia/pytest-ajustes-4c.txt`)
 - Stubs con el sudoers real y un escenario de 4 h de lecturas cada 30 s con un cgroup por unidad: `s40` v2 reproduce el fallo de la 4B (`COPIAS INCOMPLETAS (2 fallos)`, ambos logs de 0 B); `s40` v3 completa, con ambos logs cubriendo la ventana; con el respaldo en `sudo -n --no-pager` también completa; con `journalctl` fallido, log vacío, sin lecturas, lecturas truncadas, lecturas del PID de otra unidad, vía que no cubre el inicio o anillo que no cubre el final, **no** escribe la marca.
 - `s40` v3 solo cambia las extracciones de tcpdump; `g01` v2 solo cambia `OS=` (y comentarios).
 - Con el `vigia_4c.py` real del Sensor1 (`62260830…`, verificado contra el `SHA256SUMS` del paquete): la orden de `g01` v1 da `tcpdump ok false`; la de `g01` v2 da `ok true` con las lecturas del PID 1355 y 0 descartes.

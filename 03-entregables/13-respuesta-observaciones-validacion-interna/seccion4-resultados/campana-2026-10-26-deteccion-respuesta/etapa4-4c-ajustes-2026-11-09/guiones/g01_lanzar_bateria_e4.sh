@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# [BASTIÓN gadmin] ETAPA4 g01 v2 (2026-11-09) — uso: g01_lanzar_bateria_e4.sh <HASTA_CONTROL_ISO> <RESPALDO_SRVDMZ>
+# [BASTIÓN gadmin] ETAPA4 g01 v3 (2026-11-09) — uso: g01_lanzar_bateria_e4.sh <HASTA_CONTROL_ISO> <RESPALDO_SRVDMZ>
 #   RESPALDO_SRVDMZ = nombre del directorio del respaldo de srv-dmz (srvdmz-<UTC>, PROCEDIMIENTO §3).
 # Lanza la batería 4C (25 episodios, escenarios-4c.json, semilla 20261102) DESPUÉS del control de 30 min, con la
 # COMPUERTA de permiso (2026-11-02, corrección del defecto 3): el generador no lanza un episodio sin un permiso válido
@@ -13,7 +13,10 @@
 # Resultado esperado: "estado=sombra", "comando: …scripts-4c/generar_campana.py…--permiso…", un PID del generador
 # y "vigía PID". Parada: cualquier "PARAR".
 # v2: el vigía lee los registros de tcpdump con `sudo -n journalctl --no-pager` (la ÚNICA forma que el sudoers de m4rk permite: con
-#     `journalctl -u … --no-pager` sudo pide contraseña, la lectura SIGUSR1 falla y se pausa, P4). Es el único cambio frente a la v1.
+#     `journalctl -u … --no-pager` sudo pide contraseña, la lectura SIGUSR1 falla y se pausa, P4).
+# v3: la comprobación «ya hay un generador» usaba `pgrep -fc 'generar_campana.py --config'` DENTRO de un `bash -c` cuyo propio texto contiene ese patrón:
+#     se contaba a sí misma (1 sin ningún generador) y g01 paraba con «PARAR: ya hay un generador». Ahora `[g]enerar_campana.py --config`: el patrón no
+#     coincide con su propia línea de comandos y sigue detectando un generador real. Cambios frente a la v1: la orden del sensor (OS=) y este patrón.
 set -u
 HASTA=${1:?HASTA del control (ISO)}; RSRV=${2:?directorio del respaldo de srv-dmz (srvdmz-<UTC>)}
 B=$HOME/cf-e4/4c; G=$(cd "$(dirname "$0")" 2>/dev/null && pwd)
@@ -55,7 +58,7 @@ ssh $CTL kali "set -u; K=$K; KS=$KS
 [ -e \$K/corrida ] && { echo 'PARAR: ya existe '\$K/corrida; exit 2; }
 [ -e \$K/permiso.json ] && { echo 'PARAR: hay un permiso de otra corrida en '\$K/permiso.json; exit 2; }
 sha256sum -c \$K/sha256-esperado.txt | sed 's/^/  /'; sha256sum -c --quiet \$K/sha256-esperado.txt || { echo 'PARAR: hashes'; exit 2; }
-[ \$(pgrep -fc 'generar_campana.py --config') = 0 ] || { echo 'PARAR: ya hay un generador'; exit 2; }" || exit 2
+[ \$(pgrep -fc '[g]enerar_campana.py --config') = 0 ] || { echo 'PARAR: ya hay un generador'; exit 2; }" || exit 2
 
 # vigía: orden del sensor (solo lectura), de srv-dmz (estado_sombra) y del canal de la Kali (instala el permiso
 # que llega por stdin de forma atómica e imprime su reloj y las marcas nuevas)

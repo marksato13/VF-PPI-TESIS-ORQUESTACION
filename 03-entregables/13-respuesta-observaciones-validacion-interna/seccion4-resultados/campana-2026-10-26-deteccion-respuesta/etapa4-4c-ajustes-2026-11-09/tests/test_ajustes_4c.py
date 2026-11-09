@@ -149,12 +149,50 @@ def _orden_sensor(guion: Path) -> str:
     return m.group(1)
 
 
-def test_g01_v2_solo_cambia_la_orden_del_sensor_y_los_comentarios():
+def test_g01_solo_cambia_la_orden_del_sensor_la_comprobacion_del_generador_y_los_comentarios():
     a, b = G01_V1.read_text(encoding="utf-8").splitlines(), G01_V2.read_text(encoding="utf-8").splitlines()
     cambios = [l for l in difflib.unified_diff(a, b, lineterm="", n=0) if l[:1] in "+-" and l[:3] not in ("+++", "---")]
     de_codigo = [l for l in cambios if not l[1:].lstrip().startswith("#")]
-    assert len(de_codigo) == 2 and de_codigo[0].startswith("-OS=") and de_codigo[1].startswith("+OS="), de_codigo
-    assert "--journalctl 'sudo -n journalctl --no-pager'" in de_codigo[1] and "--journalctl" not in de_codigo[0]
+    assert len(de_codigo) == 4, de_codigo
+    quitadas, anadidas = [l[1:] for l in de_codigo if l[0] == "-"], [l[1:] for l in de_codigo if l[0] == "+"]
+    os_q, os_a = [l for l in quitadas if l.startswith("OS=")], [l for l in anadidas if l.startswith("OS=")]
+    assert len(os_q) == 1 and len(os_a) == 1 and "--journalctl 'sudo -n journalctl --no-pager'" in os_a[0] and "--journalctl" not in os_q[0]
+    pg_q, pg_a = [l for l in quitadas if "pgrep" in l], [l for l in anadidas if "pgrep" in l]
+    assert len(pg_q) == 1 and "pgrep -fc 'generar_campana.py --config'" in pg_q[0], pg_q
+    assert len(pg_a) == 1 and "pgrep -fc '[g]enerar_campana.py --config'" in pg_a[0], pg_a
+
+
+def _patron_pgrep(guion: Path) -> str:
+    codigo = "\n".join(l for l in guion.read_text(encoding="utf-8").splitlines() if not l.lstrip().startswith("#"))
+    m = re.search(r"pgrep -fc '([^']+)'", codigo)
+    assert m, "no se encontró la comprobación del generador en g01"
+    return m.group(1)
+
+
+def _cuenta_en_bash_c(patron: str, con_generador: bool) -> int:
+    """Lo que hace g01 en la Kali: `pgrep -fc PATRÓN` dentro de un `bash -c` (ssh ejecuta así el texto remoto), con o sin un generador real."""
+    decoy = None
+    if con_generador:
+        decoy = subprocess.Popen(["bash", "-c", "exec -a 'python3 -u /x/generar_campana.py --config /x/escenarios-4c.json' sleep 30"])
+        time.sleep(0.4)
+    try:
+        r = subprocess.run(["bash", "-c", f"echo $(pgrep -fc '{patron}')"], capture_output=True, text=True, timeout=20)
+        return int(r.stdout.strip() or "-1")
+    finally:
+        if decoy: decoy.kill()
+
+
+def test_g01_v1_y_v2_se_cuentan_a_si_mismos_y_v3_no():
+    if shutil.which("pgrep") is None:
+        pytest.skip("falta pgrep")
+    assert _cuenta_en_bash_c(_patron_pgrep(G01_V1), False) >= 1, "la comprobación original se autocoincide (el defecto del 9-nov)"
+    assert _cuenta_en_bash_c(_patron_pgrep(G01_V2), False) == 0, "la corregida no se autocuenta"
+
+
+def test_g01_corregido_sigue_detectando_un_generador_real():
+    if shutil.which("pgrep") is None:
+        pytest.skip("falta pgrep")
+    assert _cuenta_en_bash_c(_patron_pgrep(G01_V2), True) >= 1
 
 
 @pytest.fixture

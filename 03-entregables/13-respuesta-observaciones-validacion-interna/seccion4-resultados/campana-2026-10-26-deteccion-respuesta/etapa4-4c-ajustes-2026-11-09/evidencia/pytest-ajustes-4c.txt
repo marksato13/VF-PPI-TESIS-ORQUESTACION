@@ -1,20 +1,22 @@
 ============================= test session starts ==============================
 platform linux -- Python 3.13.5, pytest-8.3.5, pluggy-1.5.0 -- /usr/bin/python3
 rootdir: /camp/etapa4-4c-ajustes-2026-11-09
-collecting ... collected 13 items
+collecting ... collected 15 items
 
-tests/test_ajustes_4c.py::test_s40_v2_con_el_sudoers_real_reproduce_el_fallo_de_la_4b PASSED [  7%]
-tests/test_ajustes_4c.py::test_s40_v3_extrae_ambos_logs_cubre_la_ventana_y_declara_completas PASSED [ 15%]
-tests/test_ajustes_4c.py::test_s40_v3_si_el_journal_sin_sudo_falla_usa_sudo_con_la_forma_permitida PASSED [ 23%]
-tests/test_ajustes_4c.py::test_s40_v3_extraccion_fallida_vacia_incompleta_o_que_no_cubre_impide_la_marca[rc-journalctl rc\u22600 en ambas formas] PASSED [ 30%]
-tests/test_ajustes_4c.py::test_s40_v3_extraccion_fallida_vacia_incompleta_o_que_no_cubre_impide_la_marca[vacio-extracci\xf3n vac\xeda] PASSED [ 38%]
-tests/test_ajustes_4c.py::test_s40_v3_extraccion_fallida_vacia_incompleta_o_que_no_cubre_impide_la_marca[sin_lecturas-log sin lecturas SIGUSR1] PASSED [ 46%]
-tests/test_ajustes_4c.py::test_s40_v3_extraccion_fallida_vacia_incompleta_o_que_no_cubre_impide_la_marca[truncadas-lecturas truncadas] PASSED [ 53%]
-tests/test_ajustes_4c.py::test_s40_v3_extraccion_fallida_vacia_incompleta_o_que_no_cubre_impide_la_marca[pid_cruzado-la v\xeda trae lecturas de otro proceso (el anillo)] PASSED [ 61%]
-tests/test_ajustes_4c.py::test_s40_v3_extraccion_fallida_vacia_incompleta_o_que_no_cubre_impide_la_marca[inicio_tarde-la v\xeda no cubre el inicio] PASSED [ 69%]
-tests/test_ajustes_4c.py::test_s40_v3_extraccion_fallida_vacia_incompleta_o_que_no_cubre_impide_la_marca[fin_temprano-el anillo no cubre el final] PASSED [ 76%]
-tests/test_ajustes_4c.py::test_s40_v3_solo_cambia_las_extracciones_de_tcpdump PASSED [ 84%]
-tests/test_ajustes_4c.py::test_g01_v2_solo_cambia_la_orden_del_sensor_y_los_comentarios PASSED [ 92%]
+tests/test_ajustes_4c.py::test_s40_v2_con_el_sudoers_real_reproduce_el_fallo_de_la_4b PASSED [  6%]
+tests/test_ajustes_4c.py::test_s40_v3_extrae_ambos_logs_cubre_la_ventana_y_declara_completas PASSED [ 13%]
+tests/test_ajustes_4c.py::test_s40_v3_si_el_journal_sin_sudo_falla_usa_sudo_con_la_forma_permitida PASSED [ 20%]
+tests/test_ajustes_4c.py::test_s40_v3_extraccion_fallida_vacia_incompleta_o_que_no_cubre_impide_la_marca[rc-journalctl rc\u22600 en ambas formas] PASSED [ 26%]
+tests/test_ajustes_4c.py::test_s40_v3_extraccion_fallida_vacia_incompleta_o_que_no_cubre_impide_la_marca[vacio-extracci\xf3n vac\xeda] PASSED [ 33%]
+tests/test_ajustes_4c.py::test_s40_v3_extraccion_fallida_vacia_incompleta_o_que_no_cubre_impide_la_marca[sin_lecturas-log sin lecturas SIGUSR1] PASSED [ 40%]
+tests/test_ajustes_4c.py::test_s40_v3_extraccion_fallida_vacia_incompleta_o_que_no_cubre_impide_la_marca[truncadas-lecturas truncadas] PASSED [ 46%]
+tests/test_ajustes_4c.py::test_s40_v3_extraccion_fallida_vacia_incompleta_o_que_no_cubre_impide_la_marca[pid_cruzado-la v\xeda trae lecturas de otro proceso (el anillo)] PASSED [ 53%]
+tests/test_ajustes_4c.py::test_s40_v3_extraccion_fallida_vacia_incompleta_o_que_no_cubre_impide_la_marca[inicio_tarde-la v\xeda no cubre el inicio] PASSED [ 60%]
+tests/test_ajustes_4c.py::test_s40_v3_extraccion_fallida_vacia_incompleta_o_que_no_cubre_impide_la_marca[fin_temprano-el anillo no cubre el final] PASSED [ 66%]
+tests/test_ajustes_4c.py::test_s40_v3_solo_cambia_las_extracciones_de_tcpdump PASSED [ 73%]
+tests/test_ajustes_4c.py::test_g01_solo_cambia_la_orden_del_sensor_la_comprobacion_del_generador_y_los_comentarios PASSED [ 80%]
+tests/test_ajustes_4c.py::test_g01_v1_y_v2_se_cuentan_a_si_mismos_y_v3_no PASSED [ 86%]
+tests/test_ajustes_4c.py::test_g01_corregido_sigue_detectando_un_generador_real PASSED [ 93%]
 tests/test_ajustes_4c.py::test_vigia_con_g01_v1_no_lee_tcpdump_y_con_g01_v2_si PASSED [100%]
 
-============================== 13 passed in 6.10s ==============================
+============================== 15 passed in 9.75s ==============================
