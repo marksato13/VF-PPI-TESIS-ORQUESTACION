@@ -1,0 +1,86 @@
+hora sensor: 19:03:52Z
+/dev/mapper/ubuntu--vg-ubuntu--lv   37G   32G  3,1G  92% /
+-- mayores consumidores (solo lectura)
+7,9G	/home/m4rk/cf-e4
+3,8G	/home/m4rk/cyberflow
+3,3G	/var/log/journal
+3,0G	/var/log/suricata
+110M	/var/cache/apt
+68M	/var/lib/ppi-motor-capture
+1,8M	/tmp
+60K	/home/m4rk/espejo-1s-d-20261109.log
+44K	/home/m4rk/espejo-1s-20261109.log
+36K	/home/m4rk/espejo-1s-c-20261109.log
+total 2988M
+drwxr-xr-x  2 root root     1M nov  9 03:22 .
+drwxrwxr-x 11 root syslog   1M nov  8 00:00 ..
+-rw-r--r--  1 root root   775M nov  9 19:03 eve.json
+-rw-r--r--  1 root root    81M oct  5 18:50 eve.json.1-2026100600.backup
+-rw-r--r--  1 root root   109M oct  9 13:53 eve.json.1-2026101000.backup
+-rw-r--r--  1 root root   132M oct 21 19:07 eve.json.1-2026102200.backup
+-rw-r--r--  1 root root   884M oct 30 15:50 eve.json.1-2026103100.backup
+-rw-r--r--  1 root root   395M nov  5 23:57 eve.json.1-2026110600.backup
+-rw-r--r--  1 root root    36M nov  9 03:22 eve.json.1.gz
+-rw-r--r--  1 root root     6M nov  8 00:00 eve.json.2.gz
+-rw-r--r--  1 root root     8M nov  7 00:00 eve.json.3.gz
+-- logrotate
+NEXT                            LEFT LAST                         PASSED UNIT            ACTIVATES
+Tue 2026-11-10 00:00:00 UTC 4h 56min Mon 2026-11-09 03:22:11 UTC 15h ago logrotate.timer logrotate.service
+
+-rw-r--r--   1 root root  818 nov  1 03:13 cyberflow
+-rw-r--r--   1 root root  512 nov  4 02:11 cyberflow-etapa4
+-rw-r--r--   1 root root  203 sep 18 00:43 suricata
+-- aplazamiento vigente
+## /etc/logrotate.d/suricata
+/var/log/suricata/*.log
+/var/log/suricata/*.json
+{
+	daily
+	maxsize 500M
+	rotate 7
+	missingok
+	compress
+	copytruncate
+	sharedscripts
+	postrotate
+		/bin/kill -HUP $(cat /var/run/suricata.pid)
+	endscript
+}
+## /etc/logrotate.d/cyberflow-etapa4
+# /etc/logrotate.d/cyberflow-etapa4  (0644 root:root) — Etapa 4.
+# El resumen de la vía rápida escribe una línea por tic (0,05 s): ~20 líneas/s, ~170 MB/día.
+# copytruncate: los procesos mantienen el fichero abierto y no reabren con señal. Se conservan 14
+# días comprimidos (la evidencia de 4B/4C se archiva aparte antes de que roten).
+/home/m4rk/feed-v2/*.jsonl {
+    su m4rk m4rk
+    daily
+    maxsize 200M
+    rotate 14
+    missingok
+    notifempty
+    compress
+    delaycompress
+    copytruncate
+}
+## /etc/logrotate.d/cyberflow
+# Generado por scripts/setup/cyberflow_config.py. NO editar a mano.
+# El motor escribe una linea JSON por decision y puede producir cientos por
+# minuto. Sin tope, este fichero llena la raiz, y un / lleno tumba la maquina
+# entera, incluido el SSH de gestion.
+#
+# Sin copytruncate a proposito: el motor abre el fichero en modo append en
+# cada escritura y lo cierra, asi que tras renombrarlo escribe en el nuevo sin
+# necesidad de senales ni de reiniciar el servicio. Lo mismo vale para
+# _state/ciclos.jsonl, el registro por ciclo del motor (~0,9 kB por ciclo,
+# ~8 MB al dia con paso de 10 s).
+/home/m4rk/cyberflow/logs/motor_decision.log /home/m4rk/cyberflow/logs/_state/ciclos.jsonl {
+    daily
+    maxsize 200M
+    rotate 14
+    missingok
+    notifempty
+    compress
+    delaycompress
+    create 0640 m4rk m4rk
+}
+## r4 rc=0 (sed=0 ssh=0 tee=0) 2026-11-09T19:03:52.063Z
