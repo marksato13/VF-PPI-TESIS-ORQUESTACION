@@ -1,0 +1,24 @@
+b20 v2 verificado; ejecutado 2026-11-09T16:01:39.712Z
+## b20-e4 2026-11-09T16:01:42.923Z
+## [ACCESO SSH A KALI 2026-11-09T16:01:42.925Z: lectura del fin del generador]
+## fin acceso Kali 2026-11-09T16:01:42.970Z
+  generador rc=3 terminado=2026-11-09T16:00:31.036Z procesos=0 marcas sha256=df530599ffc13aa0531d0b1e95fbf2f037d404b64be64d536f069ce5b828fad7
+  AVISO: batería CANCELADA por el vigía (ver cancelacion en marcas.jsonl y vigia.jsonl); se cierra igual
+  vigía terminado: {"evento": "vigia_fin", "campana_fin": "cancelada", "clases": {"inundacion_http-r4": "C0", "fuerza_bruta_http-r4": "C0", "dns_inusual-r1": "C0", "fuerza_bruta_http-r3": "C0", "dns_inusual-r3": "C3", "
+  canal de control con la Kali cerrado 2026-11-09T16:01:43.061Z
+  marcas: kali=df530599ffc13aa0531d0b1e95fbf2f037d404b64be64d536f069ce5b828fad7 bastión=df530599ffc13aa0531d0b1e95fbf2f037d404b64be64d536f069ce5b828fad7 sensor=df530599ffc13aa0531d0b1e95fbf2f037d404b64be64d536f069ce5b828fad7
+fin_ultimo=1794239941.019486 2026-11-09T15:59:01Z
+## relojes (p10b)
+## p10b relojes  inicio=2026-11-09T16:01:43.815Z  referencia=bastion VM-GESTION
+  Reference ID    : 8F6BE5D3 (lrtest1.ntp.ifsc.usp.br)
+  System time     : 0.000182396 seconds slow of NTP time
+  RMS offset      : 0.000352777 seconds
+  Root dispersion : 0.000684536 seconds
+  [2026-11-09T16:01:48Z] sensor   mejor desfase=+0.0088 s inc=+-0.0004 s | mediana=+0.0090 s | rango=[+0.0088,+0.0096] | |desfase|<=1 s: SI | NTP yes 10.10.60.1
+  [2026-11-09T16:01:50Z] kali     mejor desfase=+0.0071 s inc=+-0.0005 s | mediana=+0.0073 s | rango=[+0.0071,+0.0074] | |desfase|<=1 s: SI | NTP yes 2.debian.pool.ntp.org
+  [2026-11-09T16:01:52Z] srv-dmz  mejor desfase=+0.0073 s inc=+-0.0002 s | mediana=+0.0075 s | rango=[+0.0073,+0.0077] | |desfase|<=1 s: SI | NTP yes ntp.ubuntu.com
+  [2026-11-09T16:01:54Z] clientes mejor desfase=+0.0067 s inc=+-0.0006 s | mediana=+0.0069 s | rango=[+0.0067,+0.0070] | |desfase|<=1 s: SI | NTP yes ntp.ubuntu.com
+## fin=2026-11-09T16:01:57.346Z
+  AVISO: aún no han pasado 300 s desde fin_ultimo: la traza del relé NO se copia; repetir b20 después de 16:04:01Z
+## fin 2026-11-09T16:01:57.721Z
+## rc=0
