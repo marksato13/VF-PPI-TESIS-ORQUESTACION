@@ -1,0 +1,10 @@
+registro: 19:33:22 -> 20:44:17 | segundos con muestra: 4235
+segundos SIN muestra en todo el registro: 21 ['19:35:47', '19:38:39', '19:41:31', '19:44:23', '19:47:19', '19:50:11', '19:53:02', '19:55:53']
+segundos con lecturas distintas entre muestreadores solapados: 253 [('19:56:34', [('f', 559497, 23946), ('g', 559540, 23968)]), ('19:56:35', [('f', 559730, 23968), ('g', 559733, 23968)]), ('19:56:36', [('f', 559889, 23974), ('g', 559936, 23996)])]
+retrocesos del contador rx_packets: 0
+muestra 20:36:57: rx=1232258 (previa 20:36:56=1232252, siguiente 20:36:58=1232450) -> delta previa 6 paquetes en 1 s
+  vecinos consecutivos (1 s): True | tasa 20:36:57 = 6 pkt/s; vecinos: 184 192
+segundos <20 pkt/s entre 20:08:14 y 20:44:17 : [('20:30:30', 0), ('20:33:24', 4), ('20:36:57', 6)]
+segundos <20 pkt/s DESPUÉS de las 20:38:44 (hasta 20:44:17): []
+minutos cubiertos desde 20:08:14: 36.0 | tasa mínima excluyendo ese segundo: 0 pkt/s
+## r4 rc=0 (sed=0 ssh=0 tee=0) 2026-11-09T20:44:16.814Z

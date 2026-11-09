@@ -1,0 +1,13 @@
+muestreador g: 1704 intervalos en la ventana 20:08:14-20:38:44; intervalos de 2 s o más (muestra perdida por deriva): 10; máximo 2 s
+   intervalos con <20 pkt/s: []
+   intervalos con <100 pkt/s: 31
+muestreador h: 1335 intervalos en la ventana 20:08:14-20:38:44; intervalos de 2 s o más (muestra perdida por deriva): 7; máximo 2 s
+   intervalos con <20 pkt/s: [('20:36:57', 1, 6, 6)]
+   intervalos con <100 pkt/s: 13
+H 20:30:29 110
+H 20:30:30 None
+H 20:30:31 152
+H 20:33:23 261
+H 20:33:24 None
+H 20:33:25 214
+## r4 rc=0 (sed=0 ssh=0 tee=0) 2026-11-09T20:44:52.825Z

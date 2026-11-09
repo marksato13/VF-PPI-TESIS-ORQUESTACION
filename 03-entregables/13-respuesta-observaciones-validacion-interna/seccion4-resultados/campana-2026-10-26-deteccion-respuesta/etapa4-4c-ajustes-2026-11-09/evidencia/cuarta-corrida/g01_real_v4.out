@@ -1,0 +1,40 @@
+hash en el bastión verificado justo antes: 8f5a5529ac9e00bbd38430cb2289f2e9205db61f0af64cf6ed10f528817ea213
+lanzado (portátil) a las 2026-11-09T21:54:10.667Z
+  vigía 2026-11-06.1 verificado en bastión y sensor1: 2fe00200e755fd02 274b4d613357be60 
+## g01-e4 2026-11-09T21:54:14.615Z
+## sombra (sensor)
+  ppi-motor active PID=1468 NR=0 candidato=1 enforce=0
+## sombra (srv-dmz): estado_sombra.py --alcance completo
+  estado=sombra alcance=completo agentes=1 con_aplicar=0 tablas_cyberflow=0 eventos_aplicacion=0
+## c05-e4 minima 2026-11-09T21:54:16.094Z  [PREPARACION, origen bastion 10.10.10.30, agente cf-preparacion-etapa4]
+  servicio: active/disabled PID=303279
+  [sin credenciales, esperado 401]
+  2026-11-09T21:54:16.829Z 401 t=0.003544
+## registro del servidor (líneas nuevas; sin credenciales)
+  2026-11-09T21:54:16.851555+00:00 10.10.10.30 GET /auth user=- -> 401
+## fin 2026-11-09T21:54:18.193Z
+## relojes (p10b)
+## p10b relojes  inicio=2026-11-09T21:54:18.199Z  referencia=bastion VM-GESTION
+  Reference ID    : 8F6BE5D3 (lrtest1.ntp.ifsc.usp.br)
+  System time     : 0.000293376 seconds fast of NTP time
+  RMS offset      : 0.000153101 seconds
+  Root dispersion : 0.001198812 seconds
+  [2026-11-09T21:54:18Z] sensor   mejor desfase=+0.0061 s inc=+-0.0005 s | mediana=+0.0062 s | rango=[+0.0047,+0.0063] | |desfase|<=1 s: SI | NTP yes 10.10.60.1
+  [2026-11-09T21:54:20Z] kali     mejor desfase=+0.0066 s inc=+-0.0007 s | mediana=+0.0066 s | rango=[+0.0065,+0.0067] | |desfase|<=1 s: SI | NTP yes 2.debian.pool.ntp.org
+  [2026-11-09T21:54:22Z] srv-dmz  mejor desfase=+0.0067 s inc=+-0.0002 s | mediana=+0.0069 s | rango=[+0.0067,+0.0074] | |desfase|<=1 s: SI | NTP yes ntp.ubuntu.com
+  [2026-11-09T21:54:23Z] clientes mejor desfase=+0.0069 s inc=+-0.0004 s | mediana=+0.0070 s | rango=[+0.0069,+0.0072] | |desfase|<=1 s: SI | NTP yes ntp.ubuntu.com
+## fin=2026-11-09T21:54:25.668Z
+## lanzamiento en la Kali [ACCESO SSH A KALI 2026-11-09T21:54:25.679Z: abrir canal de control y lanzar el generador; nonce 4c-20261109T215425Z-3bf15267cb93]
+  /home/adminatacante/cf-campana-A/scripts-4c/generar_campana.py: La suma coincide
+  /home/adminatacante/cf-campana-A/scripts-4c/esquema_campana.py: La suma coincide
+  /home/adminatacante/cf-campana-A/scripts/generar_campana.py: La suma coincide
+  /home/adminatacante/cf-campana-A/scripts/esquema_campana.py: La suma coincide
+  /home/adminatacante/cf-campana-A/escenarios/escenarios.json: La suma coincide
+  /home/adminatacante/cf-campana-A/escenarios/escenarios-4c.json: La suma coincide
+  vigía PID 1398916: primer permiso: continuar |  | kali_rc 0
+  comando: python3 -u /home/adminatacante/cf-campana-A/scripts-4c/generar_campana.py --config /home/adminatacante/cf-campana-A/escenarios/escenarios-4c.json --salida-dir /home/adminatacante/cf-e4-4c/corrida --autorizado --permiso /home/adminatacante/cf-e4-4c/permiso.json --nonce 4c-20261109T215425Z-3bf15267cb93
+  pid(s): 166638 166640 166642 166643 
+  | AUTORIZADO (lanza tráfico) · 25 episodios · calentamiento 60 s · contexto previo 120 s · observación 90 s
+## lanzado 2026-11-09T21:54:38.996Z; el canal de control sigue abierto para el vigía (accesos-kali.log)
+## fin 2026-11-09T21:54:38.998Z  (guion en /home/gadmin/cf-e4)
+## rc=0 terminado (portátil) a las 2026-11-09T21:54:37.225Z

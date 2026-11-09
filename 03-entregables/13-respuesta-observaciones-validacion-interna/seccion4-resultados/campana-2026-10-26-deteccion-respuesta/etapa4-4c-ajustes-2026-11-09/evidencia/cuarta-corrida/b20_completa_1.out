@@ -1,0 +1,23 @@
+b20 v2 verificado; ejecutado 2026-11-09T23:58:34.091Z
+## b20-e4 2026-11-09T23:58:36.466Z
+## [ACCESO SSH A KALI 2026-11-09T23:58:36.469Z: lectura del fin del generador]
+## fin acceso Kali 2026-11-09T23:58:37.030Z
+  generador rc=0 terminado=2026-11-09T23:50:21.648Z procesos=0 marcas sha256=5fd72ab9da47eb7fddc498debec1f4affcdb127e3636c339663d362d3e3fe1c1
+  vigía terminado: {"evento": "vigia_fin", "campana_fin": "completa", "clases": {"inundacion_http-r4": "C0", "fuerza_bruta_http-r4": "C0", "dns_inusual-r1": "C0", "fuerza_bruta_http-r3": "C0", "dns_inusual-r3": "C0", "i
+  canal de control con la Kali cerrado 2026-11-09T23:58:37.067Z
+  marcas: kali=5fd72ab9da47eb7fddc498debec1f4affcdb127e3636c339663d362d3e3fe1c1 bastión=5fd72ab9da47eb7fddc498debec1f4affcdb127e3636c339663d362d3e3fe1c1 sensor=5fd72ab9da47eb7fddc498debec1f4affcdb127e3636c339663d362d3e3fe1c1
+fin_ultimo=1794268131.631119 2026-11-09T23:48:51Z
+## relojes (p10b)
+## p10b relojes  inicio=2026-11-09T23:58:37.824Z  referencia=bastion VM-GESTION
+  Reference ID    : 8F6BE5D3 (lrtest1.ntp.ifsc.usp.br)
+  System time     : 0.000082218 seconds slow of NTP time
+  RMS offset      : 0.000139677 seconds
+  Root dispersion : 0.000195544 seconds
+  [2026-11-09T23:58:37Z] sensor   mejor desfase=+0.0224 s inc=+-0.0003 s | mediana=+0.0225 s | rango=[+0.0222,+0.0226] | |desfase|<=1 s: SI | NTP yes 10.10.60.1
+  [2026-11-09T23:58:39Z] kali     mejor desfase=+0.0069 s inc=+-0.0005 s | mediana=+0.0070 s | rango=[+0.0069,+0.0071] | |desfase|<=1 s: SI | NTP yes 2.debian.pool.ntp.org
+  [2026-11-09T23:58:41Z] srv-dmz  mejor desfase=+0.0077 s inc=+-0.0003 s | mediana=+0.0078 s | rango=[+0.0077,+0.0079] | |desfase|<=1 s: SI | NTP yes ntp.ubuntu.com
+  [2026-11-09T23:58:43Z] clientes mejor desfase=+0.0071 s inc=+-0.0004 s | mediana=+0.0073 s | rango=[+0.0071,+0.0075] | |desfase|<=1 s: SI | NTP yes ntp.ubuntu.com
+## fin=2026-11-09T23:58:45.057Z
+  traza del relé al sensor: 21786 líneas, sha256 e8d09e1587a1dc1ac4c8390275311d71572bf454277511baf6a9ef3b1d75934e
+## fin 2026-11-09T23:58:45.985Z
+## rc=0
