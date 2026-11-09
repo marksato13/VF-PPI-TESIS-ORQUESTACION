@@ -35,14 +35,51 @@ S=$(cat "$B/salud/muestrear.pid"); kill -TERM "$S" && echo "  muestreador de sal
 INI=$(python3 -c "import json,datetime as d;print(d.datetime.fromtimestamp(json.load(open('$B/eve/inicio.json'))['t']-120,d.timezone.utc).strftime('%Y-%m-%d %H:%M:%S'))") \
   || { FALLOS+=("calcular INI"); INI="1970-01-01 00:00:00"; }
 # v3: journal de los dos tcpdump con la forma que permite el sudoers de m4rk (--no-pager PRIMERO). Se lee sin sudo (m4rk lee el journal); si eso
-# falla, con `sudo -n journalctl --no-pager …`. Además el log debe traer lecturas SIGUSR1: una extracción vacía o sin «packets captured» es un FALLO.
+# falla, con `sudo -n journalctl --no-pager …`. Cada extracción se COMPRUEBA por separado: rc=0, no vacía, todas sus lecturas SIGUSR1 completas (una
+# línea con captured/received/dropped) y de procesos del cgroup de SU unidad (anillo = tcpdump de ppi-motor-capture; vía = hijo de ppi-via-rapida@ens37),
+# y cubre la ventana: primera lectura ≤ inicio del archivo + 40 s y última ≥ cierre.t − 60 s. Los dos logs no pueden ser idénticos. Si no, FALLO.
+read -r T_INI T_CIERRE < <(python3 -c "import json;print(json.load(open('$B/eve/inicio.json'))['t'], open('$B/cierre.t').read().strip())") \
+  || { FALLOS+=("leer inicio.json / cierre.t"); T_INI=0; T_CIERRE=0; }
+DESDE_REQ=$(python3 -c "print($T_INI+40)"); HASTA_REQ=$(python3 -c "print($T_CIERRE-60)")
+VTCP=$(cat <<'PY'
+import re, sys, json, datetime as dt
+f, pids_ok, desde, hasta = sys.argv[1], {int(x) for x in sys.argv[2].split(",") if x}, float(sys.argv[3]), float(sys.argv[4])
+pat = re.compile(r"^(\S+)\s+\S+\s+[^\s\[]+\[(\d+)\]:\s+tcpdump:\s+(\d+) packets captured, (\d+) packets received by filter, (\d+) packets dropped by kernel\s*$")
+cap, parciales, pids, ts, drop = 0, 0, set(), [], None
+for l in open(f, encoding="utf-8", errors="replace"):
+    if "packets captured" not in l:
+        continue
+    m = pat.match(l)
+    if not m:
+        parciales += 1; continue
+    cap += 1; pids.add(int(m.group(2))); ts.append(dt.datetime.fromisoformat(m.group(1)).timestamp()); drop = int(m.group(5))
+bad = []
+if not pids_ok: bad.append("no se pudieron leer los procesos de la unidad (cgroup)")
+if cap == 0: bad.append("sin lecturas SIGUSR1 completas")
+if parciales: bad.append(f"{parciales} lecturas truncadas o con formato inesperado")
+if pids and not pids <= pids_ok: bad.append(f"lecturas de PID {sorted(pids - pids_ok)} que no son de la unidad (procesos de la unidad: {sorted(pids_ok)})")
+if ts and min(ts) > desde: bad.append(f"la primera lectura ({min(ts):.0f}) es posterior al inicio requerido ({desde:.0f})")
+if ts and max(ts) < hasta: bad.append(f"la última lectura ({max(ts):.0f}) es anterior al fin requerido ({hasta:.0f})")
+g = [b - a for a, b in zip(sorted(ts), sorted(ts)[1:])]
+print(json.dumps({"lecturas": cap, "primera": min(ts) if ts else None, "ultima": max(ts) if ts else None, "pids": sorted(pids), "descartes_ultima_lectura": drop, "hueco_max_s": round(max(g), 1) if g else None}))
+for b in bad: print("MOTIVO: " + b)
+sys.exit(1 if bad else 0)
+PY
+)
+pids_de() {  # PIDs del cgroup de una unidad, con comas (vacío si no se pueden leer)
+  local cg; cg=$(systemctl show -p ControlGroup --value "$1" 2>/dev/null); [ -n "$cg" ] || return 0
+  tr '\n' ',' < "${CF_CGROUP_ROOT:-/sys/fs/cgroup}${cg}/cgroup.procs" 2>/dev/null | sed 's/,$//'
+}
 jtcp() {  # jtcp <unidad> <salida>
   journalctl --no-pager -u "$1" --since "$INI UTC" -o short-iso-precise > "$2" 2>/dev/null \
     || sudo -n journalctl --no-pager -u "$1" --since "$INI UTC" -o short-iso-precise > "$2" || return 1
-  grep -q 'packets captured' "$2"
+  [ -s "$2" ] || { echo "  FALLO: la extracción de $1 está vacía"; return 1; }
+  python3 -c "$VTCP" "$2" "$(pids_de "$1")" "$DESDE_REQ" "$HASTA_REQ" | sed "s|^|  [$(basename "$2")] |"
+  return "${PIPESTATUS[0]}"
 }
 ok jtcp ppi-motor-capture "$B/salud/tcpdump-anillo.log"
 ok jtcp ppi-via-rapida@ens37 "$B/salud/tcpdump-via.log"
+if [ -s "$B/salud/tcpdump-anillo.log" ] && cmp -s "$B/salud/tcpdump-anillo.log" "$B/salud/tcpdump-via.log"; then FALLOS+=("los dos logs de tcpdump son idénticos"); echo "  FALLO COPIA: los dos logs de tcpdump son idénticos"; fi
 echo "  lecturas SIGUSR1: anillo $(grep -c 'packets captured' "$B/salud/tcpdump-anillo.log") / vía $(grep -c 'packets captured' "$B/salud/tcpdump-via.log")"
 mkdir -p "$C/feed-v2" "$C/feed-v1" || FALLOS+=("mkdir feed")
 # Fuentes que crecen: se anota su tamaño JUSTO antes de copiar y se copia una vez; la copia debe cubrir ese tamaño y empezar igual.
