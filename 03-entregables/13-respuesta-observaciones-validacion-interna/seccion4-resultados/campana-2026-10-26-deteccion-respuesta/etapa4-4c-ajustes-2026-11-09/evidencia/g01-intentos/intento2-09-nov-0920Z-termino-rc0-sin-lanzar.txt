@@ -1,0 +1,31 @@
+## g01-e4 2026-11-09T09:20:00.634Z
+## sombra (sensor)
+  ppi-motor active PID=1384 NR=0 candidato=1 enforce=0
+## sombra (srv-dmz): estado_sombra.py --alcance completo
+  estado=sombra alcance=completo agentes=1 con_aplicar=0 tablas_cyberflow=0 eventos_aplicacion=0
+## c05-e4 minima 2026-11-09T09:20:02.520Z  [PREPARACION, origen bastion 10.10.10.30, agente cf-preparacion-etapa4]
+  servicio: active/disabled PID=303279
+  [sin credenciales, esperado 401]
+  2026-11-09T09:20:03.244Z 401 t=0.002272
+## registro del servidor (líneas nuevas; sin credenciales)
+  2026-11-09T09:20:03.268053+00:00 10.10.10.30 GET /auth user=- -> 401
+## fin 2026-11-09T09:20:04.610Z
+## relojes (p10b)
+## p10b relojes  inicio=2026-11-09T09:20:04.616Z  referencia=bastion VM-GESTION
+  Reference ID    : 8F6BE5D3 (lrtest1.ntp.ifsc.usp.br)
+  System time     : 0.000645709 seconds fast of NTP time
+  RMS offset      : 0.000099576 seconds
+  Root dispersion : 0.000704754 seconds
+  [2026-11-09T09:20:04Z] sensor   mejor desfase=+0.0073 s inc=+-0.0004 s | mediana=+0.0074 s | rango=[+0.0073,+0.0075] | |desfase|<=1 s: SI | NTP yes 10.10.60.1
+  [2026-11-09T09:20:06Z] kali     mejor desfase=+0.0059 s inc=+-0.0005 s | mediana=+0.0059 s | rango=[+0.0059,+0.0061] | |desfase|<=1 s: SI | NTP yes 2.debian.pool.ntp.org
+  [2026-11-09T09:20:08Z] srv-dmz  mejor desfase=+0.0070 s inc=+-0.0002 s | mediana=+0.0071 s | rango=[+0.0070,+0.0073] | |desfase|<=1 s: SI | NTP yes ntp.ubuntu.com
+  [2026-11-09T09:20:09Z] clientes mejor desfase=+0.0085 s inc=+-0.0005 s | mediana=+0.0085 s | rango=[+0.0077,+0.0087] | |desfase|<=1 s: SI | NTP yes ntp.ubuntu.com
+## fin=2026-11-09T09:20:11.852Z
+## lanzamiento en la Kali [ACCESO SSH A KALI 2026-11-09T09:20:11.869Z: abrir canal de control y lanzar el generador; nonce 4c-20261109T092011Z-a15dba8ea50b]
+  /home/adminatacante/cf-campana-A/scripts-4c/generar_campana.py: La suma coincide
+  /home/adminatacante/cf-campana-A/scripts-4c/esquema_campana.py: La suma coincide
+  /home/adminatacante/cf-campana-A/scripts/generar_campana.py: La suma coincide
+  /home/adminatacante/cf-campana-A/scripts/esquema_campana.py: La suma coincide
+  /home/adminatacante/cf-campana-A/escenarios/escenarios.json: La suma coincide
+  /home/adminatacante/cf-campana-A/escenarios/escenarios-4c.json: La suma coincide
+## r4 rc=0 (sed=0 ssh=0 tee=0) 2026-11-09T09:20:11.114Z
