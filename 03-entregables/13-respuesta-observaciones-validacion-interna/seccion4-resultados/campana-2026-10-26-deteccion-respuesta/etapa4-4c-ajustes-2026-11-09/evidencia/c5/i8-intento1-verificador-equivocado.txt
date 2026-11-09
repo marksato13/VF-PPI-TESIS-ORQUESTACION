@@ -1,0 +1,15 @@
+I8, intento 1 (Mark, 09-nov-2026 ~02:28 Perú, 07:28Z): FALLÓ por usar el verificador del paquete del 2-nov.
+Comando (error de Claude: ruta tomada del PROCEDIMIENTO-ETAPA4; en srv-dmz ~/cf-e4/paquete es el paquete antiguo):
+  ssh -t -i ~/.ssh/cyberflow-to-srv adminsrvdmz@10.10.30.10 'CON_SUDO=1 bash ~/cf-e4/paquete/deploy/etapa4/srvdmz/verificar_srvdmz.sh /home/adminsrvdmz/respaldos-etapa4/srvdmz-20261109T072027Z'
+Salida pegada por Mark:
+  estado=sombra alcance=completo agentes=1 con_aplicar=0 tablas_cyberflow=0 eventos_aplicacion=0
+  OK    estado de sombra demostrado (--alcance completo --respaldo /home/adminsrvdmz/respaldos-etapa4/srvdmz-20261109T072027Z)
+  stat: cannot statx '/var/lib/cyberflow/feed/feed.json': Permission denied
+  FALLO feed v2 recibido hace < 60 s
+  OK    reloj sincronizado
+  INFO  rechazos por motivo:   17801 "motivo": ""       1 "motivo": "feed_caducado"      14 "motivo": "firma_invalida"       1 "motivo": "misma_secuencia"
+  OK    helper rechaza un perfil ajeno
+  VERIFICACIÓN SRV-DMZ CON FALLOS
+Causa (diag-i8.txt): verificar_srvdmz.sh del paquete antiguo (2d146d29…) hace stat del feed SIN sudo y mira feed.json (obsoleto desde el 5-nov); el validado
+(paquete-a1cea5e, f6f72796…) usa sudo -n stat con CON_SUDO=1 y feed.par. estado_sombra.py (8a1417bf…) y respaldo_srvdmz.sh (ead1d83b…) son idénticos en ambos paquetes.
+No se desplegó nada tras este intento.

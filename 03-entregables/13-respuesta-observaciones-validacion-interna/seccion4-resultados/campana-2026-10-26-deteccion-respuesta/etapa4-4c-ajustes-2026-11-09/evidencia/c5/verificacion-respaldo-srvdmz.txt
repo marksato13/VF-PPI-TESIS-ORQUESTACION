@@ -1,0 +1,14 @@
+## 2026-11-09T07:21:13Z
+directorio: /home/adminsrvdmz/respaldos-etapa4/srvdmz-20261109T072027Z (creado 2026-11-09 07:20:28)
+RESPALDO.txt: RESPALDO OK /home/adminsrvdmz/respaldos-etapa4/srvdmz-20261109T072027Z|
+SHA256SUMS: verifica (22 lineas)
+ruleset.lectura: rc=0 bytes=0 utc=20261109T072027Z
+ruleset.nft: 0 B | tablas.txt: 0 tablas ()
+sudoers.d copiado: 90-laboratorio cf-nft-helper cyberflow-nft README 
+sudoers-defaults.txt: 4 lineas; requiretty: 0 coincidencias
+Defaults	env_reset
+Defaults	mail_badpass
+Defaults	secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
+Defaults	use_pty
+unidades: ppi-enforce-agent.service static inactive|ppi-enforce-agent.timer disabled inactive|ppi-brute-lab.service disabled inactive|ppi-enforce-agent-v2-dmz.service enabled active|
+ficheros del respaldo: authorized_keys cuentas.txt enforce.ls enforce.sha256 etc-systemd-system RESPALDO.txt ruleset.lectura ruleset.nft rutas.ls SHA256SUMS sudoers.d sudoers-defaults.txt tablas.txt unidades-cat.txt unidades-estado.txt versiones.txt 
