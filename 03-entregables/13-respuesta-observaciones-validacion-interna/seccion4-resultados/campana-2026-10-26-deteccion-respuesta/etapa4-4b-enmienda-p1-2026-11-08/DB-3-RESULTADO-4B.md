@@ -3,6 +3,21 @@
 **Estado: ejecutado en el portátil sobre las copias verificadas del Sensor1; sin publicar.** Herramientas idénticas a las publicadas (`analisis_db3.py` `618c355d…`, `limites_db3.py` `e9b500b6…`) y a las que usó `s50` en el Sensor1 (`salud_captura.py` `274b4d61…`, `config-campana-4c.json` `f177d9bb…`).
 Reglas aprobadas por Mark: L1 ≤ 1.0 aviso/entidad·hora, L2 ≤ 10 % de ventanas en ALERT, separación de aviso 60 s, mínimo 2.0 h C0 por perfil, seis perfiles obligatorios. Intervalo: 2026-11-08T18:00:00+00:00 → 2026-11-09T02:00:00+00:00.
 
+## Resumen
+
+**Ningún α fue elegible.** Un α solo es elegible si **los seis** perfiles cumplen L1 y L2 de forma concluyente; en esta corrida ninguno lo logró.
+
+| α | Perfiles que cumplen (de 6) | Cumplen | No cumplen | Veredicto |
+|---|---:|---|---|---|
+| 0,05 | **1 de 6** | ligero (`.25`) | ofimática (`.21`), navegación (`.22`), descargas (`.23`), aplicación (`.24`), errático (`.26`) | no cumple, no elegible |
+| 0,03 | **2 de 6** | descargas (`.23`), ligero (`.25`) | ofimática, navegación, aplicación, errático | no cumple, no elegible |
+| 0,01 | **3 de 6** | ofimática (`.21`), descargas (`.23`), ligero (`.25`) | navegación (`.22`), aplicación (`.24`), errático (`.26`) | no cumple, no elegible |
+
+- Los seis perfiles tienen 0 ventanas faltantes y entre 7,9 y 8,0 h de C0 decididas, así que el motivo de «no cumple» no es falta de datos sino los límites L1 y L2.
+- **Navegación (`.22`) y errático (`.26`) no cumplen con ningún α**, y aplicación (`.24`) tampoco.
+- Los 33 min de datos de desarrollo del 3B no se usaron para nada; este es el resultado del control de 8 h de la 4B.
+- **La causa de las ventanas ausentes de `.23` (2) y `.25` (35) sigue indeterminada** (ver la aclaración al final). No cambia ningún veredicto.
+
 ## Entradas (hashes completos)
 
 | Fichero | sha256 |
@@ -68,5 +83,5 @@ Reportadas aparte (no deciden): `10.10.10.20` cumple, `10.10.10.21` cumple, `10.
 
 - **`.21` no tiene ventanas ausentes:** el 2878 que cité era de `10.10.10.21`. Corrijo el informe.
 - **Las ausencias no son pérdida del detector.** Son idénticas en el motor en vivo y en el inventario del replay (0 «solo en vivo», 0 «solo en inventario»); por eso para DB-3 las ventanas **requeridas** de `.23` y `.25` son 2879 y 2846, no 2881, y sus faltantes son 0 (requeridas = decididas). `s50` también da `cobertura_total` 1,0, 0 no evaluadas y 0 ausentes. La Suricata de todas las ventanas decididas es `cero_descartes`.
-- **Lo que NO está demostrado:** que en esas ventanas el perfil no generara tráfico. Contrasté con el EVE de la corrida (`evidencia-pendiente/4b-db3/discrepancia2.py`): `.23` tiene 18 697 eventos EVE y `.25` 12 695; en las 2 ventanas ausentes de `.23` hay eventos EVE en 1 de ellas dentro de (w−10, w] y en las 2 dentro de (w−60, w]; en las 35 de `.25`, en 28 dentro de (w−10, w] y en las 35 dentro de (w−60, w]. Por tanto **la causa de que el motor no construyera esas filas queda sin determinar** (por ejemplo, ventanas sin flujo nuevo cuyas filas se atribuyen a otra ventana); no es atribuible al detector ni descartable por falta de tráfico. Se declara como límite.
+- **Lo que NO está demostrado:** que en esas ventanas el perfil no generara tráfico. Contrasté con el EVE de la corrida (`evidencia-pendiente/4b-db3/discrepancia2.py`): `.23` tiene 18 697 eventos EVE y `.25` 12 695; en las 2 ventanas ausentes de `.23` hay eventos EVE en 1 de ellas dentro de (w−10, w] y en las 2 dentro de (w−60, w]; en las 35 de `.25`, en 28 dentro de (w−10, w] y en las 35 dentro de (w−60, w]. Por tanto **la causa de que el motor no construyera esas filas sigue indeterminada** (por ejemplo, ventanas sin flujo nuevo cuyas filas se atribuyen a otra ventana); no es atribuible al detector ni descartable por falta de tráfico. Se declara como límite.
 - **Efecto en DB-3:** ninguno en el veredicto. Las horas requeridas del denominador de L1 son 7,997 h (`.23`) y 7,906 h (`.25`) en lugar de 8,003 h; `.25` no tiene ninguna ALERT con ningún α y `.23` cumple con α 0,03 y 0,01, y no cumple con α 0,05 por L1 (4,75 avisos/h), con 0,0163 de L2. Con 8,003 h el resultado de ninguno cambiaría de lado (4,75 → 4,75; 0 → 0).
