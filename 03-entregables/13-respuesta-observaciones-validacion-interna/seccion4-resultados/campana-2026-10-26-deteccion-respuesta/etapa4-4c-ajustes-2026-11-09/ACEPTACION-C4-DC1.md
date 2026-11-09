@@ -1,6 +1,6 @@
 # C4: referencia del ruleset de DC1 — para aceptación de Mark (09-nov-2026)
 
-**Estado: tomada y reverificada en solo lectura; pendiente de la aceptación de Mark. No se cambió nada en DC1.**
+**Estado: tomada, reverificada en solo lectura y ACEPTADA por Mark. No se cambió nada en DC1.**
 
 ## Qué se hizo
 Desde el bastión como `dcadmin@10.10.10.20` (VM-AD-DC, Debian 13; `sudo -n` sin contraseña), con el comando del PROCEDIMIENTO-ETAPA4 §3:
@@ -20,6 +20,6 @@ Desde el bastión como `dcadmin@10.10.10.20` (VM-AD-DC, Debian 13; `sudo -n` sin
 - **No demuestra** que DC1 esté protegido por otro medio fuera del propio host (por ejemplo, el firewall de red); eso no se midió.
 
 ## Aceptación
-- ☐ Mark acepta la referencia vacía (rc 0, sin errores) como estado de DC1 para C4.
+- ☑ **Aceptada por Mark (chat, 09-nov-2026, 07:17Z = 02:17 Perú):** referencia vacía de nftables de DC1 para C4, con la lectura privilegiada documentada en rc 0 y sin errores.
 
 Evidencia: `evidencia/dc1-referencia-c4.txt` (toma) y `evidencia/dc1-reverificacion.txt` (reverificación).
