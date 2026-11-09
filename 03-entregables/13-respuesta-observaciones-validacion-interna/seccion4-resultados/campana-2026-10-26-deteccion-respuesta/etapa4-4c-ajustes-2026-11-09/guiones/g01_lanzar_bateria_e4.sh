@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# [BASTIÓN gadmin] ETAPA4 g01 v3 (2026-11-09) — uso: g01_lanzar_bateria_e4.sh <HASTA_CONTROL_ISO> <RESPALDO_SRVDMZ>
+# [BASTIÓN gadmin] ETAPA4 g01 v4 (2026-11-09) — uso: g01_lanzar_bateria_e4.sh <HASTA_CONTROL_ISO> <RESPALDO_SRVDMZ>
 #   RESPALDO_SRVDMZ = nombre del directorio del respaldo de srv-dmz (srvdmz-<UTC>, PROCEDIMIENTO §3).
 # Lanza la batería 4C (25 episodios, escenarios-4c.json, semilla 20261102) DESPUÉS del control de 30 min, con la
 # COMPUERTA de permiso (2026-11-02, corrección del defecto 3): el generador no lanza un episodio sin un permiso válido
@@ -16,17 +16,27 @@
 #     `journalctl -u … --no-pager` sudo pide contraseña, la lectura SIGUSR1 falla y se pausa, P4).
 # v3: la comprobación «ya hay un generador» usaba `pgrep -fc 'generar_campana.py --config'` DENTRO de un `bash -c` cuyo propio texto contiene ese patrón:
 #     se contaba a sí misma (1 sin ningún generador) y g01 paraba con «PARAR: ya hay un generador». Ahora `[g]enerar_campana.py --config`: el patrón no
-#     coincide con su propia línea de comandos y sigue detectando un generador real. Cambios frente a la v1: la orden del sensor (OS=) y este patrón.
+#     coincide con su propia línea de comandos y sigue detectando un generador real.
+# v4: (1) el vigía que clasifica los episodios es el 2026-11-06.1 del producto (313f8f8), en ~/cf-e4/vigia-20261106 de bastión y sensor, con la salud_captura
+#     2026-11-06.1 (Suricata por EVE); el del paquete del 4-nov (2026-11-02.1) clasificaba TODO episodio como C3 («Suricata sin medida completa»: Suricata 7 no
+#     escribe kernel_drops en stats.log si vale 0) y canceló la primera batería por X1 (09-nov 10:06Z, 6 de 25 episodios). g01 comprueba el hash de ambos ficheros
+#     en los DOS hosts antes de lanzar y para si no coinciden. (2) los dos `ssh $CTL kali "..."` llevan -n: sin él, con el guion enviado por stdin (r4.sh)
+#     se tragaban el resto del guion y g01 terminaba con rc 0 sin lanzar nada (intento 2 del 09-nov).
 set -u
 HASTA=${1:?HASTA del control (ISO)}; RSRV=${2:?directorio del respaldo de srv-dmz (srvdmz-<UTC>)}
 B=$HOME/cf-e4/4c; G=$(cd "$(dirname "$0")" 2>/dev/null && pwd)
 K=/home/adminatacante/cf-e4-4c; KS=/home/adminatacante/cf-campana-A/scripts-4c
 PQ=$HOME/cf-e4/paquete
+VG=$HOME/cf-e4/vigia-20261106   # vigía 2026-11-06.1 + salud_captura 2026-11-06.1 (producto 313f8f8)
+VGH="2fe00200e755fd02 274b4d613357be60 "
 h=$(date -d "$HASTA" +%s) || exit 2
 [ "$(date +%s)" -ge "$h" ] || { echo "PARAR: el control termina a las $HASTA; ahora $(date -u +%T)"; exit 2; }
 [ -f "$B/control-declarado.json" ] || { echo "PARAR: no hay control declarado (b01)"; exit 2; }
 [ -e "$B/vigia/vigia.jsonl" ] && { echo "PARAR: ya hay un vigía de otra corrida en $B/vigia (no se reutiliza)"; exit 2; }
-[ -f "$PQ/scripts/etapa4/vigia_4c.py" ] || { echo "PARAR: falta $PQ/scripts/etapa4/vigia_4c.py"; exit 2; }
+[ "$(sha256sum "$VG/vigia_4c.py" "$VG/salud_captura.py" 2>/dev/null | cut -c1-16 | tr '\n' ' ')" = "$VGH" ] || { echo "PARAR: vigía/salud_captura del BASTIÓN ausentes o con hash distinto en $VG (esperado $VGH)"; exit 2; }
+S1H=$(ssh -n -o BatchMode=yes sensor1 'cd ~/cf-e4/vigia-20261106 2>/dev/null && sha256sum vigia_4c.py salud_captura.py | cut -c1-16 | tr "\n" " "')
+[ "$S1H" = "$VGH" ] || { echo "PARAR: vigía/salud_captura del SENSOR1 ausentes o con hash distinto (leído: '$S1H'; esperado '$VGH')"; exit 2; }
+echo "  vigía 2026-11-06.1 verificado en bastión y sensor1: $VGH"
 echo "## g01-e4 $(date -u +%FT%T.%3NZ)"
 echo "## sombra (sensor)"
 S=$(ssh -n -o BatchMode=yes sensor1 'P=$(systemctl show -p MainPID --value ppi-motor); C=$(tr "\0" " " < /proc/$P/cmdline)
@@ -54,7 +64,7 @@ CTL="-o BatchMode=yes -o ControlMaster=auto -o ControlPath=$B/vigia/ctl-kali -o 
 NONCE="4c-$(date -u +%Y%m%dT%H%M%SZ)-$(od -An -N6 -tx1 /dev/urandom | tr -d ' \n')"
 echo "$NONCE" > "$B/vigia/nonce.txt"
 echo "## lanzamiento en la Kali [ACCESO SSH A KALI $(date -u +%FT%T.%3NZ): abrir canal de control y lanzar el generador; nonce $NONCE]" | tee -a "$B/accesos-kali.log"
-ssh $CTL kali "set -u; K=$K; KS=$KS
+ssh -n $CTL kali "set -u; K=$K; KS=$KS
 [ -e \$K/corrida ] && { echo 'PARAR: ya existe '\$K/corrida; exit 2; }
 [ -e \$K/permiso.json ] && { echo 'PARAR: hay un permiso de otra corrida en '\$K/permiso.json; exit 2; }
 sha256sum -c \$K/sha256-esperado.txt | sed 's/^/  /'; sha256sum -c --quiet \$K/sha256-esperado.txt || { echo 'PARAR: hashes'; exit 2; }
@@ -62,9 +72,9 @@ sha256sum -c \$K/sha256-esperado.txt | sed 's/^/  /'; sha256sum -c --quiet \$K/s
 
 # vigía: orden del sensor (solo lectura), de srv-dmz (estado_sombra) y del canal de la Kali (instala el permiso
 # que llega por stdin de forma atómica e imprime su reloj y las marcas nuevas)
-OS="python3 -I ~/cf-e4/paquete/scripts/etapa4/vigia_4c.py sensor --archivador ~/cf-e4/4c/archivo-pcap --muestras ~/cf-e4/4c/salud/muestras.jsonl --lista-blanca 10.10.10.20,10.10.30.10 --origen 10.10.20.30 --journalctl 'sudo -n journalctl --no-pager'"
+OS="python3 -I ~/cf-e4/vigia-20261106/vigia_4c.py sensor --archivador ~/cf-e4/4c/archivo-pcap --muestras ~/cf-e4/4c/salud/muestras.jsonl --lista-blanca 10.10.10.20,10.10.30.10 --origen 10.10.20.30 --journalctl 'sudo -n journalctl --no-pager'"
 OK_="umask 077; cat > $K/permiso.json.tmp && mv -f $K/permiso.json.tmp $K/permiso.json && date +%s.%N && { tail -n +{N} $K/corrida/marcas.jsonl 2>/dev/null || true; }"
-setsid nohup python3 -I "$PQ/scripts/etapa4/vigia_4c.py" bucle --dir "$B/vigia" --nonce "$NONCE" --planificados 25 \
+setsid nohup python3 -I "$VG/vigia_4c.py" bucle --dir "$B/vigia" --nonce "$NONCE" --planificados 25 \
   --ssh-sensor "ssh -o BatchMode=yes -o ConnectTimeout=10 sensor1" --orden-sensor "$OS" \
   --ssh-srvdmz "ssh -o BatchMode=yes -o ConnectTimeout=10 srvdmz" --orden-srvdmz "$ESR" \
   --ssh-kali "ssh $CTL -o ConnectTimeout=10 kali" --orden-kali "$OK_" \
@@ -81,7 +91,7 @@ case "$E1" in
   *) echo "PARAR: el primer permiso no es 'continuar' con la Kali alcanzable: $E1"; kill "$(cat "$B/vigia/vigia.pid")"; exit 2 ;;
 esac
 
-ssh $CTL kali "set -u; K=$K; KS=$KS
+ssh -n $CTL kali "set -u; K=$K; KS=$KS
 CMD=\"python3 -u \$KS/generar_campana.py --config /home/adminatacante/cf-campana-A/escenarios/escenarios-4c.json --salida-dir \$K/corrida --autorizado --permiso \$K/permiso.json --nonce $NONCE\"
 echo \"\$CMD\" > \$K/comando.txt; date -u +%FT%T.%3NZ > \$K/lanzado.txt
 setsid nohup bash -c \"\$CMD > \$K/generador.stdout 2> \$K/generador.stderr; echo \\\$? > \$K/generador.rc; date -u +%FT%T.%3NZ > \$K/terminado.txt\" > /dev/null 2>&1 < /dev/null &

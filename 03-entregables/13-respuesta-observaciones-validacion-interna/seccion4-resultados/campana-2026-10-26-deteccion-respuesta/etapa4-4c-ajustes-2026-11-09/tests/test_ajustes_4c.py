@@ -19,6 +19,8 @@ CAMP = AQUI.parents[1] if (AQUI.parents[1] / "etapa4-preparacion-2026-11-02").ex
 G01_V1 = CAMP / "etapa4-preparacion-2026-11-02/guiones/g01_lanzar_bateria_e4.sh"
 S40_V2 = CAMP / "etapa4-4b-enmienda-p1-2026-11-08/guiones/s40_cierre_e4.sh"
 G01_V2 = AQUI.parent / "guiones/g01_lanzar_bateria_e4.sh"
+B20_V1 = CAMP / "etapa4-preparacion-2026-11-02/guiones/b20_fin_bateria_e4.sh"
+B20_V2 = AQUI.parent / "guiones/b20_fin_bateria_e4.sh"
 S40_V3 = AQUI.parent / "guiones/s40_cierre_e4.sh"
 VIGIA_DIR = Path(os.environ.get("VIGIA_DIR", "/vigia"))
 pytestmark = pytest.mark.skipif(shutil.which("bash") is None or sys.platform == "win32", reason="requiere bash/Linux")
@@ -149,17 +151,76 @@ def _orden_sensor(guion: Path) -> str:
     return m.group(1)
 
 
-def test_g01_solo_cambia_la_orden_del_sensor_la_comprobacion_del_generador_y_los_comentarios():
+def test_g01_v4_solo_cambia_lo_acordado_frente_a_la_v1():
+    """Cambios de código permitidos: vigía 2026-11-06.1 (OS, bucle, comprobación de hash), patrón del generador, y -n en los dos ssh a la Kali."""
     a, b = G01_V1.read_text(encoding="utf-8").splitlines(), G01_V2.read_text(encoding="utf-8").splitlines()
     cambios = [l for l in difflib.unified_diff(a, b, lineterm="", n=0) if l[:1] in "+-" and l[:3] not in ("+++", "---")]
     de_codigo = [l for l in cambios if not l[1:].lstrip().startswith("#")]
-    assert len(de_codigo) == 4, de_codigo
-    quitadas, anadidas = [l[1:] for l in de_codigo if l[0] == "-"], [l[1:] for l in de_codigo if l[0] == "+"]
-    os_q, os_a = [l for l in quitadas if l.startswith("OS=")], [l for l in anadidas if l.startswith("OS=")]
-    assert len(os_q) == 1 and len(os_a) == 1 and "--journalctl 'sudo -n journalctl --no-pager'" in os_a[0] and "--journalctl" not in os_q[0]
-    pg_q, pg_a = [l for l in quitadas if "pgrep" in l], [l for l in anadidas if "pgrep" in l]
-    assert len(pg_q) == 1 and "pgrep -fc 'generar_campana.py --config'" in pg_q[0], pg_q
-    assert len(pg_a) == 1 and "pgrep -fc '[g]enerar_campana.py --config'" in pg_a[0], pg_a
+    quitadas = [l[1:] for l in de_codigo if l[0] == "-"]
+    anadidas = [l[1:] for l in de_codigo if l[0] == "+"]
+    ok_q = ("OS=", "pgrep -fc 'generar_campana.py --config'", "ssh $CTL kali", "vigia_4c.py")
+    ok_a = ("OS=", "pgrep -fc '[g]enerar_campana.py --config'", "ssh -n $CTL kali", "VG=", "VGH=", "S1H=", 'sha256sum "$VG', 'vigía 2026-11-06.1 verificado', '"$S1H"', 'vigia_4c.py" bucle')
+    assert all(any(m in l for m in ok_q) for l in quitadas), [l for l in quitadas if not any(m in l for m in ok_q)]
+    assert all(any(m in l for m in ok_a) for l in anadidas), [l for l in anadidas if not any(m in l for m in ok_a)]
+    assert any("--journalctl 'sudo -n journalctl --no-pager'" in l for l in anadidas if l.startswith("OS="))
+    assert not any("paquete/scripts/etapa4/vigia_4c.py" in l for l in anadidas), "el vigía ya no sale del paquete del 4-nov"
+
+
+def test_g01_v4_todo_ssh_que_no_necesita_stdin_lleva_n():
+    """El guion llega por stdin (r4.sh): un ssh sin -n se traga el resto (intento 2 del 09-nov). Solo pueden quedar sin -n los que forman parte de las
+    órdenes que se pasan al vigía (--ssh-sensor/--ssh-srvdmz/--ssh-kali), que lee stdin a propósito."""
+    sin_n = []
+    for i, l in enumerate(G01_V2.read_text(encoding="utf-8").splitlines(), 1):
+        if l.lstrip().startswith("#"):
+            continue
+        if re.search(r"(^|[\s(`$=\"'])ssh\s", l) and not re.search(r"ssh\s+-n\b", l) and "--ssh-" not in l:
+            sin_n.append((i, l.strip()[:90]))
+    assert sin_n == [], sin_n
+
+
+def _compuerta_hash(g01: Path) -> str:
+    t = g01.read_text(encoding="utf-8").splitlines()
+    i = next(n for n, l in enumerate(t) if l.startswith("VG="))
+    j = next(n for n, l in enumerate(t) if "vigía 2026-11-06.1 verificado" in l)
+    return "\n".join(l for l in t[i:j + 1] if "control-declarado" not in l and "date -d" not in l and "date +%s" not in l and "vigia.jsonl" not in l)
+
+
+P1_DIR = Path(os.environ.get("P1_DIR", "/p1"))
+
+
+@pytest.fixture
+def entorno_compuerta(tmp_path):
+    if not (P1_DIR / "vigia_4c.py").exists() or not (P1_DIR / "salud_captura.py").exists():
+        pytest.skip(f"falta P1_DIR ({P1_DIR}) con vigia_4c.py y salud_captura.py del producto")
+    home = tmp_path / "h"; vg = home / "cf-e4/vigia-20261106"; vg.mkdir(parents=True)
+    for n in ("vigia_4c.py", "salud_captura.py"):
+        shutil.copy(P1_DIR / n, vg / n)
+    stub = tmp_path / "stub"; stub.mkdir()
+    # ssh falso: «sensor1» es el mismo HOME (ejecuta el comando remoto con bash -c)
+    (stub / "ssh").write_text('#!/bin/sh\nfor a in "$@"; do c="$a"; done\nexec bash -c "$c"\n'); (stub / "ssh").chmod(0o755)
+    env = dict(os.environ, HOME=str(home), PATH=f"{stub}:{os.environ['PATH']}")
+    return home, vg, env
+
+
+def _correr_compuerta(env):
+    cuerpo = _compuerta_hash(G01_V2)
+    return subprocess.run(["bash", "-c", cuerpo + "\necho COMPUERTA_OK"], env=env, capture_output=True, text=True, timeout=30)
+
+
+def test_g01_v4_compuerta_de_hash_pasa_con_los_ficheros_reales(entorno_compuerta):
+    _, _, env = entorno_compuerta
+    r = _correr_compuerta(env)
+    assert r.returncode == 0 and "COMPUERTA_OK" in r.stdout and "verificado en bastión y sensor1" in r.stdout, r.stdout + r.stderr
+
+
+@pytest.mark.parametrize("que", ["vigia_alterado", "salud_alterada", "falta_vigia"])
+def test_g01_v4_compuerta_de_hash_para_si_el_vigia_no_es_el_corregido(entorno_compuerta, que):
+    _, vg, env = entorno_compuerta
+    if que == "vigia_alterado": (vg / "vigia_4c.py").write_text((vg / "vigia_4c.py").read_text() + "\n# alterado\n")
+    elif que == "salud_alterada": (vg / "salud_captura.py").write_text((vg / "salud_captura.py").read_text() + "\n# alterado\n")
+    else: (vg / "vigia_4c.py").unlink()
+    r = _correr_compuerta(env)
+    assert r.returncode == 2 and "PARAR:" in r.stdout and "COMPUERTA_OK" not in r.stdout, r.stdout + r.stderr
 
 
 def _patron_pgrep(guion: Path) -> str:
@@ -211,7 +272,8 @@ def entorno_vigia(tmp_path):
 
 
 def _tcpdump_del_vigia(tmp, env, orden):
-    orden = orden.replace("~/cf-e4/paquete/scripts/etapa4/vigia_4c.py", str(VIGIA_DIR / "vigia_4c.py")).replace("~/cf-e4/4c/archivo-pcap", str(tmp / "arch")) \
+    orden = orden.replace("~/cf-e4/paquete/scripts/etapa4/vigia_4c.py", str(VIGIA_DIR / "vigia_4c.py")).replace("~/cf-e4/vigia-20261106/vigia_4c.py", str(VIGIA_DIR / "vigia_4c.py")) \
+                 .replace("~/cf-e4/4c/archivo-pcap", str(tmp / "arch")) \
                  .replace("~/cf-e4/4c/salud/muestras.jsonl", str(tmp / "salud/muestras.jsonl"))
     # el vigía lanza esta orden por ssh: el shell remoto la interpreta; aquí lo hace bash -c
     r = subprocess.run(["bash", "-c", orden], env=env, capture_output=True, text=True, timeout=60)
@@ -225,3 +287,20 @@ def test_vigia_con_g01_v1_no_lee_tcpdump_y_con_g01_v2_si(entorno_vigia):
     assert v1["ok"] is False and "password is required" in v1["motivo"], v1
     v2 = _tcpdump_del_vigia(tmp, env, _orden_sensor(G01_V2))
     assert v2["ok"] is True and v2["lecturas"] and all(x["pid"] == 1355 and x["descartados_kernel"] == 0 for x in v2["lecturas"]), v2
+
+
+# --------------------------------------------------------------------------------------------- b20
+def test_b20_v2_solo_cambia_el_patron_del_generador_y_los_comentarios():
+    a, b = B20_V1.read_text(encoding="utf-8").splitlines(), B20_V2.read_text(encoding="utf-8").splitlines()
+    cambios = [l for l in difflib.unified_diff(a, b, lineterm="", n=0) if l[:1] in "+-" and l[:3] not in ("+++", "---")]
+    de_codigo = [l for l in cambios if not l[1:].lstrip().startswith("#")]
+    assert len(de_codigo) == 2 and de_codigo[0].startswith("-R=$(ssh") and de_codigo[1].startswith("+R=$(ssh"), de_codigo
+    assert "pgrep -fc 'generar_campana.py --config'" in de_codigo[0] and "pgrep -fc '[g]enerar_campana.py --config'" in de_codigo[1]
+
+
+def test_b20_v1_se_cuenta_a_si_mismo_y_v2_no_y_sigue_detectando_un_generador_real():
+    if shutil.which("pgrep") is None:
+        pytest.skip("falta pgrep")
+    p1, p2 = _patron_pgrep(B20_V1), _patron_pgrep(B20_V2)
+    assert _cuenta_en_bash_c(p1, False) >= 1 and _cuenta_en_bash_c(p2, False) == 0
+    assert _cuenta_en_bash_c(p2, True) >= 1
