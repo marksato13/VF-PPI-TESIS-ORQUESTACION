@@ -1,7 +1,7 @@
-## 2026-11-09T05:09:00Z en VM-GESTION
+## 2026-11-09T06:08:36Z en VM-GESTION
 == g01 v1: rc=0
    tcpdump ok=False | journalctl rc=1: sudo: a password is required
    vigía ok global: True | motivos: []
 == g01 v2: rc=0
-   tcpdump ok=True | 5 lecturas SIGUSR1 | pid(s) [1355] | de 05:07:00Z a 05:09:00Z | descartados_kernel max 0
+   tcpdump ok=True | 5 lecturas SIGUSR1 | pid(s) [1355] | de 06:06:30Z a 06:08:30Z | descartados_kernel max 0
    vigía ok global: True | motivos: []
