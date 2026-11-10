@@ -1,0 +1,390 @@
+{
+ "campana": "etapa4-campana-A-4c",
+ "episodio": "fuerza_bruta_http-r3",
+ "periodo": {
+  "inicio": 1794262236.382544,
+  "fin": 1794262536.043197
+ },
+ "origen": "sensor (automatico)",
+ "fuente": "pcap",
+ "ficheros": [
+  {
+   "fichero": "live-20261109221022.pcap",
+   "bytes": 502211,
+   "sha256": "23c89e977da54aaa1aea0be8b586b4d4fe345a5254ab4117ee658c72887c52da",
+   "sha256_archivador": "23c89e977da54aaa1aea0be8b586b4d4fe345a5254ab4117ee658c72887c52da"
+  },
+  {
+   "fichero": "live-20261109221027.pcap",
+   "bytes": 171282,
+   "sha256": "bc7fc346fa6899bb28bb4ed7c21bde987a397a8dc19bc54de08939cbdb60e6fc",
+   "sha256_archivador": "bc7fc346fa6899bb28bb4ed7c21bde987a397a8dc19bc54de08939cbdb60e6fc"
+  },
+  {
+   "fichero": "live-20261109221032.pcap",
+   "bytes": 703931,
+   "sha256": "5aab85eecf7103706b4537ebc2561bbf907c00ab4effe043f6cc55afc32a2be1",
+   "sha256_archivador": "5aab85eecf7103706b4537ebc2561bbf907c00ab4effe043f6cc55afc32a2be1"
+  },
+  {
+   "fichero": "live-20261109221037.pcap",
+   "bytes": 296366,
+   "sha256": "4c90e02ba173ab736a1b74643bee7a957b9d20cde77e69a186d70b92db610c87",
+   "sha256_archivador": "4c90e02ba173ab736a1b74643bee7a957b9d20cde77e69a186d70b92db610c87"
+  },
+  {
+   "fichero": "live-20261109221042.pcap",
+   "bytes": 452581,
+   "sha256": "f5cab5983e49ad6fdd4847da3381158a5fd89d8a7886cab1b07402391c5a1882",
+   "sha256_archivador": "f5cab5983e49ad6fdd4847da3381158a5fd89d8a7886cab1b07402391c5a1882"
+  },
+  {
+   "fichero": "live-20261109221047.pcap",
+   "bytes": 407106,
+   "sha256": "0b0b0ebf8034d22401d97388cdcfd7223563006497447f837b210dc7c976f93b",
+   "sha256_archivador": "0b0b0ebf8034d22401d97388cdcfd7223563006497447f837b210dc7c976f93b"
+  },
+  {
+   "fichero": "live-20261109221052.pcap",
+   "bytes": 238510,
+   "sha256": "6e26b4304ccb906f8b0aedcf68be25168396570e0cac946e865102ef1e3c3330",
+   "sha256_archivador": "6e26b4304ccb906f8b0aedcf68be25168396570e0cac946e865102ef1e3c3330"
+  },
+  {
+   "fichero": "live-20261109221058.pcap",
+   "bytes": 347491,
+   "sha256": "96c04b6251fc15aad41696349a01fd9cfe1e195d2080b054c6b68373ed4f1466",
+   "sha256_archivador": "96c04b6251fc15aad41696349a01fd9cfe1e195d2080b054c6b68373ed4f1466"
+  },
+  {
+   "fichero": "live-20261109221103.pcap",
+   "bytes": 607543,
+   "sha256": "4b1452297e4b200a1458274ce1bf8ddb996b9dd403a4a9f66a80db29dfa6d2e8",
+   "sha256_archivador": "4b1452297e4b200a1458274ce1bf8ddb996b9dd403a4a9f66a80db29dfa6d2e8"
+  },
+  {
+   "fichero": "live-20261109221109.pcap",
+   "bytes": 186867,
+   "sha256": "a0d66ac8259e7c60e97f386a6191be546f5f2e9b7265e15f605be9a1c562c7d7",
+   "sha256_archivador": "a0d66ac8259e7c60e97f386a6191be546f5f2e9b7265e15f605be9a1c562c7d7"
+  },
+  {
+   "fichero": "live-20261109221114.pcap",
+   "bytes": 723269,
+   "sha256": "bb38a314038763574c855c5c983e7524e2bcfeb5351cc4ec4fc0ec5f8c453a4e",
+   "sha256_archivador": "bb38a314038763574c855c5c983e7524e2bcfeb5351cc4ec4fc0ec5f8c453a4e"
+  },
+  {
+   "fichero": "live-20261109221119.pcap",
+   "bytes": 416230,
+   "sha256": "2acaf3549aff9c569d30439f3f71f91465f547d05bc7f5d484c91a696b9292ad",
+   "sha256_archivador": "2acaf3549aff9c569d30439f3f71f91465f547d05bc7f5d484c91a696b9292ad"
+  },
+  {
+   "fichero": "live-20261109221124.pcap",
+   "bytes": 384519,
+   "sha256": "c4567911fe795d2db3b1395716f7bb4a3a712709a7e26e542a04b242d2e3f399",
+   "sha256_archivador": "c4567911fe795d2db3b1395716f7bb4a3a712709a7e26e542a04b242d2e3f399"
+  },
+  {
+   "fichero": "live-20261109221129.pcap",
+   "bytes": 327520,
+   "sha256": "81edb66e9ada377b1b98d2c70537957badc4945bcdddd642230987c21eb6aac2",
+   "sha256_archivador": "81edb66e9ada377b1b98d2c70537957badc4945bcdddd642230987c21eb6aac2"
+  },
+  {
+   "fichero": "live-20261109221134.pcap",
+   "bytes": 522724,
+   "sha256": "13058508e6f9643e74e5364caa4843303a4307cd57754ec7f3c813124f913f3d",
+   "sha256_archivador": "13058508e6f9643e74e5364caa4843303a4307cd57754ec7f3c813124f913f3d"
+  },
+  {
+   "fichero": "live-20261109221139.pcap",
+   "bytes": 269360,
+   "sha256": "1ab1eaedce9e336e19398297f43c5d85db4e7dde5cc591f03f228e960800f37a",
+   "sha256_archivador": "1ab1eaedce9e336e19398297f43c5d85db4e7dde5cc591f03f228e960800f37a"
+  },
+  {
+   "fichero": "live-20261109221144.pcap",
+   "bytes": 199776,
+   "sha256": "926d9c406f88094fb2d609acbd763ee66ba55884d86c9bee8bfe164354933c8a",
+   "sha256_archivador": "926d9c406f88094fb2d609acbd763ee66ba55884d86c9bee8bfe164354933c8a"
+  },
+  {
+   "fichero": "live-20261109221149.pcap",
+   "bytes": 410559,
+   "sha256": "b54956cafdbc29533bf52d471c37fb891f101a7548d1fb7a0ec2d6a44d4b10be",
+   "sha256_archivador": "b54956cafdbc29533bf52d471c37fb891f101a7548d1fb7a0ec2d6a44d4b10be"
+  },
+  {
+   "fichero": "live-20261109221154.pcap",
+   "bytes": 197550,
+   "sha256": "81d930a0e09f2d6ab8ed4cfee04390724ddb59d9835c580eb841782c0c839408",
+   "sha256_archivador": "81d930a0e09f2d6ab8ed4cfee04390724ddb59d9835c580eb841782c0c839408"
+  },
+  {
+   "fichero": "live-20261109221159.pcap",
+   "bytes": 580438,
+   "sha256": "e13d47b14cb579bc7d14585f5e43056d4213af117b8a3db9f9a2ffd05186f829",
+   "sha256_archivador": "e13d47b14cb579bc7d14585f5e43056d4213af117b8a3db9f9a2ffd05186f829"
+  },
+  {
+   "fichero": "live-20261109221204.pcap",
+   "bytes": 164918,
+   "sha256": "4fa9a9ecc4a6eeca28281e5e00667f85fe20dedd3e94cad2a296d7028d195e17",
+   "sha256_archivador": "4fa9a9ecc4a6eeca28281e5e00667f85fe20dedd3e94cad2a296d7028d195e17"
+  },
+  {
+   "fichero": "live-20261109221209.pcap",
+   "bytes": 291853,
+   "sha256": "6cc8c38405bf0465a3fd4d04fb9c582e4b9400c36835e27ddef47534de658325",
+   "sha256_archivador": "6cc8c38405bf0465a3fd4d04fb9c582e4b9400c36835e27ddef47534de658325"
+  },
+  {
+   "fichero": "live-20261109221214.pcap",
+   "bytes": 309827,
+   "sha256": "1567a440f27d099daab18b9a0d0bd56405df664d8ffd1aa41782d7ddd0b59ed7",
+   "sha256_archivador": "1567a440f27d099daab18b9a0d0bd56405df664d8ffd1aa41782d7ddd0b59ed7"
+  },
+  {
+   "fichero": "live-20261109221219.pcap",
+   "bytes": 507695,
+   "sha256": "fef095b4370a806284c9be93168d26953d3959a7dbdb1861bd136ac2ca24c40f",
+   "sha256_archivador": "fef095b4370a806284c9be93168d26953d3959a7dbdb1861bd136ac2ca24c40f"
+  },
+  {
+   "fichero": "live-20261109221224.pcap",
+   "bytes": 378956,
+   "sha256": "6dcee7bc01989f727e162cf9a21257dc75a7fcaf2e856f74e1793796837668eb",
+   "sha256_archivador": "6dcee7bc01989f727e162cf9a21257dc75a7fcaf2e856f74e1793796837668eb"
+  },
+  {
+   "fichero": "live-20261109221229.pcap",
+   "bytes": 270280,
+   "sha256": "9dc8f61e01e217369234bc8857f2dc5af6eb45dcb054305bf1761420c491ba95",
+   "sha256_archivador": "9dc8f61e01e217369234bc8857f2dc5af6eb45dcb054305bf1761420c491ba95"
+  },
+  {
+   "fichero": "live-20261109221234.pcap",
+   "bytes": 894953,
+   "sha256": "ff66fa5c1368107d0ab2cdb57ba93972da4b98213d6447b3a87e62c78f883eb7",
+   "sha256_archivador": "ff66fa5c1368107d0ab2cdb57ba93972da4b98213d6447b3a87e62c78f883eb7"
+  },
+  {
+   "fichero": "live-20261109221239.pcap",
+   "bytes": 1523194,
+   "sha256": "e696656ac9fc27e4e1de1fab9d349636083182384d1a237048b114d482b9a587",
+   "sha256_archivador": "e696656ac9fc27e4e1de1fab9d349636083182384d1a237048b114d482b9a587"
+  },
+  {
+   "fichero": "live-20261109221244.pcap",
+   "bytes": 1683563,
+   "sha256": "875c2c519ec03c9255ab484e5debb9fcf76f28d5bd2c74739adb02bc638c4c7c",
+   "sha256_archivador": "875c2c519ec03c9255ab484e5debb9fcf76f28d5bd2c74739adb02bc638c4c7c"
+  },
+  {
+   "fichero": "live-20261109221249.pcap",
+   "bytes": 1871933,
+   "sha256": "d577715e72ca4e059fb0d707877b7780f6fa1c2dbb76816dacaa9684fcc4d29c",
+   "sha256_archivador": "d577715e72ca4e059fb0d707877b7780f6fa1c2dbb76816dacaa9684fcc4d29c"
+  },
+  {
+   "fichero": "live-20261109221254.pcap",
+   "bytes": 1979608,
+   "sha256": "d831a4ad3be1e83b11b18001b2c7d65bece5ba64e2b53efeb9fbb5230d7f0789",
+   "sha256_archivador": "d831a4ad3be1e83b11b18001b2c7d65bece5ba64e2b53efeb9fbb5230d7f0789"
+  },
+  {
+   "fichero": "live-20261109221259.pcap",
+   "bytes": 2010011,
+   "sha256": "8d77f6ef6b89d12e2b28f110e440c36c682df71cab00e77fbd2bcecf2d4539d3",
+   "sha256_archivador": "8d77f6ef6b89d12e2b28f110e440c36c682df71cab00e77fbd2bcecf2d4539d3"
+  },
+  {
+   "fichero": "live-20261109221304.pcap",
+   "bytes": 1824310,
+   "sha256": "51651794f19b3d5295a8da318980536cba2c81e4b82d4881a33737c2a306b2a4",
+   "sha256_archivador": "51651794f19b3d5295a8da318980536cba2c81e4b82d4881a33737c2a306b2a4"
+  },
+  {
+   "fichero": "live-20261109221309.pcap",
+   "bytes": 1724364,
+   "sha256": "9714631af8eeab27ae8c3cd4e22ae02e35e473407499d47887d390cf4b4040ad",
+   "sha256_archivador": "9714631af8eeab27ae8c3cd4e22ae02e35e473407499d47887d390cf4b4040ad"
+  },
+  {
+   "fichero": "live-20261109221314.pcap",
+   "bytes": 2004845,
+   "sha256": "6837d039bb0ff604a901cef608d710e5e27cbf632972b2b3e1e79a282fa2f834",
+   "sha256_archivador": "6837d039bb0ff604a901cef608d710e5e27cbf632972b2b3e1e79a282fa2f834"
+  },
+  {
+   "fichero": "live-20261109221319.pcap",
+   "bytes": 1853320,
+   "sha256": "63aedf7689dfb536566de09b0f7bac2c0e041421fb2c2b103709dcb2a969c6a8",
+   "sha256_archivador": "63aedf7689dfb536566de09b0f7bac2c0e041421fb2c2b103709dcb2a969c6a8"
+  },
+  {
+   "fichero": "live-20261109221324.pcap",
+   "bytes": 1698447,
+   "sha256": "51e87422e05d89748768bae1d18f1bf3a149f3b015f32de8e8aac499e9c9984f",
+   "sha256_archivador": "51e87422e05d89748768bae1d18f1bf3a149f3b015f32de8e8aac499e9c9984f"
+  },
+  {
+   "fichero": "live-20261109221329.pcap",
+   "bytes": 1691253,
+   "sha256": "aeb6bb4129d20a2f3752e8c5c4fff3a9c00c0171b25009cee7577295d08ad5c2",
+   "sha256_archivador": "aeb6bb4129d20a2f3752e8c5c4fff3a9c00c0171b25009cee7577295d08ad5c2"
+  },
+  {
+   "fichero": "live-20261109221334.pcap",
+   "bytes": 1833954,
+   "sha256": "b883443d8fb2d8e1fb51f70b8265264b34c5ac09609a9fe3f4609a1b5ed694e9",
+   "sha256_archivador": "b883443d8fb2d8e1fb51f70b8265264b34c5ac09609a9fe3f4609a1b5ed694e9"
+  },
+  {
+   "fichero": "live-20261109221339.pcap",
+   "bytes": 2033119,
+   "sha256": "5f3f332a809a0577d92b36b4e0393a974b193f81d11202fad061457121aae33d",
+   "sha256_archivador": "5f3f332a809a0577d92b36b4e0393a974b193f81d11202fad061457121aae33d"
+  },
+  {
+   "fichero": "live-20261109221344.pcap",
+   "bytes": 1837053,
+   "sha256": "9df284c36c6ad60bb0583d3bd807db3a43afba563a87e7a1afc760069225a28d",
+   "sha256_archivador": "9df284c36c6ad60bb0583d3bd807db3a43afba563a87e7a1afc760069225a28d"
+  },
+  {
+   "fichero": "live-20261109221349.pcap",
+   "bytes": 2169727,
+   "sha256": "4a6d1b03899e624180e1651f2ba05b784e5850c27ba3b6b9a7532f8d9c18dc8c",
+   "sha256_archivador": "4a6d1b03899e624180e1651f2ba05b784e5850c27ba3b6b9a7532f8d9c18dc8c"
+  },
+  {
+   "fichero": "live-20261109221354.pcap",
+   "bytes": 1521910,
+   "sha256": "c10c5ccde4ef23803521984b09a0203ad3c5663e4cc0a2ef6577d7c48f977395",
+   "sha256_archivador": "c10c5ccde4ef23803521984b09a0203ad3c5663e4cc0a2ef6577d7c48f977395"
+  },
+  {
+   "fichero": "live-20261109221359.pcap",
+   "bytes": 2022542,
+   "sha256": "8d6889374583eef9e7751fe6580f2f9641175e2bc22584b1025771650335e28e",
+   "sha256_archivador": "8d6889374583eef9e7751fe6580f2f9641175e2bc22584b1025771650335e28e"
+  },
+  {
+   "fichero": "live-20261109221404.pcap",
+   "bytes": 828274,
+   "sha256": "d12b961af16aece7645758166c68cee428fcfce48eaeb1789b381f3f6ae8b248",
+   "sha256_archivador": "d12b961af16aece7645758166c68cee428fcfce48eaeb1789b381f3f6ae8b248"
+  },
+  {
+   "fichero": "live-20261109221409.pcap",
+   "bytes": 556644,
+   "sha256": "c6f6e260c4d6fa8bafa793a80aefbdb559fb2837135b9dd59921592573a5b76e",
+   "sha256_archivador": "c6f6e260c4d6fa8bafa793a80aefbdb559fb2837135b9dd59921592573a5b76e"
+  },
+  {
+   "fichero": "live-20261109221414.pcap",
+   "bytes": 241307,
+   "sha256": "6c0891ef9f37092d641fbbf8fdb1967b48245f38e5a3b31e9b83c20ce2500b48",
+   "sha256_archivador": "6c0891ef9f37092d641fbbf8fdb1967b48245f38e5a3b31e9b83c20ce2500b48"
+  },
+  {
+   "fichero": "live-20261109221419.pcap",
+   "bytes": 435270,
+   "sha256": "b72364ac50707bafb6f7a7bae0aa0607016016c573f88af59cd15e4ccbe82da4",
+   "sha256_archivador": "b72364ac50707bafb6f7a7bae0aa0607016016c573f88af59cd15e4ccbe82da4"
+  },
+  {
+   "fichero": "live-20261109221424.pcap",
+   "bytes": 191317,
+   "sha256": "e754d1b7de163f075c5594f5e70d66938750250713913dcc085488b63f51c13c",
+   "sha256_archivador": "e754d1b7de163f075c5594f5e70d66938750250713913dcc085488b63f51c13c"
+  },
+  {
+   "fichero": "live-20261109221429.pcap",
+   "bytes": 178710,
+   "sha256": "a50d42862b7a7e9dddf50327543f78da1f1a4526be3b2d0f11fc5014d8719ca0",
+   "sha256_archivador": "a50d42862b7a7e9dddf50327543f78da1f1a4526be3b2d0f11fc5014d8719ca0"
+  },
+  {
+   "fichero": "live-20261109221434.pcap",
+   "bytes": 478937,
+   "sha256": "471b1e8eec8b36a568ef571eae4bc81fe563fff94a5b68bb93353b82140922b5",
+   "sha256_archivador": "471b1e8eec8b36a568ef571eae4bc81fe563fff94a5b68bb93353b82140922b5"
+  },
+  {
+   "fichero": "live-20261109221439.pcap",
+   "bytes": 615464,
+   "sha256": "70f56e6ed11f386012a43e272a01b409a7a50f2be2f1025ac62e964eb5ae794c",
+   "sha256_archivador": "70f56e6ed11f386012a43e272a01b409a7a50f2be2f1025ac62e964eb5ae794c"
+  },
+  {
+   "fichero": "live-20261109221444.pcap",
+   "bytes": 564308,
+   "sha256": "eeb0fe1bee2f57a02550d094b9121023eaf53d04593cd9a5d65e5b38e132cfec",
+   "sha256_archivador": "eeb0fe1bee2f57a02550d094b9121023eaf53d04593cd9a5d65e5b38e132cfec"
+  },
+  {
+   "fichero": "live-20261109221449.pcap",
+   "bytes": 647453,
+   "sha256": "ba0c335e974a6e7229cb52fc4c4e432d1a6e1ef8c92236f505508ef97b669fb0",
+   "sha256_archivador": "ba0c335e974a6e7229cb52fc4c4e432d1a6e1ef8c92236f505508ef97b669fb0"
+  },
+  {
+   "fichero": "live-20261109221454.pcap",
+   "bytes": 209284,
+   "sha256": "1cbc4016a1b44a071a474376941af3a8f2b32e25cdd7c75f423c929e89d0f267",
+   "sha256_archivador": "1cbc4016a1b44a071a474376941af3a8f2b32e25cdd7c75f423c929e89d0f267"
+  },
+  {
+   "fichero": "live-20261109221459.pcap",
+   "bytes": 282545,
+   "sha256": "fe2beeb9aa945982d05f70365c0670d89cf0a9c7afd18063bcbd914f590759b1",
+   "sha256_archivador": "fe2beeb9aa945982d05f70365c0670d89cf0a9c7afd18063bcbd914f590759b1"
+  },
+  {
+   "fichero": "live-20261109221504.pcap",
+   "bytes": 256324,
+   "sha256": "d0b4cf1d1ad7eac1a53440450f364a1d9b1b7fdeffc61baebdcbf35b71aa260b",
+   "sha256_archivador": "d0b4cf1d1ad7eac1a53440450f364a1d9b1b7fdeffc61baebdcbf35b71aa260b"
+  },
+  {
+   "fichero": "live-20261109221509.pcap",
+   "bytes": 406552,
+   "sha256": "142cffc7641e57dccc23c00cc89b4c7b33e322970e3436744c4586573051589c",
+   "sha256_archivador": "142cffc7641e57dccc23c00cc89b4c7b33e322970e3436744c4586573051589c"
+  },
+  {
+   "fichero": "live-20261109221514.pcap",
+   "bytes": 163602,
+   "sha256": "776b2f8f1d82130e719bf6f9320f0e9943db8608beaec9908ad6ecd73a0d55a3",
+   "sha256_archivador": "776b2f8f1d82130e719bf6f9320f0e9943db8608beaec9908ad6ecd73a0d55a3"
+  },
+  {
+   "fichero": "live-20261109221519.pcap",
+   "bytes": 347135,
+   "sha256": "75526894a3acfd4064656dab2a82d71eb2dc2cba0fe77559d29356c5584a4b08",
+   "sha256_archivador": "75526894a3acfd4064656dab2a82d71eb2dc2cba0fe77559d29356c5584a4b08"
+  },
+  {
+   "fichero": "live-20261109221524.pcap",
+   "bytes": 242987,
+   "sha256": "b16eccc2352d64226a98e3578c746cda17131d4bcb1a84f46a62e919174f212a",
+   "sha256_archivador": "b16eccc2352d64226a98e3578c746cda17131d4bcb1a84f46a62e919174f212a"
+  },
+  {
+   "fichero": "live-20261109221529.pcap",
+   "bytes": 281547,
+   "sha256": "dd0c1fdda2350512e7054e9438e57201ff58b701a76547f71e4fcd8b92045ddb",
+   "sha256_archivador": "dd0c1fdda2350512e7054e9438e57201ff58b701a76547f71e4fcd8b92045ddb"
+  },
+  {
+   "fichero": "live-20261109221534.pcap",
+   "bytes": 236281,
+   "sha256": "d6fdd46fa4e77e113f8b927dd4b0d520cc958e5cdd8468f49dd3a53c2eeaebd8",
+   "sha256_archivador": "d6fdd46fa4e77e113f8b927dd4b0d520cc958e5cdd8468f49dd3a53c2eeaebd8"
+  }
+ ]
+}

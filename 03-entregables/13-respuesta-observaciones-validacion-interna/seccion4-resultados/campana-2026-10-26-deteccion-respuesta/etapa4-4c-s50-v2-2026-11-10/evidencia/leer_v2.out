@@ -1,0 +1,78 @@
+== pasos
+paso	estado	rc	inicio_utc	fin_utc
+a1	ok	0	2026-11-10T03:42:04Z	2026-11-10T03:42:04Z
+a2	ok	0	2026-11-10T03:42:04Z	2026-11-10T03:43:50Z
+a3	ok	0	2026-11-10T03:43:50Z	2026-11-10T03:45:37Z
+b	ok	0	2026-11-10T03:45:37Z	2026-11-10T03:47:33Z
+1	ok	0	2026-11-10T03:47:33Z	2026-11-10T03:48:01Z
+2	ok	0	2026-11-10T03:48:01Z	2026-11-10T03:48:05Z
+3	ok	0	2026-11-10T03:48:05Z	2026-11-10T03:48:08Z
+d	ok	0	2026-11-10T03:48:08Z	2026-11-10T03:48:08Z
+4	ok	0	2026-11-10T03:48:08Z	2026-11-10T04:29:59Z
+5	ok	0	2026-11-10T04:29:59Z	2026-11-10T04:30:17Z
+6	ok	0	2026-11-10T04:30:17Z	2026-11-10T04:31:31Z
+7	ok	0	2026-11-10T04:31:31Z	2026-11-10T04:31:34Z
+8	ok	0	2026-11-10T04:31:34Z	2026-11-10T04:32:54Z
+c	ok	0	2026-11-10T04:32:54Z	2026-11-10T04:33:08Z
+9	ok	0	2026-11-10T04:33:08Z	2026-11-10T04:33:08Z
+== SHA256SUMS: # COMPLETO 2026-11-10T04:33:08Z pasos: a1 a2 a3 b c 1 2 3 d 4 5 6 7 8 9; verifica: 0 discrepancias
+== v1 intacta: 0 discrepancias
+claves: ['etiqueta', 'analizador', 'fuentes', 'umbrales', 'definiciones', 'poblacion', 'inventario', 'ciclos', 'calidad_datos', 'tabla_principal', 'tabla_principal_lectura', 'episodios']
+calidad: {'completa': 25} | integridad aptos: 21
+== Inundación HTTP | principal: 5 ['inundacion_http-r4', 'inundacion_http-r3', 'inundacion_http-r2', 'inundacion_http-r1', 'inundacion_http-r5'] | fuera: 0
+    IF_0.05 {'oportuna': 5}
+    IF_0.03 {'oportuna': 5}
+    IF_0.01 {'oportuna': 5}
+    HEUR {'oportuna': 5}
+    HIB_0.05 {'oportuna': 5}
+    HIB_0.03 {'oportuna': 5}
+    HIB_0.01 {'oportuna': 5}
+    emisiones: {'emisiones_oportunas_episodios': 5, 'episodios_oportunos_senal_if': 5, 'episodios_oportunos_regla_prevista': 5, 'episodios_oportunos_regla_no_prevista': 0} resp: no_medida
+== Fuerza bruta HTTP | principal: 5 ['fuerza_bruta_http-r4', 'fuerza_bruta_http-r3', 'fuerza_bruta_http-r1', 'fuerza_bruta_http-r5', 'fuerza_bruta_http-r2'] | fuera: 0
+    IF_0.05 {'oportuna': 5}
+    IF_0.03 {'oportuna': 5}
+    IF_0.01 {'oportuna': 5}
+    HEUR {'oportuna': 5}
+    HIB_0.05 {'oportuna': 5}
+    HIB_0.03 {'oportuna': 5}
+    HIB_0.01 {'oportuna': 5}
+    emisiones: {'emisiones_oportunas_episodios': 5, 'episodios_oportunos_senal_if': 5, 'episodios_oportunos_regla_prevista': 5, 'episodios_oportunos_regla_no_prevista': 0} resp: no_medida
+== DNS inusual | principal: 5 ['dns_inusual-r1', 'dns_inusual-r3', 'dns_inusual-r4', 'dns_inusual-r2', 'dns_inusual-r5'] | fuera: 0
+    IF_0.05 {'oportuna': 2, 'ausencia_con_observacion_suficiente': 3}
+    IF_0.03 {'oportuna': 2, 'ausencia_con_observacion_suficiente': 3}
+    IF_0.01 {'ausencia_con_observacion_suficiente': 4, 'oportuna': 1}
+    HEUR {'oportuna': 5}
+    HIB_0.05 {'oportuna': 5}
+    HIB_0.03 {'oportuna': 5}
+    HIB_0.01 {'oportuna': 5}
+    emisiones: {'emisiones_oportunas_episodios': 5, 'episodios_oportunos_senal_if': 2, 'episodios_oportunos_regla_prevista': 5, 'episodios_oportunos_regla_no_prevista': 0} resp: no_medida
+== Escaneo breve | principal: 1 ['escaneo_breve-r4'] | fuera: 4
+    IF_0.05 {'solo_posterior': 1, 'fuera:solo_posterior': 3, 'fuera:oportuna': 1}
+    IF_0.03 {'solo_posterior': 1, 'fuera:solo_posterior': 4}
+    IF_0.01 {'ausencia_con_observacion_suficiente': 1, 'fuera:no_evaluable': 3, 'fuera:solo_posterior': 1}
+    HEUR {'solo_posterior': 1, 'fuera:solo_posterior': 4}
+    HIB_0.05 {'solo_posterior': 1, 'fuera:solo_posterior': 3, 'fuera:oportuna': 1}
+    HIB_0.03 {'solo_posterior': 1, 'fuera:solo_posterior': 4}
+    HIB_0.01 {'solo_posterior': 1, 'fuera:solo_posterior': 4}
+    emisiones: {'emisiones_oportunas_episodios': 0, 'episodios_oportunos_senal_if': 0, 'episodios_oportunos_regla_prevista': 0, 'episodios_oportunos_regla_no_prevista': 0} resp: no_medida
+== Escaneo sostenido | principal: 5 ['escaneo_sostenido-r5', 'escaneo_sostenido-r2', 'escaneo_sostenido-r3', 'escaneo_sostenido-r1', 'escaneo_sostenido-r4'] | fuera: 0
+    IF_0.05 {'oportuna': 5}
+    IF_0.03 {'oportuna': 5}
+    IF_0.01 {'oportuna': 5}
+    HEUR {'oportuna': 5}
+    HIB_0.05 {'oportuna': 5}
+    HIB_0.03 {'oportuna': 5}
+    HIB_0.01 {'oportuna': 5}
+    emisiones: {'emisiones_oportunas_episodios': 5, 'episodios_oportunos_senal_if': 5, 'episodios_oportunos_regla_prevista': 5, 'episodios_oportunos_regla_no_prevista': 0} resp: no_medida
+== TABLA-3B (motivos fuera de población)
+Motivos fuera de la población principal:
+
+- escaneo_breve-r2: integridad no apta
+- escaneo_breve-r5: integridad no apta
+- escaneo_breve-r3: integridad no apta
+- escaneo_breve-r1: integridad no apta
+== control (b)
+{"ventanas_por_clase": {"C0": 2218, "C1": 0, "C2": 0, "C3": 0, "insuficiente": 0, "sin_medida": 0}, "C0": {"ventanas": 2218, "IF_0.05": {"falsas_alarmas": 323, "tasa": 0.145627}, "IF_0.03": {"falsas_alarmas": 200, "tasa": 0.090171}, "IF_0.01": {"falsas_alarmas": 54, "tasa": 0.024346}, "HEUR": {"falsas_alarmas": 0, "tasa": 0.0}, "HIB_0.05": {"falsas_alarmas": 323, "tasa": 0.145627}, "HIB_0.03": {"falsas_alarmas": 200, "tasa": 0.090171}, "HIB_0.01": {"falsas_alarmas": 54, "tasa": 0.024346}}, "sin_medida": null, "suricata_decididas": {"cero_descartes": 2218, "descartes": 0, "datos_faltantes": 0}, "periodo_completo": {"clase": "C0", "suricata_categoria": "cero_descartes", "suricata_estado": "cero_explicito"}}
+== inventario
+{"disponible": true, "fuente": "/home/m4rk/cf-e4/4c/replay/motor_decision.log", "sha256": "87eedbc706223f9ea4b7287a53453ea0cdf68126873e1f85406e0108eb6bb843", "rango_window_end_utc": ["2026-11-09T20:49:28+00:00", "2026-11-09T23:51:51+00:00"], "requeridas": 13344, "requeridas_definicion": "claves con 
+## r4 rc=0 (sed=0 ssh=0 tee=0) 2026-11-10T04:35:18.980Z

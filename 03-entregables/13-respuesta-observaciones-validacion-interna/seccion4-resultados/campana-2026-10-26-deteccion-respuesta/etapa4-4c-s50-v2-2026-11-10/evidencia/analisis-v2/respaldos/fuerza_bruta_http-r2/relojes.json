@@ -1,0 +1,47 @@
+{
+ "campana": "etapa4-campana-A-4c",
+ "episodio": "fuerza_bruta_http-r2",
+ "periodo": {
+  "inicio": 1794264428.014867,
+  "fin": 1794264728.018266
+ },
+ "origen": "sensor (automatico)",
+ "fuente": "p34_relojes.sh",
+ "tolerancia_s": 1.0,
+ "requeridos": [
+  "sensor",
+  "kali",
+  "srv-dmz",
+  "bastion"
+ ],
+ "mediciones": [
+  {
+   "host": "sensor",
+   "referencia": "bastion (p34, sesión SSH persistente, 9 muestras)",
+   "momento": 1794261258.0,
+   "desfase_s": 0.0061,
+   "incertidumbre_s": 0.0005
+  },
+  {
+   "host": "kali",
+   "referencia": "bastion (p34, sesión SSH persistente, 9 muestras)",
+   "momento": 1794261260.0,
+   "desfase_s": 0.0066,
+   "incertidumbre_s": 0.0007
+  },
+  {
+   "host": "srv-dmz",
+   "referencia": "bastion (p34, sesión SSH persistente, 9 muestras)",
+   "momento": 1794261262.0,
+   "desfase_s": 0.0067,
+   "incertidumbre_s": 0.0002
+  },
+  {
+   "host": "bastion",
+   "referencia": "NTP (chrony del bastión)",
+   "momento": 1794261258.199,
+   "desfase_s": 0.000293376,
+   "incertidumbre_s": 0.001198812
+  }
+ ]
+}

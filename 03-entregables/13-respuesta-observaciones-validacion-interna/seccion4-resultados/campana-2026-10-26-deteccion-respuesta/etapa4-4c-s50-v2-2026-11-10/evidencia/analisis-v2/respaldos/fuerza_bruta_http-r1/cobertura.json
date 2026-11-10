@@ -1,0 +1,32 @@
+{
+ "campana": "etapa4-campana-A-4c",
+ "episodio": "fuerza_bruta_http-r1",
+ "periodo": {
+  "inicio": 1794263136.050084,
+  "fin": 1794263436.057141
+ },
+ "origen": "sensor (automatico)",
+ "fuente": "motor_decision.log + secuencia de PCAP archivados",
+ "previa_s": 890.2,
+ "posterior_s": 896.9,
+ "detalle": {
+  "motor_previa_s": 890.2,
+  "motor_posterior_desde_fin_mas_60_s": 899.6,
+  "pcap_previa_s": 897.1,
+  "pcap_posterior_s": 896.9,
+  "hueco_motor_max_s": 10.746042013168335,
+  "analizar_cobertura": {
+   "suficiente": true,
+   "motivo": "ok",
+   "motor_continuo": true,
+   "anclas_ataque_esperadas": 9,
+   "anclas_ataque_observadas": 9,
+   "hueco_motor_max_s": 10.6,
+   "cubre_inicio": true,
+   "cubre_fin_mas_60": true
+  }
+ },
+ "durante_completa": true,
+ "faltantes": [],
+ "continuidad_sin_huecos": true
+}

@@ -1,0 +1,855 @@
+{
+ "_nota": "generado por generar_respaldos.py con evidencias de la campaña A",
+ "episodios": [
+  {
+   "episodio_id": "inundacion_http-r4",
+   "campana": "etapa4-campana-A-4c",
+   "intervalo": {
+    "inicio": 1794261456.046386,
+    "fin": 1794261546.044963
+   },
+   "rutas": {
+    "pcap": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/inundacion_http-r4/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-e4/4c/copias/eve-segmento.json",
+    "decisiones": "/home/m4rk/cf-e4/4c/copias/motor_decision.log",
+    "caracteristicas": "/home/m4rk/cf-e4/4c/analisis-v2/caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "03594f75188cb163b0c8f752bd5a96385132bdbcd9d6a1d54008cbece92b7f4e",
+    "eve": "f2f996cc5f70e04ed8397590c25046f9c0097be4a941e0484dafc5b5c61dc344",
+    "decisiones": "733d7a0cab66ef1a6358c80cc2285a6d0da8693722c11a018c5dfb49bb9267cd",
+    "caracteristicas": "9f9e83b368c12a7ee06d6291a274f083bac063b6bb02adc8371ac2a24f2cdb67"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/inundacion_http-r4/cobertura.json"
+    },
+    "captura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/inundacion_http-r4/captura.json"
+    },
+    "reinicios": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/inundacion_http-r4/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/inundacion_http-r4/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "fuerza_bruta_http-r4",
+   "campana": "etapa4-campana-A-4c",
+   "intervalo": {
+    "inicio": 1794261756.048134,
+    "fin": 1794261846.046153
+   },
+   "rutas": {
+    "pcap": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/fuerza_bruta_http-r4/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-e4/4c/copias/eve-segmento.json",
+    "decisiones": "/home/m4rk/cf-e4/4c/copias/motor_decision.log",
+    "caracteristicas": "/home/m4rk/cf-e4/4c/analisis-v2/caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "cfd09569ddafc80ed4ceb8c4205ac050ef49ba7fee028d2755e4e2070a3b99de",
+    "eve": "f2f996cc5f70e04ed8397590c25046f9c0097be4a941e0484dafc5b5c61dc344",
+    "decisiones": "733d7a0cab66ef1a6358c80cc2285a6d0da8693722c11a018c5dfb49bb9267cd",
+    "caracteristicas": "9f9e83b368c12a7ee06d6291a274f083bac063b6bb02adc8371ac2a24f2cdb67"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/fuerza_bruta_http-r4/cobertura.json"
+    },
+    "captura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/fuerza_bruta_http-r4/captura.json"
+    },
+    "reinicios": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/fuerza_bruta_http-r4/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/fuerza_bruta_http-r4/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "dns_inusual-r1",
+   "campana": "etapa4-campana-A-4c",
+   "intervalo": {
+    "inicio": 1794262056.049274,
+    "fin": 1794262146.379944
+   },
+   "rutas": {
+    "pcap": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/dns_inusual-r1/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-e4/4c/copias/eve-segmento.json",
+    "decisiones": "/home/m4rk/cf-e4/4c/copias/motor_decision.log",
+    "caracteristicas": "/home/m4rk/cf-e4/4c/analisis-v2/caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "2a90c2605a87f9e6189962d96105e01a3c836b87652b1931da94ac2f5a3ec103",
+    "eve": "f2f996cc5f70e04ed8397590c25046f9c0097be4a941e0484dafc5b5c61dc344",
+    "decisiones": "733d7a0cab66ef1a6358c80cc2285a6d0da8693722c11a018c5dfb49bb9267cd",
+    "caracteristicas": "9f9e83b368c12a7ee06d6291a274f083bac063b6bb02adc8371ac2a24f2cdb67"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/dns_inusual-r1/cobertura.json"
+    },
+    "captura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/dns_inusual-r1/captura.json"
+    },
+    "reinicios": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/dns_inusual-r1/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/dns_inusual-r1/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "fuerza_bruta_http-r3",
+   "campana": "etapa4-campana-A-4c",
+   "intervalo": {
+    "inicio": 1794262356.382544,
+    "fin": 1794262446.043197
+   },
+   "rutas": {
+    "pcap": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/fuerza_bruta_http-r3/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-e4/4c/copias/eve-segmento.json",
+    "decisiones": "/home/m4rk/cf-e4/4c/copias/motor_decision.log",
+    "caracteristicas": "/home/m4rk/cf-e4/4c/analisis-v2/caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "6cea9986f706c6106e5a62cf8d350c37ad3091b1d0a8139b7e469f00b962e0dd",
+    "eve": "f2f996cc5f70e04ed8397590c25046f9c0097be4a941e0484dafc5b5c61dc344",
+    "decisiones": "733d7a0cab66ef1a6358c80cc2285a6d0da8693722c11a018c5dfb49bb9267cd",
+    "caracteristicas": "9f9e83b368c12a7ee06d6291a274f083bac063b6bb02adc8371ac2a24f2cdb67"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/fuerza_bruta_http-r3/cobertura.json"
+    },
+    "captura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/fuerza_bruta_http-r3/captura.json"
+    },
+    "reinicios": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/fuerza_bruta_http-r3/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/fuerza_bruta_http-r3/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "dns_inusual-r3",
+   "campana": "etapa4-campana-A-4c",
+   "intervalo": {
+    "inicio": 1794262656.045972,
+    "fin": 1794262746.127203
+   },
+   "rutas": {
+    "pcap": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/dns_inusual-r3/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-e4/4c/copias/eve-segmento.json",
+    "decisiones": "/home/m4rk/cf-e4/4c/copias/motor_decision.log",
+    "caracteristicas": "/home/m4rk/cf-e4/4c/analisis-v2/caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "aa5cae11a43e06b637729428a7043fa4f47a68f06a748bf3dcf3399078000744",
+    "eve": "f2f996cc5f70e04ed8397590c25046f9c0097be4a941e0484dafc5b5c61dc344",
+    "decisiones": "733d7a0cab66ef1a6358c80cc2285a6d0da8693722c11a018c5dfb49bb9267cd",
+    "caracteristicas": "9f9e83b368c12a7ee06d6291a274f083bac063b6bb02adc8371ac2a24f2cdb67"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/dns_inusual-r3/cobertura.json"
+    },
+    "captura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/dns_inusual-r3/captura.json"
+    },
+    "reinicios": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/dns_inusual-r3/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/dns_inusual-r3/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "inundacion_http-r3",
+   "campana": "etapa4-campana-A-4c",
+   "intervalo": {
+    "inicio": 1794262956.129366,
+    "fin": 1794263046.048073
+   },
+   "rutas": {
+    "pcap": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/inundacion_http-r3/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-e4/4c/copias/eve-segmento.json",
+    "decisiones": "/home/m4rk/cf-e4/4c/copias/motor_decision.log",
+    "caracteristicas": "/home/m4rk/cf-e4/4c/analisis-v2/caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "cda804c86d740866a83d2fa727e74a185bdeb3523776a35998b85d4fb1b80cfa",
+    "eve": "f2f996cc5f70e04ed8397590c25046f9c0097be4a941e0484dafc5b5c61dc344",
+    "decisiones": "733d7a0cab66ef1a6358c80cc2285a6d0da8693722c11a018c5dfb49bb9267cd",
+    "caracteristicas": "9f9e83b368c12a7ee06d6291a274f083bac063b6bb02adc8371ac2a24f2cdb67"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/inundacion_http-r3/cobertura.json"
+    },
+    "captura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/inundacion_http-r3/captura.json"
+    },
+    "reinicios": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/inundacion_http-r3/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/inundacion_http-r3/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "fuerza_bruta_http-r1",
+   "campana": "etapa4-campana-A-4c",
+   "intervalo": {
+    "inicio": 1794263256.050084,
+    "fin": 1794263346.057141
+   },
+   "rutas": {
+    "pcap": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/fuerza_bruta_http-r1/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-e4/4c/copias/eve-segmento.json",
+    "decisiones": "/home/m4rk/cf-e4/4c/copias/motor_decision.log",
+    "caracteristicas": "/home/m4rk/cf-e4/4c/analisis-v2/caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "6d848d9d6b89c95c324641e6371b36ff7299183d88c7cbc4e5948acb0bcde60f",
+    "eve": "f2f996cc5f70e04ed8397590c25046f9c0097be4a941e0484dafc5b5c61dc344",
+    "decisiones": "733d7a0cab66ef1a6358c80cc2285a6d0da8693722c11a018c5dfb49bb9267cd",
+    "caracteristicas": "9f9e83b368c12a7ee06d6291a274f083bac063b6bb02adc8371ac2a24f2cdb67"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/fuerza_bruta_http-r1/cobertura.json"
+    },
+    "captura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/fuerza_bruta_http-r1/captura.json"
+    },
+    "reinicios": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/fuerza_bruta_http-r1/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/fuerza_bruta_http-r1/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "escaneo_breve-r4",
+   "campana": "etapa4-campana-A-4c",
+   "intervalo": {
+    "inicio": 1794263556.059352,
+    "fin": 1794263560.742628
+   },
+   "rutas": {
+    "pcap": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_breve-r4/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-e4/4c/copias/eve-segmento.json",
+    "decisiones": "/home/m4rk/cf-e4/4c/copias/motor_decision.log",
+    "caracteristicas": "/home/m4rk/cf-e4/4c/analisis-v2/caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "646d46df94f8e5d8fbe6a2b86e2b1a8ca34f1521a852d5fb108a3bec83b8718b",
+    "eve": "f2f996cc5f70e04ed8397590c25046f9c0097be4a941e0484dafc5b5c61dc344",
+    "decisiones": "733d7a0cab66ef1a6358c80cc2285a6d0da8693722c11a018c5dfb49bb9267cd",
+    "caracteristicas": "9f9e83b368c12a7ee06d6291a274f083bac063b6bb02adc8371ac2a24f2cdb67"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_breve-r4/cobertura.json"
+    },
+    "captura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_breve-r4/captura.json"
+    },
+    "reinicios": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_breve-r4/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_breve-r4/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "escaneo_sostenido-r5",
+   "campana": "etapa4-campana-A-4c",
+   "intervalo": {
+    "inicio": 1794263770.74607,
+    "fin": 1794263823.659817
+   },
+   "rutas": {
+    "pcap": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_sostenido-r5/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-e4/4c/copias/eve-segmento.json",
+    "decisiones": "/home/m4rk/cf-e4/4c/copias/motor_decision.log",
+    "caracteristicas": "/home/m4rk/cf-e4/4c/analisis-v2/caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "4411ccde9974d9e643c66652ac11ceea12e0f1cac0c4ffb9f9b04680c0f44b74",
+    "eve": "f2f996cc5f70e04ed8397590c25046f9c0097be4a941e0484dafc5b5c61dc344",
+    "decisiones": "733d7a0cab66ef1a6358c80cc2285a6d0da8693722c11a018c5dfb49bb9267cd",
+    "caracteristicas": "9f9e83b368c12a7ee06d6291a274f083bac063b6bb02adc8371ac2a24f2cdb67"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_sostenido-r5/cobertura.json"
+    },
+    "captura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_sostenido-r5/captura.json"
+    },
+    "reinicios": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_sostenido-r5/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_sostenido-r5/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "fuerza_bruta_http-r5",
+   "campana": "etapa4-campana-A-4c",
+   "intervalo": {
+    "inicio": 1794264033.66228,
+    "fin": 1794264123.024053
+   },
+   "rutas": {
+    "pcap": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/fuerza_bruta_http-r5/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-e4/4c/copias/eve-segmento.json",
+    "decisiones": "/home/m4rk/cf-e4/4c/copias/motor_decision.log",
+    "caracteristicas": "/home/m4rk/cf-e4/4c/analisis-v2/caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "cd9c4cbfff16bfa0d348fd97e9b60dd8116fa3ba72a066b878f4856262c6da2b",
+    "eve": "f2f996cc5f70e04ed8397590c25046f9c0097be4a941e0484dafc5b5c61dc344",
+    "decisiones": "733d7a0cab66ef1a6358c80cc2285a6d0da8693722c11a018c5dfb49bb9267cd",
+    "caracteristicas": "9f9e83b368c12a7ee06d6291a274f083bac063b6bb02adc8371ac2a24f2cdb67"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/fuerza_bruta_http-r5/cobertura.json"
+    },
+    "captura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/fuerza_bruta_http-r5/captura.json"
+    },
+    "reinicios": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/fuerza_bruta_http-r5/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/fuerza_bruta_http-r5/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "escaneo_breve-r2",
+   "campana": "etapa4-campana-A-4c",
+   "intervalo": {
+    "inicio": 1794264333.025893,
+    "fin": 1794264338.012027
+   },
+   "rutas": {
+    "pcap": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_breve-r2/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-e4/4c/copias/eve-segmento.json",
+    "decisiones": "/home/m4rk/cf-e4/4c/copias/motor_decision.log",
+    "caracteristicas": "/home/m4rk/cf-e4/4c/analisis-v2/caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "9ad021dbdd87f8c7bfe12feface5ec904b23e1532a31ad12d5cb214bfba1eb84",
+    "eve": "f2f996cc5f70e04ed8397590c25046f9c0097be4a941e0484dafc5b5c61dc344",
+    "decisiones": "733d7a0cab66ef1a6358c80cc2285a6d0da8693722c11a018c5dfb49bb9267cd",
+    "caracteristicas": "9f9e83b368c12a7ee06d6291a274f083bac063b6bb02adc8371ac2a24f2cdb67"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_breve-r2/cobertura.json"
+    },
+    "captura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_breve-r2/captura.json"
+    },
+    "reinicios": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_breve-r2/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_breve-r2/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "fuerza_bruta_http-r2",
+   "campana": "etapa4-campana-A-4c",
+   "intervalo": {
+    "inicio": 1794264548.014867,
+    "fin": 1794264638.018266
+   },
+   "rutas": {
+    "pcap": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/fuerza_bruta_http-r2/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-e4/4c/copias/eve-segmento.json",
+    "decisiones": "/home/m4rk/cf-e4/4c/copias/motor_decision.log",
+    "caracteristicas": "/home/m4rk/cf-e4/4c/analisis-v2/caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "340863a32918d967c5a68d3cc4b1884eba2f2cd8142fcbae2d9822d30a080324",
+    "eve": "f2f996cc5f70e04ed8397590c25046f9c0097be4a941e0484dafc5b5c61dc344",
+    "decisiones": "733d7a0cab66ef1a6358c80cc2285a6d0da8693722c11a018c5dfb49bb9267cd",
+    "caracteristicas": "9f9e83b368c12a7ee06d6291a274f083bac063b6bb02adc8371ac2a24f2cdb67"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/fuerza_bruta_http-r2/cobertura.json"
+    },
+    "captura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/fuerza_bruta_http-r2/captura.json"
+    },
+    "reinicios": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/fuerza_bruta_http-r2/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/fuerza_bruta_http-r2/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "escaneo_sostenido-r2",
+   "campana": "etapa4-campana-A-4c",
+   "intervalo": {
+    "inicio": 1794264848.021028,
+    "fin": 1794264900.332526
+   },
+   "rutas": {
+    "pcap": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_sostenido-r2/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-e4/4c/copias/eve-segmento.json",
+    "decisiones": "/home/m4rk/cf-e4/4c/copias/motor_decision.log",
+    "caracteristicas": "/home/m4rk/cf-e4/4c/analisis-v2/caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "843f5f167b3a4ced79900674f6ffc6fec77d224925e33e6ad62802c3a70f3e7f",
+    "eve": "f2f996cc5f70e04ed8397590c25046f9c0097be4a941e0484dafc5b5c61dc344",
+    "decisiones": "733d7a0cab66ef1a6358c80cc2285a6d0da8693722c11a018c5dfb49bb9267cd",
+    "caracteristicas": "9f9e83b368c12a7ee06d6291a274f083bac063b6bb02adc8371ac2a24f2cdb67"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_sostenido-r2/cobertura.json"
+    },
+    "captura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_sostenido-r2/captura.json"
+    },
+    "reinicios": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_sostenido-r2/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_sostenido-r2/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "dns_inusual-r4",
+   "campana": "etapa4-campana-A-4c",
+   "intervalo": {
+    "inicio": 1794265110.335226,
+    "fin": 1794265200.299027
+   },
+   "rutas": {
+    "pcap": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/dns_inusual-r4/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-e4/4c/copias/eve-segmento.json",
+    "decisiones": "/home/m4rk/cf-e4/4c/copias/motor_decision.log",
+    "caracteristicas": "/home/m4rk/cf-e4/4c/analisis-v2/caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "202dfa476a7b79a5884b5fc8fceeec786bafe23e8a0115ba3a4b3762c8e395fb",
+    "eve": "f2f996cc5f70e04ed8397590c25046f9c0097be4a941e0484dafc5b5c61dc344",
+    "decisiones": "733d7a0cab66ef1a6358c80cc2285a6d0da8693722c11a018c5dfb49bb9267cd",
+    "caracteristicas": "9f9e83b368c12a7ee06d6291a274f083bac063b6bb02adc8371ac2a24f2cdb67"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/dns_inusual-r4/cobertura.json"
+    },
+    "captura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/dns_inusual-r4/captura.json"
+    },
+    "reinicios": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/dns_inusual-r4/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/dns_inusual-r4/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "escaneo_breve-r5",
+   "campana": "etapa4-campana-A-4c",
+   "intervalo": {
+    "inicio": 1794265410.301898,
+    "fin": 1794265414.887109
+   },
+   "rutas": {
+    "pcap": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_breve-r5/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-e4/4c/copias/eve-segmento.json",
+    "decisiones": "/home/m4rk/cf-e4/4c/copias/motor_decision.log",
+    "caracteristicas": "/home/m4rk/cf-e4/4c/analisis-v2/caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "997a098f41bc6a992cb7db4ce8890df42d4b1e0e326766ef511a137c8fd006db",
+    "eve": "f2f996cc5f70e04ed8397590c25046f9c0097be4a941e0484dafc5b5c61dc344",
+    "decisiones": "733d7a0cab66ef1a6358c80cc2285a6d0da8693722c11a018c5dfb49bb9267cd",
+    "caracteristicas": "9f9e83b368c12a7ee06d6291a274f083bac063b6bb02adc8371ac2a24f2cdb67"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_breve-r5/cobertura.json"
+    },
+    "captura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_breve-r5/captura.json"
+    },
+    "reinicios": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_breve-r5/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_breve-r5/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "inundacion_http-r2",
+   "campana": "etapa4-campana-A-4c",
+   "intervalo": {
+    "inicio": 1794265624.889782,
+    "fin": 1794265714.048927
+   },
+   "rutas": {
+    "pcap": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/inundacion_http-r2/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-e4/4c/copias/eve-segmento.json",
+    "decisiones": "/home/m4rk/cf-e4/4c/copias/motor_decision.log",
+    "caracteristicas": "/home/m4rk/cf-e4/4c/analisis-v2/caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "df61fd884c262d00d85290ff1a9c5926b8fe12413ae136dae844915587c76319",
+    "eve": "f2f996cc5f70e04ed8397590c25046f9c0097be4a941e0484dafc5b5c61dc344",
+    "decisiones": "733d7a0cab66ef1a6358c80cc2285a6d0da8693722c11a018c5dfb49bb9267cd",
+    "caracteristicas": "9f9e83b368c12a7ee06d6291a274f083bac063b6bb02adc8371ac2a24f2cdb67"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/inundacion_http-r2/cobertura.json"
+    },
+    "captura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/inundacion_http-r2/captura.json"
+    },
+    "reinicios": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/inundacion_http-r2/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/inundacion_http-r2/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "inundacion_http-r1",
+   "campana": "etapa4-campana-A-4c",
+   "intervalo": {
+    "inicio": 1794265924.052526,
+    "fin": 1794266014.02888
+   },
+   "rutas": {
+    "pcap": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/inundacion_http-r1/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-e4/4c/copias/eve-segmento.json",
+    "decisiones": "/home/m4rk/cf-e4/4c/copias/motor_decision.log",
+    "caracteristicas": "/home/m4rk/cf-e4/4c/analisis-v2/caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "094bffaf660318a97d2ff30da6edad4cde8494c3a17c31d926f72438646dc366",
+    "eve": "f2f996cc5f70e04ed8397590c25046f9c0097be4a941e0484dafc5b5c61dc344",
+    "decisiones": "733d7a0cab66ef1a6358c80cc2285a6d0da8693722c11a018c5dfb49bb9267cd",
+    "caracteristicas": "9f9e83b368c12a7ee06d6291a274f083bac063b6bb02adc8371ac2a24f2cdb67"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/inundacion_http-r1/cobertura.json"
+    },
+    "captura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/inundacion_http-r1/captura.json"
+    },
+    "reinicios": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/inundacion_http-r1/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/inundacion_http-r1/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "escaneo_sostenido-r3",
+   "campana": "etapa4-campana-A-4c",
+   "intervalo": {
+    "inicio": 1794266224.031659,
+    "fin": 1794266276.687638
+   },
+   "rutas": {
+    "pcap": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_sostenido-r3/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-e4/4c/copias/eve-segmento.json",
+    "decisiones": "/home/m4rk/cf-e4/4c/copias/motor_decision.log",
+    "caracteristicas": "/home/m4rk/cf-e4/4c/analisis-v2/caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "6b38a44f9d8c96d95f5f3c3782216bf6e6b6d09956cdd19361e13478cf472a9f",
+    "eve": "f2f996cc5f70e04ed8397590c25046f9c0097be4a941e0484dafc5b5c61dc344",
+    "decisiones": "733d7a0cab66ef1a6358c80cc2285a6d0da8693722c11a018c5dfb49bb9267cd",
+    "caracteristicas": "9f9e83b368c12a7ee06d6291a274f083bac063b6bb02adc8371ac2a24f2cdb67"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_sostenido-r3/cobertura.json"
+    },
+    "captura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_sostenido-r3/captura.json"
+    },
+    "reinicios": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_sostenido-r3/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_sostenido-r3/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "escaneo_sostenido-r1",
+   "campana": "etapa4-campana-A-4c",
+   "intervalo": {
+    "inicio": 1794266486.689998,
+    "fin": 1794266539.410366
+   },
+   "rutas": {
+    "pcap": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_sostenido-r1/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-e4/4c/copias/eve-segmento.json",
+    "decisiones": "/home/m4rk/cf-e4/4c/copias/motor_decision.log",
+    "caracteristicas": "/home/m4rk/cf-e4/4c/analisis-v2/caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "be4e29e329579670ea43623a1c149c52f86a21a9eb078f82e2ae7ba5a9100c43",
+    "eve": "f2f996cc5f70e04ed8397590c25046f9c0097be4a941e0484dafc5b5c61dc344",
+    "decisiones": "733d7a0cab66ef1a6358c80cc2285a6d0da8693722c11a018c5dfb49bb9267cd",
+    "caracteristicas": "9f9e83b368c12a7ee06d6291a274f083bac063b6bb02adc8371ac2a24f2cdb67"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_sostenido-r1/cobertura.json"
+    },
+    "captura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_sostenido-r1/captura.json"
+    },
+    "reinicios": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_sostenido-r1/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_sostenido-r1/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "dns_inusual-r2",
+   "campana": "etapa4-campana-A-4c",
+   "intervalo": {
+    "inicio": 1794266749.412954,
+    "fin": 1794266839.151883
+   },
+   "rutas": {
+    "pcap": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/dns_inusual-r2/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-e4/4c/copias/eve-segmento.json",
+    "decisiones": "/home/m4rk/cf-e4/4c/copias/motor_decision.log",
+    "caracteristicas": "/home/m4rk/cf-e4/4c/analisis-v2/caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "346cb839de693e6fb2c5f7743125fd2ac8fd10cce2590f6693bae093b2736f77",
+    "eve": "f2f996cc5f70e04ed8397590c25046f9c0097be4a941e0484dafc5b5c61dc344",
+    "decisiones": "733d7a0cab66ef1a6358c80cc2285a6d0da8693722c11a018c5dfb49bb9267cd",
+    "caracteristicas": "9f9e83b368c12a7ee06d6291a274f083bac063b6bb02adc8371ac2a24f2cdb67"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/dns_inusual-r2/cobertura.json"
+    },
+    "captura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/dns_inusual-r2/captura.json"
+    },
+    "reinicios": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/dns_inusual-r2/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/dns_inusual-r2/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "inundacion_http-r5",
+   "campana": "etapa4-campana-A-4c",
+   "intervalo": {
+    "inicio": 1794267049.154996,
+    "fin": 1794267139.064814
+   },
+   "rutas": {
+    "pcap": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/inundacion_http-r5/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-e4/4c/copias/eve-segmento.json",
+    "decisiones": "/home/m4rk/cf-e4/4c/copias/motor_decision.log",
+    "caracteristicas": "/home/m4rk/cf-e4/4c/analisis-v2/caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "114b7386121cacc7a602c2d8ada334578f7d22df8ff582f55c2dd7c7ec2c6479",
+    "eve": "f2f996cc5f70e04ed8397590c25046f9c0097be4a941e0484dafc5b5c61dc344",
+    "decisiones": "733d7a0cab66ef1a6358c80cc2285a6d0da8693722c11a018c5dfb49bb9267cd",
+    "caracteristicas": "9f9e83b368c12a7ee06d6291a274f083bac063b6bb02adc8371ac2a24f2cdb67"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/inundacion_http-r5/cobertura.json"
+    },
+    "captura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/inundacion_http-r5/captura.json"
+    },
+    "reinicios": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/inundacion_http-r5/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/inundacion_http-r5/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "dns_inusual-r5",
+   "campana": "etapa4-campana-A-4c",
+   "intervalo": {
+    "inicio": 1794267349.067385,
+    "fin": 1794267439.204775
+   },
+   "rutas": {
+    "pcap": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/dns_inusual-r5/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-e4/4c/copias/eve-segmento.json",
+    "decisiones": "/home/m4rk/cf-e4/4c/copias/motor_decision.log",
+    "caracteristicas": "/home/m4rk/cf-e4/4c/analisis-v2/caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "22ac81475a7fab08b5161613f4b13ec3b04b45b802e6ca34df51d0acc7e2ba87",
+    "eve": "f2f996cc5f70e04ed8397590c25046f9c0097be4a941e0484dafc5b5c61dc344",
+    "decisiones": "733d7a0cab66ef1a6358c80cc2285a6d0da8693722c11a018c5dfb49bb9267cd",
+    "caracteristicas": "9f9e83b368c12a7ee06d6291a274f083bac063b6bb02adc8371ac2a24f2cdb67"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/dns_inusual-r5/cobertura.json"
+    },
+    "captura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/dns_inusual-r5/captura.json"
+    },
+    "reinicios": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/dns_inusual-r5/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/dns_inusual-r5/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "escaneo_breve-r3",
+   "campana": "etapa4-campana-A-4c",
+   "intervalo": {
+    "inicio": 1794267649.207262,
+    "fin": 1794267654.192603
+   },
+   "rutas": {
+    "pcap": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_breve-r3/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-e4/4c/copias/eve-segmento.json",
+    "decisiones": "/home/m4rk/cf-e4/4c/copias/motor_decision.log",
+    "caracteristicas": "/home/m4rk/cf-e4/4c/analisis-v2/caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "41bdeeb82fd813a408346224ac7d94fb0e7f643b068d287ecbb910d8166dfae9",
+    "eve": "f2f996cc5f70e04ed8397590c25046f9c0097be4a941e0484dafc5b5c61dc344",
+    "decisiones": "733d7a0cab66ef1a6358c80cc2285a6d0da8693722c11a018c5dfb49bb9267cd",
+    "caracteristicas": "9f9e83b368c12a7ee06d6291a274f083bac063b6bb02adc8371ac2a24f2cdb67"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_breve-r3/cobertura.json"
+    },
+    "captura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_breve-r3/captura.json"
+    },
+    "reinicios": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_breve-r3/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_breve-r3/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "escaneo_breve-r1",
+   "campana": "etapa4-campana-A-4c",
+   "intervalo": {
+    "inicio": 1794267864.196008,
+    "fin": 1794267869.18292
+   },
+   "rutas": {
+    "pcap": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_breve-r1/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-e4/4c/copias/eve-segmento.json",
+    "decisiones": "/home/m4rk/cf-e4/4c/copias/motor_decision.log",
+    "caracteristicas": "/home/m4rk/cf-e4/4c/analisis-v2/caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "020775ccdfffd298927412129349d6778178748dd3a5185350a37d80158905a9",
+    "eve": "f2f996cc5f70e04ed8397590c25046f9c0097be4a941e0484dafc5b5c61dc344",
+    "decisiones": "733d7a0cab66ef1a6358c80cc2285a6d0da8693722c11a018c5dfb49bb9267cd",
+    "caracteristicas": "9f9e83b368c12a7ee06d6291a274f083bac063b6bb02adc8371ac2a24f2cdb67"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_breve-r1/cobertura.json"
+    },
+    "captura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_breve-r1/captura.json"
+    },
+    "reinicios": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_breve-r1/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_breve-r1/relojes.json"
+    }
+   }
+  },
+  {
+   "episodio_id": "escaneo_sostenido-r4",
+   "campana": "etapa4-campana-A-4c",
+   "intervalo": {
+    "inicio": 1794268079.185153,
+    "fin": 1794268131.631119
+   },
+   "rutas": {
+    "pcap": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_sostenido-r4/pcap-manifiesto.json",
+    "eve": "/home/m4rk/cf-e4/4c/copias/eve-segmento.json",
+    "decisiones": "/home/m4rk/cf-e4/4c/copias/motor_decision.log",
+    "caracteristicas": "/home/m4rk/cf-e4/4c/analisis-v2/caracteristicas.jsonl"
+   },
+   "hashes_esperados": {
+    "pcap": "44ffd5eb6dcc6d9f85b173b4689d4c56b79e589b148f515d164888a0509c7eb3",
+    "eve": "f2f996cc5f70e04ed8397590c25046f9c0097be4a941e0484dafc5b5c61dc344",
+    "decisiones": "733d7a0cab66ef1a6358c80cc2285a6d0da8693722c11a018c5dfb49bb9267cd",
+    "caracteristicas": "9f9e83b368c12a7ee06d6291a274f083bac063b6bb02adc8371ac2a24f2cdb67"
+   },
+   "respaldos": {
+    "cobertura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_sostenido-r4/cobertura.json"
+    },
+    "captura": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_sostenido-r4/captura.json"
+    },
+    "reinicios": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_sostenido-r4/reinicios.json"
+    },
+    "relojes": {
+     "ruta": "/home/m4rk/cf-e4/4c/analisis-v2/respaldos/escaneo_sostenido-r4/relojes.json"
+    }
+   }
+  }
+ ]
+}
