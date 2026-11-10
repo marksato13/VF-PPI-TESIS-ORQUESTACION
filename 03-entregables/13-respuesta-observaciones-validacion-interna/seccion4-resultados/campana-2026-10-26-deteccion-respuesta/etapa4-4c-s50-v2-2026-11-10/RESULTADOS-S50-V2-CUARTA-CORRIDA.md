@@ -1,6 +1,6 @@
 # Resultados de `s50` v2 sobre la cuarta corrida de la Campaña A (10-nov-2026)
 
-**Estado:** análisis completo sobre las copias (sin tocar la captura ni la v1). Sombra: nadie aplicó respuesta («respuesta aplicada» = no medida). Commit local, **no publicado**. Los resultados son de **una** corrida de 25 episodios (5 por familia) en un laboratorio, con α **sin elegir**.
+**Estado:** análisis completo sobre las copias (sin tocar la captura ni la v1). Sombra: nadie aplicó respuesta («respuesta aplicada» = no medida). Publicado en `main` el 10-nov-2026. La conclusión sobre el escaneo breve se refiere a las siete configuraciones por ventana de la tabla; la vía rápida se presenta aparte en [`ADENDA-VIA-RAPIDA-ESCANEOS.md`](ADENDA-VIA-RAPIDA-ESCANEOS.md). Los resultados son de **una** corrida de 25 episodios (5 por familia) en un laboratorio, con α **sin elegir**.
 
 ## Ejecución
 - **Código de salida: 0** («ANÁLISIS COMPLETO» 2026-11-10T04:33:08.766Z); 15 pasos OK (`a1 a2 a3 b c 1 2 3 d 4 5 6 7 8 9`), 0 fallidos. `SHA256SUMS` de `analisis-v2` (primera línea `# COMPLETO …`) verifica con 0 discrepancias.
@@ -49,7 +49,7 @@ Categorías por episodio: **oportuna** (alerta dentro del horizonte), **solo_pos
 | IF 0,01 | no_evaluable | no_evaluable | solo_posterior | no_evaluable |
 | HEUR / HIB 0,01 | solo_posterior | solo_posterior | solo_posterior | solo_posterior |
 
-Lectura: el barrido breve (~5 s) casi nunca se detecta a tiempo con ninguna configuración; solo r3 lo hace con α = 0,05. Es una observación sobre 4 episodios sin observación completa: **no concluye**.
+Lectura: el barrido breve (~5 s) casi nunca se detecta a tiempo con **ninguna de las siete configuraciones de esta tabla** (todas por ventana de 10 s); solo r3 lo hace con α = 0,05. **No describe a la vía rápida** (`port_scan_temprano`), que emitió una señal a 0,37–1,16 s en los cinco escaneos breves: ver la adenda, donde además se distingue la señal temprana de una restricción aplicada. Es una observación sobre 4 episodios sin observación completa: **no concluye**.
 
 ### Control (tráfico legítimo, 21:23–21:53Z): falsas alarmas
 Población C0 completa del control: **2 218 ventanas**, todas C0 (Suricata sin descartes). Es una medida distinta de la principal de episodios y no depende de la exclusión de los escaneos breves.
