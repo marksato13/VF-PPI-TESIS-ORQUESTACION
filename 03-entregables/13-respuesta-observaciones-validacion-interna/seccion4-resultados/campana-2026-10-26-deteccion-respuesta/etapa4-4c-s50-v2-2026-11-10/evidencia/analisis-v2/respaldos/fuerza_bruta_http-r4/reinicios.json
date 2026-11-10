@@ -1,0 +1,15 @@
+{
+ "campana": "etapa4-campana-A-4c",
+ "episodio": "fuerza_bruta_http-r4",
+ "periodo": {
+  "inicio": 1794261636.048134,
+  "fin": 1794261936.046153
+ },
+ "origen": "sensor (automatico)",
+ "fuente": "systemctl show al inicio y al final",
+ "reinicios": {
+  "motor": [],
+  "captura": [],
+  "suricata": []
+ }
+}

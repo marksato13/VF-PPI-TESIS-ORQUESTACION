@@ -1,0 +1,15 @@
+episodio | duración s | ancla_esperada/observada | durante_completa | motivo | comando
+escaneo_breve-r1 | 5.0 | 0/0 | False | faltan 0 de 0 anclas de la Kali durante el ataque (pérdida de datos) | motor_continuo=True hueco_motor_max=11.0
+escaneo_breve-r2 | 5.0 | 0/0 | False | faltan 0 de 0 anclas de la Kali durante el ataque (pérdida de datos) | motor_continuo=True hueco_motor_max=10.8
+escaneo_breve-r3 | 5.0 | 0/0 | False | faltan 0 de 0 anclas de la Kali durante el ataque (pérdida de datos) | motor_continuo=True hueco_motor_max=15.0
+escaneo_breve-r4 | 4.7 | 1/1 | True | ok | motor_continuo=True hueco_motor_max=10.9
+escaneo_breve-r5 | 4.6 | 0/0 | False | faltan 0 de 0 anclas de la Kali durante el ataque (pérdida de datos) | motor_continuo=True hueco_motor_max=10.4
+comando: nmap -sT -n -T4 --max-retries 1 -p 1-1000 10.10.30.10
+r1 requisitos no verificados: {'cobertura_durante': 'ausente'} | apto: False
+r2 requisitos no verificados: {'cobertura_durante': 'ausente'} | apto: False
+r3 requisitos no verificados: {'cobertura_durante': 'ausente'} | apto: False
+r5 requisitos no verificados: {'cobertura_durante': 'ausente'} | apto: False
+sostenido duraciones: [52.7, 52.3, 52.7, 52.4, 52.9]
+358:def cobertura(ep: dict, regs_global: list, regs_kali: list, no_eval_kali=()) -> dict:
+394:           "anclas_ataque_esperadas": len(esperadas), "anclas_ataque_observadas": len(esperadas) - len(faltan),
+## r4 rc=0 (sed=0 ssh=0 tee=0) 2026-11-10T04:35:46.399Z

@@ -1,0 +1,22 @@
+{
+ "fuente": "lecturas SIGUSR1 de tcpdump (ppi-motor-capture.service) archivadas por s40 en tcpdump-anillo.log",
+ "version": "2026-11-10.1",
+ "pid": 1440,
+ "proceso_desde": 1794252492.0,
+ "momento": 1794270480.207006,
+ "packets_captured": 10999828,
+ "packets_received_by_filter": 10999931,
+ "dropped_by_kernel": 0,
+ "lecturas": 449,
+ "alcance": "contador acumulado del proceso tcpdump desde su arranque; no cubre pérdidas aguas arriba (switch/SPAN)",
+ "primera_lectura": 1794257041.015855,
+ "ultima_lectura": 1794270480.207006,
+ "hueco_max_s": 31.0,
+ "maximo_dropped": 0,
+ "validaciones": [
+  "servicio: mismo MainPID 1440, mismo ActiveEnterTimestamp y NRestarts al inicio y al fin",
+  "449 lecturas de un único PID 1440",
+  "contadores crecientes; última lectura 0 descartados"
+ ],
+ "motivos_no_medido": []
+}

@@ -1,0 +1,2327 @@
+{
+ "dns_inusual-r1": {
+  "if_heur": {
+   "acotado_por": [
+    1794261991.618,
+    1794262213.581
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.325,
+    "suricata": {
+     "acotado_por": [
+      1794261989.659529,
+      1794262213.682108
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 105082
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794261990.433295,
+     "hasta": 1794262230.236965,
+     "lecturas": 9,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1440,
+     "pids": [
+      1440
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.01,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794261996.049274,
+    1794262206.379944
+   ]
+  },
+  "suricata_estado": "cero_explicito",
+  "via_rapida": {
+   "acotado_por": [
+    1794261991.618,
+    1794262213.581
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.325,
+    "suricata": {
+     "acotado_por": [
+      1794261989.659529,
+      1794262213.682108
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 105082
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794261990.476285,
+     "hasta": 1794262230.290283,
+     "lecturas": 9,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1473,
+     "pids": [
+      1473
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.01,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794261996.049274,
+    1794262206.379944
+   ]
+  }
+ },
+ "dns_inusual-r2": {
+  "if_heur": {
+   "acotado_por": [
+    1794266680.564,
+    1794266902.81
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.339,
+    "suricata": {
+     "acotado_por": [
+      1794266686.318536,
+      1794266902.34303
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 99528
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794266670.248435,
+     "hasta": 1794266910.934442,
+     "lecturas": 9,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1440,
+     "pids": [
+      1440
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.039,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794266689.412954,
+    1794266899.151883
+   ]
+  },
+  "suricata_estado": "cero_explicito",
+  "via_rapida": {
+   "acotado_por": [
+    1794266680.564,
+    1794266902.81
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.339,
+    "suricata": {
+     "acotado_por": [
+      1794266686.318536,
+      1794266902.34303
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 99528
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794266670.304263,
+     "hasta": 1794266910.980094,
+     "lecturas": 9,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1473,
+     "pids": [
+      1473
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.039,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794266689.412954,
+    1794266899.151883
+   ]
+  }
+ },
+ "dns_inusual-r3": {
+  "if_heur": {
+   "acotado_por": [
+    1794262587.296,
+    1794262809.296
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.331,
+    "suricata": {
+     "acotado_por": [
+      1794262589.729452,
+      1794262813.755195
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 111562
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794262591.018443,
+     "hasta": 1794262830.278351,
+     "lecturas": 9,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1440,
+     "pids": [
+      1440
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.003,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794262596.045972,
+    1794262806.127203
+   ]
+  },
+  "suricata_estado": "cero_explicito",
+  "via_rapida": {
+   "acotado_por": [
+    1794262587.296,
+    1794262809.296
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.331,
+    "suricata": {
+     "acotado_por": [
+      1794262589.729452,
+      1794262813.755195
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 111562
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794262591.058812,
+     "hasta": 1794262830.321515,
+     "lecturas": 9,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1473,
+     "pids": [
+      1473
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.003,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794262596.045972,
+    1794262806.127203
+   ]
+  }
+ },
+ "dns_inusual-r4": {
+  "if_heur": {
+   "acotado_por": [
+    1794265042.296,
+    1794265264.552
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.456,
+    "suricata": {
+     "acotado_por": [
+      1794265046.063655,
+      1794265262.089662
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 101404
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794265021.018577,
+     "hasta": 1794265260.482603,
+     "lecturas": 9,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1440,
+     "pids": [
+      1440
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.007,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794265050.335226,
+    1794265260.299027
+   ]
+  },
+  "suricata_estado": "cero_explicito",
+  "via_rapida": {
+   "acotado_por": [
+    1794265042.296,
+    1794265264.552
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.456,
+    "suricata": {
+     "acotado_por": [
+      1794265046.063655,
+      1794265262.089662
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 101404
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794265021.072398,
+     "hasta": 1794265260.525238,
+     "lecturas": 9,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1473,
+     "pids": [
+      1473
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.007,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794265050.335226,
+    1794265260.299027
+   ]
+  }
+ },
+ "dns_inusual-r5": {
+  "if_heur": {
+   "acotado_por": [
+    1794267287.648,
+    1794267499.867
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.44,
+    "suricata": {
+     "acotado_por": [
+      1794267286.419612,
+      1794267502.442709
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 129215
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794267270.496286,
+     "hasta": 1794267510.031889,
+     "lecturas": 9,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1440,
+     "pids": [
+      1440
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.008,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794267289.067385,
+    1794267499.204775
+   ]
+  },
+  "suricata_estado": "cero_explicito",
+  "via_rapida": {
+   "acotado_por": [
+    1794267287.648,
+    1794267499.867
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.44,
+    "suricata": {
+     "acotado_por": [
+      1794267286.419612,
+      1794267502.442709
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 129215
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794267270.543039,
+     "hasta": 1794267510.076439,
+     "lecturas": 9,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1473,
+     "pids": [
+      1473
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.008,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794267289.067385,
+    1794267499.204775
+   ]
+  }
+ },
+ "escaneo_breve-r1": {
+  "if_heur": {
+   "acotado_por": [
+    1794267803.104,
+    1794267934.736
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.478,
+    "suricata": {
+     "acotado_por": [
+      1794267798.475639,
+      1794267934.492605
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 88222
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794267780.484974,
+     "hasta": 1794267930.237201,
+     "lecturas": 6,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1440,
+     "pids": [
+      1440
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.018,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794267804.196008,
+    1794267929.18292
+   ]
+  },
+  "suricata_estado": "cero_explicito",
+  "via_rapida": {
+   "acotado_por": [
+    1794267803.104,
+    1794267934.736
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.478,
+    "suricata": {
+     "acotado_por": [
+      1794267798.475639,
+      1794267934.492605
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 88222
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794267780.527258,
+     "hasta": 1794267930.283861,
+     "lecturas": 6,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1473,
+     "pids": [
+      1473
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.018,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794267804.196008,
+    1794267929.18292
+   ]
+  }
+ },
+ "escaneo_breve-r2": {
+  "if_heur": {
+   "acotado_por": [
+    1794264264.18,
+    1794264405.606
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.37,
+    "suricata": {
+     "acotado_por": [
+      1794264269.971824,
+      1794264405.985403
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 63081
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794264270.483637,
+     "hasta": 1794264420.561042,
+     "lecturas": 6,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1440,
+     "pids": [
+      1440
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.031,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794264273.025893,
+    1794264398.012027
+   ]
+  },
+  "suricata_estado": "cero_explicito",
+  "via_rapida": {
+   "acotado_por": [
+    1794264264.18,
+    1794264405.606
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.37,
+    "suricata": {
+     "acotado_por": [
+      1794264269.971824,
+      1794264405.985403
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 63081
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794264270.527646,
+     "hasta": 1794264420.601725,
+     "lecturas": 6,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1473,
+     "pids": [
+      1473
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.031,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794264273.025893,
+    1794264398.012027
+   ]
+  }
+ },
+ "escaneo_breve-r3": {
+  "if_heur": {
+   "acotado_por": [
+    1794267580.677,
+    1794267722.204
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.319,
+    "suricata": {
+     "acotado_por": [
+      1794267582.450614,
+      1794267718.466459
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 76937
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794267570.634814,
+     "hasta": 1794267720.486926,
+     "lecturas": 6,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1440,
+     "pids": [
+      1440
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.018,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794267589.207262,
+    1794267714.192603
+   ]
+  },
+  "suricata_estado": "cero_explicito",
+  "via_rapida": {
+   "acotado_por": [
+    1794267580.677,
+    1794267722.204
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.319,
+    "suricata": {
+     "acotado_por": [
+      1794267582.450614,
+      1794267718.466459
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 76937
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794267570.680844,
+     "hasta": 1794267720.537328,
+     "lecturas": 6,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1473,
+     "pids": [
+      1473
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.018,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794267589.207262,
+    1794267714.192603
+   ]
+  }
+ },
+ "escaneo_breve-r4": {
+  "if_heur": {
+   "acotado_por": [
+    1794263486.232,
+    1794263627.79
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.379,
+    "suricata": {
+     "acotado_por": [
+      1794263493.861974,
+      1794263621.879507
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 50462
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794263490.485903,
+     "hasta": 1794263640.231683,
+     "lecturas": 6,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1440,
+     "pids": [
+      1440
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.029,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794263496.059352,
+    1794263620.742628
+   ]
+  },
+  "suricata_estado": "cero_explicito",
+  "via_rapida": {
+   "acotado_por": [
+    1794263486.232,
+    1794263627.79
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.379,
+    "suricata": {
+     "acotado_por": [
+      1794263493.861974,
+      1794263621.879507
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 50462
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794263490.528812,
+     "hasta": 1794263640.278955,
+     "lecturas": 6,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1473,
+     "pids": [
+      1473
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.029,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794263496.059352,
+    1794263620.742628
+   ]
+  }
+ },
+ "escaneo_breve-r5": {
+  "if_heur": {
+   "acotado_por": [
+    1794265345.371,
+    1794265476.701
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.49,
+    "suricata": {
+     "acotado_por": [
+      1794265350.099949,
+      1794265478.117471
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 49281
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794265350.235522,
+     "hasta": 1794265501.025009,
+     "lecturas": 6,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1440,
+     "pids": [
+      1440
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.022,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794265350.301898,
+    1794265474.887109
+   ]
+  },
+  "suricata_estado": "cero_explicito",
+  "via_rapida": {
+   "acotado_por": [
+    1794265345.371,
+    1794265476.701
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.49,
+    "suricata": {
+     "acotado_por": [
+      1794265350.099949,
+      1794265478.117471
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 49281
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794265350.288058,
+     "hasta": 1794265501.063483,
+     "lecturas": 6,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1473,
+     "pids": [
+      1473
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.022,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794265350.301898,
+    1794265474.887109
+   ]
+  }
+ },
+ "escaneo_sostenido-r1": {
+  "if_heur": {
+   "acotado_por": [
+    1794266417.424,
+    1794266599.582
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.357,
+    "suricata": {
+     "acotado_por": [
+      1794266422.257481,
+      1794266606.29271
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 163968
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794266401.039788,
+     "hasta": 1794266610.252758,
+     "lecturas": 8,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1440,
+     "pids": [
+      1440
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": 0.016,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794266426.689998,
+    1794266599.410366
+   ]
+  },
+  "suricata_estado": "cero_explicito",
+  "via_rapida": {
+   "acotado_por": [
+    1794266417.424,
+    1794266599.582
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.357,
+    "suricata": {
+     "acotado_por": [
+      1794266422.257481,
+      1794266606.29271
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 163968
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794266401.079541,
+     "hasta": 1794266610.311969,
+     "lecturas": 8,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1473,
+     "pids": [
+      1473
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": 0.016,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794266426.689998,
+    1794266599.410366
+   ]
+  }
+ },
+ "escaneo_sostenido-r2": {
+  "if_heur": {
+   "acotado_por": [
+    1794264779.574,
+    1794264961.548
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.32,
+    "suricata": {
+     "acotado_por": [
+      1794264782.03171,
+      1794264966.054563
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 153901
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794264780.337891,
+     "hasta": 1794264961.020401,
+     "lecturas": 7,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1440,
+     "pids": [
+      1440
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": 0.06,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794264788.021028,
+    1794264960.332526
+   ]
+  },
+  "suricata_estado": "cero_explicito",
+  "via_rapida": {
+   "acotado_por": [
+    1794264779.574,
+    1794264961.548
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.32,
+    "suricata": {
+     "acotado_por": [
+      1794264782.03171,
+      1794264966.054563
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 153901
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794264780.380682,
+     "hasta": 1794264961.061383,
+     "lecturas": 7,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1473,
+     "pids": [
+      1473
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": 0.06,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794264788.021028,
+    1794264960.332526
+   ]
+  }
+ },
+ "escaneo_sostenido-r3": {
+  "if_heur": {
+   "acotado_por": [
+    1794266154.743,
+    1794266346.606
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.361,
+    "suricata": {
+     "acotado_por": [
+      1794266158.221558,
+      1794266342.247649
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 194041
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794266161.01958,
+     "hasta": 1794266341.028225,
+     "lecturas": 7,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1440,
+     "pids": [
+      1440
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": 0.06,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794266164.031659,
+    1794266336.687638
+   ]
+  },
+  "suricata_estado": "cero_explicito",
+  "via_rapida": {
+   "acotado_por": [
+    1794266154.743,
+    1794266346.606
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.361,
+    "suricata": {
+     "acotado_por": [
+      1794266158.221558,
+      1794266342.247649
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 194041
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794266161.062054,
+     "hasta": 1794266341.080168,
+     "lecturas": 7,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1473,
+     "pids": [
+      1473
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": 0.06,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794266164.031659,
+    1794266336.687638
+   ]
+  }
+ },
+ "escaneo_sostenido-r4": {
+  "if_heur": {
+   "acotado_por": [
+    1794268015.522,
+    1794268197.711
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.297,
+    "suricata": {
+     "acotado_por": [
+      1794268014.501309,
+      1794268198.525326
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 182662
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794267991.026455,
+     "hasta": 1794268201.034328,
+     "lecturas": 8,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1440,
+     "pids": [
+      1440
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": 0.027,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794268019.185153,
+    1794268191.631119
+   ]
+  },
+  "suricata_estado": "cero_explicito",
+  "via_rapida": {
+   "acotado_por": [
+    1794268015.522,
+    1794268197.711
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.297,
+    "suricata": {
+     "acotado_por": [
+      1794268014.501309,
+      1794268198.525326
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 182662
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794267991.070464,
+     "hasta": 1794268201.088834,
+     "lecturas": 8,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1473,
+     "pids": [
+      1473
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": 0.027,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794268019.185153,
+    1794268191.631119
+   ]
+  }
+ },
+ "escaneo_sostenido-r5": {
+  "if_heur": {
+   "acotado_por": [
+    1794263708.546,
+    1794263890.272
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.447,
+    "suricata": {
+     "acotado_por": [
+      1794263709.890166,
+      1794263885.9143
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 141686
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794263700.488286,
+     "hasta": 1794263910.230378,
+     "lecturas": 8,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1440,
+     "pids": [
+      1440
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": 0.048,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794263710.74607,
+    1794263883.659817
+   ]
+  },
+  "suricata_estado": "cero_explicito",
+  "via_rapida": {
+   "acotado_por": [
+    1794263708.546,
+    1794263890.272
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.447,
+    "suricata": {
+     "acotado_por": [
+      1794263709.890166,
+      1794263885.9143
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 141686
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794263700.528059,
+     "hasta": 1794263910.275589,
+     "lecturas": 8,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1473,
+     "pids": [
+      1473
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": 0.048,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794263710.74607,
+    1794263883.659817
+   ]
+  }
+ },
+ "fuerza_bruta_http-r1": {
+  "if_heur": {
+   "acotado_por": [
+    1794263193.312,
+    1794263415.541
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.303,
+    "suricata": {
+     "acotado_por": [
+      1794263189.801534,
+      1794263413.850579
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 280787
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794263191.019391,
+     "hasta": 1794263430.238717,
+     "lecturas": 9,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1440,
+     "pids": [
+      1440
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.037,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794263196.050084,
+    1794263406.057141
+   ]
+  },
+  "suricata_estado": "cero_explicito",
+  "via_rapida": {
+   "acotado_por": [
+    1794263193.312,
+    1794263415.541
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.303,
+    "suricata": {
+     "acotado_por": [
+      1794263189.801534,
+      1794263413.850579
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 280787
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794263191.060674,
+     "hasta": 1794263430.289936,
+     "lecturas": 9,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1473,
+     "pids": [
+      1473
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.037,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794263196.050084,
+    1794263406.057141
+   ]
+  }
+ },
+ "fuerza_bruta_http-r2": {
+  "if_heur": {
+   "acotado_por": [
+    1794264486.342,
+    1794264698.753
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.374,
+    "suricata": {
+     "acotado_por": [
+      1794264485.994546,
+      1794264702.02148
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 248997
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794264481.021923,
+     "hasta": 1794264720.288666,
+     "lecturas": 9,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1440,
+     "pids": [
+      1440
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.029,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794264488.014867,
+    1794264698.018266
+   ]
+  },
+  "suricata_estado": "cero_explicito",
+  "via_rapida": {
+   "acotado_por": [
+    1794264486.342,
+    1794264698.753
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.374,
+    "suricata": {
+     "acotado_por": [
+      1794264485.994546,
+      1794264702.02148
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 248997
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794264481.062817,
+     "hasta": 1794264720.330234,
+     "lecturas": 9,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1473,
+     "pids": [
+      1473
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.029,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794264488.014867,
+    1794264698.018266
+   ]
+  }
+ },
+ "fuerza_bruta_http-r3": {
+  "if_heur": {
+   "acotado_por": [
+    1794262294.308,
+    1794262506.549
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.31,
+    "suricata": {
+     "acotado_por": [
+      1794262293.693093,
+      1794262509.720832
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 270622
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794262290.23445,
+     "hasta": 1794262530.246729,
+     "lecturas": 9,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1440,
+     "pids": [
+      1440
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.021,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794262296.382544,
+    1794262506.043197
+   ]
+  },
+  "suricata_estado": "cero_explicito",
+  "via_rapida": {
+   "acotado_por": [
+    1794262294.308,
+    1794262506.549
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.31,
+    "suricata": {
+     "acotado_por": [
+      1794262293.693093,
+      1794262509.720832
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 270622
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794262290.27593,
+     "hasta": 1794262530.315682,
+     "lecturas": 9,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1473,
+     "pids": [
+      1473
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.021,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794262296.382544,
+    1794262506.043197
+   ]
+  }
+ },
+ "fuerza_bruta_http-r4": {
+  "if_heur": {
+   "acotado_por": [
+    1794261688.513,
+    1794261910.899
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.385,
+    "suricata": {
+     "acotado_por": [
+      1794261693.622758,
+      1794261909.650031
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 266775
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794261690.487143,
+     "hasta": 1794261931.018866,
+     "lecturas": 9,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1440,
+     "pids": [
+      1440
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.031,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794261696.048134,
+    1794261906.046153
+   ]
+  },
+  "suricata_estado": "cero_explicito",
+  "via_rapida": {
+   "acotado_por": [
+    1794261688.513,
+    1794261910.899
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.385,
+    "suricata": {
+     "acotado_por": [
+      1794261693.622758,
+      1794261909.650031
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 266775
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794261690.527519,
+     "hasta": 1794261931.059125,
+     "lecturas": 9,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1473,
+     "pids": [
+      1473
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.031,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794261696.048134,
+    1794261906.046153
+   ]
+  }
+ },
+ "fuerza_bruta_http-r5": {
+  "if_heur": {
+   "acotado_por": [
+    1794263971.037,
+    1794264183.261
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.363,
+    "suricata": {
+     "acotado_por": [
+      1794263965.924262,
+      1794264189.961329
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 261775
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794263970.729891,
+     "hasta": 1794264210.489699,
+     "lecturas": 9,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1440,
+     "pids": [
+      1440
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.011,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794263973.66228,
+    1794264183.024053
+   ]
+  },
+  "suricata_estado": "cero_explicito",
+  "via_rapida": {
+   "acotado_por": [
+    1794263971.037,
+    1794264183.261
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.363,
+    "suricata": {
+     "acotado_por": [
+      1794263965.924262,
+      1794264189.961329
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 261775
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794263970.794182,
+     "hasta": 1794264210.539069,
+     "lecturas": 9,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1473,
+     "pids": [
+      1473
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.011,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794263973.66228,
+    1794264183.024053
+   ]
+  }
+ },
+ "inundacion_http-r1": {
+  "if_heur": {
+   "acotado_por": [
+    1794265860.684,
+    1794266083.84
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 2.661,
+    "suricata": {
+     "acotado_por": [
+      1794265862.173598,
+      1794266078.211471
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 493581
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794265860.492751,
+     "hasta": 1794266100.505633,
+     "lecturas": 9,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1440,
+     "pids": [
+      1440
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.012,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794265864.052526,
+    1794266074.02888
+   ]
+  },
+  "suricata_estado": "cero_explicito",
+  "via_rapida": {
+   "acotado_por": [
+    1794265860.684,
+    1794266083.84
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 2.661,
+    "suricata": {
+     "acotado_por": [
+      1794265862.173598,
+      1794266078.211471
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 493581
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794265860.551239,
+     "hasta": 1794266100.550327,
+     "lecturas": 9,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1473,
+     "pids": [
+      1473
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.012,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794265864.052526,
+    1794266074.02888
+   ]
+  }
+ },
+ "inundacion_http-r2": {
+  "if_heur": {
+   "acotado_por": [
+    1794265557.414,
+    1794265779.834
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.687,
+    "suricata": {
+     "acotado_por": [
+      1794265558.125258,
+      1794265774.154722
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 479711
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794265560.705535,
+     "hasta": 1794265800.132517,
+     "lecturas": 9,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1440,
+     "pids": [
+      1440
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.007,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794265564.889782,
+    1794265774.048927
+   ]
+  },
+  "suricata_estado": "cero_explicito",
+  "via_rapida": {
+   "acotado_por": [
+    1794265557.414,
+    1794265779.834
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.687,
+    "suricata": {
+     "acotado_por": [
+      1794265558.125258,
+      1794265774.154722
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 479711
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794265560.747472,
+     "hasta": 1794265800.183651,
+     "lecturas": 9,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1473,
+     "pids": [
+      1473
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.007,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794265564.889782,
+    1794265774.048927
+   ]
+  }
+ },
+ "inundacion_http-r3": {
+  "if_heur": {
+   "acotado_por": [
+    1794262890.075,
+    1794263112.563
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.308,
+    "suricata": {
+     "acotado_por": [
+      1794262893.764219,
+      1794263109.791857
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 467604
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794262890.152206,
+     "hasta": 1794263131.020042,
+     "lecturas": 9,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1440,
+     "pids": [
+      1440
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": 0.019,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794262896.129366,
+    1794263106.048073
+   ]
+  },
+  "suricata_estado": "cero_explicito",
+  "via_rapida": {
+   "acotado_por": [
+    1794262890.075,
+    1794263112.563
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.308,
+    "suricata": {
+     "acotado_por": [
+      1794262893.764219,
+      1794263109.791857
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 467604
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794262890.198264,
+     "hasta": 1794263131.062679,
+     "lecturas": 9,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1473,
+     "pids": [
+      1473
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": 0.019,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794262896.129366,
+    1794263106.048073
+   ]
+  }
+ },
+ "inundacion_http-r4": {
+  "if_heur": {
+   "acotado_por": [
+    1794261395.801,
+    1794261607.769
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.284,
+    "suricata": {
+     "acotado_por": [
+      1794261389.587013,
+      1794261613.612384
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 510208
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794261391.020651,
+     "hasta": 1794261630.23469,
+     "lecturas": 9,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1440,
+     "pids": [
+      1440
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.013,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794261396.046386,
+    1794261606.044963
+   ]
+  },
+  "suricata_estado": "cero_explicito",
+  "via_rapida": {
+   "acotado_por": [
+    1794261395.801,
+    1794261607.769
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 1.284,
+    "suricata": {
+     "acotado_por": [
+      1794261389.587013,
+      1794261613.612384
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 510208
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794261391.061668,
+     "hasta": 1794261630.282348,
+     "lecturas": 9,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1473,
+     "pids": [
+      1473
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.013,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794261396.046386,
+    1794261606.044963
+   ]
+  }
+ },
+ "inundacion_http-r5": {
+  "if_heur": {
+   "acotado_por": [
+    1794266983.61,
+    1794267206.577
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 3.924,
+    "suricata": {
+     "acotado_por": [
+      1794266982.351769,
+      1794267206.408583
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 505944
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794266971.022479,
+     "hasta": 1794267210.248559,
+     "lecturas": 9,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1440,
+     "pids": [
+      1440
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.013,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794266989.154996,
+    1794267199.064814
+   ]
+  },
+  "suricata_estado": "cero_explicito",
+  "via_rapida": {
+   "acotado_por": [
+    1794266983.61,
+    1794267206.577
+   ],
+   "clase": "C0",
+   "info": {
+    "motor_retraso_pcap_max_s": 3.924,
+    "suricata": {
+     "acotado_por": [
+      1794266982.351769,
+      1794267206.408583
+     ],
+     "descartes": 0,
+     "descartes_parciales": 0,
+     "estado": "cero_explicito",
+     "fuente": "eve_stats",
+     "motivos": [],
+     "paquetes": 505944
+    },
+    "tcpdump": {
+     "descartados_kernel": 0,
+     "desde": 1794266971.069723,
+     "hasta": 1794267210.356299,
+     "lecturas": 9,
+     "lecturas_sin_hora_o_pid": 0,
+     "limite_s": 32.0,
+     "motivos_c3": [],
+     "ok": true,
+     "pid": 1473,
+     "pids": [
+      1473
+     ]
+    },
+    "via_rapida": {
+     "antiguedad_max_s": -0.013,
+     "medida": true
+    }
+   },
+   "motivos": [],
+   "periodo": [
+    1794266989.154996,
+    1794267199.064814
+   ]
+  }
+ }
+}

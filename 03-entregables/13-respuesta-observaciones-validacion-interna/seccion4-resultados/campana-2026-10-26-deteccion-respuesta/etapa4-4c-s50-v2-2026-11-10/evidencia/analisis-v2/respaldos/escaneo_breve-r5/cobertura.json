@@ -1,0 +1,32 @@
+{
+ "campana": "etapa4-campana-A-4c",
+ "episodio": "escaneo_breve-r5",
+ "periodo": {
+  "inicio": 1794265290.301898,
+  "fin": 1794265504.887109
+ },
+ "origen": "sensor (automatico)",
+ "fuente": "motor_decision.log + secuencia de PCAP archivados",
+ "previa_s": 894.3,
+ "posterior_s": 896.1,
+ "detalle": {
+  "motor_previa_s": 894.3,
+  "motor_posterior_desde_fin_mas_60_s": 887.7,
+  "pcap_previa_s": 896.3,
+  "pcap_posterior_s": 896.1,
+  "hueco_motor_max_s": 10.37321424484253,
+  "analizar_cobertura": {
+   "suficiente": false,
+   "motivo": "faltan 0 de 0 anclas de la Kali durante el ataque (pérdida de datos)",
+   "motor_continuo": true,
+   "anclas_ataque_esperadas": 0,
+   "anclas_ataque_observadas": 0,
+   "hueco_motor_max_s": 10.4,
+   "cubre_inicio": true,
+   "cubre_fin_mas_60": true
+  }
+ },
+ "durante_completa": false,
+ "faltantes": [],
+ "continuidad_sin_huecos": true
+}

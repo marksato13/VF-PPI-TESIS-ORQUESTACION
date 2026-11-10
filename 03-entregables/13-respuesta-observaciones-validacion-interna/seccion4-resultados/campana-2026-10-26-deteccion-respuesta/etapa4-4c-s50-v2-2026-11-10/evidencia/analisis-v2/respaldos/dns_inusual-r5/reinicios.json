@@ -1,0 +1,15 @@
+{
+ "campana": "etapa4-campana-A-4c",
+ "episodio": "dns_inusual-r5",
+ "periodo": {
+  "inicio": 1794267229.067385,
+  "fin": 1794267529.204775
+ },
+ "origen": "sensor (automatico)",
+ "fuente": "systemctl show al inicio y al final",
+ "reinicios": {
+  "motor": [],
+  "captura": [],
+  "suricata": []
+ }
+}

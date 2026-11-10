@@ -1,0 +1,15 @@
+{
+ "campana": "etapa4-campana-A-4c",
+ "episodio": "inundacion_http-r4",
+ "periodo": {
+  "inicio": 1794261336.046386,
+  "fin": 1794261636.044963
+ },
+ "origen": "sensor (automatico)",
+ "fuente": "systemctl show al inicio y al final",
+ "reinicios": {
+  "motor": [],
+  "captura": [],
+  "suricata": []
+ }
+}

@@ -1,0 +1,15 @@
+{
+ "campana": "etapa4-campana-A-4c",
+ "episodio": "escaneo_sostenido-r3",
+ "periodo": {
+  "inicio": 1794266104.031659,
+  "fin": 1794266366.687638
+ },
+ "origen": "sensor (automatico)",
+ "fuente": "systemctl show al inicio y al final",
+ "reinicios": {
+  "motor": [],
+  "captura": [],
+  "suricata": []
+ }
+}

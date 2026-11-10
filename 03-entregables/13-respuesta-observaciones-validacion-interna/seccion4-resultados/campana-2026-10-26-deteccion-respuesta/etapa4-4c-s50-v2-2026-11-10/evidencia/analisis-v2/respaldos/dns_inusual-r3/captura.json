@@ -1,0 +1,15 @@
+{
+ "campana": "etapa4-campana-A-4c",
+ "episodio": "dns_inusual-r3",
+ "periodo": {
+  "inicio": 1794262536.045972,
+  "fin": 1794262836.127203
+ },
+ "origen": "sensor (automatico)",
+ "fuente": "archivar.log + estado del servicio de captura + mediciones de descarte",
+ "errores": [],
+ "paquetes_descartados": 0,
+ "alcance_descartes": "medido: contador acumulado del proceso tcpdump = 0 al final",
+ "suricata_kernel_drops_delta_periodo": 0,
+ "suricata_mediciones_en_periodo": 37
+}

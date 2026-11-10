@@ -1,0 +1,32 @@
+{
+ "campana": "etapa4-campana-A-4c",
+ "episodio": "inundacion_http-r4",
+ "periodo": {
+  "inicio": 1794261336.046386,
+  "fin": 1794261636.044963
+ },
+ "origen": "sensor (automatico)",
+ "fuente": "motor_decision.log + secuencia de PCAP archivados",
+ "previa_s": 891.8,
+ "posterior_s": 898.0,
+ "detalle": {
+  "motor_previa_s": 891.8,
+  "motor_posterior_desde_fin_mas_60_s": 899.5,
+  "pcap_previa_s": 898.0,
+  "pcap_posterior_s": 898.0,
+  "hueco_motor_max_s": 11.19483232498169,
+  "analizar_cobertura": {
+   "suficiente": true,
+   "motivo": "ok",
+   "motor_continuo": true,
+   "anclas_ataque_esperadas": 9,
+   "anclas_ataque_observadas": 9,
+   "hueco_motor_max_s": 11.2,
+   "cubre_inicio": true,
+   "cubre_fin_mas_60": true
+  }
+ },
+ "durante_completa": true,
+ "faltantes": [],
+ "continuidad_sin_huecos": true
+}

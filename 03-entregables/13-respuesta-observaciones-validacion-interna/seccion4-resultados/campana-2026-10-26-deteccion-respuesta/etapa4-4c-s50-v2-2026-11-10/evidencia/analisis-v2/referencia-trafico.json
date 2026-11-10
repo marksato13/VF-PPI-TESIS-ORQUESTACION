@@ -1,0 +1,3801 @@
+{
+ "definicion": "Etapa 4, 4C: tiempos por episodio y referencia al TRÁFICO observado (PROTOCOLO-4C-CAMPANA-A.md §7). Solo lee.\n\nNo cambia nada de analizar_3b.py: toma su resultado (analisis-3b.json, categorías con la referencia del generador,\nOBJETIVOS v3) y añade, por episodio, lo que el 3B no separaba:\n\n  generador        t_proc_inicio / t_proc_fin (marcas.jsonl, reloj de la Kali)\n  tráfico          t_trafico_inicio / t_trafico_fin (trafico_observado.py: primer y último paquete del origen al\n                   destino y servicio del escenario en el PCAP archivado, reloj del Sensor1; en escaneos, SYN sin ACK)\n  evidencia        window_end de la primera ventana con señal atribuible\n  disponibilidad   disponible_utc del registro (registro_escrito_en del ciclo; analizar_3b)\n  emisión          emisiones reales del motor (ALERT/heurístico registrados) y, aparte, la vía rápida (emitido_en)\n  publicación      primera propuesta del publicador v2 para el origen (traza: publicado_en, regla, acción, tipo)\n  entrega          primera entrega del relé v2 a srv-dmz posterior a esa publicación (traza del relé)\n  respuesta        SOLO propuesta: en sombra no hay t_apl ni t_efecto (nadie aplica)\n\nReferencia (fijada ANTES de ejecutar, PROTOCOLO-4C §7):\n  escaneo_breve      t_ini_ref = primer SYN observado; t_fin_eval = min(último SYN observado, t_proc_fin).\n                     Su categoría PRINCIPAL es la de esta referencia (\"categoria_trafico\").\n  resto              la categoría principal sigue siendo la de analizar_3b (referencia del generador, v3);\n                     \"categoria_trafico\" se publica como información.\n  oportuna           señal atribuible con disponible <= t_fin_eval + ε (ε = 0,01 s, OBJETIVOS v3).\nSin tráfico observado (paquetes_ataque = 0 o captura que no cubre la ventana) la referencia de tráfico es\n\"no_determinable\" y no se inventa: se conserva la categoría de analizar_3b.",
+ "episodios": {
+  "dns_inusual-r1": {
+   "configuraciones": {
+    "HEUR": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 16.912,
+      "disponible_utc": "2026-11-09T22:07:52.993913+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 72.975,
+      "primera_window_end_utc": "2026-11-09T22:07:50+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 16.912,
+      "disponible_utc": "2026-11-09T22:07:52.993913+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 72.975,
+      "primera_window_end_utc": "2026-11-09T22:07:50+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 16.912,
+      "disponible_utc": "2026-11-09T22:07:52.993913+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 72.975,
+      "primera_window_end_utc": "2026-11-09T22:07:50+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 16.912,
+      "disponible_utc": "2026-11-09T22:07:52.993913+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 72.975,
+      "primera_window_end_utc": "2026-11-09T22:07:50+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.01": {
+     "categoria_3b": "ausencia_con_observacion_suficiente",
+     "categoria_trafico": {
+      "categoria": "ausencia_con_observacion_suficiente",
+      "fuente": "analizar_3b (sin señal atribuible)"
+     },
+     "principal": "ausencia_con_observacion_suficiente"
+    },
+    "IF_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 47.665,
+      "disponible_utc": "2026-11-09T22:08:23.747026+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 42.222,
+      "primera_window_end_utc": "2026-11-09T22:08:20+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 26.864,
+      "disponible_utc": "2026-11-09T22:08:02.945262+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 63.024,
+      "primera_window_end_utc": "2026-11-09T22:08:00+00:00"
+     },
+     "principal": "oportuna"
+    }
+   },
+   "destino": "10.10.10.20",
+   "emisiones_reales": {
+    "atribuibles": 13,
+    "emisiones": 13,
+    "latencia_primera_oportuna_regla_no_prevista_s": null,
+    "latencia_primera_oportuna_regla_prevista_s": 16.94,
+    "latencia_primera_oportuna_s": 16.94,
+    "latencia_primera_oportuna_senal_if_s": 26.9,
+    "oportunas": 8,
+    "oportunas_regla_no_prevista": 0,
+    "oportunas_regla_prevista": 8,
+    "oportunas_senal_if": 7
+   },
+   "en_poblacion_principal": true,
+   "escenario": "dns_inusual",
+   "etiquetas": {
+    "aplicacion_confirmada": null,
+    "efecto_observado": null,
+    "medida_publicada": true,
+    "medida_publicada_es_regla_prevista": true,
+    "nota": "en sombra no hay aplicación ni efecto: null significa NO MEDIDO, nunca «sí» ni «no»",
+    "otra_regla_oportuna": false,
+    "regla_prevista_oportuna": true,
+    "senal_if_oportuna": true
+   },
+   "generador": {
+    "fin_utc": "2026-11-09T22:09:06.379944+00:00",
+    "inicio_utc": "2026-11-09T22:07:36.049274+00:00"
+   },
+   "referencia_principal": "generador (v3)",
+   "referencia_trafico": {
+    "determinable": true,
+    "regla": "primer paquete observado; fin = min(último paquete, fin del generador)",
+    "t_fin_eval": "2026-11-09T22:09:05.969+00:00",
+    "t_ini_ref": "2026-11-09T22:07:36.081+00:00",
+    "t_proc_fin": "2026-11-09T22:09:06.379+00:00",
+    "t_proc_inicio": "2026-11-09T22:07:36.049+00:00"
+   },
+   "respuesta_propuesta": {
+    "accion": "LIMIT",
+    "desde_inicio_s": 17.142,
+    "destino_aplicacion": "dc1",
+    "entrega_desde_publicacion_s": 0.364,
+    "entrega_srv_dmz_utc": "2026-11-09T22:07:53.587+00:00",
+    "nota": "sombra: propuesta publicada, NO aplicada (sin t_apl ni t_efecto)",
+    "propuesta": true,
+    "publicado_utc": "2026-11-09T22:07:53.223+00:00",
+    "regla": "dns_entropy",
+    "regla_es_prevista": true,
+    "secuencia_feed": 20725,
+    "tipo": "nueva"
+   },
+   "trafico": {
+    "captura_cubre_ventana": true,
+    "fin_utc": "2026-11-09T22:09:05.969242+00:00",
+    "inicio_utc": "2026-11-09T22:07:36.081654+00:00",
+    "paquetes": 420,
+    "puertos_distintos_syn": null,
+    "retraso_primer_paquete_s": 0.032
+   },
+   "via_rapida": {
+    "evaluable": true,
+    "senal": false
+   }
+  },
+  "dns_inusual-r2": {
+   "configuraciones": {
+    "HEUR": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 25.714,
+      "disponible_utc": "2026-11-09T23:26:15.177293+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 63.57,
+      "primera_window_end_utc": "2026-11-09T23:26:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 25.714,
+      "disponible_utc": "2026-11-09T23:26:15.177293+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 63.57,
+      "primera_window_end_utc": "2026-11-09T23:26:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 25.714,
+      "disponible_utc": "2026-11-09T23:26:15.177293+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 63.57,
+      "primera_window_end_utc": "2026-11-09T23:26:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 25.714,
+      "disponible_utc": "2026-11-09T23:26:15.177293+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 63.57,
+      "primera_window_end_utc": "2026-11-09T23:26:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.01": {
+     "categoria_3b": "ausencia_con_observacion_suficiente",
+     "categoria_trafico": {
+      "categoria": "ausencia_con_observacion_suficiente",
+      "fuente": "analizar_3b (sin señal atribuible)"
+     },
+     "principal": "ausencia_con_observacion_suficiente"
+    },
+    "IF_0.03": {
+     "categoria_3b": "ausencia_con_observacion_suficiente",
+     "categoria_trafico": {
+      "categoria": "ausencia_con_observacion_suficiente",
+      "fuente": "analizar_3b (sin señal atribuible)"
+     },
+     "principal": "ausencia_con_observacion_suficiente"
+    },
+    "IF_0.05": {
+     "categoria_3b": "ausencia_con_observacion_suficiente",
+     "categoria_trafico": {
+      "categoria": "ausencia_con_observacion_suficiente",
+      "fuente": "analizar_3b (sin señal atribuible)"
+     },
+     "principal": "ausencia_con_observacion_suficiente"
+    }
+   },
+   "destino": "10.10.10.20",
+   "emisiones_reales": {
+    "atribuibles": 12,
+    "emisiones": 12,
+    "latencia_primera_oportuna_regla_no_prevista_s": null,
+    "latencia_primera_oportuna_regla_prevista_s": 25.76,
+    "latencia_primera_oportuna_s": 25.76,
+    "latencia_primera_oportuna_senal_if_s": null,
+    "oportunas": 7,
+    "oportunas_regla_no_prevista": 0,
+    "oportunas_regla_prevista": 7,
+    "oportunas_senal_if": 0
+   },
+   "en_poblacion_principal": true,
+   "escenario": "dns_inusual",
+   "etiquetas": {
+    "aplicacion_confirmada": null,
+    "efecto_observado": null,
+    "medida_publicada": true,
+    "medida_publicada_es_regla_prevista": true,
+    "nota": "en sombra no hay aplicación ni efecto: null significa NO MEDIDO, nunca «sí» ni «no»",
+    "otra_regla_oportuna": false,
+    "regla_prevista_oportuna": true,
+    "senal_if_oportuna": false
+   },
+   "generador": {
+    "fin_utc": "2026-11-09T23:27:19.151883+00:00",
+    "inicio_utc": "2026-11-09T23:25:49.412954+00:00"
+   },
+   "referencia_principal": "generador (v3)",
+   "referencia_trafico": {
+    "determinable": true,
+    "regla": "primer paquete observado; fin = min(último paquete, fin del generador)",
+    "t_fin_eval": "2026-11-09T23:27:18.747+00:00",
+    "t_ini_ref": "2026-11-09T23:25:49.462+00:00",
+    "t_proc_fin": "2026-11-09T23:27:19.151+00:00",
+    "t_proc_inicio": "2026-11-09T23:25:49.412+00:00"
+   },
+   "respuesta_propuesta": {
+    "accion": "LIMIT",
+    "desde_inicio_s": 25.964,
+    "destino_aplicacion": "dc1",
+    "entrega_desde_publicacion_s": 0.534,
+    "entrega_srv_dmz_utc": "2026-11-09T23:26:15.961+00:00",
+    "nota": "sombra: propuesta publicada, NO aplicada (sin t_apl ni t_efecto)",
+    "propuesta": true,
+    "publicado_utc": "2026-11-09T23:26:15.427+00:00",
+    "regla": "dns_entropy",
+    "regla_es_prevista": true,
+    "secuencia_feed": 21057,
+    "tipo": "nueva"
+   },
+   "trafico": {
+    "captura_cubre_ventana": true,
+    "fin_utc": "2026-11-09T23:27:18.747422+00:00",
+    "inicio_utc": "2026-11-09T23:25:49.462829+00:00",
+    "paquetes": 416,
+    "puertos_distintos_syn": null,
+    "retraso_primer_paquete_s": 0.05
+   },
+   "via_rapida": {
+    "evaluable": true,
+    "senal": false
+   }
+  },
+  "dns_inusual-r3": {
+   "configuraciones": {
+    "HEUR": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 19.661,
+      "disponible_utc": "2026-11-09T22:17:55.735458+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 69.986,
+      "primera_window_end_utc": "2026-11-09T22:17:50+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 19.661,
+      "disponible_utc": "2026-11-09T22:17:55.735458+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 69.986,
+      "primera_window_end_utc": "2026-11-09T22:17:50+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 19.661,
+      "disponible_utc": "2026-11-09T22:17:55.735458+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 69.986,
+      "primera_window_end_utc": "2026-11-09T22:17:50+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 19.661,
+      "disponible_utc": "2026-11-09T22:17:55.735458+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 69.986,
+      "primera_window_end_utc": "2026-11-09T22:17:50+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.01": {
+     "categoria_3b": "ausencia_con_observacion_suficiente",
+     "categoria_trafico": {
+      "categoria": "ausencia_con_observacion_suficiente",
+      "fuente": "analizar_3b (sin señal atribuible)"
+     },
+     "principal": "ausencia_con_observacion_suficiente"
+    },
+    "IF_0.03": {
+     "categoria_3b": "ausencia_con_observacion_suficiente",
+     "categoria_trafico": {
+      "categoria": "ausencia_con_observacion_suficiente",
+      "fuente": "analizar_3b (sin señal atribuible)"
+     },
+     "principal": "ausencia_con_observacion_suficiente"
+    },
+    "IF_0.05": {
+     "categoria_3b": "ausencia_con_observacion_suficiente",
+     "categoria_trafico": {
+      "categoria": "ausencia_con_observacion_suficiente",
+      "fuente": "analizar_3b (sin señal atribuible)"
+     },
+     "principal": "ausencia_con_observacion_suficiente"
+    }
+   },
+   "destino": "10.10.10.20",
+   "emisiones_reales": {
+    "atribuibles": 13,
+    "emisiones": 13,
+    "latencia_primera_oportuna_regla_no_prevista_s": null,
+    "latencia_primera_oportuna_regla_prevista_s": 19.69,
+    "latencia_primera_oportuna_s": 19.69,
+    "latencia_primera_oportuna_senal_if_s": null,
+    "oportunas": 7,
+    "oportunas_regla_no_prevista": 0,
+    "oportunas_regla_prevista": 7,
+    "oportunas_senal_if": 0
+   },
+   "en_poblacion_principal": true,
+   "escenario": "dns_inusual",
+   "etiquetas": {
+    "aplicacion_confirmada": null,
+    "efecto_observado": null,
+    "medida_publicada": true,
+    "medida_publicada_es_regla_prevista": true,
+    "nota": "en sombra no hay aplicación ni efecto: null significa NO MEDIDO, nunca «sí» ni «no»",
+    "otra_regla_oportuna": false,
+    "regla_prevista_oportuna": true,
+    "senal_if_oportuna": false
+   },
+   "generador": {
+    "fin_utc": "2026-11-09T22:19:06.127203+00:00",
+    "inicio_utc": "2026-11-09T22:17:36.045972+00:00"
+   },
+   "referencia_principal": "generador (v3)",
+   "referencia_trafico": {
+    "determinable": true,
+    "regla": "primer paquete observado; fin = min(último paquete, fin del generador)",
+    "t_fin_eval": "2026-11-09T22:19:05.721+00:00",
+    "t_ini_ref": "2026-11-09T22:17:36.074+00:00",
+    "t_proc_fin": "2026-11-09T22:19:06.127+00:00",
+    "t_proc_inicio": "2026-11-09T22:17:36.045+00:00"
+   },
+   "respuesta_propuesta": {
+    "accion": "LIMIT",
+    "desde_inicio_s": 19.9,
+    "destino_aplicacion": "dc1",
+    "entrega_desde_publicacion_s": 0.627,
+    "entrega_srv_dmz_utc": "2026-11-09T22:17:56.601+00:00",
+    "nota": "sombra: propuesta publicada, NO aplicada (sin t_apl ni t_efecto)",
+    "propuesta": true,
+    "publicado_utc": "2026-11-09T22:17:55.974+00:00",
+    "regla": "dns_entropy",
+    "regla_es_prevista": true,
+    "secuencia_feed": 20769,
+    "tipo": "nueva"
+   },
+   "trafico": {
+    "captura_cubre_ventana": true,
+    "fin_utc": "2026-11-09T22:19:05.721676+00:00",
+    "inicio_utc": "2026-11-09T22:17:36.074780+00:00",
+    "paquetes": 418,
+    "puertos_distintos_syn": null,
+    "retraso_primer_paquete_s": 0.029
+   },
+   "via_rapida": {
+    "evaluable": true,
+    "senal": false
+   }
+  },
+  "dns_inusual-r4": {
+   "configuraciones": {
+    "HEUR": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 25.601,
+      "disponible_utc": "2026-11-09T22:58:55.978871+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 63.906,
+      "primera_window_end_utc": "2026-11-09T22:58:50+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 25.601,
+      "disponible_utc": "2026-11-09T22:58:55.978871+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 63.906,
+      "primera_window_end_utc": "2026-11-09T22:58:50+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 25.601,
+      "disponible_utc": "2026-11-09T22:58:55.978871+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 63.906,
+      "primera_window_end_utc": "2026-11-09T22:58:50+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 25.601,
+      "disponible_utc": "2026-11-09T22:58:55.978871+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 63.906,
+      "primera_window_end_utc": "2026-11-09T22:58:50+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 55.827,
+      "disponible_utc": "2026-11-09T22:59:26.204620+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 33.68,
+      "primera_window_end_utc": "2026-11-09T22:59:20+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 55.827,
+      "disponible_utc": "2026-11-09T22:59:26.204620+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 33.68,
+      "primera_window_end_utc": "2026-11-09T22:59:20+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 55.827,
+      "disponible_utc": "2026-11-09T22:59:26.204620+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 33.68,
+      "primera_window_end_utc": "2026-11-09T22:59:20+00:00"
+     },
+     "principal": "oportuna"
+    }
+   },
+   "destino": "10.10.10.20",
+   "emisiones_reales": {
+    "atribuibles": 12,
+    "emisiones": 12,
+    "latencia_primera_oportuna_regla_no_prevista_s": null,
+    "latencia_primera_oportuna_regla_prevista_s": 25.64,
+    "latencia_primera_oportuna_s": 25.64,
+    "latencia_primera_oportuna_senal_if_s": 55.87,
+    "oportunas": 7,
+    "oportunas_regla_no_prevista": 0,
+    "oportunas_regla_prevista": 7,
+    "oportunas_senal_if": 4
+   },
+   "en_poblacion_principal": true,
+   "escenario": "dns_inusual",
+   "etiquetas": {
+    "aplicacion_confirmada": null,
+    "efecto_observado": null,
+    "medida_publicada": true,
+    "medida_publicada_es_regla_prevista": true,
+    "nota": "en sombra no hay aplicación ni efecto: null significa NO MEDIDO, nunca «sí» ni «no»",
+    "otra_regla_oportuna": false,
+    "regla_prevista_oportuna": true,
+    "senal_if_oportuna": true
+   },
+   "generador": {
+    "fin_utc": "2026-11-09T23:00:00.299027+00:00",
+    "inicio_utc": "2026-11-09T22:58:30.335226+00:00"
+   },
+   "referencia_principal": "generador (v3)",
+   "referencia_trafico": {
+    "determinable": true,
+    "regla": "primer paquete observado; fin = min(último paquete, fin del generador)",
+    "t_fin_eval": "2026-11-09T22:59:59.884+00:00",
+    "t_ini_ref": "2026-11-09T22:58:30.377+00:00",
+    "t_proc_fin": "2026-11-09T23:00:00.299+00:00",
+    "t_proc_inicio": "2026-11-09T22:58:30.335+00:00"
+   },
+   "respuesta_propuesta": {
+    "accion": "LIMIT",
+    "desde_inicio_s": 25.784,
+    "destino_aplicacion": "dc1",
+    "entrega_desde_publicacion_s": 1.071,
+    "entrega_srv_dmz_utc": "2026-11-09T22:58:57.233+00:00",
+    "nota": "sombra: propuesta publicada, NO aplicada (sin t_apl ni t_efecto)",
+    "propuesta": true,
+    "publicado_utc": "2026-11-09T22:58:56.162+00:00",
+    "regla": "dns_entropy",
+    "regla_es_prevista": true,
+    "secuencia_feed": 20943,
+    "tipo": "nueva"
+   },
+   "trafico": {
+    "captura_cubre_ventana": true,
+    "fin_utc": "2026-11-09T22:59:59.884797+00:00",
+    "inicio_utc": "2026-11-09T22:58:30.377804+00:00",
+    "paquetes": 418,
+    "puertos_distintos_syn": null,
+    "retraso_primer_paquete_s": 0.043
+   },
+   "via_rapida": {
+    "evaluable": true,
+    "senal": false
+   }
+  },
+  "dns_inusual-r5": {
+   "configuraciones": {
+    "HEUR": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 23.678,
+      "disponible_utc": "2026-11-09T23:36:12.789376+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 66.012,
+      "primera_window_end_utc": "2026-11-09T23:36:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 23.678,
+      "disponible_utc": "2026-11-09T23:36:12.789376+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 66.012,
+      "primera_window_end_utc": "2026-11-09T23:36:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 23.678,
+      "disponible_utc": "2026-11-09T23:36:12.789376+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 66.012,
+      "primera_window_end_utc": "2026-11-09T23:36:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 23.678,
+      "disponible_utc": "2026-11-09T23:36:12.789376+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 66.012,
+      "primera_window_end_utc": "2026-11-09T23:36:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.01": {
+     "categoria_3b": "ausencia_con_observacion_suficiente",
+     "categoria_trafico": {
+      "categoria": "ausencia_con_observacion_suficiente",
+      "fuente": "analizar_3b (sin señal atribuible)"
+     },
+     "principal": "ausencia_con_observacion_suficiente"
+    },
+    "IF_0.03": {
+     "categoria_3b": "ausencia_con_observacion_suficiente",
+     "categoria_trafico": {
+      "categoria": "ausencia_con_observacion_suficiente",
+      "fuente": "analizar_3b (sin señal atribuible)"
+     },
+     "principal": "ausencia_con_observacion_suficiente"
+    },
+    "IF_0.05": {
+     "categoria_3b": "ausencia_con_observacion_suficiente",
+     "categoria_trafico": {
+      "categoria": "ausencia_con_observacion_suficiente",
+      "fuente": "analizar_3b (sin señal atribuible)"
+     },
+     "principal": "ausencia_con_observacion_suficiente"
+    }
+   },
+   "destino": "10.10.10.20",
+   "emisiones_reales": {
+    "atribuibles": 12,
+    "emisiones": 12,
+    "latencia_primera_oportuna_regla_no_prevista_s": null,
+    "latencia_primera_oportuna_regla_prevista_s": 23.72,
+    "latencia_primera_oportuna_s": 23.72,
+    "latencia_primera_oportuna_senal_if_s": null,
+    "oportunas": 7,
+    "oportunas_regla_no_prevista": 0,
+    "oportunas_regla_prevista": 7,
+    "oportunas_senal_if": 0
+   },
+   "en_poblacion_principal": true,
+   "escenario": "dns_inusual",
+   "etiquetas": {
+    "aplicacion_confirmada": null,
+    "efecto_observado": null,
+    "medida_publicada": true,
+    "medida_publicada_es_regla_prevista": true,
+    "nota": "en sombra no hay aplicación ni efecto: null significa NO MEDIDO, nunca «sí» ni «no»",
+    "otra_regla_oportuna": false,
+    "regla_prevista_oportuna": true,
+    "senal_if_oportuna": false
+   },
+   "generador": {
+    "fin_utc": "2026-11-09T23:37:19.204775+00:00",
+    "inicio_utc": "2026-11-09T23:35:49.067385+00:00"
+   },
+   "referencia_principal": "generador (v3)",
+   "referencia_trafico": {
+    "determinable": true,
+    "regla": "primer paquete observado; fin = min(último paquete, fin del generador)",
+    "t_fin_eval": "2026-11-09T23:37:18.800+00:00",
+    "t_ini_ref": "2026-11-09T23:35:49.111+00:00",
+    "t_proc_fin": "2026-11-09T23:37:19.204+00:00",
+    "t_proc_inicio": "2026-11-09T23:35:49.067+00:00"
+   },
+   "respuesta_propuesta": {
+    "accion": "LIMIT",
+    "desde_inicio_s": 23.7,
+    "destino_aplicacion": "dc1",
+    "entrega_desde_publicacion_s": 0.789,
+    "entrega_srv_dmz_utc": "2026-11-09T23:36:13.601+00:00",
+    "nota": "sombra: propuesta publicada, NO aplicada (sin t_apl ni t_efecto)",
+    "propuesta": true,
+    "publicado_utc": "2026-11-09T23:36:12.811+00:00",
+    "regla": "dns_entropy",
+    "regla_es_prevista": true,
+    "secuencia_feed": 21100,
+    "tipo": "nueva"
+   },
+   "trafico": {
+    "captura_cubre_ventana": true,
+    "fin_utc": "2026-11-09T23:37:18.800942+00:00",
+    "inicio_utc": "2026-11-09T23:35:49.111344+00:00",
+    "paquetes": 418,
+    "puertos_distintos_syn": null,
+    "retraso_primer_paquete_s": 0.044
+   },
+   "via_rapida": {
+    "evaluable": true,
+    "senal": false
+   }
+  },
+  "escaneo_breve-r1": {
+   "configuraciones": {
+    "HEUR": {
+     "categoria_3b": "solo_posterior",
+     "categoria_trafico": {
+      "categoria": "solo_posterior",
+      "disponible_utc": "2026-11-09T23:44:34.263210+00:00",
+      "fuente": "referencia de tráfico",
+      "primera_window_end_utc": "2026-11-09T23:44:30+00:00",
+      "tras_fin_eval_s": 5.221
+     },
+     "principal": "solo_posterior"
+    },
+    "HIB_0.01": {
+     "categoria_3b": "solo_posterior",
+     "categoria_trafico": {
+      "categoria": "solo_posterior",
+      "disponible_utc": "2026-11-09T23:44:34.263210+00:00",
+      "fuente": "referencia de tráfico",
+      "primera_window_end_utc": "2026-11-09T23:44:30+00:00",
+      "tras_fin_eval_s": 5.221
+     },
+     "principal": "solo_posterior"
+    },
+    "HIB_0.03": {
+     "categoria_3b": "solo_posterior",
+     "categoria_trafico": {
+      "categoria": "solo_posterior",
+      "disponible_utc": "2026-11-09T23:44:34.263210+00:00",
+      "fuente": "referencia de tráfico",
+      "primera_window_end_utc": "2026-11-09T23:44:30+00:00",
+      "tras_fin_eval_s": 5.221
+     },
+     "principal": "solo_posterior"
+    },
+    "HIB_0.05": {
+     "categoria_3b": "solo_posterior",
+     "categoria_trafico": {
+      "categoria": "solo_posterior",
+      "disponible_utc": "2026-11-09T23:44:34.263210+00:00",
+      "fuente": "referencia de tráfico",
+      "primera_window_end_utc": "2026-11-09T23:44:30+00:00",
+      "tras_fin_eval_s": 5.221
+     },
+     "principal": "solo_posterior"
+    },
+    "IF_0.01": {
+     "categoria_3b": "no_evaluable",
+     "categoria_trafico": {
+      "categoria": "no_evaluable",
+      "fuente": "analizar_3b (sin señal atribuible)"
+     },
+     "principal": "no_evaluable"
+    },
+    "IF_0.03": {
+     "categoria_3b": "solo_posterior",
+     "categoria_trafico": {
+      "categoria": "solo_posterior",
+      "disponible_utc": "2026-11-09T23:44:34.263210+00:00",
+      "fuente": "referencia de tráfico",
+      "primera_window_end_utc": "2026-11-09T23:44:30+00:00",
+      "tras_fin_eval_s": 5.221
+     },
+     "principal": "solo_posterior"
+    },
+    "IF_0.05": {
+     "categoria_3b": "solo_posterior",
+     "categoria_trafico": {
+      "categoria": "solo_posterior",
+      "disponible_utc": "2026-11-09T23:44:34.263210+00:00",
+      "fuente": "referencia de tráfico",
+      "primera_window_end_utc": "2026-11-09T23:44:30+00:00",
+      "tras_fin_eval_s": 5.221
+     },
+     "principal": "solo_posterior"
+    }
+   },
+   "destino": "10.10.30.10",
+   "emisiones_reales": {
+    "atribuibles": 3,
+    "emisiones": 3,
+    "latencia_primera_oportuna_regla_no_prevista_s": null,
+    "latencia_primera_oportuna_regla_prevista_s": null,
+    "latencia_primera_oportuna_s": null,
+    "latencia_primera_oportuna_senal_if_s": null,
+    "oportunas": 0,
+    "oportunas_regla_no_prevista": 0,
+    "oportunas_regla_prevista": 0,
+    "oportunas_senal_if": 0
+   },
+   "en_poblacion_principal": false,
+   "escenario": "escaneo_breve",
+   "etiquetas": {
+    "aplicacion_confirmada": null,
+    "efecto_observado": null,
+    "medida_publicada": true,
+    "medida_publicada_es_regla_prevista": false,
+    "nota": "en sombra no hay aplicación ni efecto: null significa NO MEDIDO, nunca «sí» ni «no»",
+    "otra_regla_oportuna": false,
+    "regla_prevista_oportuna": false,
+    "senal_if_oportuna": false
+   },
+   "generador": {
+    "fin_utc": "2026-11-09T23:44:29.182920+00:00",
+    "inicio_utc": "2026-11-09T23:44:24.196008+00:00"
+   },
+   "referencia_principal": "tráfico",
+   "referencia_trafico": {
+    "determinable": true,
+    "regla": "primer SYN observado; fin = min(último SYN, fin del generador)",
+    "t_fin_eval": "2026-11-09T23:44:29.042+00:00",
+    "t_ini_ref": "2026-11-09T23:44:24.287+00:00",
+    "t_proc_fin": "2026-11-09T23:44:29.182+00:00",
+    "t_proc_inicio": "2026-11-09T23:44:24.196+00:00"
+   },
+   "respuesta_propuesta": {
+    "accion": "BLOCK",
+    "desde_inicio_s": 1.114,
+    "destino_aplicacion": "srv-dmz",
+    "entrega_desde_publicacion_s": 0.245,
+    "entrega_srv_dmz_utc": "2026-11-09T23:44:25.646+00:00",
+    "nota": "sombra: propuesta publicada, NO aplicada (sin t_apl ni t_efecto)",
+    "propuesta": true,
+    "publicado_utc": "2026-11-09T23:44:25.401+00:00",
+    "regla": "port_scan_temprano",
+    "regla_es_prevista": false,
+    "secuencia_feed": 21133,
+    "tipo": "renovada"
+   },
+   "trafico": {
+    "captura_cubre_ventana": true,
+    "fin_utc": "2026-11-09T23:44:29.042035+00:00",
+    "inicio_utc": "2026-11-09T23:44:24.287440+00:00",
+    "paquetes": 2008,
+    "puertos_distintos_syn": 1000,
+    "retraso_primer_paquete_s": 0.091
+   },
+   "via_rapida": {
+    "desde_inicio_s": 1.068,
+    "disponible_utc": "2026-11-09T23:44:25.352+00:00",
+    "emitido_utc": "2026-11-09T23:44:25.355+00:00",
+    "evaluable": true,
+    "oportuna": true,
+    "referencia": "tráfico",
+    "senal": true,
+    "señales": 1,
+    "t_evidencia_utc": "2026-11-09T23:44:24.426+00:00"
+   }
+  },
+  "escaneo_breve-r2": {
+   "configuraciones": {
+    "HEUR": {
+     "categoria_3b": "solo_posterior",
+     "categoria_trafico": {
+      "categoria": "solo_posterior",
+      "disponible_utc": "2026-11-09T22:45:44.534604+00:00",
+      "fuente": "referencia de tráfico",
+      "primera_window_end_utc": "2026-11-09T22:45:40+00:00",
+      "tras_fin_eval_s": 6.659
+     },
+     "principal": "solo_posterior"
+    },
+    "HIB_0.01": {
+     "categoria_3b": "solo_posterior",
+     "categoria_trafico": {
+      "categoria": "solo_posterior",
+      "disponible_utc": "2026-11-09T22:45:44.534604+00:00",
+      "fuente": "referencia de tráfico",
+      "primera_window_end_utc": "2026-11-09T22:45:40+00:00",
+      "tras_fin_eval_s": 6.659
+     },
+     "principal": "solo_posterior"
+    },
+    "HIB_0.03": {
+     "categoria_3b": "solo_posterior",
+     "categoria_trafico": {
+      "categoria": "solo_posterior",
+      "disponible_utc": "2026-11-09T22:45:44.534604+00:00",
+      "fuente": "referencia de tráfico",
+      "primera_window_end_utc": "2026-11-09T22:45:40+00:00",
+      "tras_fin_eval_s": 6.659
+     },
+     "principal": "solo_posterior"
+    },
+    "HIB_0.05": {
+     "categoria_3b": "solo_posterior",
+     "categoria_trafico": {
+      "categoria": "solo_posterior",
+      "disponible_utc": "2026-11-09T22:45:44.534604+00:00",
+      "fuente": "referencia de tráfico",
+      "primera_window_end_utc": "2026-11-09T22:45:40+00:00",
+      "tras_fin_eval_s": 6.659
+     },
+     "principal": "solo_posterior"
+    },
+    "IF_0.01": {
+     "categoria_3b": "no_evaluable",
+     "categoria_trafico": {
+      "categoria": "no_evaluable",
+      "fuente": "analizar_3b (sin señal atribuible)"
+     },
+     "principal": "no_evaluable"
+    },
+    "IF_0.03": {
+     "categoria_3b": "solo_posterior",
+     "categoria_trafico": {
+      "categoria": "solo_posterior",
+      "disponible_utc": "2026-11-09T22:45:44.534604+00:00",
+      "fuente": "referencia de tráfico",
+      "primera_window_end_utc": "2026-11-09T22:45:40+00:00",
+      "tras_fin_eval_s": 6.659
+     },
+     "principal": "solo_posterior"
+    },
+    "IF_0.05": {
+     "categoria_3b": "solo_posterior",
+     "categoria_trafico": {
+      "categoria": "solo_posterior",
+      "disponible_utc": "2026-11-09T22:45:44.534604+00:00",
+      "fuente": "referencia de tráfico",
+      "primera_window_end_utc": "2026-11-09T22:45:40+00:00",
+      "tras_fin_eval_s": 6.659
+     },
+     "principal": "solo_posterior"
+    }
+   },
+   "destino": "10.10.30.10",
+   "emisiones_reales": {
+    "atribuibles": 3,
+    "emisiones": 3,
+    "latencia_primera_oportuna_regla_no_prevista_s": null,
+    "latencia_primera_oportuna_regla_prevista_s": null,
+    "latencia_primera_oportuna_s": null,
+    "latencia_primera_oportuna_senal_if_s": null,
+    "oportunas": 0,
+    "oportunas_regla_no_prevista": 0,
+    "oportunas_regla_prevista": 0,
+    "oportunas_senal_if": 0
+   },
+   "en_poblacion_principal": false,
+   "escenario": "escaneo_breve",
+   "etiquetas": {
+    "aplicacion_confirmada": null,
+    "efecto_observado": null,
+    "medida_publicada": true,
+    "medida_publicada_es_regla_prevista": false,
+    "nota": "en sombra no hay aplicación ni efecto: null significa NO MEDIDO, nunca «sí» ni «no»",
+    "otra_regla_oportuna": false,
+    "regla_prevista_oportuna": false,
+    "senal_if_oportuna": false
+   },
+   "generador": {
+    "fin_utc": "2026-11-09T22:45:38.012027+00:00",
+    "inicio_utc": "2026-11-09T22:45:33.025893+00:00"
+   },
+   "referencia_principal": "tráfico",
+   "referencia_trafico": {
+    "determinable": true,
+    "regla": "primer SYN observado; fin = min(último SYN, fin del generador)",
+    "t_fin_eval": "2026-11-09T22:45:37.875+00:00",
+    "t_ini_ref": "2026-11-09T22:45:33.116+00:00",
+    "t_proc_fin": "2026-11-09T22:45:38.012+00:00",
+    "t_proc_inicio": "2026-11-09T22:45:33.025+00:00"
+   },
+   "respuesta_propuesta": {
+    "accion": "BLOCK",
+    "desde_inicio_s": 0.448,
+    "destino_aplicacion": "srv-dmz",
+    "entrega_desde_publicacion_s": 0.408,
+    "entrega_srv_dmz_utc": "2026-11-09T22:45:33.972+00:00",
+    "nota": "sombra: propuesta publicada, NO aplicada (sin t_apl ni t_efecto)",
+    "propuesta": true,
+    "publicado_utc": "2026-11-09T22:45:33.564+00:00",
+    "regla": "port_scan_temprano",
+    "regla_es_prevista": false,
+    "secuencia_feed": 20888,
+    "tipo": "renovada"
+   },
+   "trafico": {
+    "captura_cubre_ventana": true,
+    "fin_utc": "2026-11-09T22:45:37.875788+00:00",
+    "inicio_utc": "2026-11-09T22:45:33.116609+00:00",
+    "paquetes": 2016,
+    "puertos_distintos_syn": 1000,
+    "retraso_primer_paquete_s": 0.091
+   },
+   "via_rapida": {
+    "desde_inicio_s": 0.282,
+    "disponible_utc": "2026-11-09T22:45:33.398+00:00",
+    "emitido_utc": "2026-11-09T22:45:33.399+00:00",
+    "evaluable": true,
+    "oportuna": true,
+    "referencia": "tráfico",
+    "senal": true,
+    "señales": 1,
+    "t_evidencia_utc": "2026-11-09T22:45:33.256+00:00"
+   }
+  },
+  "escaneo_breve-r3": {
+   "configuraciones": {
+    "HEUR": {
+     "categoria_3b": "solo_posterior",
+     "categoria_trafico": {
+      "categoria": "solo_posterior",
+      "disponible_utc": "2026-11-09T23:41:02.406906+00:00",
+      "fuente": "referencia de tráfico",
+      "primera_window_end_utc": "2026-11-09T23:41:00+00:00",
+      "tras_fin_eval_s": 8.345
+     },
+     "principal": "solo_posterior"
+    },
+    "HIB_0.01": {
+     "categoria_3b": "solo_posterior",
+     "categoria_trafico": {
+      "categoria": "solo_posterior",
+      "disponible_utc": "2026-11-09T23:41:02.406906+00:00",
+      "fuente": "referencia de tráfico",
+      "primera_window_end_utc": "2026-11-09T23:41:00+00:00",
+      "tras_fin_eval_s": 8.345
+     },
+     "principal": "solo_posterior"
+    },
+    "HIB_0.03": {
+     "categoria_3b": "solo_posterior",
+     "categoria_trafico": {
+      "categoria": "solo_posterior",
+      "disponible_utc": "2026-11-09T23:41:02.406906+00:00",
+      "fuente": "referencia de tráfico",
+      "primera_window_end_utc": "2026-11-09T23:41:00+00:00",
+      "tras_fin_eval_s": 8.345
+     },
+     "principal": "solo_posterior"
+    },
+    "HIB_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 3.033,
+      "disponible_utc": "2026-11-09T23:40:52.340355+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 1.721,
+      "primera_window_end_utc": "2026-11-09T23:40:50+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.01": {
+     "categoria_3b": "solo_posterior",
+     "categoria_trafico": {
+      "categoria": "solo_posterior",
+      "disponible_utc": "2026-11-09T23:41:02.406906+00:00",
+      "fuente": "referencia de tráfico",
+      "primera_window_end_utc": "2026-11-09T23:41:00+00:00",
+      "tras_fin_eval_s": 8.345
+     },
+     "principal": "solo_posterior"
+    },
+    "IF_0.03": {
+     "categoria_3b": "solo_posterior",
+     "categoria_trafico": {
+      "categoria": "solo_posterior",
+      "disponible_utc": "2026-11-09T23:41:02.406906+00:00",
+      "fuente": "referencia de tráfico",
+      "primera_window_end_utc": "2026-11-09T23:41:00+00:00",
+      "tras_fin_eval_s": 8.345
+     },
+     "principal": "solo_posterior"
+    },
+    "IF_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 3.033,
+      "disponible_utc": "2026-11-09T23:40:52.340355+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 1.721,
+      "primera_window_end_utc": "2026-11-09T23:40:50+00:00"
+     },
+     "principal": "oportuna"
+    }
+   },
+   "destino": "10.10.30.10",
+   "emisiones_reales": {
+    "atribuibles": 4,
+    "emisiones": 4,
+    "latencia_primera_oportuna_regla_no_prevista_s": null,
+    "latencia_primera_oportuna_regla_prevista_s": null,
+    "latencia_primera_oportuna_s": 3.13,
+    "latencia_primera_oportuna_senal_if_s": 3.13,
+    "oportunas": 1,
+    "oportunas_regla_no_prevista": 0,
+    "oportunas_regla_prevista": 0,
+    "oportunas_senal_if": 1
+   },
+   "en_poblacion_principal": false,
+   "escenario": "escaneo_breve",
+   "etiquetas": {
+    "aplicacion_confirmada": null,
+    "efecto_observado": null,
+    "medida_publicada": true,
+    "medida_publicada_es_regla_prevista": false,
+    "nota": "en sombra no hay aplicación ni efecto: null significa NO MEDIDO, nunca «sí» ni «no»",
+    "otra_regla_oportuna": false,
+    "regla_prevista_oportuna": false,
+    "senal_if_oportuna": true
+   },
+   "generador": {
+    "fin_utc": "2026-11-09T23:40:54.192603+00:00",
+    "inicio_utc": "2026-11-09T23:40:49.207262+00:00"
+   },
+   "referencia_principal": "tráfico",
+   "referencia_trafico": {
+    "determinable": true,
+    "regla": "primer SYN observado; fin = min(último SYN, fin del generador)",
+    "t_fin_eval": "2026-11-09T23:40:54.061+00:00",
+    "t_ini_ref": "2026-11-09T23:40:49.307+00:00",
+    "t_proc_fin": "2026-11-09T23:40:54.192+00:00",
+    "t_proc_inicio": "2026-11-09T23:40:49.207+00:00"
+   },
+   "respuesta_propuesta": {
+    "accion": "BLOCK",
+    "desde_inicio_s": 0.732,
+    "destino_aplicacion": "srv-dmz",
+    "entrega_desde_publicacion_s": 0.385,
+    "entrega_srv_dmz_utc": "2026-11-09T23:40:50.425+00:00",
+    "nota": "sombra: propuesta publicada, NO aplicada (sin t_apl ni t_efecto)",
+    "propuesta": true,
+    "publicado_utc": "2026-11-09T23:40:50.039+00:00",
+    "regla": "port_scan_temprano",
+    "regla_es_prevista": false,
+    "secuencia_feed": 21120,
+    "tipo": "renovada"
+   },
+   "trafico": {
+    "captura_cubre_ventana": true,
+    "fin_utc": "2026-11-09T23:40:54.061813+00:00",
+    "inicio_utc": "2026-11-09T23:40:49.307324+00:00",
+    "paquetes": 2016,
+    "puertos_distintos_syn": 1000,
+    "retraso_primer_paquete_s": 0.1
+   },
+   "via_rapida": {
+    "desde_inicio_s": 0.579,
+    "disponible_utc": "2026-11-09T23:40:49.885+00:00",
+    "emitido_utc": "2026-11-09T23:40:49.886+00:00",
+    "evaluable": true,
+    "oportuna": true,
+    "referencia": "tráfico",
+    "senal": true,
+    "señales": 1,
+    "t_evidencia_utc": "2026-11-09T23:40:49.442+00:00"
+   }
+  },
+  "escaneo_breve-r4": {
+   "configuraciones": {
+    "HEUR": {
+     "categoria_3b": "solo_posterior",
+     "categoria_trafico": {
+      "categoria": "solo_posterior",
+      "disponible_utc": "2026-11-09T22:32:43.805162+00:00",
+      "fuente": "referencia de tráfico",
+      "primera_window_end_utc": "2026-11-09T22:32:40+00:00",
+      "tras_fin_eval_s": 3.212
+     },
+     "principal": "solo_posterior"
+    },
+    "HIB_0.01": {
+     "categoria_3b": "solo_posterior",
+     "categoria_trafico": {
+      "categoria": "solo_posterior",
+      "disponible_utc": "2026-11-09T22:32:43.805162+00:00",
+      "fuente": "referencia de tráfico",
+      "primera_window_end_utc": "2026-11-09T22:32:40+00:00",
+      "tras_fin_eval_s": 3.212
+     },
+     "principal": "solo_posterior"
+    },
+    "HIB_0.03": {
+     "categoria_3b": "solo_posterior",
+     "categoria_trafico": {
+      "categoria": "solo_posterior",
+      "disponible_utc": "2026-11-09T22:32:43.805162+00:00",
+      "fuente": "referencia de tráfico",
+      "primera_window_end_utc": "2026-11-09T22:32:40+00:00",
+      "tras_fin_eval_s": 3.212
+     },
+     "principal": "solo_posterior"
+    },
+    "HIB_0.05": {
+     "categoria_3b": "solo_posterior",
+     "categoria_trafico": {
+      "categoria": "solo_posterior",
+      "disponible_utc": "2026-11-09T22:32:43.805162+00:00",
+      "fuente": "referencia de tráfico",
+      "primera_window_end_utc": "2026-11-09T22:32:40+00:00",
+      "tras_fin_eval_s": 3.212
+     },
+     "principal": "solo_posterior"
+    },
+    "IF_0.01": {
+     "categoria_3b": "ausencia_con_observacion_suficiente",
+     "categoria_trafico": {
+      "categoria": "ausencia_con_observacion_suficiente",
+      "fuente": "analizar_3b (sin señal atribuible)"
+     },
+     "principal": "ausencia_con_observacion_suficiente"
+    },
+    "IF_0.03": {
+     "categoria_3b": "solo_posterior",
+     "categoria_trafico": {
+      "categoria": "solo_posterior",
+      "disponible_utc": "2026-11-09T22:32:43.805162+00:00",
+      "fuente": "referencia de tráfico",
+      "primera_window_end_utc": "2026-11-09T22:32:40+00:00",
+      "tras_fin_eval_s": 3.212
+     },
+     "principal": "solo_posterior"
+    },
+    "IF_0.05": {
+     "categoria_3b": "solo_posterior",
+     "categoria_trafico": {
+      "categoria": "solo_posterior",
+      "disponible_utc": "2026-11-09T22:32:43.805162+00:00",
+      "fuente": "referencia de tráfico",
+      "primera_window_end_utc": "2026-11-09T22:32:40+00:00",
+      "tras_fin_eval_s": 3.212
+     },
+     "principal": "solo_posterior"
+    }
+   },
+   "destino": "10.10.30.10",
+   "emisiones_reales": {
+    "atribuibles": 4,
+    "emisiones": 4,
+    "latencia_primera_oportuna_regla_no_prevista_s": null,
+    "latencia_primera_oportuna_regla_prevista_s": null,
+    "latencia_primera_oportuna_s": null,
+    "latencia_primera_oportuna_senal_if_s": null,
+    "oportunas": 0,
+    "oportunas_regla_no_prevista": 0,
+    "oportunas_regla_prevista": 0,
+    "oportunas_senal_if": 0
+   },
+   "en_poblacion_principal": true,
+   "escenario": "escaneo_breve",
+   "etiquetas": {
+    "aplicacion_confirmada": null,
+    "efecto_observado": null,
+    "medida_publicada": true,
+    "medida_publicada_es_regla_prevista": false,
+    "nota": "en sombra no hay aplicación ni efecto: null significa NO MEDIDO, nunca «sí» ni «no»",
+    "otra_regla_oportuna": false,
+    "regla_prevista_oportuna": false,
+    "senal_if_oportuna": false
+   },
+   "generador": {
+    "fin_utc": "2026-11-09T22:32:40.742628+00:00",
+    "inicio_utc": "2026-11-09T22:32:36.059352+00:00"
+   },
+   "referencia_principal": "tráfico",
+   "referencia_trafico": {
+    "determinable": true,
+    "regla": "primer SYN observado; fin = min(último SYN, fin del generador)",
+    "t_fin_eval": "2026-11-09T22:32:40.593+00:00",
+    "t_ini_ref": "2026-11-09T22:32:36.137+00:00",
+    "t_proc_fin": "2026-11-09T22:32:40.742+00:00",
+    "t_proc_inicio": "2026-11-09T22:32:36.059+00:00"
+   },
+   "respuesta_propuesta": {
+    "accion": "BLOCK",
+    "desde_inicio_s": 0.701,
+    "destino_aplicacion": "srv-dmz",
+    "entrega_desde_publicacion_s": 0.778,
+    "entrega_srv_dmz_utc": "2026-11-09T22:32:37.616+00:00",
+    "nota": "sombra: propuesta publicada, NO aplicada (sin t_apl ni t_efecto)",
+    "propuesta": true,
+    "publicado_utc": "2026-11-09T22:32:36.838+00:00",
+    "regla": "port_scan_temprano",
+    "regla_es_prevista": false,
+    "secuencia_feed": 20835,
+    "tipo": "renovada"
+   },
+   "trafico": {
+    "captura_cubre_ventana": true,
+    "fin_utc": "2026-11-09T22:32:40.593294+00:00",
+    "inicio_utc": "2026-11-09T22:32:36.137357+00:00",
+    "paquetes": 2014,
+    "puertos_distintos_syn": 1000,
+    "retraso_primer_paquete_s": 0.078
+   },
+   "via_rapida": {
+    "desde_inicio_s": 0.488,
+    "disponible_utc": "2026-11-09T22:32:36.624+00:00",
+    "emitido_utc": "2026-11-09T22:32:36.624+00:00",
+    "evaluable": true,
+    "oportuna": true,
+    "referencia": "tráfico",
+    "senal": true,
+    "señales": 1,
+    "t_evidencia_utc": "2026-11-09T22:32:36.276+00:00"
+   }
+  },
+  "escaneo_breve-r5": {
+   "configuraciones": {
+    "HEUR": {
+     "categoria_3b": "solo_posterior",
+     "categoria_trafico": {
+      "categoria": "solo_posterior",
+      "disponible_utc": "2026-11-09T23:03:45.923605+00:00",
+      "fuente": "referencia de tráfico",
+      "primera_window_end_utc": "2026-11-09T23:03:40+00:00",
+      "tras_fin_eval_s": 11.162
+     },
+     "principal": "solo_posterior"
+    },
+    "HIB_0.01": {
+     "categoria_3b": "solo_posterior",
+     "categoria_trafico": {
+      "categoria": "solo_posterior",
+      "disponible_utc": "2026-11-09T23:03:45.923605+00:00",
+      "fuente": "referencia de tráfico",
+      "primera_window_end_utc": "2026-11-09T23:03:40+00:00",
+      "tras_fin_eval_s": 11.162
+     },
+     "principal": "solo_posterior"
+    },
+    "HIB_0.03": {
+     "categoria_3b": "solo_posterior",
+     "categoria_trafico": {
+      "categoria": "solo_posterior",
+      "disponible_utc": "2026-11-09T23:03:45.923605+00:00",
+      "fuente": "referencia de tráfico",
+      "primera_window_end_utc": "2026-11-09T23:03:40+00:00",
+      "tras_fin_eval_s": 11.162
+     },
+     "principal": "solo_posterior"
+    },
+    "HIB_0.05": {
+     "categoria_3b": "solo_posterior",
+     "categoria_trafico": {
+      "categoria": "solo_posterior",
+      "disponible_utc": "2026-11-09T23:03:45.923605+00:00",
+      "fuente": "referencia de tráfico",
+      "primera_window_end_utc": "2026-11-09T23:03:40+00:00",
+      "tras_fin_eval_s": 11.162
+     },
+     "principal": "solo_posterior"
+    },
+    "IF_0.01": {
+     "categoria_3b": "no_evaluable",
+     "categoria_trafico": {
+      "categoria": "no_evaluable",
+      "fuente": "analizar_3b (sin señal atribuible)"
+     },
+     "principal": "no_evaluable"
+    },
+    "IF_0.03": {
+     "categoria_3b": "solo_posterior",
+     "categoria_trafico": {
+      "categoria": "solo_posterior",
+      "disponible_utc": "2026-11-09T23:03:45.923605+00:00",
+      "fuente": "referencia de tráfico",
+      "primera_window_end_utc": "2026-11-09T23:03:40+00:00",
+      "tras_fin_eval_s": 11.162
+     },
+     "principal": "solo_posterior"
+    },
+    "IF_0.05": {
+     "categoria_3b": "solo_posterior",
+     "categoria_trafico": {
+      "categoria": "solo_posterior",
+      "disponible_utc": "2026-11-09T23:03:45.923605+00:00",
+      "fuente": "referencia de tráfico",
+      "primera_window_end_utc": "2026-11-09T23:03:40+00:00",
+      "tras_fin_eval_s": 11.162
+     },
+     "principal": "solo_posterior"
+    }
+   },
+   "destino": "10.10.30.10",
+   "emisiones_reales": {
+    "atribuibles": 3,
+    "emisiones": 3,
+    "latencia_primera_oportuna_regla_no_prevista_s": null,
+    "latencia_primera_oportuna_regla_prevista_s": null,
+    "latencia_primera_oportuna_s": null,
+    "latencia_primera_oportuna_senal_if_s": null,
+    "oportunas": 0,
+    "oportunas_regla_no_prevista": 0,
+    "oportunas_regla_prevista": 0,
+    "oportunas_senal_if": 0
+   },
+   "en_poblacion_principal": false,
+   "escenario": "escaneo_breve",
+   "etiquetas": {
+    "aplicacion_confirmada": null,
+    "efecto_observado": null,
+    "medida_publicada": true,
+    "medida_publicada_es_regla_prevista": false,
+    "nota": "en sombra no hay aplicación ni efecto: null significa NO MEDIDO, nunca «sí» ni «no»",
+    "otra_regla_oportuna": false,
+    "regla_prevista_oportuna": false,
+    "senal_if_oportuna": false
+   },
+   "generador": {
+    "fin_utc": "2026-11-09T23:03:34.887109+00:00",
+    "inicio_utc": "2026-11-09T23:03:30.301898+00:00"
+   },
+   "referencia_principal": "tráfico",
+   "referencia_trafico": {
+    "determinable": true,
+    "regla": "primer SYN observado; fin = min(último SYN, fin del generador)",
+    "t_fin_eval": "2026-11-09T23:03:34.761+00:00",
+    "t_ini_ref": "2026-11-09T23:03:30.404+00:00",
+    "t_proc_fin": "2026-11-09T23:03:34.887+00:00",
+    "t_proc_inicio": "2026-11-09T23:03:30.301+00:00"
+   },
+   "respuesta_propuesta": {
+    "accion": "BLOCK",
+    "desde_inicio_s": 0.449,
+    "destino_aplicacion": "srv-dmz",
+    "entrega_desde_publicacion_s": 0.91,
+    "entrega_srv_dmz_utc": "2026-11-09T23:03:31.764+00:00",
+    "nota": "sombra: propuesta publicada, NO aplicada (sin t_apl ni t_efecto)",
+    "propuesta": true,
+    "publicado_utc": "2026-11-09T23:03:30.853+00:00",
+    "regla": "port_scan_temprano",
+    "regla_es_prevista": false,
+    "secuencia_feed": 20963,
+    "tipo": "renovada"
+   },
+   "trafico": {
+    "captura_cubre_ventana": true,
+    "fin_utc": "2026-11-09T23:03:34.761789+00:00",
+    "inicio_utc": "2026-11-09T23:03:30.404234+00:00",
+    "paquetes": 2019,
+    "puertos_distintos_syn": 1000,
+    "retraso_primer_paquete_s": 0.102
+   },
+   "via_rapida": {
+    "desde_inicio_s": 0.358,
+    "disponible_utc": "2026-11-09T23:03:30.752+00:00",
+    "emitido_utc": "2026-11-09T23:03:30.762+00:00",
+    "evaluable": true,
+    "oportuna": true,
+    "referencia": "tráfico",
+    "senal": true,
+    "señales": 1,
+    "t_evidencia_utc": "2026-11-09T23:03:30.543+00:00"
+   }
+  },
+  "escaneo_sostenido-r1": {
+   "configuraciones": {
+    "HEUR": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 5.869,
+      "disponible_utc": "2026-11-09T23:21:32.662755+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 46.628,
+      "primera_window_end_utc": "2026-11-09T23:21:30+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 5.869,
+      "disponible_utc": "2026-11-09T23:21:32.662755+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 46.628,
+      "primera_window_end_utc": "2026-11-09T23:21:30+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 5.869,
+      "disponible_utc": "2026-11-09T23:21:32.662755+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 46.628,
+      "primera_window_end_utc": "2026-11-09T23:21:30+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 5.869,
+      "disponible_utc": "2026-11-09T23:21:32.662755+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 46.628,
+      "primera_window_end_utc": "2026-11-09T23:21:30+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 17.073,
+      "disponible_utc": "2026-11-09T23:21:43.866509+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 35.425,
+      "primera_window_end_utc": "2026-11-09T23:21:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 5.869,
+      "disponible_utc": "2026-11-09T23:21:32.662755+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 46.628,
+      "primera_window_end_utc": "2026-11-09T23:21:30+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 5.869,
+      "disponible_utc": "2026-11-09T23:21:32.662755+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 46.628,
+      "primera_window_end_utc": "2026-11-09T23:21:30+00:00"
+     },
+     "principal": "oportuna"
+    }
+   },
+   "destino": "10.10.30.10",
+   "emisiones_reales": {
+    "atribuibles": 8,
+    "emisiones": 8,
+    "latencia_primera_oportuna_regla_no_prevista_s": null,
+    "latencia_primera_oportuna_regla_prevista_s": 5.97,
+    "latencia_primera_oportuna_s": 5.97,
+    "latencia_primera_oportuna_senal_if_s": 5.97,
+    "oportunas": 5,
+    "oportunas_regla_no_prevista": 0,
+    "oportunas_regla_prevista": 5,
+    "oportunas_senal_if": 5
+   },
+   "en_poblacion_principal": true,
+   "escenario": "escaneo_sostenido",
+   "etiquetas": {
+    "aplicacion_confirmada": null,
+    "efecto_observado": null,
+    "medida_publicada": true,
+    "medida_publicada_es_regla_prevista": false,
+    "nota": "en sombra no hay aplicación ni efecto: null significa NO MEDIDO, nunca «sí» ni «no»",
+    "otra_regla_oportuna": false,
+    "regla_prevista_oportuna": true,
+    "senal_if_oportuna": true
+   },
+   "generador": {
+    "fin_utc": "2026-11-09T23:22:19.410366+00:00",
+    "inicio_utc": "2026-11-09T23:21:26.689998+00:00"
+   },
+   "referencia_principal": "generador (v3)",
+   "referencia_trafico": {
+    "determinable": true,
+    "regla": "primer SYN observado; fin = min(último SYN, fin del generador)",
+    "t_fin_eval": "2026-11-09T23:22:19.291+00:00",
+    "t_ini_ref": "2026-11-09T23:21:26.793+00:00",
+    "t_proc_fin": "2026-11-09T23:22:19.410+00:00",
+    "t_proc_inicio": "2026-11-09T23:21:26.689+00:00"
+   },
+   "respuesta_propuesta": {
+    "accion": "BLOCK",
+    "desde_inicio_s": 0.343,
+    "destino_aplicacion": "srv-dmz",
+    "entrega_desde_publicacion_s": 0.604,
+    "entrega_srv_dmz_utc": "2026-11-09T23:21:27.741+00:00",
+    "nota": "sombra: propuesta publicada, NO aplicada (sin t_apl ni t_efecto)",
+    "propuesta": true,
+    "publicado_utc": "2026-11-09T23:21:27.136+00:00",
+    "regla": "port_scan_temprano",
+    "regla_es_prevista": false,
+    "secuencia_feed": 21038,
+    "tipo": "renovada"
+   },
+   "trafico": {
+    "captura_cubre_ventana": true,
+    "fin_utc": "2026-11-09T23:22:19.291247+00:00",
+    "inicio_utc": "2026-11-09T23:21:26.793407+00:00",
+    "paquetes": 65615,
+    "puertos_distintos_syn": 65535,
+    "retraso_primer_paquete_s": 0.103
+   },
+   "via_rapida": {
+    "desde_inicio_s": 0.145,
+    "disponible_utc": "2026-11-09T23:21:26.937+00:00",
+    "emitido_utc": "2026-11-09T23:21:26.938+00:00",
+    "evaluable": true,
+    "oportuna": true,
+    "referencia": "tráfico",
+    "senal": true,
+    "señales": 1,
+    "t_evidencia_utc": "2026-11-09T23:21:26.933+00:00"
+   }
+  },
+  "escaneo_sostenido-r2": {
+   "configuraciones": {
+    "HEUR": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 5.02,
+      "disponible_utc": "2026-11-09T22:54:13.133416+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 47.071,
+      "primera_window_end_utc": "2026-11-09T22:54:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 5.02,
+      "disponible_utc": "2026-11-09T22:54:13.133416+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 47.071,
+      "primera_window_end_utc": "2026-11-09T22:54:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 5.02,
+      "disponible_utc": "2026-11-09T22:54:13.133416+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 47.071,
+      "primera_window_end_utc": "2026-11-09T22:54:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 5.02,
+      "disponible_utc": "2026-11-09T22:54:13.133416+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 47.071,
+      "primera_window_end_utc": "2026-11-09T22:54:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 15.056,
+      "disponible_utc": "2026-11-09T22:54:23.168805+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 37.036,
+      "primera_window_end_utc": "2026-11-09T22:54:20+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 15.056,
+      "disponible_utc": "2026-11-09T22:54:23.168805+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 37.036,
+      "primera_window_end_utc": "2026-11-09T22:54:20+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 5.02,
+      "disponible_utc": "2026-11-09T22:54:13.133416+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 47.071,
+      "primera_window_end_utc": "2026-11-09T22:54:10+00:00"
+     },
+     "principal": "oportuna"
+    }
+   },
+   "destino": "10.10.30.10",
+   "emisiones_reales": {
+    "atribuibles": 9,
+    "emisiones": 9,
+    "latencia_primera_oportuna_regla_no_prevista_s": null,
+    "latencia_primera_oportuna_regla_prevista_s": 5.11,
+    "latencia_primera_oportuna_s": 5.11,
+    "latencia_primera_oportuna_senal_if_s": 5.11,
+    "oportunas": 5,
+    "oportunas_regla_no_prevista": 0,
+    "oportunas_regla_prevista": 5,
+    "oportunas_senal_if": 5
+   },
+   "en_poblacion_principal": true,
+   "escenario": "escaneo_sostenido",
+   "etiquetas": {
+    "aplicacion_confirmada": null,
+    "efecto_observado": null,
+    "medida_publicada": true,
+    "medida_publicada_es_regla_prevista": false,
+    "nota": "en sombra no hay aplicación ni efecto: null significa NO MEDIDO, nunca «sí» ni «no»",
+    "otra_regla_oportuna": false,
+    "regla_prevista_oportuna": true,
+    "senal_if_oportuna": true
+   },
+   "generador": {
+    "fin_utc": "2026-11-09T22:55:00.332526+00:00",
+    "inicio_utc": "2026-11-09T22:54:08.021028+00:00"
+   },
+   "referencia_principal": "generador (v3)",
+   "referencia_trafico": {
+    "determinable": true,
+    "regla": "primer SYN observado; fin = min(último SYN, fin del generador)",
+    "t_fin_eval": "2026-11-09T22:55:00.204+00:00",
+    "t_ini_ref": "2026-11-09T22:54:08.113+00:00",
+    "t_proc_fin": "2026-11-09T22:55:00.332+00:00",
+    "t_proc_inicio": "2026-11-09T22:54:08.021+00:00"
+   },
+   "respuesta_propuesta": {
+    "accion": "BLOCK",
+    "desde_inicio_s": 0.318,
+    "destino_aplicacion": "srv-dmz",
+    "entrega_desde_publicacion_s": 0.22,
+    "entrega_srv_dmz_utc": "2026-11-09T22:54:08.651+00:00",
+    "nota": "sombra: propuesta publicada, NO aplicada (sin t_apl ni t_efecto)",
+    "propuesta": true,
+    "publicado_utc": "2026-11-09T22:54:08.430+00:00",
+    "regla": "port_scan_temprano",
+    "regla_es_prevista": false,
+    "secuencia_feed": 20923,
+    "tipo": "renovada"
+   },
+   "trafico": {
+    "captura_cubre_ventana": true,
+    "fin_utc": "2026-11-09T22:55:00.204702+00:00",
+    "inicio_utc": "2026-11-09T22:54:08.113165+00:00",
+    "paquetes": 65617,
+    "puertos_distintos_syn": 65535,
+    "retraso_primer_paquete_s": 0.092
+   },
+   "via_rapida": {
+    "desde_inicio_s": 0.14,
+    "disponible_utc": "2026-11-09T22:54:08.253+00:00",
+    "emitido_utc": "2026-11-09T22:54:08.253+00:00",
+    "evaluable": true,
+    "oportuna": true,
+    "referencia": "tráfico",
+    "senal": true,
+    "señales": 1,
+    "t_evidencia_utc": "2026-11-09T22:54:08.252+00:00"
+   }
+  },
+  "escaneo_sostenido-r3": {
+   "configuraciones": {
+    "HEUR": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 9.043,
+      "disponible_utc": "2026-11-09T23:17:13.180068+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 43.367,
+      "primera_window_end_utc": "2026-11-09T23:17:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 9.043,
+      "disponible_utc": "2026-11-09T23:17:13.180068+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 43.367,
+      "primera_window_end_utc": "2026-11-09T23:17:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 9.043,
+      "disponible_utc": "2026-11-09T23:17:13.180068+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 43.367,
+      "primera_window_end_utc": "2026-11-09T23:17:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 9.043,
+      "disponible_utc": "2026-11-09T23:17:13.180068+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 43.367,
+      "primera_window_end_utc": "2026-11-09T23:17:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 9.043,
+      "disponible_utc": "2026-11-09T23:17:13.180068+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 43.367,
+      "primera_window_end_utc": "2026-11-09T23:17:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 9.043,
+      "disponible_utc": "2026-11-09T23:17:13.180068+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 43.367,
+      "primera_window_end_utc": "2026-11-09T23:17:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 9.043,
+      "disponible_utc": "2026-11-09T23:17:13.180068+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 43.367,
+      "primera_window_end_utc": "2026-11-09T23:17:10+00:00"
+     },
+     "principal": "oportuna"
+    }
+   },
+   "destino": "10.10.30.10",
+   "emisiones_reales": {
+    "atribuibles": 8,
+    "emisiones": 8,
+    "latencia_primera_oportuna_regla_no_prevista_s": null,
+    "latencia_primera_oportuna_regla_prevista_s": 9.15,
+    "latencia_primera_oportuna_s": 9.15,
+    "latencia_primera_oportuna_senal_if_s": 9.15,
+    "oportunas": 5,
+    "oportunas_regla_no_prevista": 0,
+    "oportunas_regla_prevista": 5,
+    "oportunas_senal_if": 5
+   },
+   "en_poblacion_principal": true,
+   "escenario": "escaneo_sostenido",
+   "etiquetas": {
+    "aplicacion_confirmada": null,
+    "efecto_observado": null,
+    "medida_publicada": true,
+    "medida_publicada_es_regla_prevista": false,
+    "nota": "en sombra no hay aplicación ni efecto: null significa NO MEDIDO, nunca «sí» ni «no»",
+    "otra_regla_oportuna": false,
+    "regla_prevista_oportuna": true,
+    "senal_if_oportuna": true
+   },
+   "generador": {
+    "fin_utc": "2026-11-09T23:17:56.687638+00:00",
+    "inicio_utc": "2026-11-09T23:17:04.031659+00:00"
+   },
+   "referencia_principal": "generador (v3)",
+   "referencia_trafico": {
+    "determinable": true,
+    "regla": "primer SYN observado; fin = min(último SYN, fin del generador)",
+    "t_fin_eval": "2026-11-09T23:17:56.546+00:00",
+    "t_ini_ref": "2026-11-09T23:17:04.136+00:00",
+    "t_proc_fin": "2026-11-09T23:17:56.687+00:00",
+    "t_proc_inicio": "2026-11-09T23:17:04.031+00:00"
+   },
+   "respuesta_propuesta": {
+    "accion": "BLOCK",
+    "desde_inicio_s": 0.304,
+    "destino_aplicacion": "srv-dmz",
+    "entrega_desde_publicacion_s": 0.477,
+    "entrega_srv_dmz_utc": "2026-11-09T23:17:04.917+00:00",
+    "nota": "sombra: propuesta publicada, NO aplicada (sin t_apl ni t_efecto)",
+    "propuesta": true,
+    "publicado_utc": "2026-11-09T23:17:04.440+00:00",
+    "regla": "port_scan_temprano",
+    "regla_es_prevista": false,
+    "secuencia_feed": 21020,
+    "tipo": "renovada"
+   },
+   "trafico": {
+    "captura_cubre_ventana": true,
+    "fin_utc": "2026-11-09T23:17:56.546932+00:00",
+    "inicio_utc": "2026-11-09T23:17:04.136594+00:00",
+    "paquetes": 65617,
+    "puertos_distintos_syn": 65535,
+    "retraso_primer_paquete_s": 0.105
+   },
+   "via_rapida": {
+    "desde_inicio_s": 0.137,
+    "disponible_utc": "2026-11-09T23:17:04.273+00:00",
+    "emitido_utc": "2026-11-09T23:17:04.273+00:00",
+    "evaluable": true,
+    "oportuna": true,
+    "referencia": "tráfico",
+    "senal": true,
+    "señales": 1,
+    "t_evidencia_utc": "2026-11-09T23:17:04.272+00:00"
+   }
+  },
+  "escaneo_sostenido-r4": {
+   "configuraciones": {
+    "HEUR": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 5.031,
+      "disponible_utc": "2026-11-09T23:48:04.318542+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 47.168,
+      "primera_window_end_utc": "2026-11-09T23:48:00+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 5.031,
+      "disponible_utc": "2026-11-09T23:48:04.318542+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 47.168,
+      "primera_window_end_utc": "2026-11-09T23:48:00+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 5.031,
+      "disponible_utc": "2026-11-09T23:48:04.318542+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 47.168,
+      "primera_window_end_utc": "2026-11-09T23:48:00+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 5.031,
+      "disponible_utc": "2026-11-09T23:48:04.318542+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 47.168,
+      "primera_window_end_utc": "2026-11-09T23:48:00+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 16.854,
+      "disponible_utc": "2026-11-09T23:48:16.141589+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 35.345,
+      "primera_window_end_utc": "2026-11-09T23:48:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 16.854,
+      "disponible_utc": "2026-11-09T23:48:16.141589+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 35.345,
+      "primera_window_end_utc": "2026-11-09T23:48:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 5.031,
+      "disponible_utc": "2026-11-09T23:48:04.318542+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 47.168,
+      "primera_window_end_utc": "2026-11-09T23:48:00+00:00"
+     },
+     "principal": "oportuna"
+    }
+   },
+   "destino": "10.10.30.10",
+   "emisiones_reales": {
+    "atribuibles": 9,
+    "emisiones": 9,
+    "latencia_primera_oportuna_regla_no_prevista_s": null,
+    "latencia_primera_oportuna_regla_prevista_s": 5.13,
+    "latencia_primera_oportuna_s": 5.13,
+    "latencia_primera_oportuna_senal_if_s": 5.13,
+    "oportunas": 5,
+    "oportunas_regla_no_prevista": 0,
+    "oportunas_regla_prevista": 5,
+    "oportunas_senal_if": 5
+   },
+   "en_poblacion_principal": true,
+   "escenario": "escaneo_sostenido",
+   "etiquetas": {
+    "aplicacion_confirmada": null,
+    "efecto_observado": null,
+    "medida_publicada": true,
+    "medida_publicada_es_regla_prevista": false,
+    "nota": "en sombra no hay aplicación ni efecto: null significa NO MEDIDO, nunca «sí» ni «no»",
+    "otra_regla_oportuna": false,
+    "regla_prevista_oportuna": true,
+    "senal_if_oportuna": true
+   },
+   "generador": {
+    "fin_utc": "2026-11-09T23:48:51.631119+00:00",
+    "inicio_utc": "2026-11-09T23:47:59.185153+00:00"
+   },
+   "referencia_principal": "generador (v3)",
+   "referencia_trafico": {
+    "determinable": true,
+    "regla": "primer SYN observado; fin = min(último SYN, fin del generador)",
+    "t_fin_eval": "2026-11-09T23:48:51.486+00:00",
+    "t_ini_ref": "2026-11-09T23:47:59.287+00:00",
+    "t_proc_fin": "2026-11-09T23:48:51.631+00:00",
+    "t_proc_inicio": "2026-11-09T23:47:59.185+00:00"
+   },
+   "respuesta_propuesta": {
+    "accion": "BLOCK",
+    "desde_inicio_s": 0.362,
+    "destino_aplicacion": "srv-dmz",
+    "entrega_desde_publicacion_s": 0.261,
+    "entrega_srv_dmz_utc": "2026-11-09T23:47:59.911+00:00",
+    "nota": "sombra: propuesta publicada, NO aplicada (sin t_apl ni t_efecto)",
+    "propuesta": true,
+    "publicado_utc": "2026-11-09T23:47:59.649+00:00",
+    "regla": "port_scan_temprano",
+    "regla_es_prevista": false,
+    "secuencia_feed": 21146,
+    "tipo": "renovada"
+   },
+   "trafico": {
+    "captura_cubre_ventana": true,
+    "fin_utc": "2026-11-09T23:48:51.486734+00:00",
+    "inicio_utc": "2026-11-09T23:47:59.287805+00:00",
+    "paquetes": 65617,
+    "puertos_distintos_syn": 65535,
+    "retraso_primer_paquete_s": 0.103
+   },
+   "via_rapida": {
+    "desde_inicio_s": 0.139,
+    "disponible_utc": "2026-11-09T23:47:59.427+00:00",
+    "emitido_utc": "2026-11-09T23:47:59.427+00:00",
+    "evaluable": true,
+    "oportuna": true,
+    "referencia": "tráfico",
+    "senal": true,
+    "señales": 1,
+    "t_evidencia_utc": "2026-11-09T23:47:59.427+00:00"
+   }
+  },
+  "escaneo_sostenido-r5": {
+   "configuraciones": {
+    "HEUR": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 13.063,
+      "disponible_utc": "2026-11-09T22:36:23.887919+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 39.642,
+      "primera_window_end_utc": "2026-11-09T22:36:20+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 13.063,
+      "disponible_utc": "2026-11-09T22:36:23.887919+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 39.642,
+      "primera_window_end_utc": "2026-11-09T22:36:20+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 13.063,
+      "disponible_utc": "2026-11-09T22:36:23.887919+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 39.642,
+      "primera_window_end_utc": "2026-11-09T22:36:20+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 13.063,
+      "disponible_utc": "2026-11-09T22:36:23.887919+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 39.642,
+      "primera_window_end_utc": "2026-11-09T22:36:20+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 13.063,
+      "disponible_utc": "2026-11-09T22:36:23.887919+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 39.642,
+      "primera_window_end_utc": "2026-11-09T22:36:20+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 13.063,
+      "disponible_utc": "2026-11-09T22:36:23.887919+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 39.642,
+      "primera_window_end_utc": "2026-11-09T22:36:20+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 13.063,
+      "disponible_utc": "2026-11-09T22:36:23.887919+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 39.642,
+      "primera_window_end_utc": "2026-11-09T22:36:20+00:00"
+     },
+     "principal": "oportuna"
+    }
+   },
+   "destino": "10.10.30.10",
+   "emisiones_reales": {
+    "atribuibles": 8,
+    "emisiones": 8,
+    "latencia_primera_oportuna_regla_no_prevista_s": null,
+    "latencia_primera_oportuna_regla_prevista_s": 13.14,
+    "latencia_primera_oportuna_s": 13.14,
+    "latencia_primera_oportuna_senal_if_s": 13.14,
+    "oportunas": 4,
+    "oportunas_regla_no_prevista": 0,
+    "oportunas_regla_prevista": 4,
+    "oportunas_senal_if": 4
+   },
+   "en_poblacion_principal": true,
+   "escenario": "escaneo_sostenido",
+   "etiquetas": {
+    "aplicacion_confirmada": null,
+    "efecto_observado": null,
+    "medida_publicada": true,
+    "medida_publicada_es_regla_prevista": false,
+    "nota": "en sombra no hay aplicación ni efecto: null significa NO MEDIDO, nunca «sí» ni «no»",
+    "otra_regla_oportuna": false,
+    "regla_prevista_oportuna": true,
+    "senal_if_oportuna": true
+   },
+   "generador": {
+    "fin_utc": "2026-11-09T22:37:03.659817+00:00",
+    "inicio_utc": "2026-11-09T22:36:10.746070+00:00"
+   },
+   "referencia_principal": "generador (v3)",
+   "referencia_trafico": {
+    "determinable": true,
+    "regla": "primer SYN observado; fin = min(último SYN, fin del generador)",
+    "t_fin_eval": "2026-11-09T22:37:03.529+00:00",
+    "t_ini_ref": "2026-11-09T22:36:10.824+00:00",
+    "t_proc_fin": "2026-11-09T22:37:03.659+00:00",
+    "t_proc_inicio": "2026-11-09T22:36:10.746+00:00"
+   },
+   "respuesta_propuesta": {
+    "accion": "BLOCK",
+    "desde_inicio_s": 0.249,
+    "destino_aplicacion": "srv-dmz",
+    "entrega_desde_publicacion_s": 0.766,
+    "entrega_srv_dmz_utc": "2026-11-09T22:36:11.839+00:00",
+    "nota": "sombra: propuesta publicada, NO aplicada (sin t_apl ni t_efecto)",
+    "propuesta": true,
+    "publicado_utc": "2026-11-09T22:36:11.073+00:00",
+    "regla": "port_scan_temprano",
+    "regla_es_prevista": false,
+    "secuencia_feed": 20848,
+    "tipo": "renovada"
+   },
+   "trafico": {
+    "captura_cubre_ventana": true,
+    "fin_utc": "2026-11-09T22:37:03.529474+00:00",
+    "inicio_utc": "2026-11-09T22:36:10.824436+00:00",
+    "paquetes": 65615,
+    "puertos_distintos_syn": 65535,
+    "retraso_primer_paquete_s": 0.078
+   },
+   "via_rapida": {
+    "desde_inicio_s": 0.148,
+    "disponible_utc": "2026-11-09T22:36:10.972+00:00",
+    "emitido_utc": "2026-11-09T22:36:10.972+00:00",
+    "evaluable": true,
+    "oportuna": true,
+    "referencia": "tráfico",
+    "senal": true,
+    "señales": 1,
+    "t_evidencia_utc": "2026-11-09T22:36:10.972+00:00"
+   }
+  },
+  "fuerza_bruta_http-r1": {
+   "configuraciones": {
+    "HEUR": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 8.233,
+      "disponible_utc": "2026-11-09T22:27:44.301798+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 81.708,
+      "primera_window_end_utc": "2026-11-09T22:27:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 8.233,
+      "disponible_utc": "2026-11-09T22:27:44.301798+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 81.708,
+      "primera_window_end_utc": "2026-11-09T22:27:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 8.233,
+      "disponible_utc": "2026-11-09T22:27:44.301798+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 81.708,
+      "primera_window_end_utc": "2026-11-09T22:27:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 8.233,
+      "disponible_utc": "2026-11-09T22:27:44.301798+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 81.708,
+      "primera_window_end_utc": "2026-11-09T22:27:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 8.233,
+      "disponible_utc": "2026-11-09T22:27:44.301798+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 81.708,
+      "primera_window_end_utc": "2026-11-09T22:27:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 8.233,
+      "disponible_utc": "2026-11-09T22:27:44.301798+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 81.708,
+      "primera_window_end_utc": "2026-11-09T22:27:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 8.233,
+      "disponible_utc": "2026-11-09T22:27:44.301798+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 81.708,
+      "primera_window_end_utc": "2026-11-09T22:27:40+00:00"
+     },
+     "principal": "oportuna"
+    }
+   },
+   "destino": "10.10.30.10",
+   "emisiones_reales": {
+    "atribuibles": 15,
+    "emisiones": 15,
+    "latencia_primera_oportuna_regla_no_prevista_s": null,
+    "latencia_primera_oportuna_regla_prevista_s": 8.25,
+    "latencia_primera_oportuna_s": 8.25,
+    "latencia_primera_oportuna_senal_if_s": 8.25,
+    "oportunas": 9,
+    "oportunas_regla_no_prevista": 0,
+    "oportunas_regla_prevista": 9,
+    "oportunas_senal_if": 9
+   },
+   "en_poblacion_principal": true,
+   "escenario": "fuerza_bruta_http",
+   "etiquetas": {
+    "aplicacion_confirmada": null,
+    "efecto_observado": null,
+    "medida_publicada": true,
+    "medida_publicada_es_regla_prevista": true,
+    "nota": "en sombra no hay aplicación ni efecto: null significa NO MEDIDO, nunca «sí» ni «no»",
+    "otra_regla_oportuna": false,
+    "regla_prevista_oportuna": true,
+    "senal_if_oportuna": true
+   },
+   "generador": {
+    "fin_utc": "2026-11-09T22:29:06.057141+00:00",
+    "inicio_utc": "2026-11-09T22:27:36.050084+00:00"
+   },
+   "referencia_principal": "generador (v3)",
+   "referencia_trafico": {
+    "determinable": true,
+    "regla": "primer paquete observado; fin = min(último paquete, fin del generador)",
+    "t_fin_eval": "2026-11-09T22:29:06.009+00:00",
+    "t_ini_ref": "2026-11-09T22:27:36.069+00:00",
+    "t_proc_fin": "2026-11-09T22:29:06.057+00:00",
+    "t_proc_inicio": "2026-11-09T22:27:36.050+00:00"
+   },
+   "respuesta_propuesta": {
+    "accion": "BLOCK",
+    "desde_inicio_s": 8.259,
+    "destino_aplicacion": "srv-dmz",
+    "entrega_desde_publicacion_s": 0.478,
+    "entrega_srv_dmz_utc": "2026-11-09T22:27:44.805+00:00",
+    "nota": "sombra: propuesta publicada, NO aplicada (sin t_apl ni t_efecto)",
+    "propuesta": true,
+    "publicado_utc": "2026-11-09T22:27:44.328+00:00",
+    "regla": "brute_force",
+    "regla_es_prevista": true,
+    "secuencia_feed": 20813,
+    "tipo": "renovada"
+   },
+   "trafico": {
+    "captura_cubre_ventana": true,
+    "fin_utc": "2026-11-09T22:29:06.009951+00:00",
+    "inicio_utc": "2026-11-09T22:27:36.069246+00:00",
+    "paquetes": 67054,
+    "puertos_distintos_syn": null,
+    "retraso_primer_paquete_s": 0.019
+   },
+   "via_rapida": {
+    "evaluable": true,
+    "senal": false
+   }
+  },
+  "fuerza_bruta_http-r2": {
+   "configuraciones": {
+    "HEUR": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 8.447,
+      "disponible_utc": "2026-11-09T22:49:16.486085+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 81.516,
+      "primera_window_end_utc": "2026-11-09T22:49:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 8.447,
+      "disponible_utc": "2026-11-09T22:49:16.486085+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 81.516,
+      "primera_window_end_utc": "2026-11-09T22:49:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 8.447,
+      "disponible_utc": "2026-11-09T22:49:16.486085+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 81.516,
+      "primera_window_end_utc": "2026-11-09T22:49:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 8.447,
+      "disponible_utc": "2026-11-09T22:49:16.486085+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 81.516,
+      "primera_window_end_utc": "2026-11-09T22:49:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 8.447,
+      "disponible_utc": "2026-11-09T22:49:16.486085+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 81.516,
+      "primera_window_end_utc": "2026-11-09T22:49:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 8.447,
+      "disponible_utc": "2026-11-09T22:49:16.486085+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 81.516,
+      "primera_window_end_utc": "2026-11-09T22:49:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 8.447,
+      "disponible_utc": "2026-11-09T22:49:16.486085+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 81.516,
+      "primera_window_end_utc": "2026-11-09T22:49:10+00:00"
+     },
+     "principal": "oportuna"
+    }
+   },
+   "destino": "10.10.30.10",
+   "emisiones_reales": {
+    "atribuibles": 15,
+    "emisiones": 15,
+    "latencia_primera_oportuna_regla_no_prevista_s": null,
+    "latencia_primera_oportuna_regla_prevista_s": 8.47,
+    "latencia_primera_oportuna_s": 8.47,
+    "latencia_primera_oportuna_senal_if_s": 8.47,
+    "oportunas": 8,
+    "oportunas_regla_no_prevista": 0,
+    "oportunas_regla_prevista": 8,
+    "oportunas_senal_if": 8
+   },
+   "en_poblacion_principal": true,
+   "escenario": "fuerza_bruta_http",
+   "etiquetas": {
+    "aplicacion_confirmada": null,
+    "efecto_observado": null,
+    "medida_publicada": true,
+    "medida_publicada_es_regla_prevista": true,
+    "nota": "en sombra no hay aplicación ni efecto: null significa NO MEDIDO, nunca «sí» ni «no»",
+    "otra_regla_oportuna": false,
+    "regla_prevista_oportuna": true,
+    "senal_if_oportuna": true
+   },
+   "generador": {
+    "fin_utc": "2026-11-09T22:50:38.018266+00:00",
+    "inicio_utc": "2026-11-09T22:49:08.014867+00:00"
+   },
+   "referencia_principal": "generador (v3)",
+   "referencia_trafico": {
+    "determinable": true,
+    "regla": "primer paquete observado; fin = min(último paquete, fin del generador)",
+    "t_fin_eval": "2026-11-09T22:50:38.002+00:00",
+    "t_ini_ref": "2026-11-09T22:49:08.038+00:00",
+    "t_proc_fin": "2026-11-09T22:50:38.018+00:00",
+    "t_proc_inicio": "2026-11-09T22:49:08.014+00:00"
+   },
+   "respuesta_propuesta": {
+    "accion": "BLOCK",
+    "desde_inicio_s": 8.694,
+    "destino_aplicacion": "srv-dmz",
+    "entrega_desde_publicacion_s": 0.55,
+    "entrega_srv_dmz_utc": "2026-11-09T22:49:17.282+00:00",
+    "nota": "sombra: propuesta publicada, NO aplicada (sin t_apl ni t_efecto)",
+    "propuesta": true,
+    "publicado_utc": "2026-11-09T22:49:16.732+00:00",
+    "regla": "brute_force",
+    "regla_es_prevista": true,
+    "secuencia_feed": 20901,
+    "tipo": "renovada"
+   },
+   "trafico": {
+    "captura_cubre_ventana": true,
+    "fin_utc": "2026-11-09T22:50:38.002041+00:00",
+    "inicio_utc": "2026-11-09T22:49:08.038632+00:00",
+    "paquetes": 67726,
+    "puertos_distintos_syn": null,
+    "retraso_primer_paquete_s": 0.024
+   },
+   "via_rapida": {
+    "evaluable": true,
+    "senal": false
+   }
+  },
+  "fuerza_bruta_http-r3": {
+   "configuraciones": {
+    "HEUR": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 9.489,
+      "disponible_utc": "2026-11-09T22:12:45.889382+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 80.111,
+      "primera_window_end_utc": "2026-11-09T22:12:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 9.489,
+      "disponible_utc": "2026-11-09T22:12:45.889382+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 80.111,
+      "primera_window_end_utc": "2026-11-09T22:12:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 9.489,
+      "disponible_utc": "2026-11-09T22:12:45.889382+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 80.111,
+      "primera_window_end_utc": "2026-11-09T22:12:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 9.489,
+      "disponible_utc": "2026-11-09T22:12:45.889382+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 80.111,
+      "primera_window_end_utc": "2026-11-09T22:12:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 9.489,
+      "disponible_utc": "2026-11-09T22:12:45.889382+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 80.111,
+      "primera_window_end_utc": "2026-11-09T22:12:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 9.489,
+      "disponible_utc": "2026-11-09T22:12:45.889382+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 80.111,
+      "primera_window_end_utc": "2026-11-09T22:12:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 9.489,
+      "disponible_utc": "2026-11-09T22:12:45.889382+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 80.111,
+      "primera_window_end_utc": "2026-11-09T22:12:40+00:00"
+     },
+     "principal": "oportuna"
+    }
+   },
+   "destino": "10.10.30.10",
+   "emisiones_reales": {
+    "atribuibles": 15,
+    "emisiones": 15,
+    "latencia_primera_oportuna_regla_no_prevista_s": null,
+    "latencia_primera_oportuna_regla_prevista_s": 9.51,
+    "latencia_primera_oportuna_s": 9.51,
+    "latencia_primera_oportuna_senal_if_s": 9.51,
+    "oportunas": 8,
+    "oportunas_regla_no_prevista": 0,
+    "oportunas_regla_prevista": 8,
+    "oportunas_senal_if": 8
+   },
+   "en_poblacion_principal": true,
+   "escenario": "fuerza_bruta_http",
+   "etiquetas": {
+    "aplicacion_confirmada": null,
+    "efecto_observado": null,
+    "medida_publicada": true,
+    "medida_publicada_es_regla_prevista": true,
+    "nota": "en sombra no hay aplicación ni efecto: null significa NO MEDIDO, nunca «sí» ni «no»",
+    "otra_regla_oportuna": false,
+    "regla_prevista_oportuna": true,
+    "senal_if_oportuna": true
+   },
+   "generador": {
+    "fin_utc": "2026-11-09T22:14:06.043197+00:00",
+    "inicio_utc": "2026-11-09T22:12:36.382544+00:00"
+   },
+   "referencia_principal": "generador (v3)",
+   "referencia_trafico": {
+    "determinable": true,
+    "regla": "primer paquete observado; fin = min(último paquete, fin del generador)",
+    "t_fin_eval": "2026-11-09T22:14:06.000+00:00",
+    "t_ini_ref": "2026-11-09T22:12:36.400+00:00",
+    "t_proc_fin": "2026-11-09T22:14:06.043+00:00",
+    "t_proc_inicio": "2026-11-09T22:12:36.382+00:00"
+   },
+   "respuesta_propuesta": {
+    "accion": "BLOCK",
+    "desde_inicio_s": 9.636,
+    "destino_aplicacion": "srv-dmz",
+    "entrega_desde_publicacion_s": 0.297,
+    "entrega_srv_dmz_utc": "2026-11-09T22:12:46.333+00:00",
+    "nota": "sombra: propuesta publicada, NO aplicada (sin t_apl ni t_efecto)",
+    "propuesta": true,
+    "publicado_utc": "2026-11-09T22:12:46.036+00:00",
+    "regla": "brute_force",
+    "regla_es_prevista": true,
+    "secuencia_feed": 20746,
+    "tipo": "renovada"
+   },
+   "trafico": {
+    "captura_cubre_ventana": true,
+    "fin_utc": "2026-11-09T22:14:06.000248+00:00",
+    "inicio_utc": "2026-11-09T22:12:36.400517+00:00",
+    "paquetes": 66878,
+    "puertos_distintos_syn": null,
+    "retraso_primer_paquete_s": 0.018
+   },
+   "via_rapida": {
+    "evaluable": true,
+    "senal": false
+   }
+  },
+  "fuerza_bruta_http-r4": {
+   "configuraciones": {
+    "HEUR": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 11.332,
+      "disponible_utc": "2026-11-09T22:02:47.399573+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 78.613,
+      "primera_window_end_utc": "2026-11-09T22:02:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 11.332,
+      "disponible_utc": "2026-11-09T22:02:47.399573+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 78.613,
+      "primera_window_end_utc": "2026-11-09T22:02:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 11.332,
+      "disponible_utc": "2026-11-09T22:02:47.399573+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 78.613,
+      "primera_window_end_utc": "2026-11-09T22:02:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 11.332,
+      "disponible_utc": "2026-11-09T22:02:47.399573+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 78.613,
+      "primera_window_end_utc": "2026-11-09T22:02:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 11.332,
+      "disponible_utc": "2026-11-09T22:02:47.399573+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 78.613,
+      "primera_window_end_utc": "2026-11-09T22:02:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 11.332,
+      "disponible_utc": "2026-11-09T22:02:47.399573+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 78.613,
+      "primera_window_end_utc": "2026-11-09T22:02:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 11.332,
+      "disponible_utc": "2026-11-09T22:02:47.399573+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 78.613,
+      "primera_window_end_utc": "2026-11-09T22:02:40+00:00"
+     },
+     "principal": "oportuna"
+    }
+   },
+   "destino": "10.10.30.10",
+   "emisiones_reales": {
+    "atribuibles": 15,
+    "emisiones": 15,
+    "latencia_primera_oportuna_regla_no_prevista_s": null,
+    "latencia_primera_oportuna_regla_prevista_s": 11.35,
+    "latencia_primera_oportuna_s": 11.35,
+    "latencia_primera_oportuna_senal_if_s": 11.35,
+    "oportunas": 8,
+    "oportunas_regla_no_prevista": 0,
+    "oportunas_regla_prevista": 8,
+    "oportunas_senal_if": 8
+   },
+   "en_poblacion_principal": true,
+   "escenario": "fuerza_bruta_http",
+   "etiquetas": {
+    "aplicacion_confirmada": null,
+    "efecto_observado": null,
+    "medida_publicada": true,
+    "medida_publicada_es_regla_prevista": true,
+    "nota": "en sombra no hay aplicación ni efecto: null significa NO MEDIDO, nunca «sí» ni «no»",
+    "otra_regla_oportuna": false,
+    "regla_prevista_oportuna": true,
+    "senal_if_oportuna": true
+   },
+   "generador": {
+    "fin_utc": "2026-11-09T22:04:06.046153+00:00",
+    "inicio_utc": "2026-11-09T22:02:36.048134+00:00"
+   },
+   "referencia_principal": "generador (v3)",
+   "referencia_trafico": {
+    "determinable": true,
+    "regla": "primer paquete observado; fin = min(último paquete, fin del generador)",
+    "t_fin_eval": "2026-11-09T22:04:06.012+00:00",
+    "t_ini_ref": "2026-11-09T22:02:36.067+00:00",
+    "t_proc_fin": "2026-11-09T22:04:06.046+00:00",
+    "t_proc_inicio": "2026-11-09T22:02:36.048+00:00"
+   },
+   "respuesta_propuesta": {
+    "accion": "BLOCK",
+    "desde_inicio_s": 11.533,
+    "destino_aplicacion": "srv-dmz",
+    "entrega_desde_publicacion_s": 0.126,
+    "entrega_srv_dmz_utc": "2026-11-09T22:02:47.727+00:00",
+    "nota": "sombra: propuesta publicada, NO aplicada (sin t_apl ni t_efecto)",
+    "propuesta": true,
+    "publicado_utc": "2026-11-09T22:02:47.601+00:00",
+    "regla": "brute_force",
+    "regla_es_prevista": true,
+    "secuencia_feed": 20702,
+    "tipo": "escalada"
+   },
+   "trafico": {
+    "captura_cubre_ventana": true,
+    "fin_utc": "2026-11-09T22:04:06.012836+00:00",
+    "inicio_utc": "2026-11-09T22:02:36.067750+00:00",
+    "paquetes": 66842,
+    "puertos_distintos_syn": null,
+    "retraso_primer_paquete_s": 0.02
+   },
+   "via_rapida": {
+    "evaluable": true,
+    "senal": false
+   }
+  },
+  "fuerza_bruta_http-r5": {
+   "configuraciones": {
+    "HEUR": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 12.252,
+      "disponible_utc": "2026-11-09T22:40:45.930526+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 77.078,
+      "primera_window_end_utc": "2026-11-09T22:40:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 12.252,
+      "disponible_utc": "2026-11-09T22:40:45.930526+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 77.078,
+      "primera_window_end_utc": "2026-11-09T22:40:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 12.252,
+      "disponible_utc": "2026-11-09T22:40:45.930526+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 77.078,
+      "primera_window_end_utc": "2026-11-09T22:40:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 12.252,
+      "disponible_utc": "2026-11-09T22:40:45.930526+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 77.078,
+      "primera_window_end_utc": "2026-11-09T22:40:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 12.252,
+      "disponible_utc": "2026-11-09T22:40:45.930526+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 77.078,
+      "primera_window_end_utc": "2026-11-09T22:40:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 12.252,
+      "disponible_utc": "2026-11-09T22:40:45.930526+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 77.078,
+      "primera_window_end_utc": "2026-11-09T22:40:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 12.252,
+      "disponible_utc": "2026-11-09T22:40:45.930526+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 77.078,
+      "primera_window_end_utc": "2026-11-09T22:40:40+00:00"
+     },
+     "principal": "oportuna"
+    }
+   },
+   "destino": "10.10.30.10",
+   "emisiones_reales": {
+    "atribuibles": 15,
+    "emisiones": 15,
+    "latencia_primera_oportuna_regla_no_prevista_s": null,
+    "latencia_primera_oportuna_regla_prevista_s": 12.27,
+    "latencia_primera_oportuna_s": 12.27,
+    "latencia_primera_oportuna_senal_if_s": 12.27,
+    "oportunas": 8,
+    "oportunas_regla_no_prevista": 0,
+    "oportunas_regla_prevista": 8,
+    "oportunas_senal_if": 8
+   },
+   "en_poblacion_principal": true,
+   "escenario": "fuerza_bruta_http",
+   "etiquetas": {
+    "aplicacion_confirmada": null,
+    "efecto_observado": null,
+    "medida_publicada": true,
+    "medida_publicada_es_regla_prevista": true,
+    "nota": "en sombra no hay aplicación ni efecto: null significa NO MEDIDO, nunca «sí» ni «no»",
+    "otra_regla_oportuna": false,
+    "regla_prevista_oportuna": true,
+    "senal_if_oportuna": true
+   },
+   "generador": {
+    "fin_utc": "2026-11-09T22:42:03.024053+00:00",
+    "inicio_utc": "2026-11-09T22:40:33.662280+00:00"
+   },
+   "referencia_principal": "generador (v3)",
+   "referencia_trafico": {
+    "determinable": true,
+    "regla": "primer paquete observado; fin = min(último paquete, fin del generador)",
+    "t_fin_eval": "2026-11-09T22:42:03.008+00:00",
+    "t_ini_ref": "2026-11-09T22:40:33.678+00:00",
+    "t_proc_fin": "2026-11-09T22:42:03.024+00:00",
+    "t_proc_inicio": "2026-11-09T22:40:33.662+00:00"
+   },
+   "respuesta_propuesta": {
+    "accion": "BLOCK",
+    "desde_inicio_s": 12.482,
+    "destino_aplicacion": "srv-dmz",
+    "entrega_desde_publicacion_s": 0.848,
+    "entrega_srv_dmz_utc": "2026-11-09T22:40:47.007+00:00",
+    "nota": "sombra: propuesta publicada, NO aplicada (sin t_apl ni t_efecto)",
+    "propuesta": true,
+    "publicado_utc": "2026-11-09T22:40:46.160+00:00",
+    "regla": "brute_force",
+    "regla_es_prevista": true,
+    "secuencia_feed": 20866,
+    "tipo": "renovada"
+   },
+   "trafico": {
+    "captura_cubre_ventana": true,
+    "fin_utc": "2026-11-09T22:42:03.008654+00:00",
+    "inicio_utc": "2026-11-09T22:40:33.678499+00:00",
+    "paquetes": 66892,
+    "puertos_distintos_syn": null,
+    "retraso_primer_paquete_s": 0.016
+   },
+   "via_rapida": {
+    "evaluable": true,
+    "senal": false
+   }
+  },
+  "inundacion_http-r1": {
+   "configuraciones": {
+    "HEUR": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 15.117,
+      "disponible_utc": "2026-11-09T23:12:19.214463+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 74.814,
+      "primera_window_end_utc": "2026-11-09T23:12:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 15.117,
+      "disponible_utc": "2026-11-09T23:12:19.214463+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 74.814,
+      "primera_window_end_utc": "2026-11-09T23:12:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 15.117,
+      "disponible_utc": "2026-11-09T23:12:19.214463+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 74.814,
+      "primera_window_end_utc": "2026-11-09T23:12:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 15.117,
+      "disponible_utc": "2026-11-09T23:12:19.214463+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 74.814,
+      "primera_window_end_utc": "2026-11-09T23:12:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 15.117,
+      "disponible_utc": "2026-11-09T23:12:19.214463+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 74.814,
+      "primera_window_end_utc": "2026-11-09T23:12:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 15.117,
+      "disponible_utc": "2026-11-09T23:12:19.214463+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 74.814,
+      "primera_window_end_utc": "2026-11-09T23:12:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 15.117,
+      "disponible_utc": "2026-11-09T23:12:19.214463+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 74.814,
+      "primera_window_end_utc": "2026-11-09T23:12:10+00:00"
+     },
+     "principal": "oportuna"
+    }
+   },
+   "destino": "10.10.30.10",
+   "emisiones_reales": {
+    "atribuibles": 15,
+    "emisiones": 15,
+    "latencia_primera_oportuna_regla_no_prevista_s": null,
+    "latencia_primera_oportuna_regla_prevista_s": 15.16,
+    "latencia_primera_oportuna_s": 15.16,
+    "latencia_primera_oportuna_senal_if_s": 15.16,
+    "oportunas": 7,
+    "oportunas_regla_no_prevista": 0,
+    "oportunas_regla_prevista": 7,
+    "oportunas_senal_if": 7
+   },
+   "en_poblacion_principal": true,
+   "escenario": "inundacion_http",
+   "etiquetas": {
+    "aplicacion_confirmada": null,
+    "efecto_observado": null,
+    "medida_publicada": true,
+    "medida_publicada_es_regla_prevista": true,
+    "nota": "en sombra no hay aplicación ni efecto: null significa NO MEDIDO, nunca «sí» ni «no»",
+    "otra_regla_oportuna": false,
+    "regla_prevista_oportuna": true,
+    "senal_if_oportuna": true
+   },
+   "generador": {
+    "fin_utc": "2026-11-09T23:13:34.028880+00:00",
+    "inicio_utc": "2026-11-09T23:12:04.052526+00:00"
+   },
+   "referencia_principal": "generador (v3)",
+   "referencia_trafico": {
+    "determinable": true,
+    "regla": "primer paquete observado; fin = min(último paquete, fin del generador)",
+    "t_fin_eval": "2026-11-09T23:13:34.028+00:00",
+    "t_ini_ref": "2026-11-09T23:12:04.097+00:00",
+    "t_proc_fin": "2026-11-09T23:13:34.028+00:00",
+    "t_proc_inicio": "2026-11-09T23:12:04.052+00:00"
+   },
+   "respuesta_propuesta": {
+    "accion": "BLOCK",
+    "desde_inicio_s": 15.186,
+    "destino_aplicacion": "srv-dmz",
+    "entrega_desde_publicacion_s": 0.238,
+    "entrega_srv_dmz_utc": "2026-11-09T23:12:19.522+00:00",
+    "nota": "sombra: propuesta publicada, NO aplicada (sin t_apl ni t_efecto)",
+    "propuesta": true,
+    "publicado_utc": "2026-11-09T23:12:19.284+00:00",
+    "regla": "http_abuse",
+    "regla_es_prevista": true,
+    "secuencia_feed": 20998,
+    "tipo": "mantenida"
+   },
+   "trafico": {
+    "captura_cubre_ventana": true,
+    "fin_utc": "2026-11-09T23:13:34.036006+00:00",
+    "inicio_utc": "2026-11-09T23:12:04.097811+00:00",
+    "paquetes": 199320,
+    "puertos_distintos_syn": null,
+    "retraso_primer_paquete_s": 0.045
+   },
+   "via_rapida": {
+    "evaluable": true,
+    "senal": false
+   }
+  },
+  "inundacion_http-r2": {
+   "configuraciones": {
+    "HEUR": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 12.732,
+      "disponible_utc": "2026-11-09T23:07:17.672094+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 76.367,
+      "primera_window_end_utc": "2026-11-09T23:07:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 12.732,
+      "disponible_utc": "2026-11-09T23:07:17.672094+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 76.367,
+      "primera_window_end_utc": "2026-11-09T23:07:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 12.732,
+      "disponible_utc": "2026-11-09T23:07:17.672094+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 76.367,
+      "primera_window_end_utc": "2026-11-09T23:07:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 12.732,
+      "disponible_utc": "2026-11-09T23:07:17.672094+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 76.367,
+      "primera_window_end_utc": "2026-11-09T23:07:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 12.732,
+      "disponible_utc": "2026-11-09T23:07:17.672094+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 76.367,
+      "primera_window_end_utc": "2026-11-09T23:07:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 12.732,
+      "disponible_utc": "2026-11-09T23:07:17.672094+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 76.367,
+      "primera_window_end_utc": "2026-11-09T23:07:10+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 12.732,
+      "disponible_utc": "2026-11-09T23:07:17.672094+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 76.367,
+      "primera_window_end_utc": "2026-11-09T23:07:10+00:00"
+     },
+     "principal": "oportuna"
+    }
+   },
+   "destino": "10.10.30.10",
+   "emisiones_reales": {
+    "atribuibles": 15,
+    "emisiones": 15,
+    "latencia_primera_oportuna_regla_no_prevista_s": null,
+    "latencia_primera_oportuna_regla_prevista_s": 12.78,
+    "latencia_primera_oportuna_s": 12.78,
+    "latencia_primera_oportuna_senal_if_s": 12.78,
+    "oportunas": 8,
+    "oportunas_regla_no_prevista": 0,
+    "oportunas_regla_prevista": 8,
+    "oportunas_senal_if": 8
+   },
+   "en_poblacion_principal": true,
+   "escenario": "inundacion_http",
+   "etiquetas": {
+    "aplicacion_confirmada": null,
+    "efecto_observado": null,
+    "medida_publicada": true,
+    "medida_publicada_es_regla_prevista": true,
+    "nota": "en sombra no hay aplicación ni efecto: null significa NO MEDIDO, nunca «sí» ni «no»",
+    "otra_regla_oportuna": false,
+    "regla_prevista_oportuna": true,
+    "senal_if_oportuna": true
+   },
+   "generador": {
+    "fin_utc": "2026-11-09T23:08:34.048927+00:00",
+    "inicio_utc": "2026-11-09T23:07:04.889782+00:00"
+   },
+   "referencia_principal": "generador (v3)",
+   "referencia_trafico": {
+    "determinable": true,
+    "regla": "primer paquete observado; fin = min(último paquete, fin del generador)",
+    "t_fin_eval": "2026-11-09T23:08:34.039+00:00",
+    "t_ini_ref": "2026-11-09T23:07:04.940+00:00",
+    "t_proc_fin": "2026-11-09T23:08:34.048+00:00",
+    "t_proc_inicio": "2026-11-09T23:07:04.889+00:00"
+   },
+   "respuesta_propuesta": {
+    "accion": "BLOCK",
+    "desde_inicio_s": 12.979,
+    "destino_aplicacion": "srv-dmz",
+    "entrega_desde_publicacion_s": 0.705,
+    "entrega_srv_dmz_utc": "2026-11-09T23:07:18.624+00:00",
+    "nota": "sombra: propuesta publicada, NO aplicada (sin t_apl ni t_efecto)",
+    "propuesta": true,
+    "publicado_utc": "2026-11-09T23:07:17.919+00:00",
+    "regla": "http_abuse",
+    "regla_es_prevista": true,
+    "secuencia_feed": 20976,
+    "tipo": "mantenida"
+   },
+   "trafico": {
+    "captura_cubre_ventana": true,
+    "fin_utc": "2026-11-09T23:08:34.039033+00:00",
+    "inicio_utc": "2026-11-09T23:07:04.940233+00:00",
+    "paquetes": 196628,
+    "puertos_distintos_syn": null,
+    "retraso_primer_paquete_s": 0.05
+   },
+   "via_rapida": {
+    "evaluable": true,
+    "senal": false
+   }
+  },
+  "inundacion_http-r3": {
+   "configuraciones": {
+    "HEUR": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 7.312,
+      "disponible_utc": "2026-11-09T22:22:43.475662+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 82.572,
+      "primera_window_end_utc": "2026-11-09T22:22:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 7.312,
+      "disponible_utc": "2026-11-09T22:22:43.475662+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 82.572,
+      "primera_window_end_utc": "2026-11-09T22:22:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 7.312,
+      "disponible_utc": "2026-11-09T22:22:43.475662+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 82.572,
+      "primera_window_end_utc": "2026-11-09T22:22:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 7.312,
+      "disponible_utc": "2026-11-09T22:22:43.475662+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 82.572,
+      "primera_window_end_utc": "2026-11-09T22:22:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 7.312,
+      "disponible_utc": "2026-11-09T22:22:43.475662+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 82.572,
+      "primera_window_end_utc": "2026-11-09T22:22:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 7.312,
+      "disponible_utc": "2026-11-09T22:22:43.475662+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 82.572,
+      "primera_window_end_utc": "2026-11-09T22:22:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 7.312,
+      "disponible_utc": "2026-11-09T22:22:43.475662+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 82.572,
+      "primera_window_end_utc": "2026-11-09T22:22:40+00:00"
+     },
+     "principal": "oportuna"
+    }
+   },
+   "destino": "10.10.30.10",
+   "emisiones_reales": {
+    "atribuibles": 15,
+    "emisiones": 15,
+    "latencia_primera_oportuna_regla_no_prevista_s": null,
+    "latencia_primera_oportuna_regla_prevista_s": 7.35,
+    "latencia_primera_oportuna_s": 7.35,
+    "latencia_primera_oportuna_senal_if_s": 7.35,
+    "oportunas": 9,
+    "oportunas_regla_no_prevista": 0,
+    "oportunas_regla_prevista": 9,
+    "oportunas_senal_if": 9
+   },
+   "en_poblacion_principal": true,
+   "escenario": "inundacion_http",
+   "etiquetas": {
+    "aplicacion_confirmada": null,
+    "efecto_observado": null,
+    "medida_publicada": true,
+    "medida_publicada_es_regla_prevista": true,
+    "nota": "en sombra no hay aplicación ni efecto: null significa NO MEDIDO, nunca «sí» ni «no»",
+    "otra_regla_oportuna": false,
+    "regla_prevista_oportuna": true,
+    "senal_if_oportuna": true
+   },
+   "generador": {
+    "fin_utc": "2026-11-09T22:24:06.048073+00:00",
+    "inicio_utc": "2026-11-09T22:22:36.129366+00:00"
+   },
+   "referencia_principal": "generador (v3)",
+   "referencia_trafico": {
+    "determinable": true,
+    "regla": "primer paquete observado; fin = min(último paquete, fin del generador)",
+    "t_fin_eval": "2026-11-09T22:24:06.048+00:00",
+    "t_ini_ref": "2026-11-09T22:22:36.163+00:00",
+    "t_proc_fin": "2026-11-09T22:24:06.048+00:00",
+    "t_proc_inicio": "2026-11-09T22:22:36.129+00:00"
+   },
+   "respuesta_propuesta": {
+    "accion": "BLOCK",
+    "desde_inicio_s": 7.388,
+    "destino_aplicacion": "srv-dmz",
+    "entrega_desde_publicacion_s": 0.937,
+    "entrega_srv_dmz_utc": "2026-11-09T22:22:44.488+00:00",
+    "nota": "sombra: propuesta publicada, NO aplicada (sin t_apl ni t_efecto)",
+    "propuesta": true,
+    "publicado_utc": "2026-11-09T22:22:43.551+00:00",
+    "regla": "http_abuse",
+    "regla_es_prevista": true,
+    "secuencia_feed": 20790,
+    "tipo": "mantenida"
+   },
+   "trafico": {
+    "captura_cubre_ventana": true,
+    "fin_utc": "2026-11-09T22:24:22.680613+00:00",
+    "inicio_utc": "2026-11-09T22:22:36.163318+00:00",
+    "paquetes": 187578,
+    "puertos_distintos_syn": null,
+    "retraso_primer_paquete_s": 0.034
+   },
+   "via_rapida": {
+    "evaluable": true,
+    "senal": false
+   }
+  },
+  "inundacion_http-r4": {
+   "configuraciones": {
+    "HEUR": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 9.733,
+      "disponible_utc": "2026-11-09T21:57:45.809001+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 80.222,
+      "primera_window_end_utc": "2026-11-09T21:57:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 9.733,
+      "disponible_utc": "2026-11-09T21:57:45.809001+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 80.222,
+      "primera_window_end_utc": "2026-11-09T21:57:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 9.733,
+      "disponible_utc": "2026-11-09T21:57:45.809001+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 80.222,
+      "primera_window_end_utc": "2026-11-09T21:57:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 9.733,
+      "disponible_utc": "2026-11-09T21:57:45.809001+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 80.222,
+      "primera_window_end_utc": "2026-11-09T21:57:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 9.733,
+      "disponible_utc": "2026-11-09T21:57:45.809001+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 80.222,
+      "primera_window_end_utc": "2026-11-09T21:57:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 9.733,
+      "disponible_utc": "2026-11-09T21:57:45.809001+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 80.222,
+      "primera_window_end_utc": "2026-11-09T21:57:40+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 9.733,
+      "disponible_utc": "2026-11-09T21:57:45.809001+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 80.222,
+      "primera_window_end_utc": "2026-11-09T21:57:40+00:00"
+     },
+     "principal": "oportuna"
+    }
+   },
+   "destino": "10.10.30.10",
+   "emisiones_reales": {
+    "atribuibles": 15,
+    "emisiones": 15,
+    "latencia_primera_oportuna_regla_no_prevista_s": null,
+    "latencia_primera_oportuna_regla_prevista_s": 9.76,
+    "latencia_primera_oportuna_s": 9.76,
+    "latencia_primera_oportuna_senal_if_s": 9.76,
+    "oportunas": 8,
+    "oportunas_regla_no_prevista": 0,
+    "oportunas_regla_prevista": 8,
+    "oportunas_senal_if": 8
+   },
+   "en_poblacion_principal": true,
+   "escenario": "inundacion_http",
+   "etiquetas": {
+    "aplicacion_confirmada": null,
+    "efecto_observado": null,
+    "medida_publicada": true,
+    "medida_publicada_es_regla_prevista": true,
+    "nota": "en sombra no hay aplicación ni efecto: null significa NO MEDIDO, nunca «sí» ni «no»",
+    "otra_regla_oportuna": false,
+    "regla_prevista_oportuna": true,
+    "senal_if_oportuna": true
+   },
+   "generador": {
+    "fin_utc": "2026-11-09T21:59:06.044963+00:00",
+    "inicio_utc": "2026-11-09T21:57:36.046386+00:00"
+   },
+   "referencia_principal": "generador (v3)",
+   "referencia_trafico": {
+    "determinable": true,
+    "regla": "primer paquete observado; fin = min(último paquete, fin del generador)",
+    "t_fin_eval": "2026-11-09T21:59:06.030+00:00",
+    "t_ini_ref": "2026-11-09T21:57:36.075+00:00",
+    "t_proc_fin": "2026-11-09T21:59:06.044+00:00",
+    "t_proc_inicio": "2026-11-09T21:57:36.046+00:00"
+   },
+   "respuesta_propuesta": {
+    "accion": "LIMIT",
+    "desde_inicio_s": 9.927,
+    "destino_aplicacion": "srv-dmz",
+    "entrega_desde_publicacion_s": 0.19,
+    "entrega_srv_dmz_utc": "2026-11-09T21:57:46.192+00:00",
+    "nota": "sombra: propuesta publicada, NO aplicada (sin t_apl ni t_efecto)",
+    "propuesta": true,
+    "publicado_utc": "2026-11-09T21:57:46.002+00:00",
+    "regla": "http_abuse",
+    "regla_es_prevista": true,
+    "secuencia_feed": 20679,
+    "tipo": "nueva"
+   },
+   "trafico": {
+    "captura_cubre_ventana": true,
+    "fin_utc": "2026-11-09T21:59:06.030710+00:00",
+    "inicio_utc": "2026-11-09T21:57:36.075552+00:00",
+    "paquetes": 198996,
+    "puertos_distintos_syn": null,
+    "retraso_primer_paquete_s": 0.029
+   },
+   "via_rapida": {
+    "evaluable": true,
+    "senal": false
+   }
+  },
+  "inundacion_http-r5": {
+   "configuraciones": {
+    "HEUR": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 19.279,
+      "disponible_utc": "2026-11-09T23:31:08.485115+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 70.558,
+      "primera_window_end_utc": "2026-11-09T23:31:00+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 8.237,
+      "disponible_utc": "2026-11-09T23:30:57.442973+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 81.6,
+      "primera_window_end_utc": "2026-11-09T23:30:50+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 8.237,
+      "disponible_utc": "2026-11-09T23:30:57.442973+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 81.6,
+      "primera_window_end_utc": "2026-11-09T23:30:50+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "HIB_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 8.237,
+      "disponible_utc": "2026-11-09T23:30:57.442973+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 81.6,
+      "primera_window_end_utc": "2026-11-09T23:30:50+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.01": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 8.237,
+      "disponible_utc": "2026-11-09T23:30:57.442973+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 81.6,
+      "primera_window_end_utc": "2026-11-09T23:30:50+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.03": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 8.237,
+      "disponible_utc": "2026-11-09T23:30:57.442973+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 81.6,
+      "primera_window_end_utc": "2026-11-09T23:30:50+00:00"
+     },
+     "principal": "oportuna"
+    },
+    "IF_0.05": {
+     "categoria_3b": "oportuna",
+     "categoria_trafico": {
+      "categoria": "oportuna",
+      "desde_inicio_trafico_s": 8.237,
+      "disponible_utc": "2026-11-09T23:30:57.442973+00:00",
+      "fuente": "referencia de tráfico",
+      "margen_antes_fin_eval_s": 81.6,
+      "primera_window_end_utc": "2026-11-09T23:30:50+00:00"
+     },
+     "principal": "oportuna"
+    }
+   },
+   "destino": "10.10.30.10",
+   "emisiones_reales": {
+    "atribuibles": 15,
+    "emisiones": 15,
+    "latencia_primera_oportuna_regla_no_prevista_s": null,
+    "latencia_primera_oportuna_regla_prevista_s": 19.33,
+    "latencia_primera_oportuna_s": 8.29,
+    "latencia_primera_oportuna_senal_if_s": 8.29,
+    "oportunas": 8,
+    "oportunas_regla_no_prevista": 0,
+    "oportunas_regla_prevista": 7,
+    "oportunas_senal_if": 8
+   },
+   "en_poblacion_principal": true,
+   "escenario": "inundacion_http",
+   "etiquetas": {
+    "aplicacion_confirmada": null,
+    "efecto_observado": null,
+    "medida_publicada": true,
+    "medida_publicada_es_regla_prevista": true,
+    "nota": "en sombra no hay aplicación ni efecto: null significa NO MEDIDO, nunca «sí» ni «no»",
+    "otra_regla_oportuna": false,
+    "regla_prevista_oportuna": true,
+    "senal_if_oportuna": true
+   },
+   "generador": {
+    "fin_utc": "2026-11-09T23:32:19.064814+00:00",
+    "inicio_utc": "2026-11-09T23:30:49.154996+00:00"
+   },
+   "referencia_principal": "generador (v3)",
+   "referencia_trafico": {
+    "determinable": true,
+    "regla": "primer paquete observado; fin = min(último paquete, fin del generador)",
+    "t_fin_eval": "2026-11-09T23:32:19.043+00:00",
+    "t_ini_ref": "2026-11-09T23:30:49.205+00:00",
+    "t_proc_fin": "2026-11-09T23:32:19.064+00:00",
+    "t_proc_inicio": "2026-11-09T23:30:49.154+00:00"
+   },
+   "respuesta_propuesta": {
+    "accion": "BLOCK",
+    "desde_inicio_s": 19.31,
+    "destino_aplicacion": "srv-dmz",
+    "entrega_desde_publicacion_s": 0.428,
+    "entrega_srv_dmz_utc": "2026-11-09T23:31:08.943+00:00",
+    "nota": "sombra: propuesta publicada, NO aplicada (sin t_apl ni t_efecto)",
+    "propuesta": true,
+    "publicado_utc": "2026-11-09T23:31:08.515+00:00",
+    "regla": "http_abuse",
+    "regla_es_prevista": true,
+    "secuencia_feed": 21078,
+    "tipo": "mantenida"
+   },
+   "trafico": {
+    "captura_cubre_ventana": true,
+    "fin_utc": "2026-11-09T23:32:19.043309+00:00",
+    "inicio_utc": "2026-11-09T23:30:49.205733+00:00",
+    "paquetes": 198998,
+    "puertos_distintos_syn": null,
+    "retraso_primer_paquete_s": 0.051
+   },
+   "via_rapida": {
+    "evaluable": true,
+    "senal": false
+   }
+  }
+ },
+ "epsilon_s": 0.01,
+ "fuentes": {
+  "analisis": "/home/m4rk/cf-e4/4c/analisis-v2/analisis-4c/analisis-3b.json",
+  "origen": "10.10.20.30",
+  "salida": "/home/m4rk/cf-e4/4c/analisis-v2/referencia-trafico.json",
+  "senales_rapidas": "/home/m4rk/cf-e4/4c/copias/feed-v2/senales-rapidas.jsonl",
+  "trafico": "/home/m4rk/cf-e4/4c/analisis-v2/trafico-observado.json",
+  "traza_publicador": "/home/m4rk/cf-e4/4c/copias/feed-v2/traza.jsonl",
+  "traza_rele": "/home/m4rk/cf-e4/4c/copias/traza-rele.jsonl"
+ },
+ "version": "2026-11-03.1"
+}

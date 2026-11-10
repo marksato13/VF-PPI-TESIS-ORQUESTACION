@@ -1,0 +1,15 @@
+{
+ "campana": "etapa4-campana-A-4c",
+ "episodio": "fuerza_bruta_http-r4",
+ "periodo": {
+  "inicio": 1794261636.048134,
+  "fin": 1794261936.046153
+ },
+ "origen": "sensor (automatico)",
+ "fuente": "archivar.log + estado del servicio de captura + mediciones de descarte",
+ "errores": [],
+ "paquetes_descartados": 0,
+ "alcance_descartes": "medido: contador acumulado del proceso tcpdump = 0 al final",
+ "suricata_kernel_drops_delta_periodo": 0,
+ "suricata_mediciones_en_periodo": 38
+}
