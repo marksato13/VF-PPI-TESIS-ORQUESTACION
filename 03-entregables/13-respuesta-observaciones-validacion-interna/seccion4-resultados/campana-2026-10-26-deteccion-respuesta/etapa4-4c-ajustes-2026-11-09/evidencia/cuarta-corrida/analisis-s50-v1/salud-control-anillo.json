@@ -1,0 +1,59 @@
+{
+ "acotado_por": [
+  1794259377.934,
+  1794261183.948
+ ],
+ "clase": "C0",
+ "criterios": {
+  "eve_borde_s": 10.0,
+  "eve_intervalo_s": 8.0,
+  "eve_max_hueco_s": 20.0,
+  "eve_tolerancia_arranque_s": 3.0,
+  "max_hueco_muestras_s": 30.0,
+  "motor_retraso_max_s": 25.0,
+  "rotacion_s": 5.0,
+  "tcpdump_periodo_s": 30.0,
+  "tcpdump_tolerancia_s": 2.0,
+  "tolerancia_rotacion_s": 2.0,
+  "via_antiguedad_max_s": 2.0
+ },
+ "info": {
+  "motor_retraso_pcap_max_s": 1.443,
+  "suricata": {
+   "acotado_por": [
+    1794259373.366855,
+    1794261181.562938
+   ],
+   "descartes": 0,
+   "descartes_parciales": 0,
+   "estado": "cero_explicito",
+   "fuente": "eve_stats",
+   "motivos": [],
+   "paquetes": 1042232
+  },
+  "tcpdump": {
+   "descartados_kernel": 0,
+   "desde": 1794259351.02469,
+   "hasta": 1794261181.023894,
+   "lecturas": 62,
+   "lecturas_sin_hora_o_pid": 0,
+   "limite_s": 32.0,
+   "motivos_c3": [],
+   "ok": true,
+   "pid": 1440,
+   "pids": [
+    1440
+   ]
+  },
+  "via_rapida": {
+   "antiguedad_max_s": 0.017,
+   "medida": true
+  }
+ },
+ "motivos": [],
+ "periodo": [
+  1794259380.0,
+  1794261180.0
+ ],
+ "version": "2026-11-06.1"
+}

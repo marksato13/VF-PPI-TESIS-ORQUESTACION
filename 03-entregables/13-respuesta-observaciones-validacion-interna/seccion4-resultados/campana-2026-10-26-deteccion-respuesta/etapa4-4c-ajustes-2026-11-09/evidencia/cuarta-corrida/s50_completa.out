@@ -1,0 +1,63 @@
+## s50-e4 4c 2026-11-10T00:29:31.380Z inventario=[2026-11-09T20:45:38Z, 2026-11-09T23:53:51Z] control=[2026-11-09T21:23:00Z, 2026-11-09T21:53:00Z] reanudar=0
+## a1
+1323 incrementos; con reinicio: 0
+  a1 OK
+## a2
+  control (IF/heur):  "clase": "C0",  Suricata (EVE): cero_explicito
+  a2 OK
+## a3
+  control (vía rápida):  "clase": "C0",  Suricata (EVE): cero_explicito
+  a3 OK
+## b
+  {"ventanas_por_clase": {"C0": 2218, "C1": 0, "C2": 0, "C3": 0, "insuficiente": 0, "sin_medida": 0}, "C0": {"ventanas": 2218, "IF_0.05": {"falsas_alarmas": 323, "tasa": 0.145627}, "IF_0.03": {"falsas_alarmas": 200, "tasa": 0.090171}, "IF_0.01": {"falsas_alarmas": 54, "tasa": 0.024346}, "HEUR": {"fals
+  b OK
+## 1
+  1 OK
+## 2
+  2 OK
+## 3
+  muestras: 1453 omitidas por faltar campos: 0 | drops 0 -> 0 | procesos Suricata (arranque estimado): 2
+  3 OK
+## 4
+  4 OK
+## 5
+  5 OK
+## 6
+  6 OK
+## 7
+  clases IF/heur: {'C0': 25}
+  7 OK
+## 8
+  8 OK
+## c
+   "HIB_0.03": {
+    "fuera:oportuna": 5
+   },
+   "HIB_0.01": {
+    "fuera:oportuna": 5
+   },
+   "emisiones_oportunas_episodios": 0,
+   "episodios_oportunos_senal_if": 0,
+   "episodios_oportunos_regla_prevista": 0,
+   "episodios_oportunos_regla_no_prevista": 0,
+   "respuesta_aplicada": "no_medida"
+  }
+ },
+ "inventario": {
+  "requeridas": 13344,
+  "estados": {
+   "decidida_a_tiempo": 13344,
+   "decidida_tardia": 0,
+   "no_evaluada": 0,
+   "ausente": 0
+  },
+  "solo_en_vivo": 0,
+  "cobertura_total": 1.0
+ }
+}
+  c OK
+## 9
+  {"dns_inusual-r1": {"IF_0.05": "oportuna", "HEUR": "oportuna"}, "dns_inusual-r2": {"IF_0.05": "no_evaluable", "HEUR": "oportuna"}, "dns_inusual-r3": {"IF_0.05": "no_evaluable", "HEUR": "oportuna"}, "dns_inusual-r4": {"IF_0.05": "oportuna", "HEUR": "oportuna"}, "dns_inusual-r5": {"IF_0.05": "no_evalu
+  9 OK
+## ANÁLISIS COMPLETO 2026-11-10T01:20:38.866Z
+## r4 rc=0 (sed=0 ssh=0 tee=0) 2026-11-10T01:20:37.008Z

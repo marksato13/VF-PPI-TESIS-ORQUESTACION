@@ -1,0 +1,63 @@
+requisitos NO verificados (requisito, estado) -> episodios: {('captura_sin_errores_relevantes', 'ausente'): 25, ('cobertura_durante', 'ausente'): 4}
+  ejemplo captura_sin_errores_relevantes -> ('inundacion_http-r4', 'el respaldo no trae paquetes_descartados', 'None')
+  ejemplo cobertura_durante -> ('escaneo_breve-r2', 'durante incompleta (respaldo)', "{'ruta': '/home/m4rk/cf-e4/4c/analisis/respaldos/escaneo_breve-r2/cobertura.json'}")
+requisitos: ['pcap', 'eve', 'decisiones', 'caracteristicas', 'cobertura_previa', 'cobertura_durante', 'cobertura_posterior', 'continuidad', 'sin_faltantes', 'captura_sin_errores_relevantes', 'reinicios', 'relojes']
+== verificar_integridad.py 200-240:
+    if f is None:
+        return R("ausente", "automatico", "el respaldo no informa de ficheros faltantes")
+    return R("verificado" if not f else "ausente", doc.get("origen", "local"),
+             "sin faltantes (respaldo)" if not f else f"faltan {f}")
+
+
+def estado_captura_errores(e) -> dict:
+    doc, fallo = _respaldo(e, "captura")
+    if fallo:
+        return fallo
+    relevantes = [x for x in (doc.get("errores") or []) if x.get("afecta_fuentes")]
+    if relevantes:
+        return R("ausente", doc.get("origen", "local"), "errores que afectan a las fuentes: "
+                 + "; ".join(x.get("desc", "?") for x in relevantes))
+    perd = doc.get("paquetes_descartados")
+    if perd is None:
+        return R("ausente", "automatico", "el respaldo no trae paquetes_descartados")
+    if perd > 0:
+        return R("ausente", doc.get("origen", "local"), f"{perd} paquetes descartados")
+    return R("verificado", doc.get("origen", "local"), "sin errores relevantes ni descartes (respaldo)")
+
+
+def estado_reinicios(e) -> dict:
+    doc, fallo = _respaldo(e, "reinicios")
+    if fallo:
+        return fallo
+    problemas, vistos = [], 0
+    for comp, lista in (doc.get("reinicios") or {}).items():
+        for r in (lista or []):
+            vistos += 1
+            if not r.get("recuperado"):
+                problemas.append(f"{comp}: sin recuperación confirmada")
+            elif r.get("historia_tras_s", 0) < HISTORIA_MIN_S or r.get("calentamiento_s", 0) <= 0:
+                problemas.append(f"{comp}: historia/calentamiento insuficiente")
+    if problemas:
+        return R("ausente", doc.get("origen", "local"), "; ".join(problemas))
+    return R("verificado", doc.get("origen", "local"),
+             f"{vistos} reinicio(s) con recuperación/historia/calentamiento suficientes" if vistos else "sin reinicios")
+
+
+def estado_relojes(e) -> dict:
+== generar_respaldos.py: uso de suricata-stats:
+11:  captura     errores del archivador en el periodo y cambios del servicio de captura; paquetes_descartados SOLO si se
+14:  reinicios   ActiveEnterTimestamp/NRestarts de ppi-motor, ppi-motor-capture y suricata al inicio y al final.
+111:    ap.add_argument("--suricata-stats", type=Path, help="JSON de capture.kernel_drops de Suricata por instante")
+138:    sstats = json.loads(a.suricata_stats.read_text(encoding="utf-8")) if a.suricata_stats else []
+190:        sur = [x for x in sstats if per["inicio"] <= x["momento"] <= per["fin"]]
+203:        captura = {**base, "fuente": "archivar.log + estado del servicio de captura + mediciones de descarte",
+205:                   "suricata_kernel_drops_delta_periodo": sur_delta,
+206:                   "suricata_mediciones_en_periodo": len(sur)}
+207:        (d / "captura.json").write_text(json.dumps(captura, ensure_ascii=False, indent=1), encoding="utf-8")
+210:        for u, nom in (("ppi-motor.service", "motor"), ("ppi-motor-capture.service", "captura"),
+211:                       ("suricata.service", "suricata")):
+233:            "respaldos": {k: {"ruta": str(d / f"{k}.json")} for k in ("cobertura", "captura", "reinicios", "relojes")}})
+== suricata-stats.json (paso 3, EVE): primeras claves y nº muestras:
+list 1453
+muestras: 1453 {'momento': 1794257141.109577, 'timestamp': '2026-11-09T20:45:41.109577+00:00', 'kernel_packets': 1388793, 'kernel_drops': 0, 'uptime_s': 4649, 'arranque_estimado': 1794252492, 'fuente': 'eve_stats'}
+## r4 rc=0 (sed=0 ssh=0 tee=0) 2026-11-10T01:24:31.070Z

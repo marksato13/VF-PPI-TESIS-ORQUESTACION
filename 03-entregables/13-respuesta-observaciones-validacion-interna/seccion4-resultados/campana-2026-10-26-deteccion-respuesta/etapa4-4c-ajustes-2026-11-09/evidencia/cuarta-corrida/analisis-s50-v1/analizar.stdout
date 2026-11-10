@@ -1,0 +1,201 @@
+{
+ "tabla_principal": {
+  "Inundación HTTP": {
+   "poblacion_principal": [],
+   "fuera_de_poblacion": [
+    "inundacion_http-r4",
+    "inundacion_http-r3",
+    "inundacion_http-r2",
+    "inundacion_http-r1",
+    "inundacion_http-r5"
+   ],
+   "IF_0.05": {
+    "fuera:oportuna": 5
+   },
+   "IF_0.03": {
+    "fuera:oportuna": 5
+   },
+   "IF_0.01": {
+    "fuera:oportuna": 5
+   },
+   "HEUR": {
+    "fuera:oportuna": 5
+   },
+   "HIB_0.05": {
+    "fuera:oportuna": 5
+   },
+   "HIB_0.03": {
+    "fuera:oportuna": 5
+   },
+   "HIB_0.01": {
+    "fuera:oportuna": 5
+   },
+   "emisiones_oportunas_episodios": 0,
+   "episodios_oportunos_senal_if": 0,
+   "episodios_oportunos_regla_prevista": 0,
+   "episodios_oportunos_regla_no_prevista": 0,
+   "respuesta_aplicada": "no_medida"
+  },
+  "Fuerza bruta HTTP": {
+   "poblacion_principal": [],
+   "fuera_de_poblacion": [
+    "fuerza_bruta_http-r4",
+    "fuerza_bruta_http-r3",
+    "fuerza_bruta_http-r1",
+    "fuerza_bruta_http-r5",
+    "fuerza_bruta_http-r2"
+   ],
+   "IF_0.05": {
+    "fuera:oportuna": 5
+   },
+   "IF_0.03": {
+    "fuera:oportuna": 5
+   },
+   "IF_0.01": {
+    "fuera:oportuna": 5
+   },
+   "HEUR": {
+    "fuera:oportuna": 5
+   },
+   "HIB_0.05": {
+    "fuera:oportuna": 5
+   },
+   "HIB_0.03": {
+    "fuera:oportuna": 5
+   },
+   "HIB_0.01": {
+    "fuera:oportuna": 5
+   },
+   "emisiones_oportunas_episodios": 0,
+   "episodios_oportunos_senal_if": 0,
+   "episodios_oportunos_regla_prevista": 0,
+   "episodios_oportunos_regla_no_prevista": 0,
+   "respuesta_aplicada": "no_medida"
+  },
+  "DNS inusual": {
+   "poblacion_principal": [],
+   "fuera_de_poblacion": [
+    "dns_inusual-r1",
+    "dns_inusual-r3",
+    "dns_inusual-r4",
+    "dns_inusual-r2",
+    "dns_inusual-r5"
+   ],
+   "IF_0.05": {
+    "fuera:oportuna": 2,
+    "fuera:no_evaluable": 3
+   },
+   "IF_0.03": {
+    "fuera:oportuna": 2,
+    "fuera:no_evaluable": 3
+   },
+   "IF_0.01": {
+    "fuera:no_evaluable": 4,
+    "fuera:oportuna": 1
+   },
+   "HEUR": {
+    "fuera:oportuna": 5
+   },
+   "HIB_0.05": {
+    "fuera:oportuna": 5
+   },
+   "HIB_0.03": {
+    "fuera:oportuna": 5
+   },
+   "HIB_0.01": {
+    "fuera:oportuna": 5
+   },
+   "emisiones_oportunas_episodios": 0,
+   "episodios_oportunos_senal_if": 0,
+   "episodios_oportunos_regla_prevista": 0,
+   "episodios_oportunos_regla_no_prevista": 0,
+   "respuesta_aplicada": "no_medida"
+  },
+  "Escaneo breve": {
+   "poblacion_principal": [],
+   "fuera_de_poblacion": [
+    "escaneo_breve-r4",
+    "escaneo_breve-r2",
+    "escaneo_breve-r5",
+    "escaneo_breve-r3",
+    "escaneo_breve-r1"
+   ],
+   "IF_0.05": {
+    "fuera:solo_posterior": 4,
+    "fuera:oportuna": 1
+   },
+   "IF_0.03": {
+    "fuera:solo_posterior": 5
+   },
+   "IF_0.01": {
+    "fuera:no_evaluable": 4,
+    "fuera:solo_posterior": 1
+   },
+   "HEUR": {
+    "fuera:solo_posterior": 5
+   },
+   "HIB_0.05": {
+    "fuera:solo_posterior": 4,
+    "fuera:oportuna": 1
+   },
+   "HIB_0.03": {
+    "fuera:solo_posterior": 5
+   },
+   "HIB_0.01": {
+    "fuera:solo_posterior": 5
+   },
+   "emisiones_oportunas_episodios": 0,
+   "episodios_oportunos_senal_if": 0,
+   "episodios_oportunos_regla_prevista": 0,
+   "episodios_oportunos_regla_no_prevista": 0,
+   "respuesta_aplicada": "no_medida"
+  },
+  "Escaneo sostenido": {
+   "poblacion_principal": [],
+   "fuera_de_poblacion": [
+    "escaneo_sostenido-r5",
+    "escaneo_sostenido-r2",
+    "escaneo_sostenido-r3",
+    "escaneo_sostenido-r1",
+    "escaneo_sostenido-r4"
+   ],
+   "IF_0.05": {
+    "fuera:oportuna": 5
+   },
+   "IF_0.03": {
+    "fuera:oportuna": 5
+   },
+   "IF_0.01": {
+    "fuera:oportuna": 5
+   },
+   "HEUR": {
+    "fuera:oportuna": 5
+   },
+   "HIB_0.05": {
+    "fuera:oportuna": 5
+   },
+   "HIB_0.03": {
+    "fuera:oportuna": 5
+   },
+   "HIB_0.01": {
+    "fuera:oportuna": 5
+   },
+   "emisiones_oportunas_episodios": 0,
+   "episodios_oportunos_senal_if": 0,
+   "episodios_oportunos_regla_prevista": 0,
+   "episodios_oportunos_regla_no_prevista": 0,
+   "respuesta_aplicada": "no_medida"
+  }
+ },
+ "inventario": {
+  "requeridas": 13344,
+  "estados": {
+   "decidida_a_tiempo": 13344,
+   "decidida_tardia": 0,
+   "no_evaluada": 0,
+   "ausente": 0
+  },
+  "solo_en_vivo": 0,
+  "cobertura_total": 1.0
+ }
+}

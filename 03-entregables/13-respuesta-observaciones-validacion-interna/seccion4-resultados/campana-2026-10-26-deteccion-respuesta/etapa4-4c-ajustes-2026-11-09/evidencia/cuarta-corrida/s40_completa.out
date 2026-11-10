@@ -1,0 +1,33 @@
+## s40-e4 4c 2026-11-10T00:27:53.812Z
+  archivador PID=45157 -> TERM (barrido final)
+  archivador rc=0  ESTADO: OK: vistos=2846 archivados=2846, sin fallos  (2026-11-10T00:28:27Z)
+   | 2026-11-10T00:28:21Z OK live-20261110002750.pcap (164001 bytes) sha=08bc268cb36e2245f05a9f41d3321d3900991b976490ba8a706a4e09d716a4c2
+   | 2026-11-10T00:28:21Z OK live-20261110002755.pcap (130369 bytes) sha=860290e3f193a05a1e9631014501d14345665d27cb5261a81a5956aca8d78305
+   | 2026-11-10T00:28:21Z OK live-20261110002800.pcap (352630 bytes) sha=3c50adfa6080f2b10de7269375b13d690e70098727712b0bddd20e139edba90f
+   | 2026-11-10T00:28:27Z FIN OK: vistos=2846 archivados=2846, sin fallos  (2026-11-10T00:28:27Z)
+  pcaps archivados: 2846  tamaño: 1,4G
+  FALLO/PERDIDO en archivar.log: 0
+  muestreador de recursos 45152 parado (2641 muestras)
+  muestreador de salud 45154 parado (1324 muestras)
+  [tcpdump-anillo.log] {"lecturas": 449, "primera": 1794257041.015855, "ultima": 1794270480.207006, "pids": [1440], "descartes_ultima_lectura": 0, "hueco_max_s": 31.0}
+  [tcpdump-via.log] {"lecturas": 449, "primera": 1794257041.051451, "ultima": 1794270480.246821, "pids": [1473], "descartes_ultima_lectura": 0, "hueco_max_s": 31.0}
+  lecturas SIGUSR1: anillo 449 / vía 449
+  motor_decision.log: inodo 671346 (inicio:   motor_decision.log inicio: inodo 671346 tam 74594013)
+  37a7b5c48ca1322d01a11f6723b8b7c5520b47a53b2fa35cd7b25b93414f4761  /home/m4rk/cf-e4/4c/copias/feed-v2/feed.json
+  6753e137f9ba857d088b536aabf49d808efa97f9c360b202d2c7e5d6e764dc7d  /home/m4rk/cf-e4/4c/copias/feed-v2/feed.sig
+  a6d12e04505550bc392ff411642d78501bb8a3c20fefeea05de8e09af4008905  /home/m4rk/cf-e4/4c/copias/feed-v2/estado.json
+  0428848f9b8ceac80b26513ed4faf4c2918c3c9e132722406aee6fdcdb04b02e  /home/m4rk/cf-e4/4c/copias/feed-v1/estado.json
+  65d8dec368d2c3434c9f92bd438b12fda07b4b99ef2492011836e7f732d2a323  /home/m4rk/cf-e4/4c/copias/feed-v1/feed.json
+  484bd4eae8f23f1747c16d9776f3d550937da08c2937ce5b4c4b60ee0b540bb7  /home/m4rk/cf-e4/4c/copias/feed-v1/feed.sig
+  journal motor: 1 líneas, trazas: 0 | avisos: 759
+  ppi-motor active NR=0 PID=1468
+  ppi-motor-capture active NR=0 PID=1440
+  ppi-via-rapida@ens37 active NR=0 PID=1471
+  ppi-publicar-feed-v2 active NR=0 PID=1470
+  suricata active NR=0 PID=1436
+  servicios: mismos PID y NRestarts que al empezar
+  candidato: SHA256SUMS OK
+  --enforce en argv: ''
+## COPIAS COMPLETAS
+## fin 2026-11-10T00:28:36.828Z
+## r4 rc=0 (sed=0 ssh=0 tee=0) 2026-11-10T00:28:34.956Z

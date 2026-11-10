@@ -1,0 +1,30 @@
+hora 00:30:12Z
+logrotate.service: Result=success ExecMainExitTimestamp=Tue 2026-11-10 00:29:26 UTC ExecMainStatus=0 
+logrotate.timer: active; próxima: Wed 2026-11-11 00:00:00 UTC  23h Tue 202
+cf-4b: tope.timer=inactive vigia=inactive
+-- rotados desde 00:28Z:
+/var/log/suricata/stats.log.1.gz
+/var/log/suricata/fast.log
+/var/log/suricata/suricata.log
+/var/log/suricata/eve.json.1.gz
+/home/m4rk/cyberflow/logs/motor_decision.log.1
+/home/m4rk/feed-v2/senales-rapidas.jsonl.1
+/home/m4rk/feed-v2/via-rapida-resumen.jsonl.1
+/home/m4rk/feed-v2/feed.sig
+/home/m4rk/feed-v2/estado.json
+/home/m4rk/feed-v2/senales-if.jsonl.1
+/home/m4rk/feed-v2/feed.json
+/home/m4rk/feed-v2/traza.jsonl.1
+1M /home/m4rk/cyberflow/logs/motor_decision.log
+1M /var/log/suricata/eve.json
+1M /var/log/suricata/stats.log
+-- servicios:
+   ppi-motor active NR=0
+   ppi-motor-capture active NR=0
+   ppi-via-rapida@ens37 active NR=0
+   ppi-publicar-feed-v2 active NR=0
+   suricata active NR=0
+-- EVE sigue escribiendo: último stats 2026-11-10T00:30:06.
+disco 21G libres (62%)
+-- s50 en marcha: 1 procesos; analisis/: 4 ficheros
+## r4 rc=0 (sed=0 ssh=0 tee=0) 2026-11-10T00:30:10.237Z
