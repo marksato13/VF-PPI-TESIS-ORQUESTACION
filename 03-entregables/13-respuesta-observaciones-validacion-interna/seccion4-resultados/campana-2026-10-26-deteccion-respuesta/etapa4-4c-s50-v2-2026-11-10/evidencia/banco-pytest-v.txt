@@ -1,0 +1,37 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-8.3.5, pluggy-1.5.0 -- /usr/bin/python3
+rootdir: /camp/etapa4-4c-s50-v2-2026-11-10
+collecting ... collected 30 items
+
+tests/test_s50_v2.py::test_d1_eve_sano_todos_completa PASSED             [  3%]
+tests/test_s50_v2.py::test_d1_rafaga_de_descartes_degrada_solo_ese_episodio PASSED [  6%]
+tests/test_s50_v2.py::test_d1_hueco_de_eve_deja_insuficiente_no_completa PASSED [ 10%]
+tests/test_s50_v2.py::test_d1_eve_sin_eventos_stats_no_es_cero PASSED    [ 13%]
+tests/test_s50_v2.py::test_d1_stats_sin_kernel_drops_no_es_cero PASSED   [ 16%]
+tests/test_s50_v2.py::test_d1_reinicio_de_suricata_dentro_del_episodio PASSED [ 20%]
+tests/test_s50_v2.py::test_d1_linea_stats_corrupta_o_eve_ausente_deja_todo_sin_medir PASSED [ 23%]
+tests/test_s50_v2.py::test_d1_el_defecto_original_se_reproduce_con_stats_log_sin_kernel_drops PASSED [ 26%]
+tests/test_s50_v2.py::test_d1_mapear_medida_incoherente_no_es_cero PASSED [ 30%]
+tests/test_s50_v2.py::test_d2_lecturas_sanas_demuestran_cero_del_proceso PASSED [ 33%]
+tests/test_s50_v2.py::test_d2_descartes_positivos_se_informan_no_se_ocultan PASSED [ 36%]
+tests/test_s50_v2.py::test_d2_medicion_no_demostrable_es_null_nunca_cero[log_vacio] PASSED [ 40%]
+tests/test_s50_v2.py::test_d2_medicion_no_demostrable_es_null_nunca_cero[log_ausente] PASSED [ 43%]
+tests/test_s50_v2.py::test_d2_medicion_no_demostrable_es_null_nunca_cero[sin_lecturas] PASSED [ 46%]
+tests/test_s50_v2.py::test_d2_medicion_no_demostrable_es_null_nunca_cero[dos_pids] PASSED [ 50%]
+tests/test_s50_v2.py::test_d2_medicion_no_demostrable_es_null_nunca_cero[pid_distinto_del_servicio] PASSED [ 53%]
+tests/test_s50_v2.py::test_d2_medicion_no_demostrable_es_null_nunca_cero[servicio_reiniciado] PASSED [ 56%]
+tests/test_s50_v2.py::test_d2_medicion_no_demostrable_es_null_nunca_cero[linea_malformada] PASSED [ 60%]
+tests/test_s50_v2.py::test_d2_medicion_no_demostrable_es_null_nunca_cero[contador_decrece] PASSED [ 63%]
+tests/test_s50_v2.py::test_d2_medicion_no_demostrable_es_null_nunca_cero[hora_no_utc] PASSED [ 66%]
+tests/test_s50_v2.py::test_d2_medicion_no_demostrable_es_null_nunca_cero[unidad_ausente] PASSED [ 70%]
+tests/test_s50_v2.py::test_d2_medicion_no_demostrable_es_null_nunca_cero[nrestarts_distinto] PASSED [ 73%]
+tests/test_s50_v2.py::test_d2_medicion_no_demostrable_es_null_nunca_cero[sin_servicios] PASSED [ 76%]
+tests/test_s50_v2.py::test_d2_el_json_de_salida_tiene_el_formato_que_consume_generar_respaldos PASSED [ 80%]
+tests/test_s50_v2.py::test_s50_v2_sintaxis_y_hashes_de_las_herramientas_nuevas PASSED [ 83%]
+tests/test_s50_v2.py::test_s50_v2_solo_cambia_lo_acordado_frente_al_s50_de_la_4c PASSED [ 86%]
+tests/test_s50_v2.py::test_s50_v2_recorrido_completo_cableado_de_d1_y_d2 PASSED [ 90%]
+tests/test_s50_v2.py::test_s50_v2_servicio_reiniciado_deja_descartes_null_y_el_paso_5_lo_recibe PASSED [ 93%]
+tests/test_s50_v2.py::test_s50_v2_carpeta_nueva_no_toca_la_v1 PASSED     [ 96%]
+tests/test_s50_v2.py::test_s50_v2_herramienta_nueva_alterada_para_antes_de_empezar PASSED [100%]
+
+============================== 30 passed in 8.36s ==============================

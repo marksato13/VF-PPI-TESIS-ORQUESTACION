@@ -1,0 +1,8 @@
+cd "$HOME" || exit 2
+R="/c/Users/markp/Desktop/PY-MEGATRON/PY - PERSONAL/TESIS/CYBERFLOW/orquestacion-limpio/03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/campana-2026-10-26-deteccion-respuesta/etapa4-4c-s50-v2-2026-11-10"
+K=~/.ssh/id_ed25519; BA=gadmin@10.10.10.30
+H1=$(sha256sum "$R/herramientas/calidad_fuentes_eve.py" | cut -d' ' -f1); H2=$(sha256sum "$R/herramientas/descartes_tcpdump_sigusr1.py" | cut -d' ' -f1); H3=$(sha256sum "$R/guiones/s50_analisis_e4.sh" | cut -d' ' -f1)
+echo "locales: $H1 $H2 $H3"
+ssh -n -o BatchMode=yes -i $K $BA 'mkdir -p ~/cf-e4/v2stage'
+scp -q -o BatchMode=yes -i $K "$R/herramientas/calidad_fuentes_eve.py" "$R/herramientas/descartes_tcpdump_sigusr1.py" "$R/guiones/s50_analisis_e4.sh" $BA:cf-e4/v2stage/ || { echo "PARO scp"; exit 3; }
+ssh -n -o BatchMode=yes -i $K $BA "cd ~/cf-e4/v2stage && sha256sum calidad_fuentes_eve.py descartes_tcpdump_sigusr1.py s50_analisis_e4.sh | cut -c1-64 | tr '\n' ' '; echo; ssh -n -o BatchMode=yes sensor1 '[ ! -e ~/cf-e4/herramientas-4c-v2 ] && mkdir ~/cf-e4/herramientas-4c-v2 || echo \"(herramientas-4c-v2 ya existe)\"' ; scp -q -o BatchMode=yes calidad_fuentes_eve.py descartes_tcpdump_sigusr1.py sensor1:cf-e4/herramientas-4c-v2/ && scp -q -o BatchMode=yes s50_analisis_e4.sh sensor1:cf-e4/s50_analisis_e4_v2.sh && ssh -n -o BatchMode=yes sensor1 'cd ~/cf-e4 && sha256sum herramientas-4c-v2/calidad_fuentes_eve.py herramientas-4c-v2/descartes_tcpdump_sigusr1.py s50_analisis_e4_v2.sh | cut -c1-64 | tr \"\\n\" \" \"; echo; bash -n s50_analisis_e4_v2.sh && echo sintaxis_ok; ls -d ~/cf-e4/4c/analisis*'"
