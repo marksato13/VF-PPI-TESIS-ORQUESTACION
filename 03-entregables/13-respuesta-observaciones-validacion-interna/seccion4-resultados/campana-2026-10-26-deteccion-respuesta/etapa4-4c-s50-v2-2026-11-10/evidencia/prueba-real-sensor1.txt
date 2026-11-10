@@ -1,0 +1,28 @@
+## prueba real v2 03:37:02Z -> /tmp/v2chk-033702
+== D1 calidad por EVE (25 episodios)
+rc=0
+estados de calidad: {'completa': 25} | suricata: {'cero_explicito': 25} | drops: [0] | muestras EVE: 1453
+no completos: {}
+== D2 descartes tcpdump desde SIGUSR1 de s40
+  descartes de tcpdump: 0 acumulados (PID 1440, 449 lecturas, desde 2026-11-09T19:28:12+00:00)
+rc=0
+{'pid': 1440, 'proceso_desde': 1794252492.0, 'momento': 1794270480.207006, 'dropped_by_kernel': 0, 'lecturas': 449, 'hueco_max_s': 31.0, 'maximo_dropped': 0}
+['servicio: mismo MainPID 1440, mismo ActiveEnterTimestamp y NRestarts al inicio y al fin', '449 lecturas de un único PID 1440', 'contadores crecientes; última lectura 0 descartados']
+  descartes de tcpdump: NO MEDIDO — el servicio de captura se reinició entre el inicio y el fin (ActiveEnterTimestamp/NRestarts distintos)
+== paso 5 real (generar_respaldos) con 3 variantes; sin tocar la v1
+  valido: generar_respaldos rc=0
+  valido: verificar_integridad rc=0
+  nulo: generar_respaldos rc=0
+  nulo: verificar_integridad rc=0
+  sin: generar_respaldos rc=0
+  sin: verificar_integridad rc=0
+valido  episodios=25 paquetes_descartados={'0': 25} | captura_sin_errores_relevantes={'verificado': 25} | aptos=21
+   requisitos no verificados con la medición válida: {'cobertura_durante': 4}
+   cobertura_durante no verificada: [('escaneo_breve-r2', 'ausente'), ('escaneo_breve-r5', 'ausente'), ('escaneo_breve-r3', 'ausente'), ('escaneo_breve-r1', 'ausente')]
+   no aptos: ['escaneo_breve-r2', 'escaneo_breve-r5', 'escaneo_breve-r3', 'escaneo_breve-r1']
+nulo    episodios=25 paquetes_descartados={'None': 25} | captura_sin_errores_relevantes={'ausente': 25} | aptos=0
+sin     episodios=25 paquetes_descartados={'None': 25} | captura_sin_errores_relevantes={'ausente': 25} | aptos=0
+== la v1 sigue intacta
+sha256sum -c SHA256SUMS de la v1: rc=0
+## fin prueba real 03:41:41Z; temporales en /tmp/v2chk-033702 (se pueden borrar)
+## r4 rc=0 (sed=0 ssh=0 tee=0) 2026-11-10T03:41:39.088Z

@@ -1,0 +1,10 @@
+M1 calidad: cualquier estado de EVE se toma como cero medido: rc=1 DETECTADA ['11 failed, 19 passed in 4.33s']
+M2 calidad: cero_explicito sin exigir cifras coherentes: rc=1 DETECTADA ['6 failed, 24 passed in 5.18s']
+M3 descartes: medición no demostrable escribe 0 en vez de null: rc=1 DETECTADA ['16 failed, 14 passed in 7.00s']
+M4 descartes: se acepta más de un PID: rc=1 DETECTADA ['4 failed, 26 passed in 4.61s']
+M5 descartes: no se compara el arranque del servicio: rc=1 DETECTADA ['6 failed, 24 passed in 4.26s']
+M6 s50: el paso 5 no recibe --descartes-tcpdump: rc=1 DETECTADA ['3 failed, 27 passed in 7.60s']
+M7 s50: el paso 5 ya no depende del paso d: rc=1 DETECTADA ['2 failed, 28 passed in 9.10s']
+M8 s50: el paso 2 vuelve a calidad_fuentes.py original: rc=1 DETECTADA ['3 failed, 27 passed in 8.81s']
+restaurados: True
+sin mutar: 0 ['30 passed in 8.11s']
