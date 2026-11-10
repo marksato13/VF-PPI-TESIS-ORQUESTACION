@@ -1,6 +1,6 @@
 # `s50` v2 de la 4C: Suricata por EVE en la calidad de fuentes y descartes de tcpdump desde las lecturas SIGUSR1 (10-nov-2026)
 
-**Estado:** probado en banco y con datos reales; desplegado en el Sensor1 (solo ficheros nuevos); usado para el análisis `analisis-v2` de la cuarta corrida de la Campaña A. Commit local, **no publicado**.
+**Estado:** probado en banco y con datos reales; desplegado en el Sensor1 (solo ficheros nuevos); usado para el análisis `analisis-v2` de la cuarta corrida de la Campaña A. Publicado en `main` el 10-nov-2026.
 
 ## Por qué
 El `s50` de la 4C (`../etapa4-4c-paso3-eve-2026-11-08`, 7477f4c5…) terminó con rc 0 sobre la cuarta corrida (25 episodios, 25 C0, inventario 13 344/13 344 a tiempo) pero con la **población principal vacía**, por dos defectos de las herramientas de análisis, no de los datos:
