@@ -1,0 +1,18 @@
+senales-rapidas.jsonl: 13 líneas, 6018 B
+{"destino": "10.10.30.10", "disponible_en": 1794228590.201656, "emitido_en": 1794228590.202386, "event": "senal_rapida", "id": "6bce95d2ab733546", "intentos_en_ventana": 12, "muestra_puertos": [21, 22, 113, 135, 139, 256, 554, 995], "origen": "10.10.20.30", "parametros": {"K": 8, "W": 2.0, "g": 0.1}, "primer_intento_ventana": 1794228589.188756, "puertos_fallidos": 8, "regla": "port_scan_temprano", "t_evidencia": 1794228589.289062, "version": "2026-11-02.1"}
+{"destino": "10.10.30.10", "disponible_en": 1794239374.335136, "emitido_en": 1794239374.336028, "event": "senal_rapida", "id": "9d779e014bbccfa8", "intentos_en_ventana": 13, "muestra_puertos": [23, 25, 53, 111, 113, 143, 256, 445], "orige
+señales totales: 13 | claves: ['destino', 'disponible_en', 'emitido_en', 'event', 'id', 'intentos_en_ventana', 'muestra_puertos', 'origen', 'parametros', 'primer_intento_ventana', 'puertos_fallidos', 'regla', 't_evidencia', 'version']
+ejemplo: {"destino": "10.10.30.10", "disponible_en": 1794228590.201656, "emitido_en": 1794228590.202386, "event": "senal_rapida", "id": "6bce95d2ab733546", "intentos_en_ventana": 12, "muestra_puertos": [21, 22, 113, 135, 139, 256, 554, 995], "origen": "10.10.20.30", "parametros": {"K": 8, "W": 2.0, "g": 0.1}, "primer_intento_ventana": 1794228589.188756, "puertos_fallidos": 8, "regla": "port_scan_temprano", "t_evidencia": 1794
+escaneo_breve-r1       dur=  5.0s señales rápidas en [inicio-5, fin+120]: 1 [(1.16, 'port_scan_temprano', '10.10.20.30')]
+escaneo_breve-r2       dur=  5.0s señales rápidas en [inicio-5, fin+120]: 1 [(0.37, 'port_scan_temprano', '10.10.20.30')]
+escaneo_breve-r3       dur=  5.0s señales rápidas en [inicio-5, fin+120]: 1 [(0.68, 'port_scan_temprano', '10.10.20.30')]
+escaneo_breve-r4       dur=  4.7s señales rápidas en [inicio-5, fin+120]: 1 [(0.57, 'port_scan_temprano', '10.10.20.30')]
+escaneo_breve-r5       dur=  4.6s señales rápidas en [inicio-5, fin+120]: 1 [(0.46, 'port_scan_temprano', '10.10.20.30')]
+escaneo_sostenido-r1   dur= 52.7s señales rápidas en [inicio-5, fin+120]: 1 [(0.25, 'port_scan_temprano', '10.10.20.30')]
+escaneo_sostenido-r2   dur= 52.3s señales rápidas en [inicio-5, fin+120]: 1 [(0.23, 'port_scan_temprano', '10.10.20.30')]
+escaneo_sostenido-r3   dur= 52.7s señales rápidas en [inicio-5, fin+120]: 1 [(0.24, 'port_scan_temprano', '10.10.20.30')]
+escaneo_sostenido-r4   dur= 52.4s señales rápidas en [inicio-5, fin+120]: 1 [(0.24, 'port_scan_temprano', '10.10.20.30')]
+escaneo_sostenido-r5   dur= 52.9s señales rápidas en [inicio-5, fin+120]: 1 [(0.23, 'port_scan_temprano', '10.10.20.30')]
+== 4B (8 h): señales rápidas en control
+senales: 0 | por_regla: {} | significado: sin ataques en el control: toda señal es falsa alarma
+## r4 rc=0 (sed=0 ssh=0 tee=0) 2026-11-10T05:23:30.188Z
