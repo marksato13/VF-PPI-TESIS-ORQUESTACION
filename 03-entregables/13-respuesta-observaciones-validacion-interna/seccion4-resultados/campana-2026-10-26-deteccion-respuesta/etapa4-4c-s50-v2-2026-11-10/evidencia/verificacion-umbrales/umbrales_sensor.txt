@@ -1,0 +1,33 @@
+== config que leyó s50 v2
+f177d9bb18c2b9c93f3829f6ffd60a65a81e42d598d3b587719f0d3a1f2da5f9
+f177d9bb18c2b9c93f3829f6ffd60a65a81e42d598d3b587719f0d3a1f2da5f9
+== modelo y manifiesto desplegados
+if_limpio_2026_10_desplegable.joblib
+if_limpio_2026_10.joblib
+if_limpio_2026_10.json
+manifest-if-limpio-2026-10.json
+particionado-limpio.csv
+verif_vigente.joblib
+verif_vigente.json
+df547da098e51171aa267c8466edc6624bc1bd5c6b602639cc00bd4711a2fd60
+manifest-if-limpio-2026-10.json {}
+== argumentos del motor (replay y servicio)
+--model-path
+/home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib
+--manifest-path
+/home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json
+--detector-name
+if_limpio_2026_10
+ExecStart=/home/m4rk/cyberflow/.venv/bin/python \
+    --model-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/if_limpio_2026_10_desplegable.joblib \
+    --manifest-path /home/m4rk/cyberflow/artifacts/preliminar/limpio-2026-10/manifest-if-limpio-2026-10.json \
+# Sustituye SOLO el ExecStart de la unidad generada por cyberflow_config.py; el fichero base no se
+== umbrales REGISTRADOS por el motor en las decisiones (copias/motor_decision.log y replay)
+copias/motor_decision.log (en vivo) {'decisiones': 90081} | umbrales registrados: {'-0.5693969936322356': 90081}
+replay/motor_decision.log {'decisiones': 13923} | umbrales registrados: {'-0.5693969936322356': 13923}
+ventanas con score en [U05, UD) (alerta del motor en vivo, no IF_0.05 del análisis): 9 de 58912 con score
+   por IP: {'10.10.20.24': 4, '10.10.20.22': 4, '10.10.10.20': 1}
+   de Kali (10.10.20.30): 0 | dentro de [inicio-60, fin+60] de algún episodio: 0
+   dentro del control 21:23-21:53Z: 0 | ver detalle: {}
+ventanas del control con score < U05 (IF_0.05 del análisis): 323 | con score < UD (motor en vivo): 323
+## r4 rc=0 (sed=0 ssh=0 tee=0) 2026-11-10T04:51:03.403Z

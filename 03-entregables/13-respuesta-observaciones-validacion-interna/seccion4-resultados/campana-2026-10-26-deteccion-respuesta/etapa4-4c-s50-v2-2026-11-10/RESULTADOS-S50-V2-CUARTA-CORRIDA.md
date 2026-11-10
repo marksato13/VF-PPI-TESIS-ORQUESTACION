@@ -69,5 +69,29 @@ El heurístico no añade falsas alarmas al híbrido (HIB = IF en el control): su
 3. **α no elegido**: IF_0,05 tiene 14,56 % de falsas alarmas en control; IF_0,01 las reduce a 2,43 % pero pierde un episodio de DNS más.
 4. Las categorías «oportuna» dependen del horizonte y de las ventanas definidas en `analizar_3b.py` (hash fijado); este informe no las redefine.
 5. El espejo SPAN tuvo cortes durante la sesión del 9-nov; en la ventana de esta corrida el análisis de salud no encontró huecos (anillo/vía C0, 25 episodios C0).
-6. **Procedencia de los umbrales:** el analizador deja constancia de `procedencia: no_verificada` («fuente no accesible aquí: …/calibracion-alfa-2026-10-24/umbrales-alfa-precision-completa.json»). Los tres α usados son los de `config-campana-4c.json` (verificados contra la calibración en la preparación, según el protocolo 4C); el umbral desplegado en el motor es −0,56940, prácticamente el de α = 0,05 (−0,56946). El orden `IF_0.01 ⊆ IF_0.03 ⊆ IF_0.05` se respeta.
+6. **Procedencia de los umbrales:** verificada el 10-nov contra la calibración, la configuración congelada y el Sensor1 (sección siguiente); el aviso `procedencia: no_verificada` del analizador se debe solo a que la fuente no es accesible desde el Sensor1.
 7. Las tres corridas **canceladas** del 9-nov (X1, X3, X3) se analizan aparte (`../etapa4-4c-ajustes-2026-11-09/INFORME-TRES-BATERIAS-CANCELADAS-2026-11-09.md`) y **no se mezclan** con estos resultados.
+
+## Procedencia y verificación de los tres umbrales α (10-nov-2026, antes de publicar)
+
+**Resultado: coinciden exactamente con los congelados para la Campaña A; no hay discrepancia, ningún resultado queda afectado.** Verificación en `evidencia/verificacion-umbrales/` (script `verif_umbrales.py`, 16 de 16 comprobaciones OK, y lecturas de solo lectura del Sensor1).
+
+| α | Umbral usado por `s50` v2 (`score_samples`, IF si `score <` umbral) | Procedencia |
+|---|---|---|
+| 0,05 | `-0.5694578968203694` | cuantil 0,05 de las 65 553 puntuaciones de validación sin Kali |
+| 0,03 | `-0.5898535710336618` | cuantil 0,03, mismas puntuaciones |
+| 0,01 | `-0.6223889502095352` | cuantil 0,01, mismas puntuaciones |
+| (desplegado en el motor, no es un α del análisis) | `-0.5693969936322356` | cuantil 0,05 de las 65 633 puntuaciones de validación originales |
+
+**Cadena de origen:** calibración offline del IF congelado `if_limpio_2026_10` (joblib sha256 `df547da098e51171aa267c8466edc6624bc1bd5c6b602639cc00bd4711a2fd60`; `numpy.quantile(score_samples, α, method='linear')`, sin reentrenar ni usar ataques) → `4.1-modelos/calibracion-alfa-2026-10-24/umbrales-alfa-precision-completa.json` (columna `validacion_sin_kali_65553`, claves `0.050`/`0.030`/`0.010`; sha256 con saltos LF `26bfc6e6c98bc164b27e79daa234bd5dd6f028eb880548914ae184f36bb6753e`, commit `b9d7e4c`) → `config-campana-4c.json` (sha256 `f177d9bb18c2b9c93f3829f6ffd60a65a81e42d598d3b587719f0d3a1f2da5f9`, `umbrales.fuente`) → `analizar_3b.py` → `analisis-3b.json` y `control-4b.json` de `analisis-v2`.
+
+**Qué se comprobó (todo OK):**
+1. El fichero de calibración del repositorio tiene el sha256 (LF) registrado en la configuración.
+2. Igualdad exacta de float entre la columna sin Kali de la calibración y los tres umbrales de la configuración; y entre `desplegado_referencia` y la columna original de 65 633 al 0,050.
+3. **Recálculo independiente desde los datos crudos** (`scores-validacion-65633.csv.gz`, quitando las 80 ventanas de `validacion-kali-80-excluidas.csv` → 65 553): `numpy.quantile(…, linear)` da los tres valores con diferencia **0** y el cuantil 0,05 de las 65 633 da el umbral desplegado.
+4. Orden `u0,01 < u0,03 < u0,05` respetado; `analisis-3b.json` y `control-4b.json` de `analisis-v2` traen exactamente esos tres valores.
+5. **Sensor1:** la configuración que leyó `s50` (`~/cf-e4/herramientas/config-campana-4c.json`) tiene el mismo sha256 `f177d9bb…` que el repositorio y que el fijado en `herramientas-e4.sha256` (que `s50` verifica al empezar). El joblib desplegado tiene el sha256 `df547da0…`; el manifiesto desplegado (`manifest-if-limpio-2026-10.json`, sha `b3ad6805…`) declara `calibration.threshold = threshold_used = -0.5693969936322356` y ese joblib. Las **90 081 decisiones en vivo** y las **13 923 del replay** registran como umbral `-0.5693969936322356`, sin otro valor. El servicio `ppi-motor` y el replay usan el mismo joblib, manifiesto y detector.
+
+**Por qué el analizador dijo `procedencia: no_verificada`:** `analizar.py` compara los umbrales con la fuente solo «si está accesible», y en el Sensor1 no existe `4.1-modelos/…`. Es una limitación del lugar donde corrió, no un fallo del dato; la comparación exacta se hizo aquí con la fuente (puntos 1–4).
+
+**Distinción que no es una discrepancia (ya documentada en la configuración):** `IF_0.05` del análisis (`-0.56945790`) no es el umbral con el que el motor alertó en vivo (`-0.56939699`); difieren en 6,09·10⁻⁵ porque uno sale de 65 553 puntuaciones y el otro de 65 633. Impacto medido en esta corrida (copias del motor, 58 912 ventanas con puntuación): **9** ventanas con score entre ambos umbrales (4 de 10.10.20.22, 4 de 10.10.20.24, 1 de 10.10.10.20); **0** de la Kali, **0** dentro de la ventana [inicio−60 s, fin+60 s] de ningún episodio y **0** en el control (323 falsas alarmas con el umbral recalibrado y 323 con el desplegado). **Ningún resultado de la tabla de episodios ni del control cambia** con uno u otro; los valores alternativos de la validación original para α = 0,03 y 0,01 (`-0.5898052873`, `-0.6223738394`) existen en el fichero de calibración pero ninguna configuración ni análisis de la Campaña A los usa.
