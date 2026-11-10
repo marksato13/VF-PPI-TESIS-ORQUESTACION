@@ -1,0 +1,3 @@
+# Evidencia de la Campaña A (4C): se conservan los bytes exactos cuyos SHA-256 constan en SHA256SUMS
+# (misma convención que etapa4-4c-paso3-eve-2026-11-08). Sin esto, core.autocrlf cambia los saltos de línea al publicar.
+* -text
