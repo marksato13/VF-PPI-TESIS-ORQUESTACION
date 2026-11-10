@@ -1,0 +1,817 @@
+{
+ "definicion": "Calidad de las fuentes por episodio (preparación 3A, 2026-11-01). Solo lee evidencias; no toca captura ni Suricata.\n\nSepara cuatro cosas que NO son equivalentes:\n  1. archivo           conservación y continuidad de los PCAP del SPAN (archivar.log del archivador): ficheros de\n                       15 s de ppi-motor-capture archivados sin fallo y sin huecos entre inicios consecutivos.\n  2. tcpdump_socket    descartes del socket AF_PACKET de tcpdump. tcpdump solo los informa AL TERMINAR el proceso\n                       (\"N packets dropped by kernel\"); con ppi-motor-capture en marcha durante toda la campaña NO hay\n                       medida por intervalo. Se declara \"no_medido\": es incertidumbre residual, no un cero.\n  3. suricata          capture.kernel_drops de stats.log (contador acumulado, muestras cada ~8 s). El delta se toma\n                       entre la última muestra <= desde y la primera >= hasta (cota CONSERVADORA: puede incluir\n                       descartes de los segundos de alrededor, nunca omite los del intervalo).\n  4. interfaz          rx_dropped de ens37 (muestreador). Su significado no está determinado en este laboratorio\n                       (vmxnet3 en modo promiscuo; rx_missed/rx_fifo/rx_nohandler = 0, crece también sin carga). Se\n                       informa; NO clasifica el episodio.\n\nClasificación por episodio, sobre [inicio - margen, fin + margen] (margen = 60 s, el horizonte de las ventanas):\n  insuficiente  falta archivo (fallo de copia, fichero perdido, hueco entre ficheros > 15 s + tolerancia) o no hay\n                muestras de Suricata que acoten el intervalo -> la ausencia de detección NO se puede atribuir al\n                detector; el episodio sale de la comparación principal.\n  degradada     archivo completo pero Suricata registró descartes de kernel en el intervalo -> la observación L7\n                (HTTP/DNS de EVE, base de los heurísticos y de parte de las 28 características) puede estar\n                incompleta; el episodio sale de la comparación principal (criterio independiente del resultado).\n  completa      archivo continuo y 0 descartes de Suricata en el intervalo. Persiste la incertidumbre de (2) y (4).\nEn todos los casos las detecciones confirmadas se conservan visibles: una fuente degradada no anula una señal\nobservada, solo impide concluir una ausencia.",
+ "margen_s": 60.0,
+ "duracion_pcap_s": 5.0,
+ "fuentes": {
+  "stats": [
+   "/home/m4rk/cf-e4/4c/copias/stats-inicio.log",
+   "/home/m4rk/cf-e4/4c/copias/stats-fin.log"
+  ],
+  "archivador": "/home/m4rk/cf-e4/4c/copias/archivar.log",
+  "muestras": "/home/m4rk/cf-e4/4c/copias/muestras.jsonl",
+  "muestras_stats": 0
+ },
+ "incidencias_marcas": [],
+ "episodios": {
+  "inundacion_http-r4": {
+   "estado": "insuficiente",
+   "motivos": [
+    "suricata: sin stats.log"
+   ],
+   "intervalo_utc": [
+    "2026-11-09T21:56:36.046386+00:00",
+    "2026-11-09T22:00:06.044963+00:00"
+   ],
+   "archivo": {
+    "continuo": true,
+    "ficheros": 43,
+    "cubre_inicio": true,
+    "cubre_fin": true,
+    "huecos": [],
+    "fallos_archivador": []
+   },
+   "suricata": {
+    "medido": false,
+    "motivo": "sin stats.log"
+   },
+   "tcpdump_socket": {
+    "medido": false,
+    "motivo": "tcpdump solo informa descartes al terminar el proceso; incertidumbre residual declarada"
+   },
+   "interfaz_ens37": {
+    "medido": true,
+    "rx_packets": 506071,
+    "rx_dropped": 3038,
+    "significado": "no determinado; se informa sin clasificar"
+   }
+  },
+  "fuerza_bruta_http-r4": {
+   "estado": "insuficiente",
+   "motivos": [
+    "suricata: sin stats.log"
+   ],
+   "intervalo_utc": [
+    "2026-11-09T22:01:36.048134+00:00",
+    "2026-11-09T22:05:06.046153+00:00"
+   ],
+   "archivo": {
+    "continuo": true,
+    "ficheros": 44,
+    "cubre_inicio": true,
+    "cubre_fin": true,
+    "huecos": [],
+    "fallos_archivador": []
+   },
+   "suricata": {
+    "medido": false,
+    "motivo": "sin stats.log"
+   },
+   "tcpdump_socket": {
+    "medido": false,
+    "motivo": "tcpdump solo informa descartes al terminar el proceso; incertidumbre residual declarada"
+   },
+   "interfaz_ens37": {
+    "medido": true,
+    "rx_packets": 267510,
+    "rx_dropped": 3060,
+    "significado": "no determinado; se informa sin clasificar"
+   }
+  },
+  "dns_inusual-r1": {
+   "estado": "insuficiente",
+   "motivos": [
+    "suricata: sin stats.log"
+   ],
+   "intervalo_utc": [
+    "2026-11-09T22:06:36.049274+00:00",
+    "2026-11-09T22:10:06.379944+00:00"
+   ],
+   "archivo": {
+    "continuo": true,
+    "ficheros": 43,
+    "cubre_inicio": true,
+    "cubre_fin": true,
+    "huecos": [],
+    "fallos_archivador": []
+   },
+   "suricata": {
+    "medido": false,
+    "motivo": "sin stats.log"
+   },
+   "tcpdump_socket": {
+    "medido": false,
+    "motivo": "tcpdump solo informa descartes al terminar el proceso; incertidumbre residual declarada"
+   },
+   "interfaz_ens37": {
+    "medido": true,
+    "rx_packets": 94918,
+    "rx_dropped": 2976,
+    "significado": "no determinado; se informa sin clasificar"
+   }
+  },
+  "fuerza_bruta_http-r3": {
+   "estado": "insuficiente",
+   "motivos": [
+    "suricata: sin stats.log"
+   ],
+   "intervalo_utc": [
+    "2026-11-09T22:11:36.382544+00:00",
+    "2026-11-09T22:15:06.043197+00:00"
+   ],
+   "archivo": {
+    "continuo": true,
+    "ficheros": 43,
+    "cubre_inicio": true,
+    "cubre_fin": true,
+    "huecos": [],
+    "fallos_archivador": []
+   },
+   "suricata": {
+    "medido": false,
+    "motivo": "sin stats.log"
+   },
+   "tcpdump_socket": {
+    "medido": false,
+    "motivo": "tcpdump solo informa descartes al terminar el proceso; incertidumbre residual declarada"
+   },
+   "interfaz_ens37": {
+    "medido": true,
+    "rx_packets": 268569,
+    "rx_dropped": 2982,
+    "significado": "no determinado; se informa sin clasificar"
+   }
+  },
+  "dns_inusual-r3": {
+   "estado": "insuficiente",
+   "motivos": [
+    "suricata: sin stats.log"
+   ],
+   "intervalo_utc": [
+    "2026-11-09T22:16:36.045972+00:00",
+    "2026-11-09T22:20:06.127203+00:00"
+   ],
+   "archivo": {
+    "continuo": true,
+    "ficheros": 43,
+    "cubre_inicio": true,
+    "cubre_fin": true,
+    "huecos": [],
+    "fallos_archivador": []
+   },
+   "suricata": {
+    "medido": false,
+    "motivo": "sin stats.log"
+   },
+   "tcpdump_socket": {
+    "medido": false,
+    "motivo": "tcpdump solo informa descartes al terminar el proceso; incertidumbre residual declarada"
+   },
+   "interfaz_ens37": {
+    "medido": true,
+    "rx_packets": 108889,
+    "rx_dropped": 3055,
+    "significado": "no determinado; se informa sin clasificar"
+   }
+  },
+  "inundacion_http-r3": {
+   "estado": "insuficiente",
+   "motivos": [
+    "suricata: sin stats.log"
+   ],
+   "intervalo_utc": [
+    "2026-11-09T22:21:36.129366+00:00",
+    "2026-11-09T22:25:06.048073+00:00"
+   ],
+   "archivo": {
+    "continuo": true,
+    "ficheros": 44,
+    "cubre_inicio": true,
+    "cubre_fin": true,
+    "huecos": [],
+    "fallos_archivador": []
+   },
+   "suricata": {
+    "medido": false,
+    "motivo": "sin stats.log"
+   },
+   "tcpdump_socket": {
+    "medido": false,
+    "motivo": "tcpdump solo informa descartes al terminar el proceso; incertidumbre residual declarada"
+   },
+   "interfaz_ens37": {
+    "medido": true,
+    "rx_packets": 466780,
+    "rx_dropped": 2476,
+    "significado": "no determinado; se informa sin clasificar"
+   }
+  },
+  "fuerza_bruta_http-r1": {
+   "estado": "insuficiente",
+   "motivos": [
+    "suricata: sin stats.log"
+   ],
+   "intervalo_utc": [
+    "2026-11-09T22:26:36.050084+00:00",
+    "2026-11-09T22:30:06.057141+00:00"
+   ],
+   "archivo": {
+    "continuo": true,
+    "ficheros": 43,
+    "cubre_inicio": true,
+    "cubre_fin": true,
+    "huecos": [],
+    "fallos_archivador": []
+   },
+   "suricata": {
+    "medido": false,
+    "motivo": "sin stats.log"
+   },
+   "tcpdump_socket": {
+    "medido": false,
+    "motivo": "tcpdump solo informa descartes al terminar el proceso; incertidumbre residual declarada"
+   },
+   "interfaz_ens37": {
+    "medido": true,
+    "rx_packets": 275031,
+    "rx_dropped": 1488,
+    "significado": "no determinado; se informa sin clasificar"
+   }
+  },
+  "escaneo_breve-r4": {
+   "estado": "insuficiente",
+   "motivos": [
+    "suricata: sin stats.log"
+   ],
+   "intervalo_utc": [
+    "2026-11-09T22:31:36.059352+00:00",
+    "2026-11-09T22:33:40.742628+00:00"
+   ],
+   "archivo": {
+    "continuo": true,
+    "ficheros": 26,
+    "cubre_inicio": true,
+    "cubre_fin": true,
+    "huecos": [],
+    "fallos_archivador": []
+   },
+   "suricata": {
+    "medido": false,
+    "motivo": "sin stats.log"
+   },
+   "tcpdump_socket": {
+    "medido": false,
+    "motivo": "tcpdump solo informa descartes al terminar el proceso; incertidumbre residual declarada"
+   },
+   "interfaz_ens37": {
+    "medido": true,
+    "rx_packets": 51753,
+    "rx_dropped": 927,
+    "significado": "no determinado; se informa sin clasificar"
+   }
+  },
+  "escaneo_sostenido-r5": {
+   "estado": "insuficiente",
+   "motivos": [
+    "suricata: sin stats.log"
+   ],
+   "intervalo_utc": [
+    "2026-11-09T22:35:10.746070+00:00",
+    "2026-11-09T22:38:03.659817+00:00"
+   ],
+   "archivo": {
+    "continuo": true,
+    "ficheros": 36,
+    "cubre_inicio": true,
+    "cubre_fin": true,
+    "huecos": [],
+    "fallos_archivador": []
+   },
+   "suricata": {
+    "medido": false,
+    "motivo": "sin stats.log"
+   },
+   "tcpdump_socket": {
+    "medido": false,
+    "motivo": "tcpdump solo informa descartes al terminar el proceso; incertidumbre residual declarada"
+   },
+   "interfaz_ens37": {
+    "medido": true,
+    "rx_packets": 142430,
+    "rx_dropped": 1277,
+    "significado": "no determinado; se informa sin clasificar"
+   }
+  },
+  "fuerza_bruta_http-r5": {
+   "estado": "insuficiente",
+   "motivos": [
+    "suricata: sin stats.log"
+   ],
+   "intervalo_utc": [
+    "2026-11-09T22:39:33.662280+00:00",
+    "2026-11-09T22:43:03.024053+00:00"
+   ],
+   "archivo": {
+    "continuo": true,
+    "ficheros": 44,
+    "cubre_inicio": true,
+    "cubre_fin": true,
+    "huecos": [],
+    "fallos_archivador": []
+   },
+   "suricata": {
+    "medido": false,
+    "motivo": "sin stats.log"
+   },
+   "tcpdump_socket": {
+    "medido": false,
+    "motivo": "tcpdump solo informa descartes al terminar el proceso; incertidumbre residual declarada"
+   },
+   "interfaz_ens37": {
+    "medido": true,
+    "rx_packets": 258244,
+    "rx_dropped": 1530,
+    "significado": "no determinado; se informa sin clasificar"
+   }
+  },
+  "escaneo_breve-r2": {
+   "estado": "insuficiente",
+   "motivos": [
+    "suricata: sin stats.log"
+   ],
+   "intervalo_utc": [
+    "2026-11-09T22:44:33.025893+00:00",
+    "2026-11-09T22:46:38.012027+00:00"
+   ],
+   "archivo": {
+    "continuo": true,
+    "ficheros": 27,
+    "cubre_inicio": true,
+    "cubre_fin": true,
+    "huecos": [],
+    "fallos_archivador": []
+   },
+   "suricata": {
+    "medido": false,
+    "motivo": "sin stats.log"
+   },
+   "tcpdump_socket": {
+    "medido": false,
+    "motivo": "tcpdump solo informa descartes al terminar el proceso; incertidumbre residual declarada"
+   },
+   "interfaz_ens37": {
+    "medido": true,
+    "rx_packets": 61375,
+    "rx_dropped": 927,
+    "significado": "no determinado; se informa sin clasificar"
+   }
+  },
+  "fuerza_bruta_http-r2": {
+   "estado": "insuficiente",
+   "motivos": [
+    "suricata: sin stats.log"
+   ],
+   "intervalo_utc": [
+    "2026-11-09T22:48:08.014867+00:00",
+    "2026-11-09T22:51:38.018266+00:00"
+   ],
+   "archivo": {
+    "continuo": true,
+    "ficheros": 43,
+    "cubre_inicio": true,
+    "cubre_fin": true,
+    "huecos": [],
+    "fallos_archivador": []
+   },
+   "suricata": {
+    "medido": false,
+    "motivo": "sin stats.log"
+   },
+   "tcpdump_socket": {
+    "medido": false,
+    "motivo": "tcpdump solo informa descartes al terminar el proceso; incertidumbre residual declarada"
+   },
+   "interfaz_ens37": {
+    "medido": true,
+    "rx_packets": 245890,
+    "rx_dropped": 1488,
+    "significado": "no determinado; se informa sin clasificar"
+   }
+  },
+  "escaneo_sostenido-r2": {
+   "estado": "insuficiente",
+   "motivos": [
+    "suricata: sin stats.log"
+   ],
+   "intervalo_utc": [
+    "2026-11-09T22:53:08.021028+00:00",
+    "2026-11-09T22:56:00.332526+00:00"
+   ],
+   "archivo": {
+    "continuo": true,
+    "ficheros": 35,
+    "cubre_inicio": true,
+    "cubre_fin": true,
+    "huecos": [],
+    "fallos_archivador": []
+   },
+   "suricata": {
+    "medido": false,
+    "motivo": "sin stats.log"
+   },
+   "tcpdump_socket": {
+    "medido": false,
+    "motivo": "tcpdump solo informa descartes al terminar el proceso; incertidumbre residual declarada"
+   },
+   "interfaz_ens37": {
+    "medido": true,
+    "rx_packets": 149760,
+    "rx_dropped": 1246,
+    "significado": "no determinado; se informa sin clasificar"
+   }
+  },
+  "dns_inusual-r4": {
+   "estado": "insuficiente",
+   "motivos": [
+    "suricata: sin stats.log"
+   ],
+   "intervalo_utc": [
+    "2026-11-09T22:57:30.335226+00:00",
+    "2026-11-09T23:01:00.299027+00:00"
+   ],
+   "archivo": {
+    "continuo": true,
+    "ficheros": 44,
+    "cubre_inicio": true,
+    "cubre_fin": true,
+    "huecos": [],
+    "fallos_archivador": []
+   },
+   "suricata": {
+    "medido": false,
+    "motivo": "sin stats.log"
+   },
+   "tcpdump_socket": {
+    "medido": false,
+    "motivo": "tcpdump solo informa descartes al terminar el proceso; incertidumbre residual declarada"
+   },
+   "interfaz_ens37": {
+    "medido": true,
+    "rx_packets": 100806,
+    "rx_dropped": 1491,
+    "significado": "no determinado; se informa sin clasificar"
+   }
+  },
+  "escaneo_breve-r5": {
+   "estado": "insuficiente",
+   "motivos": [
+    "suricata: sin stats.log"
+   ],
+   "intervalo_utc": [
+    "2026-11-09T23:02:30.301898+00:00",
+    "2026-11-09T23:04:34.887109+00:00"
+   ],
+   "archivo": {
+    "continuo": true,
+    "ficheros": 27,
+    "cubre_inicio": true,
+    "cubre_fin": true,
+    "huecos": [],
+    "fallos_archivador": []
+   },
+   "suricata": {
+    "medido": false,
+    "motivo": "sin stats.log"
+   },
+   "tcpdump_socket": {
+    "medido": false,
+    "motivo": "tcpdump solo informa descartes al terminar el proceso; incertidumbre residual declarada"
+   },
+   "interfaz_ens37": {
+    "medido": true,
+    "rx_packets": 52602,
+    "rx_dropped": 923,
+    "significado": "no determinado; se informa sin clasificar"
+   }
+  },
+  "inundacion_http-r2": {
+   "estado": "insuficiente",
+   "motivos": [
+    "suricata: sin stats.log"
+   ],
+   "intervalo_utc": [
+    "2026-11-09T23:06:04.889782+00:00",
+    "2026-11-09T23:09:34.048927+00:00"
+   ],
+   "archivo": {
+    "continuo": true,
+    "ficheros": 43,
+    "cubre_inicio": true,
+    "cubre_fin": true,
+    "huecos": [],
+    "fallos_archivador": []
+   },
+   "suricata": {
+    "medido": false,
+    "motivo": "sin stats.log"
+   },
+   "tcpdump_socket": {
+    "medido": false,
+    "motivo": "tcpdump solo informa descartes al terminar el proceso; incertidumbre residual declarada"
+   },
+   "interfaz_ens37": {
+    "medido": true,
+    "rx_packets": 480159,
+    "rx_dropped": 1518,
+    "significado": "no determinado; se informa sin clasificar"
+   }
+  },
+  "inundacion_http-r1": {
+   "estado": "insuficiente",
+   "motivos": [
+    "suricata: sin stats.log"
+   ],
+   "intervalo_utc": [
+    "2026-11-09T23:11:04.052526+00:00",
+    "2026-11-09T23:14:34.028880+00:00"
+   ],
+   "archivo": {
+    "continuo": true,
+    "ficheros": 43,
+    "cubre_inicio": true,
+    "cubre_fin": true,
+    "huecos": [],
+    "fallos_archivador": []
+   },
+   "suricata": {
+    "medido": false,
+    "motivo": "sin stats.log"
+   },
+   "tcpdump_socket": {
+    "medido": false,
+    "motivo": "tcpdump solo informa descartes al terminar el proceso; incertidumbre residual declarada"
+   },
+   "interfaz_ens37": {
+    "medido": true,
+    "rx_packets": 495157,
+    "rx_dropped": 1533,
+    "significado": "no determinado; se informa sin clasificar"
+   }
+  },
+  "escaneo_sostenido-r3": {
+   "estado": "insuficiente",
+   "motivos": [
+    "suricata: sin stats.log"
+   ],
+   "intervalo_utc": [
+    "2026-11-09T23:16:04.031659+00:00",
+    "2026-11-09T23:18:56.687638+00:00"
+   ],
+   "archivo": {
+    "continuo": true,
+    "ficheros": 36,
+    "cubre_inicio": true,
+    "cubre_fin": true,
+    "huecos": [],
+    "fallos_archivador": []
+   },
+   "suricata": {
+    "medido": false,
+    "motivo": "sin stats.log"
+   },
+   "tcpdump_socket": {
+    "medido": false,
+    "motivo": "tcpdump solo informa descartes al terminar el proceso; incertidumbre residual declarada"
+   },
+   "interfaz_ens37": {
+    "medido": true,
+    "rx_packets": 186942,
+    "rx_dropped": 1350,
+    "significado": "no determinado; se informa sin clasificar"
+   }
+  },
+  "escaneo_sostenido-r1": {
+   "estado": "insuficiente",
+   "motivos": [
+    "suricata: sin stats.log"
+   ],
+   "intervalo_utc": [
+    "2026-11-09T23:20:26.689998+00:00",
+    "2026-11-09T23:23:19.410366+00:00"
+   ],
+   "archivo": {
+    "continuo": true,
+    "ficheros": 36,
+    "cubre_inicio": true,
+    "cubre_fin": true,
+    "huecos": [],
+    "fallos_archivador": []
+   },
+   "suricata": {
+    "medido": false,
+    "motivo": "sin stats.log"
+   },
+   "tcpdump_socket": {
+    "medido": false,
+    "motivo": "tcpdump solo informa descartes al terminar el proceso; incertidumbre residual declarada"
+   },
+   "interfaz_ens37": {
+    "medido": true,
+    "rx_packets": 161263,
+    "rx_dropped": 1250,
+    "significado": "no determinado; se informa sin clasificar"
+   }
+  },
+  "dns_inusual-r2": {
+   "estado": "insuficiente",
+   "motivos": [
+    "suricata: sin stats.log"
+   ],
+   "intervalo_utc": [
+    "2026-11-09T23:24:49.412954+00:00",
+    "2026-11-09T23:28:19.151883+00:00"
+   ],
+   "archivo": {
+    "continuo": true,
+    "ficheros": 43,
+    "cubre_inicio": true,
+    "cubre_fin": true,
+    "huecos": [],
+    "fallos_archivador": []
+   },
+   "suricata": {
+    "medido": false,
+    "motivo": "sin stats.log"
+   },
+   "tcpdump_socket": {
+    "medido": false,
+    "motivo": "tcpdump solo informa descartes al terminar el proceso; incertidumbre residual declarada"
+   },
+   "interfaz_ens37": {
+    "medido": true,
+    "rx_packets": 96041,
+    "rx_dropped": 1491,
+    "significado": "no determinado; se informa sin clasificar"
+   }
+  },
+  "inundacion_http-r5": {
+   "estado": "insuficiente",
+   "motivos": [
+    "suricata: sin stats.log"
+   ],
+   "intervalo_utc": [
+    "2026-11-09T23:29:49.154996+00:00",
+    "2026-11-09T23:33:19.064814+00:00"
+   ],
+   "archivo": {
+    "continuo": true,
+    "ficheros": 44,
+    "cubre_inicio": true,
+    "cubre_fin": true,
+    "huecos": [],
+    "fallos_archivador": []
+   },
+   "suricata": {
+    "medido": false,
+    "motivo": "sin stats.log"
+   },
+   "tcpdump_socket": {
+    "medido": false,
+    "motivo": "tcpdump solo informa descartes al terminar el proceso; incertidumbre residual declarada"
+   },
+   "interfaz_ens37": {
+    "medido": true,
+    "rx_packets": 502251,
+    "rx_dropped": 1502,
+    "significado": "no determinado; se informa sin clasificar"
+   }
+  },
+  "dns_inusual-r5": {
+   "estado": "insuficiente",
+   "motivos": [
+    "suricata: sin stats.log"
+   ],
+   "intervalo_utc": [
+    "2026-11-09T23:34:49.067385+00:00",
+    "2026-11-09T23:38:19.204775+00:00"
+   ],
+   "archivo": {
+    "continuo": true,
+    "ficheros": 43,
+    "cubre_inicio": true,
+    "cubre_fin": true,
+    "huecos": [],
+    "fallos_archivador": []
+   },
+   "suricata": {
+    "medido": false,
+    "motivo": "sin stats.log"
+   },
+   "tcpdump_socket": {
+    "medido": false,
+    "motivo": "tcpdump solo informa descartes al terminar el proceso; incertidumbre residual declarada"
+   },
+   "interfaz_ens37": {
+    "medido": true,
+    "rx_packets": 127581,
+    "rx_dropped": 1500,
+    "significado": "no determinado; se informa sin clasificar"
+   }
+  },
+  "escaneo_breve-r3": {
+   "estado": "insuficiente",
+   "motivos": [
+    "suricata: sin stats.log"
+   ],
+   "intervalo_utc": [
+    "2026-11-09T23:39:49.207262+00:00",
+    "2026-11-09T23:41:54.192603+00:00"
+   ],
+   "archivo": {
+    "continuo": true,
+    "ficheros": 26,
+    "cubre_inicio": true,
+    "cubre_fin": true,
+    "huecos": [],
+    "fallos_archivador": []
+   },
+   "suricata": {
+    "medido": false,
+    "motivo": "sin stats.log"
+   },
+   "tcpdump_socket": {
+    "medido": false,
+    "motivo": "tcpdump solo informa descartes al terminar el proceso; incertidumbre residual declarada"
+   },
+   "interfaz_ens37": {
+    "medido": true,
+    "rx_packets": 75847,
+    "rx_dropped": 926,
+    "significado": "no determinado; se informa sin clasificar"
+   }
+  },
+  "escaneo_breve-r1": {
+   "estado": "insuficiente",
+   "motivos": [
+    "suricata: sin stats.log"
+   ],
+   "intervalo_utc": [
+    "2026-11-09T23:43:24.196008+00:00",
+    "2026-11-09T23:45:29.182920+00:00"
+   ],
+   "archivo": {
+    "continuo": true,
+    "ficheros": 26,
+    "cubre_inicio": true,
+    "cubre_fin": true,
+    "huecos": [],
+    "fallos_archivador": []
+   },
+   "suricata": {
+    "medido": false,
+    "motivo": "sin stats.log"
+   },
+   "tcpdump_socket": {
+    "medido": false,
+    "motivo": "tcpdump solo informa descartes al terminar el proceso; incertidumbre residual declarada"
+   },
+   "interfaz_ens37": {
+    "medido": true,
+    "rx_packets": 86902,
+    "rx_dropped": 887,
+    "significado": "no determinado; se informa sin clasificar"
+   }
+  },
+  "escaneo_sostenido-r4": {
+   "estado": "insuficiente",
+   "motivos": [
+    "suricata: sin stats.log"
+   ],
+   "intervalo_utc": [
+    "2026-11-09T23:46:59.185153+00:00",
+    "2026-11-09T23:49:51.631119+00:00"
+   ],
+   "archivo": {
+    "continuo": true,
+    "ficheros": 36,
+    "cubre_inicio": true,
+    "cubre_fin": true,
+    "huecos": [],
+    "fallos_archivador": []
+   },
+   "suricata": {
+    "medido": false,
+    "motivo": "sin stats.log"
+   },
+   "tcpdump_socket": {
+    "medido": false,
+    "motivo": "tcpdump solo informa descartes al terminar el proceso; incertidumbre residual declarada"
+   },
+   "interfaz_ens37": {
+    "medido": true,
+    "rx_packets": 181513,
+    "rx_dropped": 1246,
+    "significado": "no determinado; se informa sin clasificar"
+   }
+  }
+ }
+}

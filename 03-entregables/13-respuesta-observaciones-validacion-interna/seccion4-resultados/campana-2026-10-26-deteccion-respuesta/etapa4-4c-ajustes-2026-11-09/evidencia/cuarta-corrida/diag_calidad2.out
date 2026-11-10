@@ -1,0 +1,86 @@
+== leer_stats (calidad_fuentes.py 49-75):
+def leer_stats(paths) -> list:
+    """[(epoch, kernel_packets, kernel_drops)] ordenado y sin duplicados. stats.log usa fecha M/D/YYYY (UTC)."""
+    out, t, cur = {}, None, {}
+    for p in paths:
+        for ln in open(p, encoding="utf-8", errors="replace"):
+            m = _FECHA.match(ln)
+            if m:
+                if t is not None and len(cur) == 2:
+                    out[t] = (cur["capture.kernel_packets"], cur["capture.kernel_drops"])
+                mo, d, y, hh, mi, ss = map(int, m.groups())
+                t = datetime(y, mo, d, hh, mi, ss, tzinfo=timezone.utc).timestamp(); cur = {}
+                continue
+            m = _CONTADOR.match(ln)
+            if m and t is not None:
+                cur[m.group(1)] = int(m.group(2))
+        if t is not None and len(cur) == 2:
+            out[t] = (cur["capture.kernel_packets"], cur["capture.kernel_drops"])
+    return sorted((k, *v) for k, v in out.items())
+
+
+def delta_stats(serie, desde, hasta) -> dict:
+    antes = [s for s in serie if s[0] <= desde]
+    despues = [s for s in serie if s[0] >= hasta]
+    if not antes or not despues:
+        return {"medido": False, "motivo": "no hay muestras de stats.log que acoten el intervalo"}
+    a, b = antes[-1], despues[0]
+    if b[1] < a[1] or b[2] < a[2]:
+== muestra de stats-fin.log (líneas capture.*):
+6:capture.kernel_packets                        | Total                     | 64287900
+120:capture.kernel_packets                        | Total                     | 64293228
+234:capture.kernel_packets                        | Total                     | 64296214
+348:capture.kernel_packets                        | Total                     | 64297359
+total líneas kernel_packets: 9469 | kernel_drops: 0 | Date: Date: 11/9/2026 --
+== calidad-fuentes.json fuentes/muestras_stats:
+{"stats": ["/home/m4rk/cf-e4/4c/copias/stats-inicio.log", "/home/m4rk/cf-e4/4c/copias/stats-fin.log"], "archivador": "/home/m4rk/cf-e4/4c/copias/archivar.log", "muestras": "/home/m4rk/cf-e4/4c/copias/muestras.jsonl", "muestras_stats": 0}
+== integridad.json: estructura y primer episodio:
+nota: verificado / declarado_sin_verificar / ausente / desconocido. Solo 'verificado' => apto. Un booleano del descriptor no es verificación; requiere respaldo accesible y correspondiente.
+{"episodio_id": "inundacion_http-r4", "campana": "etapa4-campana-A-4c", "requisitos": {"pcap": {"estado": "verificado", "metodo": "automatico", "razon": "existe, legible y hash real coincide", "evidencia": {"sha256": "03594f75188cb163b0c8f752bd5a96385132bdbcd9d6a1d54008cbece92b7f4e"}}, "eve": {"estado": "verificado", "metodo": "automatico", "razon": "existe, legible y hash real coincide", "evidencia": {"sha256": "f2f996cc5f70e04ed8397590c25046f9c0097be4a941e0484dafc5b5c61dc344"}}, "decisiones": {"estado": "verificado", "metodo": "automatico", "razon": "existe, legible y hash real coincide", "evidencia": {"sha256": "733d7a0cab66ef1a6358c80cc2285a6d0da8693722c11a018c5dfb49bb9267cd"}}, "caracteristicas": {"estado": "verificado", "metodo": "automatico", "razon": "existe, legible y hash real coincide", "evidencia": {"sha256": "9f9e83b368c12a7ee06d6291a274f083bac063b6bb02adc8371ac2a24f2cdb67"}
+resumen: {"aptos": [], "no_aptos": ["inundacion_http-r4", "fuerza_bruta_http-r4", "dns_inusual-r1", "fuerza_bruta_http-r3", "dns_inusual-r3", "inundacion_http-r3", "fuerza_bruta_http-r1", "escaneo_breve-r4", "escaneo_sostenido-r5", "fuerza_bruta_http-r5", "escaneo_breve-r2", "fuerza_bruta_http-r2", "escaneo_
+== verificar_integridad.py: criterio de apto:
+11:Solo "verificado" cuenta para 'apto'.
+13:RESPALDO (para cobertura, continuidad, faltantes, captura, reinicios y relojes): un fichero JSON accesible,
+16:declara algo, el requisito es 'declarado_sin_verificar' (no apto).
+36:              "cobertura_posterior", "continuidad", "sin_faltantes", "captura_sin_errores_relevantes",
+206:def estado_captura_errores(e) -> dict:
+207:    doc, fallo = _respaldo(e, "captura")
+282:        "captura_sin_errores_relevantes": estado_captura_errores(e),
+286:    apto = len(por["verificado"]) == len(REQUISITOS)
+288:            "apto": apto,
+289:            "criterio": "apto solo si los 12 requisitos están 'verificado' (hash real, respaldo correspondiente o "
+301:           "nota": "verificado / declarado_sin_verificar / ausente / desconocido. Solo 'verificado' => apto. "
+304:           "resumen": {"aptos": [e["episodio_id"] for e in eps if e["apto"]],
+305:                       "no_aptos": [e["episodio_id"] for e in eps if not e["apto"]]}}
+== descriptor (generar_respaldos) campos suricata de un episodio:
+{"episodio_id": "inundacion_http-r4"}
+== TABLA-3B motivos (cola):
+
+Motivos fuera de la población principal:
+
+- inundacion_http-r4: fuente insuficiente; integridad no apta
+- fuerza_bruta_http-r4: fuente insuficiente; integridad no apta
+- dns_inusual-r1: fuente insuficiente; integridad no apta
+- fuerza_bruta_http-r3: fuente insuficiente; integridad no apta
+- dns_inusual-r3: fuente insuficiente; integridad no apta
+- inundacion_http-r3: fuente insuficiente; integridad no apta
+- fuerza_bruta_http-r1: fuente insuficiente; integridad no apta
+- escaneo_breve-r4: fuente insuficiente; integridad no apta
+- escaneo_sostenido-r5: fuente insuficiente; integridad no apta
+- fuerza_bruta_http-r5: fuente insuficiente; integridad no apta
+- escaneo_breve-r2: fuente insuficiente; integridad no apta
+- fuerza_bruta_http-r2: fuente insuficiente; integridad no apta
+- escaneo_sostenido-r2: fuente insuficiente; integridad no apta
+- dns_inusual-r4: fuente insuficiente; integridad no apta
+- escaneo_breve-r5: fuente insuficiente; integridad no apta
+- inundacion_http-r2: fuente insuficiente; integridad no apta
+- inundacion_http-r1: fuente insuficiente; integridad no apta
+- escaneo_sostenido-r3: fuente insuficiente; integridad no apta
+- escaneo_sostenido-r1: fuente insuficiente; integridad no apta
+- dns_inusual-r2: fuente insuficiente; integridad no apta
+- inundacion_http-r5: fuente insuficiente; integridad no apta
+- dns_inusual-r5: fuente insuficiente; integridad no apta
+- escaneo_breve-r3: fuente insuficiente; integridad no apta
+- escaneo_breve-r1: fuente insuficiente; integridad no apta
+- escaneo_sostenido-r4: fuente insuficiente; integridad no apta
+## r4 rc=0 (sed=0 ssh=0 tee=0) 2026-11-10T01:23:48.518Z

@@ -1,0 +1,276 @@
+===== analisis-4c/ y respaldos/:
+ 
+ 
+475K analisis-3b.json
+7K TABLA-3B.md
+ 
+ 
+ 
+33K descriptor-integridad.json
+4K dns_inusual-r1
+4K dns_inusual-r2
+4K dns_inusual-r3
+4K dns_inusual-r4
+4K dns_inusual-r5
+4K escaneo_breve-r1
+4K escaneo_breve-r2
+4K escaneo_breve-r3
+4K escaneo_breve-r4
+4K escaneo_breve-r5
+4K escaneo_sostenido-r1
+4K escaneo_sostenido-r2
+4K escaneo_sostenido-r3
+4K escaneo_sostenido-r4
+4K escaneo_sostenido-r5
+4K fuerza_bruta_http-r1
+4K fuerza_bruta_http-r2
+4K fuerza_bruta_http-r3
+4K fuerza_bruta_http-r4
+4K fuerza_bruta_http-r5
+4K inundacion_http-r1
+4K inundacion_http-r2
+4K inundacion_http-r3
+4K inundacion_http-r4
+4K inundacion_http-r5
+===== analizar.stdout (paso c):
+{
+ "tabla_principal": {
+  "Inundación HTTP": {
+   "poblacion_principal": [],
+   "fuera_de_poblacion": [
+    "inundacion_http-r4",
+    "inundacion_http-r3",
+    "inundacion_http-r2",
+    "inundacion_http-r1",
+    "inundacion_http-r5"
+   ],
+   "IF_0.05": {
+    "fuera:oportuna": 5
+   },
+   "IF_0.03": {
+    "fuera:oportuna": 5
+   },
+   "IF_0.01": {
+    "fuera:oportuna": 5
+   },
+   "HEUR": {
+    "fuera:oportuna": 5
+   },
+   "HIB_0.05": {
+    "fuera:oportuna": 5
+   },
+   "HIB_0.03": {
+    "fuera:oportuna": 5
+   },
+   "HIB_0.01": {
+    "fuera:oportuna": 5
+   },
+   "emisiones_oportunas_episodios": 0,
+   "episodios_oportunos_senal_if": 0,
+   "episodios_oportunos_regla_prevista": 0,
+   "episodios_oportunos_regla_no_prevista": 0,
+   "respuesta_aplicada": "no_medida"
+  },
+  "Fuerza bruta HTTP": {
+   "poblacion_principal": [],
+   "fuera_de_poblacion": [
+    "fuerza_bruta_http-r4",
+    "fuerza_bruta_http-r3",
+    "fuerza_bruta_http-r1",
+    "fuerza_bruta_http-r5",
+    "fuerza_bruta_http-r2"
+   ],
+   "IF_0.05": {
+    "fuera:oportuna": 5
+   },
+   "IF_0.03": {
+    "fuera:oportuna": 5
+   },
+   "IF_0.01": {
+    "fuera:oportuna": 5
+   },
+   "HEUR": {
+    "fuera:oportuna": 5
+   },
+   "HIB_0.05": {
+    "fuera:oportuna": 5
+   },
+   "HIB_0.03": {
+    "fuera:oportuna": 5
+   },
+   "HIB_0.01": {
+    "fuera:oportuna": 5
+   },
+   "emisiones_oportunas_episodios": 0,
+   "episodios_oportunos_senal_if": 0,
+   "episodios_oportunos_regla_prevista": 0,
+   "episodios_oportunos_regla_no_prevista": 0,
+   "respuesta_aplicada": "no_medida"
+  },
+  "DNS inusual": {
+   "poblacion_principal": [],
+   "fuera_de_poblacion": [
+    "dns_inusual-r1",
+    "dns_inusual-r3",
+    "dns_inusual-r4",
+    "dns_inusual-r2",
+    "dns_inusual-r5"
+   ],
+   "IF_0.05": {
+    "fuera:oportuna": 2,
+    "fuera:no_evaluable": 3
+   },
+   "IF_0.03": {
+    "fuera:oportuna": 2,
+    "fuera:no_evaluable": 3
+   },
+   "IF_0.01": {
+    "fuera:no_evaluable": 4,
+    "fuera:oportuna": 1
+   },
+   "HEUR": {
+    "fuera:oportuna": 5
+   },
+   "HIB_0.05": {
+    "fuera:oportuna": 5
+   },
+   "HIB_0.03": {
+    "fuera:oportuna": 5
+   },
+   "HIB_0.01": {
+    "fuera:oportuna": 5
+   },
+   "emisiones_oportunas_episodios": 0,
+   "episodios_oportunos_senal_if": 0,
+   "episodios_oportunos_regla_prevista": 0,
+   "episodios_oportunos_regla_no_prevista": 0,
+   "respuesta_aplicada": "no_medida"
+  },
+  "Escaneo breve": {
+   "poblacion_principal": [],
+   "fuera_de_poblacion": [
+    "escaneo_breve-r4",
+    "escaneo_breve-r2",
+    "escaneo_breve-r5",
+    "escaneo_breve-r3",
+    "escaneo_breve-r1"
+   ],
+   "IF_0.05": {
+    "fuera:solo_posterior": 4,
+    "fuera:oportuna": 1
+   },
+   "IF_0.03": {
+    "fuera:solo_posterior": 5
+   },
+   "IF_0.01": {
+    "fuera:no_evaluable": 4,
+    "fuera:solo_posterior": 1
+   },
+   "HEUR": {
+    "fuera:solo_posterior": 5
+   },
+   "HIB_0.05": {
+    "fuera:solo_posterior": 4,
+    "fuera:oportuna": 1
+   },
+   "HIB_0.03": {
+    "fuera:solo_posterior": 5
+   },
+   "HIB_0.01": {
+    "fuera:solo_posterior": 5
+   },
+   "emisiones_oportunas_episodios": 0,
+   "episodios_oportunos_senal_if": 0,
+   "episodios_oportunos_regla_prevista": 0,
+   "episodios_oportunos_regla_no_prevista": 0,
+   "respuesta_aplicada": "no_medida"
+  },
+  "Escaneo sostenido": {
+   "poblacion_principal": [],
+   "fuera_de_poblacion": [
+    "escaneo_sostenido-r5",
+    "escaneo_sostenido-r2",
+    "escaneo_sostenido-r3",
+    "escaneo_sostenido-r1",
+    "escaneo_sostenido-r4"
+   ],
+   "IF_0.05": {
+    "fuera:oportuna": 5
+   },
+   "IF_0.03": {
+    "fuera:oportuna": 5
+   },
+   "IF_0.01": {
+    "fuera:oportuna": 5
+   },
+   "HEUR": {
+    "fuera:oportuna": 5
+   },
+   "HIB_0.05": {
+    "fuera:oportuna": 5
+   },
+   "HIB_0.03": {
+    "fuera:oportuna": 5
+   },
+   "HIB_0.01": {
+    "fuera:oportuna": 5
+   },
+   "emisiones_oportunas_episodios": 0,
+   "episodios_oportunos_senal_if": 0,
+   "episodios_oportunos_regla_prevista": 0,
+   "episodios_oportunos_regla_no_prevista": 0,
+   "respuesta_aplicada": "no_medida"
+  }
+ },
+ "inventario": {
+  "requeridas": 13344,
+  "estados": {
+   "decidida_a_tiempo": 13344,
+   "decidida_tardia": 0,
+   "no_evaluada": 0,
+   "ausente": 0
+  },
+  "solo_en_vivo": 0,
+  "cobertura_total": 1.0
+ }
+}
+===== referencia.stdout (paso 9):
+{"dns_inusual-r1": {"IF_0.05": "oportuna", "HEUR": "oportuna"}, "dns_inusual-r2": {"IF_0.05": "no_evaluable", "HEUR": "oportuna"}, "dns_inusual-r3": {"IF_0.05": "no_evaluable", "HEUR": "oportuna"}, "dns_inusual-r4": {"IF_0.05": "oportuna", "HEUR": "oportuna"}, "dns_inusual-r5": {"IF_0.05": "no_evaluable", "HEUR": "oportuna"}, "escaneo_breve-r1": {"IF_0.05": "solo_posterior", "HEUR": "solo_posterior"}, "escaneo_breve-r2": {"IF_0.05": "solo_posterior", "HEUR": "solo_posterior"}, "escaneo_breve-r3": {"IF_0.05": "oportuna", "HEUR": "solo_posterior"}, "escaneo_breve-r4": {"IF_0.05": "solo_posterior", "HEUR": "solo_posterior"}, "escaneo_breve-r5": {"IF_0.05": "solo_posterior", "HEUR": "solo_posterior"}, "escaneo_sostenido-r1": {"IF_0.05": "oportuna", "HEUR": "oportuna"}, "escaneo_sostenido-r2": {"IF_0.05": "oportuna", "HEUR": "oportuna"}, "escaneo_sostenido-r3": {"IF_0.05": "oportuna", "HEUR": "oportuna"}, "escaneo_sostenido-r4": {"IF_0.05": "oportuna", "HEUR": "oportuna"}, "escaneo_sostenido-r5": {"IF_0.05": "oportuna", "HEUR": "oportuna"}, "fuerza_bruta_http-r1": {"IF_0.05": "oportuna", "HEUR": "oportuna"}, "fuerza_bruta_http-r2": {"IF_0.05": "oportuna", "HEUR": "oportuna"}, "fuerza_bruta_http-r3": {"IF_0.05": "oportuna", "HEUR": "oportuna"}, "fuerza_bruta_http-r4": {"IF_0.05": "oportuna", "HEUR": "oportuna"}, "fuerza_bruta_http-r5": {"IF_0.05": "oportuna", "HEUR": "oportuna"}, "inundacion_http-r1": {"IF_0.05": "oportuna", "HEUR": "oportuna"}, "inundacion_http-r2": {"IF_0.05": "oportuna", "HEUR": "oportuna"}, "inundacion_http-r3": {"IF_0.05": "oportuna", "HEUR": "oportuna"}, "inundacion_http-r4": {"IF_0.05": "oportuna", "HEUR": "oportuna"}, "inundacion_http-r5": {"IF_0.05": "oportuna", "HEUR": "oportuna"}}
+===== integridad.stdout (6):
+{"aptos": [], "no_aptos": ["inundacion_http-r4", "fuerza_bruta_http-r4", "dns_inusual-r1", "fuerza_bruta_http-r3", "dns_inusual-r3", "inundacion_http-r3", "fuerza_bruta_http-r1", "escaneo_breve-r4", "escaneo_sostenido-r5", "fuerza_bruta_http-r5", "escaneo_breve-r2", "fuerza_bruta_http-r2", "escaneo_sostenido-r2", "dns_inusual-r4", "escaneo_breve-r5", "inundacion_http-r2", "inundacion_http-r1", "escaneo_sostenido-r3", "escaneo_sostenido-r1", "dns_inusual-r2", "inundacion_http-r5", "dns_inusual-r5", "escaneo_breve-r3", "escaneo_breve-r1", "escaneo_sostenido-r4"]}
+===== respaldos.stdout (5):
+25 episodios -> /home/m4rk/cf-e4/4c/analisis/respaldos/descriptor-integridad.json
+===== control-4b.stdout (b):
+{"ventanas_por_clase": {"C0": 2218, "C1": 0, "C2": 0, "C3": 0, "insuficiente": 0, "sin_medida": 0}, "C0": {"ventanas": 2218, "IF_0.05": {"falsas_alarmas": 323, "tasa": 0.145627}, "IF_0.03": {"falsas_alarmas": 200, "tasa": 0.090171}, "IF_0.01": {"falsas_alarmas": 54, "tasa": 0.024346}, "HEUR": {"falsas_alarmas": 0, "tasa": 0.0}, "HIB_0.05": {"falsas_alarmas": 323, "tasa": 0.145627}, "HIB_0.03": {"falsas_alarmas": 200, "tasa": 0.090171}, "HIB_0.01": {"falsas_alarmas": 54, "tasa": 0.024346}}, "sin_medida": null, "suricata_decididas": {"cero_descartes": 2218, "descartes": 0, "datos_faltantes": 0}, "periodo_completo": {"clase": "C0", "suricata_categoria": "cero_descartes", "suricata_estado": "cero_explicito"}}
+===== calidad.stdout (2):
+{
+ "inundacion_http-r4": [
+  "insuficiente",
+  [
+   "suricata: sin stats.log"
+  ]
+ ],
+ "fuerza_bruta_http-r4": [
+  "insuficiente",
+  [
+   "suricata: sin stats.log"
+  ]
+ ],
+ "dns_inusual-r1": [
+  "insuficiente",
+  [
+   "suricata: sin stats.log"
+  ]
+ ],
+ "fuerza_bruta_http-r3": [
+  "insuficiente",
+  [
+   "suricata: sin stats.log"
+  ]
+ ],
+ "dns_inusual-r3": [
+  "insuficiente",
+  [
+   "suricata: sin stats.log"
+  ]
+## r4 rc=0 (sed=0 ssh=0 tee=0) 2026-11-10T01:21:58.825Z

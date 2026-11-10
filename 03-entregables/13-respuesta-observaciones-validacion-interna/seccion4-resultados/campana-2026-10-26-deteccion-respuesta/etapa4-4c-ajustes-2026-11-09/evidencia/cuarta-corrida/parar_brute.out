@@ -1,0 +1,6 @@
+## parar ppi-brute-lab (CON_SUDO en srv-dmz, autorizado por Mark el 09-nov) 2026-11-10T00:29:32Z
+antes: active PID=303279
+stop rc=0
+después: inactive / enabled=disabled
+líneas de brute.log: 151604
+## r4 rc=0 (sed=0 ssh=0 tee=0) 2026-11-10T00:29:32.432Z
