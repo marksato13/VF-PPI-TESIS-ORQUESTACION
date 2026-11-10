@@ -1,0 +1,21 @@
+OK    1 sha256 (LF) de umbrales-alfa-precision-completa.json = el registrado en la config  [26bfc6e6c98bc164]
+OK    2a config 0.05 == calibración sin Kali 0.050 (float exacto)  [-0.5694578968203694]
+OK    2b config 0.03 == calibración sin Kali 0.030 (float exacto)  [-0.5898535710336618]
+OK    2c config 0.01 == calibración sin Kali 0.010 (float exacto)  [-0.6223889502095352]
+OK    2d desplegado_referencia == calibración original 65 633 al 0.050  [-0.5693969936322356]
+OK    3 orden u0.01 < u0.03 < u0.05
+OK    4a la validación original tiene 65 633 puntuaciones  [65633]
+OK    4b las 80 excluidas están todas en ella y quedan 65 553  [excluidas=80 restantes=65553]
+   (cuantiles con: numpy 2.4.6)
+OK    4c cuantil 0.05 de las 65 553 puntuaciones == umbral de la config  [recalculado -0.5694578968203694 | config -0.5694578968203694 | dif 0.000e+00]
+OK    4c cuantil 0.03 de las 65 553 puntuaciones == umbral de la config  [recalculado -0.5898535710336618 | config -0.5898535710336618 | dif 0.000e+00]
+OK    4c cuantil 0.01 de las 65 553 puntuaciones == umbral de la config  [recalculado -0.6223889502095352 | config -0.6223889502095352 | dif 0.000e+00]
+OK    4d cuantil 0.05 de las 65 633 == umbral desplegado  [recalculado -0.5693969936322356 | desplegado -0.5693969936322356]
+OK    5 analisis-3b.json IF_0.05 == config  [-0.5694578968203694]
+OK    5 analisis-3b.json IF_0.03 == config  [-0.5898535710336618]
+OK    5 analisis-3b.json IF_0.01 == config  [-0.6223889502095352]
+OK    5d analisis-3b.json desplegado == desplegado_referencia
+   procedencia en analisis-3b.json: {'estado': 'no_verificada', 'motivo': 'fuente no accesible aquí: ../../4.1-modelos/calibracion-alfa-2026-10-24/umbrales-alfa-precision-completa.json'} | orden_respetado: True
+   fuentes del análisis: {"marcas": "/home/m4rk/cf-e4/4c/copias/marcas.jsonl", "motor": {"archivo": "/home/m4rk/cf-e4/4c/copias/motor_decision.log", "sha256": "733d7a0cab66ef1a6358c80cc2285a6d0da8693722c11a018c5dfb49bb9267cd"}, "ciclos": "/home/m4rk/cf-e4/4c/copias/ciclos.jsonl", "destinos": "/home/m4rk/cf-e4/4c/analisis-v2/destinos-3b.csv", "calidad_fuentes": "/home/m4rk/cf-e4/4c/analisis-v2/calidad-fuentes.json", "integridad": "/home/m4rk/cf-e4/4c/analisis-v2/integridad.json", "config": "/home/m4rk/cf-e4/herramientas/config-campana-4c.json"}
+   control-4b.json /umbrales = {"0.01": -0.6223889502095352, "0.03": -0.5898535710336618, "0.05": -0.5694578968203694}
+RESUMEN: 16 OK de 16
