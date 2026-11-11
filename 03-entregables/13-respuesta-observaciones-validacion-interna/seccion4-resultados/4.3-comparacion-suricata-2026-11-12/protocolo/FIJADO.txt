@@ -1,0 +1,8 @@
+fijado_utc 2026-11-11T20:31:18Z
+# sha256 de los documentos fijados ANTES de copiar PCAP al comparador y de ejecutar Suricata
+829853b179e9bc7e132c5fd9b1789d772fea8a8e3385fbe1df150e69c291a42d  PROTOCOLO-REPLAY-4.3.md
+969ee1acd01f6838f50728c575330f91fb39a76a19a67eb4a2a35f6346ff5a4e  pcap-lista-fija.csv
+2b5dcdea43645b3fb763bf5af9863babdb4c5c9222bcf408c3572eb06498ea00  episodios-elegibles.csv
+anexo_2026-11-11T20:33:35Z  suricata-homenet-principal.yaml sha256 8dc620e3bbd73a904a5a5444e07224c53a4f1d64d479db1a7c1ae67b3fc78346 (creado y validado con suricata -T antes de procesar; 1 linea distinta del original)
+correccion_2026-11-11T20:50:27Z  CORRECCION-ALFA-2026-11-11.md sha256 98d0087b966ff8ecbe062a4bca00281e11672d103c7db10c03753895b39076dd (HIB_0.01 principal; PROTOCOLO-REPLAY-4.3.md NO modificado: sha256 sigue 829853b1...)
+resultados_2026-11-11T21:04:13Z  RESULTADOS-4.3.md sha256 8df6a927a48880eb790f46003789bffe7ce8343587601d57b05ca9ae59f8da8d; trazabilidad-rebanadas.csv sha256 9fe09480746f5097017386305b90de59866877df177e4d40d0bfc3c657a27839; analizar_replay.py sha256 234dfbde3e803f6034d0100934041c0888d7a6400109d4b1b5732adebfd839e0

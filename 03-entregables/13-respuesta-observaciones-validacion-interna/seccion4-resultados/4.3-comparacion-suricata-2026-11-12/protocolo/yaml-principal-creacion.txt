@@ -1,0 +1,11 @@
+## suricata-comparator 2026-11-11T20:32:36Z
+--- diff contra el original (debe ser UNA linea)
+18c18
+<     HOME_NET: "[10.10.30.0/24]"
+---
+>     HOME_NET: "[10.10.10.0/24,10.10.30.0/24]"
+lineas distintas: 2
+yaml principal sha256: 8dc620e3bbd73a904a5a5444e07224c53a4f1d64d479db1a7c1ae67b3fc78346
+yaml original sha256: d0ea918591040108586e43fb30e51c3583f6d61f6ed1acd8dff938150b303650
+--- validacion -T (no procesa trafico)
+i: suricata: Configuration provided was successfully loaded. Exiting.
