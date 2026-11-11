@@ -1,0 +1,39 @@
+{
+ "poblacion_pares": 2218,
+ "ventanas": 181,
+ "entidades": 19,
+ "pares_unicos": 2218,
+ "cf_HIB01": {
+  "pares": 54,
+  "ventanas": 54
+ },
+ "cf_IF01": {
+  "pares": 54,
+  "ventanas": 54
+ },
+ "cf_HEUR": {
+  "pares": 0,
+  "ventanas": 0
+ },
+ "cf_HIB03": {
+  "pares": 200,
+  "ventanas": 140
+ },
+ "cf_IF03": {
+  "pares": 200,
+  "ventanas": 140
+ },
+ "suricata_principal": {
+  "pares": 79,
+  "ventanas": 67,
+  "pares_fuera_del_conjunto": 0,
+  "alertas_validas": 184
+ },
+ "suricata_s1": {
+  "pares": 79,
+  "ventanas": 67,
+  "pares_fuera_del_conjunto": 0,
+  "alertas_validas": 184
+ },
+ "interseccion_HIB01_suricata_principal": 5
+}
