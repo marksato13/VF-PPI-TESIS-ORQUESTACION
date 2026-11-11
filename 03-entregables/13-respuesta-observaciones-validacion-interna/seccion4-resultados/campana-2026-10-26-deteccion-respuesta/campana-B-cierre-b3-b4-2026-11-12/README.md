@@ -16,11 +16,67 @@ Cierra la Campana B como **dos tramos de los 25 episodios previstos**: **B3** (e
 | `manifiestos/` | Hashes de los PCAP crudos (514 de B3, 2343 de B4) y de clientes/intentos/salidas; los PCAP **no** estan en el paquete |
 | `INDICE-EVIDENCIA.md`, `SHA256SUMS` | Indice con hashes y referencias a los originales; suma de verificacion de este paquete |
 
+## Ejecutar el analisis desde otro equipo
+
+**Requisitos:** Windows (los scripts usan rutas con `\`), Python 3.10 o posterior (probado con 3.14) y solo biblioteca estandar; `pytest` unicamente para las pruebas. Sin dependencias de red.
+
+### 1. Lo que se puede hacer sin la evidencia cruda
+Desde `analisis/` (sin `python -I`, que aisla `sys.path`):
+- `python -m pytest -q -p no:cacheprovider test_analizar_b.py test_e1_por_destino.py` -> 45 pruebas (comprobado sobre un checkout limpio del commit `9e7bbfc`).
+- Verificar el paquete: `sha256sum -c SHA256SUMS` desde esta carpeta.
+- Leer `resultados/` y `CONSOLIDADO-25-EPISODIOS.md`; no necesitan nada mas.
+- `test_instrumentacion.py` **no** es ejecutable desde este paquete: necesita `muestreador_set.py`, `inundacion_instrumentada.sh`, `clientes_factor1_tx.py` (no incluidos) y el banco Docker del producto de la etapa 3 (ver `pruebas/PRUEBAS-EJECUTADAS.md`).
+
+### 2. Insumos para reproducir el analisis (NO estan en el repositorio)
+Se obtienen de los hosts del laboratorio (rutas en `INDICE-EVIDENCIA.md`, seccion B) o del autor, y se comprueban con `manifiestos/`. Se organizan en **dos carpetas**, una por tramo:
+
+| Carpeta | Ficheros que leen los scripts | Origen |
+|---|---|---|
+| `--b3` (tramo B3) | `bastion/corrida/marcas.jsonl`; `cf-b3-agente.jsonl`; `cf-b3-set-lecturas.jsonl`; `evid/traza.jsonl`; `bastion/compuerta/puertas-D5.jsonl`; `bastion/vigia/vigia.jsonl`; `pcap/*.pcap` (514, hashes en `manifiestos/pcap-B3.sha256`); `cf-b3-clientes/transacciones-*.tsv`; `cf-b3-kali/intentos/intentos-*.tsv`; `resultado-b3.json` | marcas y salidas: Kali; traza: srv-dmz; vigia/compuerta: bastion; PCAP y publicador: Sensor1; transacciones: clientes |
+| `--b4` (tramo B4) | `kali/corrida/marcas.jsonl`; `agente-B4.jsonl`; `set-lecturas.jsonl`; `evid/traza.jsonl`; `bastion/compuerta/puertas-D5.jsonl`; `bastion/vigia/vigia.jsonl`; `pcap/*.pcap` (2343, `manifiestos/pcap-B4.sha256`); `clientes/transacciones-*.tsv`; `kali/intentos/intentos-*.tsv`; `kali/corrida/salidas/`; `resultado-b4.json` | igual que B3 |
+| generados | `span-origen-b3.pkl` y `span-origen-b4.pkl` (los crea `span_extract2.py` desde los PCAP, dentro de la carpeta `--b4`); `resultado-e1-por-destino-25.json` (lo crea `aplicar_e1_destino_25.py`) | local |
+
+`resultado-b3.json`, `resultado-b4.json` y `resultado-e1-por-destino-25.json` tambien estan en `resultados/` de este paquete. **`analizar_b3.py` y `analizar_b4.py` sobrescriben `resultado-b3.json` / `resultado-b4.json` en la carpeta indicada**: trabaje sobre una copia.
+
+### 3. Rutas fijas a `C:\Users\markp` y como cambiarlas
+Los scripts de `analisis/` se conservan **tal como se ejecutaron** (su hash esta citado en `resultados/resultados-por-episodio.csv`, columna `analizador`); por eso no se editaron. Rutas fijas:
+
+| Script | Linea(s) | Ruta fija | Uso |
+|---|---|---|---|
+| `analizar_b3.py` | 12 | `C:\Users\markp\cf-b3` (`W`) | carpeta de evidencia de B3 |
+| `analizar_b4.py` | 12 | `C:\Users\markp\cf-b4` (`W`) | carpeta de evidencia de B4 |
+| `aplicar_e1_destino_25.py` | 3, 5, 7 | `C:\Users\markp\cf-b4`, `...\cf-b3\resultado-b3.json` | resultados y SPAN extraido |
+| `aplicar_e1_destino.py` | 3, 5 | `C:\Users\markp\cf-b4` | reanalisis previo (16 episodios de B4) |
+| `span_extract.py` | 7 | `C:\Users\markp\cf-b4` | extrae el SPAN de B4 (Kali -> srv-dmz) |
+| `span_extract2.py` | 8, 16 | `C:\Users\markp\cf-b3\pcap`, `...\cf-b4\pcap`, `...\cf-b4\span-origen-*.pkl` | extrae el SPAN de B3 y B4 |
+| `scan_rates.py` | 7 | `C:\Users\markp\cf-b4` | puertos y SYN de los escaneos |
+| `cmp2.py`, `cmp3.py`, `cmp_contadores.py` | 2 | `C:\Users\markp\cf-b4` | SPAN frente a contadores |
+| `consolidar.py` | 2, 3, 17 | `C:\Users\markp\cf-b4`, `...\cf-b3\resultado-b3.json`, `...\cf-b3\bastion\vigia\vigia.jsonl` | tabla previa de 25 episodios |
+| `analizar_b3.py`, `analizar_b4.py`, `scan_rates.py`, `span_extract.py`, `span_extract2.py` | 4 o 9 (`BASE`) | `C:\Users\markp\desktop\PY-MEGATRON\...\campana-B-protocolo-2026-11-10` | solo anade carpetas del autor a `sys.path`; en otro equipo no existe y no importa: los modulos se importan de `analisis/` |
+| `construir_paquete.py` (+ `textos_paquete.py`) | 7, 12 | `REPO`, `W3`, `W4` | **generador del autor** de la version `9e7bbfc`; necesita ademas la carpeta de trabajo `campana-B-protocolo-2026-11-10` (no publicada); **no esta pensado para ejecutarse en otro equipo** |
+
+**Como cambiarlas, sin tocar los scripts:** `analisis/ejecutar_analisis.py` lee el script tal cual, sustituye en memoria `C:\Users\markp\cf-b3` y `C:\Users\markp\cf-b4` por las carpetas que indique y lo ejecuta (desde `analisis/`):
+
+```
+python -X utf8 ejecutar_analisis.py --b3 D:\evidencia\cf-b3 --b4 D:\evidencia\cf-b4 span_extract2.py
+python -X utf8 ejecutar_analisis.py --b3 D:\evidencia\cf-b3 --b4 D:\evidencia\cf-b4 analizar_b3.py
+python -X utf8 ejecutar_analisis.py --b3 D:\evidencia\cf-b3 --b4 D:\evidencia\cf-b4 analizar_b4.py
+python -X utf8 ejecutar_analisis.py --b3 D:\evidencia\cf-b3 --b4 D:\evidencia\cf-b4 aplicar_e1_destino_25.py
+```
+Orden de reproduccion: `span_extract2.py` -> `analizar_b3.py` y `analizar_b4.py` -> `aplicar_e1_destino_25.py`. `-X utf8` evita errores de codificacion en la consola de Windows. Alternativa: editar las constantes de la tabla (el script cambiaria de hash y la columna `analizador` dejaria de coincidir).
+
+**Reproducibilidad comprobada (12-nov, antes del push):** con las carpetas de evidencia del autor accedidas por otra ruta (jecutar_analisis.py --b3 ... --b4 ...), nalizar_b3.py, nalizar_b4.py y plicar_e1_destino_25.py regeneraron esultado-b3.json, esultado-b4.json y esultado-e1-por-destino-25.json **byte a byte identicos** a los de esultados/. span_extract2.py no se volvio a ejecutar (tarda varios minutos); se uso el SPAN ya extraido.
+
 ## Reglas aplicadas
 - **Balances originales conservados**; E1 por destino es un **reanalisis** bajo el criterio vigente, con su codigo y pruebas.
 - **Veredictos formales de E3 sin cambios** (5 cumple, 15 indeterminado, 5 no aplica) y **ocho `incompleto_timeout` conservados**.
 - **Limitacion abierta:** discrepancia entre el SPAN y los contadores de srv-dmz. El ensayo del contador y la repeticion de los escaneos quedan **fuera del alcance** de este cierre.
 - Excluidos: PCAP crudos, credenciales, registros sensibles (ver `INDICE-EVIDENCIA.md`, seccion F).
 
+## Criterio escrito (E1-E5)
+`OBJETIVOS-Y-CRITERIOS.md` (filas E1-E5, lineas 93-97): ruta `03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/campana-2026-10-26-deteccion-respuesta/etapa1-objetivos-candidata-2026-11-01/OBJETIVOS-Y-CRITERIOS.md`, en el commit `f8cef33a470b983cdb93115b6c63543572fd1472` (ultima modificacion del fichero: `8ad1984`, blob `888f66482572`). Ya publicado en `origin/main`; ver `INDICE-EVIDENCIA.md`, seccion C.
+
+## Generador del paquete
+`analisis/construir_paquete.py` y `analisis/textos_paquete.py` generaron la version `9e7bbfc`. El `README.md` y el `INDICE-EVIDENCIA.md` se revisaron a mano en el commit siguiente (rutas de acceso a los hosts, instrucciones de ejecucion), por lo que ya no coinciden con lo que el generador produciria.
 ## Verificar
-Desde esta carpeta: `sha256sum -c SHA256SUMS`. Los scripts de `analisis/` usan rutas absolutas del equipo de trabajo (`C:\Users\markp\cf-b3`, `cf-b4`) para leer las copias locales de la evidencia; no se ejecutan sin ellas.
+Desde esta carpeta: `sha256sum -c SHA256SUMS` (incluye .gitattributes; `* -text` conserva los bytes exactos).
