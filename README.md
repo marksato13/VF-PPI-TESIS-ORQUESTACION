@@ -50,8 +50,10 @@ quedan en **334 941**:
 Referencia completa (hash, origen, listas de exclusión y comprobación):
 [`DATOS-OFICIALES-IF-LIMPIO.md`](03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/DATOS-OFICIALES-IF-LIMPIO.md)
 y su [manifiesto JSON](03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/DATOS-OFICIALES-IF-LIMPIO.json).
-El fichero no se publica (149 MB, tráfico del laboratorio sin sanear); en el producto
-la misma referencia está en `docs/dataset/DATOS-OFICIALES-IF-LIMPIO.md`.
+**La data se publica en el repositorio del producto** (aquí solo la referencia con hash):
+[Release `datos-if-limpio-2026-10`](https://github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos/releases/tag/datos-if-limpio-2026-10)
+— CSV comprimido (sha `84697fc3…a827e`; descomprimido `5ef83b32…1b573`), listas de
+exclusión, manifiesto y `SHA256SUMS`.
 
 ---
 
