@@ -76,7 +76,7 @@ medido se marcan o se declaran históricas de F6.
 | FPR | 4,71 % (13/276) | **4,45 % sobre test normal retenido (65 421)**. No presentar como «bajada desde 92,4 %» | listo |
 | **ROC-AUC** | 0,9741 | **0,923** (IF) vs **0,456** (OCSVM) en el oro de esta red | ✅ **ahora medido** (era «a medir») |
 | **Significancia (McNemar+Holm)** | 6 comparaciones del OCSVM | **IF vs OCSVM/LOF: p < 0,001**; IF-variantes entre sí n.s. | ✅ **ahora medido** (era «a medir») |
-| Datos de calibración | 1 373 normal + 179 anóm. (lab) | IF sobre **337 980 ventanas** de Sensor1 (train 204 148 / val 65 633 / test 65 421) | listo |
+| Datos de calibración | 1 373 normal + 179 anóm. (lab) | IF sobre **337 719 ventanas** de Sensor1 → **334 941** tras guarda (train 203 967 / val 65 553 / test 65 421); ver `seccion4-resultados/4.1-modelos/DATOS-OFICIALES-IF-LIMPIO.md` (antes: 337 980; 204 148 / 65 633 / 65 421) | listo |
 | Variables | 28 (a veces 31) | el modelo consume **28** (contrato v2); 27/28 observables; v3 emite 31 (+L2, fuera del scoring) | listo |
 | Cobertura del sistema | — | **stack híbrido 9/9** por episodio (modelo solo 6/9, heurísticos 7/9) | listo |
 | FPR en operación | 25,81 % / 22,97 % | **No reutilizar** (son del OCSVM en F6). El FPR del sistema completo se mide aparte | a medir |

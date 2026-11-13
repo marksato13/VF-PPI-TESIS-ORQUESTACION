@@ -39,7 +39,7 @@ atribución, hay que puntuar ambos modelos sobre el mismo conjunto retenido.
 | Ablación | multicapa 66,5 % → 88,8 % (variables) | otra cosa: **ablación del stack** 6/9 · 7/9 · 9/9 | 31 | cambiar el sentido |
 | Significancia (McNemar + Holm) | 6 comparaciones del OCSVM | **No aplica al IF** sin volver a correrla | — | a medir o retirar |
 | Variables | 28 (a veces 31) | el modelo consume **28** (contrato v2); el extractor v3 emite **31** (+ capa 2, fuera del scoring); 27 de 28 observables | ficha técnica §3 | listo |
-| Datos de calibración | 1.373 normal + 179 anómalas (laboratorio) | IF recalibrado sobre **337 980 ventanas** de Sensor1 (train 204 148 / val 65 633 / test 65 421) | nota L | listo |
+| Datos de calibración | 1.373 normal + 179 anómalas (laboratorio) | IF limpio sobre **337 719 ventanas** de Sensor1 → **334 941** tras guarda (train 203 967 / val 65 553 / test 65 421) (antes: IF recalibrado sobre 337 980; 204 148 / 65 633 / 65 421) | nota L + `03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/DATOS-OFICIALES-IF-LIMPIO.md` | listo |
 | Disponibilidad | «cero caídas en 58 corridas, 55 verificadas» | **Solo de F6** (OCSVM, sensor en línea). Puede conservarse **explícitamente asociada a F6**; **no** demuestra la disponibilidad del despliegue con IF | 02-resultados-f6 | histórico |
 
 ## 3. Qué NO cambiar

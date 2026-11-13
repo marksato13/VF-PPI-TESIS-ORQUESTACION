@@ -153,6 +153,7 @@ entorno se valida por **juicio de expertos** (V de Aiken ≥ 0,80).
 | **FPR sin recalibrar** (red real, sin ataques) | **92,4 %** | `ESTADO.md` §«Lo que bloquea» 2; medido 17-sep |
 | **FPR recalibrado EN SECO** (test retenido) | **4,45 %** (`alpha`=0,05; umbral `decision_function`=-0,068892) | `04-evidencias/cyberflow/L-recalibracion-seco-sensor1-2026-09-29.md` |
 | Partición sin fuga temporal | train 204 148 / val 65 633 / test 65 421; 337 980 filas; 69,6 h; fuga «ninguna» | nota `L` |
+| **Data oficial del modelo vigente** (`if_limpio_2026_10`, α 0,01) | **337 719** ventanas (337 980 − 181 Kali train − 80 Kali val) → **334 941** tras guarda: train 203 967 / val 65 553 / test 65 421 | `03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/DATOS-OFICIALES-IF-LIMPIO.md` |
 | Composición base sensor1 | 44,2 % ventanas con L7 (HTTP 109k/DNS 100k/TLS 48k); hosts de usuario por VLAN | nota `L` |
 | Validación operacional F6 | 58 corridas | producto `results/f6/f6_resultados.jsonl` |
 | Umbral del modelo desplegado (OCSVM) | `1.8126087939765134`; regla **ALERT si score < umbral** | `artifacts/model/manifest.json` (`evaluation[detector].threshold_used`) |
