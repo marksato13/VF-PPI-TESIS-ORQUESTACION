@@ -13,4 +13,6 @@
 | partición test = oro (prueba normal) | 65 421 | 65 421 | mismas claves y valores; incluye 74 ventanas de 10.10.20.30, sin cambios |
 | ataques nota M (evaluación) | 84 | 84 | 0 solapes con train/validation/test |
 
+**Data oficial (13-nov-2026):** 337 980 − 181 − 80 = **337 719**; − 2 778 de guarda = **334 941** = 203 967 + 65 553 + 65 421. Referencia vigente: `../DATOS-OFICIALES-IF-LIMPIO.md`.
+
 Las tres exclusiones son distintas: 2 778 por banda de guarda (antes de particionar), 181 del entrenamiento (ráfaga Kali del 27-sep, ya aplicadas al entrenar el modelo vigente) y 80 de validación (solo para esta nueva calibración). Entrenamiento, prueba y ataques no cambian.

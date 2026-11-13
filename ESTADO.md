@@ -160,7 +160,8 @@ tráfico real y sin ataques, el OCSVM dio **92,4 % de ALERT** (85 de 92 decision
 ventanas), casi todo sobre interfaces del cortafuegos emitiendo CARP. Después, el IF
 recalibrado dio **4,45 %** sobre test normal retenido (337 980 filas elegibles, sin fuga
 temporal; train 204 148 / validation 65 633 / test 65 421; umbral desde validación con
-`alpha = 0,05`). **Esa diferencia no aísla el efecto de recalibrar:** cambiaron a la vez el
+`alpha = 0,05`; cifras del modelo recalibrado; la data oficial del modelo vigente `if_limpio_2026_10` es
+**337 719 → 334 941**, ver `03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/DATOS-OFICIALES-IF-LIMPIO.md`). **Esa diferencia no aísla el efecto de recalibrar:** cambiaron a la vez el
 modelo (OCSVM → IF), los datos (minutos iniciales → ~70 h de línea base) y el alcance (se
 excluyó el plano de control y se deduplicó el espejo). Para atribuir la mejora a la
 recalibración habría que puntuar ambos modelos sobre el mismo conjunto retenido.

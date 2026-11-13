@@ -111,7 +111,7 @@ La evaluación distingue el IF offline, el detector combinado y la aplicación d
 
 ## Tabla 3
 
-Conservar los recuentos: 337 799 antes de guarda; 2 778 descartadas; entrenamiento 203 967; validación 65 633; prueba 65 421; total 335 021.
+Recuentos oficiales (actualizado 13-nov-2026, ver `DATOS-OFICIALES-IF-LIMPIO.md`): 337 719 antes de guarda (337 980 − 181 Kali de entrenamiento − 80 Kali de validación); 2 778 descartadas por guarda; entrenamiento 203 967; validación 65 553; prueba 65 421; total 334 941. (Antes: 337 799 / validación 65 633 / total 335 021, que no descontaba las 80 ventanas Kali de validación.)
 
 **Celda actual (Validación / Propósito):** Calibrar el umbral; incluye 80 ventanas Kali, 17 con actividad observable y normalidad no verificada
 
