@@ -1,0 +1,43 @@
+cff-version: 1.2.0
+title: >-
+  Documentación y evidencias de la tesis «Sistema open source para la
+  detección temprana de comportamientos anómalos en redes de datos»
+message: >-
+  Si usa esta documentación o sus evidencias, cítela con los metadatos de
+  este archivo. Para el software, cite el repositorio del producto.
+type: software
+authors:
+  - given-names: Rubén Mark
+    family-names: Salazar Tocas
+    affiliation: Universidad Peruana Unión
+  - given-names: Uziel Elias
+    family-names: Sauñe Fernandez
+    affiliation: Universidad Peruana Unión
+repository-code: >-
+  https://github.com/marksato13/VF-PPI-TESIS-ORQUESTACION
+abstract: >-
+  Metodología, trazabilidad, decisiones técnicas, entregables y evidencias
+  medidas (con su comando y su salida) de la tesis CyberFlow: detección de
+  anomalías de red con Isolation Forest y heurísticos, comparada con
+  Suricata + ET Open en un laboratorio aislado, con respuesta graduada por
+  nftables. El código del sistema vive en el repositorio del producto.
+keywords:
+  - detección de anomalías
+  - Isolation Forest
+  - Suricata
+  - trazabilidad
+  - ciencia abierta
+license: MIT
+references:
+  - type: software
+    title: >-
+      Sistema open source para la detección temprana de comportamientos
+      anómalos en redes de datos
+    authors:
+      - given-names: Rubén Mark
+        family-names: Salazar Tocas
+      - given-names: Uziel Elias
+        family-names: Sauñe Fernandez
+    repository-code: >-
+      https://github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos
+    license: MIT
