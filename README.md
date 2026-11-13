@@ -3,6 +3,10 @@
 Gestión documental de la tesis **«Sistema open source para la detección
 temprana de comportamientos anómalos en redes de datos»**.
 
+[![Scripts](https://img.shields.io/badge/scripts-MIT-blue.svg)](LICENSE)
+[![Documentación](https://img.shields.io/badge/documentación-CC%20BY%204.0-green.svg)](LICENSE-DATA)
+[![Data oficial](https://img.shields.io/badge/data%20oficial-337%20719%20ventanas-orange.svg)](https://github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos/releases/tag/datos-if-limpio-2026-10)
+
 | | |
 |---|---|
 | **Autores** | Rubén Mark Salazar Tocas · Uziel Elias Sauñe Fernandez |
@@ -62,7 +66,12 @@ exclusión, manifiesto y `SHA256SUMS`.
 ```
 README.md              este fichero: el mapa
 ESTADO.md              dónde está el proyecto hoy, y qué bloquea
+TRASPASO.md            estado para retomar el trabajo (manda sobre lo demás)
+PENDIENTES.md          lo que falta, con su dueño
 PLANIFICACION.md       plan, riesgos y cronograma
+LICENSE                MIT (scripts)
+LICENSE-DATA           CC BY 4.0 (documentación y evidencias)
+CITATION.cff           cómo citar este repositorio
 
 01-arquitectura/       cómo está construido y por qué
 02-metodologia/        fases del trabajo y trazabilidad
@@ -171,6 +180,23 @@ nada dentro de seis meses.
 
 ---
 
-## Licencia
+## Licencias
 
-Documentación bajo los términos del repositorio. El código del producto es MIT.
+| Qué | Licencia | Fichero |
+|---|---|---|
+| **Scripts** de este repositorio (`*.py`, `*.sh`, `*.ps1`…) | **MIT** | [`LICENSE`](LICENSE) |
+| **Documentación y evidencias** (Markdown, JSON, CSV, diagramas) | **CC BY 4.0** | [`LICENSE-DATA`](LICENSE-DATA) |
+| **Documentos de la tesis y del artículo** (`.docx`, `.pptx`, `.pdf` de `03-entregables/`) | **Todos los derechos reservados** mientras estén en evaluación o publicación | [`LICENSE-DATA`](LICENSE-DATA) |
+| Código, modelo y data oficial del **producto** | MIT (código) · CC BY 4.0 (datos) | [repositorio del producto](https://github.com/marksato13/VF-Sistema-Open-Source-para-la-Deteccion-Temprana-de-Comportamientos-Anomalos-en-Redes-de-Datos) |
+
+Todo se ofrece **sin garantía**.
+
+## Cómo citar
+
+> Salazar Tocas, R. M. y Sauñe Fernandez, U. E. (2026). *Documentación y evidencias de
+> la tesis «Sistema open source para la detección temprana de comportamientos anómalos en
+> redes de datos»*. Universidad Peruana Unión.
+> https://github.com/marksato13/VF-PPI-TESIS-ORQUESTACION
+
+Metadatos en [`CITATION.cff`](CITATION.cff) (botón «Cite this repository»). Para el
+software o la data oficial, cite el repositorio del producto.

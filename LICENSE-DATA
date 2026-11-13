@@ -1,0 +1,37 @@
+# Licencia de la documentación y las evidencias
+
+La **documentación** y las **evidencias** de este repositorio se publican bajo
+
+    Creative Commons Atribución 4.0 Internacional (CC BY 4.0)
+
+Texto legal completo: https://creativecommons.org/licenses/by/4.0/legalcode.es
+Resumen legible:      https://creativecommons.org/licenses/by/4.0/deed.es
+
+## Qué cubre
+
+- Los ficheros Markdown, JSON, CSV y diagramas de `01-arquitectura/`,
+  `02-metodologia/`, `03-entregables/`, `04-evidencias/` y `plantillas/`
+- `README.md`, `ESTADO.md`, `PLANIFICACION.md`, `PENDIENTES.md`, `TRASPASO.md`
+
+Los **scripts** (`*.py`, `*.sh`, `*.ps1` y similares) se publican bajo la
+licencia MIT; ver `LICENSE`.
+
+## Qué NO cubre
+
+Los **documentos de la tesis y del artículo** (`.docx`, `.pptx`, `.pdf` de
+`03-entregables/`: manuscrito, informe de tesis, presentaciones) quedan con
+**todos los derechos reservados** por los autores y la Universidad Peruana
+Unión mientras estén en evaluación o en proceso de publicación. Se pueden leer
+y citar, no redistribuir ni modificar sin permiso.
+
+## Cómo citar
+
+> Salazar Tocas, R. M. y Sauñe Fernandez, U. E. (2026). *Documentación y
+> evidencias de la tesis «Sistema open source para la detección temprana de
+> comportamientos anómalos en redes de datos»*. Universidad Peruana Unión.
+> https://github.com/marksato13/VF-PPI-TESIS-ORQUESTACION
+
+## Sin garantía
+
+El material se ofrece «tal cual». Las evidencias describen un laboratorio
+aislado y no sostienen conclusiones sobre redes de producción.
