@@ -33,6 +33,28 @@ dataset viven aparte y **no se duplican aquí**.
 
 ---
 
+## Data oficial del modelo
+
+El modelo operativo `if_limpio_2026_10` (umbral α = 0,01 → `-0.6223889502095352`) se
+entrenó y calibró con **337 719 ventanas** del Sensor1, que tras la banda de guarda
+quedan en **334 941**:
+
+| Conjunto | Ventanas |
+|---|---:|
+| Fichero `particionado-limpio.csv` (sha `5ef83b32…1b573`) | 337 980 |
+| − Kali excluida del entrenamiento / − Kali de validación | −181 / −80 |
+| **Data oficial** | **337 719** |
+| − banda de guarda | −2 778 |
+| **Entrenamiento / validación / prueba** | **203 967 / 65 553 / 65 421 = 334 941** |
+
+Referencia completa (hash, origen, listas de exclusión y comprobación):
+[`DATOS-OFICIALES-IF-LIMPIO.md`](03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/DATOS-OFICIALES-IF-LIMPIO.md)
+y su [manifiesto JSON](03-entregables/13-respuesta-observaciones-validacion-interna/seccion4-resultados/4.1-modelos/DATOS-OFICIALES-IF-LIMPIO.json).
+El fichero no se publica (149 MB, tráfico del laboratorio sin sanear); en el producto
+la misma referencia está en `docs/dataset/DATOS-OFICIALES-IF-LIMPIO.md`.
+
+---
+
 ## Estructura
 
 ```
