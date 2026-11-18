@@ -4,10 +4,10 @@
 > noviembre») y en la [nota T](04-evidencias/cyberflow/T-demo-escenarios-y-sincronizar-2026-11-18/README.md).
 > En corto: 3 escenarios validados en vivo (escaneo BLOCK, fuerza bruta BLOCK, flood HTTP
 > LIMIT), tráfico legítimo sin alerta, «Limpiar» libera el firewall (`--sincronizar`), L3 ICMP
-> pendiente en el motor vivo. Lo que corre en cada equipo: producto `9d67875`,
-> `deploy/laboratorio-2026-11-18/MANIFIESTO-ESTADO-2026-11-18.json`. Las ramas del producto
-> están subidas; la integración en `main` queda para después de la exposición. Lo de abajo
-> es el traspaso original del 1-oct y sus actualizaciones; manda lo más reciente.
+> pendiente en el motor vivo. Lo que corre en cada equipo: `main` del producto (etiqueta
+> `estado-lab-2026-11-18`), `deploy/laboratorio-2026-11-18/MANIFIESTO-ESTADO-2026-11-18.json`.
+> Solo queda `main` en los dos repos; las ramas antiguas están en etiquetas `archivo/<rama>`.
+> Lo de abajo es el traspaso original del 1-oct y sus actualizaciones; manda lo más reciente.
 
 **Para:** el agente que continúe este trabajo.
 **Fecha del traspaso:** 1 de octubre de 2026.

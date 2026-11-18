@@ -10,10 +10,11 @@ el panel (`https://10.10.60.11:8788/`, vía la extensión de Chrome), el firewal
 | Equipo | Componente | Fuente |
 |---|---|---|
 | Sensor1 | motor `ppi-motor` | árbol sellado `ec78ca5` (`heuristicos` 2026-11-02.1, sin `icmp_flood`), α 0,01, umbral −0,6223889502 |
-| Sensor1 | panel `ppi-dashboard` | producto `a0df76d` (rama `panel/cadena-v2-20261104`), sha256 `6a74fbd6…` |
-| SRV-DMZ | agente v2 `--aplicar --sincronizar` | producto `9d67875` (rama `recuperacion/etapa4a-pendientes-20261106`), sha256 `e7836c42…` |
+| Sensor1 | panel `ppi-dashboard` | producto `a0df76d` (desplegado, sha256 `6a74fbd6…`); en `main` sin la parte ICMP |
+| SRV-DMZ | agente v2 `--aplicar --sincronizar` | producto `9d67875`, sha256 `e7836c42…` (igual en `main`) |
 
-Manifiesto completo y SHA-256 de cada archivo vivo: producto `9d67875`,
+Todo está integrado en `main` del producto con la etiqueta `estado-lab-2026-11-18`.
+Manifiesto completo y SHA-256 de cada archivo vivo:
 `deploy/laboratorio-2026-11-18/MANIFIESTO-ESTADO-2026-11-18.json`.
 
 ## Escenarios confirmados
@@ -53,14 +54,17 @@ a publicar la medida.
 
 ## Hueco abierto: L3 (inundación ICMP)
 
-`icmp_flood` (≥ 50 % ICMP y > 100 paq/s → BLOCK) está implementada y probada en el
-producto (`a0df76d`) y la tarjeta L3 del panel anuncia BLOCK, pero el **motor vivo**
-(`ec78ca5`, sellado en solo lectura) no la tiene: un flood de ~4000 paq/s desde la Kali
-queda en ALERT del modelo y el ping pasa. Activarla exige un árbol sellado nuevo y
-reapuntar el drop-in del motor (sudo de Mark). No se lanza en la exposición.
+El **motor vivo** (`ec78ca5`, sellado en solo lectura) no tiene regla ICMP: un flood de
+~4000 paq/s desde la Kali queda en ALERT del modelo y el ping pasa. Decisión del 18-nov:
+`main` del producto queda **idéntico al laboratorio**, así que no lleva `icmp_flood` y la
+tarjeta L3 del panel dice «sin regla ICMP». La regla (≥ 50 % ICMP y > 100 paq/s → BLOCK),
+ya implementada y probada, se conserva en la etiqueta `archivo/panel/cadena-v2-20261104`
+(commit `a0df76d`). Activarla exige un árbol sellado nuevo y reapuntar el drop-in del motor
+(sudo de Mark). No se lanza en la exposición.
 
 ## Estado que queda
 
 - SRV-DMZ **aplicando** (no sombra). Volver a sombra tras la exposición:
   `sudo rm /etc/systemd/system/ppi-enforce-agent-v2-dmz.service.d/aplicar.conf && sudo systemctl daemon-reload && sudo systemctl restart ppi-enforce-agent-v2-dmz`.
-- Ramas subidas; integración en `main` del producto pendiente (después de la exposición).
+- Producto y tesis integrados en `main`; las ramas antiguas se archivaron como etiquetas
+  `archivo/<rama>` y se borraron.
