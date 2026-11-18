@@ -1,0 +1,51 @@
+{
+ "caso": "I-A-acuse-valido",
+ "criterios": {
+  "NRestarts_no_aumenta": true,
+  "journal_sin_parada_ni_arranque": true,
+  "logrotate_rc0": true,
+  "mismo_MainPID": true,
+  "otras_entidades_conservadas": true,
+  "publicacion_nueva_tras_el_caso": true,
+  "unidad_activa": true
+ },
+ "lector_d5lector": {
+  "801b2a90e0b24ae8a0aa3c856e760285": {
+   "categoria": "consumida_y_publicada",
+   "publicacion": "confirmada",
+   "secuencia_publicada": 3
+  }
+ },
+ "observado": {
+  "MainPID": [
+   "218",
+   "218"
+  ],
+  "NRestarts": [
+   "0",
+   "0"
+  ]
+ },
+ "omitidas": 0,
+ "puerta": {
+  "primera": {
+   "bloqueada": false,
+   "lista": true,
+   "pasos": [
+    "limpiar",
+    "feed_tras_limpiar",
+    "nft_antes",
+    "retirar",
+    "nft_despues",
+    "agente",
+    "feed_final"
+   ]
+  }
+ },
+ "registro_de_la_puerta": [
+  "puerta_lista"
+ ],
+ "servicio": "PASA",
+ "solicitudes_reales": 1,
+ "unidad": "cf-d5-integ-i-a-acuse-valido"
+}

@@ -1,0 +1,187 @@
+[
+ {
+  "caso": "I-A-acuse-valido",
+  "criterios": {
+   "NRestarts_no_aumenta": true,
+   "journal_sin_parada_ni_arranque": true,
+   "logrotate_rc0": true,
+   "mismo_MainPID": true,
+   "otras_entidades_conservadas": true,
+   "publicacion_nueva_tras_el_caso": true,
+   "unidad_activa": true
+  },
+  "lector_d5lector": {
+   "f68f44ed53fd4a35a5312159290b3198": {
+    "categoria": "consumida_y_publicada",
+    "publicacion": "confirmada",
+    "secuencia_publicada": 3
+   }
+  },
+  "observado": {
+   "MainPID": [
+    "212",
+    "212"
+   ],
+   "NRestarts": [
+    "0",
+    "0"
+   ]
+  },
+  "omitidas": 0,
+  "puerta": {
+   "primera": {
+    "bloqueada": false,
+    "lista": true,
+    "pasos": [
+     "limpiar",
+     "feed_tras_limpiar",
+     "nft_antes",
+     "nft_despues",
+     "agente",
+     "feed_final"
+    ]
+   }
+  },
+  "registro_de_la_puerta": [
+   "puerta_lista"
+  ],
+  "servicio": "PASA",
+  "solicitudes_reales": 1,
+  "unidad": "cf-d5-integ-i-a-acuse-valido"
+ },
+ {
+  "caso": "I-B-acuse-no-escribible-bloqueo",
+  "criterios": {
+   "NRestarts_no_aumenta": true,
+   "journal_sin_parada_ni_arranque": true,
+   "logrotate_rc0": true,
+   "mismo_MainPID": true,
+   "otras_entidades_conservadas": true,
+   "publicacion_nueva_tras_el_caso": true,
+   "unidad_activa": true
+  },
+  "lector_d5lector": {
+   "afb797c94f8e4dd885a011f201909b47": {
+    "categoria": "consumida_y_publicada",
+    "publicacion": "confirmada",
+    "secuencia_publicada": 3
+   }
+  },
+  "observado": {
+   "MainPID": [
+    "263",
+    "263"
+   ],
+   "NRestarts": [
+    "0",
+    "0"
+   ]
+  },
+  "omitidas": 3,
+  "puerta": {
+   "llamadas_siguientes": [
+    {
+     "bloqueada": true,
+     "lista": false
+    },
+    {
+     "bloqueada": true,
+     "lista": false
+    },
+    {
+     "bloqueada": true,
+     "lista": false
+    }
+   ],
+   "primera": {
+    "bloqueada": true,
+    "lista": false,
+    "pasos": [
+     "limpiar"
+    ]
+   }
+  },
+  "registro_de_la_puerta": [
+   "puerta_bloqueada",
+   "omitida_por_puerta_bloqueada",
+   "omitida_por_puerta_bloqueada",
+   "omitida_por_puerta_bloqueada"
+  ],
+  "servicio": "PASA",
+  "solicitudes_reales": 1,
+  "unidad": "cf-d5-integ-i-b-acuse-no-escribible-bloqueo"
+ },
+ {
+  "caso": "I-C-reanudacion-manual",
+  "criterios": {
+   "NRestarts_no_aumenta": true,
+   "journal_sin_parada_ni_arranque": true,
+   "logrotate_rc0": true,
+   "mismo_MainPID": true,
+   "otras_entidades_conservadas": true,
+   "publicacion_nueva_tras_el_caso": true,
+   "unidad_activa": true
+  },
+  "lector_d5lector": {
+   "3e36698439d547e2b6fe6558239031eb": {
+    "categoria": "consumida_y_publicada",
+    "publicacion": "confirmada",
+    "secuencia_publicada": 3
+   },
+   "c373566e124d4cbe9f8ddb55c22a70b7": {
+    "categoria": "consumida_y_publicada",
+    "publicacion": "confirmada",
+    "secuencia_publicada": 5
+   }
+  },
+  "observado": {
+   "MainPID": [
+    "314",
+    "314"
+   ],
+   "NRestarts": [
+    "0",
+    "0"
+   ]
+  },
+  "omitidas": 3,
+  "puerta": {
+   "llamadas_siguientes": [
+    {
+     "bloqueada": true,
+     "lista": false
+    },
+    {
+     "bloqueada": true,
+     "lista": false
+    },
+    {
+     "bloqueada": true,
+     "lista": false
+    }
+   ],
+   "primera": {
+    "bloqueada": true,
+    "lista": false,
+    "pasos": [
+     "limpiar"
+    ]
+   },
+   "tras_reanudacion": {
+    "bloqueada": false,
+    "lista": true
+   }
+  },
+  "registro_de_la_puerta": [
+   "puerta_bloqueada",
+   "omitida_por_puerta_bloqueada",
+   "omitida_por_puerta_bloqueada",
+   "omitida_por_puerta_bloqueada",
+   "reanudacion_manual",
+   "puerta_lista"
+  ],
+  "servicio": "PASA",
+  "solicitudes_reales": 2,
+  "unidad": "cf-d5-integ-i-c-reanudacion-manual"
+ }
+]

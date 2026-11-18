@@ -1,0 +1,98 @@
+{
+ "diagnostico": {
+  "auditoria": {
+   "estable": true,
+   "generaciones": [
+    {
+     "bytes": 415,
+     "error": null,
+     "ilegibles": 0,
+     "leida": true,
+     "lineas": 3,
+     "ruta": "/tmp/pytest-of-nobody/pytest-0/test_acuse_no_escribible_deja_0/d5-auditoria.jsonl",
+     "sha256": "313bb94dcb022923de3a5883d2b123b39ba77078ad2c321bdc478ddbee3e92c5"
+    }
+   ],
+   "ilegibles": 0,
+   "intentos": 1,
+   "problemas": []
+  },
+  "auditoria_del_id": [
+   {
+    "_gen": "d5-auditoria.jsonl",
+    "duplicada": false,
+    "evento": "consumido",
+    "id": "ccec8df99f1740129f13d91064e8ba38",
+    "ok": true,
+    "quitado": {
+     "escalada": [
+      "10.10.20.30@srv-dmz"
+     ],
+     "vigentes": [
+      "10.10.20.30|srv-dmz|todo"
+     ]
+    },
+    "t": 1794345055.7827451
+   },
+   {
+    "_gen": "d5-auditoria.jsonl",
+    "evento": "publicado",
+    "id": "ccec8df99f1740129f13d91064e8ba38",
+    "secuencia": 2,
+    "t": 1794345055.7872562
+   },
+   {
+    "_gen": "d5-auditoria.jsonl",
+    "evento": "ack_fallido",
+    "id": "ccec8df99f1740129f13d91064e8ba38",
+    "t": 1794345055.7873685
+   }
+  ],
+  "auditoria_disponible": true,
+  "categoria": "consumida_y_publicada",
+  "control_presente": false,
+  "determinada": true,
+  "estado": {
+   "escalada": [],
+   "vigentes": []
+  },
+  "feed": {
+   "entradas_origen": [],
+   "generado": 1794345057.2995028,
+   "secuencia": 3
+  },
+  "feed_posterior_o_igual": true,
+  "generaciones_del_id": [
+   "d5-auditoria.jsonl"
+  ],
+  "id": "ccec8df99f1740129f13d91064e8ba38",
+  "motivo": null,
+  "publicacion": "confirmada",
+  "secuencia_publicada": 2,
+  "t": 1794345057.459413,
+  "traza_ultimas": [
+   {
+    "entradas": 3,
+    "nuevos": 3,
+    "secuencia": 1
+   },
+   {
+    "entradas": 2,
+    "nuevos": 0,
+    "secuencia": 2
+   },
+   {
+    "entradas": 2,
+    "nuevos": 0,
+    "secuencia": 3
+   }
+  ],
+  "trazabilidad": "completa"
+ },
+ "resultado_cliente": {
+  "estado": "sin_acuse_procesada",
+  "id": "ccec8df99f1740129f13d91064e8ba38",
+  "ok": false,
+  "rc": 6
+ }
+}

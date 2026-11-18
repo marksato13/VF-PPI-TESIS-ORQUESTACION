@@ -1,0 +1,8 @@
+== repositorio completo, en su sitio (tests/ junto a scripts/)
+/usr/lib/python3.13/pathlib/_local.py:539: FileNotFoundError: [Errno 2] No such file or directory: '/4.1-modelos/calibracion-alfa-2026-10-24/umbrales-alfa-precision-completa.json'
+=========================== short test summary info ============================
+FAILED tests/test_herramientas.py::test_umbral_001_procedencia - FileNotFound...
+1 failed, 57 passed in 55.78s
+== herramientas RECONCILIADAS (carpeta plana): etiquetas + analizador + referencia
+..............................................                           [100%]
+46 passed in 0.25s

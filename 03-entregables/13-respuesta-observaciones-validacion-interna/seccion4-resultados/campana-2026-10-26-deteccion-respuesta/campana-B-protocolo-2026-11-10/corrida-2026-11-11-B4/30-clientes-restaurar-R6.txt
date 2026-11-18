@@ -1,0 +1,20 @@
+--- clientes: restaurar target (para el envoltorio tx y arranca cyberflow-lab.target)
+  transacciones-aplicacion.tsv: 15482 transacciones
+  transacciones-descargas.tsv: 4235 transacciones
+  transacciones-erratico.tsv: 13369 transacciones
+  transacciones-ligero.tsv: 2769 transacciones
+  transacciones-navegacion.tsv: 22609 transacciones
+  transacciones-ofimatica.tsv: 11316 transacciones
+  generador sin cambios: ae5134a778e66d90f5c3fbcd47323e328f3422cf4ba8d5197649f402c1d4cdc3
+  [2026-11-11T17:15:11.491Z] start cyberflow-lab.target rc=0
+  target: active/disabled
+  cyberflow-lab-ofimatica active NR=0
+  cyberflow-lab-navegacion active NR=0
+  cyberflow-lab-descargas active NR=0
+  cyberflow-lab-aplicacion active NR=0
+  cyberflow-lab-ligero active NR=0
+  cyberflow-lab-erratico active NR=0
+  envoltorios vivos: 0  clientes_lab.py (uno por perfil esperado): 6
+--- R6
+sed: can't read /home/adminclientes/cf-b/guiones/b_r6_control.sh: No such file or directory
+bash: /home/adminclientes/cf-b/guiones/b_r6_control.sh: No such file or directory

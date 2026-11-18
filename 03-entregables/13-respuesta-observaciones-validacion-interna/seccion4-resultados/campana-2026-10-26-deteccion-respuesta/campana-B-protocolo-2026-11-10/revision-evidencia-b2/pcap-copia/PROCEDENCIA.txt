@@ -1,0 +1,7 @@
+PROCEDENCIA de ppi-brute-lab-journal-B2.txt (lectura de solo lectura, 10-nov-2026 ~22:29Z)
+Host: srv-dmz (10.10.30.10). Cuenta: adminsrvdmz (la misma de las verificaciones previas de srv-dmz; clave ~/.ssh/cyberflow-to-srv desde el bastion gadmin@10.10.10.30; clave de la laptop ~/.ssh/id_ed25519). Sin sudo: la cuenta pertenece al grupo adm y journalctl lee el journal.
+Orden: journalctl --no-pager -u ppi-brute-lab.service --since '2026-11-10 17:50:00' --until '2026-11-10 18:32:00' -o short-iso-precise  (zona: Etc/UTC, +00:00)
+Salida: 1156 lineas (1152 peticiones reconocidas + 4 lineas de cabecera/aviso del journal). sha256 en srv-dmz = sha256 de la copia local = 215b618d9cd5416f6b4ba4ef83b2daa77f5abb659acc32845d70894194475bf5
+Origen del dato: /var/log/journal/86fe6af609c94795876c7ea69e63b006/system.journal (activo; 58.720.256 bytes a las 22:29:06Z). NO hay copia rotada que cubra el intervalo: los journals archivados (system@...journal) son de antes del 06-nov. Esta extraccion es la unica copia fuera de srv-dmz. No se hizo ningun cambio en srv-dmz (nada escrito, sin servicios tocados).
+Alcance: solo el intervalo de B2 (17:50-18:32Z). Las 2.329 lineas de la unidad de las 15-16h pertenecen a la primera corrida (X3) y NO se leyeron ni se mezclan.
+Limite de la fuente: el servidor web del laboratorio (servidor_lab.py, :80 y :443) NO registra peticiones (log_message = pass); solo el endpoint de fuerza bruta (puerto 18081) deja una linea por peticion.

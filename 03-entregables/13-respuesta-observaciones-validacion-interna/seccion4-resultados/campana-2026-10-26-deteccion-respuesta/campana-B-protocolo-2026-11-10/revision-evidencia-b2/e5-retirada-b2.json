@@ -1,0 +1,90 @@
+[
+ {
+  "episodio": "inundacion_http-r4",
+  "familia": "inundacion_http",
+  "lectura_antes_del_siguiente": true,
+  "margen_a_la_caducidad_s": 238.0,
+  "motivo": "retirada por D5 con evento del agente y set sin el origen antes del siguiente episodio; la regla no había caducado",
+  "nft_antes": "presente en limitados a 17:57:48.375Z",
+  "nft_despues": "ausente a 17:58:14.707Z (+75.9 s del fin)",
+  "regla_hasta": "18:01:47.000Z",
+  "resultado": "verificado",
+  "retirada_agente": [
+   "17:57:51.391Z"
+  ],
+  "retirada_antes_de_caducar": true,
+  "retirar_d5": "17:57:48.952Z",
+  "set": "limitados",
+  "siguiente_episodio": "18:00:28.835Z",
+  "via": "retirada_explicita"
+ },
+ {
+  "episodio": "fuerza_bruta_http-r4",
+  "familia": "fuerza_bruta_http",
+  "lectura_antes_del_siguiente": true,
+  "margen_a_la_caducidad_s": 226.0,
+  "motivo": "retirada por D5 con evento del agente y set sin el origen antes del siguiente episodio; la regla no había caducado",
+  "nft_antes": "presente en bloqueados a 18:02:49.445Z",
+  "nft_despues": "ausente a 18:03:15.788Z (+76.1 s del fin)",
+  "regla_hasta": "18:06:36.000Z",
+  "resultado": "verificado",
+  "retirada_agente": [
+   "18:02:54.228Z"
+  ],
+  "retirada_antes_de_caducar": true,
+  "retirar_d5": "18:02:50.023Z",
+  "set": "bloqueados",
+  "siguiente_episodio": "18:05:29.720Z",
+  "via": "retirada_explicita"
+ },
+ {
+  "episodio": "dns_inusual-r1",
+  "familia": "dns_inusual",
+  "motivo": "sin punto de aplicación: no hubo regla que retirar",
+  "resultado": "no evaluado"
+ },
+ {
+  "episodio": "fuerza_bruta_http-r3",
+  "familia": "fuerza_bruta_http",
+  "lectura_antes_del_siguiente": true,
+  "margen_a_la_caducidad_s": 222.8,
+  "motivo": "retirada por D5 con evento del agente y set sin el origen antes del siguiente episodio; la regla no había caducado",
+  "nft_antes": "presente en bloqueados a 18:14:52.614Z",
+  "nft_despues": "ausente a 18:15:18.937Z (+78.2 s del fin)",
+  "regla_hasta": "18:18:36.000Z",
+  "resultado": "verificado",
+  "retirada_agente": [
+   "18:14:57.623Z"
+  ],
+  "retirada_antes_de_caducar": true,
+  "retirar_d5": "18:14:53.180Z",
+  "set": "bloqueados",
+  "siguiente_episodio": "18:17:30.707Z",
+  "via": "retirada_explicita"
+ },
+ {
+  "episodio": "dns_inusual-r3",
+  "familia": "dns_inusual",
+  "motivo": "sin punto de aplicación: no hubo regla que retirar",
+  "resultado": "no evaluado"
+ },
+ {
+  "episodio": "inundacion_http-r3",
+  "familia": "inundacion_http",
+  "lectura_antes_del_siguiente": true,
+  "margen_a_la_caducidad_s": 199.6,
+  "motivo": "retirada por D5 con evento del agente y set sin el origen antes del siguiente episodio; la regla no había caducado",
+  "nft_antes": "presente en limitados a 18:28:23.834Z",
+  "nft_despues": "ausente a 18:28:50.158Z (+169.3 s del fin)",
+  "regla_hasta": "18:31:44.000Z",
+  "resultado": "verificado",
+  "retirada_agente": [
+   "18:28:28.521Z"
+  ],
+  "retirada_antes_de_caducar": true,
+  "retirar_d5": "18:28:24.399Z",
+  "set": "limitados",
+  "siguiente_episodio": "no hubo (X1 canceló)",
+  "via": "retirada_explicita"
+ }
+]

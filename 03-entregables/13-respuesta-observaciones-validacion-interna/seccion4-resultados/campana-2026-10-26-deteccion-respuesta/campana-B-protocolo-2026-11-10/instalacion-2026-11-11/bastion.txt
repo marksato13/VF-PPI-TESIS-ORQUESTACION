@@ -1,0 +1,55 @@
+##### bastión 2026-11-11T03:22:47Z modo=aplicar
+--- paquete = SHA256SUMS
+OK: paquete íntegro (16 artefactos)
+--- huésped fijado (no cambia): huella debe ser SHA256:xHCL2/TSa7S8QE+ZRIhjmjcqQcm+7n7lrw/5i2BnfSQ
+256 SHA256:xHCL2/TSa7S8QE+ZRIhjmjcqQcm+7n7lrw/5i2BnfSQ no comment (ED25519)
+--- originales ANTES (no se tocan)
+85c71124098cb7cb  /home/gadmin/cf-b/herramientas/d5_episodio.py
+32e1f3ef160a1d6e  /home/gadmin/cf-b/herramientas/compuerta_b.py
+babc528bcf4734b0  /home/gadmin/cf-b/herramientas/orquestar_b.py
+611d4b166214fed9  /home/gadmin/cf-b/herramientas/analizar_b.py
+957b8ac566ef63f209b44203ea1f1c11c67b79f9e03244ef4832eebcf4d0d5f0
+--- cf_d5_bastion.sh instalar --aplicar
+== Bastión: instalar (aplicar=1)
+sustituciones: 3, fallidas: ninguna
+huella de la clave de huésped fijada (compararla con la que muestra el Sensor1: ssh-keygen -lf /etc/ssh/ssh_host_ed25519_key.pub):
+256 SHA256:xHCL2/TSa7S8QE+ZRIhjmjcqQcm+7n7lrw/5i2BnfSQ 10.10.60.11 (ED25519)
+orden de arranque de la puerta (propuesta, la fija Mark): python3 -I /home/gadmin/cf-b/herramientas/lanzador_puerta_banco.py ejecutar --dir <dir> --d5-banco /home/gadmin/cf-b/herramientas/d5_episodio_banco.py --sensor m4rk@10.10.60.11 --clave /home/gadmin/.ssh/cyberflow-d5-sensor --known-hosts /home/gadmin/.ssh/known_hosts_d5 --herramientas /home/gadmin/cf-b/herramientas --espera-fin <15|75> --ssh-sensor-legado '<orden ssh Sensor1>' --ssh-srv-legado '<orden ssh srv-dmz>'
+rc=0
+--- originales DESPUÉS (deben ser idénticos)
+85c71124098cb7cb  /home/gadmin/cf-b/herramientas/d5_episodio.py
+32e1f3ef160a1d6e  /home/gadmin/cf-b/herramientas/compuerta_b.py
+babc528bcf4734b0  /home/gadmin/cf-b/herramientas/orquestar_b.py
+611d4b166214fed9  /home/gadmin/cf-b/herramientas/analizar_b.py
+957b8ac566ef63f209b44203ea1f1c11c67b79f9e03244ef4832eebcf4d0d5f0
+--- respaldos creados
+total 12
+drwxrwxr-x 3 gadmin gadmin 4096 2026-11-10 22:22 .
+drwxrwxr-x 7 gadmin gadmin 4096 2026-11-10 22:22 ..
+drwxrwxr-x 2 gadmin gadmin 4096 2026-11-10 22:22 20261111T032247Z
+total 12
+drwxrwxr-x 2 gadmin gadmin 4096 Nov 10 22:22 .
+drwxrwxr-x 3 gadmin gadmin 4096 Nov 10 22:22 ..
+-rw------- 1 gadmin gadmin   93 Nov 10 20:06 known_hosts_d5
+957b8ac566ef63f209b44203ea1f1c11c67b79f9e03244ef4832eebcf4d0d5f0  /home/gadmin/cf-b/respaldo-d5/20261111T032247Z/known_hosts_d5
+--- aceptar
+== Bastión: aceptación (solo lectura)
+OK    artefactos del paquete = SHA256SUMS
+OK    instalado transporte_bastion.py = paquete
+OK    instalado lanzador_puerta_banco.py = paquete
+OK    instalado hacer_d5_episodio_banco.py = paquete
+OK    d5_episodio_banco.py = derivado reproducible del original (sin escribir ficheros)
+OK    clave dedicada 0600
+OK    known_hosts_d5 fija UNA clave ed25519 para el Sensor1
+OK    el lanzador arranca (--help)
+resumen: 8 OK, 0 FALLAN
+rc=0
+--- instalados (modo, hash)
+755 /home/gadmin/cf-b/herramientas/transporte_bastion.py
+755 /home/gadmin/cf-b/herramientas/lanzador_puerta_banco.py
+755 /home/gadmin/cf-b/herramientas/hacer_d5_episodio_banco.py
+664 /home/gadmin/cf-b/herramientas/d5_episodio_banco.py
+2dc8d7eb306880dd0e563c83ffa0c2bbb55b88aafc21fc63d7bfdc92d3ebb2b3  /home/gadmin/cf-b/herramientas/transporte_bastion.py
+c2ec10b42751985cfe4749a19d6fa58289979be2ba242368c240d72742e2c438  /home/gadmin/cf-b/herramientas/lanzador_puerta_banco.py
+65511cc1a313cd552d46413044402f62e21a62f3211713089ed2047408455b19  /home/gadmin/cf-b/herramientas/hacer_d5_episodio_banco.py
+27b63c4167df1ec69180dc05319adb78e3af462e75a181c347eda8092e12ac34  /home/gadmin/cf-b/herramientas/d5_episodio_banco.py

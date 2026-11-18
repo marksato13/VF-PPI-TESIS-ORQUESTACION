@@ -1,0 +1,53 @@
+== EVIDENCIA previa a la reversión -> /var/lib/cyberflow/reversion-B/EVIDENCIA-ANTES-REVERSION-20261111T060850Z
+total 928
+drwxr-xr-x 2 root        root          4096 nov 11 06:08 .
+drwxr-xr-x 8 root        root          4096 nov 11 06:08 ..
+-rw-r--r-- 1 root        root           526 nov 11 06:08 agente-antes.txt
+-rw-r--r-- 1 root        root           322 nov 11 06:08 listar-antes.json
+-rw-r--r-- 1 root        root           765 nov 11 06:08 ruleset-antes.txt
+-rw-rw-r-- 1 adminsrvdmz adminsrvdmz 328032 nov 11 06:08 set-lecturas-antes.jsonl
+-rw-r--r-- 1 root        root           426 nov 11 06:08 SHA256SUMS
+-rw-r--r-- 1 cfagente    cfagente    590976 nov 11 06:08 traza-antes.jsonl
+	set descartes_limite {
+		type ipv4_addr
+		size 65535
+		flags dynamic,timeout
+		counter
+		timeout 1h2m
+		elements = { 10.10.20.30 counter packets 74 bytes 5546 timeout 1h2m expires 48m27s410ms }
+	}
+
+== REVERSIÓN real R0-R5
+bash: /opt/cyberflow/campana-b/b_revertir_srvdmz.sh: Permission denied
+rc=126
+== reversión B en srv-dmz, modo=real, 2026-11-11T06:09:06Z
+[R0] respaldo con hash en /var/lib/cyberflow/reversion-B
+  respaldo: /var/lib/cyberflow/reversion-B/20261111T060906Z
+[R1] apagar el agente ppi-enforce-agent-v2-dmz
+[R2] quitar el drop-in --aplicar (/etc/systemd/system/ppi-enforce-agent-v2-dmz.service.d/90-campana-b-aplicar.conf)
+[R3] desinstalar la tabla cyberflow_dmz con el helper (op desinstalar)
+  helper: {"ok": true, "operaciones": 1, "perfil": "dmz"}
+[R4] la tabla no está y no cambió nada más
+  
+[R4b] archivar la traza del agente de B (no se borra; el verificador de sombra cuenta cualquier 'aplicacion' de la traza viva)
+  traza de B archivada en /var/lib/cyberflow/agente/traza-B-20261111T060906Z.jsonl (copia con hash en /var/lib/cyberflow/agente/traza-B-20261111T060906Z.jsonl.sha256)
+[R5] agente de nuevo en sombra
+  activo, sin --aplicar, eventos 'aplicacion' en la traza nueva: 0 (antes de B y durante B: 16, archivados)
+== RESULTADO modo=real rc=0 2026-11-11T06:09:11Z
+rc=0
+--- estado
+agente active NR=0 aplicar=0 dropin= tablas=0 cf-b-fin=active
+--- srv-dmz: fin automático, muestreador, brute-lab
+cf-b-fin.timer: inactive
+muestreador vivo: no; líneas 3607
+ecdc5459977c95e5ff07b4f1779d87281a741a10103624a6088fd09250f942a5
+brute-lab: inactive/disabled
+--- verificar sombra contra PRE-B
+estado=sombra alcance=completo agentes=1 con_aplicar=0 tablas_cyberflow=0 eventos_aplicacion=0
+OK    estado de sombra demostrado (--alcance completo --respaldo /var/lib/cyberflow/reversion-B/PRE-B-20261111T051804Z)
+OK    feed v2 recibido hace < 60 s (feed.par)
+OK    reloj sincronizado
+INFO  rechazos por motivo:       1 "motivo": "misma_secuencia"  (recepciones: 2)
+OK    helper rechaza un perfil ajeno
+VERIFICACIÓN SRV-DMZ OK
+rc=0

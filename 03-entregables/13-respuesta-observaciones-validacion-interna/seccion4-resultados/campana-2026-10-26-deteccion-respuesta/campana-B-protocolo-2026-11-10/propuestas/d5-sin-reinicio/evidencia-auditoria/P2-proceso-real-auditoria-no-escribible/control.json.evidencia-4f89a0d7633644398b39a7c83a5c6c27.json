@@ -1,0 +1,66 @@
+{
+ "diagnostico": {
+  "auditoria": {
+   "estable": true,
+   "generaciones": [
+    {
+     "bytes": 0,
+     "error": "es un directorio",
+     "ilegibles": 0,
+     "leida": true,
+     "lineas": 0,
+     "ruta": "/tmp/pytest-of-nobody/pytest-9/test_proceso_real_acuse_falla_1/d5-auditoria.jsonl",
+     "sha256": null
+    }
+   ],
+   "ilegibles": 0,
+   "intentos": 1,
+   "problemas": [
+    "/tmp/pytest-of-nobody/pytest-9/test_proceso_real_acuse_falla_1/d5-auditoria.jsonl: es un directorio"
+   ]
+  },
+  "auditoria_del_id": [],
+  "auditoria_disponible": true,
+  "categoria": "indeterminada",
+  "control_presente": false,
+  "determinada": false,
+  "estado": {
+   "escalada": [],
+   "vigentes": []
+  },
+  "feed": {
+   "entradas_origen": [],
+   "generado": 1794344087.363177,
+   "secuencia": 3
+  },
+  "id": "4f89a0d7633644398b39a7c83a5c6c27",
+  "motivo": "auditor\u00eda con problemas: /tmp/pytest-of-nobody/pytest-9/test_proceso_real_acuse_falla_1/d5-auditoria.jsonl: es un directorio",
+  "publicacion": "publicaci\u00f3n sin confirmar",
+  "secuencia_publicada": null,
+  "t": 1794344088.0323598,
+  "traza_ultimas": [
+   {
+    "entradas": 3,
+    "nuevos": 3,
+    "secuencia": 1
+   },
+   {
+    "entradas": 2,
+    "nuevos": 0,
+    "secuencia": 2
+   },
+   {
+    "entradas": 2,
+    "nuevos": 0,
+    "secuencia": 3
+   }
+  ],
+  "trazabilidad": "incompleta"
+ },
+ "resultado_cliente": {
+  "estado": "sin_acuse_procesada",
+  "id": "4f89a0d7633644398b39a7c83a5c6c27",
+  "ok": false,
+  "rc": 6
+ }
+}

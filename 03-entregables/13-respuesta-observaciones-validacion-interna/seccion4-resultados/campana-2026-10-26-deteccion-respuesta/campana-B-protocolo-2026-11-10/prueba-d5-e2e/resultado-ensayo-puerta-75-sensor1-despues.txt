@@ -1,0 +1,13 @@
+PID=2115304 NR=0 AE=Wed 2026-11-11 03:05:25 UTC
+FEEDSEQ=26242
+FIRMA=Signature Verified Successfully
+CTL=ausente
+ACK={"duplicada": false, "id": "86c2acdc82bb4e739e44e628d11cc424", "ok": true, "quitado": {"escalada": [], "vigentes": []}, "secuencia": 26240, "t": 1794369035.8265676}
+N_SOL=2
+2026-11-11 03:50 86c2acdc82bb4e739e44e628d11cc424.json
+2026-11-11 03:13 8808ef6d581b45d1af0cd0e8eed44be4.json
+--- auditoría (todas las líneas)
+{"duplicada": false, "evento": "consumido", "id": "8808ef6d581b45d1af0cd0e8eed44be4", "ok": true, "quitado": {"escalada": [], "vigentes": []}, "t": 1794366815.0131185}
+{"evento": "publicado", "id": "8808ef6d581b45d1af0cd0e8eed44be4", "secuencia": 26129, "t": 1794366815.0228193}
+{"duplicada": false, "evento": "consumido", "id": "86c2acdc82bb4e739e44e628d11cc424", "ok": true, "quitado": {"escalada": [], "vigentes": []}, "t": 1794369035.8265676}
+{"evento": "publicado", "id": "86c2acdc82bb4e739e44e628d11cc424", "secuencia": 26240, "t": 1794369035.8364112}

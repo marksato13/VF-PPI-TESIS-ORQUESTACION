@@ -1,0 +1,20 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-8.3.5, pluggy-1.5.0 -- /usr/bin/python3
+rootdir: /i
+collecting ... collected 13 items
+
+test_instrumentacion.py::test_los_intentos_se_distinguen_de_las_peticiones_con_respuesta PASSED [  7%]
+test_instrumentacion.py::test_si_los_intentos_tambien_caen_por_debajo_del_umbral_no_hay_continuidad_por_salida PASSED [ 15%]
+test_instrumentacion.py::test_la_racha_exige_k_bloques_consecutivos PASSED [ 23%]
+test_instrumentacion.py::test_sin_serie_de_salida_e3_v2_es_identico_al_analizador_original PASSED [ 30%]
+test_instrumentacion.py::test_con_la_salida_continua_el_efecto_se_evalua_y_cumple_por_la_via_salida PASSED [ 38%]
+test_instrumentacion.py::test_con_la_salida_tambien_baja_sigue_indeterminado PASSED [ 46%]
+test_instrumentacion.py::test_si_siguio_intentando_y_las_aceptadas_no_bajan_es_fallo PASSED [ 53%]
+test_instrumentacion.py::test_sin_contador_de_descartes_del_host_no_cumple_aunque_haya_continuidad PASSED [ 61%]
+test_instrumentacion.py::test_la_via_span_sigue_valiendo_si_cumple PASSED [ 69%]
+test_instrumentacion.py::test_control_desde_transacciones_ok_fallo_y_atribucion PASSED [ 76%]
+test_instrumentacion.py::test_el_envoltorio_de_clientes_registra_una_linea_por_accion_con_hora_y_resultado PASSED [ 84%]
+test_instrumentacion.py::test_el_muestreador_registra_la_serie_incluidos_los_fallos_del_ayudante PASSED [ 92%]
+test_instrumentacion.py::test_ambas_vias_de_continuidad_se_registran_siempre_cuando_hay_datos PASSED [100%]
+
+============================== 13 passed in 6.56s ==============================

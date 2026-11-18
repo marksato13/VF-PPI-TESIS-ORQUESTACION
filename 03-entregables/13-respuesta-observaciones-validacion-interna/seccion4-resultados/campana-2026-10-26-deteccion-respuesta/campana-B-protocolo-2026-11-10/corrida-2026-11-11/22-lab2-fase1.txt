@@ -1,0 +1,16 @@
+## fase1 2026-11-11T07:12:49Z
+publicador antes: PID=2115304 NR=0
+[A3] fin automático cf-b-fin a las 2 h (ejecuta la reversión real)
+Running timer as unit: cf-b-fin.timer
+Will run service as unit: cf-b-fin.service
+[A4] reiniciar el agente con --aplicar y comprobar
+== RESULTADO modo=real rc=0
+## [ACCESO SSH A KALI 2026-11-11T07:12:57.303Z: ráfaga de 120 s de laboratorio (inundacion_instrumentada.sh) hacia srv-dmz:80]
+intentos=2894
+## cuándo se aplicó LIMIT (aplicaciones del agente de srv-dmz; inicio de la ráfaga = 1794381177.307083008)
+{"aplicado_en": 1794381224.9157608, "evento": "aplicacion", "nuevos": [{"evento_id": "10.10.20.30|2026-11-11T07:13:00+00:00|http_abuse", "hasta": 1794381484, "id": "efb0be5c2c4a1a4e", "ip": "10.10.20.
+{"aplicado_en": 1794381246.645544, "evento": "aplicacion", "nuevos": [{"evento_id": "10.10.20.30|2026-11-11T07:14:00+00:00|http_abuse", "hasta": 1794381545, "id": "b6123ce4972a9d4e", "ip": "10.10.20.3
+{"aplicado_en": 1794381256.0934885, "evento": "aplicacion", "nuevos": [{"evento_id": "10.10.20.30|2026-11-11T07:14:00+00:00|http_abuse", "hasta": 1794381545, "id": "b6123ce4972a9d4e", "ip": "10.10.20.
+LIMIT: ninguna aplicación posterior al inicio de la ráfaga
+ráfaga terminada 2026-11-11T07:14:59Z. Siguiente: fase2 a partir de fin + 80 s
+rc=0

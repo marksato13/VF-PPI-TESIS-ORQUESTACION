@@ -1,0 +1,37 @@
+[
+ {
+  "comprobacion": "versión: derivado del publicador idéntico al validado",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "comprobacion": "I-A-acuse-valido: acuse válido -> la puerta deja continuar; 1 solicitud; sin reinicio",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "comprobacion": "I-A-acuse-valido: el lector (d5lector) reconstruye la solicitud: publicación confirmada",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "comprobacion": "I-B-acuse-no-escribible-bloqueo: acuse no escribible -> puerta fallida y BLOQUEADA; las 3 llamadas siguientes no solicitan; 1 solicitud real",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "comprobacion": "I-B-acuse-no-escribible-bloqueo: servicio continuo y limpieza confirmable por la auditoría (reportados por separado)",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "comprobacion": "I-B-acuse-no-escribible-bloqueo: evidencia del caso conservada",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "comprobacion": "I-C-reanudacion-manual: tras la reanudación manual registrada se emite UNA solicitud nueva y la puerta continúa",
+  "ok": true,
+  "detalle": ""
+ }
+]

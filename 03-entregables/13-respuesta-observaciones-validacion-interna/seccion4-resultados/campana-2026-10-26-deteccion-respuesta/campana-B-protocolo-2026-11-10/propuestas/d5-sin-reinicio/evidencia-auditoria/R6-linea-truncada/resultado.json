@@ -1,0 +1,11 @@
+{
+ "diagnostico": {
+  "categoria": "consumida_sin_publicacion",
+  "determinada": false,
+  "generaciones_del_id": null,
+  "motivo": "hay `consumido` y no hay `publicado` (ilegible, fuera de retención o nunca escrito)",
+  "secuencia_publicada": null,
+  "trazabilidad": "incompleta"
+ },
+ "ilegibles": 1
+}

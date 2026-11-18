@@ -1,0 +1,114 @@
+2026-11-08T15:12:35Z
+m4rk
+logrotate 3.21.0
+######## systemctl cat logrotate.timer/service
+[Unit]
+Description=Daily rotation of log files
+Documentation=man:logrotate(8) man:logrotate.conf(5)
+[Timer]
+OnCalendar=daily
+AccuracySec=1h
+Persistent=true
+[Install]
+WantedBy=timers.target
+[Unit]
+Description=Rotate log files
+Documentation=man:logrotate(8) man:logrotate.conf(5)
+RequiresMountsFor=/var/log
+ConditionACPower=true
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/logrotate /etc/logrotate.conf
+Nice=19
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+LockPersonality=true
+MemoryDenyWriteExecute=true
+PrivateDevices=true
+PrivateTmp=true
+ProtectClock=true
+ProtectControlGroups=true
+ProtectHostname=true
+ProtectKernelLogs=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+ProtectSystem=full
+RestrictNamespaces=true
+RestrictRealtime=true
+######## /etc/logrotate.conf
+weekly
+su root adm
+rotate 4
+create
+include /etc/logrotate.d
+######## /etc/logrotate.d
+total   
+drwxr-xr-x root 2026-11-04 .
+drwxr-xr-x root 2026-09-18 ..
+-rw-r--r-- root 2024-02-05 alternatives
+-rw-r--r-- root 2022-04-22 apport
+-rw-r--r-- root 2024-03-22 apt
+-rw-r--r-- root 2024-01-04 bootlog
+-rw-r--r-- root 2025-02-16 btmp
+-rw-r--r-- root 2024-12-02 cloud-init
+-rw-r--r-- root 2026-11-01 cyberflow
+-rw-r--r-- root 2026-11-04 cyberflow-etapa4
+-rw-r--r-- root 2024-02-05 dpkg
+-rw-r--r-- root 2025-02-16 rsyslog
+-rw-r--r-- root 2026-09-18 suricata
+-rw-r--r-- root 2025-02-16 ubuntu-pro-client
+-rw-r--r-- root 2025-02-16 ufw
+-rw-r--r-- root 2024-02-12 unattended-upgrades
+-rw-r--r-- root 2025-02-16 wtmp
+######## suricata
+/var/log/suricata/*.log
+/var/log/suricata/*.json
+{
+	daily
+	maxsize 500M
+	rotate 7
+	missingok
+	compress
+	copytruncate
+	sharedscripts
+	postrotate
+		/bin/kill -HUP $(cat /var/run/suricata.pid)
+	endscript
+}
+######## todas las rutas de logs que rotan (encabezados de bloque)
+/var/log/alternatives.log {
+/var/log/apport.log {
+/var/log/apt/term.log {
+/var/log/apt/history.log {
+/var/log/boot.log
+/var/log/btmp {
+/var/log/cloud-init*.log
+/home/m4rk/cyberflow/logs/motor_decision.log /home/m4rk/cyberflow/logs/_state/ciclos.jsonl {
+/home/m4rk/feed-v2/*.jsonl {
+/var/log/dpkg.log {
+/var/log/syslog
+/var/log/mail.log
+/var/log/kern.log
+/var/log/auth.log
+/var/log/user.log
+/var/log/cron.log
+		/usr/lib/rsyslog/rsyslog-rotate
+/var/log/suricata/*.log
+/var/log/suricata/*.json
+		/bin/kill -HUP $(cat /var/run/suricata.pid)
+/var/log/ubuntu-advantage*.log {
+/var/log/ufw.log
+/var/log/unattended-upgrades/unattended-upgrades.log 
+/var/log/unattended-upgrades/unattended-upgrades-dpkg.log
+/var/log/unattended-upgrades/unattended-upgrades-shutdown.log
+/var/log/wtmp {
+######## fuera de /etc/logrotate.d: ¿alguna config que mencione cyberflow, motor_decision, eve, feed o cf-e4?
+/etc/logrotate.d/cyberflow-etapa4
+/etc/logrotate.d/cyberflow
+######## estado de logrotate (¿legible?)
+-rw-r----- 1 root root 1485 nov  8 00:00 /var/lib/logrotate/status
+grep: /var/lib/logrotate/status: Permission denied
+######## tamaños
+34717007 2026-11-08T15:12:31 /home/m4rk/cyberflow/logs/motor_decision.log
+126080900 2026-11-08T15:12:34 /var/log/suricata/eve.json
+62581145 2026-11-08T15:12:31 /var/log/suricata/stats.log

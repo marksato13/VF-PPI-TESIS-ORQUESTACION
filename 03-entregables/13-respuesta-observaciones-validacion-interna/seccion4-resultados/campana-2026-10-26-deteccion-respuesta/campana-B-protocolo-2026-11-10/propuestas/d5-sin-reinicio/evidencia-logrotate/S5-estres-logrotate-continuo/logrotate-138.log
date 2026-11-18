@@ -1,0 +1,602 @@
+rc=0
+--- stdout
+
+--- stderr
+reading config file /etc/d5lr/S5-estres-logrotate-continuo.conf
+acquired lock on state file /var/tmp/d5lr/S5-estres-logrotate-continuo/logrotate.state
+Reading state from file: /var/tmp/d5lr/S5-estres-logrotate-continuo/logrotate.state
+Allocating hash table for state file, size 64 entries
+Creating new state
+
+Handling 1 logs
+
+rotating pattern: /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl forced from command line empty log files are not rotated, (300 rotations), old logs are removed
+considering log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl
+  Now: 2026-11-10 20:51
+  Last rotated at 2026-11-10 20:51
+  log needs rotating
+rotating log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl, log->rotateCount is 300
+dateext suffix '-20261110'
+glob pattern '-[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'
+compressing log with: /bin/gzip
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.300.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.301.gz (rotatecount 300, logstart 1, i 300), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.300.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.299.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.300.gz (rotatecount 300, logstart 1, i 299), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.299.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.298.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.299.gz (rotatecount 300, logstart 1, i 298), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.298.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.297.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.298.gz (rotatecount 300, logstart 1, i 297), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.297.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.296.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.297.gz (rotatecount 300, logstart 1, i 296), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.296.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.295.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.296.gz (rotatecount 300, logstart 1, i 295), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.295.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.294.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.295.gz (rotatecount 300, logstart 1, i 294), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.294.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.293.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.294.gz (rotatecount 300, logstart 1, i 293), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.293.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.292.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.293.gz (rotatecount 300, logstart 1, i 292), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.292.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.291.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.292.gz (rotatecount 300, logstart 1, i 291), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.291.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.290.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.291.gz (rotatecount 300, logstart 1, i 290), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.290.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.289.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.290.gz (rotatecount 300, logstart 1, i 289), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.289.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.288.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.289.gz (rotatecount 300, logstart 1, i 288), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.288.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.287.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.288.gz (rotatecount 300, logstart 1, i 287), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.287.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.286.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.287.gz (rotatecount 300, logstart 1, i 286), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.286.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.285.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.286.gz (rotatecount 300, logstart 1, i 285), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.285.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.284.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.285.gz (rotatecount 300, logstart 1, i 284), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.284.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.283.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.284.gz (rotatecount 300, logstart 1, i 283), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.283.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.282.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.283.gz (rotatecount 300, logstart 1, i 282), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.282.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.281.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.282.gz (rotatecount 300, logstart 1, i 281), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.281.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.280.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.281.gz (rotatecount 300, logstart 1, i 280), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.280.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.279.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.280.gz (rotatecount 300, logstart 1, i 279), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.279.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.278.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.279.gz (rotatecount 300, logstart 1, i 278), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.278.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.277.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.278.gz (rotatecount 300, logstart 1, i 277), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.277.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.276.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.277.gz (rotatecount 300, logstart 1, i 276), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.276.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.275.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.276.gz (rotatecount 300, logstart 1, i 275), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.275.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.274.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.275.gz (rotatecount 300, logstart 1, i 274), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.274.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.273.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.274.gz (rotatecount 300, logstart 1, i 273), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.273.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.272.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.273.gz (rotatecount 300, logstart 1, i 272), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.272.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.271.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.272.gz (rotatecount 300, logstart 1, i 271), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.271.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.270.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.271.gz (rotatecount 300, logstart 1, i 270), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.270.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.269.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.270.gz (rotatecount 300, logstart 1, i 269), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.269.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.268.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.269.gz (rotatecount 300, logstart 1, i 268), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.268.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.267.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.268.gz (rotatecount 300, logstart 1, i 267), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.267.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.266.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.267.gz (rotatecount 300, logstart 1, i 266), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.266.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.265.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.266.gz (rotatecount 300, logstart 1, i 265), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.265.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.264.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.265.gz (rotatecount 300, logstart 1, i 264), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.264.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.263.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.264.gz (rotatecount 300, logstart 1, i 263), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.263.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.262.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.263.gz (rotatecount 300, logstart 1, i 262), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.262.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.261.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.262.gz (rotatecount 300, logstart 1, i 261), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.261.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.260.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.261.gz (rotatecount 300, logstart 1, i 260), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.260.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.259.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.260.gz (rotatecount 300, logstart 1, i 259), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.259.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.258.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.259.gz (rotatecount 300, logstart 1, i 258), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.258.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.257.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.258.gz (rotatecount 300, logstart 1, i 257), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.257.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.256.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.257.gz (rotatecount 300, logstart 1, i 256), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.256.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.255.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.256.gz (rotatecount 300, logstart 1, i 255), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.255.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.254.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.255.gz (rotatecount 300, logstart 1, i 254), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.254.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.253.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.254.gz (rotatecount 300, logstart 1, i 253), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.253.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.252.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.253.gz (rotatecount 300, logstart 1, i 252), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.252.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.251.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.252.gz (rotatecount 300, logstart 1, i 251), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.251.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.250.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.251.gz (rotatecount 300, logstart 1, i 250), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.250.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.249.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.250.gz (rotatecount 300, logstart 1, i 249), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.249.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.248.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.249.gz (rotatecount 300, logstart 1, i 248), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.248.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.247.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.248.gz (rotatecount 300, logstart 1, i 247), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.247.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.246.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.247.gz (rotatecount 300, logstart 1, i 246), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.246.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.245.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.246.gz (rotatecount 300, logstart 1, i 245), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.245.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.244.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.245.gz (rotatecount 300, logstart 1, i 244), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.244.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.243.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.244.gz (rotatecount 300, logstart 1, i 243), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.243.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.242.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.243.gz (rotatecount 300, logstart 1, i 242), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.242.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.241.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.242.gz (rotatecount 300, logstart 1, i 241), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.241.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.240.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.241.gz (rotatecount 300, logstart 1, i 240), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.240.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.239.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.240.gz (rotatecount 300, logstart 1, i 239), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.239.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.238.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.239.gz (rotatecount 300, logstart 1, i 238), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.238.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.237.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.238.gz (rotatecount 300, logstart 1, i 237), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.237.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.236.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.237.gz (rotatecount 300, logstart 1, i 236), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.236.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.235.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.236.gz (rotatecount 300, logstart 1, i 235), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.235.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.234.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.235.gz (rotatecount 300, logstart 1, i 234), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.234.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.233.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.234.gz (rotatecount 300, logstart 1, i 233), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.233.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.232.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.233.gz (rotatecount 300, logstart 1, i 232), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.232.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.231.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.232.gz (rotatecount 300, logstart 1, i 231), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.231.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.230.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.231.gz (rotatecount 300, logstart 1, i 230), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.230.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.229.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.230.gz (rotatecount 300, logstart 1, i 229), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.229.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.228.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.229.gz (rotatecount 300, logstart 1, i 228), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.228.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.227.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.228.gz (rotatecount 300, logstart 1, i 227), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.227.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.226.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.227.gz (rotatecount 300, logstart 1, i 226), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.226.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.225.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.226.gz (rotatecount 300, logstart 1, i 225), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.225.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.224.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.225.gz (rotatecount 300, logstart 1, i 224), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.224.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.223.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.224.gz (rotatecount 300, logstart 1, i 223), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.223.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.222.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.223.gz (rotatecount 300, logstart 1, i 222), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.222.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.221.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.222.gz (rotatecount 300, logstart 1, i 221), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.221.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.220.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.221.gz (rotatecount 300, logstart 1, i 220), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.220.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.219.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.220.gz (rotatecount 300, logstart 1, i 219), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.219.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.218.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.219.gz (rotatecount 300, logstart 1, i 218), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.218.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.217.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.218.gz (rotatecount 300, logstart 1, i 217), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.217.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.216.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.217.gz (rotatecount 300, logstart 1, i 216), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.216.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.215.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.216.gz (rotatecount 300, logstart 1, i 215), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.215.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.214.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.215.gz (rotatecount 300, logstart 1, i 214), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.214.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.213.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.214.gz (rotatecount 300, logstart 1, i 213), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.213.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.212.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.213.gz (rotatecount 300, logstart 1, i 212), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.212.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.211.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.212.gz (rotatecount 300, logstart 1, i 211), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.211.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.210.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.211.gz (rotatecount 300, logstart 1, i 210), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.210.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.209.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.210.gz (rotatecount 300, logstart 1, i 209), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.209.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.208.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.209.gz (rotatecount 300, logstart 1, i 208), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.208.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.207.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.208.gz (rotatecount 300, logstart 1, i 207), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.207.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.206.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.207.gz (rotatecount 300, logstart 1, i 206), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.206.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.205.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.206.gz (rotatecount 300, logstart 1, i 205), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.205.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.204.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.205.gz (rotatecount 300, logstart 1, i 204), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.204.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.203.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.204.gz (rotatecount 300, logstart 1, i 203), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.203.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.202.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.203.gz (rotatecount 300, logstart 1, i 202), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.202.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.201.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.202.gz (rotatecount 300, logstart 1, i 201), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.201.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.200.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.201.gz (rotatecount 300, logstart 1, i 200), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.200.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.199.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.200.gz (rotatecount 300, logstart 1, i 199), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.199.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.198.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.199.gz (rotatecount 300, logstart 1, i 198), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.198.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.197.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.198.gz (rotatecount 300, logstart 1, i 197), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.197.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.196.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.197.gz (rotatecount 300, logstart 1, i 196), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.196.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.195.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.196.gz (rotatecount 300, logstart 1, i 195), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.195.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.194.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.195.gz (rotatecount 300, logstart 1, i 194), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.194.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.193.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.194.gz (rotatecount 300, logstart 1, i 193), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.193.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.192.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.193.gz (rotatecount 300, logstart 1, i 192), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.192.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.191.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.192.gz (rotatecount 300, logstart 1, i 191), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.191.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.190.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.191.gz (rotatecount 300, logstart 1, i 190), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.190.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.189.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.190.gz (rotatecount 300, logstart 1, i 189), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.189.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.188.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.189.gz (rotatecount 300, logstart 1, i 188), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.188.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.187.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.188.gz (rotatecount 300, logstart 1, i 187), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.187.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.186.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.187.gz (rotatecount 300, logstart 1, i 186), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.186.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.185.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.186.gz (rotatecount 300, logstart 1, i 185), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.185.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.184.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.185.gz (rotatecount 300, logstart 1, i 184), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.184.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.183.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.184.gz (rotatecount 300, logstart 1, i 183), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.183.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.182.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.183.gz (rotatecount 300, logstart 1, i 182), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.182.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.181.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.182.gz (rotatecount 300, logstart 1, i 181), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.181.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.180.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.181.gz (rotatecount 300, logstart 1, i 180), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.180.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.179.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.180.gz (rotatecount 300, logstart 1, i 179), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.179.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.178.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.179.gz (rotatecount 300, logstart 1, i 178), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.178.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.177.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.178.gz (rotatecount 300, logstart 1, i 177), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.177.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.176.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.177.gz (rotatecount 300, logstart 1, i 176), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.176.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.175.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.176.gz (rotatecount 300, logstart 1, i 175), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.175.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.174.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.175.gz (rotatecount 300, logstart 1, i 174), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.174.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.173.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.174.gz (rotatecount 300, logstart 1, i 173), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.173.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.172.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.173.gz (rotatecount 300, logstart 1, i 172), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.172.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.171.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.172.gz (rotatecount 300, logstart 1, i 171), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.171.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.170.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.171.gz (rotatecount 300, logstart 1, i 170), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.170.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.169.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.170.gz (rotatecount 300, logstart 1, i 169), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.169.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.168.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.169.gz (rotatecount 300, logstart 1, i 168), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.168.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.167.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.168.gz (rotatecount 300, logstart 1, i 167), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.167.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.166.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.167.gz (rotatecount 300, logstart 1, i 166), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.166.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.165.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.166.gz (rotatecount 300, logstart 1, i 165), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.165.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.164.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.165.gz (rotatecount 300, logstart 1, i 164), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.164.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.163.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.164.gz (rotatecount 300, logstart 1, i 163), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.163.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.162.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.163.gz (rotatecount 300, logstart 1, i 162), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.162.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.161.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.162.gz (rotatecount 300, logstart 1, i 161), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.161.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.160.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.161.gz (rotatecount 300, logstart 1, i 160), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.160.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.159.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.160.gz (rotatecount 300, logstart 1, i 159), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.159.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.158.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.159.gz (rotatecount 300, logstart 1, i 158), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.158.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.157.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.158.gz (rotatecount 300, logstart 1, i 157), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.157.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.156.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.157.gz (rotatecount 300, logstart 1, i 156), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.156.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.155.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.156.gz (rotatecount 300, logstart 1, i 155), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.155.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.154.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.155.gz (rotatecount 300, logstart 1, i 154), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.154.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.153.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.154.gz (rotatecount 300, logstart 1, i 153), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.153.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.152.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.153.gz (rotatecount 300, logstart 1, i 152), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.152.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.151.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.152.gz (rotatecount 300, logstart 1, i 151), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.151.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.150.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.151.gz (rotatecount 300, logstart 1, i 150), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.150.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.149.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.150.gz (rotatecount 300, logstart 1, i 149), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.149.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.148.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.149.gz (rotatecount 300, logstart 1, i 148), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.148.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.147.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.148.gz (rotatecount 300, logstart 1, i 147), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.147.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.146.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.147.gz (rotatecount 300, logstart 1, i 146), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.146.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.145.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.146.gz (rotatecount 300, logstart 1, i 145), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.145.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.144.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.145.gz (rotatecount 300, logstart 1, i 144), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.144.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.143.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.144.gz (rotatecount 300, logstart 1, i 143), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.143.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.142.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.143.gz (rotatecount 300, logstart 1, i 142), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.142.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.141.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.142.gz (rotatecount 300, logstart 1, i 141), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.141.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.140.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.141.gz (rotatecount 300, logstart 1, i 140), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.140.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.139.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.140.gz (rotatecount 300, logstart 1, i 139), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.139.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.138.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.139.gz (rotatecount 300, logstart 1, i 138), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.138.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.137.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.138.gz (rotatecount 300, logstart 1, i 137), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.137.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.136.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.137.gz (rotatecount 300, logstart 1, i 136), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.136.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.135.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.136.gz (rotatecount 300, logstart 1, i 135), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.135.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.134.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.135.gz (rotatecount 300, logstart 1, i 134), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.134.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.133.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.134.gz (rotatecount 300, logstart 1, i 133), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.133.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.132.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.133.gz (rotatecount 300, logstart 1, i 132), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.132.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.131.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.132.gz (rotatecount 300, logstart 1, i 131), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.131.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.130.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.131.gz (rotatecount 300, logstart 1, i 130), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.130.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.129.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.130.gz (rotatecount 300, logstart 1, i 129), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.129.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.128.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.129.gz (rotatecount 300, logstart 1, i 128), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.128.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.127.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.128.gz (rotatecount 300, logstart 1, i 127), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.127.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.126.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.127.gz (rotatecount 300, logstart 1, i 126), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.126.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.125.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.126.gz (rotatecount 300, logstart 1, i 125), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.125.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.124.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.125.gz (rotatecount 300, logstart 1, i 124), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.124.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.123.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.124.gz (rotatecount 300, logstart 1, i 123), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.123.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.122.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.123.gz (rotatecount 300, logstart 1, i 122), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.122.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.121.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.122.gz (rotatecount 300, logstart 1, i 121), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.121.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.120.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.121.gz (rotatecount 300, logstart 1, i 120), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.120.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.119.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.120.gz (rotatecount 300, logstart 1, i 119), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.119.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.118.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.119.gz (rotatecount 300, logstart 1, i 118), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.118.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.117.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.118.gz (rotatecount 300, logstart 1, i 117), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.117.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.116.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.117.gz (rotatecount 300, logstart 1, i 116), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.116.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.115.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.116.gz (rotatecount 300, logstart 1, i 115), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.115.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.114.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.115.gz (rotatecount 300, logstart 1, i 114), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.114.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.113.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.114.gz (rotatecount 300, logstart 1, i 113), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.113.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.112.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.113.gz (rotatecount 300, logstart 1, i 112), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.112.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.111.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.112.gz (rotatecount 300, logstart 1, i 111), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.111.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.110.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.111.gz (rotatecount 300, logstart 1, i 110), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.110.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.109.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.110.gz (rotatecount 300, logstart 1, i 109), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.109.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.108.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.109.gz (rotatecount 300, logstart 1, i 108), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.108.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.107.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.108.gz (rotatecount 300, logstart 1, i 107), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.107.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.106.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.107.gz (rotatecount 300, logstart 1, i 106), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.106.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.105.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.106.gz (rotatecount 300, logstart 1, i 105), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.105.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.104.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.105.gz (rotatecount 300, logstart 1, i 104), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.104.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.103.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.104.gz (rotatecount 300, logstart 1, i 103), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.103.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.102.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.103.gz (rotatecount 300, logstart 1, i 102), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.102.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.101.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.102.gz (rotatecount 300, logstart 1, i 101), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.101.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.100.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.101.gz (rotatecount 300, logstart 1, i 100), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.100.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.99.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.100.gz (rotatecount 300, logstart 1, i 99), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.99.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.98.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.99.gz (rotatecount 300, logstart 1, i 98), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.98.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.97.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.98.gz (rotatecount 300, logstart 1, i 97), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.97.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.96.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.97.gz (rotatecount 300, logstart 1, i 96), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.96.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.95.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.96.gz (rotatecount 300, logstart 1, i 95), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.95.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.94.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.95.gz (rotatecount 300, logstart 1, i 94), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.94.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.93.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.94.gz (rotatecount 300, logstart 1, i 93), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.93.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.92.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.93.gz (rotatecount 300, logstart 1, i 92), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.92.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.91.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.92.gz (rotatecount 300, logstart 1, i 91), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.91.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.90.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.91.gz (rotatecount 300, logstart 1, i 90), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.90.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.89.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.90.gz (rotatecount 300, logstart 1, i 89), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.89.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.88.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.89.gz (rotatecount 300, logstart 1, i 88), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.88.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.87.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.88.gz (rotatecount 300, logstart 1, i 87), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.87.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.86.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.87.gz (rotatecount 300, logstart 1, i 86), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.86.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.85.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.86.gz (rotatecount 300, logstart 1, i 85), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.85.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.84.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.85.gz (rotatecount 300, logstart 1, i 84), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.84.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.83.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.84.gz (rotatecount 300, logstart 1, i 83), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.83.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.82.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.83.gz (rotatecount 300, logstart 1, i 82), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.82.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.81.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.82.gz (rotatecount 300, logstart 1, i 81), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.81.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.80.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.81.gz (rotatecount 300, logstart 1, i 80), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.80.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.79.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.80.gz (rotatecount 300, logstart 1, i 79), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.79.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.78.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.79.gz (rotatecount 300, logstart 1, i 78), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.78.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.77.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.78.gz (rotatecount 300, logstart 1, i 77), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.77.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.76.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.77.gz (rotatecount 300, logstart 1, i 76), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.76.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.75.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.76.gz (rotatecount 300, logstart 1, i 75), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.75.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.74.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.75.gz (rotatecount 300, logstart 1, i 74), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.74.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.73.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.74.gz (rotatecount 300, logstart 1, i 73), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.73.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.72.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.73.gz (rotatecount 300, logstart 1, i 72), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.72.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.71.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.72.gz (rotatecount 300, logstart 1, i 71), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.71.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.70.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.71.gz (rotatecount 300, logstart 1, i 70), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.70.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.69.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.70.gz (rotatecount 300, logstart 1, i 69), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.69.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.68.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.69.gz (rotatecount 300, logstart 1, i 68), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.68.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.67.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.68.gz (rotatecount 300, logstart 1, i 67), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.67.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.66.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.67.gz (rotatecount 300, logstart 1, i 66), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.66.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.65.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.66.gz (rotatecount 300, logstart 1, i 65), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.65.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.64.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.65.gz (rotatecount 300, logstart 1, i 64), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.64.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.63.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.64.gz (rotatecount 300, logstart 1, i 63), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.63.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.62.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.63.gz (rotatecount 300, logstart 1, i 62), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.62.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.61.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.62.gz (rotatecount 300, logstart 1, i 61), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.61.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.60.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.61.gz (rotatecount 300, logstart 1, i 60), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.60.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.59.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.60.gz (rotatecount 300, logstart 1, i 59), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.59.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.58.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.59.gz (rotatecount 300, logstart 1, i 58), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.58.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.57.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.58.gz (rotatecount 300, logstart 1, i 57), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.57.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.56.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.57.gz (rotatecount 300, logstart 1, i 56), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.56.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.55.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.56.gz (rotatecount 300, logstart 1, i 55), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.55.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.54.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.55.gz (rotatecount 300, logstart 1, i 54), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.54.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.53.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.54.gz (rotatecount 300, logstart 1, i 53), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.53.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.52.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.53.gz (rotatecount 300, logstart 1, i 52), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.52.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.51.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.52.gz (rotatecount 300, logstart 1, i 51), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.51.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.50.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.51.gz (rotatecount 300, logstart 1, i 50), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.50.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.49.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.50.gz (rotatecount 300, logstart 1, i 49), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.49.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.48.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.49.gz (rotatecount 300, logstart 1, i 48), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.48.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.47.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.48.gz (rotatecount 300, logstart 1, i 47), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.47.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.46.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.47.gz (rotatecount 300, logstart 1, i 46), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.46.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.45.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.46.gz (rotatecount 300, logstart 1, i 45), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.45.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.44.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.45.gz (rotatecount 300, logstart 1, i 44), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.44.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.43.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.44.gz (rotatecount 300, logstart 1, i 43), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.43.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.42.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.43.gz (rotatecount 300, logstart 1, i 42), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.42.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.41.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.42.gz (rotatecount 300, logstart 1, i 41), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.41.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.40.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.41.gz (rotatecount 300, logstart 1, i 40), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.40.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.39.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.40.gz (rotatecount 300, logstart 1, i 39), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.39.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.38.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.39.gz (rotatecount 300, logstart 1, i 38), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.38.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.37.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.38.gz (rotatecount 300, logstart 1, i 37), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.37.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.36.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.37.gz (rotatecount 300, logstart 1, i 36), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.36.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.35.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.36.gz (rotatecount 300, logstart 1, i 35), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.35.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.34.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.35.gz (rotatecount 300, logstart 1, i 34), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.34.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.33.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.34.gz (rotatecount 300, logstart 1, i 33), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.33.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.32.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.33.gz (rotatecount 300, logstart 1, i 32), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.32.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.31.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.32.gz (rotatecount 300, logstart 1, i 31), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.31.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.30.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.31.gz (rotatecount 300, logstart 1, i 30), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.30.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.29.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.30.gz (rotatecount 300, logstart 1, i 29), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.29.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.28.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.29.gz (rotatecount 300, logstart 1, i 28), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.28.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.27.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.28.gz (rotatecount 300, logstart 1, i 27), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.27.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.26.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.27.gz (rotatecount 300, logstart 1, i 26), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.26.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.25.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.26.gz (rotatecount 300, logstart 1, i 25), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.25.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.24.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.25.gz (rotatecount 300, logstart 1, i 24), 
+old log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.24.gz does not exist
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.23.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.24.gz (rotatecount 300, logstart 1, i 23), 
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.22.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.23.gz (rotatecount 300, logstart 1, i 22), 
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.21.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.22.gz (rotatecount 300, logstart 1, i 21), 
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.20.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.21.gz (rotatecount 300, logstart 1, i 20), 
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.19.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.20.gz (rotatecount 300, logstart 1, i 19), 
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.18.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.19.gz (rotatecount 300, logstart 1, i 18), 
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.17.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.18.gz (rotatecount 300, logstart 1, i 17), 
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.16.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.17.gz (rotatecount 300, logstart 1, i 16), 
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.15.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.16.gz (rotatecount 300, logstart 1, i 15), 
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.14.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.15.gz (rotatecount 300, logstart 1, i 14), 
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.13.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.14.gz (rotatecount 300, logstart 1, i 13), 
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.12.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.13.gz (rotatecount 300, logstart 1, i 12), 
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.11.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.12.gz (rotatecount 300, logstart 1, i 11), 
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.10.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.11.gz (rotatecount 300, logstart 1, i 10), 
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.9.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.10.gz (rotatecount 300, logstart 1, i 9), 
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.8.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.9.gz (rotatecount 300, logstart 1, i 8), 
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.7.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.8.gz (rotatecount 300, logstart 1, i 7), 
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.6.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.7.gz (rotatecount 300, logstart 1, i 6), 
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.5.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.6.gz (rotatecount 300, logstart 1, i 5), 
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.4.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.5.gz (rotatecount 300, logstart 1, i 4), 
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.3.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.4.gz (rotatecount 300, logstart 1, i 3), 
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.2.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.3.gz (rotatecount 300, logstart 1, i 2), 
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.1.gz to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.2.gz (rotatecount 300, logstart 1, i 1), 
+log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.301.gz doesn't exist -- won't try to dispose of it
+renaming /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl to /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl.1
+creating new /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl mode = 0640 uid = 65534 gid = 1000
+

@@ -1,0 +1,3 @@
+2026-11-10T23:32:37.532481+00:00 095da05f2378 systemd[1]: /run/systemd/system/cf-d5-integ-i-c-reanudacion-manual.service:5: Special user nobody configured, this is not safe!
+2026-11-10T23:32:37.534560+00:00 095da05f2378 systemd[1]: Started cf-d5-integ-i-c-reanudacion-manual.service - Integracion D5 banco (I-C-reanudacion-manual).
+2026-11-10T23:32:39.217626+00:00 095da05f2378 python3[314]: d5: no se pudo escribir el acuse (IsADirectoryError)

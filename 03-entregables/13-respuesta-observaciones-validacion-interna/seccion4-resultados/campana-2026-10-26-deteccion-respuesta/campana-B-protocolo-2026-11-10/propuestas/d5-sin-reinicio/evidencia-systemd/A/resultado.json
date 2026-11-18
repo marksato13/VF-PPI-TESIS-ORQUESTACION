@@ -1,0 +1,55 @@
+{
+ "caso": "A",
+ "criterios": {
+  "NRestarts_no_aumenta": true,
+  "journal_sin_parada_ni_arranque": true,
+  "mismo_MainPID": true,
+  "publicacion_nueva_tras_el_caso": true,
+  "una_sola_solicitud": true,
+  "unidad_activa": true
+ },
+ "limpieza": "confirmada",
+ "limpieza_via": "acuse + feed + estado + auditoría",
+ "observado": {
+  "K_fuera_del_feed_y_estado": true,
+  "MainPID": [
+   "226",
+   "226"
+  ],
+  "NRestarts": [
+   "0",
+   "0"
+  ],
+  "ficheros_del_caso": [
+   "control.json.ack",
+   "d5-auditoria.jsonl",
+   "estado.json",
+   "feed.json",
+   "feed.sig",
+   "k.pem",
+   "motor.log",
+   "traza.jsonl"
+  ],
+  "lineas_d5_en_journal": [],
+  "otras_entidades_en_feed": true,
+  "secuencia_feed": [
+   3,
+   5
+  ]
+ },
+ "operacion": {
+  "categoria": null,
+  "determinada": null,
+  "estado": "acuse",
+  "evidencia": null,
+  "incierto": false,
+  "ok": true,
+  "rc": 0,
+  "secuencia": 3
+ },
+ "rutas": {
+  "evidencia": "evidencia-systemd/A/"
+ },
+ "servicio": "PASA",
+ "unidad": "cf-d5-banco-a"
+}

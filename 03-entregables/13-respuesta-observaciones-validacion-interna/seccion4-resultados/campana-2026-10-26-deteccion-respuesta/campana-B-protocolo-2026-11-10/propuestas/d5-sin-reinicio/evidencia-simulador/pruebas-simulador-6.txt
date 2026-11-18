@@ -1,0 +1,13 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-8.3.5, pluggy-1.5.0 -- /usr/bin/python3
+rootdir: /banco
+collecting ... collected 6 items
+
+test_puerta_simulada.py::test_acuse_valido_la_puerta_simulada_libera_y_el_episodio_continua PASSED [ 16%]
+test_puerta_simulada.py::test_acuse_no_escribible_deja_el_caso_fallido_conserva_la_traza_y_no_repite PASSED [ 33%]
+test_puerta_simulada.py::test_acuse_ausente_publicador_detenido_falla_retira_el_control_y_no_repite PASSED [ 50%]
+test_puerta_simulada.py::test_evidencia_indeterminada_queda_fallida_con_traza_y_sin_solicitud_nueva PASSED [ 66%]
+test_puerta_simulada.py::test_solo_una_reanudacion_manual_permite_otra_solicitud_y_con_id_distinto PASSED [ 83%]
+test_puerta_simulada.py::test_hallazgo_el_cableado_ingenuo_repite_la_solicitud_con_id_nuevo_en_cada_turno PASSED [100%]
+
+============================== 6 passed in 10.80s ==============================

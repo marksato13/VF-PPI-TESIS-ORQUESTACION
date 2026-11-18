@@ -1,0 +1,5 @@
+python3 -u /home/adminatacante/cf-campana-A/scripts-4c-i/generar_campana_b.py --permiso-por-episodio --config /home/adminatacante/cf-campana-A/escenarios/escenarios-4c-i.json --salida-dir /home/adminatacante/cf-e4-4c/corrida --autorizado --permiso /home/adminatacante/cf-e4-4c/permiso.json --nonce 4c-20261111T051928Z-2eb2f728a738
+2026-11-11T05:19:38.662Z
+2026-11-11T06:08:28.699Z
+3
+{"nonce": "4c-20261111T051928Z-2eb2f728a738", "estado": "cancelar", "causas": ["cancelada por decision de Mark: puerta D5 bloqueada tras el episodio 6 (descartes_limite residual); reversion del runbook"], "secuencia": 999, "emitido_epoch": 1794377306.3122613, "valido_hasta_epoch": 1794380906.3122613, "vigia": "2026-11-06.1+B-ntp"}

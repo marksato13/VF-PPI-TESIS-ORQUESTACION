@@ -1,0 +1,21 @@
+##### srvdmz srv-dmz adminsrvdmz 2026-11-11T03:23:10Z
+OK: paquete íntegro
+--- ANTES
+ls: cannot access '/home/adminsrvdmz/cf-b/instrumentacion': No such file or directory
+--- instalar (aplicar)
+== srvdmz: instalar instrumentación (aplicar=1)
+iniciar: cf_d5_instrumentacion.sh srvdmz iniciar --aplicar   |   parar: cf_d5_instrumentacion.sh srvdmz parar --aplicar
+rc=0
+--- aceptar
+== srvdmz: aceptación
+OK    artefactos = SHA256SUMS
+OK    instalado muestreador_set.py = paquete
+OK    muestreador_set.py 0755
+OK    el muestreador arranca (--help)
+resumen: 4 OK, 0 FALLAN
+rc=0
+--- DESPUÉS (modo y hash)
+755 /home/adminsrvdmz/cf-b/instrumentacion/muestreador_set.py
+410759c2cb6a9750025e409f63e725312211c54e6bbde687ca1ca030cd7f0bdb  /home/adminsrvdmz/cf-b/instrumentacion/muestreador_set.py
+--- no se arrancó ningún proceso
+(vacío = ninguno)

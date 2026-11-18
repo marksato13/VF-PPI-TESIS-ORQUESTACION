@@ -1,0 +1,161 @@
+{
+ "acuse_lr1": {
+  "duplicada": false,
+  "estado": "acuse",
+  "id": "lr-1",
+  "ok": true,
+  "quitado": {
+   "escalada": [
+    "10.10.20.30@srv-dmz"
+   ],
+   "vigentes": [
+    "10.10.20.30|srv-dmz|todo"
+   ]
+  },
+  "rc": 0,
+  "secuencia": 2
+ },
+ "acuse_lr3": {
+  "duplicada": false,
+  "estado": "acuse",
+  "id": "lr-3",
+  "ok": true,
+  "quitado": {
+   "escalada": [],
+   "vigentes": []
+  },
+  "rc": 0,
+  "secuencia": 3
+ },
+ "lector_intruso": {
+  "diagnostico": {
+   "categoria": "indeterminada",
+   "determinada": false,
+   "generaciones_del_id": null,
+   "motivo": "auditoría ausente",
+   "publicacion": "publicación sin confirmar",
+   "secuencia_publicada": null,
+   "trazabilidad": "incompleta"
+  },
+  "generaciones": [],
+  "gid": 65534,
+  "grupos": [],
+  "listado_directorio": "PermissionError",
+  "uid": 1001
+ },
+ "lector_lr1_con_gz": {
+  "diagnostico": {
+   "categoria": "consumida_y_publicada",
+   "determinada": true,
+   "generaciones_del_id": [
+    "d5-auditoria.jsonl.1",
+    "d5-auditoria.jsonl.2.gz"
+   ],
+   "motivo": null,
+   "publicacion": "confirmada",
+   "secuencia_publicada": 2,
+   "trazabilidad": "completa"
+  },
+  "generaciones": [
+   {
+    "error": null,
+    "ilegibles": 0,
+    "lineas": 0,
+    "ruta": "d5-auditoria.jsonl"
+   },
+   {
+    "error": null,
+    "ilegibles": 0,
+    "lineas": 1,
+    "ruta": "d5-auditoria.jsonl.1"
+   },
+   {
+    "error": null,
+    "ilegibles": 0,
+    "lineas": 1,
+    "ruta": "d5-auditoria.jsonl.2.gz"
+   }
+  ],
+  "gid": 1000,
+  "grupos": [],
+  "listado_directorio": "OK",
+  "uid": 1000
+ },
+ "lector_lr1_tras_rotacion1": {
+  "diagnostico": {
+   "categoria": "consumida_y_publicada",
+   "determinada": true,
+   "generaciones_del_id": [
+    "d5-auditoria.jsonl",
+    "d5-auditoria.jsonl.1"
+   ],
+   "motivo": null,
+   "publicacion": "confirmada",
+   "secuencia_publicada": 2,
+   "trazabilidad": "completa"
+  },
+  "generaciones": [
+   {
+    "error": null,
+    "ilegibles": 0,
+    "lineas": 1,
+    "ruta": "d5-auditoria.jsonl"
+   },
+   {
+    "error": null,
+    "ilegibles": 0,
+    "lineas": 1,
+    "ruta": "d5-auditoria.jsonl.1"
+   }
+  ],
+  "gid": 1000,
+  "grupos": [],
+  "listado_directorio": "OK",
+  "probar_escritura": {
+   "anexar": "PermissionError",
+   "borrar": "PermissionError",
+   "crear_en_directorio": "PermissionError",
+   "renombrar": "PermissionError",
+   "ruta": "d5-auditoria.jsonl"
+  },
+  "uid": 1000
+ },
+ "lector_lr3": {
+  "diagnostico": {
+   "categoria": "consumida_y_publicada",
+   "determinada": true,
+   "generaciones_del_id": [
+    "d5-auditoria.jsonl"
+   ],
+   "motivo": null,
+   "publicacion": "confirmada",
+   "secuencia_publicada": 3,
+   "trazabilidad": "completa"
+  },
+  "generaciones": [
+   {
+    "error": null,
+    "ilegibles": 0,
+    "lineas": 2,
+    "ruta": "d5-auditoria.jsonl"
+   },
+   {
+    "error": null,
+    "ilegibles": 0,
+    "lineas": 1,
+    "ruta": "d5-auditoria.jsonl.1"
+   },
+   {
+    "error": null,
+    "ilegibles": 0,
+    "lineas": 1,
+    "ruta": "d5-auditoria.jsonl.2.gz"
+   }
+  ],
+  "gid": 1000,
+  "grupos": [],
+  "listado_directorio": "OK",
+  "uid": 1000
+ },
+ "solicitudes_lr1": 1
+}

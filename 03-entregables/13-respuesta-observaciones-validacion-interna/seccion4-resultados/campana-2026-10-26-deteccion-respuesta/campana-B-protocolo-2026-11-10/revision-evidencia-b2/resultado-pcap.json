@@ -1,0 +1,550 @@
+{
+ "cobertura_segundos_con_captura": 2093,
+ "episodios": [
+  {
+   "E1_pcap": {
+    "destino_y_servicio": "srv-dmz TCP/80",
+    "motivo": "hay paquetes de la Kali al destino dentro de la ventana de evidencia y del episodio",
+    "paquetes_kali_en_[inicio,fin]": 61991,
+    "paquetes_kali_en_[ventana_evidencia_e_episodio]": 24677,
+    "paquetes_kali_en_ventana_antes_del_inicio": 0,
+    "resultado": "verificado"
+   },
+   "E3_pcap": {
+    "analizador": "indeterminado",
+    "b0_aceptadas_por_s": null,
+    "continuidad_de_intentos": {
+     "criterio_escrito": "SYN de la Kali >= 50 % de B0 durante 5 bloques tras t_apl",
+     "cumple_criterio_escrito": false,
+     "intentos_generador_total_salida": 4181,
+     "salida_resuelta_en_el_tiempo": false,
+     "syn_antes_de_la_regla": 5708,
+     "syn_con_regla": 3017,
+     "syn_por_iteracion_total": 2.09,
+     "syn_posterior_media_por_s": 38.0,
+     "syn_total_en_el_episodio": 8725,
+     "umbral_syn_por_s": 156.4
+    },
+    "huecos_del_espejo_en_el_episodio": 0.0,
+    "motivo": "I2 el generador no siguió intentando 5 bloques tras t_apl",
+    "primer_descarte_host_menos_t_inicio": null,
+    "reduccion_aceptadas": {
+     "b0_por_s": 312.8,
+     "posterior_media_por_s": 32.4,
+     "reduccion_pct": 89.6
+    },
+    "resultado": "indeterminado",
+    "resumen_series": {
+     "posterior_media": 32.4,
+     "posterior_mediana": 32,
+     "previo_10s_media": 312.8,
+     "syn_posterior_media": 38.0
+    },
+    "t_apl_menos_t_inicio": 19.17,
+    "t_efecto_menos_t_inicio": null
+   },
+   "E4_pcap": {
+    "clientes": [
+     "10.10.20.21",
+     "10.10.20.22",
+     "10.10.20.23",
+     "10.10.20.24",
+     "10.10.20.25",
+     "10.10.20.26"
+    ],
+    "codigos": {
+     "200": 308,
+     "201": 14,
+     "401": 2,
+     "404": 3,
+     "500": 13
+    },
+    "completas_ok": 303,
+    "con_codigo_http": 340,
+    "fallos_con_restriccion_activa": 25,
+    "fallos_de_la_ip_restringida": 0,
+    "nota": "las restricciones se aplicaron solo a 10.10.20.30 (traza del agente): ningún cliente fue restringido",
+    "sin_completar_o_error": 37,
+    "transacciones_cliente": 340,
+    "ventana": [
+     -60.0,
+     180.1
+    ]
+   },
+   "E4_pcap_desglose": {
+    "antes_de_la_regla": {
+     "http5xx": 5,
+     "ok": 108,
+     "rst": 5,
+     "sin_synack": 2,
+     "total": 120
+    },
+    "con_regla_activa_o_posterior": {
+     "http5xx": 8,
+     "ok": 195,
+     "rst": 13,
+     "sin_synack": 4,
+     "total": 220
+    }
+   },
+   "clase_salud": "C3 (se conserva)",
+   "episodio": "inundacion_http-r4",
+   "familia": "inundacion_http"
+  },
+  {
+   "E1_pcap": {
+    "destino_y_servicio": "srv-dmz TCP/18081",
+    "motivo": "hay paquetes de la Kali al destino dentro de la ventana de evidencia y del episodio",
+    "paquetes_kali_en_[inicio,fin]": 6030,
+    "paquetes_kali_en_[ventana_evidencia_e_episodio]": 911,
+    "paquetes_kali_en_ventana_antes_del_inicio": 0,
+    "resultado": "verificado"
+   },
+   "E3_pcap": {
+    "analizador": "cumple",
+    "b0_aceptadas_por_s": null,
+    "continuidad_de_intentos": {
+     "criterio_escrito": "SYN de la Kali >= 50 % de B0 durante 3 bloques tras t_apl",
+     "intentos_generador_total_salida": 593,
+     "salida_resuelta_en_el_tiempo": false,
+     "syn_antes_de_la_regla": 988,
+     "syn_con_regla": 280,
+     "syn_por_iteracion_total": 2.14,
+     "syn_total_en_el_episodio": 1268,
+     "umbral_syn_por_s": null
+    },
+    "huecos_del_espejo_en_el_episodio": -0.011,
+    "motivo": "efecto sostenido 3 bloques",
+    "primer_descarte_host_menos_t_inicio": 8.07,
+    "resultado": "verificado",
+    "resumen_series": {
+     "posterior_media": 0.0,
+     "posterior_mediana": 0,
+     "previo_10s_media": 526.1,
+     "syn_posterior_media": 2.0
+    },
+    "t_apl_menos_t_inicio": 7.99,
+    "t_efecto_menos_t_inicio": 8.2
+   },
+   "E4_pcap": {
+    "clientes": [
+     "10.10.20.21",
+     "10.10.20.22",
+     "10.10.20.23",
+     "10.10.20.24",
+     "10.10.20.25",
+     "10.10.20.26"
+    ],
+    "codigos": {
+     "200": 272,
+     "201": 22,
+     "401": 2,
+     "404": 2,
+     "500": 12
+    },
+    "completas_ok": 257,
+    "con_codigo_http": 310,
+    "fallos_con_restriccion_activa": 48,
+    "fallos_de_la_ip_restringida": 0,
+    "nota": "las restricciones se aplicaron solo a 10.10.20.30 (traza del agente): ningún cliente fue restringido",
+    "sin_completar_o_error": 57,
+    "transacciones_cliente": 314,
+    "ventana": [
+     -60.0,
+     180.9
+    ]
+   },
+   "E4_pcap_desglose": {
+    "antes_de_la_regla": {
+     "http5xx": 4,
+     "ok": 72,
+     "rst": 2,
+     "sin_synack": 3,
+     "total": 81
+    },
+    "con_regla_activa_o_posterior": {
+     "http5xx": 8,
+     "ok": 185,
+     "rst": 15,
+     "sin_synack": 25,
+     "total": 233
+    }
+   },
+   "clase_salud": "C3 (se conserva)",
+   "episodio": "fuerza_bruta_http-r4",
+   "familia": "fuerza_bruta_http"
+  },
+  {
+   "E1_pcap": {
+    "destino_y_servicio": "DC1 UDP/53 (cualquier paquete Kali<->DC1)",
+    "motivo": "hay paquetes de la Kali al destino dentro de la ventana de evidencia y del episodio",
+    "paquetes_kali_en_[inicio,fin]": 832,
+    "paquetes_kali_en_[ventana_evidencia_e_episodio]": 192,
+    "paquetes_kali_en_ventana_antes_del_inicio": 0,
+    "resultado": "verificado"
+   },
+   "E3_pcap": {
+    "motivo": "DNS: sin punto de aplicación",
+    "resultado": "no evaluado"
+   },
+   "E4_pcap": {
+    "clientes": [
+     "10.10.20.21",
+     "10.10.20.22",
+     "10.10.20.23",
+     "10.10.20.24",
+     "10.10.20.25",
+     "10.10.20.26"
+    ],
+    "codigos": {
+     "200": 273,
+     "201": 18,
+     "401": 1,
+     "404": 2,
+     "500": 12
+    },
+    "completas_ok": 281,
+    "con_codigo_http": 306,
+    "fallos_con_restriccion_activa": null,
+    "fallos_de_la_ip_restringida": 0,
+    "nota": "las restricciones se aplicaron solo a 10.10.20.30 (traza del agente): ningún cliente fue restringido",
+    "sin_completar_o_error": 27,
+    "transacciones_cliente": 308,
+    "ventana": [
+     -60.0,
+     179.6
+    ]
+   },
+   "E4_pcap_desglose": {
+    "sin_regla_en_el_episodio": {
+     "http5xx": 12,
+     "ok": 281,
+     "rst": 11,
+     "sin_synack": 4,
+     "total": 308
+    }
+   },
+   "clase_salud": "C3 (se conserva)",
+   "episodio": "dns_inusual-r1",
+   "familia": "dns_inusual"
+  },
+  {
+   "E1_pcap": {
+    "destino_y_servicio": "srv-dmz TCP/18081",
+    "motivo": "hay paquetes de la Kali al destino dentro de la ventana de evidencia y del episodio",
+    "paquetes_kali_en_[inicio,fin]": 6500,
+    "paquetes_kali_en_[ventana_evidencia_e_episodio]": 518,
+    "paquetes_kali_en_ventana_antes_del_inicio": 0,
+    "resultado": "verificado"
+   },
+   "E3_pcap": {
+    "analizador": "cumple",
+    "b0_aceptadas_por_s": null,
+    "continuidad_de_intentos": {
+     "criterio_escrito": "SYN de la Kali >= 50 % de B0 durante 3 bloques tras t_apl",
+     "intentos_generador_total_salida": 639,
+     "salida_resuelta_en_el_tiempo": false,
+     "syn_antes_de_la_regla": 1084,
+     "syn_con_regla": 276,
+     "syn_por_iteracion_total": 2.13,
+     "syn_total_en_el_episodio": 1360,
+     "umbral_syn_por_s": null
+    },
+    "huecos_del_espejo_en_el_episodio": 0.0,
+    "motivo": "efecto sostenido 3 bloques",
+    "primer_descarte_host_menos_t_inicio": 8.61,
+    "resultado": "verificado",
+    "resumen_series": {
+     "posterior_media": 0.0,
+     "posterior_mediana": 0,
+     "previo_10s_media": 572.6,
+     "syn_posterior_media": 2.0
+    },
+    "t_apl_menos_t_inicio": 8.52,
+    "t_efecto_menos_t_inicio": 8.7
+   },
+   "E4_pcap": {
+    "clientes": [
+     "10.10.20.21",
+     "10.10.20.22",
+     "10.10.20.23",
+     "10.10.20.24",
+     "10.10.20.25",
+     "10.10.20.26"
+    ],
+    "codigos": {
+     "200": 289,
+     "201": 24,
+     "404": 1,
+     "500": 9
+    },
+    "completas_ok": 291,
+    "con_codigo_http": 323,
+    "fallos_con_restriccion_activa": 25,
+    "fallos_de_la_ip_restringida": 0,
+    "nota": "las restricciones se aplicaron solo a 10.10.20.30 (traza del agente): ningún cliente fue restringido",
+    "sin_completar_o_error": 34,
+    "transacciones_cliente": 325,
+    "ventana": [
+     -60.0,
+     181.4
+    ]
+   },
+   "E4_pcap_desglose": {
+    "antes_de_la_regla": {
+     "http5xx": 4,
+     "ok": 87,
+     "rst": 4,
+     "sin_synack": 1,
+     "total": 96
+    },
+    "con_regla_activa_o_posterior": {
+     "http5xx": 5,
+     "ok": 204,
+     "rst": 8,
+     "sin_synack": 12,
+     "total": 229
+    }
+   },
+   "clase_salud": "C3 (se conserva)",
+   "episodio": "fuerza_bruta_http-r3",
+   "familia": "fuerza_bruta_http"
+  },
+  {
+   "E1_pcap": {
+    "destino_y_servicio": "DC1 UDP/53 (cualquier paquete Kali<->DC1)",
+    "motivo": "hay paquetes de la Kali al destino dentro de la ventana de evidencia y del episodio",
+    "paquetes_kali_en_[inicio,fin]": 832,
+    "paquetes_kali_en_[ventana_evidencia_e_episodio]": 180,
+    "paquetes_kali_en_ventana_antes_del_inicio": 0,
+    "resultado": "verificado"
+   },
+   "E3_pcap": {
+    "motivo": "DNS: sin punto de aplicación",
+    "resultado": "no evaluado"
+   },
+   "E4_pcap": {
+    "clientes": [
+     "10.10.20.21",
+     "10.10.20.22",
+     "10.10.20.23",
+     "10.10.20.24",
+     "10.10.20.25",
+     "10.10.20.26"
+    ],
+    "codigos": {
+     "200": 292,
+     "201": 15,
+     "401": 5,
+     "404": 3,
+     "500": 11
+    },
+    "completas_ok": 285,
+    "con_codigo_http": 326,
+    "fallos_con_restriccion_activa": null,
+    "fallos_de_la_ip_restringida": 0,
+    "nota": "las restricciones se aplicaron solo a 10.10.20.30 (traza del agente): ningún cliente fue restringido",
+    "sin_completar_o_error": 47,
+    "transacciones_cliente": 332,
+    "ventana": [
+     -60.0,
+     179.6
+    ]
+   },
+   "E4_pcap_desglose": {
+    "sin_regla_en_el_episodio": {
+     "http5xx": 11,
+     "ok": 285,
+     "rst": 19,
+     "sin_synack": 17,
+     "total": 332
+    }
+   },
+   "clase_salud": "C3 (se conserva)",
+   "episodio": "dns_inusual-r3",
+   "familia": "dns_inusual"
+  },
+  {
+   "E1_pcap": {
+    "destino_y_servicio": "srv-dmz TCP/80",
+    "motivo": "hay paquetes de la Kali al destino dentro de la ventana de evidencia y del episodio",
+    "paquetes_kali_en_[inicio,fin]": 55024,
+    "paquetes_kali_en_[ventana_evidencia_e_episodio]": 21228,
+    "paquetes_kali_en_ventana_antes_del_inicio": 0,
+    "resultado": "verificado"
+   },
+   "E3_pcap": {
+    "analizador": "indeterminado",
+    "b0_aceptadas_por_s": null,
+    "continuidad_de_intentos": {
+     "criterio_escrito": "SYN de la Kali >= 50 % de B0 durante 5 bloques tras t_apl",
+     "cumple_criterio_escrito": false,
+     "intentos_generador_total_salida": 3665,
+     "salida_resuelta_en_el_tiempo": false,
+     "syn_antes_de_la_regla": 4606,
+     "syn_con_regla": 3146,
+     "syn_por_iteracion_total": 2.12,
+     "syn_posterior_media_por_s": 38.4,
+     "syn_total_en_el_episodio": 7752,
+     "umbral_syn_por_s": 157.6
+    },
+    "huecos_del_espejo_en_el_episodio": 0.0,
+    "motivo": "I2 el generador no siguió intentando 5 bloques tras t_apl",
+    "primer_descarte_host_menos_t_inicio": null,
+    "reduccion_aceptadas": {
+     "b0_por_s": 315.2,
+     "posterior_media_por_s": 32.2,
+     "reduccion_pct": 89.8
+    },
+    "resultado": "indeterminado",
+    "resumen_series": {
+     "posterior_media": 32.2,
+     "posterior_mediana": 32,
+     "previo_10s_media": 315.2,
+     "syn_posterior_media": 38.4
+    },
+    "t_apl_menos_t_inicio": 15.4,
+    "t_efecto_menos_t_inicio": null
+   },
+   "E4_pcap": {
+    "clientes": [
+     "10.10.20.21",
+     "10.10.20.22",
+     "10.10.20.23",
+     "10.10.20.24",
+     "10.10.20.25",
+     "10.10.20.26"
+    ],
+    "codigos": {
+     "200": 269,
+     "201": 26,
+     "401": 2,
+     "404": 2,
+     "500": 3
+    },
+    "completas_ok": 275,
+    "con_codigo_http": 302,
+    "fallos_con_restriccion_activa": 16,
+    "fallos_de_la_ip_restringida": 0,
+    "nota": "las restricciones se aplicaron solo a 10.10.20.30 (traza del agente): ningún cliente fue restringido",
+    "sin_completar_o_error": 27,
+    "transacciones_cliente": 302,
+    "ventana": [
+     -60.0,
+     180.6
+    ]
+   },
+   "E4_pcap_desglose": {
+    "antes_de_la_regla": {
+     "ok": 88,
+     "rst": 8,
+     "sin_synack": 3,
+     "total": 99
+    },
+    "con_regla_activa_o_posterior": {
+     "http5xx": 3,
+     "ok": 187,
+     "rst": 8,
+     "sin_synack": 5,
+     "total": 203
+    }
+   },
+   "clase_salud": "C3 (se conserva)",
+   "episodio": "inundacion_http-r3",
+   "familia": "inundacion_http"
+  }
+ ],
+ "fuente": "pcap 503 ficheros (hashes OK) + evidencia-local",
+ "kali_top": [
+  [
+   [
+    "10.10.20.30",
+    "10.10.30.10",
+    6,
+    80
+   ],
+   117021
+  ],
+  [
+   [
+    "10.10.30.10",
+    "10.10.20.30",
+    6,
+    80
+   ],
+   79526
+  ],
+  [
+   [
+    "10.10.20.30",
+    "10.10.30.10",
+    6,
+    18081
+   ],
+   12530
+  ],
+  [
+   [
+    "10.10.30.10",
+    "10.10.20.30",
+    6,
+    18081
+   ],
+   12202
+  ],
+  [
+   [
+    "10.10.20.30",
+    "10.10.10.20",
+    17,
+    53
+   ],
+   832
+  ],
+  [
+   [
+    "10.10.10.20",
+    "10.10.20.30",
+    17,
+    53
+   ],
+   832
+  ],
+  [
+   [
+    "10.10.10.30",
+    "10.10.20.30",
+    6,
+    60482
+   ],
+   718
+  ],
+  [
+   [
+    "10.10.20.30",
+    "10.10.10.30",
+    6,
+    60482
+   ],
+   640
+  ],
+  [
+   [
+    "10.10.20.30",
+    "200.25.3.17",
+    17,
+    123
+   ],
+   1
+  ],
+  [
+   [
+    "200.25.3.17",
+    "10.10.20.30",
+    17,
+    123
+   ],
+   1
+  ]
+ ]
+}

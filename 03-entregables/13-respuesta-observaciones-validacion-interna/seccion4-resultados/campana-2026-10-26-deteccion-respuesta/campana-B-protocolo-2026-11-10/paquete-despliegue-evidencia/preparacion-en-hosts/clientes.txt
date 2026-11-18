@@ -1,0 +1,26 @@
+##### clientes: clientesadmin 2026-11-11T01:09:10Z
+--- 1. hashes
+OK: artefactos = SHA256SUMS
+--- 2. modo SECO instalar y revertir
+== clientes: instalar instrumentación (aplicar=0)
+[seco] mkdir -p /home/adminclientes/cf-b/instrumentacion
+[seco] install -m 0755 /home/adminclientes/cf-b/paquete-despliegue/clientes_factor1_tx.py /home/adminclientes/cf-b/instrumentacion/clientes_factor1_tx.py
+Mark: arrancar cada perfil con: python3 /home/adminclientes/cf-b/instrumentacion/clientes_factor1_tx.py --registro ~/cf-e4/4c/transacciones-<perfil>.tsv --perfil <p> --origen <ip> --servidor 10.10.30.10 --dns 10.10.10.20
+rc=0
+== clientes: revertir instrumentación (aplicar=0) — los registros temporales se archivan con hash, no se borran
+[seco] mkdir -p /home/adminclientes/cf-b/respaldo-d5
+los ficheros intentos-*.tsv / transacciones-*.tsv / set-lecturas.jsonl se mueven a un directorio con sufijo y sha256 (no se borran)
+rc=0
+--- 3. aceptar (solo lectura; sin instalar se espera FALLA)
+  File "<string>", line 1, in <module>
+FileNotFoundError: [Errno 2] No such file or directory: '/home/adminclientes/cf-b/instrumentacion/clientes_factor1_tx.py'
+FALLA sintaxis del envoltorio de clientes
+resumen: 1 OK, 3 FALLAN
+--- 4. compatibilidad del artefacto con el host (sin escribir)
+sintaxis OK (Python 3.12.3)
+clientes_lab importa; Cliente._http: True ; PERFILES: ['aplicacion', 'descargas', 'erratico', 'ligero', 'navegacion', 'ofimatica']
+HTTPConnection.getresponse: True
+ae5134a778e66d90f5c3fbcd47323e328f3422cf4ba8d5197649f402c1d4cdc3
+--- 5. nada nuevo fuera del paquete
+paquete-despliegue
+ls: cannot access '/home/adminclientes/cf-b/instrumentacion': No such file or directory

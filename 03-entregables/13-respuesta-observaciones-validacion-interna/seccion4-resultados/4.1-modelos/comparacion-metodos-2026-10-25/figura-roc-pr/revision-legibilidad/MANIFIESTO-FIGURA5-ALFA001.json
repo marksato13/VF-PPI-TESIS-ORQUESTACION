@@ -1,0 +1,64 @@
+{
+  "generado_utc": "2026-11-12T12:56:06.208215+00:00",
+  "proposito": "Figura 5 (curvas completas ROC y PR) con los puntos operativos de alfa=0,01. Curvas, puntuaciones, umbrales y procedimiento sin cambios; principal.*, ampliacion.*, tablas y Word intactos.",
+  "entradas_verificadas_sha256": {
+    "curvas-roc.csv": "08ebcd74e084efc6348e6c56e7b336a40a2edbbeedfa89898589ff2c76ecb4a8",
+    "curvas-pr.csv": "e760a2a1249d54b6776df5ae2daebc0d73e0407ff4490fdb9146b5b592b9ef2f",
+    "puntos.csv": "0d26e881fec105bc071f5ffb9e474f77e004c604f1e32ac200877f7e24e98220",
+    "salidas/puntuaciones-IF.csv.gz": "536638f47145a8c86d17ba63f7ebf4a2cc3aca2a8294f9ff6d57d8d4ee795fd4",
+    "salidas/puntuaciones-OCSVM.csv.gz": "f8a3c19c32141182ed3920f9553a7539017490362491513ed40d8195d889da41",
+    "salidas/puntuaciones-LOF.csv.gz": "b33a6875247828f30185046c01558ae436889509b1b92ee3180c3f047b7e7465",
+    "salidas/puntuaciones-EllipticEnvelope.csv.gz": "3de4f17c61b0f47d6b3b6d45fb9a53e2e95a6375031f334d78b2a366c290f0e9",
+    "salidas/puntuaciones-PCA.csv.gz": "132b5b1c494967efb8df7ee30d3c4d9cf8469ce9ac926ca41252654742aa133c"
+  },
+  "alfa_0.01_conteos_reproducidos": {
+    "IF": {
+      "TP": 50,
+      "FP": 567,
+      "TN": 64854,
+      "FN": 34
+    },
+    "OCSVM": {
+      "TP": 57,
+      "FP": 708,
+      "TN": 64713,
+      "FN": 27
+    },
+    "LOF": {
+      "TP": 36,
+      "FP": 975,
+      "TN": 64446,
+      "FN": 48
+    },
+    "EllipticEnvelope": {
+      "TP": 40,
+      "FP": 570,
+      "TN": 64851,
+      "FN": 44
+    },
+    "PCA": {
+      "TP": 67,
+      "FP": 825,
+      "TN": 64596,
+      "FN": 17
+    }
+  },
+  "render": {
+    "png_dpi": 599.9988,
+    "png_size": [
+      4251,
+      2362
+    ],
+    "size_cm": [
+      18,
+      10.0
+    ]
+  },
+  "salidas_sha256_lf": {
+    "figura5-alfa001.png": "ccbadfc3461f3e6e46215cf615c718ba15edaf59496709c53fe224374538a12d",
+    "figura5-alfa001.svg": "1e9df44e04ee0e7a10932f1f8b6020ef1fb0b5391acef462cb9898a31fe0264f",
+    "figura5-alfa001.pdf": "164aaec9af679098043c6da54da56f86cbd7c1244f7482575a3388b463822a53",
+    "figura5-alfa001-puntos.csv": "e61ae9f993369debf2dc168c7a0c20b53d8757e238f7ddc075d8efe396709e60",
+    "figura5_alfa001.py": "e8c44ac44cb2b7a6cd8d3596bd60bace2fda4816726cac9a330f0dbe08c01d10"
+  }
+}

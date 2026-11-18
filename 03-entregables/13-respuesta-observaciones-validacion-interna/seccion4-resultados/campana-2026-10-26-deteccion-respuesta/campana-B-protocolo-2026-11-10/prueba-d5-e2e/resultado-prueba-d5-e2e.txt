@@ -1,0 +1,55 @@
+##### prueba D5 e2e 2026-11-11T03:13:34Z  ID=8808ef6d581b45d1af0cd0e8eed44be4  origen=10.10.20.30
+=== A. ANTES (lectura)
+PID=2115304
+NR=0
+AE=Wed 2026-11-11 03:05:25 UTC
+FEEDSEQ=26128
+FEEDKALI=0
+VIGENTES=0 seq 26128
+CTL=ausente
+ACKFILE=ausente
+N_SOL=0
+ACK=
+SOL=
+AUDFILES=
+AUDTOTAL=0
+FIRMA=Signature Verified Successfully
+AUDMODE=
+Kali en el feed antes: 0 entradas (0 = ya estaba limpia)
+=== B. UN SOLO solicitar  (2026-11-11T03:13:34Z)
+rc=0  respuesta: {"estado": "recibida", "id": "8808ef6d581b45d1af0cd0e8eed44be4", "ok": true}
+=== C. espera del acuse (solo 'resultado'; hasta 150 s)
+t+1s estado=acuse  {"duplicada": false, "estado": "acuse", "id": "8808ef6d581b45d1af0cd0e8eed44be4", "ok": true, "quitado": {"escalada": [], "vigentes": []}, "secuencia": 26129}
+resultado final: {"duplicada": false, "estado": "acuse", "id": "8808ef6d581b45d1af0cd0e8eed44be4", "ok": true, "quitado": {"escalada": [], "vigentes": []}, "secuencia": 26129}
+=== D. DESPUÉS (lectura)
+PID=2115304
+NR=0
+AE=Wed 2026-11-11 03:05:25 UTC
+FEEDSEQ=26130
+FEEDKALI=0
+VIGENTES=0 seq 26130
+CTL=ausente
+ACKFILE=presente
+N_SOL=1
+ACK={"duplicada": false, "id": "8808ef6d581b45d1af0cd0e8eed44be4", "ok": true, "quitado": {"escalada": [], "vigentes": []}, "secuencia": 26129, "t": 1794366815.0131185}
+SOL={"id": "8808ef6d581b45d1af0cd0e8eed44be4", "origen": "10.10.20.30", "recibida_en": 1794366815.010848}
+AUDFILES=d5-auditoria.jsonl
+AUD={"duplicada": false, "evento": "consumido", "id": "8808ef6d581b45d1af0cd0e8eed44be4", "ok": true, "quitado": {"escalada": [], "vigentes": []}, "t": 1794366815.0131185}
+AUD={"evento": "publicado", "id": "8808ef6d581b45d1af0cd0e8eed44be4", "secuencia": 26129, "t": 1794366815.0228193}
+AUDTOTAL=2
+FIRMA=Signature Verified Successfully
+AUDMODE=644 m4rk
+=== E. comprobaciones
+OK    acuse recibido con el MISMO id
+OK    acuse: ok=True, id igual, duplicada=False, quitado={'escalada': [], 'vigentes': []}, secuencia=26129
+OK    auditoría con el mismo id: consumido=1 publicado=1 ack_fallido=0 (se exige 1/1/0)
+OK    secuencia de la auditoría (26129) = secuencia del acuse (26129)
+OK    feed posterior: secuencia 26130 > previa 26128 y >= acuse 26129
+OK    firma ed25519 del feed posterior: Signature Verified Successfully
+OK    feed sin entradas de Kali tras el acuse (0)
+OK    control consumido (control.json ausente)
+OK    registro de la solicitud presente (N_SOL=1)
+OK    PID continuo (2115304 -> 2115304)
+OK    NRestarts continuo (0 -> 0)
+auditoría: fichero d5-auditoria.jsonl modo 644 m4rk, 2 líneas en total
+##### resumen: 11 OK, 0 FALLAN  (ID=8808ef6d581b45d1af0cd0e8eed44be4)

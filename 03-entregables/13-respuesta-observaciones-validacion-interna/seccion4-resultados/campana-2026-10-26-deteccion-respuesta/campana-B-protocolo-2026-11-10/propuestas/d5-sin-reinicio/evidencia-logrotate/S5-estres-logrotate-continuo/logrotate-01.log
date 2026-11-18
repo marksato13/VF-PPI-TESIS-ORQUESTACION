@@ -1,0 +1,17 @@
+rc=0
+--- stdout
+
+--- stderr
+reading config file /etc/d5lr/S5-estres-logrotate-continuo.conf
+Creating stub state file: /var/tmp/d5lr/S5-estres-logrotate-continuo/logrotate.state
+acquired lock on state file /var/tmp/d5lr/S5-estres-logrotate-continuo/logrotate.state
+Reading state from file: /var/tmp/d5lr/S5-estres-logrotate-continuo/logrotate.state
+Allocating hash table for state file, size 64 entries
+
+Handling 1 logs
+
+rotating pattern: /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl forced from command line empty log files are not rotated, (300 rotations), old logs are removed
+considering log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl
+  log /var/tmp/d5lr/S5-estres-logrotate-continuo/aud/d5-auditoria.jsonl does not exist -- skipping
+Creating new state
+

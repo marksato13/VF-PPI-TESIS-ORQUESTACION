@@ -1,0 +1,35 @@
+##### preflight nueva corrida D5 (espera de fin = 75 s) 2026-11-11T03:15:58Z
+=== 1. D5 activo y aceptado en el Sensor1
+OK        publicador en marcha con --control-d5 --d5-origen 10.10.20.30 --d5-auditoria
+OK        publicador: sin --aplicar, política if_senal (sombra del publicador)
+   PID/NRestarts/inicio: MainPID=2115304 NRestarts=0 ActiveEnterTimestamp=Wed 2026-11-11 03:05:25 UTC
+OK        prueba E2E de D5 registrada (acuse + auditoría con el mismo id)
+OK        sin control, ni solicitudes pendientes (control.json ausente)
+=== 2. srv-dmz en sombra, sin generadores ni campaña
+   agente (PID/NR, nº --aplicar), brute-lab: 815326/0 0 inactive
+OK        agente de srv-dmz sin --aplicar
+OK        ppi-brute-lab inactivo
+OK        Kali sin generadores (0)
+OK        bastión sin orquestador, compuerta, vigía ni lanzador (0)
+OK        sin carpeta ~/cf-e4/4c viva en el bastión
+=== 3. relojes (|desfase| <= 1 s respecto del bastión; u = RTT/2 de la medición)
+   sensor1  desfase +0.172 s  u=0.164 s (mejor de 5, RTT mínimo)  OK
+   kali     desfase +0.094 s  u=0.087 s (mejor de 5, RTT mínimo)  OK
+   srvdmz   desfase +0.159 s  u=0.165 s (mejor de 5, RTT mínimo)  OK
+   clientes desfase +0.184 s  u=0.170 s (mejor de 5, RTT mínimo)  OK
+OK        los 4 hosts dentro de 1 s
+=== 4. herramientas del bastión para D5 sin reinicio (cf_d5_bastion.sh instalar)
+PENDIENTE bastión ~/cf-b/herramientas/transporte_bastion.py
+PENDIENTE bastión ~/cf-b/herramientas/lanzador_puerta_banco.py
+PENDIENTE bastión ~/cf-b/herramientas/hacer_d5_episodio_banco.py
+PENDIENTE bastión ~/cf-b/herramientas/d5_episodio_banco.py
+OK        clave dedicada y known_hosts_d5 presentes
+=== 5. instrumentación de E3/E4 (cf_d5_instrumentacion.sh ... instalar)
+PENDIENTE Kali: inundacion_instrumentada.sh instalado
+PENDIENTE clientes: clientes_factor1_tx.py instalado
+PENDIENTE srv-dmz: muestreador_set.py instalado
+PENDIENTE srv-dmz: el muestreador puede ejecutar el helper nft con sudo -n (NOPASSWD)
+=== 6. lanzador de la corrida
+PENDIENTE g01 con la puerta nueva (lanzador_puerta_banco --espera-fin 75) preparado y ensayado
+   (el criterio E3 fijado está en CRITERIO-E3-FIJADO-NUEVA-CORRIDA.md; no es estado de host)
+##### resumen: 11 OK, 0 FALLAN, 9 PENDIENTES

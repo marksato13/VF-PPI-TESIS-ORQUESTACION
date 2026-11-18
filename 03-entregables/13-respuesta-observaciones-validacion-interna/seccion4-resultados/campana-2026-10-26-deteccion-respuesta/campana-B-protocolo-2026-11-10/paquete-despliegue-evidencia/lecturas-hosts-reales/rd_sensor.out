@@ -1,0 +1,214 @@
+### host
+cyberflow-sensor
+2026-11-11T00:20:35Z
+uid=1000(m4rk) gid=1000(m4rk) groups=1000(m4rk),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),101(lxd)
+Linux 6.8.0-53-generic
+Ubuntu 24.04.2 LTS
+### unidad (solo lectura)
+Restart=always
+RestartUSec=2s
+MainPID=1971245
+NRestarts=18
+Environment=
+UMask=0022
+WorkingDirectory=/home/m4rk/cyberflow
+User=m4rk
+Group=m4rk
+ReadWritePaths=
+ProtectHome=no
+ProtectSystem=no
+NoNewPrivileges=no
+ActiveState=active
+SubState=running
+FragmentPath=/etc/systemd/system/ppi-publicar-feed-v2.service
+DropInPaths=
+### ExecStart completo (systemctl cat)
+1:# /etc/systemd/system/ppi-publicar-feed-v2.service
+2:[Unit]
+3:# Etapa 4 (SOMBRA). Igual que deploy/enforcement/candidato-etapa3/ppi-publicar-feed-v2.service, con la
+4:# ruta ABSOLUTA del código candidato (Sensor1 no tiene checkout: ~/cyberflow es el despliegue anterior).
+5:# publicar_feed_v2.py importa escalada/feed/heuristicos de su propio directorio (el de ec78ca5).
+6:# Publicar el feed v2 no aplica nada: solo un agente con --aplicar lo haría, y no hay ninguno.
+10:[Service]
+12:User=m4rk
+13:Group=m4rk
+15:ExecStart=/home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cyberflow-e4/ec78ca5/scripts/engine/publicar_feed_v2.py \
+25:Restart=always
+26:RestartSec=2
+28:[Install]
+### drop-ins existentes
+ls: cannot access '/etc/systemd/system/ppi-publicar-feed-v2.service.d/': No such file or directory
+### python
+Python 3.14.4
+Python 3.12.3
+python3 -I: fcntl/json/shlex/re OK
+### publicador instalado (hash) y motor
+dr-xr-xr-x 2 m4rk m4rk 4096 nov  2 00:00 /home/m4rk/cyberflow-e4/ec78ca5/scripts/engine
+5733f17d39bfa5fe667ee13aecd133ea4859834899c5f4f6ea21360ebe4002a2  /home/m4rk/cyberflow-e4/ec78ca5/scripts/engine/publicar_feed_v2.py
+comparar_replays.py
+dashboard.py
+detector_rapido.py
+dns_heuristica.py
+escalada.py
+escaneo_temprano.py
+feed.py
+heuristicos.py
+http_heuristica.py
+motor_decision.py
+motor_incremental.py
+publicar_feed.py
+publicar_feed_v2.py
+replay_motor.py
+responder_iptables.py
+suricata_a_senal.py
+tasa_dns_por_origen.py
+trocear_pcap.py
+vista_vivo.py
+total 20
+drwxrwxr-x  4 m4rk m4rk 4096 nov  6 03:51 .
+drwxr-x--- 37 m4rk m4rk 4096 nov 10 16:35 ..
+dr-xr-xr-x  5 m4rk m4rk 4096 nov  2 00:00 ec78ca5
+drwxrwxr-x  3 m4rk m4rk 4096 nov  6 04:45 herramientas-20261106
+-rw-r--r--  1 m4rk m4rk  113 nov  4 02:11 pub.pem
+/home/m4rk/cyberflow-e4/ec78ca5
+### rutas y permisos (feed-v2, cf-b, .ssh)
+drwxr-x--- 37 m4rk m4rk 4096 nov 10 16:35 /home/m4rk
+drwxrwxr-x  7 m4rk m4rk 4096 nov 10 16:25 /home/m4rk/cf-b
+drwxrwxr-x  2 m4rk m4rk 4096 nov 10 16:25 /home/m4rk/cf-b/herramientas
+drwxr-x---  3 m4rk m4rk 4096 nov 11 00:20 /home/m4rk/feed-v2
+drwxrwxr-x  2 m4rk m4rk 4096 nov 10 18:28 /home/m4rk/feed-v2/d5-auditoria
+drwx------  2 m4rk m4rk 4096 sep 16 14:48 /home/m4rk/.ssh
+-rw-------  1 m4rk m4rk  284 nov  4 02:18 /home/m4rk/.ssh/authorized_keys
+775 m4rk:m4rk /home/m4rk/feed-v2/d5-auditoria
+644 m4rk:m4rk /home/m4rk/feed-v2/estado.json
+644 m4rk:m4rk /home/m4rk/feed-v2/feed.json
+644 m4rk:m4rk /home/m4rk/feed-v2/feed.sig
+644 m4rk:m4rk /home/m4rk/feed-v2/senales-if.jsonl
+644 m4rk:m4rk /home/m4rk/feed-v2/senales-if.jsonl.1
+644 m4rk:m4rk /home/m4rk/feed-v2/senales-if.jsonl.2.gz
+644 m4rk:m4rk /home/m4rk/feed-v2/senales-if.jsonl.3.gz
+644 m4rk:m4rk /home/m4rk/feed-v2/senales-if.jsonl.4.gz
+644 m4rk:m4rk /home/m4rk/feed-v2/senales-if.jsonl.5.gz
+644 m4rk:m4rk /home/m4rk/feed-v2/senales-if.jsonl.6.gz
+644 m4rk:m4rk /home/m4rk/feed-v2/senales-rapidas.jsonl
+644 m4rk:m4rk /home/m4rk/feed-v2/senales-rapidas.jsonl.1
+644 m4rk:m4rk /home/m4rk/feed-v2/traza.jsonl
+644 m4rk:m4rk /home/m4rk/feed-v2/traza.jsonl.1
+644 m4rk:m4rk /home/m4rk/feed-v2/traza.jsonl.2.gz
+644 m4rk:m4rk /home/m4rk/feed-v2/traza.jsonl.3.gz
+644 m4rk:m4rk /home/m4rk/feed-v2/traza.jsonl.4.gz
+644 m4rk:m4rk /home/m4rk/feed-v2/traza.jsonl.5.gz
+644 m4rk:m4rk /home/m4rk/feed-v2/traza.jsonl.6.gz
+total 116
+drwxrwxr-x 2 m4rk m4rk  4096 nov 10 16:25 .
+drwxrwxr-x 7 m4rk m4rk  4096 nov 10 16:25 ..
+-rwxr-x--- 1 m4rk m4rk 13928 nov 10 16:25 analizar_b.py
+-rwxr-x--- 1 m4rk m4rk  9513 nov 10 16:25 arnes_integracion.py
+-rwxr-x--- 1 m4rk m4rk  7343 nov 10 16:25 compuerta_b.py
+-rwxr-x--- 1 m4rk m4rk  2019 nov 10 16:25 crear_manifiesto_alfa.py
+-rwxr-x--- 1 m4rk m4rk 14451 nov 10 16:25 d5_episodio.py
+-rwxr-x--- 1 m4rk m4rk  2472 nov 10 16:25 empaquetar_b.py
+-rwxr-x--- 1 m4rk m4rk  4841 nov 10 16:25 hacer_g01b.py
+-rwxr-x--- 1 m4rk m4rk  2859 nov 10 16:25 hacer_generador_b.py
+-rwxr-x--- 1 m4rk m4rk  3913 nov 10 16:25 hacer_vigia_b.py
+-rwxr-x--- 1 m4rk m4rk  3690 nov 10 16:25 mutar_analizar_b.py
+-rwxr-x--- 1 m4rk m4rk  2852 nov 10 16:25 mutar_d5.py
+-rwxr-x--- 1 m4rk m4rk  2275 nov 10 16:25 mutar_vigia_b.py
+-rwxr-x--- 1 m4rk m4rk  5040 nov 10 16:25 orquestar_b.py
+-rwxr-x--- 1 m4rk m4rk  3439 nov 10 16:25 registrar_alfa.py
+-rwxr-x--- 1 m4rk m4rk  4902 nov 10 16:25 verificar_umbral_motor.py
+no existe ~/feed-v2/d5 (se crearia)
+### herramientas existentes (hash)
+611d4b166214fed9aa255ec089bf1456eb54ccbe2e1b1571bdda3690575c0dcf  /home/m4rk/cf-
+c78495c7a243714a81660da9387f259f26fb7b6def9838d56411ea957ebf9028  /home/m4rk/cf-
+32e1f3ef160a1d6e67bfa96096f4cda7ff2c50e26de35700d6938c233545b4f1  /home/m4rk/cf-
+26a59acc781b1726654e34d7a621f5c069cf36a7d12586b7cbb33af38181295c  /home/m4rk/cf-
+85c71124098cb7cb34d1f64f8184168c863c16843f286d82c3c519f8df7db34a  /home/m4rk/cf-
+8da27718ae4b81227fc05643f132537094b2631508bc459b95f5f3106abfebf7  /home/m4rk/cf-
+680020ca548b9eeffd08dfd04c09a27c9afb25bb520ef74adf179eba24cbab3a  /home/m4rk/cf-
+97f6fbb482f1e25a2d12538aa6ce9805cbab624e234fae01de92d8a13959294f  /home/m4rk/cf-
+aae6229214b938431a1e45b5d671584dbdcb18590e6731b04c5c3cc5ba39555d  /home/m4rk/cf-
+a5e91b79a7d3d0ec0d8f0cfd305430659d7c3dc427da90e8d69ec0396c92044e  /home/m4rk/cf-
+01629af5ed8feb57d6a8b38b3d3e251d421066749ad7ede725d067920215dc68  /home/m4rk/cf-
+e698936a8653769ad3a99a1af844abfdfbbd73ec4bfeeda5eb7007a1e43d9b8b  /home/m4rk/cf-
+babc528bcf4734b059ba03d5d0583c1810aea7023334e8a546ed1655094fe8b7  /home/m4rk/cf-
+79463360df2fcb736899c790ef0e6df05c68256c261bab58759045f106a6ea03  /home/m4rk/cf-
+b9e4d648621d8f03feec44499abd3d9186df85180c48443b40050addbb4ba0fa  /home/m4rk/cf-
+### SSH servidor (versiones y configuracion legible)
+OpenSSH_9.6p1 Ubuntu-3ubuntu13.5, OpenSSL 3.0.13 30 Jan 2024
+ii  openssh-server 1:9.6p1-3ubuntu13.5 amd64        secure shell (SSH) server, for secure access from remote machines
+active
+inactive
+Include /etc/ssh/sshd_config.d/*.conf
+KbdInteractiveAuthentication no
+UsePAM yes
+X11Forwarding yes
+PrintMotd no
+AcceptEnv LANG LC_*
+Subsystem	sftp	/usr/lib/openssh/sftp-server
+50-cloud-init.conf
+### authorized_keys: lineas, opciones y huellas (sin mostrar claves)
+2
+ssh-ed25519 <clave> vm-gestion-to-cyberflow
+command="/usr/local/bin/cf-feed-ssh.sh servir /home/m4rk/feed-v2",restrict ssh-ed25519 <clave> cyberflow-feed-v2-rele
+256 SHA256:SL4EjhSKOUolt3F83svd4reh/Y9y9RN64l0wrQXHrgE vm-gestion-to-cyberflow (ED25519)
+256 SHA256:D3LRY5PxVREIOxMLg0MrHaxfM5LBshNYN3KzyCBrMso cyberflow-feed-v2-rele (ED25519)
+### huella del huesped (ed25519)
+256 SHA256:xHCL2/TSa7S8QE+ZRIhjmjcqQcm+7n7lrw/5i2BnfSQ root@cyberflow-sensor (ED25519)
+-rw-r--r-- 1 root root 183 sep 16 14:47 /etc/ssh/ssh_host_ecdsa_key.pub
+-rw-r--r-- 1 root root 103 sep 16 14:47 /etc/ssh/ssh_host_ed25519_key.pub
+-rw-r--r-- 1 root root 575 sep 16 14:47 /etc/ssh/ssh_host_rsa_key.pub
+### origen real de las conexiones del bastion (auth.log)
+2026-11-10T23:24:08.225090+00:00 cyberflow-sensor sshd[2068252]: Accepted publickey for m4rk from 10.10.10.30 port 56616 ssh2: ED25519 SHA256:<h>
+2026-11-10T23:55:03.295449+00:00 cyberflow-sensor sshd[2074387]: Accepted publickey for m4rk from 10.10.10.30 port 47386 ssh2: ED25519 SHA256:<h>
+2026-11-11T00:20:34.602011+00:00 cyberflow-sensor sshd[2079500]: Accepted publickey for m4rk from 10.10.10.30 port 52546 ssh2: ED25519 SHA256:<h>
+### logrotate
+logrotate 3.21.0
+enabled
+active
+NEXT                        LEFT LAST                           PASSED UNIT            ACTIVATES
+Thu 2026-11-12 00:00:00 UTC  23h Wed 2026-11-11 00:00:00 UTC 20min ago logrotate.timer logrotate.service
+
+1 timers listed.
+# /usr/lib/systemd/system/logrotate.timer
+[Unit]
+Description=Daily rotation of log files
+Documentation=man:logrotate(8) man:logrotate.conf(5)
+[Timer]
+OnCalendar=daily
+AccuracySec=1h
+Persistent=true
+[Install]
+WantedBy=timers.target
+ls: cannot access '/etc/systemd/system/logrotate.timer.d/': No such file or directory
+ls: cannot access '/etc/systemd/system/logrotate.service.d/': No such file or directory
+apport
+apt-compat
+dpkg
+logrotate
+man-db
+sysstat
+alternatives
+apport
+apt
+bootlog
+btmp
+cloud-init
+cyberflow
+cyberflow-etapa4
+dpkg
+rsyslog
+suricata
+ubuntu-pro-client
+ufw
+unattended-upgrades
+wtmp
+/etc/logrotate.d/cyberflow-etapa4:1:# /etc/logrotate.d/cyberflow-etapa4  (0644 root:root) — Etapa 4.
+/etc/logrotate.d/cyberflow-etapa4:5:/home/m4rk/feed-v2/*.jsonl {
+/etc/logrotate.d/cyberflow:1:# Generado por scripts/setup/cyberflow_config.py. NO editar a mano.
+/etc/logrotate.d/cyberflow:11:/home/m4rk/cyberflow/logs/motor_decision.log /home/m4rk/cyberflow/logs/_state/ciclos.jsonl {
+### disco y fecha
+bash: line 17: $'\r': command not found
+/dev/mapper/ubuntu--vg-ubuntu--lv   76G   36G   38G  49% /
+ls: cannot access '/var/lib/cyberflow': No such file or directory
+### sudo: NO se prueba (requiere la clave de Mark)

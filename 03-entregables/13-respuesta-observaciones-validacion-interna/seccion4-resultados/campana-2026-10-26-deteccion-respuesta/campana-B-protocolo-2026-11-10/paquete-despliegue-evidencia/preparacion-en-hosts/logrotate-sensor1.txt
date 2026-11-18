@@ -1,0 +1,74 @@
+### logrotate.service (sandboxing)
+# /usr/lib/systemd/system/logrotate.service
+[Unit]
+Description=Rotate log files
+Documentation=man:logrotate(8) man:logrotate.conf(5)
+RequiresMountsFor=/var/log
+ConditionACPower=true
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/logrotate /etc/logrotate.conf
+# performance options
+Nice=19
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+# hardening options
+#  details: https://www.freedesktop.org/software/systemd/man/systemd.exec.html
+#  no ProtectHome for userdir logs
+#  no PrivateNetwork for mail deliviery
+#  no NoNewPrivileges for third party rotate scripts
+#  no RestrictSUIDSGID for creating setgid directories
+LockPersonality=true
+MemoryDenyWriteExecute=true
+PrivateDevices=true
+PrivateTmp=true
+ProtectClock=true
+ProtectControlGroups=true
+ProtectHostname=true
+ProtectKernelLogs=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+ProtectSystem=full
+RestrictNamespaces=true
+RestrictRealtime=true
+### directivas efectivas que afectan al acceso
+CapabilityBoundingSet=cap_chown cap_dac_override cap_dac_read_search cap_fowner cap_fsetid cap_kill cap_setgid cap_setuid cap_setpcap cap_linux_immutable cap_net_bind_service cap_net_broadcast cap_net_admin cap_net_raw cap_ipc_lock cap_ipc_owner cap_sys_chroot cap_sys_ptrace cap_sys_pacct cap_sys_admin cap_sys_boot cap_sys_nice cap_sys_resource cap_sys_tty_config cap_lease cap_audit_write cap_audit_control cap_setfcap cap_mac_override cap_mac_admin cap_block_suspend cap_audit_read cap_perfmon cap_bpf cap_checkpoint_restore
+User=
+ReadWritePaths=
+ReadOnlyPaths=
+InaccessiblePaths=
+PrivateTmp=yes
+ProtectKernelModules=yes
+PrivateMounts=no
+ProtectHome=no
+ProtectSystem=full
+NoNewPrivileges=no
+RestrictSUIDSGID=no
+### evidencia de que ya rota rutas bajo /home/m4rk con esta misma unidad
+-rw-r--r--  1 m4rk m4rk   2807400 2026-11-11 00:00 senales-if.jsonl.1
+-rw-r--r--  1 m4rk m4rk    282189 2026-11-10 00:28 senales-if.jsonl.2.gz
+-rw-r--r--  1 m4rk m4rk    233588 2026-11-09 03:22 senales-if.jsonl.3.gz
+-rw-r--r--  1 m4rk m4rk     18113 2026-11-08 00:00 senales-if.jsonl.4.gz
+2026-11-10T00:29:26+00:00 cyberflow-sensor systemd[1]: logrotate.service: Consumed 37.475s CPU time.
+-- Boot 6aa56e19f60c4fe6b97021f2126cf275 --
+2026-11-11T00:00:00+00:00 cyberflow-sensor systemd[1]: Starting logrotate.service - Rotate log files...
+2026-11-11T00:00:21+00:00 cyberflow-sensor systemd[1]: logrotate.service: Deactivated successfully.
+2026-11-11T00:00:21+00:00 cyberflow-sensor systemd[1]: Finished logrotate.service - Rotate log files.
+2026-11-11T00:00:21+00:00 cyberflow-sensor systemd[1]: logrotate.service: Consumed 20.311s CPU time.
+### AppArmor sobre logrotate
+sin perfil de AppArmor para logrotate (o aa-status requiere root)
+no hay /etc/apparmor.d/*logrotate*
+### padres de la ruta propuesta (logrotate exige que no sean escribibles por otros)
+f: /home/m4rk/feed-v2/d5/auditoria
+ drwxr-xr-x /
+ drwxr-xr-x home
+ drwxr-x--- m4rk
+ drwxr-x--- feed-v2
+             d5 - No such file or directory
+750 m4rk:m4rk /home/m4rk
+750 m4rk:m4rk /home/m4rk/feed-v2
+### umask real del publicador: modo con que crea ficheros nuevos
+0022
+644 /home/m4rk/feed-v2/traza.jsonl
+### ACLs en /home/m4rk/feed-v2
+bash: line 7: getfacl: command not found

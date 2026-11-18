@@ -1,0 +1,73 @@
+{
+ "caso": "I-C-reanudacion-manual",
+ "criterios": {
+  "NRestarts_no_aumenta": true,
+  "journal_sin_parada_ni_arranque": true,
+  "logrotate_rc0": true,
+  "mismo_MainPID": true,
+  "otras_entidades_conservadas": true,
+  "publicacion_nueva_tras_el_caso": true,
+  "unidad_activa": true
+ },
+ "lector_d5lector": {
+  "124af659e18a4fd88e5e15a19b5c13bc": {
+   "categoria": "consumida_y_publicada",
+   "publicacion": "confirmada",
+   "secuencia_publicada": 5
+  },
+  "f77c9d3cf0dd48d9a1ebd070f9d23995": {
+   "categoria": "consumida_y_publicada",
+   "publicacion": "confirmada",
+   "secuencia_publicada": 3
+  }
+ },
+ "observado": {
+  "MainPID": [
+   "320",
+   "320"
+  ],
+  "NRestarts": [
+   "0",
+   "0"
+  ]
+ },
+ "omitidas": 3,
+ "puerta": {
+  "llamadas_siguientes": [
+   {
+    "bloqueada": true,
+    "lista": false
+   },
+   {
+    "bloqueada": true,
+    "lista": false
+   },
+   {
+    "bloqueada": true,
+    "lista": false
+   }
+  ],
+  "primera": {
+   "bloqueada": true,
+   "lista": false,
+   "pasos": [
+    "limpiar"
+   ]
+  },
+  "tras_reanudacion": {
+   "bloqueada": false,
+   "lista": true
+  }
+ },
+ "registro_de_la_puerta": [
+  "puerta_bloqueada",
+  "omitida_por_puerta_bloqueada",
+  "omitida_por_puerta_bloqueada",
+  "omitida_por_puerta_bloqueada",
+  "reanudacion_manual",
+  "puerta_lista"
+ ],
+ "servicio": "PASA",
+ "solicitudes_reales": 2,
+ "unidad": "cf-d5-integ-i-c-reanudacion-manual"
+}

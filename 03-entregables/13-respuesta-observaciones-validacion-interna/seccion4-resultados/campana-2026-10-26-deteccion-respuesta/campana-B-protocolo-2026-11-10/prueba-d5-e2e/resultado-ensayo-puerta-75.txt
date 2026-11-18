@@ -1,0 +1,45 @@
+##### informe.txt
+inicio (fin de episodio simulado) 2026-11-11T03:49:19.781Z
+lanzador rc=0
+compuerta.log: 1794369064.470 liberada
+gate.json final: {"en_episodio": false, "episodio": "ensayo-puerta", "fin_en": 1794368959.76364, "liberada_en": 1794369064.4697917, "n_inicios": 1, "orden": ["ensayo-puerta"], "pendiente": false}
+--- puerta-banco.jsonl
+  {"evento": "puerta_lista", "motivos": [], "pasos": ["limpiar", "feed_tras_limpiar", "nft_antes", "nft_despues", "agente", "feed_final"], "t": 1794369064.4693568}
+--- MEDICIÓN
+duración total desde el fin simulado: 104.7 s (espera 75,0 s + puerta 29.7 s)
+hueco mínimo entre episodios: 210 s  ->  MARGEN = 105.3 s
+hueco tras un DNS: 330 s  ->  margen = 225.3 s
+FIN
+##### compuerta.log
+1794369064.470 liberada
+##### puerta-banco.jsonl
+{"evento": "puerta_lista", "motivos": [], "pasos": ["limpiar", "feed_tras_limpiar", "nft_antes", "nft_despues", "agente", "feed_final"], "t": 1794369064.4693568}
+##### estado de la limpieza (id y pendiente)
+total 12
+drwxrwxr-x 3 gadmin gadmin 4096 Nov 10 22:50 .
+drwxrwxr-x 3 gadmin gadmin 4096 Nov 10 22:51 ..
+drwxrwxr-x 2 gadmin gadmin 4096 Nov 10 22:50 limpiezas
+== /home/gadmin/cf-b/ensayo-puerta-20261111T034919Z/estado/limpiezas
+cut: /home/gadmin/cf-b/ensayo-puerta-20261111T034919Z/estado/limpiezas: Is a directory
+##### puerta-bloqueo
+ls: cannot access '/home/gadmin/cf-b/ensayo-puerta-20261111T034919Z/puerta-bloqueo.json': No such file or directory
+##### stderr
+##### stdout
+##### archivos
+total 36
+drwxrwxr-x 3 gadmin gadmin 4096 2026-11-10 22:51 .
+drwxrwxr-x 9 gadmin gadmin 4096 2026-11-10 22:49 ..
+-rw-rw-r-- 1 gadmin gadmin    0 2026-11-10 22:49 agente-traza.jsonl
+-rw-rw-r-- 1 gadmin gadmin   24 2026-11-10 22:51 compuerta.log
+-rw-rw-r-- 1 gadmin gadmin 1517 2026-11-10 22:49 correr.sh
+drwxrwxr-x 3 gadmin gadmin 4096 2026-11-10 22:50 estado
+-rw-rw-r-- 1 gadmin gadmin  178 2026-11-10 22:51 gate.json
+-rw-rw-r-- 1 gadmin gadmin    0 2026-11-10 22:49 gate.lock
+-rw-rw-r-- 1 gadmin gadmin  698 2026-11-10 22:51 informe.txt
+-rw-rw-r-- 1 gadmin gadmin    0 2026-11-10 22:49 lanzador.stderr
+-rw-rw-r-- 1 gadmin gadmin    0 2026-11-10 22:49 lanzador.stdout
+-rw-rw-r-- 1 gadmin gadmin  162 2026-11-10 22:51 puerta-banco.jsonl
+-rw-rw-r-- 1 gadmin gadmin    0 2026-11-10 22:50 puerta-bloqueo.json.lock
+-rw-rw-r-- 1 gadmin gadmin 1081 2026-11-10 22:51 puertas-D5.jsonl
+22a155400b5590ec11cdee2f813fba7e3c4f1163070319c99d74111903fbe4ce  /home/gadmin/cf-b/ensayo-puerta-20261111T034919Z/informe.txt
+ace6ee3429265222fb1c35fc91d9177ac6acc62ba3d32b412b3828e51190dbc7  /home/gadmin/cf-b/ensayo-puerta-20261111T034919Z/puerta-banco.jsonl

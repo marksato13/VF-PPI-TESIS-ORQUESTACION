@@ -1,0 +1,103 @@
+### host
+VM-GESTION
+2026-11-11T00:22:09Z
+uid=1000(gadmin) gid=1000(gadmin) groups=1000(gadmin),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),100(users),101(netdev)
+Debian GNU/Linux 13 (trixie)
+Linux 6.12.96+deb13-amd64
+### versiones
+OpenSSH_10.0p2 Debian-7+deb13u4, OpenSSL 3.5.6 7 Apr 2026
+Python 3.13.5
+GNU bash, version 5.2.37(1)-release (x86_64-pc-linux-gnu)
+sha256sum (GNU coreutils) 9.7
+### ~/.ssh (nombres y modos, sin claves)
+700 gadmin /home/gadmin/.ssh
+600 gadmin /home/gadmin/.ssh/authorized_keys
+644 gadmin /home/gadmin/.ssh/authorized_keys.antes-bk02-20261102-163040
+600 gadmin /home/gadmin/.ssh/authorized_keys.antes-bk02-20261102-171347
+600 gadmin /home/gadmin/.ssh/cf-relay-cffeed@10.10.30.10:22
+600 gadmin /home/gadmin/.ssh/cf-relay-m4rk@10.10.60.11:22
+600 gadmin /home/gadmin/.ssh/config
+600 gadmin /home/gadmin/.ssh/config.antes-swexport
+600 gadmin /home/gadmin/.ssh/cyberflow-feed-v2-sensor
+600 gadmin /home/gadmin/.ssh/cyberflow-feed-v2-srv
+600 gadmin /home/gadmin/.ssh/cyberflow-to-atacante
+600 gadmin /home/gadmin/.ssh/cyberflow-to-clientes
+600 gadmin /home/gadmin/.ssh/cyberflow-to-sensor
+600 gadmin /home/gadmin/.ssh/cyberflow-to-srv
+600 gadmin /home/gadmin/.ssh/francos-red-export
+600 gadmin /home/gadmin/.ssh/id_ed25519
+600 gadmin /home/gadmin/.ssh/known_hosts
+600 gadmin /home/gadmin/.ssh/known_hosts.antes-core-20261105
+600 gadmin /home/gadmin/.ssh/known_hosts.antes-dist-20261105
+600 gadmin /home/gadmin/.ssh/known_hosts.old
+no existe ~/.ssh/cyberflow-d5-sensor (se generaria con 'clave --aplicar')
+no existe known_hosts_d5
+### ssh_config del cliente
+Host kali
+    HostName 10.10.20.30
+    User adminatacante
+    IdentityFile ~/.ssh/cyberflow-to-atacante
+Host sensor1
+    HostName 10.10.60.11
+    User m4rk
+    IdentityFile ~/.ssh/cyberflow-to-sensor
+Host sensor2
+    HostName 10.10.60.12
+    User m4rk
+    IdentityFile ~/.ssh/cyberflow-to-sensor
+Host admin clientes
+    HostName 10.10.20.20
+    User adminclientes
+    IdentityFile ~/.ssh/cyberflow-to-clientes
+Host srvdmz
+    HostName 10.10.30.10
+    User adminsrvdmz
+    IdentityFile ~/.ssh/cyberflow-to-srv
+Include /etc/ssh/ssh_config.d/*.conf
+Host *
+    SendEnv LANG LC_* COLORTERM NO_COLOR
+    HashKnownHosts yes
+    GSSAPIAuthentication yes
+20-systemd-ssh-proxy.conf
+### huella del Sensor1 que el BASTION ya tiene fijada (known_hosts, canal anterior a esta revision)
+256 SHA256:xHCL2/TSa7S8QE+ZRIhjmjcqQcm+7n7lrw/5i2BnfSQ |1|Thdd3c7KOF9yLqkbPbpZ1C749vo=|f+PZNQSCs8ljwyyHINRSBnERG4c= (ED25519)
+3072 SHA256:RyXo1HFAcIfQTQGhIrrdxt2F90HYrWa0wm1MCOgEXQs |1|hxukqCfCiFJhNvQYNU2MGV4s4us=|QL9zLJ9KxPvpJyViFy5wnBoWpbc= (RSA)
+256 SHA256:lzGUcM1cdOaEjrTRg9+5F2FUU+8l9/tcrZGewbKIORI |1|l3uBO13JyBap8POFjCAlbq8YOYE=|QChO5/NtqlhPPIvLRThZHx1gkZY= (ECDSA)
+### cf-b del bastion
+drwxrwxr-x 5 gadmin gadmin 4096 Nov 10 11:25 /home/gadmin/cf-b
+drwxrwxr-x 3 gadmin gadmin 4096 Nov 10 11:25 /home/gadmin/cf-b/herramientas
+total 120
+drwxrwxr-x 3 gadmin gadmin  4096 Nov 10 11:25 .
+drwxrwxr-x 5 gadmin gadmin  4096 Nov 10 11:25 ..
+-rwxr-x--- 1 gadmin gadmin 13928 Nov 10 11:25 analizar_b.py
+-rwxr-x--- 1 gadmin gadmin  9513 Nov 10 11:25 arnes_integracion.py
+-rwxr-x--- 1 gadmin gadmin  7343 Nov 10 11:25 compuerta_b.py
+-rwxr-x--- 1 gadmin gadmin  2019 Nov 10 11:25 crear_manifiesto_alfa.py
+-rwxr-x--- 1 gadmin gadmin 14451 Nov 10 11:25 d5_episodio.py
+-rwxr-x--- 1 gadmin gadmin  2472 Nov 10 11:25 empaquetar_b.py
+-rwxr-x--- 1 gadmin gadmin  4841 Nov 10 11:25 hacer_g01b.py
+-rwxr-x--- 1 gadmin gadmin  2859 Nov 10 11:25 hacer_generador_b.py
+-rwxr-x--- 1 gadmin gadmin  3913 Nov 10 11:25 hacer_vigia_b.py
+-rwxr-x--- 1 gadmin gadmin  3690 Nov 10 11:25 mutar_analizar_b.py
+-rwxr-x--- 1 gadmin gadmin  2852 Nov 10 11:25 mutar_d5.py
+-rwxr-x--- 1 gadmin gadmin  2275 Nov 10 11:25 mutar_vigia_b.py
+-rwxr-x--- 1 gadmin gadmin  5040 Nov 10 11:25 orquestar_b.py
+drwxrwxr-x 2 gadmin gadmin  4096 Nov 10 12:51 __pycache__
+-rwxr-x--- 1 gadmin gadmin  3439 Nov 10 11:25 registrar_alfa.py
+-rwxr-x--- 1 gadmin gadmin  4902 Nov 10 11:25 verificar_umbral_motor.py
+85c71124098cb7cb34d1f64f8184168c863c16843f286d82c3c519f8df7db34a  /home/gadmin/c
+32e1f3ef160a1d6e67bfa96096f4cda7ff2c50e26de35700d6938c233545b4f1  /home/gadmin/c
+babc528bcf4734b059ba03d5d0583c1810aea7023334e8a546ed1655094fe8b7  /home/gadmin/c
+### dir de la compuerta de B2 / g01b
+/home/gadmin/cf-e4/4c-A-completa-20261110T1033Z
+/home/gadmin/cf-e4/4c-B2-cancelada-X1-20261110T1832Z
+/home/gadmin/cf-e4/4c-B-cancelada-X3-20261110T1626Z
+/home/gadmin/cf-e4/4c-cancelada-20261109T1058Z
+/home/gadmin/cf-e4/4c-control1-20261110-0542-0612
+generador
+guiones
+herramientas
+SHA256SUMS
+### conectividad: la puerta ya usaba ssh a Sensor1 (solo se lista la orden de B2)
+### espacio
+/dev/sda1        19G  9.1G  8.5G  52% /

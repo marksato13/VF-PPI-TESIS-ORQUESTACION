@@ -1,0 +1,27 @@
+##### estado previo
+ls: cannot access '/home/gadmin/.ssh/cyberflow-d5-sensor*': No such file or directory
+##### clave --aplicar
+CLAVE PÚBLICA para el Sensor1 (CF_PUBKEY):
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP63AOo0DkRKobfK1HZPJXjSNKxCDILVOow+06ULBMIF cf-bastion-d5
+rc=0
+##### resultado
+600 gadmin:gadmin 399 /home/gadmin/.ssh/cyberflow-d5-sensor
+644 gadmin:gadmin 95 /home/gadmin/.ssh/cyberflow-d5-sensor.pub
+256 SHA256:gw4T8ep3ZrJ42EhwICNy0qbd0OcEoh82yJMqdsRwVaA cf-bastion-d5 (ED25519)
+la privada corresponde a la pública
+##### otras claves del bastión: sin cambios
+2026-11-02 16:30 authorized_keys
+2026-07-26 19:57 authorized_keys.antes-bk02-20261102-163040
+2026-11-02 16:30 authorized_keys.antes-bk02-20261102-171347
+2026-09-24 00:47 cyberflow-to-atacante
+2026-09-24 00:47 cyberflow-to-atacante.pub
+2026-09-23 13:47 cyberflow-to-clientes
+2026-09-23 13:47 cyberflow-to-clientes.pub
+2026-09-16 10:15 cyberflow-to-sensor
+2026-09-16 10:15 cyberflow-to-sensor.pub
+2026-09-20 15:11 cyberflow-to-srv
+2026-09-20 15:11 cyberflow-to-srv.pub
+2026-07-27 11:40 id_ed25519
+2026-07-27 11:40 id_ed25519.pub
+2026-11-10 20:06 known_hosts_d5
+PUB>>>ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP63AOo0DkRKobfK1HZPJXjSNKxCDILVOow+06ULBMIF cf-bastion-d5

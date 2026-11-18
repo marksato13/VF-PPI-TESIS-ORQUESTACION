@@ -1,0 +1,8 @@
+OK    la puerta se liberó (lista=True)
+OK    nft_antes: la Kali solo en limitados (restriccion) y residual registrado aparte
+OK    la regla se retiró (retirar.retirado)
+OK    nft_despues: sets de aplicación sin la Kali y residual registrado
+OK    limitados y bloqueados quedaron vacíos para la Kali
+OK    el contador residual se conservó en descartes_limite
+OK    residual_conservado en puertas-D5.jsonl
+OK    publicador: mismo PID y NRestarts (sin reinicio)

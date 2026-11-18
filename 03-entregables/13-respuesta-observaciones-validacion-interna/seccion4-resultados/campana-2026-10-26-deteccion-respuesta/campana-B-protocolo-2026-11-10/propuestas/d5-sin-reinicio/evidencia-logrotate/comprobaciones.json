@@ -1,0 +1,476 @@
+[
+ {
+  "comprobacion": "versión probada: derivado idéntico al validado",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "comprobacion": "S1-determinista-entre-consumido-y-publicado: publicador arrancado como nobody (feed inicial con 3 entidades)",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "comprobacion": "S1-determinista-entre-consumido-y-publicado: `consumido` escrito mientras `publicado` aún no (compuerta)",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "comprobacion": "S1: logrotate real rotó (rc 0)",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "comprobacion": "S1: consumido quedó en .1 y publicado en el fichero actual (ficheros distintos)",
+  "ok": true,
+  "detalle": {
+   "d5-auditoria.jsonl": [
+    "publicado:lr-1"
+   ],
+   "d5-auditoria.jsonl.1": [
+    "consumido:lr-1"
+   ]
+  }
+ },
+ {
+  "comprobacion": "S1: el publicador siguió escribiendo tras la rotación y el cliente recibió acuse",
+  "ok": true,
+  "detalle": {
+   "ok": true,
+   "estado": "acuse",
+   "id": "lr-1",
+   "rc": 0,
+   "secuencia": 2,
+   "quitado": {
+    "escalada": [
+     "10.10.20.30@srv-dmz"
+    ],
+    "vigentes": [
+     "10.10.20.30|srv-dmz|todo"
+    ]
+   },
+   "duplicada": false
+  }
+ },
+ {
+  "comprobacion": "S1: el fichero actual creado por logrotate es 0640 nobody:d5aud y el publicador lo sigue usando",
+  "ok": true,
+  "detalle": {
+   "aud": {
+    "ruta": "/var/tmp/d5lr/S1-determinista-entre-consumido-y-publicado/aud",
+    "modo": "0o2750",
+    "propietario": "nobody",
+    "grupo": "d5aud"
+   },
+   "work": {
+    "ruta": "/var/tmp/d5lr/S1-determinista-entre-consumido-y-publicado/work",
+    "modo": "0o2750",
+    "propietario": "nobody",
+    "grupo": "d5aud"
+   },
+   "d5-auditoria.jsonl": {
+    "ruta": "/var/tmp/d5lr/S1-determinista-entre-consumido-y-publicado/aud/d5-auditoria.jsonl",
+    "modo": "0o640",
+    "propietario": "nobody",
+    "grupo": "d5aud"
+   },
+   "d5-auditoria.jsonl.1": {
+    "ruta": "/var/tmp/d5lr/S1-determinista-entre-consumido-y-publicado/aud/d5-auditoria.jsonl.1",
+    "modo": "0o640",
+    "propietario": "nobody",
+    "grupo": "d5aud"
+   }
+  }
+ },
+ {
+  "comprobacion": "S1: el lector (d5lector, solo lectura) reconstruye id y secuencia con archivos distintos",
+  "ok": true,
+  "detalle": {
+   "diagnostico": {
+    "categoria": "consumida_y_publicada",
+    "determinada": true,
+    "generaciones_del_id": [
+     "d5-auditoria.jsonl",
+     "d5-auditoria.jsonl.1"
+    ],
+    "motivo": null,
+    "publicacion": "confirmada",
+    "secuencia_publicada": 2,
+    "trazabilidad": "completa"
+   },
+   "generaciones": [
+    {
+     "error": null,
+     "ilegibles": 0,
+     "lineas": 1,
+     "ruta": "d5-auditoria.jsonl"
+    },
+    {
+     "error": null,
+     "ilegibles": 0,
+     "lineas": 1,
+     "ruta": "d5-auditoria.jsonl.1"
+    }
+   ],
+   "gid": 1000,
+   "grupos": [],
+   "listado_directorio": "OK",
+   "probar_escritura": {
+    "anexar": "PermissionError",
+    "borrar": "PermissionError",
+    "crear_en_directorio": "PermissionError",
+    "renombrar": "PermissionError",
+    "ruta": "d5-auditoria.jsonl"
+   },
+   "uid": 1000
+  }
+ },
+ {
+  "comprobacion": "S1: el lector no puede anexar, renombrar, borrar ni crear en el directorio",
+  "ok": true,
+  "detalle": {
+   "anexar": "PermissionError",
+   "borrar": "PermissionError",
+   "crear_en_directorio": "PermissionError",
+   "renombrar": "PermissionError",
+   "ruta": "d5-auditoria.jsonl"
+  }
+ },
+ {
+  "comprobacion": "S1: segunda rotación real (rc 0)",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "comprobacion": "S1: tras la segunda rotación consumido está COMPRIMIDO (.2.gz) y publicado en .1",
+  "ok": true,
+  "detalle": {
+   "d5-auditoria.jsonl": [],
+   "d5-auditoria.jsonl.1": [
+    "publicado:lr-1"
+   ],
+   "d5-auditoria.jsonl.2.gz": [
+    "consumido:lr-1"
+   ]
+  }
+ },
+ {
+  "comprobacion": "S1: el lector reconstruye id y secuencia con una generación comprimida",
+  "ok": true,
+  "detalle": {
+   "diagnostico": {
+    "categoria": "consumida_y_publicada",
+    "determinada": true,
+    "generaciones_del_id": [
+     "d5-auditoria.jsonl.1",
+     "d5-auditoria.jsonl.2.gz"
+    ],
+    "motivo": null,
+    "publicacion": "confirmada",
+    "secuencia_publicada": 2,
+    "trazabilidad": "completa"
+   },
+   "generaciones": [
+    {
+     "error": null,
+     "ilegibles": 0,
+     "lineas": 0,
+     "ruta": "d5-auditoria.jsonl"
+    },
+    {
+     "error": null,
+     "ilegibles": 0,
+     "lineas": 1,
+     "ruta": "d5-auditoria.jsonl.1"
+    },
+    {
+     "error": null,
+     "ilegibles": 0,
+     "lineas": 1,
+     "ruta": "d5-auditoria.jsonl.2.gz"
+    }
+   ],
+   "gid": 1000,
+   "grupos": [],
+   "listado_directorio": "OK",
+   "uid": 1000
+  }
+ },
+ {
+  "comprobacion": "S1: la generación comprimida conserva 0640 nobody:d5aud",
+  "ok": true,
+  "detalle": {
+   "aud": {
+    "ruta": "/var/tmp/d5lr/S1-determinista-entre-consumido-y-publicado/aud",
+    "modo": "0o2750",
+    "propietario": "nobody",
+    "grupo": "d5aud"
+   },
+   "work": {
+    "ruta": "/var/tmp/d5lr/S1-determinista-entre-consumido-y-publicado/work",
+    "modo": "0o2750",
+    "propietario": "nobody",
+    "grupo": "d5aud"
+   },
+   "d5-auditoria.jsonl": {
+    "ruta": "/var/tmp/d5lr/S1-determinista-entre-consumido-y-publicado/aud/d5-auditoria.jsonl",
+    "modo": "0o640",
+    "propietario": "nobody",
+    "grupo": "d5aud"
+   },
+   "d5-auditoria.jsonl.1": {
+    "ruta": "/var/tmp/d5lr/S1-determinista-entre-consumido-y-publicado/aud/d5-auditoria.jsonl.1",
+    "modo": "0o640",
+    "propietario": "nobody",
+    "grupo": "d5aud"
+   },
+   "d5-auditoria.jsonl.2.gz": {
+    "ruta": "/var/tmp/d5lr/S1-determinista-entre-consumido-y-publicado/aud/d5-auditoria.jsonl.2.gz",
+    "modo": "0o640",
+    "propietario": "nobody",
+    "grupo": "d5aud"
+   }
+  }
+ },
+ {
+  "comprobacion": "S1: tras dos rotaciones el publicador sigue escribiendo (nuevo id en el fichero actual) y sin reinicio",
+  "ok": true,
+  "detalle": {
+   "d5-auditoria.jsonl": [
+    "consumido:lr-3",
+    "publicado:lr-3"
+   ],
+   "d5-auditoria.jsonl.1": [
+    "publicado:lr-1"
+   ],
+   "d5-auditoria.jsonl.2.gz": [
+    "consumido:lr-1"
+   ]
+  }
+ },
+ {
+  "comprobacion": "S1: el lector reconstruye el id nuevo",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "comprobacion": "S1: un usuario sin grupo (intruso) no accede: listado denegado y el id queda sin confirmar",
+  "ok": true,
+  "detalle": {
+   "diagnostico": {
+    "categoria": "indeterminada",
+    "determinada": false,
+    "generaciones_del_id": null,
+    "motivo": "auditoría ausente",
+    "publicacion": "publicación sin confirmar",
+    "secuencia_publicada": null,
+    "trazabilidad": "incompleta"
+   },
+   "generaciones": [],
+   "gid": 65534,
+   "grupos": [],
+   "listado_directorio": "PermissionError",
+   "uid": 1001
+  }
+ },
+ {
+  "comprobacion": "S2-generacion-perdida: publicador arrancado como nobody (feed inicial con 3 entidades)",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "comprobacion": "S2-generacion-perdida: una sola solicitud, fallida, sin acuse, servicio vivo",
+  "ok": true,
+  "detalle": {
+   "ok": false,
+   "rc": 6,
+   "estado": "sin_acuse_procesada",
+   "categoria": "indeterminada",
+   "determinada": false,
+   "incierto": true,
+   "evidencia": "/var/tmp/d5lr/S2-generacion-perdida/work/control.json.evidencia-f2bfb5b2eb1f485cb0c0377689649fd4.json",
+   "traza_auditoria": "/var/tmp/d5lr/S2-generacion-perdida/work/control.json.evidencia-f2bfb5b2eb1f485cb0c0377689649fd4.auditoria",
+   "secuencia": null,
+   "id": "f2bfb5b2eb1f485cb0c0377689649fd4",
+   "motivo": "hay `publicado` sin `consumido`: falta parte de la traza; no se afirma nada",
+   "trazabilidad": "incompleta",
+   "publicacion": "publicación sin confirmar"
+  }
+ },
+ {
+  "comprobacion": "S2-generacion-perdida: ningún control pendiente (no se emitió otra solicitud)",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "comprobacion": "S2: generación perdida -> «publicación sin confirmar», incierta, traza y evidencia conservadas",
+  "ok": true,
+  "detalle": {
+   "ok": false,
+   "rc": 6,
+   "estado": "sin_acuse_procesada",
+   "categoria": "indeterminada",
+   "determinada": false,
+   "incierto": true,
+   "evidencia": "/var/tmp/d5lr/S2-generacion-perdida/work/control.json.evidencia-f2bfb5b2eb1f485cb0c0377689649fd4.json",
+   "traza_auditoria": "/var/tmp/d5lr/S2-generacion-perdida/work/control.json.evidencia-f2bfb5b2eb1f485cb0c0377689649fd4.auditoria",
+   "secuencia": null,
+   "id": "f2bfb5b2eb1f485cb0c0377689649fd4",
+   "motivo": "hay `publicado` sin `consumido`: falta parte de la traza; no se afirma nada",
+   "trazabilidad": "incompleta",
+   "publicacion": "publicación sin confirmar"
+  }
+ },
+ {
+  "comprobacion": "S2-generacion-perdida: evidencia y copia de la traza conservadas",
+  "ok": true,
+  "detalle": {
+   "ok": false,
+   "rc": 6,
+   "estado": "sin_acuse_procesada",
+   "categoria": "indeterminada",
+   "determinada": false,
+   "incierto": true,
+   "evidencia": "/var/tmp/d5lr/S2-generacion-perdida/work/control.json.evidencia-f2bfb5b2eb1f485cb0c0377689649fd4.json",
+   "traza_auditoria": "/var/tmp/d5lr/S2-generacion-perdida/work/control.json.evidencia-f2bfb5b2eb1f485cb0c0377689649fd4.auditoria",
+   "secuencia": null,
+   "id": "f2bfb5b2eb1f485cb0c0377689649fd4",
+   "motivo": "hay `publicado` sin `consumido`: falta parte de la traza; no se afirma nada",
+   "trazabilidad": "incompleta",
+   "publicacion": "publicación sin confirmar"
+  }
+ },
+ {
+  "comprobacion": "S3-comprimida-acuse-no-escribible: publicador arrancado como nobody (feed inicial con 3 entidades)",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "comprobacion": "S3-comprimida-acuse-no-escribible: una sola solicitud, fallida, sin acuse, servicio vivo",
+  "ok": true,
+  "detalle": {
+   "ok": false,
+   "rc": 6,
+   "estado": "sin_acuse_procesada",
+   "categoria": "consumida_y_publicada",
+   "determinada": true,
+   "incierto": false,
+   "evidencia": "/var/tmp/d5lr/S3-comprimida-acuse-no-escribible/work/control.json.evidencia-5eec7db9f4f145cbb8a13f2b2ca4849e.json",
+   "traza_auditoria": "/var/tmp/d5lr/S3-comprimida-acuse-no-escribible/work/control.json.evidencia-5eec7db9f4f145cbb8a13f2b2ca4849e.auditoria",
+   "secuencia": 2,
+   "id": "5eec7db9f4f145cbb8a13f2b2ca4849e",
+   "motivo": null,
+   "trazabilidad": "completa",
+   "publicacion": "confirmada"
+  }
+ },
+ {
+  "comprobacion": "S3-comprimida-acuse-no-escribible: ningún control pendiente (no se emitió otra solicitud)",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "comprobacion": "S3: con la generación comprimida intacta se reconstruye aunque falle el acuse",
+  "ok": true,
+  "detalle": {
+   "ok": false,
+   "rc": 6,
+   "estado": "sin_acuse_procesada",
+   "categoria": "consumida_y_publicada",
+   "determinada": true,
+   "incierto": false,
+   "evidencia": "/var/tmp/d5lr/S3-comprimida-acuse-no-escribible/work/control.json.evidencia-5eec7db9f4f145cbb8a13f2b2ca4849e.json",
+   "traza_auditoria": "/var/tmp/d5lr/S3-comprimida-acuse-no-escribible/work/control.json.evidencia-5eec7db9f4f145cbb8a13f2b2ca4849e.auditoria",
+   "secuencia": 2,
+   "id": "5eec7db9f4f145cbb8a13f2b2ca4849e",
+   "motivo": null,
+   "trazabilidad": "completa",
+   "publicacion": "confirmada"
+  }
+ },
+ {
+  "comprobacion": "S3-comprimida-acuse-no-escribible: evidencia y copia de la traza conservadas",
+  "ok": true,
+  "detalle": {
+   "ok": false,
+   "rc": 6,
+   "estado": "sin_acuse_procesada",
+   "categoria": "consumida_y_publicada",
+   "determinada": true,
+   "incierto": false,
+   "evidencia": "/var/tmp/d5lr/S3-comprimida-acuse-no-escribible/work/control.json.evidencia-5eec7db9f4f145cbb8a13f2b2ca4849e.json",
+   "traza_auditoria": "/var/tmp/d5lr/S3-comprimida-acuse-no-escribible/work/control.json.evidencia-5eec7db9f4f145cbb8a13f2b2ca4849e.auditoria",
+   "secuencia": 2,
+   "id": "5eec7db9f4f145cbb8a13f2b2ca4849e",
+   "motivo": null,
+   "trazabilidad": "completa",
+   "publicacion": "confirmada"
+  }
+ },
+ {
+  "comprobacion": "S4-retencion-rotate-2: publicador arrancado como nobody (feed inicial con 3 entidades)",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "comprobacion": "S4: con rotate 2 los ids más viejos quedan «publicación sin confirmar» (fuera de retención) y los recientes se confirman",
+  "ok": true,
+  "detalle": {
+   "rt-1": "publicación sin confirmar",
+   "rt-2": "publicación sin confirmar",
+   "rt-3": "publicación sin confirmar",
+   "rt-4": "confirmada",
+   "rt-5": "confirmada"
+  }
+ },
+ {
+  "comprobacion": "S5-estres-logrotate-continuo: publicador arrancado como nobody (feed inicial con 3 entidades)",
+  "ok": true,
+  "detalle": ""
+ },
+ {
+  "comprobacion": "S5: las 20 solicitudes tuvieron acuse y el publicador no se reinició",
+  "ok": true,
+  "detalle": {
+   "st-0": 2,
+   "st-1": 3,
+   "st-2": 4,
+   "st-3": 5,
+   "st-4": 6,
+   "st-5": 7,
+   "st-6": 8,
+   "st-7": 9,
+   "st-8": 10,
+   "st-9": 11,
+   "st-10": 12,
+   "st-11": 13,
+   "st-12": 14,
+   "st-13": 15,
+   "st-14": 16,
+   "st-15": 17,
+   "st-16": 18,
+   "st-17": 19,
+   "st-18": 20,
+   "st-19": 21
+  }
+ },
+ {
+  "comprobacion": "S5: logrotate real terminó siempre con rc 0 (139 rotaciones)",
+  "ok": true,
+  "detalle": [
+   0
+  ]
+ },
+ {
+  "comprobacion": "S5: el lector (solo lectura) reconstruye 20/20 ids con su secuencia",
+  "ok": true,
+  "detalle": []
+ },
+ {
+  "comprobacion": "S5: la prueba no es vacía (hubo ids repartidos en ficheros distintos)",
+  "ok": true,
+  "detalle": {
+   "repartidos": 4,
+   "con_gz": 19
+  }
+ }
+]

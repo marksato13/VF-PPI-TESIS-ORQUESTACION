@@ -1,0 +1,13 @@
+M00 MUERTA 'if b is not None:\n                self.bloqueada = b'
+M01 MUERTA 'self.bloqueada = res\n        if self.estado_bloqueo:'
+M02 MUERTA 'if not str(quien).strip() or not str(motivo).strip():'
+M03 MUERTA 'self._log({"evento": "reanudacion_manual", "por": quien'
+M04 MUERTA 'if r["ok"]:\n        q = r.get'
+M05 MUERTA 'r.get("t_limpio", self.ahora())'
+M06 MUERTA 'if not real:\n        return dict(base, ok=True'
+M07 MUERTA '"bloqueada": self._bloqueo_actual() is not None}'
+M08 MUERTA 'self.omitidas += 1'
+M09 MUERTA 'if origen != ORIGEN:\n        return {"ok": False, "rc":'
+M10 MUERTA 'acuse=True, duplicada'
+M11 MUERTA 'self.intentos_de_puerta += 1'
+12/12 muertas; vivas: []

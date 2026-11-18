@@ -1,0 +1,48 @@
+##### 1. hashes
+OK: artefactos = SHA256SUMS
+##### 2. huésped fijado
+600 gadmin /home/gadmin/.ssh/known_hosts_d5
+256 SHA256:xHCL2/TSa7S8QE+ZRIhjmjcqQcm+7n7lrw/5i2BnfSQ 10.10.60.11 (ED25519)
+##### 3. modo SECO: clave
+[seco] mkdir -p /home/gadmin/.ssh
+[seco] chmod 700 /home/gadmin/.ssh
+[seco] ssh-keygen -q -t ed25519 -N  -C cf-bastion-d5 -f /home/gadmin/.ssh/cyberflow-d5-sensor
+rc=0
+##### 4. modo SECO: instalar (CF_HOSTKEY = la comprobada por huella)
+== Bastión: instalar (aplicar=0)
+[seco] mkdir -p /home/gadmin/cf-b/respaldo-d5/20261111T010827Z /home/gadmin/cf-b/herramientas
+[seco] cp -p /home/gadmin/.ssh/known_hosts_d5 /home/gadmin/cf-b/respaldo-d5/20261111T010827Z/known_hosts_d5
+[seco] install -m 0755 /home/gadmin/cf-b/paquete-despliegue/transporte_bastion.py /home/gadmin/cf-b/herramientas/transporte_bastion.py
+[seco] install -m 0755 /home/gadmin/cf-b/paquete-despliegue/lanzador_puerta_banco.py /home/gadmin/cf-b/herramientas/lanzador_puerta_banco.py
+[seco] install -m 0755 /home/gadmin/cf-b/paquete-despliegue/hacer_d5_episodio_banco.py /home/gadmin/cf-b/herramientas/hacer_d5_episodio_banco.py
+[seco] python3 -I /home/gadmin/cf-b/herramientas/hacer_d5_episodio_banco.py /home/gadmin/cf-b/herramientas/d5_episodio.py /home/gadmin/cf-b/herramientas/d5_episodio_banco.py
+[seco] fijar la clave de huésped en /home/gadmin/.ssh/known_hosts_d5
+huella de la clave de huésped fijada (compararla con la que muestra el Sensor1: ssh-keygen -lf /etc/ssh/ssh_host_ed25519_key.pub):
+orden de arranque de la puerta (propuesta, la fija Mark): python3 -I /home/gadmin/cf-b/herramientas/lanzador_puerta_banco.py ejecutar --dir <dir> --d5-banco /home/gadmin/cf-b/herramientas/d5_episodio_banco.py --sensor m4rk@10.10.60.11 --clave /home/gadmin/.ssh/cyberflow-d5-sensor --known-hosts /home/gadmin/.ssh/known_hosts_d5 --herramientas /home/gadmin/cf-b/herramientas --espera-fin <15|75> --ssh-sensor-legado '<orden ssh Sensor1>' --ssh-srv-legado '<orden ssh srv-dmz>'
+rc=0
+##### 5. modo SECO: revertir
+== Bastión: revertir (aplicar=0) — la evidencia se archiva, no se borra
+ANTES: retirar la línea cf-bastion-d5 de authorized_keys del Sensor1 (cf_d5_sensor1.sh revertir)
+archivar con hash: el directorio de la compuerta contiene puerta-bloqueo.json (no se borra)
+archivar con hash: el directorio de la compuerta contiene puertas-D5.jsonl (no se borra)
+archivar con hash: el directorio de la compuerta contiene puerta-banco.jsonl (no se borra)
+[seco] mv /home/gadmin/.ssh/known_hosts_d5 /home/gadmin/cf-b/respaldo-d5/known_hosts_d5.retirado-20261111T010827Z
+rc=0
+##### 6. el derivado de d5_episodio.py EXISTENTE = el validado en banco (sin escribir: a stdout)
+27b63c4167df1ec69180dc05319adb78e3af462e75a181c347eda8092e12ac34
+esperado: 27b63c4167df1ec69180dc05319adb78e3af462e75a181c347eda8092e12ac34
+##### 7. compatibilidad Python y lanzador
+Python 3.13.5
+sintaxis OK en 11 ficheros
+usage: lanzador_puerta_banco.py ejecutar [-h] --dir DIR --d5-banco D5_BANCO
+                                         --sensor SENSOR --clave CLAVE
+                                         --known-hosts KNOWN_HOSTS
+                                         [--puerto PUERTO]
+rc=0
+imports del bastion OK (transporte_bastion, compuerta_b, orquestar_b)
+##### 8. comprobación del cliente SSH con el huésped fijado (solo lectura, clave existente)
+cyberflow-sensor
+rc=0
+##### 9. NO debe existir todavía
+ls: cannot access '/home/gadmin/.ssh/cyberflow-d5-sensor*': No such file or directory
+0

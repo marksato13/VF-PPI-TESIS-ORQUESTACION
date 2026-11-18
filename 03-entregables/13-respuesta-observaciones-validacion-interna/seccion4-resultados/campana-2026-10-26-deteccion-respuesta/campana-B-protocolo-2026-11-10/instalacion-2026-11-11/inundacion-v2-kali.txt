@@ -1,0 +1,25 @@
+##### Kali: reemplazo de la inundación instrumentada v1 -> v2 2026-11-11T03:55:30Z; respaldo en /home/adminatacante/cf-b/respaldo-d5/20261111T035530Z-inundacion-v1
+7ac5335848469ed6  inundacion_instrumentada.instalada.v1.sh
+7ac5335848469ed6  inundacion_instrumentada.paquete.v1.sh
+cd1355320ae9690d  sha256-esperado-i.txt.antes
+560fd6549fa6d357  SHA256SUMS.paquete.antes
+v2 recibida: 8e9b49b1c51343b0009779a5d8d92039832a27195a1458f10a14c7f49cdb9a95
+--- diff de la lista firmada instrumentada (solo debe cambiar 1 línea)
+11c11
+< 7ac5335848469ed6a4facdf55a79dab82e2d7050404dc881a95d89c6793fc18e  /home/adminatacante/cf-b/instrumentacion/inundacion_instrumentada.sh
+---
+> 8e9b49b1c51343b0009779a5d8d92039832a27195a1458f10a14c7f49cdb9a95  /home/adminatacante/cf-b/instrumentacion/inundacion_instrumentada.sh
+--- verificaciones
+11
+lista instrumentada: OK
+lista ORIGINAL: sigue verificando
+--- aceptación del paquete de instrumentación en la Kali
+== kali: aceptación
+OK    artefactos = SHA256SUMS
+OK    instalado inundacion_instrumentada.sh = paquete
+OK    inundacion_instrumentada.sh 0755
+OK    sintaxis de la inundación instrumentada
+resumen: 4 OK, 0 FALLAN
+755 /home/adminatacante/cf-b/instrumentacion/inundacion_instrumentada.sh
+755 /home/adminatacante/cf-b/paquete-despliegue/inundacion_instrumentada.sh
+8e9b49b1c51343b0009779a5d8d92039832a27195a1458f10a14c7f49cdb9a95

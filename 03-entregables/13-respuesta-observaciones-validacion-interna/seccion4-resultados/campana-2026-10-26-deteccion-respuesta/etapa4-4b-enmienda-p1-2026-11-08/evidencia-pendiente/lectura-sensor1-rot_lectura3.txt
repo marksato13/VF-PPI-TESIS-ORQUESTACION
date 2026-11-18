@@ -1,0 +1,102 @@
+2026-11-08T15:14:07Z
+######## man logrotate: prerotate, sharedscripts, firstaction
+543-   Scripts
+544:       sharedscripts
+545-	      Normally,	 prerotate and postrotate scripts are run for each log
+546-	      which is rotated and the absolute path to the log file is passed
+547-	      as first argument to the script.	That means a single script may
+548-	      be run multiple times for log file entries which match  multiple
+549-	      files  (such  as the /var/log/news/* example).  If sharedscripts
+550-	      is specified, the scripts are only run once, no matter how  many
+551-	      logs  match  the wildcarded pattern, and whole pattern is passed
+552-	      to them.	However, if none of the logs in	 the  pattern  require
+553-	      rotating,	 the  scripts  will not be run at all.	If the scripts
+--
+566-
+567:       firstaction
+568-	   script
+569-       endscript
+570-	      The  script is executed once before all log files that match the
+571-	      wildcarded pattern are rotated, before the prerotate  script  is
+572-	      run  and	only  if  at  least  one log will actually be rotated.
+573-	      These directives may only appear inside a log  file  definition.
+574-	      The whole pattern is passed to the script as its first argument.
+575-	      If  the  script  exits  with  an error, no further processing is
+576-	      done.  See also lastaction and the SCRIPTS section.
+######## logrotate -d (debug, no rota nada; como m4rk no puede leer el estado)
+warning: logrotate in debug mode does nothing except printing debug messages!  Consider using verbose mode (-v) instead if this is not what you want.
+
+reading config file /etc/logrotate.d/suricata
+Reading state from file: /var/lib/logrotate/status
+error: error opening state file /var/lib/logrotate/status; assuming empty state: Permission denied
+Allocating hash table for state file, size 64 entries
+
+Handling 1 logs
+
+rotating pattern: /var/log/suricata/*.log
+/var/log/suricata/*.json
+ after 1 days (7 rotations)
+empty log files are rotated, log files >= 524288000 are rotated earlier, old logs are removed
+considering log /var/log/suricata/fast.log
+Creating new state
+  Now: 2026-11-08 15:14
+  Last rotated at 2026-11-08 15:00
+  log does not need rotating (log has already been rotated)
+considering log /var/log/suricata/stats.log
+Creating new state
+  Now: 2026-11-08 15:14
+  Last rotated at 2026-11-08 15:00
+  log does not need rotating (log has already been rotated)
+considering log /var/log/suricata/suricata.log
+Creating new state
+######## timers que caen entre 16:00Z y 02:00Z (11:00–21:00 Perú)
+Sun 2026-11-08 15:14:30 UTC    22s Sun 2026-11-08 15:14:00 UTC       6s ago cf-tcpdump-estadisticas.timer  cf-tcpdump-estadisticas.service
+Sun 2026-11-08 15:15:00 UTC    52s Sun 2026-11-08 15:10:00 UTC  4min 6s ago cyberflow-limpieza.timer       cyberflow-limpieza.service
+Sun 2026-11-08 15:20:00 UTC   5min Sun 2026-11-08 15:10:00 UTC  4min 6s ago cyberflow-acumular.timer       cyberflow-acumular.service
+Sun 2026-11-08 15:20:00 UTC   5min Sun 2026-11-08 15:10:00 UTC  4min 6s ago sysstat-collect.timer          sysstat-collect.service
+Sun 2026-11-08 15:51:34 UTC  37min Sun 2026-11-08 14:35:57 UTC    38min ago fwupd-refresh.timer            fwupd-refresh.service
+Sun 2026-11-08 22:41:52 UTC     7h Sun 2026-11-08 06:28:53 UTC       8h ago apt-daily.timer                apt-daily.service
+Mon 2026-11-09 00:00:00 UTC     8h Sun 2026-11-08 00:00:00 UTC      15h ago dpkg-db-backup.timer           dpkg-db-backup.service
+Mon 2026-11-09 00:00:00 UTC     8h Sun 2026-11-08 00:00:00 UTC      15h ago logrotate.timer                logrotate.service
+Mon 2026-11-09 00:02:30 UTC     8h Sun 2026-11-08 00:02:30 UTC      15h ago update-notifier-download.timer update-notifier-download.service
+Mon 2026-11-09 00:07:00 UTC     8h Sun 2026-11-08 00:07:00 UTC      15h ago sysstat-summary.timer          sysstat-summary.service
+Mon 2026-11-09 00:08:09 UTC     8h Mon 2026-11-02 00:36:50 UTC            - fstrim.timer                   fstrim.service
+Mon 2026-11-09 00:12:30 UTC     8h Sun 2026-11-08 00:12:30 UTC      15h ago systemd-tmpfiles-clean.timer   systemd-tmpfiles-clean.service
+Mon 2026-11-09 00:30:00 UTC     9h Sun 2026-11-08 00:30:00 UTC      14h ago cyberflow-aprendizaje.timer    cyberflow-aprendizaje.service
+Mon 2026-11-09 04:36:59 UTC    13h Sun 2026-11-08 14:36:53 UTC    37min ago motd-news.timer                motd-news.service
+Mon 2026-11-09 06:35:45 UTC    15h Sun 2026-11-08 06:34:53 UTC       8h ago apt-daily-upgrade.timer        apt-daily-upgrade.service
+Mon 2026-11-09 06:45:15 UTC    15h Sun 2026-11-08 11:37:19 UTC 3h 36min ago man-db.timer                   man-db.service
+Wed 2026-11-11 20:01:31 UTC 3 days Wed 2026-11-04 06:12:46 UTC            - update-notifier-motd.timer     update-notifier-motd.service
+Sun 2026-11-15 03:10:23 UTC 6 days Sun 2026-11-08 03:10:24 UTC      12h ago e2scrub_all.timer              e2scrub_all.service
+-                                - -                                      - apport-autoreport.timer        apport-autoreport.service
+-                                - -                                      - snapd.snap-repair.timer        snapd.snap-repair.service
+-                                - -                                      - ua-timer.timer                 ua-timer.service
+
+21 timers listed.
+######## unidades logrotate.service: ¿hay drop-ins?
+ls: cannot access '/etc/systemd/system/logrotate.service.d': No such file or directory
+ls: cannot access '/etc/systemd/system/logrotate.timer.d': No such file or directory
+######## quién puede escribir /etc/logrotate.d
+root 755 /etc/logrotate.d
+root 644 /etc/logrotate.d/suricata
+root 644 /etc/logrotate.d/cyberflow
+root 644 /etc/logrotate.d/cyberflow-etapa4
+######## sudo -l de m4rk
+Matching Defaults entries for m4rk on cyberflow-sensor:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin, use_pty
+
+User m4rk may run the following commands on cyberflow-sensor:
+    (ALL : ALL) ALL
+    (root) NOPASSWD: /usr/bin/systemctl is-active *, /usr/bin/systemctl is-enabled *, /usr/bin/systemctl is-failed *, /usr/bin/systemctl show *, /usr/bin/systemctl list-timers --no-pager *, /usr/bin/systemctl status --no-pager *, /usr/bin/journalctl --no-pager *, /usr/sbin/nft list *, /usr/bin/systemctl restart cyberflow-capture-nic ppi-motor-capture ppi-motor ppi-dashboard cyberflow-panel-acceso suricata, /usr/bin/systemctl restart ppi-motor, /usr/bin/systemctl restart ppi-motor-capture, /usr/bin/systemctl restart ppi-dashboard, /usr/bin/systemctl restart cyberflow-panel-acceso, /usr/bin/systemctl restart cyberflow-capture-nic, /usr/bin/systemctl restart suricata, /usr/bin/systemctl start cyberflow-limpieza.service, /usr/bin/systemctl reset-failed *, /usr/bin/wc -l /var/log/suricata/eve.json, /usr/bin/tail /var/log/suricata/eve.json, /usr/bin/tail -n [0-9]* /var/log/suricata/eve.json, /usr/bin/grep * /var/log/suricata/eve.json, /usr/bin/ls -la /var/lib/ppi-motor-capture/, /usr/bin/ls -l /var/lib/ppi-motor-capture/, /usr/bin/du -sh /var/lib/ppi-motor-capture/, /usr/bin/find /var/lib/ppi-motor-capture -maxdepth 1 -name live-*.pcap*
+    (root) NOPASSWD: /usr/local/sbin/cf-capturar
+    (root) NOPASSWD: /usr/bin/systemctl daemon-reload
+    (root) NOPASSWD: /usr/bin/systemctl enable ppi-motor ppi-motor-capture ppi-dashboard cyberflow-limpieza.timer cyberflow-capture-nic cyberflow-panel-acceso
+    (root) NOPASSWD: /usr/bin/systemctl disable ppi-motor ppi-motor-capture ppi-dashboard cyberflow-limpieza.timer cyberflow-capture-nic cyberflow-panel-acceso
+    (root) NOPASSWD: /usr/bin/systemctl start cyberflow-acumular.service, /usr/bin/systemctl enable cyberflow-acumular.timer, /usr/bin/systemctl disable cyberflow-acumular.timer, /usr/bin/systemctl start cyberflow-acumular.timer, /usr/bin/systemctl stop cyberflow-acumular.timer
+######## crecimiento de eve.json: tamaño y marca
+126220069 2026-11-08 15:14:07.263624280 +0000
+######## espacio de 3B (referencia)
+/home/m4rk/cf-3b-20261101T0721Z
+/home/m4rk/cf-3b-revision-20261101
+1,9G	/home/m4rk/cf-3b-20261101T0721Z
+3,3M	/home/m4rk/cf-3b-revision-20261101

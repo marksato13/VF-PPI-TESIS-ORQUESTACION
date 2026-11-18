@@ -1,0 +1,1273 @@
+{
+ "cobertura_segundos_con_captura": 11493,
+ "episodios": [
+  {
+   "E1": {
+    "margen_antes_del_fin_s": 81.91,
+    "otras_reglas_en_ventana": [],
+    "paquetes_kali_en_ventana_evidencia_y_episodio": 3280,
+    "resultado": "verificado",
+    "resultado_senal": "verificado",
+    "señal_publicador": "brute_force",
+    "t_det_menos_t_inicio": 9.17,
+    "ventana_evidencia_vs_inicio_s": [
+     -55.5,
+     4.5
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "confirmacion": "confirmada",
+    "id_regla": "bd32b9ceb6deee79",
+    "margen_antes_del_fin_s": 80.85,
+    "motivo": "regla confirmada antes del fin",
+    "resultado": "cumple",
+    "t_apl_menos_t_inicio": 10.23,
+    "violaciones": []
+   },
+   "E3": {
+    "b0": null,
+    "continuidad": null,
+    "huecos_del_espejo": 0.0,
+    "motivo": "efecto sostenido 3 bloques",
+    "primer_descarte_host_menos_t_inicio": 10.32,
+    "resultado": "cumple",
+    "serie": {
+     "posterior_aceptadas_media": 0.0,
+     "previo10_aceptadas_media": 132.8,
+     "resp_posterior_media": 0.0,
+     "syn_posterior_media": 2.0
+    },
+    "t_efecto_menos_t_inicio": 10.5,
+    "via_continuidad": null
+   },
+   "E4": {
+    "motivo": "0 fallos atribuibles",
+    "n": 504,
+    "perfiles": [
+     "aplicacion",
+     "descargas",
+     "erratico",
+     "ligero",
+     "navegacion",
+     "ofimatica"
+    ],
+    "resultado": "cumple"
+   },
+   "E5": {
+    "lecturas_del_set": 137,
+    "motivo": "origen ausente del set",
+    "resultado": "cumple",
+    "retirada_d5_menos_fin_s": 105.3,
+    "via": "retirada_explicita"
+   },
+   "duracion_s": 91.1,
+   "episodio": "fuerza_bruta_http-r1",
+   "estado_generador": "completo",
+   "familia": "fuerza_bruta_http",
+   "intentos_generador": 752,
+   "t_fin": 1794405806.55086,
+   "t_inicio": 1794405715.468747
+  },
+  {
+   "E1": {
+    "margen_antes_del_fin_s": 170.04,
+    "motivo": "sin lector de paquetes para este servicio",
+    "otras_reglas_en_ventana": [
+     "port_scan_temprano"
+    ],
+    "resultado": "indeterminado",
+    "resultado_senal": "verificado",
+    "señal_publicador": "port_scan",
+    "t_det_menos_t_inicio": 11.96,
+    "ventana_evidencia_vs_inicio_s": [
+     -21.6,
+     8.4
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "confirmacion": "confirmada",
+    "id_regla": "5447a91994de65ac",
+    "margen_antes_del_fin_s": 180.22,
+    "motivo": "regla confirmada antes del fin",
+    "resultado": "cumple",
+    "t_apl_menos_t_inicio": 1.78,
+    "violaciones": []
+   },
+   "E3": {
+    "b0": null,
+    "continuidad": null,
+    "huecos_del_espejo": 0.0,
+    "motivo": "I2 el generador no siguió intentando 3 bloques tras t_apl",
+    "primer_descarte_host_menos_t_inicio": null,
+    "resultado": "indeterminado",
+    "serie": {
+     "posterior_aceptadas_media": 0.0,
+     "previo10_aceptadas_media": 0.0,
+     "resp_posterior_media": 0.0,
+     "syn_posterior_media": 0.0
+    },
+    "t_efecto_menos_t_inicio": null,
+    "via_continuidad": null
+   },
+   "E4": {
+    "motivo": "0 fallos atribuibles",
+    "n": 658,
+    "perfiles": [
+     "aplicacion",
+     "descargas",
+     "erratico",
+     "ligero",
+     "navegacion",
+     "ofimatica"
+    ],
+    "resultado": "cumple"
+   },
+   "E5": {
+    "lecturas_del_set": 148,
+    "motivo": "origen ausente del set",
+    "resultado": "cumple",
+    "retirada_d5_menos_fin_s": 127.7,
+    "via": "caducidad_natural"
+   },
+   "duracion_s": 182.0,
+   "episodio": "escaneo_breve-r4",
+   "estado_generador": "incompleto_timeout",
+   "familia": "escaneo_breve",
+   "intentos_generador": null,
+   "t_fin": 1794406263.565883,
+   "t_inicio": 1794406081.563168
+  },
+  {
+   "E1": {
+    "margen_antes_del_fin_s": 896.37,
+    "motivo": "sin lector de paquetes para este servicio",
+    "otras_reglas_en_ventana": [
+     "port_scan_temprano"
+    ],
+    "resultado": "indeterminado",
+    "resultado_senal": "verificado",
+    "señal_publicador": "port_scan",
+    "t_det_menos_t_inicio": 5.63,
+    "ventana_evidencia_vs_inicio_s": [
+     -28.6,
+     1.4
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "confirmacion": "confirmada",
+    "id_regla": "a5c31a77fdbe7b49",
+    "margen_antes_del_fin_s": 900.05,
+    "motivo": "regla confirmada antes del fin",
+    "resultado": "cumple",
+    "t_apl_menos_t_inicio": 1.96,
+    "violaciones": []
+   },
+   "E3": {
+    "b0": null,
+    "continuidad": null,
+    "huecos_del_espejo": 0.0,
+    "motivo": "I2 el generador no siguió intentando 3 bloques tras t_apl",
+    "primer_descarte_host_menos_t_inicio": null,
+    "resultado": "indeterminado",
+    "serie": {
+     "posterior_aceptadas_media": 0.0,
+     "previo10_aceptadas_media": 0.0,
+     "resp_posterior_media": 0.0,
+     "syn_posterior_media": 0.0
+    },
+    "t_efecto_menos_t_inicio": null,
+    "via_continuidad": null
+   },
+   "E4": {
+    "motivo": "0 fallos atribuibles",
+    "n": 2165,
+    "perfiles": [
+     "aplicacion",
+     "descargas",
+     "erratico",
+     "ligero",
+     "navegacion",
+     "ofimatica"
+    ],
+    "resultado": "cumple"
+   },
+   "E5": {
+    "lecturas_del_set": 147,
+    "motivo": "origen ausente del set",
+    "resultado": "cumple",
+    "retirada_d5_menos_fin_s": 130.8,
+    "via": "caducidad_natural"
+   },
+   "duracion_s": 902.0,
+   "episodio": "escaneo_sostenido-r5",
+   "estado_generador": "incompleto_timeout",
+   "familia": "escaneo_sostenido",
+   "intentos_generador": null,
+   "t_fin": 1794407460.583755,
+   "t_inicio": 1794406558.580306
+  },
+  {
+   "E1": {
+    "margen_antes_del_fin_s": 77.63,
+    "otras_reglas_en_ventana": [],
+    "paquetes_kali_en_ventana_evidencia_y_episodio": 3248,
+    "resultado": "verificado",
+    "resultado_senal": "verificado",
+    "señal_publicador": "brute_force",
+    "t_det_menos_t_inicio": 11.85,
+    "ventana_evidencia_vs_inicio_s": [
+     -55.6,
+     4.4
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "confirmacion": "confirmada",
+    "id_regla": "a09d3675af5cb1ab",
+    "margen_antes_del_fin_s": 76.74,
+    "motivo": "regla confirmada antes del fin",
+    "resultado": "cumple",
+    "t_apl_menos_t_inicio": 12.73,
+    "violaciones": []
+   },
+   "E3": {
+    "b0": null,
+    "continuidad": null,
+    "huecos_del_espejo": -0.011,
+    "motivo": "efecto sostenido 3 bloques",
+    "primer_descarte_host_menos_t_inicio": 12.81,
+    "resultado": "cumple",
+    "serie": {
+     "posterior_aceptadas_media": 0.0,
+     "previo10_aceptadas_media": 140.1,
+     "resp_posterior_media": 0.0,
+     "syn_posterior_media": 2.0
+    },
+    "t_efecto_menos_t_inicio": 13.4,
+    "via_continuidad": null
+   },
+   "E4": {
+    "motivo": "0 fallos atribuibles",
+    "n": 545,
+    "perfiles": [
+     "aplicacion",
+     "descargas",
+     "erratico",
+     "ligero",
+     "navegacion",
+     "ofimatica"
+    ],
+    "resultado": "cumple"
+   },
+   "E5": {
+    "lecturas_del_set": 140,
+    "motivo": "origen ausente del set",
+    "resultado": "cumple",
+    "retirada_d5_menos_fin_s": 108.7,
+    "via": "retirada_explicita"
+   },
+   "duracion_s": 89.5,
+   "episodio": "fuerza_bruta_http-r5",
+   "estado_generador": "completo",
+   "familia": "fuerza_bruta_http",
+   "intentos_generador": 926,
+   "t_fin": 1794407845.068566,
+   "t_inicio": 1794407755.597961
+  },
+  {
+   "E1": {
+    "margen_antes_del_fin_s": 169.8,
+    "motivo": "sin lector de paquetes para este servicio",
+    "otras_reglas_en_ventana": [
+     "port_scan_temprano"
+    ],
+    "resultado": "indeterminado",
+    "resultado_senal": "verificado",
+    "señal_publicador": "port_scan",
+    "t_det_menos_t_inicio": 12.2,
+    "ventana_evidencia_vs_inicio_s": [
+     -25.1,
+     4.9
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "confirmacion": "confirmada",
+    "id_regla": "b32ea93e90663db8",
+    "margen_antes_del_fin_s": 180.55,
+    "motivo": "regla confirmada antes del fin",
+    "resultado": "cumple",
+    "t_apl_menos_t_inicio": 1.45,
+    "violaciones": []
+   },
+   "E3": {
+    "b0": null,
+    "continuidad": null,
+    "huecos_del_espejo": 0.0,
+    "motivo": "I2 el generador no siguió intentando 3 bloques tras t_apl",
+    "primer_descarte_host_menos_t_inicio": null,
+    "resultado": "indeterminado",
+    "serie": {
+     "posterior_aceptadas_media": 0.0,
+     "previo10_aceptadas_media": 0.0,
+     "resp_posterior_media": 0.0,
+     "syn_posterior_media": 0.0
+    },
+    "t_efecto_menos_t_inicio": null,
+    "via_continuidad": null
+   },
+   "E4": {
+    "motivo": "0 fallos atribuibles",
+    "n": 704,
+    "perfiles": [
+     "aplicacion",
+     "descargas",
+     "erratico",
+     "ligero",
+     "navegacion",
+     "ofimatica"
+    ],
+    "resultado": "cumple"
+   },
+   "E5": {
+    "lecturas_del_set": 145,
+    "motivo": "origen ausente del set",
+    "resultado": "cumple",
+    "retirada_d5_menos_fin_s": 124.7,
+    "via": "caducidad_natural"
+   },
+   "duracion_s": 182.0,
+   "episodio": "escaneo_breve-r2",
+   "estado_generador": "incompleto_timeout",
+   "familia": "escaneo_breve",
+   "intentos_generador": null,
+   "t_fin": 1794408307.083839,
+   "t_inicio": 1794408125.080869
+  },
+  {
+   "E1": {
+    "margen_antes_del_fin_s": 84.12,
+    "otras_reglas_en_ventana": [],
+    "paquetes_kali_en_ventana_evidencia_y_episodio": 2014,
+    "resultado": "verificado",
+    "resultado_senal": "verificado",
+    "señal_publicador": "brute_force",
+    "t_det_menos_t_inicio": 7.07,
+    "ventana_evidencia_vs_inicio_s": [
+     -57.1,
+     2.9
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "confirmacion": "confirmada",
+    "id_regla": "d40e3b0c6e45596a",
+    "margen_antes_del_fin_s": 82.89,
+    "motivo": "regla confirmada antes del fin",
+    "resultado": "cumple",
+    "t_apl_menos_t_inicio": 8.3,
+    "violaciones": []
+   },
+   "E3": {
+    "b0": null,
+    "continuidad": null,
+    "huecos_del_espejo": 0.0,
+    "motivo": "efecto sostenido 3 bloques",
+    "primer_descarte_host_menos_t_inicio": 8.38,
+    "resultado": "cumple",
+    "serie": {
+     "posterior_aceptadas_media": 0.0,
+     "previo10_aceptadas_media": 107.2,
+     "resp_posterior_media": 0.0,
+     "syn_posterior_media": 2.0
+    },
+    "t_efecto_menos_t_inicio": 8.9,
+    "via_continuidad": null
+   },
+   "E4": {
+    "motivo": "0 fallos atribuibles",
+    "n": 445,
+    "perfiles": [
+     "aplicacion",
+     "descargas",
+     "erratico",
+     "ligero",
+     "navegacion",
+     "ofimatica"
+    ],
+    "resultado": "cumple"
+   },
+   "E5": {
+    "lecturas_del_set": 138,
+    "motivo": "origen ausente del set",
+    "resultado": "cumple",
+    "retirada_d5_menos_fin_s": 103.4,
+    "via": "retirada_explicita"
+   },
+   "duracion_s": 91.2,
+   "episodio": "fuerza_bruta_http-r2",
+   "estado_generador": "completo",
+   "familia": "fuerza_bruta_http",
+   "intentos_generador": 604,
+   "t_fin": 1794408688.281573,
+   "t_inicio": 1794408597.095515
+  },
+  {
+   "E1": {
+    "margen_antes_del_fin_s": 890.72,
+    "motivo": "sin lector de paquetes para este servicio",
+    "otras_reglas_en_ventana": [
+     "port_scan_temprano"
+    ],
+    "resultado": "indeterminado",
+    "resultado_senal": "verificado",
+    "señal_publicador": "port_scan",
+    "t_det_menos_t_inicio": 11.28,
+    "ventana_evidencia_vs_inicio_s": [
+     -23.3,
+     6.7
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "confirmacion": "confirmada",
+    "id_regla": "ba3c4e982c6e31bb",
+    "margen_antes_del_fin_s": 900.87,
+    "motivo": "regla confirmada antes del fin",
+    "resultado": "cumple",
+    "t_apl_menos_t_inicio": 1.13,
+    "violaciones": []
+   },
+   "E3": {
+    "b0": null,
+    "continuidad": null,
+    "huecos_del_espejo": 0.0,
+    "motivo": "I2 el generador no siguió intentando 3 bloques tras t_apl",
+    "primer_descarte_host_menos_t_inicio": null,
+    "resultado": "indeterminado",
+    "serie": {
+     "posterior_aceptadas_media": 0.0,
+     "previo10_aceptadas_media": 0.0,
+     "resp_posterior_media": 0.0,
+     "syn_posterior_media": 0.0
+    },
+    "t_efecto_menos_t_inicio": null,
+    "via_continuidad": null
+   },
+   "E4": {
+    "motivo": "0 fallos atribuibles",
+    "n": 2142,
+    "perfiles": [
+     "aplicacion",
+     "descargas",
+     "erratico",
+     "ligero",
+     "navegacion",
+     "ofimatica"
+    ],
+    "resultado": "cumple"
+   },
+   "E5": {
+    "lecturas_del_set": 145,
+    "motivo": "origen ausente del set",
+    "resultado": "cumple",
+    "retirada_d5_menos_fin_s": 126.6,
+    "via": "caducidad_natural"
+   },
+   "duracion_s": 902.0,
+   "episodio": "escaneo_sostenido-r2",
+   "estado_generador": "incompleto_timeout",
+   "familia": "escaneo_sostenido",
+   "intentos_generador": null,
+   "t_fin": 1794409865.296773,
+   "t_inicio": 1794408963.292983
+  },
+  {
+   "E1": {
+    "margen_antes_del_fin_s": 73.15,
+    "otras_reglas_en_ventana": [],
+    "paquetes_kali_en_ventana_evidencia_y_episodio": 140,
+    "resultado": "verificado",
+    "resultado_senal": "verificado",
+    "señal_publicador": "dns_entropy",
+    "t_det_menos_t_inicio": 16.87,
+    "ventana_evidencia_vs_inicio_s": [
+     -45.3,
+     14.7
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "motivo": "DNS: DC1 no tiene punto de aplicación; el agente de srv-dmz ignora las entradas de DC1 (`ajenas`)",
+    "resultado": "no_aplica"
+   },
+   "E3": {
+    "motivo": "sin punto de aplicación",
+    "resultado": "no_aplica"
+   },
+   "E4": {
+    "motivo": "0 fallos atribuibles",
+    "n": 478,
+    "perfiles": [
+     "aplicacion",
+     "descargas",
+     "erratico",
+     "ligero",
+     "navegacion",
+     "ofimatica"
+    ],
+    "resultado": "cumple"
+   },
+   "E5": {
+    "motivo": "no hubo regla que retirar",
+    "resultado": "no_aplica"
+   },
+   "duracion_s": 90.0,
+   "episodio": "dns_inusual-r4",
+   "estado_generador": "completo",
+   "familia": "dns_inusual",
+   "intentos_generador": 209,
+   "t_fin": 1794410245.331744,
+   "t_inicio": 1794410155.310768
+  },
+  {
+   "E1": {
+    "margen_antes_del_fin_s": 130.88,
+    "motivo": "sin lector de paquetes para este servicio",
+    "otras_reglas_en_ventana": [
+     "port_scan_temprano"
+    ],
+    "resultado": "indeterminado",
+    "resultado_senal": "verificado",
+    "señal_publicador": "port_scan",
+    "t_det_menos_t_inicio": 7.44,
+    "ventana_evidencia_vs_inicio_s": [
+     -25.3,
+     4.7
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "confirmacion": "confirmada",
+    "id_regla": "41d33ac1979751d5",
+    "margen_antes_del_fin_s": 135.99,
+    "motivo": "regla confirmada antes del fin",
+    "resultado": "cumple",
+    "t_apl_menos_t_inicio": 2.33,
+    "violaciones": []
+   },
+   "E3": {
+    "b0": null,
+    "continuidad": null,
+    "huecos_del_espejo": 0.0,
+    "motivo": "I2 el generador no siguió intentando 3 bloques tras t_apl",
+    "primer_descarte_host_menos_t_inicio": null,
+    "resultado": "indeterminado",
+    "serie": {
+     "posterior_aceptadas_media": 0.0,
+     "previo10_aceptadas_media": 0.0,
+     "resp_posterior_media": 0.0,
+     "syn_posterior_media": 0.0
+    },
+    "t_efecto_menos_t_inicio": null,
+    "via_continuidad": null
+   },
+   "E4": {
+    "motivo": "0 fallos atribuibles",
+    "n": 636,
+    "perfiles": [
+     "aplicacion",
+     "descargas",
+     "erratico",
+     "ligero",
+     "navegacion",
+     "ofimatica"
+    ],
+    "resultado": "cumple"
+   },
+   "E5": {
+    "lecturas_del_set": 140,
+    "motivo": "origen ausente del set",
+    "resultado": "cumple",
+    "retirada_d5_menos_fin_s": 108.0,
+    "via": "retirada_explicita"
+   },
+   "duracion_s": 138.3,
+   "episodio": "escaneo_breve-r5",
+   "estado_generador": "completo",
+   "familia": "escaneo_breve",
+   "intentos_generador": null,
+   "t_fin": 1794410663.660108,
+   "t_inicio": 1794410525.342611
+  },
+  {
+   "E1": {
+    "margen_antes_del_fin_s": 79.04,
+    "otras_reglas_en_ventana": [],
+    "paquetes_kali_en_ventana_evidencia_y_episodio": 13720,
+    "resultado": "verificado",
+    "resultado_senal": "verificado",
+    "señal_publicador": "http_abuse",
+    "t_det_menos_t_inicio": 11.36,
+    "ventana_evidencia_vs_inicio_s": [
+     -53.7,
+     6.3
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "confirmacion": "confirmada",
+    "id_regla": "2849606db683145d",
+    "margen_antes_del_fin_s": 77.09,
+    "motivo": "regla confirmada antes del fin",
+    "resultado": "cumple",
+    "t_apl_menos_t_inicio": 13.31,
+    "violaciones": []
+   },
+   "E3": {
+    "b0": null,
+    "continuidad": {
+     "b0_intentos_salida": 156.3,
+     "b0_syn": 312.2,
+     "salida": false,
+     "span": false
+    },
+    "huecos_del_espejo": -0.011,
+    "motivo": "I2 el generador no siguió intentando 5 bloques tras t_apl (ni SPAN ni salida)",
+    "primer_descarte_host_menos_t_inicio": null,
+    "resultado": "indeterminado",
+    "serie": {
+     "posterior_aceptadas_media": 32.6,
+     "previo10_aceptadas_media": 312.2,
+     "resp_posterior_media": 172.7,
+     "syn_posterior_media": 38.8
+    },
+    "t_efecto_menos_t_inicio": null,
+    "via_continuidad": null
+   },
+   "E4": {
+    "motivo": "0 fallos atribuibles",
+    "n": 483,
+    "perfiles": [
+     "aplicacion",
+     "descargas",
+     "erratico",
+     "ligero",
+     "navegacion",
+     "ofimatica"
+    ],
+    "resultado": "cumple"
+   },
+   "E5": {
+    "lecturas_del_set": 135,
+    "motivo": "origen ausente del set",
+    "resultado": "cumple",
+    "retirada_d5_menos_fin_s": 98.0,
+    "via": "retirada_explicita"
+   },
+   "duracion_s": 90.4,
+   "episodio": "inundacion_http-r2",
+   "estado_generador": "completo",
+   "familia": "inundacion_http",
+   "intentos_generador": 3358,
+   "t_fin": 1794411034.070158,
+   "t_inicio": 1794410943.67287
+  },
+  {
+   "E1": {
+    "margen_antes_del_fin_s": 77.44,
+    "otras_reglas_en_ventana": [],
+    "paquetes_kali_en_ventana_evidencia_y_episodio": 12660,
+    "resultado": "verificado",
+    "resultado_senal": "verificado",
+    "señal_publicador": "http_abuse",
+    "t_det_menos_t_inicio": 13.58,
+    "ventana_evidencia_vs_inicio_s": [
+     -54.1,
+     5.9
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "confirmacion": "confirmada",
+    "id_regla": "79edd2d63be87350",
+    "margen_antes_del_fin_s": 76.74,
+    "motivo": "regla confirmada antes del fin",
+    "resultado": "cumple",
+    "t_apl_menos_t_inicio": 14.28,
+    "violaciones": []
+   },
+   "E3": {
+    "b0": null,
+    "continuidad": {
+     "b0_intentos_salida": 153.5,
+     "b0_syn": 307.2,
+     "salida": false,
+     "span": false
+    },
+    "huecos_del_espejo": 0.0,
+    "motivo": "I2 el generador no siguió intentando 5 bloques tras t_apl (ni SPAN ni salida)",
+    "primer_descarte_host_menos_t_inicio": null,
+    "resultado": "indeterminado",
+    "serie": {
+     "posterior_aceptadas_media": 32.2,
+     "previo10_aceptadas_media": 307.2,
+     "resp_posterior_media": 172.3,
+     "syn_posterior_media": 38.2
+    },
+    "t_efecto_menos_t_inicio": null,
+    "via_continuidad": null
+   },
+   "E4": {
+    "motivo": "0 fallos atribuibles",
+    "n": 504,
+    "perfiles": [
+     "aplicacion",
+     "descargas",
+     "erratico",
+     "ligero",
+     "navegacion",
+     "ofimatica"
+    ],
+    "resultado": "cumple"
+   },
+   "E5": {
+    "lecturas_del_set": 135,
+    "motivo": "origen ausente del set",
+    "resultado": "cumple",
+    "retirada_d5_menos_fin_s": 96.7,
+    "via": "retirada_explicita"
+   },
+   "duracion_s": 91.0,
+   "episodio": "inundacion_http-r1",
+   "estado_generador": "completo",
+   "familia": "inundacion_http",
+   "intentos_generador": 3468,
+   "t_fin": 1794411395.103467,
+   "t_inicio": 1794411304.079909
+  },
+  {
+   "E1": {
+    "margen_antes_del_fin_s": 892.79,
+    "motivo": "sin lector de paquetes para este servicio",
+    "otras_reglas_en_ventana": [
+     "port_scan_temprano"
+    ],
+    "resultado": "indeterminado",
+    "resultado_senal": "verificado",
+    "señal_publicador": "port_scan",
+    "t_det_menos_t_inicio": 9.21,
+    "ventana_evidencia_vs_inicio_s": [
+     -25.1,
+     4.9
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "confirmacion": "confirmada",
+    "id_regla": "9992c907bffb3124",
+    "margen_antes_del_fin_s": 900.7,
+    "motivo": "regla confirmada antes del fin",
+    "resultado": "cumple",
+    "t_apl_menos_t_inicio": 1.31,
+    "violaciones": []
+   },
+   "E3": {
+    "b0": null,
+    "continuidad": null,
+    "huecos_del_espejo": 0.0,
+    "motivo": "I2 el generador no siguió intentando 3 bloques tras t_apl",
+    "primer_descarte_host_menos_t_inicio": null,
+    "resultado": "indeterminado",
+    "serie": {
+     "posterior_aceptadas_media": 0.0,
+     "previo10_aceptadas_media": 0.0,
+     "resp_posterior_media": 0.0,
+     "syn_posterior_media": 0.0
+    },
+    "t_efecto_menos_t_inicio": null,
+    "via_continuidad": null
+   },
+   "E4": {
+    "motivo": "0 fallos atribuibles",
+    "n": 2114,
+    "perfiles": [
+     "aplicacion",
+     "descargas",
+     "erratico",
+     "ligero",
+     "navegacion",
+     "ofimatica"
+    ],
+    "resultado": "cumple"
+   },
+   "E5": {
+    "lecturas_del_set": 145,
+    "motivo": "origen ausente del set",
+    "resultado": "cumple",
+    "retirada_d5_menos_fin_s": 124.4,
+    "via": "caducidad_natural"
+   },
+   "duracion_s": 902.0,
+   "episodio": "escaneo_sostenido-r3",
+   "estado_generador": "incompleto_timeout",
+   "familia": "escaneo_sostenido",
+   "intentos_generador": null,
+   "t_fin": 1794412567.117244,
+   "t_inicio": 1794411665.11402
+  },
+  {
+   "E1": {
+    "margen_antes_del_fin_s": 896.15,
+    "motivo": "sin lector de paquetes para este servicio",
+    "otras_reglas_en_ventana": [
+     "port_scan_temprano"
+    ],
+    "resultado": "indeterminado",
+    "resultado_senal": "verificado",
+    "señal_publicador": "port_scan",
+    "t_det_menos_t_inicio": 5.85,
+    "ventana_evidencia_vs_inicio_s": [
+     -27.1,
+     2.9
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "confirmacion": "confirmada",
+    "id_regla": "880d6849159465c2",
+    "margen_antes_del_fin_s": 900.64,
+    "motivo": "regla confirmada antes del fin",
+    "resultado": "cumple",
+    "t_apl_menos_t_inicio": 1.36,
+    "violaciones": []
+   },
+   "E3": {
+    "b0": null,
+    "continuidad": null,
+    "huecos_del_espejo": 0.0,
+    "motivo": "I2 el generador no siguió intentando 3 bloques tras t_apl",
+    "primer_descarte_host_menos_t_inicio": null,
+    "resultado": "indeterminado",
+    "serie": {
+     "posterior_aceptadas_media": 0.0,
+     "previo10_aceptadas_media": 0.0,
+     "resp_posterior_media": 0.0,
+     "syn_posterior_media": 0.0
+    },
+    "t_efecto_menos_t_inicio": null,
+    "via_continuidad": null
+   },
+   "E4": {
+    "motivo": "0 fallos atribuibles",
+    "n": 2411,
+    "perfiles": [
+     "aplicacion",
+     "descargas",
+     "erratico",
+     "ligero",
+     "navegacion",
+     "ofimatica"
+    ],
+    "resultado": "cumple"
+   },
+   "E5": {
+    "lecturas_del_set": 147,
+    "motivo": "origen ausente del set",
+    "resultado": "cumple",
+    "retirada_d5_menos_fin_s": 132.2,
+    "via": "caducidad_natural"
+   },
+   "duracion_s": 902.0,
+   "episodio": "escaneo_sostenido-r1",
+   "estado_generador": "incompleto_timeout",
+   "familia": "escaneo_sostenido",
+   "intentos_generador": null,
+   "t_fin": 1794413759.133623,
+   "t_inicio": 1794412857.129921
+  },
+  {
+   "E1": {
+    "margen_antes_del_fin_s": 69.39,
+    "otras_reglas_en_ventana": [],
+    "paquetes_kali_en_ventana_evidencia_y_episodio": 148,
+    "resultado": "verificado",
+    "resultado_senal": "verificado",
+    "señal_publicador": "dns_entropy",
+    "t_det_menos_t_inicio": 20.54,
+    "ventana_evidencia_vs_inicio_s": [
+     -44.1,
+     15.9
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "motivo": "DNS: DC1 no tiene punto de aplicación; el agente de srv-dmz ignora las entradas de DC1 (`ajenas`)",
+    "resultado": "no_aplica"
+   },
+   "E3": {
+    "motivo": "sin punto de aplicación",
+    "resultado": "no_aplica"
+   },
+   "E4": {
+    "motivo": "0 fallos atribuibles",
+    "n": 426,
+    "perfiles": [
+     "aplicacion",
+     "descargas",
+     "erratico",
+     "ligero",
+     "navegacion",
+     "ofimatica"
+    ],
+    "resultado": "cumple"
+   },
+   "E5": {
+    "motivo": "no hubo regla que retirar",
+    "resultado": "no_aplica"
+   },
+   "duracion_s": 89.9,
+   "episodio": "dns_inusual-r2",
+   "estado_generador": "completo",
+   "familia": "dns_inusual",
+   "intentos_generador": 209,
+   "t_fin": 1794414144.080253,
+   "t_inicio": 1794414054.146025
+  },
+  {
+   "E1": {
+    "margen_antes_del_fin_s": 79.3,
+    "otras_reglas_en_ventana": [],
+    "paquetes_kali_en_ventana_evidencia_y_episodio": 12856,
+    "resultado": "verificado",
+    "resultado_senal": "verificado",
+    "señal_publicador": "http_abuse",
+    "t_det_menos_t_inicio": 11.86,
+    "ventana_evidencia_vs_inicio_s": [
+     -54.1,
+     5.9
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "confirmacion": "confirmada",
+    "id_regla": "6cedf3447442f89c",
+    "margen_antes_del_fin_s": 78.17,
+    "motivo": "regla confirmada antes del fin",
+    "resultado": "cumple",
+    "t_apl_menos_t_inicio": 12.99,
+    "violaciones": []
+   },
+   "E3": {
+    "b0": null,
+    "continuidad": {
+     "b0_intentos_salida": 156.9,
+     "b0_syn": 313.8,
+     "salida": false,
+     "span": false
+    },
+    "huecos_del_espejo": 0.0,
+    "motivo": "I2 el generador no siguió intentando 5 bloques tras t_apl (ni SPAN ni salida)",
+    "primer_descarte_host_menos_t_inicio": null,
+    "resultado": "indeterminado",
+    "serie": {
+     "posterior_aceptadas_media": 32.2,
+     "previo10_aceptadas_media": 313.8,
+     "resp_posterior_media": 173.2,
+     "syn_posterior_media": 38.1
+    },
+    "t_efecto_menos_t_inicio": null,
+    "via_continuidad": null
+   },
+   "E4": {
+    "motivo": "0 fallos atribuibles",
+    "n": 525,
+    "perfiles": [
+     "aplicacion",
+     "descargas",
+     "erratico",
+     "ligero",
+     "navegacion",
+     "ofimatica"
+    ],
+    "resultado": "cumple"
+   },
+   "E5": {
+    "lecturas_del_set": 135,
+    "motivo": "origen ausente del set",
+    "resultado": "cumple",
+    "retirada_d5_menos_fin_s": 97.3,
+    "via": "retirada_explicita"
+   },
+   "duracion_s": 91.2,
+   "episodio": "inundacion_http-r5",
+   "estado_generador": "completo",
+   "familia": "inundacion_http",
+   "intentos_generador": 3327,
+   "t_fin": 1794414515.254487,
+   "t_inicio": 1794414424.092038
+  },
+  {
+   "E1": {
+    "margen_antes_del_fin_s": 70.23,
+    "otras_reglas_en_ventana": [],
+    "paquetes_kali_en_ventana_evidencia_y_episodio": 140,
+    "resultado": "verificado",
+    "resultado_senal": "verificado",
+    "señal_publicador": "dns_entropy",
+    "t_det_menos_t_inicio": 19.89,
+    "ventana_evidencia_vs_inicio_s": [
+     -45.3,
+     14.7
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "motivo": "DNS: DC1 no tiene punto de aplicación; el agente de srv-dmz ignora las entradas de DC1 (`ajenas`)",
+    "resultado": "no_aplica"
+   },
+   "E3": {
+    "motivo": "sin punto de aplicación",
+    "resultado": "no_aplica"
+   },
+   "E4": {
+    "motivo": "0 fallos atribuibles",
+    "n": 443,
+    "perfiles": [
+     "aplicacion",
+     "descargas",
+     "erratico",
+     "ligero",
+     "navegacion",
+     "ofimatica"
+    ],
+    "resultado": "cumple"
+   },
+   "E5": {
+    "motivo": "no hubo regla que retirar",
+    "resultado": "no_aplica"
+   },
+   "duracion_s": 90.1,
+   "episodio": "dns_inusual-r5",
+   "estado_generador": "completo",
+   "familia": "dns_inusual",
+   "intentos_generador": 209,
+   "t_fin": 1794414875.39126,
+   "t_inicio": 1794414785.265326
+  },
+  {
+   "E1": {
+    "margen_antes_del_fin_s": 171.94,
+    "motivo": "sin lector de paquetes para este servicio",
+    "otras_reglas_en_ventana": [
+     "port_scan_temprano"
+    ],
+    "resultado": "indeterminado",
+    "resultado_senal": "verificado",
+    "señal_publicador": "port_scan",
+    "t_det_menos_t_inicio": 10.06,
+    "ventana_evidencia_vs_inicio_s": [
+     -25.4,
+     4.6
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "confirmacion": "confirmada",
+    "id_regla": "abdfe45ae5cbb102",
+    "margen_antes_del_fin_s": 179.97,
+    "motivo": "regla confirmada antes del fin",
+    "resultado": "cumple",
+    "t_apl_menos_t_inicio": 2.04,
+    "violaciones": []
+   },
+   "E3": {
+    "b0": null,
+    "continuidad": null,
+    "huecos_del_espejo": 0.0,
+    "motivo": "I2 el generador no siguió intentando 3 bloques tras t_apl",
+    "primer_descarte_host_menos_t_inicio": null,
+    "resultado": "indeterminado",
+    "serie": {
+     "posterior_aceptadas_media": 0.0,
+     "previo10_aceptadas_media": 0.0,
+     "resp_posterior_media": 0.0,
+     "syn_posterior_media": 0.0
+    },
+    "t_efecto_menos_t_inicio": null,
+    "via_continuidad": null
+   },
+   "E4": {
+    "motivo": "0 fallos atribuibles",
+    "n": 703,
+    "perfiles": [
+     "aplicacion",
+     "descargas",
+     "erratico",
+     "ligero",
+     "navegacion",
+     "ofimatica"
+    ],
+    "resultado": "cumple"
+   },
+   "E5": {
+    "lecturas_del_set": 145,
+    "motivo": "origen ausente del set",
+    "resultado": "cumple",
+    "retirada_d5_menos_fin_s": 126.1,
+    "via": "caducidad_natural"
+   },
+   "duracion_s": 182.0,
+   "episodio": "escaneo_breve-r3",
+   "estado_generador": "incompleto_timeout",
+   "familia": "escaneo_breve",
+   "intentos_generador": null,
+   "t_fin": 1794415327.404243,
+   "t_inicio": 1794415145.401882
+  },
+  {
+   "E1": {
+    "margen_antes_del_fin_s": 130.73,
+    "motivo": "sin lector de paquetes para este servicio",
+    "otras_reglas_en_ventana": [
+     "port_scan_temprano"
+    ],
+    "resultado": "indeterminado",
+    "resultado_senal": "verificado",
+    "señal_publicador": "port_scan",
+    "t_det_menos_t_inicio": 7.56,
+    "ventana_evidencia_vs_inicio_s": [
+     -27.4,
+     2.6
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "confirmacion": "confirmada",
+    "id_regla": "033990c5b739e051",
+    "margen_antes_del_fin_s": 136.63,
+    "motivo": "regla confirmada antes del fin",
+    "resultado": "cumple",
+    "t_apl_menos_t_inicio": 1.66,
+    "violaciones": []
+   },
+   "E3": {
+    "b0": null,
+    "continuidad": null,
+    "huecos_del_espejo": 0.0,
+    "motivo": "I2 el generador no siguió intentando 3 bloques tras t_apl",
+    "primer_descarte_host_menos_t_inicio": null,
+    "resultado": "indeterminado",
+    "serie": {
+     "posterior_aceptadas_media": 0.0,
+     "previo10_aceptadas_media": 0.0,
+     "resp_posterior_media": 0.0,
+     "syn_posterior_media": 0.0
+    },
+    "t_efecto_menos_t_inicio": null,
+    "via_continuidad": null
+   },
+   "E4": {
+    "motivo": "0 fallos atribuibles",
+    "n": 616,
+    "perfiles": [
+     "aplicacion",
+     "descargas",
+     "erratico",
+     "ligero",
+     "navegacion",
+     "ofimatica"
+    ],
+    "resultado": "cumple"
+   },
+   "E5": {
+    "lecturas_del_set": 145,
+    "motivo": "origen ausente del set",
+    "resultado": "cumple",
+    "retirada_d5_menos_fin_s": 116.1,
+    "via": "retirada_explicita"
+   },
+   "duracion_s": 138.3,
+   "episodio": "escaneo_breve-r1",
+   "estado_generador": "completo",
+   "familia": "escaneo_breve",
+   "intentos_generador": null,
+   "t_fin": 1794415755.708644,
+   "t_inicio": 1794415617.417152
+  },
+  {
+   "E1": {
+    "margen_antes_del_fin_s": 891.17,
+    "motivo": "sin lector de paquetes para este servicio",
+    "otras_reglas_en_ventana": [
+     "port_scan_temprano"
+    ],
+    "resultado": "indeterminado",
+    "resultado_senal": "verificado",
+    "señal_publicador": "port_scan",
+    "t_det_menos_t_inicio": 10.83,
+    "ventana_evidencia_vs_inicio_s": [
+     -25.7,
+     4.3
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "confirmacion": "confirmada",
+    "id_regla": "5fe88bb594d7f9b0",
+    "margen_antes_del_fin_s": 900.5,
+    "motivo": "regla confirmada antes del fin",
+    "resultado": "cumple",
+    "t_apl_menos_t_inicio": 1.51,
+    "violaciones": []
+   },
+   "E3": {
+    "b0": null,
+    "continuidad": null,
+    "huecos_del_espejo": 0.0,
+    "motivo": "I2 el generador no siguió intentando 3 bloques tras t_apl",
+    "primer_descarte_host_menos_t_inicio": null,
+    "resultado": "indeterminado",
+    "serie": {
+     "posterior_aceptadas_media": 0.0,
+     "previo10_aceptadas_media": 0.0,
+     "resp_posterior_media": 0.0,
+     "syn_posterior_media": 0.0
+    },
+    "t_efecto_menos_t_inicio": null,
+    "via_continuidad": null
+   },
+   "E4": {
+    "motivo": "0 fallos atribuibles",
+    "n": 2279,
+    "perfiles": [
+     "aplicacion",
+     "descargas",
+     "erratico",
+     "ligero",
+     "navegacion",
+     "ofimatica"
+    ],
+    "resultado": "cumple"
+   },
+   "E5": {
+    "lecturas_del_set": 164,
+    "motivo": "origen ausente del set",
+    "resultado": "cumple",
+    "retirada_d5_menos_fin_s": 124.0,
+    "via": "caducidad_natural"
+   },
+   "duracion_s": 902.0,
+   "episodio": "escaneo_sostenido-r4",
+   "estado_generador": "incompleto_timeout",
+   "familia": "escaneo_sostenido",
+   "intentos_generador": null,
+   "t_fin": 1794416947.72757,
+   "t_inicio": 1794416045.723201
+  }
+ ],
+ "transacciones_total": 69780
+}

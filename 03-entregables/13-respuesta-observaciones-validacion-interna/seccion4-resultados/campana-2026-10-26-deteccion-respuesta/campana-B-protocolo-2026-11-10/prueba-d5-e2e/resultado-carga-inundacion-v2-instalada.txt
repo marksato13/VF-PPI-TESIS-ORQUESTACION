@@ -1,0 +1,16 @@
+##### Kali: carga de la inundación original vs instrumentada, SOLO contra un servidor local 127.0.0.1 (sin tráfico al laboratorio) 2026-11-11T03:55:46Z
+servidor local: HTTP 200
+--- comando que se ejecuta (instrumentado)
+["env", "CF_MAXTIME=2", "bash", "/home/adminatacante/cf-b/instrumentacion/inundacion_instrumentada.sh", "/dev/shm/cf-carga/intentos-ep-demo.tsv", "http://127.0.0.1:18999/", "8", "8"]
+orig   corrida 1: intentos=1121 en 7.41 s -> 151 it/s
+instr  corrida 1: intentos=1176 en 7.92 s -> 148 it/s
+orig   corrida 2: intentos=1195 en 7.92 s -> 151 it/s
+instr  corrida 2: intentos=1175 en 7.93 s -> 148 it/s
+orig   corrida 3: intentos=1193 en 7.91 s -> 151 it/s
+instr  corrida 3: intentos=1178 en 7.93 s -> 149 it/s
+--- registro de la última corrida instrumentada: líneas y duración del registro
+líneas=1178  primer t_inicio=1794369387.166692  último t_fin=1794369395.027272
+lazos distintos: 8
+ls: no se puede acceder a '/dev/shm/cf-carga': No existe el fichero o el directorio
+bash -c set -u KS=$HOME/cf-campana-A/scripts-4c; KI=$HOME/cf-campana-A/scripts-4c-i; E=$HOME/cf-campana-A/escenarios echo "##### Kali: carga de la inundación original vs instrumentada, SOLO contra un servidor local 127.0.0.1 (sin tráfico al laboratorio) $(date…
+(servidor local parado)

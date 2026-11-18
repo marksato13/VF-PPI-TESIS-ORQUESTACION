@@ -1,0 +1,50 @@
+{
+ "diagnostico": {
+  "auditoria": {
+   "estable": true,
+   "generaciones": [],
+   "ilegibles": 0,
+   "intentos": 1,
+   "problemas": []
+  },
+  "auditoria_del_id": [],
+  "auditoria_disponible": false,
+  "categoria": "no_consumida",
+  "control_presente": false,
+  "determinada": true,
+  "estado": {
+   "escalada": [
+    "10.10.20.30@srv-dmz"
+   ],
+   "vigentes": [
+    "10.10.20.30|srv-dmz|todo"
+   ]
+  },
+  "feed": {
+   "entradas_origen": [
+    "b088a91e68b3c6fd"
+   ],
+   "generado": 1794345057.5537844,
+   "secuencia": 1
+  },
+  "id": "e5558115c0424053a3308cbbbac9d6d3",
+  "motivo": null,
+  "publicacion": "no_aplica",
+  "secuencia_publicada": null,
+  "t": 1794345058.1784317,
+  "traza_ultimas": [
+   {
+    "entradas": 3,
+    "nuevos": 3,
+    "secuencia": 1
+   }
+  ],
+  "trazabilidad": "no_aplica"
+ },
+ "resultado_cliente": {
+  "estado": "sin_acuse_no_procesada",
+  "id": "e5558115c0424053a3308cbbbac9d6d3",
+  "ok": false,
+  "rc": 5
+ }
+}

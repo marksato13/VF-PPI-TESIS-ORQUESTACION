@@ -1,0 +1,98 @@
+{
+ "diagnostico": {
+  "auditoria": {
+   "estable": true,
+   "generaciones": [
+    {
+     "bytes": 415,
+     "error": null,
+     "ilegibles": 0,
+     "leida": true,
+     "lineas": 3,
+     "ruta": "/tmp/pytest-of-nobody/pytest-0/test_solo_una_reanudacion_manu0/d5-auditoria.jsonl",
+     "sha256": "7d7e58522b35ea639980e484b2b4eb6faaf674995ae083d602edef2d66737235"
+    }
+   ],
+   "ilegibles": 0,
+   "intentos": 1,
+   "problemas": []
+  },
+  "auditoria_del_id": [
+   {
+    "_gen": "d5-auditoria.jsonl",
+    "duplicada": false,
+    "evento": "consumido",
+    "id": "292e89158aff47bf87220435f7c7b5e4",
+    "ok": true,
+    "quitado": {
+     "escalada": [
+      "10.10.20.30@srv-dmz"
+     ],
+     "vigentes": [
+      "10.10.20.30|srv-dmz|todo"
+     ]
+    },
+    "t": 1794345061.1282973
+   },
+   {
+    "_gen": "d5-auditoria.jsonl",
+    "evento": "publicado",
+    "id": "292e89158aff47bf87220435f7c7b5e4",
+    "secuencia": 2,
+    "t": 1794345061.1334422
+   },
+   {
+    "_gen": "d5-auditoria.jsonl",
+    "evento": "ack_fallido",
+    "id": "292e89158aff47bf87220435f7c7b5e4",
+    "t": 1794345061.1334987
+   }
+  ],
+  "auditoria_disponible": true,
+  "categoria": "consumida_y_publicada",
+  "control_presente": false,
+  "determinada": true,
+  "estado": {
+   "escalada": [],
+   "vigentes": []
+  },
+  "feed": {
+   "entradas_origen": [],
+   "generado": 1794345062.6442134,
+   "secuencia": 3
+  },
+  "feed_posterior_o_igual": true,
+  "generaciones_del_id": [
+   "d5-auditoria.jsonl"
+  ],
+  "id": "292e89158aff47bf87220435f7c7b5e4",
+  "motivo": null,
+  "publicacion": "confirmada",
+  "secuencia_publicada": 2,
+  "t": 1794345062.7941794,
+  "traza_ultimas": [
+   {
+    "entradas": 3,
+    "nuevos": 3,
+    "secuencia": 1
+   },
+   {
+    "entradas": 2,
+    "nuevos": 0,
+    "secuencia": 2
+   },
+   {
+    "entradas": 2,
+    "nuevos": 0,
+    "secuencia": 3
+   }
+  ],
+  "trazabilidad": "completa"
+ },
+ "resultado_cliente": {
+  "estado": "sin_acuse_procesada",
+  "id": "292e89158aff47bf87220435f7c7b5e4",
+  "ok": false,
+  "rc": 6
+ }
+}

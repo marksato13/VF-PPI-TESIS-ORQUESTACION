@@ -1,0 +1,5 @@
+{"duplicada": false, "evento": "consumido", "id": "292e89158aff47bf87220435f7c7b5e4", "ok": true, "quitado": {"escalada": ["10.10.20.30@srv-dmz"], "vigentes": ["10.10.20.30|srv-dmz|todo"]}, "t": 1794345061.1282973}
+{"evento": "publicado", "id": "292e89158aff47bf87220435f7c7b5e4", "secuencia": 2, "t": 1794345061.1334422}
+{"evento": "ack_fallido", "id": "292e89158aff47bf87220435f7c7b5e4", "t": 1794345061.1334987}
+{"duplicada": false, "evento": "consumido", "id": "093099836c1747828a93d8b08f447471", "ok": true, "quitado": {"escalada": [], "vigentes": []}, "t": 1794345062.7995281}
+{"evento": "publicado", "id": "093099836c1747828a93d8b08f447471", "secuencia": 4, "t": 1794345062.803742}

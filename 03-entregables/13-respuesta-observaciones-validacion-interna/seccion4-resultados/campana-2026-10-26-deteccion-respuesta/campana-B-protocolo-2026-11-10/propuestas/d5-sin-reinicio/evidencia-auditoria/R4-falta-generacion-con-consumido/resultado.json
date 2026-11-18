@@ -1,0 +1,10 @@
+{
+ "diagnostico": {
+  "categoria": "indeterminada",
+  "determinada": false,
+  "generaciones_del_id": null,
+  "motivo": "hay `publicado` sin `consumido`: falta parte de la traza; no se afirma nada",
+  "secuencia_publicada": null,
+  "trazabilidad": "incompleta"
+ }
+}

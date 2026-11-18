@@ -1,0 +1,13 @@
+== activación B en srv-dmz, modo=real, fin automático a las 8 h
+[A0] comprobaciones previas (solo lectura)
+  agente activo en sombra, NRestarts=0, sin drop-in, sin tabla, disco 10001708 kB
+[A1] instalar la reversión en /opt/cyberflow/campana-b con hash
+  respaldo PRE-B del ruleset (referencia de verificar_srvdmz.sh tras la reversión): /opt/cyberflow/campana-b/pre-B/ruleset.nft
+[A2] drop-in con --aplicar (/etc/systemd/system/ppi-enforce-agent-v2-dmz.service.d/90-campana-b-aplicar.conf)
+[A3] fin automático cf-b-fin a las 8 h (ejecuta la reversión real)
+Running timer as unit: cf-b-fin.timer
+Will run service as unit: cf-b-fin.service
+[A4] reiniciar el agente con --aplicar y comprobar
+== RESULTADO modo=real rc=0
+rc=0
+ahora 2026-11-11T05:18:57Z; agente: active NR=0 aplicar=1 cf-b-fin=active

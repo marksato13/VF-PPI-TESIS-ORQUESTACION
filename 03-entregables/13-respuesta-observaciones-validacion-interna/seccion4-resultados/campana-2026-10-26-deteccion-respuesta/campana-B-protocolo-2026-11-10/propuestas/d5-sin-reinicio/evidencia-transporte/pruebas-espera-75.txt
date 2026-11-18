@@ -1,0 +1,10 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-8.3.5, pluggy-1.5.0 -- /usr/bin/python3
+rootdir: /banco
+collecting ... collected 3 items
+
+test_espera_puerta.py::test_con_la_puerta_a_fin_mas_15_s_la_decision_tardia_hace_fallar_y_bloquea PASSED [ 33%]
+test_espera_puerta.py::test_con_la_puerta_a_fin_mas_75_s_la_decision_tardia_ya_esta_y_se_limpia_sin_ignorarla PASSED [ 66%]
+test_espera_puerta.py::test_limite_una_decision_posterior_a_fin_mas_75_s_vuelve_a_bloquear PASSED [100%]
+
+============================== 3 passed in 9.62s ===============================

@@ -1,0 +1,22 @@
+== EVIDENCIA previa a la reversión -> /var/lib/cyberflow/reversion-B/EVIDENCIA-ANTES-REVERSION-20261111T171433Z
+total 2784
+drwxr-xr-x  2 root        root           4096 nov 11 17:14 .
+drwxr-xr-x 15 root        root           4096 nov 11 17:14 ..
+-rw-r--r--  1 root        root            527 nov 11 17:14 agente-antes.txt
+-rw-r--r--  1 root        root            249 nov 11 17:14 listar-antes.json
+-rw-r--r--  1 root        root            676 nov 11 17:14 ruleset-antes.txt
+-rw-rw-r--  1 adminsrvdmz adminsrvdmz 1757482 nov 11 17:14 set-lecturas-antes.jsonl
+-rw-r--r--  1 root        root            426 nov 11 17:14 SHA256SUMS
+-rw-r--r--  1 cfagente    cfagente    1064531 nov 11 17:14 traza-antes.jsonl
+	set descartes_limite {
+		type ipv4_addr
+		size 65535
+		flags dynamic,timeout
+		counter
+		timeout 1h2m
+	}
+
+	chain entrada {
+== REVERSIÓN real R0-R5
+bash: /opt/cyberflow/campana-b/b_revertir_srvdmz.sh: Permission denied
+rc=126

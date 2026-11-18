@@ -1,0 +1,8 @@
+claves: ['intento', 'lista', 'motivos', 'pasos', 't']
+  limpiar              t=1794369036.177  +0.0 s  ok=True
+  feed_tras_limpiar    t=1794369036.594  +0.4 s  ok=True
+  nft_antes            t=1794369037.876  +1.3 s  ok=True
+  nft_despues          t=1794369063.631  +25.8 s  ok=True
+  agente               t=1794369064.073  +0.4 s  ok=True
+  feed_final           t=1794369064.469  +0.4 s  ok=True
+  resto: {"intento": 1, "lista": true, "motivos": [], "t": 1794369064.4694436}

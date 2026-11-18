@@ -1,0 +1,44 @@
+rc=0
+--- stdout
+
+--- stderr
+reading config file /etc/d5lr/S3-comprimida-acuse-no-escribible.conf
+acquired lock on state file /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/logrotate.state
+Reading state from file: /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/logrotate.state
+Allocating hash table for state file, size 64 entries
+Creating new state
+
+Handling 1 logs
+
+rotating pattern: /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl forced from command line empty log files are not rotated, (10 rotations), old logs are removed
+considering log /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl
+  Now: 2026-11-10 20:51
+  Last rotated at 2026-11-10 20:51
+  log needs rotating
+rotating log /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl, log->rotateCount is 10
+dateext suffix '-20261110'
+glob pattern '-[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'
+compressing log with: /bin/gzip
+renaming /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.10.gz to /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.11.gz (rotatecount 10, logstart 1, i 10), 
+old log /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.10.gz does not exist
+renaming /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.9.gz to /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.10.gz (rotatecount 10, logstart 1, i 9), 
+old log /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.9.gz does not exist
+renaming /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.8.gz to /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.9.gz (rotatecount 10, logstart 1, i 8), 
+old log /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.8.gz does not exist
+renaming /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.7.gz to /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.8.gz (rotatecount 10, logstart 1, i 7), 
+old log /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.7.gz does not exist
+renaming /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.6.gz to /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.7.gz (rotatecount 10, logstart 1, i 6), 
+old log /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.6.gz does not exist
+renaming /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.5.gz to /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.6.gz (rotatecount 10, logstart 1, i 5), 
+old log /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.5.gz does not exist
+renaming /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.4.gz to /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.5.gz (rotatecount 10, logstart 1, i 4), 
+old log /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.4.gz does not exist
+renaming /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.3.gz to /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.4.gz (rotatecount 10, logstart 1, i 3), 
+old log /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.3.gz does not exist
+renaming /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.2.gz to /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.3.gz (rotatecount 10, logstart 1, i 2), 
+old log /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.2.gz does not exist
+renaming /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.1.gz to /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.2.gz (rotatecount 10, logstart 1, i 1), 
+log /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.11.gz doesn't exist -- won't try to dispose of it
+renaming /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl to /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.1
+creating new /var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl mode = 0640 uid = 65534 gid = 1000
+

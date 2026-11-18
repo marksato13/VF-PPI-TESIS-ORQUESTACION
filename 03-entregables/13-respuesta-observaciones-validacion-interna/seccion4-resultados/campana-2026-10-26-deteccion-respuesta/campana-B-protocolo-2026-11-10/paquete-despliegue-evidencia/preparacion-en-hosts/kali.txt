@@ -1,0 +1,27 @@
+##### kali: kali 2026-11-11T01:09:08Z
+--- 1. hashes
+OK: artefactos = SHA256SUMS
+--- 2. modo SECO instalar y revertir
+== kali: instalar instrumentación (aplicar=0)
+[seco] mkdir -p /home/adminatacante/cf-b/instrumentacion
+[seco] install -m 0755 /home/adminatacante/cf-b/paquete-despliegue/inundacion_instrumentada.sh /home/adminatacante/cf-b/instrumentacion/inundacion_instrumentada.sh
+Mark: en la config firmada de la corrida, el comando de la inundación pasa a: bash /home/adminatacante/cf-b/instrumentacion/inundacion_instrumentada.sh /home/adminatacante/cf-e4-4c/intentos-<episodio>.tsv http://10.10.30.10/ 90 8  (misma duración, URL y nº de lazos que el original)
+rc=0
+== kali: revertir instrumentación (aplicar=0) — los registros temporales se archivan con hash, no se borran
+[seco] mkdir -p /home/adminatacante/cf-b/respaldo-d5
+los ficheros intentos-*.tsv / transacciones-*.tsv / set-lecturas.jsonl se mueven a un directorio con sufijo y sha256 (no se borran)
+rc=0
+--- 3. aceptar (solo lectura; sin instalar se espera FALLA)
+FALLA inundacion_instrumentada.sh 0755
+bash: /home/adminatacante/cf-b/instrumentacion/inundacion_instrumentada.sh: No existe el fichero o el directorio
+FALLA sintaxis de la inundación instrumentada
+resumen: 1 OK, 3 FALLAN
+--- 4. compatibilidad del artefacto con el host (sin escribir)
+bash -n OK (GNU bash, versión 5.3.3(1)-release (x86)
+utilidades presentes: curl date seq awk sort mktemp
+1794359348.972575208  (date con nanosegundos)
+000 0.000000
+curl -w con códigos locales (puerto local cerrado, SIN tráfico al laboratorio) rc=7
+--- 5. nada nuevo fuera del paquete
+paquete-despliegue
+ls: no se puede acceder a '/home/adminatacante/cf-b/instrumentacion': No existe el fichero o el directorio

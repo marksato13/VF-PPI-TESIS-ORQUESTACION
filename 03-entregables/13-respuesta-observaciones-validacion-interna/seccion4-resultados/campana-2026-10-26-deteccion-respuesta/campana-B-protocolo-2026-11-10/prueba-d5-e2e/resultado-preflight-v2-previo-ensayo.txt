@@ -1,0 +1,52 @@
+##### preflight v2 nueva corrida D5 (espera de fin = 75 s) 2026-11-11T03:48:50Z
+=== 1. D5 activo en el Sensor1 y SOLICITUD ACTIVA vs HISTÓRICOS (por id y estado)
+OK        publicador con --control-d5 --d5-origen 10.10.20.30 --d5-auditoria
+OK        publicador sin --aplicar, política if_senal
+   PID/NRestarts/inicio: MainPID=2115304 NRestarts=0 ActiveEnterTimestamp=Wed 2026-11-11 03:05:25 UTC
+OK        control.json AUSENTE (no hay solicitud pendiente de consumir)
+   solicitud 8808ef6d581b45d1af0cd0e8eed44be4 -> acuse (secuencia 26129): HISTÓRICA
+OK        solicitudes ACTIVAS o inciertas = 0 (históricas con acuse = 1: la prueba D5 del 11-nov)
+OK        ningún bloqueo de puerta ni pendiente de la puerta en el bastión (puerta-bloqueo.json ausente en ~/cf-e4/4c)
+=== 2. auditoría D5 en la ruta instalada (m4rk:m4rk, rotate 30)
+   fichero / directorio: m4rk:m4rk 644 m4rk:m4rk 750
+OK        auditoría y directorio con propietario m4rk:m4rk
+OK        logrotate: ruta /home/m4rk/feed-v2/d5/auditoria/d5-auditoria.jsonl, su m4rk m4rk, rotate 30, sha 445efe82…
+   timer logrotate: Thu 2026-11-12 00:00:00 UTC  20h Wed 2026-11-11 00:00:00 UTC 3h 48min ago logrotate.timer logrotate.service
+PENDIENTE ejecución DIARIA real de logrotate sobre la auditoría (observada con una rotación; el fichero aún no se rotó)
+=== 3. srv-dmz en sombra, sin generadores ni campaña
+   agente (PID/NR, nº --aplicar), brute-lab: 815326/0 0 inactive
+OK        agente de srv-dmz sin --aplicar
+OK        ppi-brute-lab inactivo
+   lectura real del muestreador: {'ok': True, 'sets': {'bloqueados': {}, 'limitados': {}}}
+OK        muestreador de srv-dmz: lectura real de los sets OK y sets vacíos (sin sudo adicional de Mark)
+OK        Kali sin generadores (0)
+OK        bastión sin orquestador, compuerta, vigía ni lanzador (0)
+OK        sin carpeta ~/cf-e4/4c viva en el bastión
+=== 4. relojes (|desfase| + u <= 1 s respecto del bastión; mejor de 5 por RTT mínimo)
+   sensor1  desfase +0.173 s  u=0.167 s  OK
+   kali     desfase +0.083 s  u=0.079 s  OK
+   srvdmz   desfase +0.182 s  u=0.172 s  OK
+   clientes desfase +0.189 s  u=0.180 s  OK
+OK        los 4 hosts dentro de 1 s
+=== 5. instalación en el bastión (hash = paquete)
+OK        bastión: transporte, lanzador, hacer_d5 y d5_episodio_banco = 2dc8d7eb… c2ec10b4… 65511cc1… 27b63c41…
+OK        bastión: originales intactos (d5_episodio 85c71124, compuerta_b 32e1f3ef, orquestar_b babc528b, analizar_b 611d4b16)
+OK        clave dedicada 0600 y known_hosts_d5 (huella xHCL2/…)
+OK        g01b intacto (96f4f69d…) y g01c presente (b5891d5a…) y con sintaxis válida
+=== 6. instrumentación y generador instrumentado
+OK        Kali: inundacion_instrumentada.sh 7ac53358…
+OK        clientes: clientes_factor1_tx.py d86c7edc…
+OK        srv-dmz: muestreador_set.py 410759c2…
+   i_ok
+   orig_ok
+   c51efd6e 3ec6a05b b891674a 
+   0
+   ls: no se puede acceder a '/home/adminatacante/cf-e4-4c/corrida': No existe el fichero o el directorio
+OK        Kali: lista firmada instrumentada y la original verifican
+OK        Kali: generador instrumentado c51efd6e… 3ec6a05b… b891674a…
+OK        Kali: directorio de registros vacío y sin ~/cf-e4-4c/corrida previa
+=== 7. criterio E3 y lanzador
+   E3 fijado en CRITERIO-E3-FIJADO-NUEVA-CORRIDA.md (bloque 1 s, K 5/3, B0 10 bloques ≥ 5/s, θ 0,5, SPAN o salida; rama BLOCK aclarada). e3_v2 LIMIT+BLOCK: 21 pruebas, 9 de BLOCK.
+PENDIENTE DECISIÓN de Mark: fuerza_bruta_http (BLOCK) sin salida con hora -> aceptar SPAN-solo en los 15 episodios BLOCK, o instrumentarla
+PENDIENTE MEDICIÓN de la duración real de la puerta (fin+75 s + puerta) frente al hueco mínimo de 210 s: requiere UNA solicitud real adicional
+##### resumen: 24 OK, 0 FALLAN, 3 PENDIENTES

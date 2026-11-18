@@ -1,0 +1,9 @@
+M00 MUERTA 'if self.bloqueada is not None:'
+M01 MUERTA 'if r["ok"]:'
+M02 MUERTA 'self.bloqueada = r'
+M03 MUERTA 'self.bloqueada = None'
+M04 MUERTA '"omitida_por_caso_fallido"'
+M05 MUERTA 'self.omitidas += 1'
+M06 MUERTA 'self.solicitudes += 1'
+M07 MUERTA 'return {"lista": False, "intentos": 0}'
+8/8 muertas; vivas: []

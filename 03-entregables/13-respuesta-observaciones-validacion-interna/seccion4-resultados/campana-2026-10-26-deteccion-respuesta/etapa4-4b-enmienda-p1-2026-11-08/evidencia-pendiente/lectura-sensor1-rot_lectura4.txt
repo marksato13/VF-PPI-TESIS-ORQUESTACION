@@ -1,0 +1,60 @@
+2026-11-08T15:15:29Z
+######## bytes de eve.json por hora UTC (hoy)
+2026-11-08T00     6.9 MB 6772 líneas
+2026-11-08T01     7.6 MB 8070 líneas
+2026-11-08T02     6.1 MB 5314 líneas
+2026-11-08T03    10.2 MB 13458 líneas
+2026-11-08T04     6.9 MB 6884 líneas
+2026-11-08T05     5.8 MB 4649 líneas
+2026-11-08T06     6.8 MB 6639 líneas
+2026-11-08T07     5.8 MB 4699 líneas
+2026-11-08T08     5.6 MB 4407 líneas
+2026-11-08T09     5.6 MB 4353 líneas
+2026-11-08T10     5.8 MB 4789 líneas
+2026-11-08T11    27.4 MB 47242 líneas
+2026-11-08T12    12.6 MB 18167 líneas
+2026-11-08T13     5.9 MB 5031 líneas
+2026-11-08T14     5.8 MB 4669 líneas
+2026-11-08T15     1.4 MB 1119 líneas
+TOTAL 126.3 MB
+######## stats.log por hora (muestras)
+10 450
+11 450
+12 450
+13 450
+14 450
+15 116
+######## marca de la última ejecución del timer (Persistent)
+total 8
+drwxr-xr-x  2 root root 4096 2026-10-11T05:24:25Z .
+drwxr-xr-x 11 root root 4096 2026-09-16T14:47:44Z ..
+-rw-r--r--  1 root root    0 2026-11-08T06:28:53Z stamp-apt-daily.timer
+-rw-r--r--  1 root root    0 2026-11-08T06:34:53Z stamp-apt-daily-upgrade.timer
+-rw-r--r--  1 root root    0 2026-11-08T15:10:00Z stamp-cyberflow-acumular.timer
+-rw-r--r--  1 root root    0 2026-11-08T00:30:00Z stamp-cyberflow-aprendizaje.timer
+-rw-r--r--  1 root root    0 2026-11-08T15:15:00Z stamp-cyberflow-limpieza.timer
+-rw-r--r--  1 root root    0 2026-11-08T00:00:00Z stamp-dpkg-db-backup.timer
+-rw-r--r--  1 root root    0 2026-11-08T03:10:24Z stamp-e2scrub_all.timer
+-rw-r--r--  1 root root    0 2026-11-02T00:36:50Z stamp-fstrim.timer
+-rw-r--r--  1 root root    0 2026-11-08T14:35:57Z stamp-fwupd-refresh.timer
+######## motor_decision.log y feed-v2: tamaño por día (referencia)
+34805211 2026-11-08 motor_decision.log
+44849312 2026-11-07 motor_decision.log.1
+2659164 2026-10-29 motor_decision.log.10.gz
+2480386 2026-10-28 motor_decision.log.11.gz
+1209314 2026-10-27 motor_decision.log.12.gz
+1093521 2026-10-26 motor_decision.log.13.gz
+1136806 2026-10-25 motor_decision.log.14.gz
+1991812 2026-11-06 motor_decision.log.2.gz
+536 2026-11-05 motor_decision.log.3.gz
+3966014 2026-11-04 motor_decision.log.4.gz
+2447435 2026-11-03 motor_decision.log.5.gz
+2928362 2026-11-02 motor_decision.log.6.gz
+2617494 2026-11-01 motor_decision.log.7.gz
+1504748 2026-10-31 motor_decision.log.8.gz
+413341 2026-10-30 motor_decision.log.9.gz
+413591 2026-11-08 /home/m4rk/feed-v2/senales-if.jsonl
+0 2026-11-04 /home/m4rk/feed-v2/senales-rapidas.jsonl
+540286 2026-11-08 /home/m4rk/feed-v2/traza.jsonl
+104293335 2026-11-08 /home/m4rk/feed-v2/via-rapida-resumen.jsonl
+######## s40 copia: ¿qué ficheros y de dónde? (comprobado en el guion publicado)

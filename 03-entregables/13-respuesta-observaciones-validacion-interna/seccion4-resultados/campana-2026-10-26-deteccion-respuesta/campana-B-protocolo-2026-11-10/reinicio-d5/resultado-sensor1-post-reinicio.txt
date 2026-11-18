@@ -1,0 +1,54 @@
+##### aceptación reinicio D5 (post) 2026-11-11T03:07:50Z cyberflow-sensor
+INFO  PID=2115304  NRestarts=0  ActiveEnter=Wed 2026-11-11 03:05:25 UTC  etimes=145
+INFO  feed: secuencia=26111 generado=1794366465.8761282 expira=1794366525.8761282 version=2  estado.json: 26111
+INFO  ppi-motor.service PID=1472 NRestarts=0
+INFO  ppi-dashboard.service PID=1473 NRestarts=0
+INFO  ppi-motor-capture.service PID=1441 NRestarts=0
+INFO  ppi-via-rapida@ens37.service PID=1475 NRestarts=0
+--- 1. nuevo arranque
+OK    unidad active (running)
+OK    PID nuevo (2115304) distinto del previo (1971245)
+INFO  NRestarts=0 (no se exige que cambie: un 'systemctl restart' manual no cuenta como reinicio automático)
+--- 2. proceso con los argumentos D5
+OK    argumento: /home/m4rk/cf-b/d5/publicar_feed_v2_d5.py
+OK    argumento: --control-d5 /home/m4rk/feed-v2/d5/control/control.json
+OK    argumento: --d5-origen 10.10.20.30
+OK    argumento: --d5-auditoria /home/m4rk/feed-v2/d5/auditoria/d5-auditoria.jsonl
+OK    argumento: --seguir
+OK    argumento: --politica if_senal
+OK    argumento: --vigencia-segundos 60
+OK    argumento: --refresco-segundos 20
+OK    NO es el publicador original (engine/publicar_feed_v2.py)
+OK    PYTHONPATH del proceso = engine de ec78ca5
+--- 3. publicación continua (espera hasta 60 s a una secuencia nueva)
+OK    secuencia (26111) > referencia previa (26095); salto=16
+OK    generado reciente (<40 s)
+OK    vigencia expira-generado = 60 s
+OK    feed versión 2
+OK    secuencia de estado.json >= secuencia del feed (continuidad persistida)
+--- 4. firma ed25519 verificada con openssl (feed.json + feed.sig, pública del Sensor1)
+OK    huella SPKI de la pública = la del agente de srv-dmz (baf897a513b1beb37d3565a1cf403fe1b1f9a68d8a2b62e320fa3dfbaee1af3e)
+OK    firma válida en 4/4 lecturas sucesivas (feed y firma se reescriben por separado; se esperan 4/4 o 3/4)
+OK    control negativo: copia ALTERADA del feed (en /dev/shm, borrada) NO verifica (Signature Verification Failure)
+--- 5. conservación de las demás entidades (valores de la referencia 11-nov 02:48Z)
+OK    ppi-motor.service PID 1472 sin cambios y NRestarts 0
+OK    ppi-dashboard.service PID 1473 sin cambios y NRestarts 0
+OK    ppi-motor-capture.service PID 1441 sin cambios y NRestarts 0
+OK    ppi-via-rapida@ens37.service PID 1475 sin cambios y NRestarts 0
+OK    timer cf-tcpdump-estadisticas activo
+OK    authorized_keys sha 28a8b124… (sin cambios)
+OK    publicador original 5733f17d… intacto
+OK    derivado 58e2a0b2… intacto
+OK    ec78ca5 verifica contra SHA256SUMS
+--- 6. canal D5 sin solicitudes y arranque limpio
+OK    sin control.json, lock ni solicitudes/ (ninguna solicitud creada)
+OK    directorio control 0700 y auditoria 0750
+INFO  auditoría:  (puede no existir hasta la primera consumición)
+OK    journal sin Traceback/Error desde el arranque
+      journal: nov 11 03:05:25 cyberflow-sensor systemd[1]: ppi-publicar-feed-v2.service: Deactivated successfully.
+      journal: nov 11 03:05:25 cyberflow-sensor systemd[1]: Stopped ppi-publicar-feed-v2.service - CyberFlow - publicador v2 por eventos (Etapa 4, sombra).
+      journal: nov 11 03:05:25 cyberflow-sensor systemd[1]: ppi-publicar-feed-v2.service: Consumed 1min 5.644s CPU time, 259.3M memory peak, 0B memory swap peak.
+      journal: nov 11 03:05:25 cyberflow-sensor systemd[1]: Started ppi-publicar-feed-v2.service - CyberFlow - publicador v2 por eventos (Etapa 4, sombra).
+--- 7. estabilidad (20 s)
+OK    mismo PID tras 20 s (sin reinicio en bucle)
+##### resumen: 33 OK, 0 FALLAN

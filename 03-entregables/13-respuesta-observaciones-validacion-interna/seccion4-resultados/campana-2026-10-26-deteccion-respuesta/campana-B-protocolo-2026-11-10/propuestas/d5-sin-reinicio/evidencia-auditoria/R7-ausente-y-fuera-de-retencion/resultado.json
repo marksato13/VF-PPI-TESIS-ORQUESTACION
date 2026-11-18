@@ -1,0 +1,18 @@
+{
+ "ausente": {
+  "categoria": "indeterminada",
+  "determinada": false,
+  "generaciones_del_id": null,
+  "motivo": "auditoría ausente",
+  "secuencia_publicada": null,
+  "trazabilidad": "incompleta"
+ },
+ "fuera_de_retencion": {
+  "categoria": "indeterminada",
+  "determinada": false,
+  "generaciones_del_id": null,
+  "motivo": "sin líneas de ese id (fuera de retención o no escrita)",
+  "secuencia_publicada": null,
+  "trazabilidad": "incompleta"
+ }
+}

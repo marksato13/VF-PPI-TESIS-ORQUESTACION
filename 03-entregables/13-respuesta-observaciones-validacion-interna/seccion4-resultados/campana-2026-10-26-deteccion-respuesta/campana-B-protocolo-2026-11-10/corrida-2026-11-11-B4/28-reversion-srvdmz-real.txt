@@ -1,0 +1,17 @@
+== reversión B en srv-dmz, modo=real, 2026-11-11T17:14:49Z
+[R0] respaldo con hash en /var/lib/cyberflow/reversion-B
+  respaldo: /var/lib/cyberflow/reversion-B/20261111T171449Z
+[R1] apagar el agente ppi-enforce-agent-v2-dmz
+[R2] quitar el drop-in --aplicar (/etc/systemd/system/ppi-enforce-agent-v2-dmz.service.d/90-campana-b-aplicar.conf)
+[R3] desinstalar la tabla cyberflow_dmz con el helper (op desinstalar)
+  helper: {"ok": true, "operaciones": 1, "perfil": "dmz"}
+[R4] la tabla no está y no cambió nada más
+  
+[R4b] archivar la traza del agente de B (no se borra; el verificador de sombra cuenta cualquier 'aplicacion' de la traza viva)
+  traza de B archivada en /var/lib/cyberflow/agente/traza-B-20261111T171449Z.jsonl (copia con hash en /var/lib/cyberflow/agente/traza-B-20261111T171449Z.jsonl.sha256)
+[R5] agente de nuevo en sombra
+  activo, sin --aplicar, eventos 'aplicacion' en la traza nueva: 0 (antes de B y durante B: 375, archivados)
+== RESULTADO modo=real rc=0 2026-11-11T17:14:55Z
+rc=0
+--- estado
+agente active NR=0 aplicar=0 dropin= tablas=0 cf-b-fin=inactive

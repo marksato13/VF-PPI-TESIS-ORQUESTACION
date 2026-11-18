@@ -1,5 +1,5 @@
 {
-  "generado_utc": "2026-10-28T05:01:45.980013+00:00",
+  "generado_utc": "2026-11-14T05:09:32.725641+00:00",
   "proposito": "Figura 5 (ampliacion) actualizada con alfa=0,01 (triangulos) conservando 0,05 (circulo) y 0,03 (rombo). Curvas y datos sin cambios; no toca principal.* (Figura 4), tablas, Word, modelos ni config.",
   "entradas_verificadas_sha256": {
     "curvas-roc.csv": "08ebcd74e084efc6348e6c56e7b336a40a2edbbeedfa89898589ff2c76ecb4a8",
@@ -74,12 +74,12 @@
   },
   "supersede": "Reemplaza los bytes de ampliacion.{png,svg,pdf} y zoom-previa/zoom-gris de la revision de 2 alfas (MANIFIESTO.json / control.* historicos). principal.* intactos.",
   "salidas_sha256_lf": {
-    "ampliacion.png": "d2f461c2620c77947ef027eb816712911ec4be2c996d3082425025ab9a65cf1b",
-    "ampliacion.svg": "db54c11e5bfe5ff5917e4203b1f907c3fbb632df8d5dcef48ac8a9949e7ac391",
-    "ampliacion.pdf": "14d0428a7110556229d87663e2a7096894b71dd9009e2a7e14f4f2223dc90c3e",
-    "zoom-previa.png": "ef03ee80c086c9a1440fc1b2e781ad6146c154842ea3ded81d8d0cd795a940f8",
-    "zoom-gris.png": "2f653345fa8ecb3121a30da69ace0abe8ffd63b1a5d49637444839cb59b2a5ac",
+    "ampliacion.png": "6dffa16f377ba098b44753cfcc78cbfc9caabc36c5512b16383abd0eb4eb183b",
+    "ampliacion.svg": "1574b1ad4c90b2f8801c36bbb52d943554dbc420dbd03f3cdaf5c0503d38c7f5",
+    "ampliacion.pdf": "01a385fb959ec2e9870a4534100e40f23ca82423b1e6477d789657f67a54de40",
+    "zoom-previa.png": "2fde7338634f339288c4dfd52e1d6caa684c8345c9395e35876ae2902dc5dceb",
+    "zoom-gris.png": "26c117007cd2a3b65d7f1021b7209c485c59612ac81bb494a0717718b5372075",
     "puntos-15-operativos.csv": "2a7df3ae2b60ff6bd04fbfcccaeb625e904835eed9b3ff11f5cf5eb4ff178c33",
-    "ampliacion_alfa001.py": "22cc58048c772c21fc983ceff519f68cc6bfcf5e461656733de71b20f0eef469"
+    "ampliacion_alfa001.py": "7c76863f67d20bb9a73a52c7d568580e7d091f3f3397eeb19602b69bf8475821"
   }
 }

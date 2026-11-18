@@ -1,0 +1,60 @@
+{
+ "lector": {
+  "rt-1": {
+   "categoria": "indeterminada",
+   "determinada": false,
+   "generaciones_del_id": null,
+   "motivo": "sin líneas de ese id (fuera de retención o no escrita)",
+   "publicacion": "publicación sin confirmar",
+   "secuencia_publicada": null,
+   "trazabilidad": "incompleta"
+  },
+  "rt-2": {
+   "categoria": "indeterminada",
+   "determinada": false,
+   "generaciones_del_id": null,
+   "motivo": "sin líneas de ese id (fuera de retención o no escrita)",
+   "publicacion": "publicación sin confirmar",
+   "secuencia_publicada": null,
+   "trazabilidad": "incompleta"
+  },
+  "rt-3": {
+   "categoria": "indeterminada",
+   "determinada": false,
+   "generaciones_del_id": null,
+   "motivo": "sin líneas de ese id (fuera de retención o no escrita)",
+   "publicacion": "publicación sin confirmar",
+   "secuencia_publicada": null,
+   "trazabilidad": "incompleta"
+  },
+  "rt-4": {
+   "categoria": "consumida_y_publicada",
+   "determinada": true,
+   "generaciones_del_id": [
+    "d5-auditoria.jsonl.2.gz"
+   ],
+   "motivo": null,
+   "publicacion": "confirmada",
+   "secuencia_publicada": 5,
+   "trazabilidad": "completa"
+  },
+  "rt-5": {
+   "categoria": "consumida_y_publicada",
+   "determinada": true,
+   "generaciones_del_id": [
+    "d5-auditoria.jsonl.1"
+   ],
+   "motivo": null,
+   "publicacion": "confirmada",
+   "secuencia_publicada": 6,
+   "trazabilidad": "completa"
+  }
+ },
+ "secuencias": {
+  "rt-1": 2,
+  "rt-2": 3,
+  "rt-3": 4,
+  "rt-4": 5,
+  "rt-5": 6
+ }
+}
