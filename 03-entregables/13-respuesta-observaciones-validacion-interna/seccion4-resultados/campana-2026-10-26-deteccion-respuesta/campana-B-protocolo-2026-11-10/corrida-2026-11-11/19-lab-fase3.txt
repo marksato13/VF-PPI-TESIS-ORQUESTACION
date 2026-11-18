@@ -1,0 +1,36 @@
+lista True
+antes ['limitados'] False
+retirar True
+despues [] False
+residual_conservado False
+OK    la puerta pasó (lista=True)
+FALLA antes: regla en limitados Y residual presente (estado del episodio 6 reproducido)
+FALLA después: sets de aplicación vacíos y residual conservado en el paso
+FALLA residual_conservado en puertas-D5.jsonl
+{'bloqueados': {}, 'limitados': {}} []
+FALLA srv-dmz: sets vacíos y descartes_limite AÚN con la Kali (no se borró)
+publicador después: PID=2115304 NR=0
+OK    publicador: mismo PID y NRestarts (sin reinicio)
+2 de 6 comprobaciones
+NO se escribe la marca
+--- ¿marca de validez?
+ls: cannot access '/home/gadmin/cf-b/prueba-lab-d5-corregido.ok': No such file or directory
+--- cronología de la aplicación de la regla (traza del agente archivada aún viva en srv-dmz)
+{"aplicado_en": 1794380153.77455, "evento": "aplicacion", "nuevos": [{"evento_id": "10.10.20.30|2026-11-11T06:55:10+00:00|http_abuse", "hasta": 1794380414, "id": "3e2b3ec9a0cf3bef", "ip": "10.10.20.30", "set": "limitados", "timeout": 260}], "operaciones": [{"ip": "10.10.20.30", "op": "quitar", "set": "limitados"}, {"id": "3e2b3e
+{"aplicado_en": 1794380174.486571, "evento": "aplicacion", "nuevos": [{"evento_id": "10.10.20.30|2026-11-11T06:56:10+00:00|http_abuse", "hasta": 1794380473, "id": "508542b68128374a", "ip": "10.10.20.30", "set": "limitados", "timeout": 298}], "operaciones": [{"ip": "10.10.20.30", "op": "quitar", "set": "limitados"}, {"id": "50854
+{"aplicado_en": 1794380183.9185417, "evento": "aplicacion", "nuevos": [{"evento_id": "10.10.20.30|2026-11-11T06:56:10+00:00|http_abuse", "hasta": 1794380473, "id": "508542b68128374a", "ip": "10.10.20.30", "set": "limitados", "timeout": 289}], "operaciones": [{"ip": "10.10.20.30", "op": "quitar", "set": "limitados"}, {"id": "5085
+{"evento": "retirada", "id": "508542b68128374a", "ip": "10.10.20.30", "perfil": "dmz", "set": "limitados", "t": 1794380243.0017543}
+--- auditoría D5 y puertas-D5 de la prueba
+lista True motivos [] residual_conservado {}
+   limpiar {'ok': True, 'acuse': True, 'secuencia': 26839}
+   feed_tras_limpiar {'ok': True, 'secuencia': 26839}
+   nft_antes {'donde': ['limitados'], 'presente': True, 'ok': True}
+   retirar {'retirado': True, 'ok': True}
+   nft_despues {'donde': [], 'presente': False, 'ok': True}
+   agente {'ok': True}
+   feed_final {'ok': True, 'secuencia': 26840}
+--- publicador
+PID=2115304 NR=0
+después: PID=2115304 NR=0
+{"duplicada": false, "evento": "consumido", "id": "60f0f941a1804e4aad3069d26ae8a340", "ok": true, "quitado": {"escalada": ["10.10.20.30@srv-dmz"], "vigentes": ["10.10.20.30|srv-dmz|todo"]}, "t": 17943
+{"evento": "publicado", "id": "60f0f941a1804e4aad3069d26ae8a340", "secuencia": 26839, "t": 1794380240.6171348}

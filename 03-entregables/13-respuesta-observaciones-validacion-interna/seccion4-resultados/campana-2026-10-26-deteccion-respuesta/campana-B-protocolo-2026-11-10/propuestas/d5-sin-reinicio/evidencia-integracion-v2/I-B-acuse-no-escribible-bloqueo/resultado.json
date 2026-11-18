@@ -1,0 +1,62 @@
+{
+ "caso": "I-B-acuse-no-escribible-bloqueo",
+ "criterios": {
+  "NRestarts_no_aumenta": true,
+  "journal_sin_parada_ni_arranque": true,
+  "logrotate_rc0": true,
+  "mismo_MainPID": true,
+  "otras_entidades_conservadas": true,
+  "publicacion_nueva_tras_el_caso": true,
+  "unidad_activa": true
+ },
+ "lector_d5lector": {
+  "afb797c94f8e4dd885a011f201909b47": {
+   "categoria": "consumida_y_publicada",
+   "publicacion": "confirmada",
+   "secuencia_publicada": 3
+  }
+ },
+ "observado": {
+  "MainPID": [
+   "263",
+   "263"
+  ],
+  "NRestarts": [
+   "0",
+   "0"
+  ]
+ },
+ "omitidas": 3,
+ "puerta": {
+  "llamadas_siguientes": [
+   {
+    "bloqueada": true,
+    "lista": false
+   },
+   {
+    "bloqueada": true,
+    "lista": false
+   },
+   {
+    "bloqueada": true,
+    "lista": false
+   }
+  ],
+  "primera": {
+   "bloqueada": true,
+   "lista": false,
+   "pasos": [
+    "limpiar"
+   ]
+  }
+ },
+ "registro_de_la_puerta": [
+  "puerta_bloqueada",
+  "omitida_por_puerta_bloqueada",
+  "omitida_por_puerta_bloqueada",
+  "omitida_por_puerta_bloqueada"
+ ],
+ "servicio": "PASA",
+ "solicitudes_reales": 1,
+ "unidad": "cf-d5-integ-i-b-acuse-no-escribible-bloqueo"
+}

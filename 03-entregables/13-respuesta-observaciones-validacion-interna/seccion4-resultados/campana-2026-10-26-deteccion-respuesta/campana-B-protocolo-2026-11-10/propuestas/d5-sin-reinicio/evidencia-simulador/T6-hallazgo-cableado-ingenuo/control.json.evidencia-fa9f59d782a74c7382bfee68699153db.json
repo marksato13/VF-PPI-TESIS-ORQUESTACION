@@ -1,0 +1,99 @@
+{
+ "diagnostico": {
+  "auditoria": {
+   "estable": true,
+   "generaciones": [
+    {
+     "bytes": 1150,
+     "error": null,
+     "ilegibles": 0,
+     "leida": true,
+     "lineas": 9,
+     "ruta": "/tmp/pytest-of-nobody/pytest-0/test_hallazgo_el_cableado_inge0/d5-auditoria.jsonl",
+     "sha256": "0c35d0ac1c6bc0831a3ed0a60a6246b538d5d822ec419e938785c914e027e961"
+    }
+   ],
+   "ilegibles": 0,
+   "intentos": 1,
+   "problemas": []
+  },
+  "auditoria_del_id": [
+   {
+    "_gen": "d5-auditoria.jsonl",
+    "duplicada": false,
+    "evento": "consumido",
+    "id": "fa9f59d782a74c7382bfee68699153db",
+    "ok": true,
+    "quitado": {
+     "escalada": [],
+     "vigentes": []
+    },
+    "t": 1794345064.9818804
+   },
+   {
+    "_gen": "d5-auditoria.jsonl",
+    "evento": "publicado",
+    "id": "fa9f59d782a74c7382bfee68699153db",
+    "secuencia": 4,
+    "t": 1794345064.9857194
+   },
+   {
+    "_gen": "d5-auditoria.jsonl",
+    "evento": "ack_fallido",
+    "id": "fa9f59d782a74c7382bfee68699153db",
+    "t": 1794345064.9857874
+   }
+  ],
+  "auditoria_disponible": true,
+  "categoria": "consumida_y_publicada",
+  "control_presente": false,
+  "determinada": true,
+  "estado": {
+   "escalada": [],
+   "vigentes": []
+  },
+  "feed": {
+   "entradas_origen": [],
+   "generado": 1794345064.9819996,
+   "secuencia": 4
+  },
+  "feed_posterior_o_igual": true,
+  "generaciones_del_id": [
+   "d5-auditoria.jsonl"
+  ],
+  "id": "fa9f59d782a74c7382bfee68699153db",
+  "motivo": null,
+  "publicacion": "confirmada",
+  "secuencia_publicada": 4,
+  "t": 1794345065.9812794,
+  "traza_ultimas": [
+   {
+    "entradas": 3,
+    "nuevos": 3,
+    "secuencia": 1
+   },
+   {
+    "entradas": 2,
+    "nuevos": 0,
+    "secuencia": 2
+   },
+   {
+    "entradas": 2,
+    "nuevos": 0,
+    "secuencia": 3
+   },
+   {
+    "entradas": 2,
+    "nuevos": 0,
+    "secuencia": 4
+   }
+  ],
+  "trazabilidad": "completa"
+ },
+ "resultado_cliente": {
+  "estado": "sin_acuse_procesada",
+  "id": "fa9f59d782a74c7382bfee68699153db",
+  "ok": false,
+  "rc": 6
+ }
+}

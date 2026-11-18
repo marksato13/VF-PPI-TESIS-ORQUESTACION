@@ -1,0 +1,2 @@
+mkdir -p ~/cf-e4/4c; setsid nohup bash ~/cf-e4/k20_canal_control_simulado.sh 4c 2026-11-11T05:15:00Z > ~/cf-e4/4c/canal-simulado.out 2>&1 < /dev/null &
+sleep 20; cat ~/cf-e4/4c/canal-simulado.out | tail -5; ps -eo args | grep -c '[k]20_canal'

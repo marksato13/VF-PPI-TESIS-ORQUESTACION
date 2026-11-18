@@ -1,0 +1,96 @@
+Server listening on 127.0.0.1 port 2222.
+Connection from 127.0.0.1 port 50150 on 127.0.0.1 port 2222 rdomain ""
+kex_exchange_identification: Connection closed by remote host
+Connection closed by 127.0.0.1 port 50150
+srclimit_penalise: ipv4: new 127.0.0.1/32 deferred penalty of 1 seconds for penalty: connections without attempting authentication
+Connection from 127.0.0.1 port 50166 on 127.0.0.1 port 2222 rdomain ""
+Accepted key ED25519 SHA256:y76RXH/Gg+E1cawjV8GX9ccMjp7nK1NAg07HywNd7n8 found at /home/m4rk/.ssh/authorized_keys:1
+Postponed publickey for m4rk from 127.0.0.1 port 50166 ssh2 [preauth]
+Accepted key ED25519 SHA256:y76RXH/Gg+E1cawjV8GX9ccMjp7nK1NAg07HywNd7n8 found at /home/m4rk/.ssh/authorized_keys:1
+Accepted publickey for m4rk from 127.0.0.1 port 50166 ssh2: ED25519 SHA256:y76RXH/Gg+E1cawjV8GX9ccMjp7nK1NAg07HywNd7n8
+User child is on pid 252
+Starting session: forced-command (key-option) '/usr/bin/python3 -I /banco/sensor_control_d5.py --base /tmp/pytest-of-root/pytest-0/test_el_lanzador_llama_a_la_pu0/sensor/feed-v2/d5/control --feed /tmp/pytest-of-root/pytest-0/test_el_lanzador_llama_a_la_pu0/sensor/feed-v2/feed.json --estado /tmp/pytest-of-root/pytest-0/test_el_lanzador_llama_a_la_pu0/sensor/feed-v2/estado.json --traza /tmp/pytest-of-root/pytest-0/test_el_lanzador_llama_a_la_pu0/sensor/feed-v2/traza.jsonl --auditoria /tmp/pytest-of-root/pytest-0/test_el_lanzador_llama_a_la_pu0/sensor/feed-v2/d5/auditoria/d5-auditoria.jsonl --ssh-original' for m4rk from 127.0.0.1 port 50166 id 0
+Received disconnect from 127.0.0.1 port 50166:11: disconnected by user
+Disconnected from user m4rk 127.0.0.1 port 50166
+Connection from 127.0.0.1 port 50174 on 127.0.0.1 port 2222 rdomain ""
+Accepted key ED25519 SHA256:y76RXH/Gg+E1cawjV8GX9ccMjp7nK1NAg07HywNd7n8 found at /home/m4rk/.ssh/authorized_keys:1
+Postponed publickey for m4rk from 127.0.0.1 port 50174 ssh2 [preauth]
+Accepted key ED25519 SHA256:y76RXH/Gg+E1cawjV8GX9ccMjp7nK1NAg07HywNd7n8 found at /home/m4rk/.ssh/authorized_keys:1
+Accepted publickey for m4rk from 127.0.0.1 port 50174 ssh2: ED25519 SHA256:y76RXH/Gg+E1cawjV8GX9ccMjp7nK1NAg07HywNd7n8
+User child is on pid 258
+Starting session: forced-command (key-option) '/usr/bin/python3 -I /banco/sensor_control_d5.py --base /tmp/pytest-of-root/pytest-0/test_el_lanzador_llama_a_la_pu0/sensor/feed-v2/d5/control --feed /tmp/pytest-of-root/pytest-0/test_el_lanzador_llama_a_la_pu0/sensor/feed-v2/feed.json --estado /tmp/pytest-of-root/pytest-0/test_el_lanzador_llama_a_la_pu0/sensor/feed-v2/estado.json --traza /tmp/pytest-of-root/pytest-0/test_el_lanzador_llama_a_la_pu0/sensor/feed-v2/traza.jsonl --auditoria /tmp/pytest-of-root/pytest-0/test_el_lanzador_llama_a_la_pu0/sensor/feed-v2/d5/auditoria/d5-auditoria.jsonl --ssh-original' for m4rk from 127.0.0.1 port 50174 id 0
+Close session: user m4rk from 127.0.0.1 port 50174 id 0
+Received disconnect from 127.0.0.1 port 50174:11: disconnected by user
+Disconnected from user m4rk 127.0.0.1 port 50174
+Connection from 127.0.0.1 port 50186 on 127.0.0.1 port 2222 rdomain ""
+Accepted key ED25519 SHA256:y76RXH/Gg+E1cawjV8GX9ccMjp7nK1NAg07HywNd7n8 found at /home/m4rk/.ssh/authorized_keys:1
+Postponed publickey for m4rk from 127.0.0.1 port 50186 ssh2 [preauth]
+Accepted key ED25519 SHA256:y76RXH/Gg+E1cawjV8GX9ccMjp7nK1NAg07HywNd7n8 found at /home/m4rk/.ssh/authorized_keys:1
+Accepted publickey for m4rk from 127.0.0.1 port 50186 ssh2: ED25519 SHA256:y76RXH/Gg+E1cawjV8GX9ccMjp7nK1NAg07HywNd7n8
+User child is on pid 263
+Starting session: forced-command (key-option) '/usr/bin/python3 -I /banco/sensor_control_d5.py --base /tmp/pytest-of-root/pytest-0/test_el_lanzador_llama_a_la_pu0/sensor/feed-v2/d5/control --feed /tmp/pytest-of-root/pytest-0/test_el_lanzador_llama_a_la_pu0/sensor/feed-v2/feed.json --estado /tmp/pytest-of-root/pytest-0/test_el_lanzador_llama_a_la_pu0/sensor/feed-v2/estado.json --traza /tmp/pytest-of-root/pytest-0/test_el_lanzador_llama_a_la_pu0/sensor/feed-v2/traza.jsonl --auditoria /tmp/pytest-of-root/pytest-0/test_el_lanzador_llama_a_la_pu0/sensor/feed-v2/d5/auditoria/d5-auditoria.jsonl --ssh-original' for m4rk from 127.0.0.1 port 50186 id 0
+Received disconnect from 127.0.0.1 port 50186:11: disconnected by user
+Disconnected from user m4rk 127.0.0.1 port 50186
+Connection from 127.0.0.1 port 50200 on 127.0.0.1 port 2222 rdomain ""
+Accepted key ED25519 SHA256:y76RXH/Gg+E1cawjV8GX9ccMjp7nK1NAg07HywNd7n8 found at /home/m4rk/.ssh/authorized_keys:1
+Postponed publickey for m4rk from 127.0.0.1 port 50200 ssh2 [preauth]
+Accepted key ED25519 SHA256:y76RXH/Gg+E1cawjV8GX9ccMjp7nK1NAg07HywNd7n8 found at /home/m4rk/.ssh/authorized_keys:1
+Accepted publickey for m4rk from 127.0.0.1 port 50200 ssh2: ED25519 SHA256:y76RXH/Gg+E1cawjV8GX9ccMjp7nK1NAg07HywNd7n8
+User child is on pid 269
+Starting session: forced-command (key-option) '/usr/bin/python3 -I /banco/sensor_control_d5.py --base /tmp/pytest-of-root/pytest-0/test_el_lanzador_llama_a_la_pu0/sensor/feed-v2/d5/control --feed /tmp/pytest-of-root/pytest-0/test_el_lanzador_llama_a_la_pu0/sensor/feed-v2/feed.json --estado /tmp/pytest-of-root/pytest-0/test_el_lanzador_llama_a_la_pu0/sensor/feed-v2/estado.json --traza /tmp/pytest-of-root/pytest-0/test_el_lanzador_llama_a_la_pu0/sensor/feed-v2/traza.jsonl --auditoria /tmp/pytest-of-root/pytest-0/test_el_lanzador_llama_a_la_pu0/sensor/feed-v2/d5/auditoria/d5-auditoria.jsonl --ssh-original' for m4rk from 127.0.0.1 port 50200 id 0
+Received disconnect from 127.0.0.1 port 50200:11: disconnected by user
+Disconnected from user m4rk 127.0.0.1 port 50200
+Connection from 127.0.0.1 port 50204 on 127.0.0.1 port 2222 rdomain ""
+Connection closed by 127.0.0.1 port 50204 [preauth]
+srclimit_penalise: ipv4: new 127.0.0.1/32 deferred penalty of 1 seconds for penalty: connections without attempting authentication
+Connection from 127.0.0.1 port 50210 on 127.0.0.1 port 2222 rdomain ""
+Connection closed by 127.0.0.1 port 50210 [preauth]
+Connection from 127.0.0.1 port 50226 on 127.0.0.1 port 2222 rdomain ""
+Connection closed by 127.0.0.1 port 50226 [preauth]
+Connection from 127.0.0.1 port 50230 on 127.0.0.1 port 2222 rdomain ""
+Accepted key ED25519 SHA256:y76RXH/Gg+E1cawjV8GX9ccMjp7nK1NAg07HywNd7n8 found at /home/m4rk/.ssh/authorized_keys:1
+Postponed publickey for m4rk from 127.0.0.1 port 50230 ssh2 [preauth]
+Accepted key ED25519 SHA256:y76RXH/Gg+E1cawjV8GX9ccMjp7nK1NAg07HywNd7n8 found at /home/m4rk/.ssh/authorized_keys:1
+Accepted publickey for m4rk from 127.0.0.1 port 50230 ssh2: ED25519 SHA256:y76RXH/Gg+E1cawjV8GX9ccMjp7nK1NAg07HywNd7n8
+User child is on pid 293
+Starting session: forced-command (key-option) '/usr/bin/python3 -I /banco/sensor_control_d5.py --base /tmp/pytest-of-root/pytest-0/test_fallo_de_transporte_bloqu0/sensor/feed-v2/d5/control --feed /tmp/pytest-of-root/pytest-0/test_fallo_de_transporte_bloqu0/sensor/feed-v2/feed.json --estado /tmp/pytest-of-root/pytest-0/test_fallo_de_transporte_bloqu0/sensor/feed-v2/estado.json --traza /tmp/pytest-of-root/pytest-0/test_fallo_de_transporte_bloqu0/sensor/feed-v2/traza.jsonl --auditoria /tmp/pytest-of-root/pytest-0/test_fallo_de_transporte_bloqu0/sensor/feed-v2/d5/auditoria/d5-auditoria.jsonl --ssh-original' for m4rk from 127.0.0.1 port 50230 id 0
+Received disconnect from 127.0.0.1 port 50230:11: disconnected by user
+Disconnected from user m4rk 127.0.0.1 port 50230
+Connection from 127.0.0.1 port 50232 on 127.0.0.1 port 2222 rdomain ""
+Accepted key ED25519 SHA256:y76RXH/Gg+E1cawjV8GX9ccMjp7nK1NAg07HywNd7n8 found at /home/m4rk/.ssh/authorized_keys:1
+Postponed publickey for m4rk from 127.0.0.1 port 50232 ssh2 [preauth]
+Accepted key ED25519 SHA256:y76RXH/Gg+E1cawjV8GX9ccMjp7nK1NAg07HywNd7n8 found at /home/m4rk/.ssh/authorized_keys:1
+Accepted publickey for m4rk from 127.0.0.1 port 50232 ssh2: ED25519 SHA256:y76RXH/Gg+E1cawjV8GX9ccMjp7nK1NAg07HywNd7n8
+User child is on pid 301
+Starting session: forced-command (key-option) '/usr/bin/python3 -I /banco/sensor_control_d5.py --base /tmp/pytest-of-root/pytest-0/test_fallo_de_transporte_bloqu0/sensor/feed-v2/d5/control --feed /tmp/pytest-of-root/pytest-0/test_fallo_de_transporte_bloqu0/sensor/feed-v2/feed.json --estado /tmp/pytest-of-root/pytest-0/test_fallo_de_transporte_bloqu0/sensor/feed-v2/estado.json --traza /tmp/pytest-of-root/pytest-0/test_fallo_de_transporte_bloqu0/sensor/feed-v2/traza.jsonl --auditoria /tmp/pytest-of-root/pytest-0/test_fallo_de_transporte_bloqu0/sensor/feed-v2/d5/auditoria/d5-auditoria.jsonl --ssh-original' for m4rk from 127.0.0.1 port 50232 id 0
+Close session: user m4rk from 127.0.0.1 port 50232 id 0
+Received disconnect from 127.0.0.1 port 50232:11: disconnected by user
+Disconnected from user m4rk 127.0.0.1 port 50232
+Connection from 127.0.0.1 port 50240 on 127.0.0.1 port 2222 rdomain ""
+Accepted key ED25519 SHA256:y76RXH/Gg+E1cawjV8GX9ccMjp7nK1NAg07HywNd7n8 found at /home/m4rk/.ssh/authorized_keys:1
+Postponed publickey for m4rk from 127.0.0.1 port 50240 ssh2 [preauth]
+Accepted key ED25519 SHA256:y76RXH/Gg+E1cawjV8GX9ccMjp7nK1NAg07HywNd7n8 found at /home/m4rk/.ssh/authorized_keys:1
+Accepted publickey for m4rk from 127.0.0.1 port 50240 ssh2: ED25519 SHA256:y76RXH/Gg+E1cawjV8GX9ccMjp7nK1NAg07HywNd7n8
+User child is on pid 307
+Starting session: forced-command (key-option) '/usr/bin/python3 -I /banco/sensor_control_d5.py --base /tmp/pytest-of-root/pytest-0/test_fallo_de_transporte_bloqu0/sensor/feed-v2/d5/control --feed /tmp/pytest-of-root/pytest-0/test_fallo_de_transporte_bloqu0/sensor/feed-v2/feed.json --estado /tmp/pytest-of-root/pytest-0/test_fallo_de_transporte_bloqu0/sensor/feed-v2/estado.json --traza /tmp/pytest-of-root/pytest-0/test_fallo_de_transporte_bloqu0/sensor/feed-v2/traza.jsonl --auditoria /tmp/pytest-of-root/pytest-0/test_fallo_de_transporte_bloqu0/sensor/feed-v2/d5/auditoria/d5-auditoria.jsonl --ssh-original' for m4rk from 127.0.0.1 port 50240 id 0
+Received disconnect from 127.0.0.1 port 50240:11: disconnected by user
+Disconnected from user m4rk 127.0.0.1 port 50240
+Connection from 127.0.0.1 port 50244 on 127.0.0.1 port 2222 rdomain ""
+Accepted key ED25519 SHA256:y76RXH/Gg+E1cawjV8GX9ccMjp7nK1NAg07HywNd7n8 found at /home/m4rk/.ssh/authorized_keys:1
+Postponed publickey for m4rk from 127.0.0.1 port 50244 ssh2 [preauth]
+Accepted key ED25519 SHA256:y76RXH/Gg+E1cawjV8GX9ccMjp7nK1NAg07HywNd7n8 found at /home/m4rk/.ssh/authorized_keys:1
+Accepted publickey for m4rk from 127.0.0.1 port 50244 ssh2: ED25519 SHA256:y76RXH/Gg+E1cawjV8GX9ccMjp7nK1NAg07HywNd7n8
+User child is on pid 312
+Starting session: forced-command (key-option) '/usr/bin/python3 -I /banco/sensor_control_d5.py --base /tmp/pytest-of-root/pytest-0/test_fallo_de_transporte_bloqu0/sensor/feed-v2/d5/control --feed /tmp/pytest-of-root/pytest-0/test_fallo_de_transporte_bloqu0/sensor/feed-v2/feed.json --estado /tmp/pytest-of-root/pytest-0/test_fallo_de_transporte_bloqu0/sensor/feed-v2/estado.json --traza /tmp/pytest-of-root/pytest-0/test_fallo_de_transporte_bloqu0/sensor/feed-v2/traza.jsonl --auditoria /tmp/pytest-of-root/pytest-0/test_fallo_de_transporte_bloqu0/sensor/feed-v2/d5/auditoria/d5-auditoria.jsonl --ssh-original' for m4rk from 127.0.0.1 port 50244 id 0
+Received disconnect from 127.0.0.1 port 50244:11: disconnected by user
+Disconnected from user m4rk 127.0.0.1 port 50244
+Connection from 127.0.0.1 port 50258 on 127.0.0.1 port 2222 rdomain ""
+Accepted key ED25519 SHA256:y76RXH/Gg+E1cawjV8GX9ccMjp7nK1NAg07HywNd7n8 found at /home/m4rk/.ssh/authorized_keys:1
+Postponed publickey for m4rk from 127.0.0.1 port 50258 ssh2 [preauth]
+Accepted key ED25519 SHA256:y76RXH/Gg+E1cawjV8GX9ccMjp7nK1NAg07HywNd7n8 found at /home/m4rk/.ssh/authorized_keys:1
+Accepted publickey for m4rk from 127.0.0.1 port 50258 ssh2: ED25519 SHA256:y76RXH/Gg+E1cawjV8GX9ccMjp7nK1NAg07HywNd7n8
+User child is on pid 318
+Starting session: forced-command (key-option) '/usr/bin/python3 -I /banco/sensor_control_d5.py --base /tmp/pytest-of-root/pytest-0/test_fallo_de_transporte_bloqu0/sensor/feed-v2/d5/control --feed /tmp/pytest-of-root/pytest-0/test_fallo_de_transporte_bloqu0/sensor/feed-v2/feed.json --estado /tmp/pytest-of-root/pytest-0/test_fallo_de_transporte_bloqu0/sensor/feed-v2/estado.json --traza /tmp/pytest-of-root/pytest-0/test_fallo_de_transporte_bloqu0/sensor/feed-v2/traza.jsonl --auditoria /tmp/pytest-of-root/pytest-0/test_fallo_de_transporte_bloqu0/sensor/feed-v2/d5/auditoria/d5-auditoria.jsonl --ssh-original' for m4rk from 127.0.0.1 port 50258 id 0
+Received disconnect from 127.0.0.1 port 50258:11: disconnected by user
+Disconnected from user m4rk 127.0.0.1 port 50258
+Received signal 15; terminating.

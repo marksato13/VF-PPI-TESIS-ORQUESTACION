@@ -1,0 +1,24 @@
+== evidencia previa a revertir: aplicaciones del ensayo (traza viva)
+aplicado_en 1794381184.4 [('limitados', 'efb0be5c2c4a1a4e', 299)]
+aplicado_en 1794381204.7 [('limitados', 'efb0be5c2c4a1a4e', 279)]
+aplicado_en 1794381224.9 [('limitados', 'efb0be5c2c4a1a4e', 259)]
+aplicado_en 1794381246.6 [('limitados', 'b6123ce4972a9d4e', 298)]
+aplicado_en 1794381256.1 [('limitados', 'b6123ce4972a9d4e', 289)]
+aplicado_en 1794381306.6 [('limitados', '7cc7a856ef12491b', 298)]
+aplicado_en 1794381315.0 [('limitados', '7cc7a856ef12491b', 290)]
+aplicado_en 1794381375.2 [('limitados', '7cc7a856ef12491b', 230)]
+  
+[R4b] archivar la traza del agente de B (no se borra; el verificador de sombra cuenta cualquier 'aplicacion' de la traza viva)
+  traza de B archivada en /var/lib/cyberflow/agente/traza-B-20261111T071640Z.jsonl (copia con hash en /var/lib/cyberflow/agente/traza-B-20261111T071640Z.jsonl.sha256)
+[R5] agente de nuevo en sombra
+  activo, sin --aplicar, eventos 'aplicacion' en la traza nueva: 0 (antes de B y durante B: 8, archivados)
+== RESULTADO modo=real rc=0 2026-11-11T07:16:45Z
+estado=sombra alcance=completo agentes=1 con_aplicar=0 tablas_cyberflow=0 eventos_aplicacion=0
+VERIFICACIÓN SRV-DMZ OK
+--- estado final
+agente active NR=0 --aplicar=0 dropin=0 tablas=0 cf-b-fin=inactive
+publicador: PID=2115304 NR=0
+feed Kali: 1
+ls: cannot access '/home/m4rk/feed-v2/d5/control/control.json': No such file or directory
+kali generadores: 0
+INCONCLUSO

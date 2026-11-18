@@ -43,6 +43,20 @@ REF_AUC_AP = {"IF": (0.9247265513258084, 0.18580688397625872), "OCSVM": (0.86907
               "PCA": (0.9486616355167738, 0.5944055724226315)}
 
 
+IDIOMA = os.environ.get("CF_IDIOMA", "es")   # "es" (por defecto) o "en": solo cambia textos y separador decimal
+SUF = "" if IDIOMA == "es" else "-" + IDIOMA
+T = {"es": dict(ta="(a) Ampliación ROC", tb="(b) Ampliación precisión–recall", xa="Tasa de falsos positivos",
+                ya="Tasa de verdaderos positivos", xb="Recall", yb="Precisión", prev="Prevalencia: 0,1282 %",
+                nota="ROC-AUC y AP corresponden a las curvas completas."),
+     "en": dict(ta="(a) ROC zoom", tb="(b) Precision–recall zoom", xa="False positive rate",
+                ya="True positive rate", xb="Recall", yb="Precision", prev="Prevalence: 0.1282%",
+                nota="ROC-AUC and AP refer to the full curves.")}[IDIOMA]
+
+
+def DEC(s):
+    return s.replace(".", ",") if IDIOMA == "es" else s
+
+
 def LP(p):
     s = str(pathlib.Path(p).absolute())
     return ("\\\\?\\" + s) if os.name == "nt" and not s.startswith("\\\\?\\") else s
@@ -137,16 +151,18 @@ def dibujar(roc, pr, puntos):
         "svg.fonttype": "none", "pdf.fonttype": 42, "savefig.facecolor": "white"})
     H = 12.9
     fig = plt.figure(figsize=(18 / 2.54, H / 2.54), dpi=150)
-    pos = [[0.085, 0.44, 0.385, 0.50], [0.595, 0.44, 0.385, 0.50]]
+    # Paneles más altos: ocupan el espacio que antes quedaba en blanco bajo las notas
+    Y0_AX, Y_LEG, Y_PIE = 0.330, 0.245, 0.027
+    pos = [[0.085, Y0_AX, 0.385, 0.94 - Y0_AX], [0.595, Y0_AX, 0.385, 0.94 - Y0_AX]]
     axs = [fig.add_axes(p) for p in pos]
     hroc, hpr = [], []
     for m in METHODS:
         col, st = COLORS[m], STYLES[m]
         auc, ap = REF_AUC_AP[m]
         l0, = axs[0].plot(roc[m]["fpr"], roc[m]["tpr"], color=col, linestyle=st,
-                          label="%s  (ROC-AUC = %s)" % (NAMES[m], ("%.4f" % auc).replace(".", ",")))
+                          label="%s  (ROC-AUC = %s)" % (NAMES[m], DEC("%.4f" % auc)))
         l1, = axs[1].step(pr[m]["recall"], pr[m]["precision"], where="post", color=col, linestyle=st,
-                          label="%s  (AP = %s)" % (NAMES[m], ("%.4f" % ap).replace(".", ",")))
+                          label="%s  (AP = %s)" % (NAMES[m], DEC("%.4f" % ap)))
         hroc.append(l0); hpr.append(l1)
         for a, mk, sz in ALPHA_MARKERS:
             p = puntos[(m, a)]
@@ -156,26 +172,26 @@ def dibujar(roc, pr, puntos):
                         markerfacecolor="none", markeredgecolor=col, markeredgewidth=0.8, zorder=6)
     axs[0].set(xlim=(0, 0.065), ylim=(0.40, 1.0), xticks=(0, 0.02, 0.04, 0.06), yticks=(0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0))
     axs[1].set(xlim=(0.40, 0.98), ylim=(0, 0.09), xticks=(0.4, 0.5, 0.6, 0.7, 0.8, 0.9), yticks=(0, 0.02, 0.04, 0.06, 0.08))
-    prev = axs[1].axhline(PREVAL, color="0.40", linewidth=0.8, linestyle=(0, (3, 3)), label="Prevalencia: 0,1282 %", zorder=5)
+    prev = axs[1].axhline(PREVAL, color="0.40", linewidth=0.8, linestyle=(0, (3, 3)), label=T["prev"], zorder=5)
     hpr.append(prev)
-    for ax, t in zip(axs, ("(a) Ampliación ROC", "(b) Ampliación precisión–recall")):
+    for ax, t in zip(axs, (T["ta"], T["tb"])):
         ax.set_title(t, loc="left", pad=9)
         ax.grid(True, color="0.91", linewidth=0.5, zorder=0)
         ax.tick_params(length=3, width=0.6, pad=3)
-        fmt = FuncFormatter(lambda v, _: ("%g" % v).replace(".", ","))
+        fmt = FuncFormatter(lambda v, _: DEC("%g" % v))
         ax.xaxis.set_major_formatter(fmt); ax.yaxis.set_major_formatter(fmt)
-    axs[0].set_xlabel("Tasa de falsos positivos", labelpad=5); axs[0].set_ylabel("Tasa de verdaderos positivos", labelpad=5)
-    axs[1].set_xlabel("Recall", labelpad=5); axs[1].set_ylabel("Precisión", labelpad=5)
+    axs[0].set_xlabel(T["xa"], labelpad=5); axs[0].set_ylabel(T["ya"], labelpad=5)
+    axs[1].set_xlabel(T["xb"], labelpad=5); axs[1].set_ylabel(T["yb"], labelpad=5)
     legs = []
     for x, lines in zip((0.085, 0.595), (hroc, hpr)):
-        legs.append(fig.legend(handles=lines, loc="upper left", bbox_to_anchor=(x, 0.355), frameon=False,
+        legs.append(fig.legend(handles=lines, loc="upper left", bbox_to_anchor=(x, Y_LEG), frameon=False,
                                handlelength=2.9, handletextpad=0.65, borderaxespad=0, labelspacing=0.32))
-    nota1 = fig.text(0.085, 0.122, "ROC-AUC y AP corresponden a las curvas completas.", fontsize=8, va="center")
-    nota2 = fig.text(0.085, 0.084, "Configuraciones de validación (umbral = cuantil 1−α):", fontsize=8, va="center")
+    # Pie en una sola fila: nota a la izquierda (columna del panel a), símbolos α a la derecha (columna del panel b)
+    nota1 = fig.text(0.085, Y_PIE, T["nota"], fontsize=8, va="center")
     simbolos = [Line2D([], [], color="0.2", marker=mk, markersize=sz, markeredgewidth=0.8, markerfacecolor="none",
-                       linestyle="none", label=("α = %g" % a).replace(".", ",")) for a, mk, sz in ALPHA_MARKERS]
-    legs.append(fig.legend(handles=simbolos, loc="lower center", bbox_to_anchor=(0.5, 0.006), frameon=False,
-                           ncol=3, handletextpad=0.5, columnspacing=2.2, borderaxespad=0))
+                       linestyle="none", label=DEC("α = %g" % a)) for a, mk, sz in ALPHA_MARKERS]
+    legs.append(fig.legend(handles=simbolos, loc="center left", bbox_to_anchor=(0.595, Y_PIE), frameon=False,
+                           ncol=3, handletextpad=0.5, columnspacing=1.6, borderaxespad=0))
     fig.canvas.draw(); rend = fig.canvas.get_renderer()
     fuera = [a.get_text() for a in fig.findobj(Text) if a.get_visible() and a.get_text()
              and (a.get_window_extent(rend).x0 < -0.5 or a.get_window_extent(rend).y0 < -0.5
@@ -184,7 +200,7 @@ def dibujar(roc, pr, puntos):
     for lg in legs[:2]:
         assert lg.get_window_extent(rend).y1 < axs[0].get_window_extent(rend).y0 - 12, "leyenda invade panel"
     assert not legs[0].get_window_extent(rend).overlaps(legs[1].get_window_extent(rend)), "leyendas de detectores se solapan"
-    for footer in (nota1, nota2):
+    for footer in (nota1,):
         fb = footer.get_window_extent(rend)
         assert not legs[2].get_window_extent(rend).overlaps(fb), "leyenda alfa invade una nota"
         for lg in legs[:2]:
@@ -202,14 +218,14 @@ def dibujar(roc, pr, puntos):
         raw = buf.getvalue()
         if ext == "svg":
             raw = ("\n".join(l.rstrip() for l in raw.decode("utf-8").splitlines()) + "\n").encode("utf-8")
-        write_bytes(HERE / ("ampliacion." + ext), raw)
+        write_bytes(HERE / ("ampliacion%s.%s" % (SUF, ext)), raw)
     plt.close(fig)
-    with pymupdf.open(stream=read_bytes(HERE / "ampliacion.pdf"), filetype="pdf") as doc:
+    with pymupdf.open(stream=read_bytes(HERE / ("ampliacion%s.pdf" % SUF)), filetype="pdf") as doc:
         pix = doc[0].get_pixmap(dpi=180)
-        write_bytes(HERE / "zoom-previa.png", pix.tobytes("png"))
+        write_bytes(HERE / ("zoom-previa%s.png" % SUF), pix.tobytes("png"))
         with Image.open(io.BytesIO(pix.tobytes("png"))) as im:
-            b = io.BytesIO(); im.convert("L").save(b, format="PNG"); write_bytes(HERE / "zoom-gris.png", b.getvalue())
-    with Image.open(io.BytesIO(read_bytes(HERE / "ampliacion.png"))) as im:
+            b = io.BytesIO(); im.convert("L").save(b, format="PNG"); write_bytes(HERE / ("zoom-gris%s.png" % SUF), b.getvalue())
+    with Image.open(io.BytesIO(read_bytes(HERE / ("ampliacion%s.png" % SUF)))) as im:
         dpi = im.info.get("dpi", (0, 0))[0]; size = im.size
     assert abs(dpi - 600) < 1, "dpi png != 600 (%s)" % dpi
     return {"png_dpi": dpi, "png_size": list(size)}
@@ -218,6 +234,9 @@ def dibujar(roc, pr, puntos):
 def main():
     roc, pr, puntos, man = cargar()
     info = dibujar(roc, pr, puntos)
+    if IDIOMA != "es":   # la versión traducida no reescribe el CSV ni el manifiesto de la versión en español
+        print("render %s:" % IDIOMA, info)
+        return
     cols = ["metodo", "alfa", "marcador", "roc_x_FPR", "roc_y_recall", "pr_x_recall", "pr_y_precision",
             "TP", "FP", "TN", "FN", "umbral_anomalia"]
     buf = io.StringIO(); w = csv.writer(buf, lineterminator="\n"); w.writerow(cols)

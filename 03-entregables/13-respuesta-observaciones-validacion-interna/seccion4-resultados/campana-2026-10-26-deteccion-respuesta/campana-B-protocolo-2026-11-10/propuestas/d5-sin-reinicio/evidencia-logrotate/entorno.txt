@@ -1,0 +1,9 @@
+logrotate 3.22.0
+3.22.0-1
+Linux 6.18.54.1-microsoft-standard-WSL2
+Debian GNU/Linux 13 (trixie)
+python=3.13.5
+id lector: uid=1000(d5lector) gid=1000(d5aud) groups=1000(d5aud)
+id publicador: uid=65534(nobody) gid=65534(nogroup) groups=65534(nogroup)
+id intruso: uid=1001(intruso) gid=65534(nogroup) groups=65534(nogroup)
+red=['lo']

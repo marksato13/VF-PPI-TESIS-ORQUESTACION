@@ -1,6 +1,15 @@
 # Estado
 
-## Corte vigente — 23 de octubre de 2026
+## Corte vigente — 18 de noviembre de 2026
+
+Detalle y evidencia: [nota T](04-evidencias/cyberflow/T-demo-escenarios-y-sincronizar-2026-11-18/README.md).
+
+- **Desplegado (verificado por SSH y SHA-256):** motor en el árbol sellado `ec78ca5` (α 0,01, umbral −0,6223889502, `if_limpio_2026_10`); panel del producto `a0df76d`; agente v2 de SRV-DMZ del producto `9d67875` con `--aplicar --sincronizar`. Manifiesto: producto `9d67875`, `deploy/laboratorio-2026-11-18/`.
+- **Validado en vivo:** escaneo → `port_scan` BLOCK; fuerza bruta → `brute_force` BLOCK; flood HTTP → `http_abuse` LIMIT; tráfico legítimo L3/L4/L7 → PERMIT sin alerta. Cada caso visto en panel, firewall del host y respuesta HTTP de la Kali.
+- **Nuevo:** «Limpiar» del panel libera también el firewall del host (`--sincronizar`).
+- **Abierto:** `icmp_flood` (L3) existe en el producto y en el panel pero no en el motor vivo sellado; integración de las ramas `panel/cadena-v2-20261104` y `recuperacion/etapa4a-pendientes-20261106` en `main`; SRV-DMZ debe volver a sombra tras la exposición.
+
+## Corte anterior — 23 de octubre de 2026
 
 Los estados originales de abajo son históricos. El estado vigente y los criterios de cierre están en [PENDIENTES.md](PENDIENTES.md), encabezado «Corte vigente».
 

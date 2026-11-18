@@ -1,0 +1,33 @@
+##### ANTES
+108095ec3efdec5a191ca738ee7fb1a977a21ed37b8acfa7ab24d46af6503d5c  /home/m4rk/.ssh/authorized_keys
+2
+4d68d23e398faa7c
+79f22a9e2db4167a
+256 SHA256:SL4EjhSKOUolt3F83svd4reh/Y9y9RN64l0wrQXHrgE (ED25519)
+256 SHA256:D3LRY5PxVREIOxMLg0MrHaxfM5LBshNYN3KzyCBrMso (ED25519)
+##### INSTALAR (sin --con-sudo, sin --reiniciar)
+== Sensor1: instalar (aplicar=1)
+SUDO PENDIENTE (Mark): instalar /home/m4rk/cf-b/paquete-despliegue/pendiente-sudo/zz-d5-sin-reinicio.conf -> /etc/systemd/system/ppi-publicar-feed-v2.service.d/zz-d5-sin-reinicio.conf y /home/m4rk/cf-b/paquete-despliegue/pendiente-sudo/cf-d5-auditoria -> /etc/logrotate.d/cf-d5-auditoria (0644 root), luego: sudo systemctl daemon-reload
+NO se reinicia el publicador (hacerlo con --reiniciar, fuera de campaña, un solo reinicio anotado)
+rc=0
+##### DESPUÉS: authorized_keys
+28a8b1245122096e44d146f1b481605e440789310a90eb9ab7ca54808c35a198  /home/m4rk/.ssh/authorized_keys
+3
+600 m4rk /home/m4rk/.ssh/authorized_keys
+108095ec3efdec5a
+(hash de las 2 primeras líneas ANTES: ver arriba, línea 1 + línea 2 por separado)
+4d68d23e398faa7c
+79f22a9e2db4167a
+256 SHA256:SL4EjhSKOUolt3F83svd4reh/Y9y9RN64l0wrQXHrgE (ED25519)
+256 SHA256:D3LRY5PxVREIOxMLg0MrHaxfM5LBshNYN3KzyCBrMso (ED25519)
+256 SHA256:gw4T8ep3ZrJ42EhwICNy0qbd0OcEoh82yJMqdsRwVaA (ED25519)
+--- línea nueva (sin la clave):
+from="10.10.10.30",command="/usr/bin/python3 -I /home/m4rk/cf-b/herramientas/sensor_control_d5.py --base /home/m4rk/feed-v2/d5/control --feed /home/m4rk/feed-v2/feed.json --estado /home/m4rk/feed-v2/estado.json --traza /home/m4rk/feed-v2/traza.jsonl --auditoria /home/m4rk/feed-v2/d5/auditoria/d5-auditoria.jsonl --ssh-original",restrict ssh-ed25519 <clave> cf-bastion-d5
+##### RESPALDO
+total 16
+drwxrwxr-x 2 m4rk m4rk 4096 2026-11-11 01:15 .
+drwxrwxr-x 3 m4rk m4rk 4096 2026-11-11 01:15 ..
+-rw------- 1 m4rk m4rk  284 2026-11-04 02:18 authorized_keys
+-rw-rw-r-- 1 m4rk m4rk  127 2026-11-11 01:15 authorized_keys.sha256
+/home/m4rk/cf-b/respaldo-d5/20261111T011542Z/authorized_keys: OK
+2

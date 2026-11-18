@@ -1,0 +1,26 @@
+{
+ "caso": {
+  "categoria": "consumida_y_publicada",
+  "determinada": true,
+  "estado": "sin_acuse_procesada",
+  "ok": false,
+  "publicacion": "confirmada",
+  "secuencia": 2
+ },
+ "gate": {
+  "en_episodio": false,
+  "episodio": null,
+  "fin_en": null,
+  "liberada_en": null,
+  "n_inicios": 1,
+  "pendiente": true
+ },
+ "omitidas": 3,
+ "pasos": [
+  "fallida",
+  "fallida",
+  "fallida",
+  "fallida"
+ ],
+ "solicitudes": 1
+}

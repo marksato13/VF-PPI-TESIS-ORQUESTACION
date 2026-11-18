@@ -1,0 +1,27 @@
+rc=0
+--- stdout
+
+--- stderr
+reading config file /etc/d5lr/S4-retencion-rotate-2.conf
+acquired lock on state file /var/tmp/d5lr/S4-retencion-rotate-2/logrotate.state
+Reading state from file: /var/tmp/d5lr/S4-retencion-rotate-2/logrotate.state
+Allocating hash table for state file, size 64 entries
+Creating new state
+
+Handling 1 logs
+
+rotating pattern: /var/tmp/d5lr/S4-retencion-rotate-2/aud/d5-auditoria.jsonl forced from command line empty log files are not rotated, (2 rotations), old logs are removed
+considering log /var/tmp/d5lr/S4-retencion-rotate-2/aud/d5-auditoria.jsonl
+  Now: 2026-11-10 20:51
+  Last rotated at 2026-11-10 20:51
+  log needs rotating
+rotating log /var/tmp/d5lr/S4-retencion-rotate-2/aud/d5-auditoria.jsonl, log->rotateCount is 2
+dateext suffix '-20261110'
+glob pattern '-[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'
+compressing log with: /bin/gzip
+renaming /var/tmp/d5lr/S4-retencion-rotate-2/aud/d5-auditoria.jsonl.2.gz to /var/tmp/d5lr/S4-retencion-rotate-2/aud/d5-auditoria.jsonl.3.gz (rotatecount 2, logstart 1, i 2), 
+renaming /var/tmp/d5lr/S4-retencion-rotate-2/aud/d5-auditoria.jsonl.1.gz to /var/tmp/d5lr/S4-retencion-rotate-2/aud/d5-auditoria.jsonl.2.gz (rotatecount 2, logstart 1, i 1), 
+renaming /var/tmp/d5lr/S4-retencion-rotate-2/aud/d5-auditoria.jsonl to /var/tmp/d5lr/S4-retencion-rotate-2/aud/d5-auditoria.jsonl.1
+creating new /var/tmp/d5lr/S4-retencion-rotate-2/aud/d5-auditoria.jsonl mode = 0640 uid = 65534 gid = 1000
+removing old log /var/tmp/d5lr/S4-retencion-rotate-2/aud/d5-auditoria.jsonl.3.gz
+

@@ -1,0 +1,15 @@
+##### bastión→Sensor1 2026-11-11T03:08:17Z
+feed: {"entradas_origen": [], "fresco": true, "generado": 1794366485.9282343, "limpio": true, "ok": true, "rc": 0, "secuencia": 26112, "vigente": true}
+OK    feed: ok=True fresco=True vigente=True limpio=True
+OK    feed: secuencia (26112) > previa (26095)
+resultado: {"estado": "desconocida", "id": "00000000000000000000000000000000", "ok": true}
+OK    resultado de un id inexistente = desconocida (sin crear nada)
+orden fuera de lista: {"ok": false, "estado": "rechazada", "motivo": "comando fuera de la lista blanca"}
+OK    orden fuera de la lista blanca rechazada
+origen ajeno: {"ok": false, "estado": "rechazada", "motivo": "comando fuera de la lista blanca"}
+OK    origen distinto de 10.10.20.30 rechazado (no se creó solicitud)
+--- demás entidades
+OK    relé ppi-relay-eventos PID 70246, NRestarts 0
+agente srv-dmz (PID/NRestarts, nº de --aplicar en ExecStart): 815326/0 0
+OK    agente de srv-dmz: PID 815326, NRestarts 0, sin --aplicar (sombra)
+##### resumen: 7 OK, 0 FALLAN

@@ -1,0 +1,21 @@
+## b20-e4 2026-11-11T17:15:43.803Z
+## [ACCESO SSH A KALI 2026-11-11T17:15:43.805Z: lectura del fin del generador]
+## fin acceso Kali 2026-11-11T17:15:43.843Z
+  generador rc=0 terminado=2026-11-11T17:10:37.742Z procesos=0 marcas sha256=9e9c95efa9a2b5847b70bca556bbb8fb81b83918864cfb31ff46124d044e747f
+  vigía terminado: {"evento": "vigia_fin", "campana_fin": "completa", "clases": {"fuerza_bruta_http-r1": "C0", "escaneo_breve-r4": "C0", "escaneo_sostenido-r5": "C0", "fuerza_bruta_http-r5": "C0", "escaneo_breve-r2": "C
+  canal de control con la Kali cerrado 2026-11-11T17:15:43.983Z
+  marcas: kali=9e9c95efa9a2b5847b70bca556bbb8fb81b83918864cfb31ff46124d044e747f bastión=9e9c95efa9a2b5847b70bca556bbb8fb81b83918864cfb31ff46124d044e747f sensor=9e9c95efa9a2b5847b70bca556bbb8fb81b83918864cfb31ff46124d044e747f
+fin_ultimo=1794416947.727570 2026-11-11T17:09:07Z
+## relojes (p10b)
+## p10b relojes  inicio=2026-11-11T17:15:44.723Z  referencia=bastion VM-GESTION
+  Reference ID    : 8F6BE5D3 (lrtest1.ntp.ifsc.usp.br)
+  System time     : 0.002703768 seconds slow of NTP time
+  RMS offset      : 0.000665768 seconds
+  Root dispersion : 0.000690336 seconds
+  [2026-11-11T17:15:51Z] sensor   mejor desfase=+0.0085 s inc=+-0.0005 s | mediana=+0.0086 s | rango=[+0.0084,+0.0091] | |desfase|<=1 s: SI | NTP yes 10.10.60.1
+  [2026-11-11T17:15:52Z] kali     mejor desfase=+0.0095 s inc=+-0.0004 s | mediana=+0.0096 s | rango=[+0.0095,+0.0097] | |desfase|<=1 s: SI | NTP yes 2.debian.pool.ntp.org
+  [2026-11-11T17:15:54Z] srv-dmz  mejor desfase=+0.0079 s inc=+-0.0002 s | mediana=+0.0079 s | rango=[+0.0079,+0.0082] | |desfase|<=1 s: SI | NTP yes ntp.ubuntu.com
+  [2026-11-11T17:15:57Z] clientes mejor desfase=+0.0077 s inc=+-0.0005 s | mediana=+0.0077 s | rango=[+0.0077,+0.0079] | |desfase|<=1 s: SI | NTP yes ntp.ubuntu.com
+## fin=2026-11-11T17:15:59.296Z
+  traza del relé al sensor: 29997 líneas, sha256 f65e2bcf8b003924a8fa676decfa40d228555b9b6ae3d0fffe78e23a7d03b55c
+## fin 2026-11-11T17:16:00.695Z

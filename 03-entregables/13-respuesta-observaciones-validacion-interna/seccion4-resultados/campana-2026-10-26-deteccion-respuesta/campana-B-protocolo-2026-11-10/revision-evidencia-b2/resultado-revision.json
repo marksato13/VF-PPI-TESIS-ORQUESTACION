@@ -1,0 +1,277 @@
+{
+ "episodios": [
+  {
+   "E1": {
+    "destino": "srv-dmz",
+    "margen_antes_del_fin_s": 72.46,
+    "otras_reglas_en_ventana": [],
+    "regla": "http_abuse",
+    "resultado": "verificado",
+    "t_det_menos_t_inicio": 17.64,
+    "ventana_evidencia_vs_inicio_s": [
+     -48.7,
+     11.3
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "analizador": "cumple",
+    "confirmacion": "confirmada",
+    "id_regla": "22c1e9efcdc9ae3e",
+    "margen_antes_del_fin_s": 70.93,
+    "motivo": "regla confirmada antes del fin",
+    "resultado": "verificado",
+    "t_apl_menos_t_inicio": 19.17,
+    "violaciones_fuera_de_alcance": []
+   },
+   "E3": {
+    "indicio_host_no_es_E3": "primer descarte del host a +23.86 s de inicio (contador nft de la regla)",
+    "motivo": "falta la serie SPAN por bloques de 1 s (espejo) y la prueba de que el generador siguió intentando",
+    "resultado": "no evaluado"
+   },
+   "E4": {
+    "motivo": "la evidencia local no incluye transacciones de control de los clientes en [inicio-60 s, fin+90 s]",
+    "resultado": "no evaluado"
+   },
+   "E5": {
+    "analizador": "cumple",
+    "hay_siguiente_episodio": true,
+    "lecturas": 2,
+    "motivo": "origen ausente del set",
+    "resultado": "verificado",
+    "t_ultima_lectura_menos_t_fin": 75.88,
+    "via": "retirada_explicita"
+   },
+   "clase_salud": "C3 (se conserva)",
+   "episodio": "inundacion_http-r4",
+   "estado_generador": "completo",
+   "familia": "inundacion_http",
+   "t_fin": 1794333418.832942,
+   "t_inicio": 1794333328.73136
+  },
+  {
+   "E1": {
+    "destino": "srv-dmz",
+    "margen_antes_del_fin_s": 83.68,
+    "otras_reglas_en_ventana": [],
+    "regla": "brute_force",
+    "resultado": "verificado",
+    "t_det_menos_t_inicio": 7.2,
+    "ventana_evidencia_vs_inicio_s": [
+     -58.8,
+     1.2
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "analizador": "cumple",
+    "confirmacion": "confirmada",
+    "id_regla": "406d27c72057415d",
+    "margen_antes_del_fin_s": 82.9,
+    "motivo": "regla confirmada antes del fin",
+    "resultado": "verificado",
+    "t_apl_menos_t_inicio": 7.99,
+    "violaciones_fuera_de_alcance": []
+   },
+   "E3": {
+    "indicio_host_no_es_E3": "primer descarte del host a +8.07 s de inicio (contador nft de la regla)",
+    "motivo": "falta la serie SPAN por bloques de 1 s (espejo) y la prueba de que el generador siguió intentando",
+    "resultado": "no evaluado"
+   },
+   "E4": {
+    "motivo": "la evidencia local no incluye transacciones de control de los clientes en [inicio-60 s, fin+90 s]",
+    "resultado": "no evaluado"
+   },
+   "E5": {
+    "analizador": "cumple",
+    "hay_siguiente_episodio": true,
+    "lecturas": 2,
+    "motivo": "origen ausente del set",
+    "resultado": "verificado",
+    "t_ultima_lectura_menos_t_fin": 76.07,
+    "via": "retirada_explicita"
+   },
+   "clase_salud": "C3 (se conserva)",
+   "episodio": "fuerza_bruta_http-r4",
+   "estado_generador": "completo",
+   "familia": "fuerza_bruta_http",
+   "t_fin": 1794333719.716993,
+   "t_inicio": 1794333628.83543
+  },
+  {
+   "E1": {
+    "destino": "dc1",
+    "margen_antes_del_fin_s": 66.43,
+    "otras_reglas_en_ventana": [],
+    "regla": "dns_entropy",
+    "resultado": "verificado",
+    "t_det_menos_t_inicio": 23.15,
+    "ventana_evidencia_vs_inicio_s": [
+     -39.7,
+     20.3
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "motivo": "DNS: DC1 no tiene punto de aplicación; el agente de srv-dmz ignora las entradas de DC1 por diseño (`ajenas`)",
+    "resultado": "no evaluado"
+   },
+   "E3": {
+    "indicio_host_no_es_E3": null,
+    "motivo": "falta la serie SPAN por bloques de 1 s (espejo) y la prueba de que el generador siguió intentando",
+    "resultado": "no evaluado"
+   },
+   "E4": {
+    "motivo": "la evidencia local no incluye transacciones de control de los clientes en [inicio-60 s, fin+90 s]",
+    "resultado": "no evaluado"
+   },
+   "E5": {
+    "motivo": "sin punto de aplicación: no hubo regla que retirar",
+    "resultado": "no evaluado"
+   },
+   "clase_salud": "C3 (se conserva)",
+   "episodio": "dns_inusual-r1",
+   "estado_generador": "completo",
+   "familia": "dns_inusual",
+   "t_fin": 1794334019.298479,
+   "t_inicio": 1794333929.720188
+  },
+  {
+   "E1": {
+    "destino": "srv-dmz",
+    "margen_antes_del_fin_s": 84.36,
+    "otras_reglas_en_ventana": [],
+    "regla": "brute_force",
+    "resultado": "verificado",
+    "t_det_menos_t_inicio": 7.03,
+    "ventana_evidencia_vs_inicio_s": [
+     -59.3,
+     0.7
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "analizador": "cumple",
+    "confirmacion": "confirmada",
+    "id_regla": "2cb085179dfc46d1",
+    "margen_antes_del_fin_s": 82.87,
+    "motivo": "regla confirmada antes del fin",
+    "resultado": "verificado",
+    "t_apl_menos_t_inicio": 8.52,
+    "violaciones_fuera_de_alcance": []
+   },
+   "E3": {
+    "indicio_host_no_es_E3": "primer descarte del host a +8.61 s de inicio (contador nft de la regla)",
+    "motivo": "falta la serie SPAN por bloques de 1 s (espejo) y la prueba de que el generador siguió intentando",
+    "resultado": "no evaluado"
+   },
+   "E4": {
+    "motivo": "la evidencia local no incluye transacciones de control de los clientes en [inicio-60 s, fin+90 s]",
+    "resultado": "no evaluado"
+   },
+   "E5": {
+    "analizador": "cumple",
+    "hay_siguiente_episodio": true,
+    "lecturas": 2,
+    "motivo": "origen ausente del set",
+    "resultado": "verificado",
+    "t_ultima_lectura_menos_t_fin": 78.23,
+    "via": "retirada_explicita"
+   },
+   "clase_salud": "C3 (se conserva)",
+   "episodio": "fuerza_bruta_http-r3",
+   "estado_generador": "completo",
+   "familia": "fuerza_bruta_http",
+   "t_fin": 1794334440.70311,
+   "t_inicio": 1794334349.315311
+  },
+  {
+   "E1": {
+    "destino": "dc1",
+    "margen_antes_del_fin_s": 47.62,
+    "otras_reglas_en_ventana": [],
+    "regla": "dns_entropy",
+    "resultado": "verificado",
+    "t_det_menos_t_inicio": 41.97,
+    "ventana_evidencia_vs_inicio_s": [
+     -40.7,
+     19.3
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "motivo": "DNS: DC1 no tiene punto de aplicación; el agente de srv-dmz ignora las entradas de DC1 por diseño (`ajenas`)",
+    "resultado": "no evaluado"
+   },
+   "E3": {
+    "indicio_host_no_es_E3": null,
+    "motivo": "falta la serie SPAN por bloques de 1 s (espejo) y la prueba de que el generador siguió intentando",
+    "resultado": "no evaluado"
+   },
+   "E4": {
+    "motivo": "la evidencia local no incluye transacciones de control de los clientes en [inicio-60 s, fin+90 s]",
+    "resultado": "no evaluado"
+   },
+   "E5": {
+    "motivo": "sin punto de aplicación: no hubo regla que retirar",
+    "resultado": "no evaluado"
+   },
+   "clase_salud": "C3 (se conserva)",
+   "episodio": "dns_inusual-r3",
+   "estado_generador": "completo",
+   "familia": "dns_inusual",
+   "t_fin": 1794334740.295893,
+   "t_inicio": 1794334650.707006
+  },
+  {
+   "E1": {
+    "destino": "srv-dmz",
+    "margen_antes_del_fin_s": 76.6,
+    "otras_reglas_en_ventana": [],
+    "regla": "http_abuse",
+    "resultado": "verificado",
+    "t_det_menos_t_inicio": 13.99,
+    "ventana_evidencia_vs_inicio_s": [
+     -50.3,
+     9.7
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "analizador": "cumple",
+    "confirmacion": "confirmada",
+    "id_regla": "24d35ac71cf43fc4",
+    "margen_antes_del_fin_s": 75.19,
+    "motivo": "regla confirmada antes del fin",
+    "resultado": "verificado",
+    "t_apl_menos_t_inicio": 15.4,
+    "violaciones_fuera_de_alcance": []
+   },
+   "E3": {
+    "indicio_host_no_es_E3": "primer descarte del host a +16.58 s de inicio (contador nft de la regla)",
+    "motivo": "falta la serie SPAN por bloques de 1 s (espejo) y la prueba de que el generador siguió intentando",
+    "resultado": "no evaluado"
+   },
+   "E4": {
+    "motivo": "la evidencia local no incluye transacciones de control de los clientes en [inicio-60 s, fin+90 s]",
+    "resultado": "no evaluado"
+   },
+   "E5": {
+    "analizador": "cumple",
+    "hay_siguiente_episodio": false,
+    "lecturas": 2,
+    "motivo": "origen ausente del set",
+    "resultado": "verificado",
+    "t_ultima_lectura_menos_t_fin": 169.26,
+    "via": "retirada_explicita"
+   },
+   "clase_salud": "C3 (se conserva)",
+   "episodio": "inundacion_http-r3",
+   "estado_generador": "completo",
+   "familia": "inundacion_http",
+   "t_fin": 1794335160.899154,
+   "t_inicio": 1794335070.31304
+  }
+ ],
+ "fuente": "evidencia-local/ (copias; hashes en SHA256.txt)"
+}

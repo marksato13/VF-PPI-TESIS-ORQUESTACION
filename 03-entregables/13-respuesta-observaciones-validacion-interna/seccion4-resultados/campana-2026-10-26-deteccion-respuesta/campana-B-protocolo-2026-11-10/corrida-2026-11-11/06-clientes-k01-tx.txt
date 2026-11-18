@@ -1,0 +1,38 @@
+## k01-tx-e4 4c 2026-11-11T04:12:54.699Z
+  [2026-11-11T04:12:54.979Z] stop cyberflow-lab.target rc=0
+  unidades activas tras parar: 0
+  ofimatica: unidad -> /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil ofimatica --origen 10.10.20.21 --servidor 10.10.30.10 --dns 10.10.10.20 
+  navegacion: unidad -> /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil navegacion --origen 10.10.20.22 --servidor 10.10.30.10 --dns 10.10.10.20 
+  descargas: unidad -> /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil descargas --origen 10.10.20.23 --servidor 10.10.30.10 --dns 10.10.10.20 
+  aplicacion: unidad -> /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil aplicacion --origen 10.10.20.24 --servidor 10.10.30.10 --dns 10.10.10.20 
+  ligero: unidad -> /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil ligero --origen 10.10.20.25 --servidor 10.10.30.10 --dns 10.10.10.20 
+  erratico: unidad -> /usr/bin/python3 /home/adminclientes/laboratorio/clientes_lab.py --perfil erratico --origen 10.10.20.26 --servidor 10.10.30.10 --dns 10.10.10.20 
+  ofimatica pgid=368417 vivo=si hijos=2
+  navegacion pgid=368427 vivo=si hijos=2
+  descargas pgid=368437 vivo=si hijos=2
+  aplicacion pgid=368447 vivo=si hijos=2
+  ligero pgid=368457 vivo=si hijos=2
+  erratico pgid=368467 vivo=si hijos=2
+## conexiones por origen (ss)
+        1 10.10.20.20
+## perfiles: un clientes_lab/_tx por perfil (sin duplicados)
+  ofimatica: procesos python=1
+  navegacion: procesos python=1
+  descargas: procesos python=1
+  aplicacion: procesos python=1
+  ligero: procesos python=1
+  erratico: procesos python=1
+  total envoltorios=7
+  aplicacion.out: 1 lineas; perfil aplicacion desde 10.10.20.24 -> 10.10.30.10
+  descargas.out: 1 lineas; perfil descargas desde 10.10.20.23 -> 10.10.30.10
+  erratico.out: 1 lineas; perfil erratico desde 10.10.20.26 -> 10.10.30.10
+  ligero.out: 1 lineas; perfil ligero desde 10.10.20.25 -> 10.10.30.10
+  navegacion.out: 1 lineas; perfil navegacion desde 10.10.20.22 -> 10.10.30.10
+  ofimatica.out: 1 lineas; perfil ofimatica desde 10.10.20.21 -> 10.10.30.10
+  transacciones-aplicacion.tsv: 19 transacciones
+  transacciones-descargas.tsv: 6 transacciones
+  transacciones-erratico.tsv: 7 transacciones
+  transacciones-ligero.tsv: 4 transacciones
+  transacciones-navegacion.tsv: 28 transacciones
+  transacciones-ofimatica.tsv: 8 transacciones
+## fin 2026-11-11T04:13:36.522Z

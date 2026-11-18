@@ -1,0 +1,9 @@
+M00 MUERTA 'if self.estado_bloqueo and os.path.exists(self.estado_b'
+M01 MUERTA 'os.replace(tmp, self.estado_bloqueo)'
+M02 MUERTA 'fcntl.flock(fh, fcntl.LOCK_EX)'
+M03 MUERTA 'return {"motivos": ["fichero de bloqueo ilegible'
+M04 MUERTA 'if self.estado_bloqueo and os.path.exists(self.estado_b'
+M05 MUERTA 'if not res["lista"]:\n                self._fijar_bloque'
+M06 MUERTA 'if not str(quien).strip() or not str(motivo).strip():'
+M07 MUERTA 'self._log({"evento": "reanudacion_manual", "por": quien'
+8/8 muertas; vivas: []

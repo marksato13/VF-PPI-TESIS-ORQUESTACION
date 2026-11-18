@@ -1,0 +1,10 @@
+reintroduce el defecto: descartes_limite cuenta como presente          ELIMINADA  3 failed, 36 passed in 0.33s
+la puerta nunca ve restricciones (presente siempre False)              ELIMINADA  8 failed, 31 passed in 0.39s
+sets de aplicación ausentes dejan de fallar cerrado                    ELIMINADA  3 failed, 36 passed in 0.30s
+estado de tipo erróneo deja de fallar cerrado                          ELIMINADA  2 failed, 37 passed in 0.32s
+contador mal formado deja de fallar cerrado                            ELIMINADA  1 failed, 38 passed in 0.29s
+el contador residual no se informa                                     ELIMINADA  3 failed, 36 passed in 0.32s
+el resultado de la puerta no conserva el residual                      ELIMINADA  2 failed, 37 passed in 0.32s
+solo se mira limitados (bloqueados ignorado)                           ELIMINADA  5 failed, 34 passed in 0.35s
+el listado fallido se trata como estado vacío                          ELIMINADA  2 failed, 37 passed in 0.34s
+mutaciones eliminadas: 9 de 9

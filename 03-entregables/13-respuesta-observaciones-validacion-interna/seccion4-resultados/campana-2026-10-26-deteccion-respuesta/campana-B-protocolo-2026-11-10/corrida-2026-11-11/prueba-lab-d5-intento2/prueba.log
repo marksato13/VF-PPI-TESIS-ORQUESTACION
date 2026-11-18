@@ -1,0 +1,32 @@
+## fase1 2026-11-11T07:12:49Z
+publicador antes: PID=2115304 NR=0
+== activación B en srv-dmz, modo=real, fin automático a las 2 h
+[A0] comprobaciones previas (solo lectura)
+  agente activo en sombra, NRestarts=0, sin drop-in, sin tabla, disco 9981884 kB
+[A1] instalar la reversión en /opt/cyberflow/campana-b con hash
+  respaldo PRE-B del ruleset (referencia de verificar_srvdmz.sh tras la reversión): /opt/cyberflow/campana-b/pre-B/ruleset.nft
+[A2] drop-in con --aplicar (/etc/systemd/system/ppi-enforce-agent-v2-dmz.service.d/90-campana-b-aplicar.conf)
+[A3] fin automático cf-b-fin a las 2 h (ejecuta la reversión real)
+Running timer as unit: cf-b-fin.timer
+Will run service as unit: cf-b-fin.service
+[A4] reiniciar el agente con --aplicar y comprobar
+== RESULTADO modo=real rc=0
+## [ACCESO SSH A KALI 2026-11-11T07:12:57.303Z: ráfaga de 120 s de laboratorio (inundacion_instrumentada.sh) hacia srv-dmz:80]
+intentos=2894
+## cuándo se aplicó LIMIT (aplicaciones del agente de srv-dmz; inicio de la ráfaga = 1794381177.307083008)
+{"aplicado_en": 1794381224.9157608, "evento": "aplicacion", "nuevos": [{"evento_id": "10.10.20.30|2026-11-11T07:13:00+00:00|http_abuse", "hasta": 1794381484, "id": "efb0be5c2c4a1a4e", "ip": "10.10.20.
+{"aplicado_en": 1794381246.645544, "evento": "aplicacion", "nuevos": [{"evento_id": "10.10.20.30|2026-11-11T07:14:00+00:00|http_abuse", "hasta": 1794381545, "id": "b6123ce4972a9d4e", "ip": "10.10.20.3
+{"aplicado_en": 1794381256.0934885, "evento": "aplicacion", "nuevos": [{"evento_id": "10.10.20.30|2026-11-11T07:14:00+00:00|http_abuse", "hasta": 1794381545, "id": "b6123ce4972a9d4e", "ip": "10.10.20.
+LIMIT: ninguna aplicación posterior al inicio de la ráfaga
+ráfaga terminada 2026-11-11T07:14:59Z. Siguiente: fase2 a partir de fin + 80 s
+## estado de srv-dmz ANTES de la puerta 2026-11-11T07:16:17Z
+sets {'bloqueados': {}, 'limitados': {'10.10.20.30': {'bytes': 0, 'expira_s': 226, 'id': '7cc7a856ef12491b', 'paquetes': 0}}} descartes_limite {}
+ENSAYO INCONCLUSO: antes de la puerta no hay la Kali en limitados Y en descartes_limite; NO se ejecuta la puerta y NO se repite
+  
+[R4b] archivar la traza del agente de B (no se borra; el verificador de sombra cuenta cualquier 'aplicacion' de la traza viva)
+  traza de B archivada en /var/lib/cyberflow/agente/traza-B-20261111T071640Z.jsonl (copia con hash en /var/lib/cyberflow/agente/traza-B-20261111T071640Z.jsonl.sha256)
+[R5] agente de nuevo en sombra
+  activo, sin --aplicar, eventos 'aplicacion' en la traza nueva: 0 (antes de B y durante B: 8, archivados)
+== RESULTADO modo=real rc=0 2026-11-11T07:16:45Z
+estado=sombra alcance=completo agentes=1 con_aplicar=0 tablas_cyberflow=0 eventos_aplicacion=0
+VERIFICACIÓN SRV-DMZ OK

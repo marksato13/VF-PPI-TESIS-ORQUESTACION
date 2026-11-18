@@ -1,0 +1,19 @@
+6469e2e625d0edc36890a9a9f3aec1a6a221777387186de1b4a8dfbd4dc8ad3f
+degraded
+sustituciones: 5, fallidas: ninguna
+sustituciones: 3, fallidas: ninguna
+OK    el derivado del lanzador contiene la corrección (SETS_APLICACION, residual) 
+OK    versión: derivado del publicador idéntico al validado 
+OK    residual registrado en la puerta (resultado y paso nft_despues) 
+OK    el contador residual NO se borró del nftables simulado 
+OK    I-A-acuse-valido: acuse válido -> la puerta deja continuar; 1 solicitud; sin reinicio 
+OK    I-A-acuse-valido: el lector (d5lector) reconstruye la solicitud: publicación confirmada 
+OK    I-B-acuse-no-escribible-bloqueo: acuse no escribible -> puerta fallida y BLOQUEADA; las 3 llamadas siguientes no solicitan; 1 solicitud real 
+OK    I-B-acuse-no-escribible-bloqueo: servicio continuo y limpieza confirmable por la auditoría (reportados por separado) 
+OK    I-B-acuse-no-escribible-bloqueo: evidencia del caso conservada 
+OK    residual registrado en la puerta (resultado y paso nft_despues) 
+OK    el contador residual NO se borró del nftables simulado 
+OK    I-C-reanudacion-manual: tras la reanudación manual registrada se emite UNA solicitud nueva y la puerta continúa 
+
+12 comprobaciones, 0 fallan
+rc=0

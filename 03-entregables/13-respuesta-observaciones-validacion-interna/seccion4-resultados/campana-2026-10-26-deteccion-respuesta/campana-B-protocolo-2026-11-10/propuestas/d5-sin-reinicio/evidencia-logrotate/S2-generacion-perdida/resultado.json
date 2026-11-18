@@ -1,0 +1,15 @@
+{
+ "operacion": {
+  "categoria": "indeterminada",
+  "determinada": false,
+  "estado": "sin_acuse_procesada",
+  "incierto": true,
+  "motivo": "hay `publicado` sin `consumido`: falta parte de la traza; no se afirma nada",
+  "ok": false,
+  "publicacion": "publicación sin confirmar",
+  "rc": 6,
+  "secuencia": null,
+  "trazabilidad": "incompleta"
+ },
+ "solicitudes": 1
+}

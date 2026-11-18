@@ -1,0 +1,18 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-8.3.5, pluggy-1.5.0 -- /usr/bin/python3
+rootdir: /pq
+collecting ... collected 11 items
+
+test_guiones_paquete.py::test_todos_los_guiones_tienen_sintaxis_valida PASSED [  9%]
+test_guiones_paquete.py::test_modo_seco_de_todos_los_guiones_y_aceptar_no_escriben_nada PASSED [ 18%]
+test_guiones_paquete.py::test_el_paquete_coincide_con_su_sha256sums_y_el_derivado_es_el_validado PASSED [ 27%]
+test_guiones_paquete.py::test_sensor1_en_seco_no_cambia_nada PASSED      [ 36%]
+test_guiones_paquete.py::test_sensor1_instalar_aceptar_y_revertir_sobre_arbol_falso PASSED [ 45%]
+test_guiones_paquete.py::test_si_un_artefacto_no_coincide_con_sha256sums_no_se_instala_nada PASSED [ 54%]
+test_guiones_paquete.py::test_si_el_publicador_original_no_es_el_conocido_no_se_instala PASSED [ 63%]
+test_guiones_paquete.py::test_bastion_clave_instalar_aceptar_y_revertir PASSED [ 72%]
+test_guiones_paquete.py::test_instrumentacion_por_host_instalar_aceptar_y_revertir[kali] PASSED [ 81%]
+test_guiones_paquete.py::test_instrumentacion_por_host_instalar_aceptar_y_revertir[clientes] PASSED [ 90%]
+test_guiones_paquete.py::test_instrumentacion_por_host_instalar_aceptar_y_revertir[srvdmz] PASSED [100%]
+
+============================== 11 passed in 3.39s ==============================

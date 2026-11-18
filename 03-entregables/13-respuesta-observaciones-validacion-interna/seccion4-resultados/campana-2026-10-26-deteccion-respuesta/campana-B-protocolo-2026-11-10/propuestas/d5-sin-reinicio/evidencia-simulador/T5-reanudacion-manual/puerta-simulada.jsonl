@@ -1,0 +1,4 @@
+{"categoria": "consumida_y_publicada", "estado": "sin_acuse_procesada", "evento": "solicitud", "evidencia": "/tmp/pytest-of-nobody/pytest-0/test_solo_una_reanudacion_manu0/control.json.evidencia-292e89158aff47bf87220435f7c7b5e4.json", "id": "292e89158aff47bf87220435f7c7b5e4", "ok": false, "publicacion": "confirmada", "t": 1794345062.7953117}
+{"evento": "omitida_por_caso_fallido", "id_fallido": "292e89158aff47bf87220435f7c7b5e4", "t": 1794345062.7955465}
+{"evento": "reanudacion_manual", "id_fallido": "292e89158aff47bf87220435f7c7b5e4", "por": "Mark (prueba de banco)", "t": 1794345062.7957258}
+{"categoria": null, "estado": "acuse", "evento": "solicitud", "evidencia": null, "id": null, "ok": true, "publicacion": null, "t": 1794345062.8462536}

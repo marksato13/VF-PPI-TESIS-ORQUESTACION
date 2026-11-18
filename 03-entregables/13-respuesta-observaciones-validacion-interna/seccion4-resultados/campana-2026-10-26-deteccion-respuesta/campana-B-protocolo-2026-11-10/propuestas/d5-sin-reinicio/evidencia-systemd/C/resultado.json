@@ -1,0 +1,58 @@
+{
+ "caso": "C",
+ "criterios": {
+  "NRestarts_no_aumenta": true,
+  "journal_sin_parada_ni_arranque": true,
+  "mismo_MainPID": true,
+  "publicacion_nueva_tras_el_caso": true,
+  "una_sola_solicitud": true,
+  "unidad_activa": true
+ },
+ "limpieza": "confirmada",
+ "limpieza_via": "acuse + feed + estado (sin auditoría)",
+ "observado": {
+  "K_fuera_del_feed_y_estado": true,
+  "MainPID": [
+   "320",
+   "320"
+  ],
+  "NRestarts": [
+   "0",
+   "0"
+  ],
+  "ficheros_del_caso": [
+   "control.json.ack",
+   "d5-auditoria.jsonl",
+   "estado.json",
+   "feed.json",
+   "feed.sig",
+   "k.pem",
+   "motor.log",
+   "traza.jsonl"
+  ],
+  "lineas_d5_en_journal": [
+   "2026-11-10T20:14:01.228172+00:00 3dbf6ad957f5 python3[320]: d5: no se pudo escribir la auditoría (IsADirectoryError)",
+   "2026-11-10T20:14:01.233510+00:00 3dbf6ad957f5 python3[320]: d5: no se pudo escribir la auditoría (IsADirectoryError)"
+  ],
+  "otras_entidades_en_feed": true,
+  "secuencia_feed": [
+   3,
+   5
+  ]
+ },
+ "operacion": {
+  "categoria": null,
+  "determinada": null,
+  "estado": "acuse",
+  "evidencia": null,
+  "incierto": false,
+  "ok": true,
+  "rc": 0,
+  "secuencia": 3
+ },
+ "rutas": {
+  "evidencia": "evidencia-systemd/C/"
+ },
+ "servicio": "PASA",
+ "unidad": "cf-d5-banco-c"
+}

@@ -1,0 +1,8 @@
+systemd 257 (257.13-1~deb13u1)
+virt=wsl
+Linux 6.18.54.1-microsoft-standard-WSL2
+Debian GNU/Linux 13 (trixie)
+python=3.13.5
+estado_sistema=degraded
+fallidas=● suricata.service loaded failed failed Suricata IDS/IDP daemon
+red=['lo']

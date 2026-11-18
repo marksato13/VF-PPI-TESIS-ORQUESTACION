@@ -1,0 +1,1358 @@
+{
+ "alfas": {
+  "0.01": {
+   "reportadas_aparte": {
+    "10.10.10.1": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "cumple",
+     "horas_c0": 0.208,
+     "ventanas_c0_decididas": 75,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 75
+    },
+    "10.10.10.20": {
+     "L1_avisos_por_hora": {
+      "decision": "no_cumple",
+      "maximo": 1.809045226130653,
+      "minimo": 1.809045226130653,
+      "observado": 1.809045226130653
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.005025125628140704,
+      "minimo": 0.005025125628140704,
+      "observado": 0.005025125628140704
+     },
+     "decision": "no_cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.10.21": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.10.51": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "no_concluyente",
+     "horas_c0": 0.006,
+     "motivo_extra": "menos de 0.2 h C0 observadas",
+     "ventanas_c0_decididas": 2,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 2
+    },
+    "10.10.20.20": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "no_concluyente",
+     "horas_c0": 0.003,
+     "motivo_extra": "menos de 0.2 h C0 observadas",
+     "ventanas_c0_decididas": 1,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 1
+    },
+    "10.10.20.30": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "no_concluyente",
+     "horas_c0": 0.003,
+     "motivo_extra": "menos de 0.2 h C0 observadas",
+     "ventanas_c0_decididas": 1,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 1
+    },
+    "10.10.30.10": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "no_concluyente",
+     "horas_c0": 0.036,
+     "motivo_extra": "menos de 0.2 h C0 observadas",
+     "ventanas_c0_decididas": 13,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 13
+    },
+    "10.10.40.10": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.50.51": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.50.52": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.60.12": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.99.10": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "no_concluyente",
+     "horas_c0": 0.103,
+     "motivo_extra": "menos de 0.2 h C0 observadas",
+     "ventanas_c0_decididas": 37,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 37
+    },
+    "10.10.99.2": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "no_concluyente",
+     "horas_c0": 0.089,
+     "motivo_extra": "menos de 0.2 h C0 observadas",
+     "ventanas_c0_decididas": 32,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 32
+    },
+    "10.10.99.5": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "no_concluyente",
+     "horas_c0": 0.089,
+     "motivo_extra": "menos de 0.2 h C0 observadas",
+     "ventanas_c0_decididas": 32,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 32
+    },
+    "10.10.99.7": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "no_concluyente",
+     "horas_c0": 0.089,
+     "motivo_extra": "menos de 0.2 h C0 observadas",
+     "ventanas_c0_decididas": 32,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 32
+    },
+    "10.10.99.8": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "no_concluyente",
+     "horas_c0": 0.086,
+     "motivo_extra": "menos de 0.2 h C0 observadas",
+     "ventanas_c0_decididas": 31,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 31
+    }
+   },
+   "seleccion": {
+    "10.10.20.21": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.20.22": {
+     "L1_avisos_por_hora": {
+      "decision": "no_cumple",
+      "maximo": 21.708542713567837,
+      "minimo": 21.708542713567837,
+      "observado": 21.708542713567837
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "no_cumple",
+      "maximo": 0.25125628140703515,
+      "minimo": 0.25125628140703515,
+      "observado": 0.25125628140703515
+     },
+     "decision": "no_cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.20.23": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.20.24": {
+     "L1_avisos_por_hora": {
+      "decision": "no_cumple",
+      "maximo": 12.663316582914572,
+      "minimo": 12.663316582914572,
+      "observado": 12.663316582914572
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.04522613065326633,
+      "minimo": 0.04522613065326633,
+      "observado": 0.04522613065326633
+     },
+     "decision": "no_cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.20.25": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.20.26": {
+     "L1_avisos_por_hora": {
+      "decision": "no_cumple",
+      "maximo": 12.663316582914572,
+      "minimo": 12.663316582914572,
+      "observado": 12.663316582914572
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "no_cumple",
+      "maximo": 0.11557788944723618,
+      "minimo": 0.11557788944723618,
+      "observado": 0.11557788944723618
+     },
+     "decision": "no_cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    }
+   },
+   "veredicto_alfa": {
+    "alfa": "no_cumple",
+    "elegible": false,
+    "entidades": {
+     "10.10.20.21": "cumple",
+     "10.10.20.22": "no_cumple",
+     "10.10.20.23": "cumple",
+     "10.10.20.24": "no_cumple",
+     "10.10.20.25": "cumple",
+     "10.10.20.26": "no_cumple"
+    }
+   }
+  },
+  "0.03": {
+   "reportadas_aparte": {
+    "10.10.10.1": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "cumple",
+     "horas_c0": 0.208,
+     "ventanas_c0_decididas": 75,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 75
+    },
+    "10.10.10.20": {
+     "L1_avisos_por_hora": {
+      "decision": "no_cumple",
+      "maximo": 14.472361809045225,
+      "minimo": 14.472361809045225,
+      "observado": 14.472361809045225
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.05025125628140704,
+      "minimo": 0.05025125628140704,
+      "observado": 0.05025125628140704
+     },
+     "decision": "no_cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.10.21": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.10.51": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "no_concluyente",
+     "horas_c0": 0.006,
+     "motivo_extra": "menos de 0.2 h C0 observadas",
+     "ventanas_c0_decididas": 2,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 2
+    },
+    "10.10.20.20": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "no_concluyente",
+     "horas_c0": 0.003,
+     "motivo_extra": "menos de 0.2 h C0 observadas",
+     "ventanas_c0_decididas": 1,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 1
+    },
+    "10.10.20.30": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "no_concluyente",
+     "horas_c0": 0.003,
+     "motivo_extra": "menos de 0.2 h C0 observadas",
+     "ventanas_c0_decididas": 1,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 1
+    },
+    "10.10.30.10": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "no_concluyente",
+     "horas_c0": 0.036,
+     "motivo_extra": "menos de 0.2 h C0 observadas",
+     "ventanas_c0_decididas": 13,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 13
+    },
+    "10.10.40.10": {
+     "L1_avisos_por_hora": {
+      "decision": "no_cumple",
+      "maximo": 1.809045226130653,
+      "minimo": 1.809045226130653,
+      "observado": 1.809045226130653
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.005025125628140704,
+      "minimo": 0.005025125628140704,
+      "observado": 0.005025125628140704
+     },
+     "decision": "no_cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.50.51": {
+     "L1_avisos_por_hora": {
+      "decision": "no_cumple",
+      "maximo": 1.809045226130653,
+      "minimo": 1.809045226130653,
+      "observado": 1.809045226130653
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.005025125628140704,
+      "minimo": 0.005025125628140704,
+      "observado": 0.005025125628140704
+     },
+     "decision": "no_cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.50.52": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.60.12": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.99.10": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "no_concluyente",
+     "horas_c0": 0.103,
+     "motivo_extra": "menos de 0.2 h C0 observadas",
+     "ventanas_c0_decididas": 37,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 37
+    },
+    "10.10.99.2": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "no_concluyente",
+     "horas_c0": 0.089,
+     "motivo_extra": "menos de 0.2 h C0 observadas",
+     "ventanas_c0_decididas": 32,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 32
+    },
+    "10.10.99.5": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "no_concluyente",
+     "horas_c0": 0.089,
+     "motivo_extra": "menos de 0.2 h C0 observadas",
+     "ventanas_c0_decididas": 32,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 32
+    },
+    "10.10.99.7": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "no_concluyente",
+     "horas_c0": 0.089,
+     "motivo_extra": "menos de 0.2 h C0 observadas",
+     "ventanas_c0_decididas": 32,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 32
+    },
+    "10.10.99.8": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "no_concluyente",
+     "horas_c0": 0.086,
+     "motivo_extra": "menos de 0.2 h C0 observadas",
+     "ventanas_c0_decididas": 31,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 31
+    }
+   },
+   "seleccion": {
+    "10.10.20.21": {
+     "L1_avisos_por_hora": {
+      "decision": "no_cumple",
+      "maximo": 5.427135678391959,
+      "minimo": 5.427135678391959,
+      "observado": 5.427135678391959
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.020100502512562814,
+      "minimo": 0.020100502512562814,
+      "observado": 0.020100502512562814
+     },
+     "decision": "no_cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.20.22": {
+     "L1_avisos_por_hora": {
+      "decision": "no_cumple",
+      "maximo": 5.427135678391959,
+      "minimo": 5.427135678391959,
+      "observado": 5.427135678391959
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "no_cumple",
+      "maximo": 0.6432160804020101,
+      "minimo": 0.6432160804020101,
+      "observado": 0.6432160804020101
+     },
+     "decision": "no_cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.20.23": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.20.24": {
+     "L1_avisos_por_hora": {
+      "decision": "no_cumple",
+      "maximo": 16.281407035175878,
+      "minimo": 16.281407035175878,
+      "observado": 16.281407035175878
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "no_cumple",
+      "maximo": 0.37185929648241206,
+      "minimo": 0.37185929648241206,
+      "observado": 0.37185929648241206
+     },
+     "decision": "no_cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.20.25": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.20.26": {
+     "L1_avisos_por_hora": {
+      "decision": "no_cumple",
+      "maximo": 12.663316582914572,
+      "minimo": 12.663316582914572,
+      "observado": 12.663316582914572
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "no_cumple",
+      "maximo": 0.18090452261306533,
+      "minimo": 0.18090452261306533,
+      "observado": 0.18090452261306533
+     },
+     "decision": "no_cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    }
+   },
+   "veredicto_alfa": {
+    "alfa": "no_cumple",
+    "elegible": false,
+    "entidades": {
+     "10.10.20.21": "no_cumple",
+     "10.10.20.22": "no_cumple",
+     "10.10.20.23": "cumple",
+     "10.10.20.24": "no_cumple",
+     "10.10.20.25": "cumple",
+     "10.10.20.26": "no_cumple"
+    }
+   }
+  },
+  "0.05": {
+   "reportadas_aparte": {
+    "10.10.10.1": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "cumple",
+     "horas_c0": 0.208,
+     "ventanas_c0_decididas": 75,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 75
+    },
+    "10.10.10.20": {
+     "L1_avisos_por_hora": {
+      "decision": "no_cumple",
+      "maximo": 21.708542713567837,
+      "minimo": 21.708542713567837,
+      "observado": 21.708542713567837
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "no_cumple",
+      "maximo": 0.1306532663316583,
+      "minimo": 0.1306532663316583,
+      "observado": 0.1306532663316583
+     },
+     "decision": "no_cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.10.21": {
+     "L1_avisos_por_hora": {
+      "decision": "no_cumple",
+      "maximo": 3.618090452261306,
+      "minimo": 3.618090452261306,
+      "observado": 3.618090452261306
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.010050251256281407,
+      "minimo": 0.010050251256281407,
+      "observado": 0.010050251256281407
+     },
+     "decision": "no_cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.10.51": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "no_concluyente",
+     "horas_c0": 0.006,
+     "motivo_extra": "menos de 0.2 h C0 observadas",
+     "ventanas_c0_decididas": 2,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 2
+    },
+    "10.10.20.20": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "no_concluyente",
+     "horas_c0": 0.003,
+     "motivo_extra": "menos de 0.2 h C0 observadas",
+     "ventanas_c0_decididas": 1,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 1
+    },
+    "10.10.20.30": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "no_concluyente",
+     "horas_c0": 0.003,
+     "motivo_extra": "menos de 0.2 h C0 observadas",
+     "ventanas_c0_decididas": 1,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 1
+    },
+    "10.10.30.10": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "no_concluyente",
+     "horas_c0": 0.036,
+     "motivo_extra": "menos de 0.2 h C0 observadas",
+     "ventanas_c0_decididas": 13,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 13
+    },
+    "10.10.40.10": {
+     "L1_avisos_por_hora": {
+      "decision": "no_cumple",
+      "maximo": 1.809045226130653,
+      "minimo": 1.809045226130653,
+      "observado": 1.809045226130653
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.005025125628140704,
+      "minimo": 0.005025125628140704,
+      "observado": 0.005025125628140704
+     },
+     "decision": "no_cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.50.51": {
+     "L1_avisos_por_hora": {
+      "decision": "no_cumple",
+      "maximo": 5.427135678391959,
+      "minimo": 5.427135678391959,
+      "observado": 5.427135678391959
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.020100502512562814,
+      "minimo": 0.020100502512562814,
+      "observado": 0.020100502512562814
+     },
+     "decision": "no_cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.50.52": {
+     "L1_avisos_por_hora": {
+      "decision": "no_cumple",
+      "maximo": 5.427135678391959,
+      "minimo": 5.427135678391959,
+      "observado": 5.427135678391959
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.01507537688442211,
+      "minimo": 0.01507537688442211,
+      "observado": 0.01507537688442211
+     },
+     "decision": "no_cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.60.12": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.99.10": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "no_concluyente",
+     "horas_c0": 0.103,
+     "motivo_extra": "menos de 0.2 h C0 observadas",
+     "ventanas_c0_decididas": 37,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 37
+    },
+    "10.10.99.2": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "no_concluyente",
+     "horas_c0": 0.089,
+     "motivo_extra": "menos de 0.2 h C0 observadas",
+     "ventanas_c0_decididas": 32,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 32
+    },
+    "10.10.99.5": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "no_concluyente",
+     "horas_c0": 0.089,
+     "motivo_extra": "menos de 0.2 h C0 observadas",
+     "ventanas_c0_decididas": 32,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 32
+    },
+    "10.10.99.7": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "no_concluyente",
+     "horas_c0": 0.089,
+     "motivo_extra": "menos de 0.2 h C0 observadas",
+     "ventanas_c0_decididas": 32,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 32
+    },
+    "10.10.99.8": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "no_concluyente",
+     "horas_c0": 0.086,
+     "motivo_extra": "menos de 0.2 h C0 observadas",
+     "ventanas_c0_decididas": 31,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 31
+    }
+   },
+   "seleccion": {
+    "10.10.20.21": {
+     "L1_avisos_por_hora": {
+      "decision": "no_cumple",
+      "maximo": 18.09045226130653,
+      "minimo": 18.09045226130653,
+      "observado": 18.09045226130653
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.08542713567839195,
+      "minimo": 0.08542713567839195,
+      "observado": 0.08542713567839195
+     },
+     "decision": "no_cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.20.22": {
+     "L1_avisos_por_hora": {
+      "decision": "no_cumple",
+      "maximo": 1.809045226130653,
+      "minimo": 1.809045226130653,
+      "observado": 1.809045226130653
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "no_cumple",
+      "maximo": 0.8592964824120602,
+      "minimo": 0.8592964824120602,
+      "observado": 0.8592964824120602
+     },
+     "decision": "no_cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.20.23": {
+     "L1_avisos_por_hora": {
+      "decision": "no_cumple",
+      "maximo": 1.809045226130653,
+      "minimo": 1.809045226130653,
+      "observado": 1.809045226130653
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.005025125628140704,
+      "minimo": 0.005025125628140704,
+      "observado": 0.005025125628140704
+     },
+     "decision": "no_cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.20.24": {
+     "L1_avisos_por_hora": {
+      "decision": "no_cumple",
+      "maximo": 5.427135678391959,
+      "minimo": 5.427135678391959,
+      "observado": 5.427135678391959
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "no_cumple",
+      "maximo": 0.6231155778894473,
+      "minimo": 0.6231155778894473,
+      "observado": 0.6231155778894473
+     },
+     "decision": "no_cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.20.25": {
+     "L1_avisos_por_hora": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "cumple",
+      "maximo": 0.0,
+      "minimo": 0.0,
+      "observado": 0.0
+     },
+     "decision": "cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    },
+    "10.10.20.26": {
+     "L1_avisos_por_hora": {
+      "decision": "no_cumple",
+      "maximo": 10.854271356783919,
+      "minimo": 10.854271356783919,
+      "observado": 10.854271356783919
+     },
+     "L2_fraccion_en_alerta": {
+      "decision": "no_cumple",
+      "maximo": 0.23115577889447236,
+      "minimo": 0.23115577889447236,
+      "observado": 0.23115577889447236
+     },
+     "decision": "no_cumple",
+     "horas_c0": 0.553,
+     "ventanas_c0_decididas": 199,
+     "ventanas_faltantes": 0,
+     "ventanas_requeridas": 199
+    }
+   },
+   "veredicto_alfa": {
+    "alfa": "no_cumple",
+    "elegible": false,
+    "entidades": {
+     "10.10.20.21": "no_cumple",
+     "10.10.20.22": "no_cumple",
+     "10.10.20.23": "no_cumple",
+     "10.10.20.24": "no_cumple",
+     "10.10.20.25": "cumple",
+     "10.10.20.26": "no_cumple"
+    }
+   }
+  }
+ },
+ "intervalo_utc": [
+  "2026-11-01T07:32:00+00:00",
+  "2026-11-01T08:05:00+00:00"
+ ],
+ "limites_propuestos": {
+  "L1_avisos_por_entidad_y_hora": 1.0,
+  "L2_fraccion_en_alerta": 0.1,
+  "separacion_aviso_s": 60.0
+ },
+ "min_c0_horas": 0.2,
+ "poblacion_seleccion": [
+  "10.10.20.21",
+  "10.10.20.22",
+  "10.10.20.23",
+  "10.10.20.24",
+  "10.10.20.25",
+  "10.10.20.26"
+ ],
+ "version": "2026-11-08.1 (propuesta)"
+}

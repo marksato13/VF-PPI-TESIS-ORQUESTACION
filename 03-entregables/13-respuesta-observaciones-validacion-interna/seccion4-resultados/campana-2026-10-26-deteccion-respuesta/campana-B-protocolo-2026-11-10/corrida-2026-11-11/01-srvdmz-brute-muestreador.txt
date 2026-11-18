@@ -1,0 +1,13 @@
+##### srv-dmz 2026-11-11T04:09:14Z adminsrvdmz
+--- estado previo
+inactive active
+--- arrancar ppi-brute-lab (sudo -n; NOPASSWD ALL de adminsrvdmz)
+rc=0
+ppi-brute-lab: active/disabled
+LISTEN 0      5        10.10.30.10:80         0.0.0.0:*          
+LISTEN 0      5            0.0.0.0:18081      0.0.0.0:*          
+--- muestreador de sets (instrumentación)
+rc=0
+PID 854440 vivo=si; líneas=3
+{"ok": true, "sets": {"bloqueados": {}, "limitados": {}}, "t": 1794370158.7073836}
+{"ok": true, "sets": {"bloqueados": {}, "limitados": {}}, "t": 1794370160.7076128}

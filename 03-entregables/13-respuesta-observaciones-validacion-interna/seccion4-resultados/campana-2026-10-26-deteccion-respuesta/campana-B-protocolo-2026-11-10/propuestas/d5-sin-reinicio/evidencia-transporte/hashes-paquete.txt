@@ -1,0 +1,46 @@
+| propuestas\d5-sin-reinicio\adaptador_banco_rot.py | 4cedd2ce77371a4a93aee0862d01d23faada5fc1773c4eef46d7a019c88948a1 |
+| propuestas\d5-sin-reinicio\adaptador_banco.py | 41eaca8aa54ed0db693864f86c6f0324fc6c45f940a9a8f1dd1821c6cd843132 |
+| propuestas\d5-sin-reinicio\auditoria_d5.py | d1095bc5e95392255f99a2ef04d1412e75cb9e76b08a651dfedcc3d08a301519 |
+| propuestas\d5-sin-reinicio\d5_control.py | ec22b721ff117d1ee5cbe30925dd318e8abf7788026f283bf43fda24f7fa2606 |
+| propuestas\d5-sin-reinicio\emulador_compuerta_d5.py | ae56514fca8abf8fa84332d410867b322c9e19efe65628e5ac9cb8960115d0da |
+| propuestas\d5-sin-reinicio\hacer_d5_episodio_banco.py | 7a3978a1e9850e28e19b3eb6f43a38bd4a94d28a2c579d24fc9272cc430b142d |
+| propuestas\d5-sin-reinicio\hacer_publicador_d5.py | 3edf26a4fea1bec94a46d00cf1c2d61ec84823648ac0247bbbca0ddf4a049d69 |
+| propuestas\d5-sin-reinicio\lector_solo_lectura.py | b66cfb4469a7e28f1b882cfbc1c5c8c9537a3710fe63e507c4faa7915b0e532e |
+| propuestas\d5-sin-reinicio\mutar_auditoria_rot.py | 42362639261f2a64014a5107e0c092ce8309cc6ad9658101c11f6d571d46f1a5 |
+| propuestas\d5-sin-reinicio\mutar_d5_sin_reinicio.py | fa9c57af2de118c94a4458822b038d892093487809bb3b5ef534d68bb0f158da |
+| propuestas\d5-sin-reinicio\mutar_integracion_d5.py | e84c511fdf771b6ef71f1134a87acd80807dd6b2b5db223bb4847f5e9d4d3032 |
+| propuestas\d5-sin-reinicio\mutar_invocaciones_d5.py | 55c36bdfeb4308e55a5adf0d9788121572c39f9da9f3affc8acd9968cd231320 |
+| propuestas\d5-sin-reinicio\mutar_puerta_simulada.py | 166ae4ef0c4cd83a941be7d1c758e053dfe70841290a924a191803b87121e2eb |
+| propuestas\d5-sin-reinicio\mutar_transporte_d5.py | 2cb348a34108df5ee235e7ccfe213c24d77e8766ce44bfa912ddf59615cdc0f2 |
+| propuestas\d5-sin-reinicio\probar_integracion_systemd.py | 3e6c7eb99710402ead4ddaa46fe4bba67dbab530b2c976a8da351b262bab5bcd |
+| propuestas\d5-sin-reinicio\probar_logrotate.py | 5d3bfd0b3af45148e9b53fa867cb18a2322561e00d8d6ec6537282ac1673da20 |
+| propuestas\d5-sin-reinicio\probar_systemd.py | fb3b8917fcf836e4f7983d3a0ec48142c68c78e5d9bbd2e76ce788fd0d6ff57c |
+| propuestas\d5-sin-reinicio\puerta_simulada_banco.py | 52e4fdbaa9e10de46afab7e7a0d0c7128101770bce6ce3dee29735198b83e381 |
+| propuestas\d5-sin-reinicio\sensor_control_d5.py | 6f36032e6f74c124c0ba9158a8cacccb34876d88938bddcbf333d56073c2efc0 |
+| propuestas\d5-sin-reinicio\test_adaptador_extremo_a_extremo.py | 6f306db7a9afdd76961e858226bbd6f851c8bbd26685714f60327e5b705ada8a |
+| propuestas\d5-sin-reinicio\test_auditoria_rotacion.py | 8943dc1be3aa50ccac7edb3fab3d32437854ecb91078e6685de384c0518a251b |
+| propuestas\d5-sin-reinicio\test_d5_sin_reinicio.py | 5ceeab64f4915736b12ab939261fa8b62d8413c3e09936e0234f8760c12bb0a1 |
+| propuestas\d5-sin-reinicio\test_espera_puerta.py | ebc783a88213f6db5e0e936e3cb8f37e4fc061d5d181fee77e14b4ff38b8a571 |
+| propuestas\d5-sin-reinicio\test_flujo_completo.py | df069b03e62d4284fa239f16dcf1c407cec701b64de995a3c7861bb465df0b16 |
+| propuestas\d5-sin-reinicio\test_integracion_d5.py | eb2d9e75a1ad1b09f40290e76134a78389e89e548d74935797efb53f071d1b88 |
+| propuestas\d5-sin-reinicio\test_invocaciones_d5.py | dfd7c722da35354621afbad0b8eaf9a64cf22a30c0308bfd92d85c6df5c712aa |
+| propuestas\d5-sin-reinicio\test_puerta_simulada.py | c1955900c05b23c5e707ff80764cecf61aecc123bb5e7f91ac6ae38512c8ccea |
+| propuestas\d5-sin-reinicio\test_transporte_d5.py | b02b3a7acde4146d18af3d06618aff9802c29be2da8edac9217ed37e03a4301d |
+| propuestas\d5-sin-reinicio\transporte_bastion.py | 2cc272ae27d0abc2fea45a71d52e185fa934888a2a47128818a6053ea4222e5a |
+| propuestas\d5-sin-reinicio\d5-auditoria.logrotate.propuesta | c13d0d36bf308bc1e3ad203e5ad6cfe177612b11248e57c6dc1c2a83f59c3133 |
+| instrumentacion\analizar_b_instrumentado.py | 618ac31c7938127060215e70844c60bf900f07d1129b2f0845d13ae66477a99e |
+| instrumentacion\analizar_intentos.py | 687a1e1e8823d8241cf982cdc63f40640bcbb9dc2d5b1990a2a52c7899f8c2d7 |
+| instrumentacion\clientes_factor1_tx.py | d86c7edc9f10e353fca11aee506bd13bf1b6c3a587e8baf55d7d9d73d8d6c307 |
+| instrumentacion\inundacion_instrumentada.sh | 7ac5335848469ed6a4facdf55a79dab82e2d7050404dc881a95d89c6793fc18e |
+| instrumentacion\muestreador_set.py | 410759c2cb6a9750025e409f63e725312211c54e6bbde687ca1ca030cd7f0bdb |
+| instrumentacion\test_instrumentacion.py | e7c650742d5c6d8887e44960d0b9cc9f32dcc7cb6538336451d16b32f06d12a5 |
+| CRITERIO-E3-SPAN-O-SALIDA.md | 5b155fff6e385f2acd8ec6daea419d079962628c2f9cb6830375fa479fb653c4 |
+| PROPUESTA-HALLAZGO-2.md | aad215778e5d98bf90926190d8202d85f2895faade0d80c547045ffcfef27502 |
+| PROPUESTA-INSTRUMENTACION-VALIDACION-B.md | a38df9a5fbf77478da820133745fe0305d5aea7781c099f2b0f47c74417fe615 |
+| herramientas\d5_episodio.py | 85c71124098cb7cb34d1f64f8184168c863c16843f286d82c3c519f8df7db34a |
+| herramientas\compuerta_b.py | 32e1f3ef160a1d6e67bfa96096f4cda7ff2c50e26de35700d6938c233545b4f1 |
+| herramientas\analizar_b.py | 611d4b166214fed9aa255ec089bf1456eb54ccbe2e1b1571bdda3690575c0dcf |
+| herramientas\orquestar_b.py | babc528bcf4734b059ba03d5d0583c1810aea7023334e8a546ed1655094fe8b7 |
+| publicador original (producto-etapa3) publicar_feed_v2.py | 5733f17d39bfa5fe667ee13aecd133ea4859834899c5f4f6ea21360ebe4002a2 |
+| publicador derivado publicar_feed_v2_d5.py (generado) | 58e2a0b2b06908922f017199987f6e9b28bc8a808b174962d270832909b25451 |
+| d5_episodio_banco.py (derivado, 10-nov) | 27b63c4167df1ec69180dc05319adb78e3af462e75a181c347eda8092e12ac34 |

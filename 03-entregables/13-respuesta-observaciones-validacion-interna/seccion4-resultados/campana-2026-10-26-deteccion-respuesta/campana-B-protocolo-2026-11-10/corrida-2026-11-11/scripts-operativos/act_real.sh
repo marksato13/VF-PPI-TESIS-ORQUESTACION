@@ -1,0 +1,2 @@
+cd ~/cf-b/guiones && CF_SRC_REVERSION=$HOME/cf-b/guiones/b_revertir_srvdmz.sh CF_MODO=real bash b_activar_srvdmz.sh 2>&1 | tail -12; echo "rc=${PIPESTATUS[0]}"
+echo "ahora $(date -u +%FT%TZ); agente: $(systemctl is-active ppi-enforce-agent-v2-dmz) NR=$(systemctl show -p NRestarts --value ppi-enforce-agent-v2-dmz) aplicar=$(systemctl show -p ExecStart --value ppi-enforce-agent-v2-dmz | grep -c -- --aplicar) cf-b-fin=$(systemctl is-active cf-b-fin.timer)"

@@ -1,0 +1,21 @@
+##### kali kali adminatacante 2026-11-11T03:23:02Z
+OK: paquete íntegro
+--- ANTES
+ls: no se puede acceder a '/home/adminatacante/cf-b/instrumentacion': No existe el fichero o el directorio
+--- instalar (aplicar)
+== kali: instalar instrumentación (aplicar=1)
+Mark: en la config firmada de la corrida, el comando de la inundación pasa a: bash /home/adminatacante/cf-b/instrumentacion/inundacion_instrumentada.sh /home/adminatacante/cf-e4-4c/intentos-<episodio>.tsv http://10.10.30.10/ 90 8  (misma duración, URL y nº de lazos que el original)
+rc=0
+--- aceptar
+== kali: aceptación
+OK    artefactos = SHA256SUMS
+OK    instalado inundacion_instrumentada.sh = paquete
+OK    inundacion_instrumentada.sh 0755
+OK    sintaxis de la inundación instrumentada
+resumen: 4 OK, 0 FALLAN
+rc=0
+--- DESPUÉS (modo y hash)
+755 /home/adminatacante/cf-b/instrumentacion/inundacion_instrumentada.sh
+7ac5335848469ed6a4facdf55a79dab82e2d7050404dc881a95d89c6793fc18e  /home/adminatacante/cf-b/instrumentacion/inundacion_instrumentada.sh
+--- no se arrancó ningún proceso
+(vacío = ninguno)

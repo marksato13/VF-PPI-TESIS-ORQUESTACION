@@ -1,0 +1,17 @@
+esperando 65 s (fin + 80 s)
+## estado de srv-dmz ANTES de la puerta 2026-11-11T06:57:18Z
+sets {'bloqueados': {}, 'limitados': {'10.10.20.30': {'bytes': 0, 'expira_s': 233, 'id': '508542b68128374a', 'paquetes': 0}}} descartes_limite {}
+lanzador rc=0
+rc=0
+--- puertas-D5 / puerta-banco
+{"evento": "puerta_lista", "motivos": [], "pasos": ["limpiar", "feed_tras_limpiar", "nft_antes", "retirar", "nft_despues", "agente", "feed_final"], "t": 1794380268.8461006}
+agente-traza.jsonl
+compuerta.log
+estado
+gate.json
+gate.lock
+lanzador.stderr
+lanzador.stdout
+puerta-banco.jsonl
+puerta-bloqueo.json.lock
+puertas-D5.jsonl

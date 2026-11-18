@@ -1,0 +1,3 @@
+2026-11-11T06:40:13.599957+00:00 6469e2e625d0 systemd[1]: /run/systemd/system/cf-d5-integ-i-b-acuse-no-escribible-bloqueo.service:5: Special user nobody configured, this is not safe!
+2026-11-11T06:40:13.601477+00:00 6469e2e625d0 systemd[1]: Started cf-d5-integ-i-b-acuse-no-escribible-bloqueo.service - Integracion D5 banco (I-B-acuse-no-escribible-bloqueo).
+2026-11-11T06:40:15.287593+00:00 6469e2e625d0 python3[269]: d5: no se pudo escribir el acuse (IsADirectoryError)

@@ -1,0 +1,126 @@
+{
+ "episodios": [
+  {
+   "episodio": "inundacion_http-r4",
+   "familia": "inundacion_http",
+   "peticiones_de_otros_origenes_en_el_episodio": {},
+   "peticiones_en_[inicio,fin]": {}
+  },
+  {
+   "codigos_kali": {
+    "401": 552
+   },
+   "episodio": "fuerza_bruta_http-r4",
+   "familia": "fuerza_bruta_http",
+   "kali_peticiones_antes_de_t_apl": 552,
+   "kali_peticiones_desde_t_apl": 0,
+   "kali_peticiones_por_segundo_desde_inicio": [
+    69,
+    69,
+    70,
+    66,
+    70,
+    70,
+    68,
+    70,
+    0,
+    0,
+    0,
+    0
+   ],
+   "kali_primera_peticion_menos_t_inicio": 0.016,
+   "kali_ultima_peticion_menos_t_inicio": 7.972,
+   "peticiones_de_otros_origenes_en_el_episodio": {},
+   "peticiones_en_[inicio,fin]": {
+    "10.10.20.30 401": 552
+   },
+   "retirada_d5_menos_t_fin": [
+    50.3
+   ],
+   "t_apl_menos_t_inicio": 7.99,
+   "ultima_peticion_antes_de_t_apl_s": 0.013
+  },
+  {
+   "episodio": "dns_inusual-r1",
+   "familia": "dns_inusual",
+   "peticiones_de_otros_origenes_en_el_episodio": {},
+   "peticiones_en_[inicio,fin]": {}
+  },
+  {
+   "codigos_kali": {
+    "401": 598
+   },
+   "episodio": "fuerza_bruta_http-r3",
+   "familia": "fuerza_bruta_http",
+   "kali_peticiones_antes_de_t_apl": 598,
+   "kali_peticiones_desde_t_apl": 0,
+   "kali_peticiones_por_segundo_desde_inicio": [
+    70,
+    70,
+    69,
+    72,
+    71,
+    71,
+    70,
+    70,
+    35,
+    0,
+    0,
+    0
+   ],
+   "kali_primera_peticion_menos_t_inicio": 0.018,
+   "kali_ultima_peticion_menos_t_inicio": 8.505,
+   "peticiones_de_otros_origenes_en_el_episodio": {},
+   "peticiones_en_[inicio,fin]": {
+    "10.10.20.30 401": 598
+   },
+   "retirada_d5_menos_t_fin": [
+    52.5
+   ],
+   "t_apl_menos_t_inicio": 8.52,
+   "ultima_peticion_antes_de_t_apl_s": 0.017
+  },
+  {
+   "episodio": "dns_inusual-r3",
+   "familia": "dns_inusual",
+   "peticiones_de_otros_origenes_en_el_episodio": {},
+   "peticiones_en_[inicio,fin]": {}
+  },
+  {
+   "episodio": "inundacion_http-r3",
+   "familia": "inundacion_http",
+   "peticiones_de_otros_origenes_en_el_episodio": {},
+   "peticiones_en_[inicio,fin]": {}
+  }
+ ],
+ "fuente": "journal de ppi-brute-lab.service en srv-dmz (cuenta adminsrvdmz), 17:50:00–18:32:00Z",
+ "lineas": 1152,
+ "lineas_no_reconocidas": 4,
+ "peticiones_de_clientes_legitimos_10.10.20.21-26": 0,
+ "peticiones_fuera_de_los_episodios_por_origen": {
+  "10.10.10.30": 2
+ },
+ "por_origen_metodo_ruta_codigo": [
+  [
+   [
+    "10.10.20.30",
+    "GET",
+    "/auth",
+    "401"
+   ],
+   1150
+  ],
+  [
+   [
+    "10.10.10.30",
+    "GET",
+    "/auth",
+    "401"
+   ],
+   2
+  ]
+ ],
+ "zonas_horarias": [
+  "+00:00"
+ ]
+}

@@ -1,0 +1,21 @@
+##### clientes clientesadmin adminclientes 2026-11-11T03:23:06Z
+OK: paquete íntegro
+--- ANTES
+ls: cannot access '/home/adminclientes/cf-b/instrumentacion': No such file or directory
+--- instalar (aplicar)
+== clientes: instalar instrumentación (aplicar=1)
+Mark: arrancar cada perfil con: python3 /home/adminclientes/cf-b/instrumentacion/clientes_factor1_tx.py --registro ~/cf-e4/4c/transacciones-<perfil>.tsv --perfil <p> --origen <ip> --servidor 10.10.30.10 --dns 10.10.10.20
+rc=0
+--- aceptar
+== clientes: aceptación
+OK    artefactos = SHA256SUMS
+OK    instalado clientes_factor1_tx.py = paquete
+OK    clientes_factor1_tx.py 0755
+OK    sintaxis del envoltorio de clientes
+resumen: 4 OK, 0 FALLAN
+rc=0
+--- DESPUÉS (modo y hash)
+755 /home/adminclientes/cf-b/instrumentacion/clientes_factor1_tx.py
+d86c7edc9f10e353fca11aee506bd13bf1b6c3a587e8baf55d7d9d73d8d6c307  /home/adminclientes/cf-b/instrumentacion/clientes_factor1_tx.py
+--- no se arrancó ningún proceso
+(vacío = ninguno)

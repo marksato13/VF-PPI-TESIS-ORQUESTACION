@@ -1,0 +1,1960 @@
+[
+ {
+  "episodio": "dns_inusual-r1",
+  "familia": "dns_inusual",
+  "destino": "10.10.10.20",
+  "inicio": "2026-11-09T22:07:36.049274+00:00",
+  "fin": "2026-11-09T22:09:06.379944+00:00",
+  "cf": {
+   "HIB_0.01": {
+    "durante": 8,
+    "posterior": 5,
+    "primera_s": 13.95,
+    "primera_durante_s": 13.95,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.01": {
+    "durante": 0,
+    "posterior": 0,
+    "primera_s": null,
+    "primera_durante_s": null,
+    "categoria_oficial": "ausencia_con_observacion_suficiente"
+   },
+   "HEUR": {
+    "durante": 8,
+    "posterior": 5,
+    "primera_s": 13.95,
+    "primera_durante_s": 13.95,
+    "categoria_oficial": "oportuna"
+   },
+   "HIB_0.03": {
+    "durante": 8,
+    "posterior": 5,
+    "primera_s": 13.95,
+    "primera_durante_s": 13.95,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.03": {
+    "durante": 5,
+    "posterior": 1,
+    "primera_s": 43.95,
+    "primera_durante_s": 43.95,
+    "categoria_oficial": "oportuna"
+   }
+  },
+  "estado_slice": "OK dns_inusual-r1 2026-11-11T20:36:18Z",
+  "principal": {
+   "durante": 0,
+   "posterior": 0,
+   "primera_s": null,
+   "primera_durante_s": null,
+   "sids": [],
+   "excluidas": {
+    "STREAM": 43,
+    "ET INFO": 180
+   },
+   "no_atribuibles": {
+    "tiempo": 33,
+    "origen_destino": 25
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 281
+  },
+  "s1": {
+   "durante": 0,
+   "posterior": 0,
+   "primera_s": null,
+   "primera_durante_s": null,
+   "sids": [],
+   "excluidas": {
+    "STREAM": 43
+   },
+   "no_atribuibles": {
+    "tiempo": 25,
+    "origen_destino": 8
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 76
+  }
+ },
+ {
+  "episodio": "dns_inusual-r2",
+  "familia": "dns_inusual",
+  "destino": "10.10.10.20",
+  "inicio": "2026-11-09T23:25:49.412954+00:00",
+  "fin": "2026-11-09T23:27:19.151883+00:00",
+  "cf": {
+   "HIB_0.01": {
+    "durante": 7,
+    "posterior": 5,
+    "primera_s": 20.59,
+    "primera_durante_s": 20.59,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.01": {
+    "durante": 0,
+    "posterior": 0,
+    "primera_s": null,
+    "primera_durante_s": null,
+    "categoria_oficial": "ausencia_con_observacion_suficiente"
+   },
+   "HEUR": {
+    "durante": 7,
+    "posterior": 5,
+    "primera_s": 20.59,
+    "primera_durante_s": 20.59,
+    "categoria_oficial": "oportuna"
+   },
+   "HIB_0.03": {
+    "durante": 7,
+    "posterior": 5,
+    "primera_s": 20.59,
+    "primera_durante_s": 20.59,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.03": {
+    "durante": 0,
+    "posterior": 0,
+    "primera_s": null,
+    "primera_durante_s": null,
+    "categoria_oficial": "ausencia_con_observacion_suficiente"
+   }
+  },
+  "estado_slice": "OK dns_inusual-r2 2026-11-11T20:37:11Z",
+  "principal": {
+   "durante": 0,
+   "posterior": 0,
+   "primera_s": null,
+   "primera_durante_s": null,
+   "sids": [],
+   "excluidas": {
+    "STREAM": 1324,
+    "ET INFO": 174
+   },
+   "no_atribuibles": {
+    "tiempo": 27,
+    "origen_destino": 33
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 1558
+  },
+  "s1": {
+   "durante": 0,
+   "posterior": 0,
+   "primera_s": null,
+   "primera_durante_s": null,
+   "sids": [],
+   "excluidas": {
+    "STREAM": 1324
+   },
+   "no_atribuibles": {
+    "tiempo": 21,
+    "origen_destino": 18
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 1363
+  }
+ },
+ {
+  "episodio": "dns_inusual-r3",
+  "familia": "dns_inusual",
+  "destino": "10.10.10.20",
+  "inicio": "2026-11-09T22:17:36.045972+00:00",
+  "fin": "2026-11-09T22:19:06.127203+00:00",
+  "cf": {
+   "HIB_0.01": {
+    "durante": 8,
+    "posterior": 5,
+    "primera_s": 13.95,
+    "primera_durante_s": 13.95,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.01": {
+    "durante": 0,
+    "posterior": 0,
+    "primera_s": null,
+    "primera_durante_s": null,
+    "categoria_oficial": "ausencia_con_observacion_suficiente"
+   },
+   "HEUR": {
+    "durante": 8,
+    "posterior": 5,
+    "primera_s": 13.95,
+    "primera_durante_s": 13.95,
+    "categoria_oficial": "oportuna"
+   },
+   "HIB_0.03": {
+    "durante": 8,
+    "posterior": 5,
+    "primera_s": 13.95,
+    "primera_durante_s": 13.95,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.03": {
+    "durante": 0,
+    "posterior": 0,
+    "primera_s": null,
+    "primera_durante_s": null,
+    "categoria_oficial": "ausencia_con_observacion_suficiente"
+   }
+  },
+  "estado_slice": "OK dns_inusual-r3 2026-11-11T20:38:03Z",
+  "principal": {
+   "durante": 0,
+   "posterior": 0,
+   "primera_s": null,
+   "primera_durante_s": null,
+   "sids": [],
+   "excluidas": {
+    "STREAM": 63,
+    "ET INFO": 36
+   },
+   "no_atribuibles": {
+    "tiempo": 19,
+    "origen_destino": 17
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 135
+  },
+  "s1": {
+   "durante": 0,
+   "posterior": 0,
+   "primera_s": null,
+   "primera_durante_s": null,
+   "sids": [],
+   "excluidas": {
+    "STREAM": 63
+   },
+   "no_atribuibles": {
+    "tiempo": 12,
+    "origen_destino": 10
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 85
+  }
+ },
+ {
+  "episodio": "dns_inusual-r4",
+  "familia": "dns_inusual",
+  "destino": "10.10.10.20",
+  "inicio": "2026-11-09T22:58:30.335226+00:00",
+  "fin": "2026-11-09T23:00:00.299027+00:00",
+  "cf": {
+   "HIB_0.01": {
+    "durante": 8,
+    "posterior": 4,
+    "primera_s": 19.66,
+    "primera_durante_s": 19.66,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.01": {
+    "durante": 5,
+    "posterior": 1,
+    "primera_s": 49.66,
+    "primera_durante_s": 49.66,
+    "categoria_oficial": "oportuna"
+   },
+   "HEUR": {
+    "durante": 8,
+    "posterior": 4,
+    "primera_s": 19.66,
+    "primera_durante_s": 19.66,
+    "categoria_oficial": "oportuna"
+   },
+   "HIB_0.03": {
+    "durante": 8,
+    "posterior": 4,
+    "primera_s": 19.66,
+    "primera_durante_s": 19.66,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.03": {
+    "durante": 5,
+    "posterior": 1,
+    "primera_s": 49.66,
+    "primera_durante_s": 49.66,
+    "categoria_oficial": "oportuna"
+   }
+  },
+  "estado_slice": "OK dns_inusual-r4 2026-11-11T20:38:55Z",
+  "principal": {
+   "durante": 0,
+   "posterior": 0,
+   "primera_s": null,
+   "primera_durante_s": null,
+   "sids": [],
+   "excluidas": {
+    "ET INFO": 170,
+    "STREAM": 75
+   },
+   "no_atribuibles": {
+    "tiempo": 24,
+    "origen_destino": 34
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 303
+  },
+  "s1": {
+   "durante": 0,
+   "posterior": 0,
+   "primera_s": null,
+   "primera_durante_s": null,
+   "sids": [],
+   "excluidas": {
+    "STREAM": 75
+   },
+   "no_atribuibles": {
+    "tiempo": 16,
+    "origen_destino": 17
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 108
+  }
+ },
+ {
+  "episodio": "dns_inusual-r5",
+  "familia": "dns_inusual",
+  "destino": "10.10.10.20",
+  "inicio": "2026-11-09T23:35:49.067385+00:00",
+  "fin": "2026-11-09T23:37:19.204775+00:00",
+  "cf": {
+   "HIB_0.01": {
+    "durante": 7,
+    "posterior": 5,
+    "primera_s": 20.93,
+    "primera_durante_s": 20.93,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.01": {
+    "durante": 0,
+    "posterior": 0,
+    "primera_s": null,
+    "primera_durante_s": null,
+    "categoria_oficial": "ausencia_con_observacion_suficiente"
+   },
+   "HEUR": {
+    "durante": 7,
+    "posterior": 5,
+    "primera_s": 20.93,
+    "primera_durante_s": 20.93,
+    "categoria_oficial": "oportuna"
+   },
+   "HIB_0.03": {
+    "durante": 7,
+    "posterior": 5,
+    "primera_s": 20.93,
+    "primera_durante_s": 20.93,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.03": {
+    "durante": 0,
+    "posterior": 0,
+    "primera_s": null,
+    "primera_durante_s": null,
+    "categoria_oficial": "ausencia_con_observacion_suficiente"
+   }
+  },
+  "estado_slice": "OK dns_inusual-r5 2026-11-11T20:39:48Z",
+  "principal": {
+   "durante": 0,
+   "posterior": 0,
+   "primera_s": null,
+   "primera_durante_s": null,
+   "sids": [],
+   "excluidas": {
+    "STREAM": 140,
+    "ET INFO": 172
+   },
+   "no_atribuibles": {
+    "tiempo": 41,
+    "origen_destino": 33
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 386
+  },
+  "s1": {
+   "durante": 0,
+   "posterior": 0,
+   "primera_s": null,
+   "primera_durante_s": null,
+   "sids": [],
+   "excluidas": {
+    "STREAM": 140
+   },
+   "no_atribuibles": {
+    "tiempo": 25,
+    "origen_destino": 18
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 183
+  }
+ },
+ {
+  "episodio": "inundacion_http-r1",
+  "familia": "inundacion_http",
+  "destino": "10.10.30.10",
+  "inicio": "2026-11-09T23:12:04.052526+00:00",
+  "fin": "2026-11-09T23:13:34.028880+00:00",
+  "cf": {
+   "HIB_0.01": {
+    "durante": 9,
+    "posterior": 6,
+    "primera_s": 5.95,
+    "primera_durante_s": 5.95,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.01": {
+    "durante": 9,
+    "posterior": 1,
+    "primera_s": 5.95,
+    "primera_durante_s": 5.95,
+    "categoria_oficial": "oportuna"
+   },
+   "HEUR": {
+    "durante": 9,
+    "posterior": 6,
+    "primera_s": 5.95,
+    "primera_durante_s": 5.95,
+    "categoria_oficial": "oportuna"
+   },
+   "HIB_0.03": {
+    "durante": 9,
+    "posterior": 6,
+    "primera_s": 5.95,
+    "primera_durante_s": 5.95,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.03": {
+    "durante": 9,
+    "posterior": 1,
+    "primera_s": 5.95,
+    "primera_durante_s": 5.95,
+    "categoria_oficial": "oportuna"
+   }
+  },
+  "estado_slice": "OK inundacion_http-r1 2026-11-11T20:41:03Z",
+  "principal": {
+   "durante": 836,
+   "posterior": 315,
+   "primera_s": 0.14,
+   "primera_durante_s": 0.14,
+   "sids": [
+    [
+     2221010,
+     "SURICATA HTTP unable to match response to request"
+    ]
+   ],
+   "excluidas": {
+    "STREAM": 17954,
+    "ET INFO": 185
+   },
+   "no_atribuibles": {
+    "tiempo": 590,
+    "origen_destino": 37
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 19917
+  },
+  "s1": {
+   "durante": 838,
+   "posterior": 328,
+   "primera_s": 0.14,
+   "primera_durante_s": 0.14,
+   "sids": [
+    [
+     2221010,
+     "SURICATA HTTP unable to match response to request"
+    ]
+   ],
+   "excluidas": {
+    "STREAM": 17954,
+    "ET INFO": 3
+   },
+   "no_atribuibles": {
+    "tiempo": 559,
+    "origen_destino": 30
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 19712
+  }
+ },
+ {
+  "episodio": "inundacion_http-r2",
+  "familia": "inundacion_http",
+  "destino": "10.10.30.10",
+  "inicio": "2026-11-09T23:07:04.889782+00:00",
+  "fin": "2026-11-09T23:08:34.048927+00:00",
+  "cf": {
+   "HIB_0.01": {
+    "durante": 9,
+    "posterior": 6,
+    "primera_s": 5.11,
+    "primera_durante_s": 5.11,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.01": {
+    "durante": 9,
+    "posterior": 1,
+    "primera_s": 5.11,
+    "primera_durante_s": 5.11,
+    "categoria_oficial": "oportuna"
+   },
+   "HEUR": {
+    "durante": 9,
+    "posterior": 6,
+    "primera_s": 5.11,
+    "primera_durante_s": 5.11,
+    "categoria_oficial": "oportuna"
+   },
+   "HIB_0.03": {
+    "durante": 9,
+    "posterior": 6,
+    "primera_s": 5.11,
+    "primera_durante_s": 5.11,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.03": {
+    "durante": 9,
+    "posterior": 1,
+    "primera_s": 5.11,
+    "primera_durante_s": 5.11,
+    "categoria_oficial": "oportuna"
+   }
+  },
+  "estado_slice": "OK inundacion_http-r2 2026-11-11T20:42:15Z",
+  "principal": {
+   "durante": 419,
+   "posterior": 118,
+   "primera_s": 0.37,
+   "primera_durante_s": 0.37,
+   "sids": [
+    [
+     2221010,
+     "SURICATA HTTP unable to match response to request"
+    ]
+   ],
+   "excluidas": {
+    "ET INFO": 161,
+    "STREAM": 11205
+   },
+   "no_atribuibles": {
+    "tiempo": 447,
+    "origen_destino": 19
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 12369
+  },
+  "s1": {
+   "durante": 421,
+   "posterior": 118,
+   "primera_s": 0.37,
+   "primera_durante_s": 0.37,
+   "sids": [
+    [
+     2221010,
+     "SURICATA HTTP unable to match response to request"
+    ]
+   ],
+   "excluidas": {
+    "STREAM": 11205,
+    "ET INFO": 3
+   },
+   "no_atribuibles": {
+    "tiempo": 429,
+    "origen_destino": 12
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 12188
+  }
+ },
+ {
+  "episodio": "inundacion_http-r3",
+  "familia": "inundacion_http",
+  "destino": "10.10.30.10",
+  "inicio": "2026-11-09T22:22:36.129366+00:00",
+  "fin": "2026-11-09T22:24:06.048073+00:00",
+  "cf": {
+   "HIB_0.01": {
+    "durante": 9,
+    "posterior": 6,
+    "primera_s": 3.87,
+    "primera_durante_s": 3.87,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.01": {
+    "durante": 9,
+    "posterior": 1,
+    "primera_s": 3.87,
+    "primera_durante_s": 3.87,
+    "categoria_oficial": "oportuna"
+   },
+   "HEUR": {
+    "durante": 9,
+    "posterior": 6,
+    "primera_s": 3.87,
+    "primera_durante_s": 3.87,
+    "categoria_oficial": "oportuna"
+   },
+   "HIB_0.03": {
+    "durante": 9,
+    "posterior": 6,
+    "primera_s": 3.87,
+    "primera_durante_s": 3.87,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.03": {
+    "durante": 9,
+    "posterior": 1,
+    "primera_s": 3.87,
+    "primera_durante_s": 3.87,
+    "categoria_oficial": "oportuna"
+   }
+  },
+  "estado_slice": "OK inundacion_http-r3 2026-11-11T20:43:29Z",
+  "principal": {
+   "durante": 679,
+   "posterior": 179,
+   "primera_s": 0.08,
+   "primera_durante_s": 0.08,
+   "sids": [
+    [
+     2221010,
+     "SURICATA HTTP unable to match response to request"
+    ]
+   ],
+   "excluidas": {
+    "STREAM": 16678,
+    "ET INFO": 163
+   },
+   "no_atribuibles": {
+    "tiempo": 149,
+    "origen_destino": 27
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 17875
+  },
+  "s1": {
+   "durante": 686,
+   "posterior": 169,
+   "primera_s": 0.08,
+   "primera_durante_s": 0.08,
+   "sids": [
+    [
+     2221010,
+     "SURICATA HTTP unable to match response to request"
+    ]
+   ],
+   "excluidas": {
+    "STREAM": 16678,
+    "ET INFO": 3
+   },
+   "no_atribuibles": {
+    "tiempo": 134,
+    "origen_destino": 22
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 17692
+  }
+ },
+ {
+  "episodio": "inundacion_http-r4",
+  "familia": "inundacion_http",
+  "destino": "10.10.30.10",
+  "inicio": "2026-11-09T21:57:36.046386+00:00",
+  "fin": "2026-11-09T21:59:06.044963+00:00",
+  "cf": {
+   "HIB_0.01": {
+    "durante": 9,
+    "posterior": 6,
+    "primera_s": 3.95,
+    "primera_durante_s": 3.95,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.01": {
+    "durante": 9,
+    "posterior": 1,
+    "primera_s": 3.95,
+    "primera_durante_s": 3.95,
+    "categoria_oficial": "oportuna"
+   },
+   "HEUR": {
+    "durante": 9,
+    "posterior": 6,
+    "primera_s": 3.95,
+    "primera_durante_s": 3.95,
+    "categoria_oficial": "oportuna"
+   },
+   "HIB_0.03": {
+    "durante": 9,
+    "posterior": 6,
+    "primera_s": 3.95,
+    "primera_durante_s": 3.95,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.03": {
+    "durante": 9,
+    "posterior": 1,
+    "primera_s": 3.95,
+    "primera_durante_s": 3.95,
+    "categoria_oficial": "oportuna"
+   }
+  },
+  "estado_slice": "OK inundacion_http-r4 2026-11-11T20:44:42Z",
+  "principal": {
+   "durante": 282,
+   "posterior": 42,
+   "primera_s": 0.82,
+   "primera_durante_s": 0.82,
+   "sids": [
+    [
+     2221010,
+     "SURICATA HTTP unable to match response to request"
+    ]
+   ],
+   "excluidas": {
+    "STREAM": 7271,
+    "ET INFO": 201
+   },
+   "no_atribuibles": {
+    "tiempo": 85,
+    "origen_destino": 31
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 7912
+  },
+  "s1": {
+   "durante": 282,
+   "posterior": 47,
+   "primera_s": 0.82,
+   "primera_durante_s": 0.82,
+   "sids": [
+    [
+     2221010,
+     "SURICATA HTTP unable to match response to request"
+    ]
+   ],
+   "excluidas": {
+    "STREAM": 7271,
+    "ET INFO": 3
+   },
+   "no_atribuibles": {
+    "tiempo": 69,
+    "origen_destino": 15
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 7687
+  }
+ },
+ {
+  "episodio": "inundacion_http-r5",
+  "familia": "inundacion_http",
+  "destino": "10.10.30.10",
+  "inicio": "2026-11-09T23:30:49.154996+00:00",
+  "fin": "2026-11-09T23:32:19.064814+00:00",
+  "cf": {
+   "HIB_0.01": {
+    "durante": 9,
+    "posterior": 6,
+    "primera_s": 0.85,
+    "primera_durante_s": 0.85,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.01": {
+    "durante": 9,
+    "posterior": 1,
+    "primera_s": 0.85,
+    "primera_durante_s": 0.85,
+    "categoria_oficial": "oportuna"
+   },
+   "HEUR": {
+    "durante": 8,
+    "posterior": 6,
+    "primera_s": 10.85,
+    "primera_durante_s": 10.85,
+    "categoria_oficial": "oportuna"
+   },
+   "HIB_0.03": {
+    "durante": 9,
+    "posterior": 6,
+    "primera_s": 0.85,
+    "primera_durante_s": 0.85,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.03": {
+    "durante": 9,
+    "posterior": 1,
+    "primera_s": 0.85,
+    "primera_durante_s": 0.85,
+    "categoria_oficial": "oportuna"
+   }
+  },
+  "estado_slice": "OK inundacion_http-r5 2026-11-11T20:45:57Z",
+  "principal": {
+   "durante": 955,
+   "posterior": 324,
+   "primera_s": 0.09,
+   "primera_durante_s": 0.09,
+   "sids": [
+    [
+     2221010,
+     "SURICATA HTTP unable to match response to request"
+    ]
+   ],
+   "excluidas": {
+    "STREAM": 19630,
+    "ET INFO": 254
+   },
+   "no_atribuibles": {
+    "tiempo": 660,
+    "origen_destino": 39
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 21862
+  },
+  "s1": {
+   "durante": 956,
+   "posterior": 336,
+   "primera_s": 0.09,
+   "primera_durante_s": 0.09,
+   "sids": [
+    [
+     2221010,
+     "SURICATA HTTP unable to match response to request"
+    ]
+   ],
+   "excluidas": {
+    "STREAM": 19630,
+    "ET INFO": 3
+   },
+   "no_atribuibles": {
+    "tiempo": 639,
+    "origen_destino": 24
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 21588
+  }
+ },
+ {
+  "episodio": "fuerza_bruta_http-r1",
+  "familia": "fuerza_bruta_http",
+  "destino": "10.10.30.10",
+  "inicio": "2026-11-09T22:27:36.050084+00:00",
+  "fin": "2026-11-09T22:29:06.057141+00:00",
+  "cf": {
+   "HIB_0.01": {
+    "durante": 9,
+    "posterior": 6,
+    "primera_s": 3.95,
+    "primera_durante_s": 3.95,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.01": {
+    "durante": 9,
+    "posterior": 1,
+    "primera_s": 3.95,
+    "primera_durante_s": 3.95,
+    "categoria_oficial": "oportuna"
+   },
+   "HEUR": {
+    "durante": 9,
+    "posterior": 6,
+    "primera_s": 3.95,
+    "primera_durante_s": 3.95,
+    "categoria_oficial": "oportuna"
+   },
+   "HIB_0.03": {
+    "durante": 9,
+    "posterior": 6,
+    "primera_s": 3.95,
+    "primera_durante_s": 3.95,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.03": {
+    "durante": 9,
+    "posterior": 1,
+    "primera_s": 3.95,
+    "primera_durante_s": 3.95,
+    "categoria_oficial": "oportuna"
+   }
+  },
+  "estado_slice": "OK fuerza_bruta_http-r1 2026-11-11T20:47:00Z",
+  "principal": {
+   "durante": 63,
+   "posterior": 37,
+   "primera_s": 8.67,
+   "primera_durante_s": 8.67,
+   "sids": [
+    [
+     2221010,
+     "SURICATA HTTP unable to match response to request"
+    ]
+   ],
+   "excluidas": {
+    "STREAM": 4572,
+    "ET INFO": 158
+   },
+   "no_atribuibles": {
+    "tiempo": 184,
+    "origen_destino": 30
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 5044
+  },
+  "s1": {
+   "durante": 63,
+   "posterior": 34,
+   "primera_s": 8.67,
+   "primera_durante_s": 8.67,
+   "sids": [
+    [
+     2221010,
+     "SURICATA HTTP unable to match response to request"
+    ]
+   ],
+   "excluidas": {
+    "STREAM": 4572,
+    "ET INFO": 3
+   },
+   "no_atribuibles": {
+    "tiempo": 180,
+    "origen_destino": 14
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 4866
+  }
+ },
+ {
+  "episodio": "fuerza_bruta_http-r2",
+  "familia": "fuerza_bruta_http",
+  "destino": "10.10.30.10",
+  "inicio": "2026-11-09T22:49:08.014867+00:00",
+  "fin": "2026-11-09T22:50:38.018266+00:00",
+  "cf": {
+   "HIB_0.01": {
+    "durante": 9,
+    "posterior": 6,
+    "primera_s": 1.99,
+    "primera_durante_s": 1.99,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.01": {
+    "durante": 9,
+    "posterior": 1,
+    "primera_s": 1.99,
+    "primera_durante_s": 1.99,
+    "categoria_oficial": "oportuna"
+   },
+   "HEUR": {
+    "durante": 9,
+    "posterior": 6,
+    "primera_s": 1.99,
+    "primera_durante_s": 1.99,
+    "categoria_oficial": "oportuna"
+   },
+   "HIB_0.03": {
+    "durante": 9,
+    "posterior": 6,
+    "primera_s": 1.99,
+    "primera_durante_s": 1.99,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.03": {
+    "durante": 9,
+    "posterior": 1,
+    "primera_s": 1.99,
+    "primera_durante_s": 1.99,
+    "categoria_oficial": "oportuna"
+   }
+  },
+  "estado_slice": "OK fuerza_bruta_http-r2 2026-11-11T20:48:01Z",
+  "principal": {
+   "durante": 62,
+   "posterior": 25,
+   "primera_s": 0.07,
+   "primera_durante_s": 0.07,
+   "sids": [
+    [
+     2221010,
+     "SURICATA HTTP unable to match response to request"
+    ]
+   ],
+   "excluidas": {
+    "STREAM": 4991,
+    "ET INFO": 169
+   },
+   "no_atribuibles": {
+    "tiempo": 188,
+    "origen_destino": 24
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 5459
+  },
+  "s1": {
+   "durante": 60,
+   "posterior": 29,
+   "primera_s": 0.07,
+   "primera_durante_s": 0.07,
+   "sids": [
+    [
+     2221010,
+     "SURICATA HTTP unable to match response to request"
+    ]
+   ],
+   "excluidas": {
+    "STREAM": 4991,
+    "ET INFO": 4
+   },
+   "no_atribuibles": {
+    "tiempo": 171,
+    "origen_destino": 16
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 5271
+  }
+ },
+ {
+  "episodio": "fuerza_bruta_http-r3",
+  "familia": "fuerza_bruta_http",
+  "destino": "10.10.30.10",
+  "inicio": "2026-11-09T22:12:36.382544+00:00",
+  "fin": "2026-11-09T22:14:06.043197+00:00",
+  "cf": {
+   "HIB_0.01": {
+    "durante": 9,
+    "posterior": 6,
+    "primera_s": 3.62,
+    "primera_durante_s": 3.62,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.01": {
+    "durante": 9,
+    "posterior": 1,
+    "primera_s": 3.62,
+    "primera_durante_s": 3.62,
+    "categoria_oficial": "oportuna"
+   },
+   "HEUR": {
+    "durante": 9,
+    "posterior": 6,
+    "primera_s": 3.62,
+    "primera_durante_s": 3.62,
+    "categoria_oficial": "oportuna"
+   },
+   "HIB_0.03": {
+    "durante": 9,
+    "posterior": 6,
+    "primera_s": 3.62,
+    "primera_durante_s": 3.62,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.03": {
+    "durante": 9,
+    "posterior": 1,
+    "primera_s": 3.62,
+    "primera_durante_s": 3.62,
+    "categoria_oficial": "oportuna"
+   }
+  },
+  "estado_slice": "OK fuerza_bruta_http-r3 2026-11-11T20:49:03Z",
+  "principal": {
+   "durante": 167,
+   "posterior": 50,
+   "primera_s": 1.46,
+   "primera_durante_s": 1.46,
+   "sids": [
+    [
+     2221010,
+     "SURICATA HTTP unable to match response to request"
+    ]
+   ],
+   "excluidas": {
+    "STREAM": 4164,
+    "ET INFO": 166
+   },
+   "no_atribuibles": {
+    "tiempo": 68,
+    "origen_destino": 41
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 4656
+  },
+  "s1": {
+   "durante": 167,
+   "posterior": 51,
+   "primera_s": 1.46,
+   "primera_durante_s": 1.46,
+   "sids": [
+    [
+     2221010,
+     "SURICATA HTTP unable to match response to request"
+    ]
+   ],
+   "excluidas": {
+    "STREAM": 4164,
+    "ET INFO": 4
+   },
+   "no_atribuibles": {
+    "tiempo": 49,
+    "origen_destino": 34
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 4469
+  }
+ },
+ {
+  "episodio": "fuerza_bruta_http-r4",
+  "familia": "fuerza_bruta_http",
+  "destino": "10.10.30.10",
+  "inicio": "2026-11-09T22:02:36.048134+00:00",
+  "fin": "2026-11-09T22:04:06.046153+00:00",
+  "cf": {
+   "HIB_0.01": {
+    "durante": 9,
+    "posterior": 6,
+    "primera_s": 3.95,
+    "primera_durante_s": 3.95,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.01": {
+    "durante": 9,
+    "posterior": 1,
+    "primera_s": 3.95,
+    "primera_durante_s": 3.95,
+    "categoria_oficial": "oportuna"
+   },
+   "HEUR": {
+    "durante": 9,
+    "posterior": 6,
+    "primera_s": 3.95,
+    "primera_durante_s": 3.95,
+    "categoria_oficial": "oportuna"
+   },
+   "HIB_0.03": {
+    "durante": 9,
+    "posterior": 6,
+    "primera_s": 3.95,
+    "primera_durante_s": 3.95,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.03": {
+    "durante": 9,
+    "posterior": 1,
+    "primera_s": 3.95,
+    "primera_durante_s": 3.95,
+    "categoria_oficial": "oportuna"
+   }
+  },
+  "estado_slice": "OK fuerza_bruta_http-r4 2026-11-11T20:50:05Z",
+  "principal": {
+   "durante": 183,
+   "posterior": 47,
+   "primera_s": 1.14,
+   "primera_durante_s": 1.14,
+   "sids": [
+    [
+     2221010,
+     "SURICATA HTTP unable to match response to request"
+    ]
+   ],
+   "excluidas": {
+    "STREAM": 4556,
+    "ET INFO": 204
+   },
+   "no_atribuibles": {
+    "tiempo": 93,
+    "origen_destino": 41
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 5124
+  },
+  "s1": {
+   "durante": 183,
+   "posterior": 43,
+   "primera_s": 1.14,
+   "primera_durante_s": 1.14,
+   "sids": [
+    [
+     2221010,
+     "SURICATA HTTP unable to match response to request"
+    ]
+   ],
+   "excluidas": {
+    "STREAM": 4556,
+    "ET INFO": 4
+   },
+   "no_atribuibles": {
+    "tiempo": 87,
+    "origen_destino": 25
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 4898
+  }
+ },
+ {
+  "episodio": "fuerza_bruta_http-r5",
+  "familia": "fuerza_bruta_http",
+  "destino": "10.10.30.10",
+  "inicio": "2026-11-09T22:40:33.662280+00:00",
+  "fin": "2026-11-09T22:42:03.024053+00:00",
+  "cf": {
+   "HIB_0.01": {
+    "durante": 9,
+    "posterior": 6,
+    "primera_s": 6.34,
+    "primera_durante_s": 6.34,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.01": {
+    "durante": 9,
+    "posterior": 1,
+    "primera_s": 6.34,
+    "primera_durante_s": 6.34,
+    "categoria_oficial": "oportuna"
+   },
+   "HEUR": {
+    "durante": 9,
+    "posterior": 6,
+    "primera_s": 6.34,
+    "primera_durante_s": 6.34,
+    "categoria_oficial": "oportuna"
+   },
+   "HIB_0.03": {
+    "durante": 9,
+    "posterior": 6,
+    "primera_s": 6.34,
+    "primera_durante_s": 6.34,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.03": {
+    "durante": 9,
+    "posterior": 1,
+    "primera_s": 6.34,
+    "primera_durante_s": 6.34,
+    "categoria_oficial": "oportuna"
+   }
+  },
+  "estado_slice": "OK fuerza_bruta_http-r5 2026-11-11T20:51:08Z",
+  "principal": {
+   "durante": 180,
+   "posterior": 63,
+   "primera_s": 0.25,
+   "primera_durante_s": 0.25,
+   "sids": [
+    [
+     2221010,
+     "SURICATA HTTP unable to match response to request"
+    ]
+   ],
+   "excluidas": {
+    "ET INFO": 157,
+    "STREAM": 7717
+   },
+   "no_atribuibles": {
+    "tiempo": 220,
+    "origen_destino": 33
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 8370
+  },
+  "s1": {
+   "durante": 180,
+   "posterior": 65,
+   "primera_s": 0.25,
+   "primera_durante_s": 0.25,
+   "sids": [
+    [
+     2221010,
+     "SURICATA HTTP unable to match response to request"
+    ]
+   ],
+   "excluidas": {
+    "STREAM": 7717,
+    "ET INFO": 4
+   },
+   "no_atribuibles": {
+    "tiempo": 209,
+    "origen_destino": 20
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 8195
+  }
+ },
+ {
+  "episodio": "escaneo_sostenido-r1",
+  "familia": "escaneo_sostenido",
+  "destino": "10.10.30.10",
+  "inicio": "2026-11-09T23:21:26.689998+00:00",
+  "fin": "2026-11-09T23:22:19.410366+00:00",
+  "cf": {
+   "HIB_0.01": {
+    "durante": 5,
+    "posterior": 3,
+    "primera_s": 3.31,
+    "primera_durante_s": 3.31,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.01": {
+    "durante": 4,
+    "posterior": 1,
+    "primera_s": 13.31,
+    "primera_durante_s": 13.31,
+    "categoria_oficial": "oportuna"
+   },
+   "HEUR": {
+    "durante": 5,
+    "posterior": 3,
+    "primera_s": 3.31,
+    "primera_durante_s": 3.31,
+    "categoria_oficial": "oportuna"
+   },
+   "HIB_0.03": {
+    "durante": 5,
+    "posterior": 3,
+    "primera_s": 3.31,
+    "primera_durante_s": 3.31,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.03": {
+    "durante": 5,
+    "posterior": 1,
+    "primera_s": 3.31,
+    "primera_durante_s": 3.31,
+    "categoria_oficial": "oportuna"
+   }
+  },
+  "estado_slice": "OK escaneo_sostenido-r1 2026-11-11T20:52:09Z",
+  "principal": {
+   "durante": 5,
+   "posterior": 0,
+   "primera_s": 0.24,
+   "primera_durante_s": 0.24,
+   "sids": [
+    [
+     2002910,
+     "ET SCAN Potential VNC Scan 5800-5820"
+    ],
+    [
+     2010935,
+     "ET SCAN Suspicious inbound to MSSQL port 1433"
+    ],
+    [
+     2010936,
+     "ET SCAN Suspicious inbound to Oracle SQL port 1521"
+    ],
+    [
+     2010937,
+     "ET SCAN Suspicious inbound to mySQL port 3306"
+    ],
+    [
+     2010939,
+     "ET SCAN Suspicious inbound to PostgreSQL port 5432"
+    ]
+   ],
+   "excluidas": {
+    "ET INFO": 187,
+    "STREAM": 492
+   },
+   "no_atribuibles": {
+    "tiempo": 33,
+    "origen_destino": 34
+   },
+   "durante_sin_SURICATA_otros": 5,
+   "total_alertas": 751
+  },
+  "s1": {
+   "durante": 5,
+   "posterior": 0,
+   "primera_s": 0.24,
+   "primera_durante_s": 0.24,
+   "sids": [
+    [
+     2002910,
+     "ET SCAN Potential VNC Scan 5800-5820"
+    ],
+    [
+     2010935,
+     "ET SCAN Suspicious inbound to MSSQL port 1433"
+    ],
+    [
+     2010936,
+     "ET SCAN Suspicious inbound to Oracle SQL port 1521"
+    ],
+    [
+     2010937,
+     "ET SCAN Suspicious inbound to mySQL port 3306"
+    ],
+    [
+     2010939,
+     "ET SCAN Suspicious inbound to PostgreSQL port 5432"
+    ]
+   ],
+   "excluidas": {
+    "STREAM": 492
+   },
+   "no_atribuibles": {
+    "tiempo": 22,
+    "origen_destino": 20
+   },
+   "durante_sin_SURICATA_otros": 5,
+   "total_alertas": 539
+  }
+ },
+ {
+  "episodio": "escaneo_sostenido-r2",
+  "familia": "escaneo_sostenido",
+  "destino": "10.10.30.10",
+  "inicio": "2026-11-09T22:54:08.021028+00:00",
+  "fin": "2026-11-09T22:55:00.332526+00:00",
+  "cf": {
+   "HIB_0.01": {
+    "durante": 6,
+    "posterior": 3,
+    "primera_s": 1.98,
+    "primera_durante_s": 1.98,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.01": {
+    "durante": 5,
+    "posterior": 0,
+    "primera_s": 11.98,
+    "primera_durante_s": 11.98,
+    "categoria_oficial": "oportuna"
+   },
+   "HEUR": {
+    "durante": 6,
+    "posterior": 3,
+    "primera_s": 1.98,
+    "primera_durante_s": 1.98,
+    "categoria_oficial": "oportuna"
+   },
+   "HIB_0.03": {
+    "durante": 6,
+    "posterior": 3,
+    "primera_s": 1.98,
+    "primera_durante_s": 1.98,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.03": {
+    "durante": 5,
+    "posterior": 0,
+    "primera_s": 11.98,
+    "primera_durante_s": 11.98,
+    "categoria_oficial": "oportuna"
+   }
+  },
+  "estado_slice": "OK escaneo_sostenido-r2 2026-11-11T20:53:09Z",
+  "principal": {
+   "durante": 5,
+   "posterior": 0,
+   "primera_s": 0.13,
+   "primera_durante_s": 0.13,
+   "sids": [
+    [
+     2002910,
+     "ET SCAN Potential VNC Scan 5800-5820"
+    ],
+    [
+     2010935,
+     "ET SCAN Suspicious inbound to MSSQL port 1433"
+    ],
+    [
+     2010936,
+     "ET SCAN Suspicious inbound to Oracle SQL port 1521"
+    ],
+    [
+     2010937,
+     "ET SCAN Suspicious inbound to mySQL port 3306"
+    ],
+    [
+     2010939,
+     "ET SCAN Suspicious inbound to PostgreSQL port 5432"
+    ]
+   ],
+   "excluidas": {
+    "STREAM": 220,
+    "ET INFO": 155
+   },
+   "no_atribuibles": {
+    "tiempo": 31,
+    "origen_destino": 44
+   },
+   "durante_sin_SURICATA_otros": 5,
+   "total_alertas": 455
+  },
+  "s1": {
+   "durante": 5,
+   "posterior": 0,
+   "primera_s": 0.13,
+   "primera_durante_s": 0.13,
+   "sids": [
+    [
+     2002910,
+     "ET SCAN Potential VNC Scan 5800-5820"
+    ],
+    [
+     2010935,
+     "ET SCAN Suspicious inbound to MSSQL port 1433"
+    ],
+    [
+     2010936,
+     "ET SCAN Suspicious inbound to Oracle SQL port 1521"
+    ],
+    [
+     2010937,
+     "ET SCAN Suspicious inbound to mySQL port 3306"
+    ],
+    [
+     2010939,
+     "ET SCAN Suspicious inbound to PostgreSQL port 5432"
+    ]
+   ],
+   "excluidas": {
+    "STREAM": 220
+   },
+   "no_atribuibles": {
+    "tiempo": 26,
+    "origen_destino": 30
+   },
+   "durante_sin_SURICATA_otros": 5,
+   "total_alertas": 281
+  }
+ },
+ {
+  "episodio": "escaneo_sostenido-r3",
+  "familia": "escaneo_sostenido",
+  "destino": "10.10.30.10",
+  "inicio": "2026-11-09T23:17:04.031659+00:00",
+  "fin": "2026-11-09T23:17:56.687638+00:00",
+  "cf": {
+   "HIB_0.01": {
+    "durante": 5,
+    "posterior": 3,
+    "primera_s": 5.97,
+    "primera_durante_s": 5.97,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.01": {
+    "durante": 5,
+    "posterior": 1,
+    "primera_s": 5.97,
+    "primera_durante_s": 5.97,
+    "categoria_oficial": "oportuna"
+   },
+   "HEUR": {
+    "durante": 5,
+    "posterior": 3,
+    "primera_s": 5.97,
+    "primera_durante_s": 5.97,
+    "categoria_oficial": "oportuna"
+   },
+   "HIB_0.03": {
+    "durante": 5,
+    "posterior": 3,
+    "primera_s": 5.97,
+    "primera_durante_s": 5.97,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.03": {
+    "durante": 5,
+    "posterior": 1,
+    "primera_s": 5.97,
+    "primera_durante_s": 5.97,
+    "categoria_oficial": "oportuna"
+   }
+  },
+  "estado_slice": "OK escaneo_sostenido-r3 2026-11-11T20:54:10Z",
+  "principal": {
+   "durante": 5,
+   "posterior": 0,
+   "primera_s": 0.24,
+   "primera_durante_s": 0.24,
+   "sids": [
+    [
+     2002910,
+     "ET SCAN Potential VNC Scan 5800-5820"
+    ],
+    [
+     2010935,
+     "ET SCAN Suspicious inbound to MSSQL port 1433"
+    ],
+    [
+     2010936,
+     "ET SCAN Suspicious inbound to Oracle SQL port 1521"
+    ],
+    [
+     2010937,
+     "ET SCAN Suspicious inbound to mySQL port 3306"
+    ],
+    [
+     2010939,
+     "ET SCAN Suspicious inbound to PostgreSQL port 5432"
+    ]
+   ],
+   "excluidas": {
+    "STREAM": 1802,
+    "ET INFO": 166
+   },
+   "no_atribuibles": {
+    "tiempo": 40,
+    "origen_destino": 32
+   },
+   "durante_sin_SURICATA_otros": 5,
+   "total_alertas": 2045
+  },
+  "s1": {
+   "durante": 5,
+   "posterior": 0,
+   "primera_s": 0.24,
+   "primera_durante_s": 0.24,
+   "sids": [
+    [
+     2002910,
+     "ET SCAN Potential VNC Scan 5800-5820"
+    ],
+    [
+     2010935,
+     "ET SCAN Suspicious inbound to MSSQL port 1433"
+    ],
+    [
+     2010936,
+     "ET SCAN Suspicious inbound to Oracle SQL port 1521"
+    ],
+    [
+     2010937,
+     "ET SCAN Suspicious inbound to mySQL port 3306"
+    ],
+    [
+     2010939,
+     "ET SCAN Suspicious inbound to PostgreSQL port 5432"
+    ]
+   ],
+   "excluidas": {
+    "STREAM": 1802
+   },
+   "no_atribuibles": {
+    "tiempo": 23,
+    "origen_destino": 24
+   },
+   "durante_sin_SURICATA_otros": 5,
+   "total_alertas": 1854
+  }
+ },
+ {
+  "episodio": "escaneo_sostenido-r4",
+  "familia": "escaneo_sostenido",
+  "destino": "10.10.30.10",
+  "inicio": "2026-11-09T23:47:59.185153+00:00",
+  "fin": "2026-11-09T23:48:51.631119+00:00",
+  "cf": {
+   "HIB_0.01": {
+    "durante": 6,
+    "posterior": 3,
+    "primera_s": 0.81,
+    "primera_durante_s": 0.81,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.01": {
+    "durante": 5,
+    "posterior": 0,
+    "primera_s": 10.81,
+    "primera_durante_s": 10.81,
+    "categoria_oficial": "oportuna"
+   },
+   "HEUR": {
+    "durante": 6,
+    "posterior": 3,
+    "primera_s": 0.81,
+    "primera_durante_s": 0.81,
+    "categoria_oficial": "oportuna"
+   },
+   "HIB_0.03": {
+    "durante": 6,
+    "posterior": 3,
+    "primera_s": 0.81,
+    "primera_durante_s": 0.81,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.03": {
+    "durante": 5,
+    "posterior": 1,
+    "primera_s": 10.81,
+    "primera_durante_s": 10.81,
+    "categoria_oficial": "oportuna"
+   }
+  },
+  "estado_slice": "OK escaneo_sostenido-r4 2026-11-11T20:55:10Z",
+  "principal": {
+   "durante": 5,
+   "posterior": 0,
+   "primera_s": 0.24,
+   "primera_durante_s": 0.24,
+   "sids": [
+    [
+     2002910,
+     "ET SCAN Potential VNC Scan 5800-5820"
+    ],
+    [
+     2010935,
+     "ET SCAN Suspicious inbound to MSSQL port 1433"
+    ],
+    [
+     2010936,
+     "ET SCAN Suspicious inbound to Oracle SQL port 1521"
+    ],
+    [
+     2010937,
+     "ET SCAN Suspicious inbound to mySQL port 3306"
+    ],
+    [
+     2010939,
+     "ET SCAN Suspicious inbound to PostgreSQL port 5432"
+    ]
+   ],
+   "excluidas": {
+    "STREAM": 118,
+    "ET INFO": 191
+   },
+   "no_atribuibles": {
+    "tiempo": 23,
+    "origen_destino": 28
+   },
+   "durante_sin_SURICATA_otros": 5,
+   "total_alertas": 365
+  },
+  "s1": {
+   "durante": 5,
+   "posterior": 0,
+   "primera_s": 0.24,
+   "primera_durante_s": 0.24,
+   "sids": [
+    [
+     2002910,
+     "ET SCAN Potential VNC Scan 5800-5820"
+    ],
+    [
+     2010935,
+     "ET SCAN Suspicious inbound to MSSQL port 1433"
+    ],
+    [
+     2010936,
+     "ET SCAN Suspicious inbound to Oracle SQL port 1521"
+    ],
+    [
+     2010937,
+     "ET SCAN Suspicious inbound to mySQL port 3306"
+    ],
+    [
+     2010939,
+     "ET SCAN Suspicious inbound to PostgreSQL port 5432"
+    ]
+   ],
+   "excluidas": {
+    "STREAM": 118
+   },
+   "no_atribuibles": {
+    "tiempo": 15,
+    "origen_destino": 10
+   },
+   "durante_sin_SURICATA_otros": 5,
+   "total_alertas": 148
+  }
+ },
+ {
+  "episodio": "escaneo_sostenido-r5",
+  "familia": "escaneo_sostenido",
+  "destino": "10.10.30.10",
+  "inicio": "2026-11-09T22:36:10.746070+00:00",
+  "fin": "2026-11-09T22:37:03.659817+00:00",
+  "cf": {
+   "HIB_0.01": {
+    "durante": 5,
+    "posterior": 3,
+    "primera_s": 9.25,
+    "primera_durante_s": 9.25,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.01": {
+    "durante": 5,
+    "posterior": 1,
+    "primera_s": 9.25,
+    "primera_durante_s": 9.25,
+    "categoria_oficial": "oportuna"
+   },
+   "HEUR": {
+    "durante": 5,
+    "posterior": 3,
+    "primera_s": 9.25,
+    "primera_durante_s": 9.25,
+    "categoria_oficial": "oportuna"
+   },
+   "HIB_0.03": {
+    "durante": 5,
+    "posterior": 3,
+    "primera_s": 9.25,
+    "primera_durante_s": 9.25,
+    "categoria_oficial": "oportuna"
+   },
+   "IF_0.03": {
+    "durante": 5,
+    "posterior": 1,
+    "primera_s": 9.25,
+    "primera_durante_s": 9.25,
+    "categoria_oficial": "oportuna"
+   }
+  },
+  "estado_slice": "OK escaneo_sostenido-r5 2026-11-11T20:56:10Z",
+  "principal": {
+   "durante": 5,
+   "posterior": 0,
+   "primera_s": 0.23,
+   "primera_durante_s": 0.23,
+   "sids": [
+    [
+     2002910,
+     "ET SCAN Potential VNC Scan 5800-5820"
+    ],
+    [
+     2010935,
+     "ET SCAN Suspicious inbound to MSSQL port 1433"
+    ],
+    [
+     2010936,
+     "ET SCAN Suspicious inbound to Oracle SQL port 1521"
+    ],
+    [
+     2010937,
+     "ET SCAN Suspicious inbound to mySQL port 3306"
+    ],
+    [
+     2010939,
+     "ET SCAN Suspicious inbound to PostgreSQL port 5432"
+    ]
+   ],
+   "excluidas": {
+    "STREAM": 169,
+    "ET INFO": 157
+   },
+   "no_atribuibles": {
+    "tiempo": 46,
+    "origen_destino": 22
+   },
+   "durante_sin_SURICATA_otros": 5,
+   "total_alertas": 399
+  },
+  "s1": {
+   "durante": 5,
+   "posterior": 0,
+   "primera_s": 0.23,
+   "primera_durante_s": 0.23,
+   "sids": [
+    [
+     2002910,
+     "ET SCAN Potential VNC Scan 5800-5820"
+    ],
+    [
+     2010935,
+     "ET SCAN Suspicious inbound to MSSQL port 1433"
+    ],
+    [
+     2010936,
+     "ET SCAN Suspicious inbound to Oracle SQL port 1521"
+    ],
+    [
+     2010937,
+     "ET SCAN Suspicious inbound to mySQL port 3306"
+    ],
+    [
+     2010939,
+     "ET SCAN Suspicious inbound to PostgreSQL port 5432"
+    ]
+   ],
+   "excluidas": {
+    "STREAM": 169
+   },
+   "no_atribuibles": {
+    "tiempo": 29,
+    "origen_destino": 18
+   },
+   "durante_sin_SURICATA_otros": 5,
+   "total_alertas": 221
+  }
+ },
+ {
+  "episodio": "escaneo_breve-r4",
+  "familia": "escaneo_breve",
+  "destino": "10.10.30.10",
+  "inicio": "2026-11-09T22:32:36.059352+00:00",
+  "fin": "2026-11-09T22:32:40.742628+00:00",
+  "cf": {
+   "HIB_0.01": {
+    "durante": 1,
+    "posterior": 3,
+    "primera_s": 3.94,
+    "primera_durante_s": 3.94,
+    "categoria_oficial": "solo_posterior"
+   },
+   "IF_0.01": {
+    "durante": 0,
+    "posterior": 0,
+    "primera_s": null,
+    "primera_durante_s": null,
+    "categoria_oficial": "ausencia_con_observacion_suficiente"
+   },
+   "HEUR": {
+    "durante": 1,
+    "posterior": 3,
+    "primera_s": 3.94,
+    "primera_durante_s": 3.94,
+    "categoria_oficial": "solo_posterior"
+   },
+   "HIB_0.03": {
+    "durante": 1,
+    "posterior": 3,
+    "primera_s": 3.94,
+    "primera_durante_s": 3.94,
+    "categoria_oficial": "solo_posterior"
+   },
+   "IF_0.03": {
+    "durante": 1,
+    "posterior": 0,
+    "primera_s": 3.94,
+    "primera_durante_s": 3.94,
+    "categoria_oficial": "solo_posterior"
+   }
+  },
+  "estado_slice": "OK escaneo_breve-r4 2026-11-11T20:34:30Z",
+  "principal": {
+   "durante": 0,
+   "posterior": 0,
+   "primera_s": null,
+   "primera_durante_s": null,
+   "sids": [],
+   "excluidas": {
+    "STREAM": 80,
+    "ET INFO": 21
+   },
+   "no_atribuibles": {
+    "tiempo": 20,
+    "origen_destino": 5
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 126
+  },
+  "s1": {
+   "durante": 0,
+   "posterior": 0,
+   "primera_s": null,
+   "primera_durante_s": null,
+   "sids": [],
+   "excluidas": {
+    "STREAM": 80
+   },
+   "no_atribuibles": {
+    "tiempo": 14,
+    "origen_destino": 3
+   },
+   "durante_sin_SURICATA_otros": 0,
+   "total_alertas": 97
+  }
+ }
+]

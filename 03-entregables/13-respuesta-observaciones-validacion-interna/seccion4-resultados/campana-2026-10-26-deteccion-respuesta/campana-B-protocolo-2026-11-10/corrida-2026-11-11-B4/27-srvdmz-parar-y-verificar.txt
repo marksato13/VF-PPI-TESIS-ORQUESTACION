@@ -1,0 +1,16 @@
+--- srv-dmz: fin automático, muestreador, brute-lab
+cf-b-fin.timer: inactive
+muestreador vivo: no; líneas 17220
+e03a1b734ad5ae7a4a0a39a702d7376e6a19bd0663b25c7d4a779d7231c8b187
+brute-lab: inactive/disabled
+--- verificar sombra contra PRE-B
+  indicios_aplicacion: tabla(s) nft cyberflow: inet cyberflow_dmz
+  indicios_aplicacion: 375 evento(s) 'aplicacion' en la traza
+  indicios_aplicacion: ruleset efectivo distinto del respaldo (salvo contadores)
+FALLO hay restricciones aplicadas o un agente con --aplicar
+OK    feed v2 recibido hace < 60 s (feed.par)
+OK    reloj sincronizado
+INFO  rechazos por motivo:       2 "motivo": "misma_secuencia"  (recepciones: 2139)
+OK    helper rechaza un perfil ajeno
+VERIFICACIÓN SRV-DMZ CON FALLOS
+rc=1

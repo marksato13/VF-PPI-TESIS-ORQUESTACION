@@ -1,0 +1,17 @@
+{
+ "diagnostico": {
+  "categoria": "consumida_y_publicada",
+  "determinada": true,
+  "generaciones_del_id": [
+   "d5-auditoria.jsonl.1.gz",
+   "d5-auditoria.jsonl.2.gz"
+  ],
+  "motivo": null,
+  "secuencia_publicada": 2,
+  "trazabilidad": "completa"
+ },
+ "generaciones": [
+  "d5-auditoria.jsonl.1.gz",
+  "d5-auditoria.jsonl.2.gz"
+ ]
+}

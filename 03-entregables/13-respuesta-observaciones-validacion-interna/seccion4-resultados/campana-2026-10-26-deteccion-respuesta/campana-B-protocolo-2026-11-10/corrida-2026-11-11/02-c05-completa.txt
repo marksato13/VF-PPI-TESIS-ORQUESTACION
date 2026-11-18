@@ -1,0 +1,12 @@
+  [credencial ficticia, esperado 401]
+  2026-11-11T04:09:26.320Z 401 t=0.003368
+  [UNA credencial de control, esperado 200]
+  2026-11-11T04:09:26.342Z 200 t=0.002599
+  [ruta inexistente, esperado 404]
+  2026-11-11T04:09:26.359Z 404 t=0.003310
+## registro del servidor (líneas nuevas; sin credenciales)
+  2026-11-11T04:09:25.976609+00:00 10.10.10.30 GET /auth user=- -> 401
+  2026-11-11T04:09:26.349635+00:00 10.10.10.30 GET /auth user=fake -> 401
+  2026-11-11T04:09:26.367147+00:00 10.10.10.30 GET /auth user=control -> 200
+  2026-11-11T04:09:26.384422+00:00 10.10.10.30 GET /no-existe user=- -> 404
+## fin 2026-11-11T04:09:27.718Z

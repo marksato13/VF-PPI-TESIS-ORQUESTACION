@@ -1,0 +1,21 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-8.3.5, pluggy-1.5.0 -- /usr/bin/python3
+rootdir: /banco
+collecting ... collected 14 items
+
+test_transporte_d5.py::test_flujo_distribuido_conserva_el_id_y_respeta_la_separacion_de_permisos PASSED [  7%]
+test_transporte_d5.py::test_comandos_fuera_de_la_lista_blanca_se_rechazan_sin_tocar_nada[solicitar --id aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa --origen 10.10.20.99] PASSED [ 14%]
+test_transporte_d5.py::test_comandos_fuera_de_la_lista_blanca_se_rechazan_sin_tocar_nada[solicitar --id ZZZ --origen 10.10.20.30] PASSED [ 21%]
+test_transporte_d5.py::test_comandos_fuera_de_la_lista_blanca_se_rechazan_sin_tocar_nada[solicitar --id aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa --origen 10.10.20.30; rm -rf /] PASSED [ 28%]
+test_transporte_d5.py::test_comandos_fuera_de_la_lista_blanca_se_rechazan_sin_tocar_nada[resultado --id aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa extra] PASSED [ 35%]
+test_transporte_d5.py::test_comandos_fuera_de_la_lista_blanca_se_rechazan_sin_tocar_nada[feed --desde abc] PASSED [ 42%]
+test_transporte_d5.py::test_comandos_fuera_de_la_lista_blanca_se_rechazan_sin_tocar_nada[cat /etc/passwd] PASSED [ 50%]
+test_transporte_d5.py::test_comandos_fuera_de_la_lista_blanca_se_rechazan_sin_tocar_nada[] PASSED [ 57%]
+test_transporte_d5.py::test_comandos_fuera_de_la_lista_blanca_se_rechazan_sin_tocar_nada[cancelar] PASSED [ 64%]
+test_transporte_d5.py::test_comandos_fuera_de_la_lista_blanca_se_rechazan_sin_tocar_nada[solicitar --id bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb --origen 10.10.20.30 --x] PASSED [ 71%]
+test_transporte_d5.py::test_corte_tras_recibir_consulta_el_mismo_id_y_mantiene_el_bloqueo_entre_invocaciones PASSED [ 78%]
+test_transporte_d5.py::test_id_desconocido_por_el_sensor_sigue_incierto_y_solo_un_descarte_manual_permite_un_id_nuevo PASSED [ 85%]
+test_transporte_d5.py::test_el_sensor_es_idempotente_por_id_no_acumula_controles_y_cancela_solo_su_id PASSED [ 92%]
+test_transporte_d5.py::test_con_logrotate_real_y_el_usuario_del_publicador_el_resultado_de_un_id_viejo_se_reconstruye PASSED [100%]
+
+============================= 14 passed in 19.91s ==============================

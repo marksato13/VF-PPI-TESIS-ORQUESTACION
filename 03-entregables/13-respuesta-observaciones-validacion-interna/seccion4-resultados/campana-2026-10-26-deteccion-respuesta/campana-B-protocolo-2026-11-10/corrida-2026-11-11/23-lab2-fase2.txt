@@ -1,0 +1,8 @@
+esperando 62 s (fin + 80 s)
+## estado de srv-dmz ANTES de la puerta 2026-11-11T07:16:17Z
+sets {'bloqueados': {}, 'limitados': {'10.10.20.30': {'bytes': 0, 'expira_s': 226, 'id': '7cc7a856ef12491b', 'paquetes': 0}}} descartes_limite {}
+ENSAYO INCONCLUSO: antes de la puerta no hay la Kali en limitados Y en descartes_limite; NO se ejecuta la puerta y NO se repite
+rc=3
+--- puertas-D5 / puerta-banco
+cat: /home/gadmin/cf-b/prueba-lab-d5/puerta/puerta-banco.jsonl: No such file or directory
+ls: cannot access '/home/gadmin/cf-b/prueba-lab-d5/puerta/': No such file or directory

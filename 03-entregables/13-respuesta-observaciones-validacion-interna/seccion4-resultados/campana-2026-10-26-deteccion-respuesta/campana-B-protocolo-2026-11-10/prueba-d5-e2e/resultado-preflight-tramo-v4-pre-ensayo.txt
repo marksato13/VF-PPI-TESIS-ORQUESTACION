@@ -1,0 +1,75 @@
+##### preflight v4 TRAMO 7-25 D5 corregido (espera de fin = 75 s) 2026-11-11T06:54:12Z
+=== 1. D5 activo en el Sensor1 y SOLICITUD ACTIVA vs HISTÓRICOS (por id y estado)
+OK        publicador con --control-d5 --d5-origen 10.10.20.30 --d5-auditoria
+OK        publicador sin --aplicar, política if_senal
+   PID/NRestarts/inicio: MainPID=2115304 NRestarts=0 ActiveEnterTimestamp=Wed 2026-11-11 03:05:25 UTC
+OK        control.json AUSENTE (no hay solicitud pendiente de consumir)
+   solicitud 11c3d842baf842668a5bb3beec486a2b -> sin_acuse/consumida_y_publicada (publicación confirmada, secuencia 26557; el acuse fue sobrescrito por una solicitud posterior): HISTÓRICA
+   solicitud 4038eb34265b4eca925d3bfef7aa514b -> sin_acuse/consumida_y_publicada (publicación confirmada, secuencia 26506; el acuse fue sobrescrito por una solicitud posterior): HISTÓRICA
+   solicitud 86c2acdc82bb4e739e44e628d11cc424 -> sin_acuse/consumida_y_publicada (publicación confirmada, secuencia 26240; el acuse fue sobrescrito por una solicitud posterior): HISTÓRICA
+   solicitud 8808ef6d581b45d1af0cd0e8eed44be4 -> sin_acuse/consumida_y_publicada (publicación confirmada, secuencia 26129; el acuse fue sobrescrito por una solicitud posterior): HISTÓRICA
+   solicitud 9bd068e38e6647c59578501fa23b68ac -> sin_acuse/consumida_y_publicada (publicación confirmada, secuencia 26629; el acuse fue sobrescrito por una solicitud posterior): HISTÓRICA
+   solicitud a0943983b1e94f25a524cd4676d91b57 -> sin_acuse/consumida_y_publicada (publicación confirmada, secuencia 26582; el acuse fue sobrescrito por una solicitud posterior): HISTÓRICA
+   solicitud a6a1c062270542a0ba1eaf0dd1b73e94 -> sin_acuse/consumida_y_publicada (publicación confirmada, secuencia 26535; el acuse fue sobrescrito por una solicitud posterior): HISTÓRICA
+   solicitud a95425f10a4f40bd95f85e8886989f11 -> acuse (secuencia 26653): HISTÓRICA
+   solicitud d3836671478547b2b52db2b91c06ec25 -> sin_acuse/consumida_y_publicada (publicación confirmada, secuencia 26604; el acuse fue sobrescrito por una solicitud posterior): HISTÓRICA
+OK        solicitudes ACTIVAS o inciertas = 0 (históricas con acuse = 9: la prueba D5 del 11-nov)
+OK        ningún bloqueo de puerta ni pendiente de la puerta en el bastión (puerta-bloqueo.json ausente en ~/cf-e4/4c)
+=== 2. auditoría D5 en la ruta instalada (m4rk:m4rk, rotate 30)
+   fichero / directorio: m4rk:m4rk 644 m4rk:m4rk 750
+OK        auditoría y directorio con propietario m4rk:m4rk
+OK        logrotate: ruta /home/m4rk/feed-v2/d5/auditoria/d5-auditoria.jsonl, su m4rk m4rk, rotate 30, sha 445efe82…
+   timer logrotate: Thu 2026-11-12 00:00:00 UTC  17h Wed 2026-11-11 00:00:00 UTC 6h ago logrotate.timer logrotate.service
+PENDIENTE ejecución DIARIA real de logrotate sobre la auditoría (observada con una rotación; el fichero aún no se rotó)
+=== 3. srv-dmz en sombra, sin generadores ni campaña
+   agente (PID/NR, nº --aplicar), brute-lab: 909217/0 0 inactive
+OK        agente de srv-dmz sin --aplicar
+OK        ppi-brute-lab inactivo
+   lectura real del muestreador: {'ok': True, 'sets': {'bloqueados': {}, 'limitados': {}}}
+OK        muestreador de srv-dmz: lectura real de los sets OK y sets vacíos (sin sudo adicional de Mark)
+OK        Kali sin generadores (0)
+OK        Kali sin servidores ni restos de las pruebas de carga locales (0; /dev/shm/cf-carga ausente)
+OK        bastión sin orquestador, compuerta, vigía ni lanzador (0)
+OK        sin carpeta ~/cf-e4/4c viva en el bastión (antes del control)
+=== B3 conservada: evidencia parcial apartada en los 5 hosts (no se mezcla con el tramo)
+OK        bastión: 4c-B3-parcial-6ep-* presente
+OK        Sensor1: 4c-B3-parcial-6ep-* con COPIAS-COMPLETAS.ok
+OK        clientes: 4c-B3-parcial-6ep-* presente
+OK        Kali: cf-e4-4c-B3-parcial-6ep-*/corrida/marcas.jsonl sha 1d129f0b…
+=== 4. relojes (|desfase| + u <= 1 s respecto del bastión; mejor de 5 por RTT mínimo)
+   sensor1  desfase +0.172 s  u=0.171 s  OK
+   kali     desfase +0.092 s  u=0.087 s  OK
+   srvdmz   desfase +0.165 s  u=0.163 s  OK
+   clientes desfase +0.169 s  u=0.167 s  OK
+OK        los 4 hosts dentro de 1 s
+=== 5. instalación en el bastión (hash = paquete)
+OK        bastión: transporte, lanzador y hacer_d5 = 2dc8d7eb… c2ec10b4… 65511cc1… con d5_episodio_banco CORREGIDO 58f715e2… (si sigue 27b63c41… = D5 viejo: PENDIENTE de desplegar)
+OK        bastión: originales intactos (d5_episodio 85c71124, compuerta_b 32e1f3ef, orquestar_b babc528b, analizar_b 611d4b16)
+OK        clave dedicada 0600 y known_hosts_d5 (huella xHCL2/…)
+OK        g01b (96f4f69d…) y g01c (b5891d5a…) intactos
+PENDIENTE g01d (2653d89b…) presente en el bastión y con sintaxis válida
+=== 6. instrumentación y generador instrumentado
+OK        Kali: inundacion_instrumentada.sh v2 (sin procesos extra por iteración) 8e9b49b1…
+OK        clientes: clientes_factor1_tx.py d86c7edc…
+OK        srv-dmz: muestreador_set.py 410759c2…
+   i_ok
+   orig_ok
+   c51efd6e 3ec6a05b b891674a 
+   0
+   ls: no se puede acceder a '/home/adminatacante/cf-e4-4c/corrida': No existe el fichero o el directorio
+OK        Kali: lista firmada instrumentada y la original verifican
+OK        Kali: generador instrumentado vigente (B3) c51efd6e… 3ec6a05b… b891674a… intacto
+   ii_FALLA
+   b891674a 
+PENDIENTE Kali: generador del TRAMO 0705751a… (esquema c51efd6e…, config b891674a…) y sha256-esperado-ii.txt verifica (si falta: PENDIENTE de desplegar)
+OK        Kali: directorio de registros vacío y sin ~/cf-e4-4c/corrida previa
+=== 7. criterio E3 y lanzador
+   E3 fijado en CRITERIO-E3-FIJADO-NUEVA-CORRIDA.md: LIMIT = SPAN o salida con hora; BLOCK (15 episodios) = SPAN ÚNICA fuente, K=3, 0 respuestas, ≥ 1 intento/bloque de 1 s, indeterminado si SPAN no lo verifica (BLOCK_ADMITE_SALIDA=False; 23 pruebas). B2 conservado.
+   ensayo de la puerta: /home/gadmin/cf-b/ensayo-puerta-20261111T034919Z
+   duración total desde el fin simulado: 104.7 s (espera 75,0 s + puerta 29.7 s)
+   hueco mínimo entre episodios: 210 s  ->  MARGEN = 105.3 s
+   hueco tras un DNS: 330 s  ->  margen = 225.3 s
+OK        puerta medida con el lanzador real: liberada y con margen 105.3 s > 45 s frente al hueco mínimo de 210 s
+PENDIENTE PRUEBA DE LABORATORIO del D5 corregido (residual real con --aplicar, Kali) hecha y aceptada: marca ~/cf-b/prueba-lab-d5-corregido.ok
+PENDIENTE DECISIÓN de Mark: denominador de X1 del tramo (CF_PLANIFICADOS 19 o 25) y reporte en dos tramos (PLAN-TRAMO-7-25.md §4–§5)
+##### resumen: 30 OK, 0 FALLAN, 5 PENDIENTES

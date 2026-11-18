@@ -1,0 +1,45 @@
+##### Kali: despliegue del generador del tramo 2026-11-11T07:11:46Z adminatacante
+--- recibido
+0705751aa33c0e9f  generar_campana_b.py
+c51efd6e495232ce  esquema_campana.py
+--- originales ANTES: lista -i y original verifican
+OK
+--- lista del tramo
+99e6bdae1f76b873  /home/adminatacante/cf-campana-A/scripts-4c/generar_campana.py
+45f743d2ef35f769  /home/adminatacante/cf-campana-A/scripts-4c/esquema_campana.py
+c586d813472d5853  /home/adminatacante/cf-campana-A/scripts/generar_campana.py
+e762e60421b4721b  /home/adminatacante/cf-campana-A/scripts/esquema_campana.py
+67798012cbd306e9  /home/adminatacante/cf-campana-A/escenarios/escenarios.json
+73c0b204d1e6f884  /home/adminatacante/cf-campana-A/escenarios/escenarios-4c.json
+3b65cb63b7ea3633  /home/adminatacante/cf-campana-A/scripts-4c/generar_campana_b.py
+3ec6a05b8e033e35  /home/adminatacante/cf-campana-A/scripts-4c-i/generar_campana_b.py
+c51efd6e495232ce  /home/adminatacante/cf-campana-A/scripts-4c-i/esquema_campana.py
+b891674ae849d519  /home/adminatacante/cf-campana-A/escenarios/escenarios-4c-i.json
+8e9b49b1c51343b0  /home/adminatacante/cf-b/instrumentacion/inundacion_instrumentada.sh
+0705751aa33c0e9f  /home/adminatacante/cf-campana-A/scripts-4c-ii/generar_campana_b.py
+c51efd6e495232ce  /home/adminatacante/cf-campana-A/scripts-4c-ii/esquema_campana.py
+13
+lista ii: OK
+lista i (B3): sigue verificando
+lista original: sigue verificando
+--- generador de B3 (scripts-4c-i) intacto: 3ec6a05b8e033e35
+--- carpetas de la corrida limpias
+intentos
+sha256-esperado-ii.txt
+sha256-esperado-i.txt
+sha256-esperado-i.txt.antes-tramo
+sha256-esperado.txt
+sha256-esperado.txt.antes-B
+sha256-esperado.txt.antes-instrumentado
+0
+--- SIMULACRO en seco (SIN --autorizado: no lanza ningún comando) del tramo vs. el plan real de B3
+tramo rc=0
+completo rc=0
+plan completo de la Kali == plan real de B3: True (25)
+tramo: 19 episodios; primero fuerza_bruta_http-r1; último escaneo_sostenido-r4
+tramo == B3[6:] (exactamente 7–25, mismo orden): True
+ninguno de los 6 de B3 en el tramo: True | unión = 25: True
+comandos/destino/servicio/timeout idénticos al plan completo: True
+marca tramo: omitidos = True | nonce 4c-B4-simulacro != B3 True
+ningún comando se lanzó: eventos 'fin' en el simulacro = 0
+--- sin procesos de generador/inundación: 1

@@ -1,0 +1,112 @@
+{
+ "diagnostico": {
+  "auditoria": {
+   "estable": true,
+   "generaciones": [
+    {
+     "bytes": 0,
+     "error": null,
+     "ilegibles": 0,
+     "leida": true,
+     "lineas": 0,
+     "ruta": "/var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl",
+     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+     "bytes": 199,
+     "error": null,
+     "ilegibles": 0,
+     "leida": true,
+     "lineas": 2,
+     "ruta": "/var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.1",
+     "sha256": "12de24944170f4fe39920594f1a2353725eb54bb05ceac4707c3729862e6535e"
+    },
+    {
+     "bytes": 177,
+     "error": null,
+     "ilegibles": 0,
+     "leida": true,
+     "lineas": 1,
+     "ruta": "/var/tmp/d5lr/S3-comprimida-acuse-no-escribible/aud/d5-auditoria.jsonl.2.gz",
+     "sha256": "cce567076016276e2b26e7ff9edb70c18dee4f2dabee4690bc14987b03ee6c4f"
+    }
+   ],
+   "ilegibles": 0,
+   "intentos": 1,
+   "problemas": []
+  },
+  "auditoria_del_id": [
+   {
+    "_gen": "d5-auditoria.jsonl.1",
+    "evento": "publicado",
+    "id": "5eec7db9f4f145cbb8a13f2b2ca4849e",
+    "secuencia": 2,
+    "t": 1794343888.8863928
+   },
+   {
+    "_gen": "d5-auditoria.jsonl.1",
+    "evento": "ack_fallido",
+    "id": "5eec7db9f4f145cbb8a13f2b2ca4849e",
+    "t": 1794343888.886591
+   },
+   {
+    "_gen": "d5-auditoria.jsonl.2.gz",
+    "duplicada": false,
+    "evento": "consumido",
+    "id": "5eec7db9f4f145cbb8a13f2b2ca4849e",
+    "ok": true,
+    "quitado": {
+     "escalada": [
+      "10.10.20.30@srv-dmz"
+     ],
+     "vigentes": [
+      "10.10.20.30|srv-dmz|todo"
+     ]
+    },
+    "t": 1794343888.8605423
+   }
+  ],
+  "auditoria_disponible": true,
+  "categoria": "consumida_y_publicada",
+  "control_presente": false,
+  "determinada": true,
+  "estado": {
+   "escalada": [],
+   "vigentes": []
+  },
+  "feed": {
+   "entradas_origen": [],
+   "generado": 1794343888.8608108,
+   "secuencia": 2
+  },
+  "feed_posterior_o_igual": true,
+  "generaciones_del_id": [
+   "d5-auditoria.jsonl.1",
+   "d5-auditoria.jsonl.2.gz"
+  ],
+  "id": "5eec7db9f4f145cbb8a13f2b2ca4849e",
+  "motivo": null,
+  "publicacion": "confirmada",
+  "secuencia_publicada": 2,
+  "t": 1794343901.045071,
+  "traza_ultimas": [
+   {
+    "entradas": 3,
+    "nuevos": 3,
+    "secuencia": 1
+   },
+   {
+    "entradas": 2,
+    "nuevos": 0,
+    "secuencia": 2
+   }
+  ],
+  "trazabilidad": "completa"
+ },
+ "resultado_cliente": {
+  "estado": "sin_acuse_procesada",
+  "id": "5eec7db9f4f145cbb8a13f2b2ca4849e",
+  "ok": false,
+  "rc": 6
+ }
+}

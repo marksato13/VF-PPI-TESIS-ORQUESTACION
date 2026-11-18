@@ -1,0 +1,58 @@
+{
+ "caso": "D",
+ "criterios": {
+  "NRestarts_no_aumenta": true,
+  "journal_sin_parada_ni_arranque": true,
+  "mismo_MainPID": true,
+  "publicacion_nueva_tras_el_caso": true,
+  "una_sola_solicitud": true,
+  "unidad_activa": true
+ },
+ "limpieza": "indeterminada",
+ "limpieza_via": "el adaptador no pudo determinarlo (categoría indeterminada); feed/estado se guardan pero no deciden",
+ "observado": {
+  "K_fuera_del_feed_y_estado": true,
+  "MainPID": [
+   "366",
+   "366"
+  ],
+  "NRestarts": [
+   "0",
+   "0"
+  ],
+  "ficheros_del_caso": [
+   "control.json.ack",
+   "control.json.ack.tmp",
+   "control.json.evidencia-3b20e71a3e3b40bcae9bec0d7f598822.json",
+   "estado.json",
+   "feed.json",
+   "feed.sig",
+   "k.pem",
+   "motor.log",
+   "traza.jsonl"
+  ],
+  "lineas_d5_en_journal": [
+   "2026-11-10T20:14:06.332128+00:00 3dbf6ad957f5 python3[366]: d5: no se pudo escribir el acuse (IsADirectoryError)"
+  ],
+  "otras_entidades_en_feed": true,
+  "secuencia_feed": [
+   5,
+   7
+  ]
+ },
+ "operacion": {
+  "categoria": "indeterminada",
+  "determinada": false,
+  "estado": "sin_acuse_procesada",
+  "evidencia": "/var/tmp/d5case/D/control.json.evidencia-3b20e71a3e3b40bcae9bec0d7f598822.json",
+  "incierto": true,
+  "ok": false,
+  "rc": 6,
+  "secuencia": null
+ },
+ "rutas": {
+  "evidencia": "evidencia-systemd/D/"
+ },
+ "servicio": "PASA",
+ "unidad": "cf-d5-banco-d"
+}

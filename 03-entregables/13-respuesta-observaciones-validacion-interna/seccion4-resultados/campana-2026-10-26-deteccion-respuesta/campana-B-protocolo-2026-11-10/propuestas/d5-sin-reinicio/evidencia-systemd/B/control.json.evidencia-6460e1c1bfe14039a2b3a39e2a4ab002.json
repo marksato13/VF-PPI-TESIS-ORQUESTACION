@@ -1,0 +1,82 @@
+{
+ "diagnostico": {
+  "auditoria_del_id": [
+   {
+    "duplicada": false,
+    "evento": "consumido",
+    "id": "6460e1c1bfe14039a2b3a39e2a4ab002",
+    "ok": true,
+    "quitado": {
+     "escalada": [
+      "10.10.20.30@srv-dmz"
+     ],
+     "vigentes": [
+      "10.10.20.30|srv-dmz|todo"
+     ]
+    },
+    "t": 1794341633.1377833
+   },
+   {
+    "evento": "publicado",
+    "id": "6460e1c1bfe14039a2b3a39e2a4ab002",
+    "secuencia": 3,
+    "t": 1794341633.1431577
+   },
+   {
+    "evento": "ack_fallido",
+    "id": "6460e1c1bfe14039a2b3a39e2a4ab002",
+    "t": 1794341633.143281
+   }
+  ],
+  "auditoria_disponible": true,
+  "categoria": "consumida_y_publicada",
+  "control_presente": false,
+  "determinada": true,
+  "estado": {
+   "escalada": [],
+   "vigentes": []
+  },
+  "feed": {
+   "entradas_origen": [],
+   "generado": 1794341636.1801093,
+   "secuencia": 5
+  },
+  "feed_posterior_o_igual": true,
+  "id": "6460e1c1bfe14039a2b3a39e2a4ab002",
+  "secuencia_publicada": 3,
+  "t": 1794341636.3251724,
+  "traza_ultimas": [
+   {
+    "entradas": 3,
+    "nuevos": 3,
+    "secuencia": 1
+   },
+   {
+    "entradas": 3,
+    "nuevos": 0,
+    "secuencia": 2
+   },
+   {
+    "entradas": 2,
+    "nuevos": 0,
+    "secuencia": 3
+   },
+   {
+    "entradas": 2,
+    "nuevos": 0,
+    "secuencia": 4
+   },
+   {
+    "entradas": 2,
+    "nuevos": 0,
+    "secuencia": 5
+   }
+  ]
+ },
+ "resultado_cliente": {
+  "estado": "sin_acuse_procesada",
+  "id": "6460e1c1bfe14039a2b3a39e2a4ab002",
+  "ok": false,
+  "rc": 6
+ }
+}

@@ -1,0 +1,14 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-8.3.5, pluggy-1.5.0 -- /usr/bin/python3
+rootdir: /banco
+collecting ... collected 7 items
+
+test_ssh_real_d5.py::test_comando_forzado_y_lista_permitida_con_openssh_real PASSED [ 14%]
+test_ssh_real_d5.py::test_restrict_impide_pty_reenvios_y_subsistemas PASSED [ 28%]
+test_ssh_real_d5.py::test_la_identidad_del_servidor_esta_fijada_y_las_claves_ajenas_no_entran PASSED [ 42%]
+test_ssh_real_d5.py::test_corte_tras_recibir_reconexion_mismo_id_y_bloqueo_hasta_la_reanudacion_manual PASSED [ 57%]
+test_ssh_real_d5.py::test_control_negativo_sin_restrict_el_reenvio_si_se_concede PASSED [ 71%]
+test_lanzador_puerta_banco.py::test_el_lanzador_llama_a_la_puerta_integrada_y_libera_con_acuse PASSED [ 85%]
+test_lanzador_puerta_banco.py::test_fallo_de_transporte_bloquea_y_el_bloqueo_sobrevive_a_nuevas_ejecuciones_del_lanzador PASSED [100%]
+
+============================== 7 passed in 27.12s ==============================

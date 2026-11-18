@@ -1,0 +1,22 @@
+## b20-e4 2026-11-11T06:10:24.116Z
+## [ACCESO SSH A KALI 2026-11-11T06:10:24.117Z: lectura del fin del generador]
+## fin acceso Kali 2026-11-11T06:10:24.155Z
+  generador rc=3 terminado=2026-11-11T06:08:28.699Z procesos=0 marcas sha256=1d129f0b1139dd13e2157f73e3957547895b265c045cad109ff1daa25971ddc1
+  AVISO: batería CANCELADA por el vigía (ver cancelacion en marcas.jsonl y vigia.jsonl); se cierra igual
+  vigía terminado: {"evento": "ronda", "epoch": 1794377248.647636, "permiso": {"nonce": "4c-20261111T051928Z-2eb2f728a738", "estado": "continuar", "causas": [], "secuencia": 49, "emitido_epoch": 1794377257.148, "valido_
+  canal de control con la Kali cerrado 2026-11-11T06:10:24.238Z
+  marcas: kali=1d129f0b1139dd13e2157f73e3957547895b265c045cad109ff1daa25971ddc1 bastión=1d129f0b1139dd13e2157f73e3957547895b265c045cad109ff1daa25971ddc1 sensor=1d129f0b1139dd13e2157f73e3957547895b265c045cad109ff1daa25971ddc1
+fin_ultimo=1794376518.617296 2026-11-11T05:55:18Z
+## relojes (p10b)
+## p10b relojes  inicio=2026-11-11T06:10:25.023Z  referencia=bastion VM-GESTION
+  Reference ID    : A8B57E1C (b.ntp.netplanety.com.br)
+  System time     : 0.002387128 seconds fast of NTP time
+  RMS offset      : 0.001340597 seconds
+  Root dispersion : 0.019828610 seconds
+  [2026-11-11T06:10:30Z] sensor   mejor desfase=+0.0114 s inc=+-0.0006 s | mediana=+0.0115 s | rango=[+0.0099,+0.0147] | |desfase|<=1 s: SI | NTP yes 10.10.60.1
+  [2026-11-11T06:10:32Z] kali     mejor desfase=+0.0082 s inc=+-0.0004 s | mediana=+0.0083 s | rango=[+0.0082,+0.0084] | |desfase|<=1 s: SI | NTP yes 2.debian.pool.ntp.org
+  [2026-11-11T06:10:34Z] srv-dmz  mejor desfase=+0.0078 s inc=+-0.0003 s | mediana=+0.0079 s | rango=[+0.0077,+0.0080] | |desfase|<=1 s: SI | NTP yes ntp.ubuntu.com
+  [2026-11-11T06:10:36Z] clientes mejor desfase=+0.0081 s inc=+-0.0004 s | mediana=+0.0082 s | rango=[+0.0081,+0.0083] | |desfase|<=1 s: SI | NTP yes ntp.ubuntu.com
+## fin=2026-11-11T06:10:39.475Z
+  traza del relé al sensor: 27496 líneas, sha256 2e1b36406a122d1202a9fc01369d6b1bcc056a60d41e20d029b05829a9800ddb
+## fin 2026-11-11T06:10:40.443Z

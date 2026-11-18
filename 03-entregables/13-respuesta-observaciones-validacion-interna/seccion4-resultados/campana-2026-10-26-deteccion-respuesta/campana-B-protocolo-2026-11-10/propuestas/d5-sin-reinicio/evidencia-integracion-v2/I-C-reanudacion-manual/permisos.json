@@ -1,0 +1,26 @@
+[
+ {
+  "ruta": "/var/tmp/d5lr/I-C-reanudacion-manual/aud",
+  "modo": "0o2750",
+  "propietario": "nobody",
+  "grupo": "d5aud"
+ },
+ {
+  "ruta": "/var/tmp/d5lr/I-C-reanudacion-manual/work",
+  "modo": "0o2750",
+  "propietario": "nobody",
+  "grupo": "d5aud"
+ },
+ {
+  "ruta": "/var/tmp/d5lr/I-C-reanudacion-manual/aud/d5-auditoria.jsonl",
+  "modo": "0o640",
+  "propietario": "nobody",
+  "grupo": "d5aud"
+ },
+ {
+  "ruta": "/var/tmp/d5lr/I-C-reanudacion-manual/aud/d5-auditoria.jsonl.1",
+  "modo": "0o640",
+  "propietario": "nobody",
+  "grupo": "d5aud"
+ }
+]

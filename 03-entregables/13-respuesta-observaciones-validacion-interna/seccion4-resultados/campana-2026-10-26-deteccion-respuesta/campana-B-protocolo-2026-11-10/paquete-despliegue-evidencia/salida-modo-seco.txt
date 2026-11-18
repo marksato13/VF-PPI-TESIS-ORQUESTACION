@@ -1,0 +1,176 @@
+################ SENSOR1 (m4rk) — instalar, seco, CON --con-sudo (muestra los comandos de sudo)
+== Sensor1: instalar (aplicar=0)
+[seco] mkdir -p /home/m4rk/cf-b/respaldo-d5/20261111T002700Z /home/m4rk/cf-b/herramientas /home/m4rk/feed-v2/d5/control /home/m4rk/feed-v2/d5/auditoria /home/m4rk/.ssh
+[seco] chmod 700 /home/m4rk/feed-v2/d5/control /home/m4rk/.ssh
+[seco] chmod 750 /home/m4rk/feed-v2/d5/auditoria
+[seco] cp -p /home/m4rk/.ssh/authorized_keys /home/m4rk/cf-b/respaldo-d5/20261111T002700Z/authorized_keys
+[seco] install -m 0644 /pq/sensor_control_d5.py /home/m4rk/cf-b/herramientas/sensor_control_d5.py
+[seco] install -m 0644 /pq/adaptador_banco.py /home/m4rk/cf-b/herramientas/adaptador_banco.py
+[seco] install -m 0644 /pq/adaptador_banco_rot.py /home/m4rk/cf-b/herramientas/adaptador_banco_rot.py
+[seco] install -m 0644 /pq/auditoria_d5.py /home/m4rk/cf-b/herramientas/auditoria_d5.py
+[seco] install -m 0644 /pq/d5_control.py /home/m4rk/cf-b/herramientas/d5_control.py
+[seco] chmod 0755 /home/m4rk/cf-b/herramientas/sensor_control_d5.py
+[seco] mkdir -p /home/m4rk/cf-b/d5
+[seco] install -m 0644 /pq/publicar_feed_v2_d5.py /home/m4rk/cf-b/d5/publicar_feed_v2_d5.py
+[seco] bash -c printf '%s %s %s\n' 'from="10.10.10.30",command="/usr/bin/python3 -I /home/m4rk/cf-b/herramientas/sensor_control_d5.py --base /home/m4rk/feed-v2/d5/control --feed /home/m4rk/feed-v2/feed.json --estado /home/m4rk/feed-v2/estado.json --traza /home/m4rk/feed-v2/traza.jsonl --auditoria /home/m4rk/feed-v2/d5/auditoria/d5-auditoria.jsonl --ssh-original",restrict' 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAI<CLAVE-PUBLICA-DEDICADA-QUE-GENERARA-EL-BASTION>' 'cf-bastion-d5' >> '/home/m4rk/.ssh/authorized_keys'
+[seco] chmod 600 /home/m4rk/.ssh/authorized_keys
+--- drop-in previsto (/etc/systemd/system/ppi-publicar-feed-v2.service.d/zz-d5-sin-reinicio.conf):
+[Service]
+Environment=PYTHONPATH=/home/m4rk/cyberflow-e4/ec78ca5/scripts/engine
+ExecStart=
+ExecStart=/home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cf-b/d5/publicar_feed_v2_d5.py --log /home/m4rk/cyberflow/logs/motor_decision.log --estado /home/m4rk/feed-v2/estado.json --clave-privada /home/m4rk/cyberflow/artifacts/feed-keys/priv.pem --salida-feed /home/m4rk/feed-v2/feed.json --salida-firma /home/m4rk/feed-v2/feed.sig --senales /home/m4rk/feed-v2/senales-if.jsonl --senales-rapidas /home/m4rk/feed-v2/senales-rapidas.jsonl --traza /home/m4rk/feed-v2/traza.jsonl --politica if_senal --vigencia-segundos 60 --refresco-segundos 20 --seguir --control-d5 /home/m4rk/feed-v2/d5/control/control.json --d5-origen 10.10.20.30 --d5-auditoria /home/m4rk/feed-v2/d5/auditoria/d5-auditoria.jsonl
+--- logrotate previsto (/etc/logrotate.d/cf-d5-auditoria):
+/home/m4rk/feed-v2/d5/auditoria/d5-auditoria.jsonl {
+    su m4rk m4rk
+    daily
+    rotate 30
+    missingok
+    notifempty
+    compress
+    delaycompress
+    nocopytruncate
+    create 0640 m4rk m4rk
+}
+[seco] sudo -n install -d -m 0755 /etc/systemd/system/ppi-publicar-feed-v2.service.d /etc/logrotate.d
+[seco] escribir /etc/systemd/system/ppi-publicar-feed-v2.service.d/zz-d5-sin-reinicio.conf y /etc/logrotate.d/cf-d5-auditoria con sudo
+rc=0
+
+################ SENSOR1 — instalar, seco, SIN --con-sudo (lo que se deja para Mark)
+== Sensor1: instalar (aplicar=0)
+[seco] mkdir -p /home/m4rk/cf-b/respaldo-d5/20261111T002700Z /home/m4rk/cf-b/herramientas /home/m4rk/feed-v2/d5/control /home/m4rk/feed-v2/d5/auditoria /home/m4rk/.ssh
+[seco] chmod 700 /home/m4rk/feed-v2/d5/control /home/m4rk/.ssh
+[seco] chmod 750 /home/m4rk/feed-v2/d5/auditoria
+[seco] cp -p /home/m4rk/.ssh/authorized_keys /home/m4rk/cf-b/respaldo-d5/20261111T002700Z/authorized_keys
+[seco] install -m 0644 /pq/sensor_control_d5.py /home/m4rk/cf-b/herramientas/sensor_control_d5.py
+[seco] install -m 0644 /pq/adaptador_banco.py /home/m4rk/cf-b/herramientas/adaptador_banco.py
+[seco] install -m 0644 /pq/adaptador_banco_rot.py /home/m4rk/cf-b/herramientas/adaptador_banco_rot.py
+[seco] install -m 0644 /pq/auditoria_d5.py /home/m4rk/cf-b/herramientas/auditoria_d5.py
+[seco] install -m 0644 /pq/d5_control.py /home/m4rk/cf-b/herramientas/d5_control.py
+[seco] chmod 0755 /home/m4rk/cf-b/herramientas/sensor_control_d5.py
+[seco] mkdir -p /home/m4rk/cf-b/d5
+[seco] install -m 0644 /pq/publicar_feed_v2_d5.py /home/m4rk/cf-b/d5/publicar_feed_v2_d5.py
+[seco] bash -c printf '%s %s %s\n' 'from="10.10.10.30",command="/usr/bin/python3 -I /home/m4rk/cf-b/herramientas/sensor_control_d5.py --base /home/m4rk/feed-v2/d5/control --feed /home/m4rk/feed-v2/feed.json --estado /home/m4rk/feed-v2/estado.json --traza /home/m4rk/feed-v2/traza.jsonl --auditoria /home/m4rk/feed-v2/d5/auditoria/d5-auditoria.jsonl --ssh-original",restrict' 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAI<CLAVE-PUBLICA-DEDICADA-QUE-GENERARA-EL-BASTION>' 'cf-bastion-d5' >> '/home/m4rk/.ssh/authorized_keys'
+[seco] chmod 600 /home/m4rk/.ssh/authorized_keys
+--- drop-in previsto (/etc/systemd/system/ppi-publicar-feed-v2.service.d/zz-d5-sin-reinicio.conf):
+[Service]
+Environment=PYTHONPATH=/home/m4rk/cyberflow-e4/ec78ca5/scripts/engine
+ExecStart=
+ExecStart=/home/m4rk/cyberflow/.venv/bin/python /home/m4rk/cf-b/d5/publicar_feed_v2_d5.py --log /home/m4rk/cyberflow/logs/motor_decision.log --estado /home/m4rk/feed-v2/estado.json --clave-privada /home/m4rk/cyberflow/artifacts/feed-keys/priv.pem --salida-feed /home/m4rk/feed-v2/feed.json --salida-firma /home/m4rk/feed-v2/feed.sig --senales /home/m4rk/feed-v2/senales-if.jsonl --senales-rapidas /home/m4rk/feed-v2/senales-rapidas.jsonl --traza /home/m4rk/feed-v2/traza.jsonl --politica if_senal --vigencia-segundos 60 --refresco-segundos 20 --seguir --control-d5 /home/m4rk/feed-v2/d5/control/control.json --d5-origen 10.10.20.30 --d5-auditoria /home/m4rk/feed-v2/d5/auditoria/d5-auditoria.jsonl
+--- logrotate previsto (/etc/logrotate.d/cf-d5-auditoria):
+/home/m4rk/feed-v2/d5/auditoria/d5-auditoria.jsonl {
+    su m4rk m4rk
+    daily
+    rotate 30
+    missingok
+    notifempty
+    compress
+    delaycompress
+    nocopytruncate
+    create 0640 m4rk m4rk
+}
+[seco] mkdir -p /pq/pendiente-sudo
+[seco] dejar el contenido en /pq/pendiente-sudo/ (sin --con-sudo)
+NO se reinicia el publicador (hacerlo con --reiniciar, fuera de campaña, un solo reinicio anotado)
+rc=0
+
+################ SENSOR1 — revertir, seco
+== Sensor1: revertir (aplicar=0) — la evidencia se archiva, no se borra
+SUDO PENDIENTE (Mark): sudo rm -f /etc/systemd/system/ppi-publicar-feed-v2.service.d/zz-d5-sin-reinicio.conf /etc/logrotate.d/cf-d5-auditoria && sudo systemctl daemon-reload
+el publicador sigue con el ExecStart cargado hasta su próximo reinicio: reiniciar con --reiniciar (anotado como reversión) tras quitar el drop-in
+rc=0
+
+################ SENSOR1 — aceptar (solo lectura; sin instalar debe FALLAR en lo no instalado)
+== Sensor1: aceptación (solo lectura)
+OK    artefactos del paquete = SHA256SUMS
+sha256sum: /home/m4rk/cf-b/herramientas/sensor_control_d5.py: No such file or directory
+FALLA instalado sensor_control_d5.py = paquete
+sha256sum: /home/m4rk/cf-b/herramientas/adaptador_banco.py: No such file or directory
+FALLA instalado adaptador_banco.py = paquete
+sha256sum: /home/m4rk/cf-b/herramientas/adaptador_banco_rot.py: No such file or directory
+FALLA instalado adaptador_banco_rot.py = paquete
+sha256sum: /home/m4rk/cf-b/herramientas/auditoria_d5.py: No such file or directory
+FALLA instalado auditoria_d5.py = paquete
+sha256sum: /home/m4rk/cf-b/herramientas/d5_control.py: No such file or directory
+FALLA instalado d5_control.py = paquete
+sha256sum: /home/m4rk/cf-b/d5/publicar_feed_v2_d5.py: No such file or directory
+FALLA publicador derivado instalado (en cf-b/d5) = paquete
+OK    el árbol candidato ec78ca5 NO contiene el derivado
+OK    publicador ORIGINAL intacto (5733f17d…)
+stat: cannot statx '/home/m4rk/feed-v2/d5/control': No such file or directory
+FALLA control 0700
+stat: cannot statx '/home/m4rk/feed-v2/d5/auditoria': No such file or directory
+FALLA auditoría 0750
+FALLA authorized_keys 0600 con UNA línea cf-bastion-d5, comando forzado y restrict
+FALLA drop-in de systemd presente (sudo de Mark)
+FALLA logrotate presente (sudo de Mark)
+/usr/bin/python3: can't open file '/home/m4rk/cf-b/herramientas/sensor_control_d5.py': [Errno 2] No such file or directory
+FALLA comando permitido responde (resultado de un id inexistente = desconocida)
+/usr/bin/python3: can't open file '/home/m4rk/cf-b/herramientas/sensor_control_d5.py': [Errno 2] No such file or directory
+FALLA comando fuera de la lista blanca rechazado
+resumen: 3 OK, 13 FALLAN
+rc=1
+
+################ BASTIÓN (gadmin) — clave, seco
+[seco] mkdir -p /home/gadmin/.ssh
+[seco] chmod 700 /home/gadmin/.ssh
+[seco] ssh-keygen -q -t ed25519 -N  -C cf-bastion-d5 -f /home/gadmin/.ssh/cyberflow-d5-sensor
+rc=0
+
+################ BASTIÓN — instalar, seco (CF_HOSTKEY = marcador; en la instalación real es la pública del Sensor1 comprobada por huella)
+== Bastión: instalar (aplicar=0)
+[seco] mkdir -p /home/gadmin/cf-b/respaldo-d5/20261111T002700Z /home/gadmin/cf-b/herramientas
+[seco] install -m 0755 /pq/transporte_bastion.py /home/gadmin/cf-b/herramientas/transporte_bastion.py
+[seco] install -m 0755 /pq/lanzador_puerta_banco.py /home/gadmin/cf-b/herramientas/lanzador_puerta_banco.py
+[seco] install -m 0755 /pq/hacer_d5_episodio_banco.py /home/gadmin/cf-b/herramientas/hacer_d5_episodio_banco.py
+[seco] python3 -I /home/gadmin/cf-b/herramientas/hacer_d5_episodio_banco.py /home/gadmin/cf-b/herramientas/d5_episodio.py /home/gadmin/cf-b/herramientas/d5_episodio_banco.py
+[seco] fijar la clave de huésped en /home/gadmin/.ssh/known_hosts_d5
+huella de la clave de huésped fijada (compararla con la que muestra el Sensor1: ssh-keygen -lf /etc/ssh/ssh_host_ed25519_key.pub):
+orden de arranque de la puerta (propuesta, la fija Mark): python3 -I /home/gadmin/cf-b/herramientas/lanzador_puerta_banco.py ejecutar --dir <dir> --d5-banco /home/gadmin/cf-b/herramientas/d5_episodio_banco.py --sensor m4rk@10.10.60.11 --clave /home/gadmin/.ssh/cyberflow-d5-sensor --known-hosts /home/gadmin/.ssh/known_hosts_d5 --herramientas /home/gadmin/cf-b/herramientas --espera-fin <15|75> --ssh-sensor-legado '<orden ssh Sensor1>' --ssh-srv-legado '<orden ssh srv-dmz>'
+rc=0
+
+################ BASTIÓN — revertir, seco
+== Bastión: revertir (aplicar=0) — la evidencia se archiva, no se borra
+ANTES: retirar la línea cf-bastion-d5 de authorized_keys del Sensor1 (cf_d5_sensor1.sh revertir)
+archivar con hash: el directorio de la compuerta contiene puerta-bloqueo.json (no se borra)
+archivar con hash: el directorio de la compuerta contiene puertas-D5.jsonl (no se borra)
+archivar con hash: el directorio de la compuerta contiene puerta-banco.jsonl (no se borra)
+rc=0
+
+################ kali — instrumentación, instalar y revertir, seco
+== kali: instalar instrumentación (aplicar=0)
+[seco] mkdir -p /home/adminatacante/cf-b/instrumentacion
+[seco] install -m 0755 /pq/inundacion_instrumentada.sh /home/adminatacante/cf-b/instrumentacion/inundacion_instrumentada.sh
+Mark: en la config firmada de la corrida, el comando de la inundación pasa a: bash /home/adminatacante/cf-b/instrumentacion/inundacion_instrumentada.sh /home/adminatacante/cf-e4-4c/intentos-<episodio>.tsv http://10.10.30.10/ 90 8  (misma duración, URL y nº de lazos que el original)
+rc=0
+== kali: revertir instrumentación (aplicar=0) — los registros temporales se archivan con hash, no se borran
+[seco] mkdir -p /home/adminatacante/cf-b/respaldo-d5
+los ficheros intentos-*.tsv / transacciones-*.tsv / set-lecturas.jsonl se mueven a un directorio con sufijo y sha256 (no se borran)
+rc=0
+
+################ clientes — instrumentación, instalar y revertir, seco
+== clientes: instalar instrumentación (aplicar=0)
+[seco] mkdir -p /home/adminclientes/cf-b/instrumentacion
+[seco] install -m 0755 /pq/clientes_factor1_tx.py /home/adminclientes/cf-b/instrumentacion/clientes_factor1_tx.py
+Mark: arrancar cada perfil con: python3 /home/adminclientes/cf-b/instrumentacion/clientes_factor1_tx.py --registro ~/cf-e4/4c/transacciones-<perfil>.tsv --perfil <p> --origen <ip> --servidor 10.10.30.10 --dns 10.10.10.20
+rc=0
+== clientes: revertir instrumentación (aplicar=0) — los registros temporales se archivan con hash, no se borran
+[seco] mkdir -p /home/adminclientes/cf-b/respaldo-d5
+los ficheros intentos-*.tsv / transacciones-*.tsv / set-lecturas.jsonl se mueven a un directorio con sufijo y sha256 (no se borran)
+rc=0
+
+################ srvdmz — instrumentación, instalar y revertir, seco
+== srvdmz: instalar instrumentación (aplicar=0)
+[seco] mkdir -p /home/adminsrvdmz/cf-b/instrumentacion
+[seco] install -m 0755 /pq/muestreador_set.py /home/adminsrvdmz/cf-b/instrumentacion/muestreador_set.py
+iniciar: cf_d5_instrumentacion.sh srvdmz iniciar --aplicar   |   parar: cf_d5_instrumentacion.sh srvdmz parar --aplicar
+rc=0
+== srvdmz: revertir instrumentación (aplicar=0) — los registros temporales se archivan con hash, no se borran
+[seco] mkdir -p /home/adminsrvdmz/cf-b/respaldo-d5
+los ficheros intentos-*.tsv / transacciones-*.tsv / set-lecturas.jsonl se mueven a un directorio con sufijo y sha256 (no se borran)
+rc=0
+espejo antes : 59fe41fe9b921ea4a16d550d731bb463fc74a9e62742db5aa8dd7a82d91baba6
+espejo despues: 59fe41fe9b921ea4a16d550d731bb463fc74a9e62742db5aa8dd7a82d91baba6
+RESULTADO: el modo seco NO cambió el espejo (ni /home de ningún host simulado)
+ls: cannot access '/home/adminatacante': No such file or directory
+ls: cannot access '/home/adminclientes': No such file or directory
+ls: cannot access '/home/adminsrvdmz': No such file or directory

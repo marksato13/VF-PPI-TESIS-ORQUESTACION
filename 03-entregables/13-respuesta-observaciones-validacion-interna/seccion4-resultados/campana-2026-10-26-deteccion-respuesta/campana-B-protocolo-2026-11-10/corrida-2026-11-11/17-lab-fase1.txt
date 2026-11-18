@@ -1,0 +1,11 @@
+## fase1 2026-11-11T06:54:51Z
+publicador antes: PID=2115304 NR=0
+[A3] fin automático cf-b-fin a las 2 h (ejecuta la reversión real)
+Running timer as unit: cf-b-fin.timer
+Will run service as unit: cf-b-fin.service
+[A4] reiniciar el agente con --aplicar y comprobar
+== RESULTADO modo=real rc=0
+## [ACCESO SSH A KALI 2026-11-11T06:54:57.845Z: ráfaga de 60 s de laboratorio (inundacion_instrumentada.sh) hacia srv-dmz:80]
+intentos=3225
+ráfaga terminada 2026-11-11T06:55:58Z. Siguiente: fase2 a partir de fin + 80 s
+rc=0

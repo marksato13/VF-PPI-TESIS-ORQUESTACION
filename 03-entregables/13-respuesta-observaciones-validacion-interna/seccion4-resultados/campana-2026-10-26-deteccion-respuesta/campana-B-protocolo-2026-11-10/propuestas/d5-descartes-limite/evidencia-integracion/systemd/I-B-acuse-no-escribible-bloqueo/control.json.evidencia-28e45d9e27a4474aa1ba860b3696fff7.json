@@ -1,0 +1,103 @@
+{
+ "diagnostico": {
+  "auditoria": {
+   "estable": true,
+   "generaciones": [
+    {
+     "bytes": 415,
+     "error": null,
+     "ilegibles": 0,
+     "leida": true,
+     "lineas": 3,
+     "ruta": "/var/tmp/d5lr/I-B-acuse-no-escribible-bloqueo/aud/d5-auditoria.jsonl",
+     "sha256": "35a2e911a13c6ab6baaa1247f67cdb98e09b3100b5128542e4a147d28e2fdf58"
+    }
+   ],
+   "ilegibles": 0,
+   "intentos": 1,
+   "problemas": []
+  },
+  "auditoria_del_id": [
+   {
+    "_gen": "d5-auditoria.jsonl",
+    "duplicada": false,
+    "evento": "consumido",
+    "id": "28e45d9e27a4474aa1ba860b3696fff7",
+    "ok": true,
+    "quitado": {
+     "escalada": [
+      "10.10.20.30@srv-dmz"
+     ],
+     "vigentes": [
+      "10.10.20.30|srv-dmz|todo"
+     ]
+    },
+    "t": 1794379215.2826817
+   },
+   {
+    "_gen": "d5-auditoria.jsonl",
+    "evento": "publicado",
+    "id": "28e45d9e27a4474aa1ba860b3696fff7",
+    "secuencia": 3,
+    "t": 1794379215.2874115
+   },
+   {
+    "_gen": "d5-auditoria.jsonl",
+    "evento": "ack_fallido",
+    "id": "28e45d9e27a4474aa1ba860b3696fff7",
+    "t": 1794379215.2875695
+   }
+  ],
+  "auditoria_disponible": true,
+  "categoria": "consumida_y_publicada",
+  "control_presente": false,
+  "determinada": true,
+  "estado": {
+   "escalada": [],
+   "vigentes": []
+  },
+  "feed": {
+   "entradas_origen": [],
+   "generado": 1794379216.7992744,
+   "secuencia": 4
+  },
+  "feed_posterior_o_igual": true,
+  "generaciones_del_id": [
+   "d5-auditoria.jsonl"
+  ],
+  "id": "28e45d9e27a4474aa1ba860b3696fff7",
+  "motivo": null,
+  "publicacion": "confirmada",
+  "secuencia_publicada": 3,
+  "t": 1794379217.9554055,
+  "traza_ultimas": [
+   {
+    "entradas": 3,
+    "nuevos": 3,
+    "secuencia": 1
+   },
+   {
+    "entradas": 3,
+    "nuevos": 0,
+    "secuencia": 2
+   },
+   {
+    "entradas": 2,
+    "nuevos": 0,
+    "secuencia": 3
+   },
+   {
+    "entradas": 2,
+    "nuevos": 0,
+    "secuencia": 4
+   }
+  ],
+  "trazabilidad": "completa"
+ },
+ "resultado_cliente": {
+  "estado": "sin_acuse_procesada",
+  "id": "28e45d9e27a4474aa1ba860b3696fff7",
+  "ok": false,
+  "rc": 6
+ }
+}

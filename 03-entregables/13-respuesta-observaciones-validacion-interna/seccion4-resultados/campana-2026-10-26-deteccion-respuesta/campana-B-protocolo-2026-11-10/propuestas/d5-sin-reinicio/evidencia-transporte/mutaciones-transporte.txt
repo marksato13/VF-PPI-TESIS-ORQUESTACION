@@ -1,0 +1,13 @@
+M00 MUERTA sensor_control_d5.py: 'if os.path.exists(reg):\n            return {"ok": True,'
+M01 MUERTA sensor_control_d5.py: 'if os.path.exists(cfg.control):\n            return {"ok'
+M02 MUERTA sensor_control_d5.py: 'if n == "solicitar" and len(r) == 4 and r[0] == "--id" '
+M03 MUERTA sensor_control_d5.py: 'if ctl and ctl.get("id") == id_:\n            try:'
+M04 MUERTA sensor_control_d5.py: 'if reg.get("cancelada_en"):'
+M05 MUERTA sensor_control_d5.py: 'if n in ("resultado", "cancelar") and len(r) == 2 and r'
+M06 MUERTA transporte_bastion.py: 'if p is None:\n            id_ = uuid.uuid4().hex'
+M07 MUERTA transporte_bastion.py: '_escribir(self.p_pend, {"id": id_, "t": self.ahora(), "'
+M08 MUERTA transporte_bastion.py: 'return self._fallo(id_, "sin_transporte", evid)        '
+M09 MUERTA transporte_bastion.py: 'return self._fallo(id_, "desconocida_en_sensor", evid)'
+M10 MUERTA transporte_bastion.py: 'if not str(quien).strip() or not str(motivo).strip():\n '
+M11 MUERTA transporte_bastion.py: 'self._log({"evento": "pendiente_descartado_manual"'
+12/12 muertas; vivas: []

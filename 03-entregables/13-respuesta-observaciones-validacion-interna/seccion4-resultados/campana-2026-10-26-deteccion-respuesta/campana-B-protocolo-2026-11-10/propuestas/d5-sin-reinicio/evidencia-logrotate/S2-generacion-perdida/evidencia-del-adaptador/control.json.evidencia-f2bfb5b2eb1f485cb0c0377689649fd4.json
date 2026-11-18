@@ -1,0 +1,82 @@
+{
+ "diagnostico": {
+  "auditoria": {
+   "estable": true,
+   "generaciones": [
+    {
+     "bytes": 0,
+     "error": null,
+     "ilegibles": 0,
+     "leida": true,
+     "lineas": 0,
+     "ruta": "/var/tmp/d5lr/S2-generacion-perdida/aud/d5-auditoria.jsonl",
+     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+     "bytes": 200,
+     "error": null,
+     "ilegibles": 0,
+     "leida": true,
+     "lineas": 2,
+     "ruta": "/var/tmp/d5lr/S2-generacion-perdida/aud/d5-auditoria.jsonl.1",
+     "sha256": "fc3684de1178c9a294dccd66a0dfd1846798a74df466d150466fa2f3e26bf4af"
+    }
+   ],
+   "ilegibles": 0,
+   "intentos": 1,
+   "problemas": []
+  },
+  "auditoria_del_id": [
+   {
+    "_gen": "d5-auditoria.jsonl.1",
+    "evento": "publicado",
+    "id": "f2bfb5b2eb1f485cb0c0377689649fd4",
+    "secuencia": 2,
+    "t": 1794343876.5214915
+   },
+   {
+    "_gen": "d5-auditoria.jsonl.1",
+    "evento": "ack_fallido",
+    "id": "f2bfb5b2eb1f485cb0c0377689649fd4",
+    "t": 1794343876.5216808
+   }
+  ],
+  "auditoria_disponible": true,
+  "categoria": "indeterminada",
+  "control_presente": false,
+  "determinada": false,
+  "estado": {
+   "escalada": [],
+   "vigentes": []
+  },
+  "feed": {
+   "entradas_origen": [],
+   "generado": 1794343876.4935405,
+   "secuencia": 2
+  },
+  "id": "f2bfb5b2eb1f485cb0c0377689649fd4",
+  "motivo": "hay `publicado` sin `consumido`: falta parte de la traza; no se afirma nada",
+  "publicacion": "publicaci\u00f3n sin confirmar",
+  "secuencia_publicada": null,
+  "t": 1794343888.66841,
+  "traza_ultimas": [
+   {
+    "entradas": 3,
+    "nuevos": 3,
+    "secuencia": 1
+   },
+   {
+    "entradas": 2,
+    "nuevos": 0,
+    "secuencia": 2
+   }
+  ],
+  "trazabilidad": "incompleta"
+ },
+ "resultado_cliente": {
+  "estado": "sin_acuse_procesada",
+  "id": "f2bfb5b2eb1f485cb0c0377689649fd4",
+  "ok": false,
+  "rc": 6
+ }
+}

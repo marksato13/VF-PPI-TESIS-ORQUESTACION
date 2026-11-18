@@ -1,0 +1,6 @@
+{"evento": "puerta_bloqueada", "motivos": ["limpieza fall\u00f3: sin acuse v\u00e1lido: sin_acuse_procesada / consumida_y_publicada"], "pasos": ["limpiar"], "t": 1794353561.9058537}
+{"evento": "omitida_por_puerta_bloqueada", "motivos": ["limpieza fall\u00f3: sin acuse v\u00e1lido: sin_acuse_procesada / consumida_y_publicada"], "t": 1794353561.9059227}
+{"evento": "omitida_por_puerta_bloqueada", "motivos": ["limpieza fall\u00f3: sin acuse v\u00e1lido: sin_acuse_procesada / consumida_y_publicada"], "t": 1794353561.9059453}
+{"evento": "omitida_por_puerta_bloqueada", "motivos": ["limpieza fall\u00f3: sin acuse v\u00e1lido: sin_acuse_procesada / consumida_y_publicada"], "t": 1794353561.9059618}
+{"caso_bloqueado": ["/var/tmp/d5lr/I-C-reanudacion-manual/work/control.json.evidencia-3e36698439d547e2b6fe6558239031eb.json"], "evento": "reanudacion_manual", "motivo": "acuse restablecido tras corregir el destino del acuse", "por": "Mark (prueba de banco)", "t": 1794353561.9060533}
+{"evento": "puerta_lista", "motivos": [], "pasos": ["limpiar", "feed_tras_limpiar", "nft_antes", "nft_despues", "agente", "feed_final"], "t": 1794353563.9586859}

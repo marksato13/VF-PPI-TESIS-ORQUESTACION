@@ -1,0 +1,54 @@
+{
+ "diagnostico": {
+  "auditoria_del_id": [],
+  "auditoria_disponible": false,
+  "categoria": "indeterminada",
+  "control_presente": false,
+  "determinada": false,
+  "estado": {
+   "escalada": [],
+   "vigentes": []
+  },
+  "feed": {
+   "entradas_origen": [],
+   "generado": 1794341649.3641944,
+   "secuencia": 5
+  },
+  "id": "3b20e71a3e3b40bcae9bec0d7f598822",
+  "secuencia_publicada": null,
+  "t": 1794341649.5000556,
+  "traza_ultimas": [
+   {
+    "entradas": 3,
+    "nuevos": 3,
+    "secuencia": 1
+   },
+   {
+    "entradas": 3,
+    "nuevos": 0,
+    "secuencia": 2
+   },
+   {
+    "entradas": 2,
+    "nuevos": 0,
+    "secuencia": 3
+   },
+   {
+    "entradas": 2,
+    "nuevos": 0,
+    "secuencia": 4
+   },
+   {
+    "entradas": 2,
+    "nuevos": 0,
+    "secuencia": 5
+   }
+  ]
+ },
+ "resultado_cliente": {
+  "estado": "sin_acuse_procesada",
+  "id": "3b20e71a3e3b40bcae9bec0d7f598822",
+  "ok": false,
+  "rc": 6
+ }
+}

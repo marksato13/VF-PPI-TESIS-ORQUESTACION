@@ -1,0 +1,35 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-8.3.5, pluggy-1.5.0 -- /usr/bin/python3
+rootdir: /banco
+collecting ... collected 28 items
+
+test_adaptador_extremo_a_extremo.py::test_flujo_extremo_a_extremo_con_acuse PASSED [  3%]
+test_adaptador_extremo_a_extremo.py::test_acuse_falla_tras_limpiar_se_reconcilia_sin_emitir_id_nuevo PASSED [  7%]
+test_adaptador_extremo_a_extremo.py::test_limpieza_ocurrio_acuse_fallo_y_la_propuesta_nueva_se_conserva PASSED [ 10%]
+test_adaptador_extremo_a_extremo.py::test_acuse_ausente_con_publicador_detenido_no_consumida_y_sin_id_nuevo PASSED [ 14%]
+test_adaptador_extremo_a_extremo.py::test_sin_auditoria_no_se_puede_determinar_es_incierto_y_fallido_y_se_conserva_la_evidencia PASSED [ 17%]
+test_adaptador_extremo_a_extremo.py::test_otros_casos_independientes_siguen_tras_un_caso_incierto PASSED [ 21%]
+test_adaptador_extremo_a_extremo.py::test_si_la_auditoria_no_se_puede_escribir_el_publicador_sigue_y_el_acuse_llega PASSED [ 25%]
+test_adaptador_extremo_a_extremo.py::test_pendiente_previa_no_escribe_nada_ni_emite_otra_solicitud PASSED [ 28%]
+test_adaptador_extremo_a_extremo.py::test_diagnostico_con_auditoria_sintetica_cubre_las_categorias PASSED [ 32%]
+test_adaptador_extremo_a_extremo.py::test_la_evidencia_nunca_se_sobrescribe PASSED [ 35%]
+test_d5_sin_reinicio.py::test_el_reset_limpia_solo_a_la_kali_conserva_lo_demas_y_no_reinicia PASSED [ 39%]
+test_d5_sin_reinicio.py::test_tras_el_reset_la_kali_vuelve_al_nivel_1_de_la_escalera PASSED [ 42%]
+test_d5_sin_reinicio.py::test_controles_no_validos_se_rechazan_sin_tocar_el_estado[control0-origen no permitido] PASSED [ 46%]
+test_d5_sin_reinicio.py::test_controles_no_validos_se_rechazan_sin_tocar_el_estado[control1-control mal formado] PASSED [ 50%]
+test_d5_sin_reinicio.py::test_controles_no_validos_se_rechazan_sin_tocar_el_estado[control2-control mal formado] PASSED [ 53%]
+test_d5_sin_reinicio.py::test_control_ilegible_no_rompe_el_bucle PASSED  [ 57%]
+test_d5_sin_reinicio.py::test_sin_las_opciones_es_identico_al_original_y_un_control_presente_se_ignora PASSED [ 60%]
+test_d5_sin_reinicio.py::test_el_cambio_al_codigo_es_pequeno PASSED      [ 64%]
+test_flujo_completo.py::test_flujo_completo_solicitud_limpieza_acuse PASSED [ 67%]
+test_flujo_completo.py::test_la_escalera_de_la_kali_vuelve_a_nivel_1_con_el_proceso_vivo PASSED [ 71%]
+test_flujo_completo.py::test_solicitud_duplicada_es_un_no_op_y_no_borra_lo_nuevo PASSED [ 75%]
+test_flujo_completo.py::test_control_pendiente_no_se_sobrescribe_ni_se_acumula PASSED [ 78%]
+test_flujo_completo.py::test_acuse_ausente_publicador_detenido_falla_seguro_y_retira_el_control PASSED [ 82%]
+test_flujo_completo.py::test_acuse_que_no_se_puede_escribir_no_tumba_el_publicador_y_el_cliente_no_asume_limpio PASSED [ 85%]
+test_flujo_completo.py::test_acuse_antiguo_de_otro_id_se_ignora PASSED   [ 89%]
+test_flujo_completo.py::test_controles_invalidos_se_rechazan_con_el_proceso_vivo_y_el_estado_intacto[contenido0-origen no permitido] PASSED [ 92%]
+test_flujo_completo.py::test_controles_invalidos_se_rechazan_con_el_proceso_vivo_y_el_estado_intacto[contenido1-control mal formado] PASSED [ 96%]
+test_flujo_completo.py::test_controles_invalidos_se_rechazan_con_el_proceso_vivo_y_el_estado_intacto[{no es json-control ilegible] PASSED [100%]
+
+============================= 28 passed in 20.27s ==============================

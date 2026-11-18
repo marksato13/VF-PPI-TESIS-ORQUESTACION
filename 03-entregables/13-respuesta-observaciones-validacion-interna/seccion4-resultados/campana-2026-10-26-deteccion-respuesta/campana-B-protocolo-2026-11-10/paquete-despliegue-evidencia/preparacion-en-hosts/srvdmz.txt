@@ -1,0 +1,32 @@
+##### srvdmz: srv-dmz 2026-11-11T01:09:07Z
+--- 1. hashes
+OK: artefactos = SHA256SUMS
+--- 2. modo SECO instalar y revertir
+== srvdmz: instalar instrumentación (aplicar=0)
+[seco] mkdir -p /home/adminsrvdmz/cf-b/instrumentacion
+[seco] install -m 0755 /home/adminsrvdmz/cf-b/paquete-despliegue/muestreador_set.py /home/adminsrvdmz/cf-b/instrumentacion/muestreador_set.py
+iniciar: cf_d5_instrumentacion.sh srvdmz iniciar --aplicar   |   parar: cf_d5_instrumentacion.sh srvdmz parar --aplicar
+rc=0
+== srvdmz: revertir instrumentación (aplicar=0) — los registros temporales se archivan con hash, no se borran
+[seco] mkdir -p /home/adminsrvdmz/cf-b/respaldo-d5
+los ficheros intentos-*.tsv / transacciones-*.tsv / set-lecturas.jsonl se mueven a un directorio con sufijo y sha256 (no se borran)
+rc=0
+--- 3. aceptar (solo lectura; sin instalar se espera FALLA)
+stat: cannot statx '/home/adminsrvdmz/cf-b/instrumentacion/muestreador_set.py': No such file or directory
+FALLA muestreador_set.py 0755
+FALLA el muestreador arranca (--help)
+resumen: 1 OK, 3 FALLAN
+--- 4. compatibilidad del artefacto con el host (sin escribir)
+usage: muestreador_set.py [-h] --salida SALIDA [--intervalo INTERVALO]
+                          [--duracion DURACION] [--helper HELPER]
+rc=0
+-rwxr-xr-x 1 root root 13304 nov  4 02:18 /usr/local/sbin/cf-nft-helper
+(el muestreador usará: sudo -n /usr/local/sbin/cf-nft-helper — NO se probó: requiere sudo)
+--- 5. nada nuevo fuera del paquete
+generador
+guiones
+herramientas
+paquete-despliegue
+pre-B-dir.txt
+SHA256SUMS
+ls: cannot access '/home/adminsrvdmz/cf-b/instrumentacion': No such file or directory

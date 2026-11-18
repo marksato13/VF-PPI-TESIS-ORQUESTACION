@@ -1,0 +1,13 @@
+{
+ "evidencia": "control.json.evidencia-419d771c96024d7393fd1ec480f877d0.json",
+ "operacion": {
+  "categoria": "indeterminada",
+  "determinada": false,
+  "estado": "sin_acuse_procesada",
+  "incierto": true,
+  "motivo": "auditoría con problemas: /tmp/pytest-of-nobody/pytest-12/test_proceso_real_acuse_falla_1/d5-auditoria.jsonl: es un directorio",
+  "ok": false,
+  "trazabilidad": "incompleta"
+ },
+ "solicitudes": 1
+}

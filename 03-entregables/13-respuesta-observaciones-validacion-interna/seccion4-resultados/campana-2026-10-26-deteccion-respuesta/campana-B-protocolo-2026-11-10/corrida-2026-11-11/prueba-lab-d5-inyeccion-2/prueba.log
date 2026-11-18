@@ -1,0 +1,38 @@
+## prueba por inyección 2026-11-11T07:38:26Z id-LIMIT=ebaf3ab90b4c1ca8
+publicador antes: PID=2115304 NR=0
+entradas de la Kali en el feed antes: 0
+srv-dmz antes: agente active --aplicar=0 tablas=0
+## [2026-11-11T07:38:27.862Z] helper: asegurar
+{"ok": true, "operaciones": 1, "perfil": "dmz"}
+## [2026-11-11T07:38:28.299Z] helper: anadir LIMIT limitados 10.10.20.30 timeout 300 id ebaf3ab90b4c1ca8
+{"ok": true, "operaciones": 1, "perfil": "dmz"}
+LIMIT aplicado (helper) a t=1794382708.297458493; estado: {"descartes_limite": {}, "sets": {"bloqueados": {}, "limitados": {"10.10.20.30": {"bytes": 0, "expira_s": 299, "id": "ebaf3ab90b4c1ca8", "paquetes": 0}}}}
+## [ACCESO SSH A KALI 2026-11-11T07:38:29.159Z: ráfaga de 3 s (inundacion_instrumentada.sh) para la prueba por inyección]
+intentos=56
+ráfaga: inicio +0.9 s tras el LIMIT; fin 2026-11-11T07:38:32.821Z
+ANTES de la puerta: {"descartes_limite": {"10.10.20.30": {"bytes": 5999, "expira_s": 3716, "id": null, "paquetes": 72}}, "sets": {"bloqueados": {}, "limitados": {"10.10.20.30": {"bytes": 29033, "expira_s": 293, "id": "ebaf3ab90b4c1ca8", "paquetes": 429}}}}
+estado reproducido: la Kali en limitados Y en descartes_limite (antes de ejecutar D5)
+lanzador rc=0
+DESPUÉS de la puerta: {"descartes_limite": {"10.10.20.30": {"bytes": 5999, "expira_s": 3686, "id": null, "paquetes": 72}}, "sets": {"bloqueados": {}, "limitados": {}}}
+publicador después: PID=2115304 NR=0
+OK    la puerta se liberó (lista=True)
+OK    nft_antes: la Kali solo en limitados (restriccion) y residual registrado aparte
+OK    la regla se retiró (retirar.retirado)
+OK    nft_despues: sets de aplicación sin la Kali y residual registrado
+OK    limitados y bloqueados quedaron vacíos para la Kali
+OK    el contador residual se conservó en descartes_limite
+OK    residual_conservado en puertas-D5.jsonl
+OK    publicador: mismo PID y NRestarts (sin reinicio)
+## reversión 2026-11-11T07:39:06Z
+  
+[R4b] archivar la traza del agente de B (no se borra; el verificador de sombra cuenta cualquier 'aplicacion' de la traza viva)
+  traza de B archivada en /var/lib/cyberflow/agente/traza-B-20261111T073907Z.jsonl (copia con hash en /var/lib/cyberflow/agente/traza-B-20261111T073907Z.jsonl.sha256)
+[R5] agente de nuevo en sombra
+  activo, sin --aplicar, eventos 'aplicacion' en la traza nueva: 0 (antes de B y durante B: 0, archivados)
+== RESULTADO modo=real rc=0 2026-11-11T07:39:12Z
+estado=sombra alcance=completo agentes=1 con_aplicar=0 tablas_cyberflow=0 eventos_aplicacion=0
+VERIFICACIÓN SRV-DMZ OK
+agente active NR=0 --aplicar=0 dropin=0 tablas=0 cf-b-fin=inactive
+publicador final: PID=2115304 NR=0
+RESULTADO: VALIDA
+marca ~/cf-b/prueba-lab-d5-corregido.ok escrita

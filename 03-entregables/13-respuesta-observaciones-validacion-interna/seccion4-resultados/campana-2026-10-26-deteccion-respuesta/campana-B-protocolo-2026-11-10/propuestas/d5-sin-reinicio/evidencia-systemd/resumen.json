@@ -1,0 +1,232 @@
+[
+ {
+  "caso": "A",
+  "criterios": {
+   "NRestarts_no_aumenta": true,
+   "journal_sin_parada_ni_arranque": true,
+   "mismo_MainPID": true,
+   "publicacion_nueva_tras_el_caso": true,
+   "una_sola_solicitud": true,
+   "unidad_activa": true
+  },
+  "limpieza": "confirmada",
+  "limpieza_via": "acuse + feed + estado + auditoría",
+  "observado": {
+   "K_fuera_del_feed_y_estado": true,
+   "MainPID": [
+    "226",
+    "226"
+   ],
+   "NRestarts": [
+    "0",
+    "0"
+   ],
+   "ficheros_del_caso": [
+    "control.json.ack",
+    "d5-auditoria.jsonl",
+    "estado.json",
+    "feed.json",
+    "feed.sig",
+    "k.pem",
+    "motor.log",
+    "traza.jsonl"
+   ],
+   "lineas_d5_en_journal": [],
+   "otras_entidades_en_feed": true,
+   "secuencia_feed": [
+    3,
+    5
+   ]
+  },
+  "operacion": {
+   "categoria": null,
+   "determinada": null,
+   "estado": "acuse",
+   "evidencia": null,
+   "incierto": false,
+   "ok": true,
+   "rc": 0,
+   "secuencia": 3
+  },
+  "rutas": {
+   "evidencia": "evidencia-systemd/A/"
+  },
+  "servicio": "PASA",
+  "unidad": "cf-d5-banco-a"
+ },
+ {
+  "caso": "B",
+  "criterios": {
+   "NRestarts_no_aumenta": true,
+   "journal_sin_parada_ni_arranque": true,
+   "mismo_MainPID": true,
+   "publicacion_nueva_tras_el_caso": true,
+   "una_sola_solicitud": true,
+   "unidad_activa": true
+  },
+  "limpieza": "confirmada",
+  "limpieza_via": "auditoría del publicador (consumido+publicado) + feed + estado, sin acuse",
+  "observado": {
+   "K_fuera_del_feed_y_estado": true,
+   "MainPID": [
+    "272",
+    "272"
+   ],
+   "NRestarts": [
+    "0",
+    "0"
+   ],
+   "ficheros_del_caso": [
+    "control.json.ack",
+    "control.json.ack.tmp",
+    "control.json.evidencia-6460e1c1bfe14039a2b3a39e2a4ab002.json",
+    "d5-auditoria.jsonl",
+    "estado.json",
+    "feed.json",
+    "feed.sig",
+    "k.pem",
+    "motor.log",
+    "traza.jsonl"
+   ],
+   "lineas_d5_en_journal": [
+    "2026-11-10T20:13:53.143354+00:00 3dbf6ad957f5 python3[272]: d5: no se pudo escribir el acuse (IsADirectoryError)"
+   ],
+   "otras_entidades_en_feed": true,
+   "secuencia_feed": [
+    5,
+    7
+   ]
+  },
+  "operacion": {
+   "categoria": "consumida_y_publicada",
+   "determinada": true,
+   "estado": "sin_acuse_procesada",
+   "evidencia": "/var/tmp/d5case/B/control.json.evidencia-6460e1c1bfe14039a2b3a39e2a4ab002.json",
+   "incierto": false,
+   "ok": false,
+   "rc": 6,
+   "secuencia": 3
+  },
+  "rutas": {
+   "evidencia": "evidencia-systemd/B/"
+  },
+  "servicio": "PASA",
+  "unidad": "cf-d5-banco-b"
+ },
+ {
+  "caso": "C",
+  "criterios": {
+   "NRestarts_no_aumenta": true,
+   "journal_sin_parada_ni_arranque": true,
+   "mismo_MainPID": true,
+   "publicacion_nueva_tras_el_caso": true,
+   "una_sola_solicitud": true,
+   "unidad_activa": true
+  },
+  "limpieza": "confirmada",
+  "limpieza_via": "acuse + feed + estado (sin auditoría)",
+  "observado": {
+   "K_fuera_del_feed_y_estado": true,
+   "MainPID": [
+    "320",
+    "320"
+   ],
+   "NRestarts": [
+    "0",
+    "0"
+   ],
+   "ficheros_del_caso": [
+    "control.json.ack",
+    "d5-auditoria.jsonl",
+    "estado.json",
+    "feed.json",
+    "feed.sig",
+    "k.pem",
+    "motor.log",
+    "traza.jsonl"
+   ],
+   "lineas_d5_en_journal": [
+    "2026-11-10T20:14:01.228172+00:00 3dbf6ad957f5 python3[320]: d5: no se pudo escribir la auditoría (IsADirectoryError)",
+    "2026-11-10T20:14:01.233510+00:00 3dbf6ad957f5 python3[320]: d5: no se pudo escribir la auditoría (IsADirectoryError)"
+   ],
+   "otras_entidades_en_feed": true,
+   "secuencia_feed": [
+    3,
+    5
+   ]
+  },
+  "operacion": {
+   "categoria": null,
+   "determinada": null,
+   "estado": "acuse",
+   "evidencia": null,
+   "incierto": false,
+   "ok": true,
+   "rc": 0,
+   "secuencia": 3
+  },
+  "rutas": {
+   "evidencia": "evidencia-systemd/C/"
+  },
+  "servicio": "PASA",
+  "unidad": "cf-d5-banco-c"
+ },
+ {
+  "caso": "D",
+  "criterios": {
+   "NRestarts_no_aumenta": true,
+   "journal_sin_parada_ni_arranque": true,
+   "mismo_MainPID": true,
+   "publicacion_nueva_tras_el_caso": true,
+   "una_sola_solicitud": true,
+   "unidad_activa": true
+  },
+  "limpieza": "indeterminada",
+  "limpieza_via": "el adaptador no pudo determinarlo (categoría indeterminada); feed/estado se guardan pero no deciden",
+  "observado": {
+   "K_fuera_del_feed_y_estado": true,
+   "MainPID": [
+    "366",
+    "366"
+   ],
+   "NRestarts": [
+    "0",
+    "0"
+   ],
+   "ficheros_del_caso": [
+    "control.json.ack",
+    "control.json.ack.tmp",
+    "control.json.evidencia-3b20e71a3e3b40bcae9bec0d7f598822.json",
+    "estado.json",
+    "feed.json",
+    "feed.sig",
+    "k.pem",
+    "motor.log",
+    "traza.jsonl"
+   ],
+   "lineas_d5_en_journal": [
+    "2026-11-10T20:14:06.332128+00:00 3dbf6ad957f5 python3[366]: d5: no se pudo escribir el acuse (IsADirectoryError)"
+   ],
+   "otras_entidades_en_feed": true,
+   "secuencia_feed": [
+    5,
+    7
+   ]
+  },
+  "operacion": {
+   "categoria": "indeterminada",
+   "determinada": false,
+   "estado": "sin_acuse_procesada",
+   "evidencia": "/var/tmp/d5case/D/control.json.evidencia-3b20e71a3e3b40bcae9bec0d7f598822.json",
+   "incierto": true,
+   "ok": false,
+   "rc": 6,
+   "secuencia": null
+  },
+  "rutas": {
+   "evidencia": "evidencia-systemd/D/"
+  },
+  "servicio": "PASA",
+  "unidad": "cf-d5-banco-d"
+ }
+]

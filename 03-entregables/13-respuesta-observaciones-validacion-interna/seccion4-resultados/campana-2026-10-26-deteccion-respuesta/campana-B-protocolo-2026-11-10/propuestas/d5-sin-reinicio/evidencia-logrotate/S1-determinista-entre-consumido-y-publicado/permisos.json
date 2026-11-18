@@ -1,0 +1,32 @@
+[
+ {
+  "ruta": "/var/tmp/d5lr/S1-determinista-entre-consumido-y-publicado/aud",
+  "modo": "0o2750",
+  "propietario": "nobody",
+  "grupo": "d5aud"
+ },
+ {
+  "ruta": "/var/tmp/d5lr/S1-determinista-entre-consumido-y-publicado/work",
+  "modo": "0o2750",
+  "propietario": "nobody",
+  "grupo": "d5aud"
+ },
+ {
+  "ruta": "/var/tmp/d5lr/S1-determinista-entre-consumido-y-publicado/aud/d5-auditoria.jsonl",
+  "modo": "0o640",
+  "propietario": "nobody",
+  "grupo": "d5aud"
+ },
+ {
+  "ruta": "/var/tmp/d5lr/S1-determinista-entre-consumido-y-publicado/aud/d5-auditoria.jsonl.1",
+  "modo": "0o640",
+  "propietario": "nobody",
+  "grupo": "d5aud"
+ },
+ {
+  "ruta": "/var/tmp/d5lr/S1-determinista-entre-consumido-y-publicado/aud/d5-auditoria.jsonl.2.gz",
+  "modo": "0o640",
+  "propietario": "nobody",
+  "grupo": "d5aud"
+ }
+]
