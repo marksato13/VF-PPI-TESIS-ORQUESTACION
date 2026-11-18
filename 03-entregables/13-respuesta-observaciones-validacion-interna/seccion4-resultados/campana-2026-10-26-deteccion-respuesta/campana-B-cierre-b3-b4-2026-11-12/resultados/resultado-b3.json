@@ -1,0 +1,384 @@
+{
+ "cobertura_segundos_con_captura": 2161,
+ "episodios": [
+  {
+   "E1": {
+    "margen_antes_del_fin_s": 72.47,
+    "otras_reglas_en_ventana": [],
+    "paquetes_kali_en_ventana_evidencia_y_episodio": 24378,
+    "resultado": "verificado",
+    "resultado_senal": "verificado",
+    "señal_publicador": "http_abuse",
+    "t_det_menos_t_inicio": 17.67,
+    "ventana_evidencia_vs_inicio_s": [
+     -48.7,
+     11.3
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "confirmacion": "confirmada",
+    "id_regla": "93c74775782c61ab",
+    "margen_antes_del_fin_s": 71.43,
+    "motivo": "regla confirmada antes del fin",
+    "resultado": "cumple",
+    "t_apl_menos_t_inicio": 18.71,
+    "violaciones": []
+   },
+   "E3": {
+    "b0": null,
+    "continuidad": {
+     "b0_intentos_salida": 155.9,
+     "b0_syn": 311.6,
+     "salida": false,
+     "span": false
+    },
+    "huecos_del_espejo": 0.0,
+    "motivo": "I2 el generador no siguió intentando 5 bloques tras t_apl (ni SPAN ni salida)",
+    "primer_descarte_host_menos_t_inicio": null,
+    "resultado": "indeterminado",
+    "serie": {
+     "posterior_aceptadas_media": 32.6,
+     "previo10_aceptadas_media": 311.6,
+     "resp_posterior_media": 174.0,
+     "syn_posterior_media": 38.2
+    },
+    "t_efecto_menos_t_inicio": null,
+    "via_continuidad": null
+   },
+   "E4": {
+    "motivo": "0 fallos atribuibles",
+    "n": 541,
+    "perfiles": [
+     "aplicacion",
+     "descargas",
+     "erratico",
+     "ligero",
+     "navegacion",
+     "ofimatica"
+    ],
+    "resultado": "cumple"
+   },
+   "E5": {
+    "lecturas_del_set": 138,
+    "motivo": "origen ausente del set",
+    "resultado": "cumple",
+    "retirada_d5_menos_fin_s": 106.2,
+    "via": "retirada_explicita"
+   },
+   "duracion_s": 90.1,
+   "episodio": "inundacion_http-r4",
+   "estado_generador": "completo",
+   "familia": "inundacion_http",
+   "intentos_generador": 4092,
+   "t_fin": 1794374708.884658,
+   "t_inicio": 1794374618.744362
+  },
+  {
+   "E1": {
+    "margen_antes_del_fin_s": 78.39,
+    "otras_reglas_en_ventana": [],
+    "paquetes_kali_en_ventana_evidencia_y_episodio": 4536,
+    "resultado": "verificado",
+    "resultado_senal": "verificado",
+    "señal_publicador": "brute_force",
+    "t_det_menos_t_inicio": 11.59,
+    "ventana_evidencia_vs_inicio_s": [
+     -53.9,
+     6.1
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "confirmacion": "confirmada",
+    "id_regla": "b8b837b65818d94f",
+    "margen_antes_del_fin_s": 76.83,
+    "motivo": "regla confirmada antes del fin",
+    "resultado": "cumple",
+    "t_apl_menos_t_inicio": 13.15,
+    "violaciones": []
+   },
+   "E3": {
+    "b0": null,
+    "continuidad": null,
+    "huecos_del_espejo": -0.011,
+    "motivo": "efecto sostenido 3 bloques",
+    "primer_descarte_host_menos_t_inicio": 13.24,
+    "resultado": "cumple",
+    "serie": {
+     "posterior_aceptadas_media": 0.0,
+     "previo10_aceptadas_media": 140.6,
+     "resp_posterior_media": 0.0,
+     "syn_posterior_media": 2.0
+    },
+    "t_efecto_menos_t_inicio": 14.1,
+    "via_continuidad": null
+   },
+   "E4": {
+    "motivo": "0 fallos atribuibles",
+    "n": 463,
+    "perfiles": [
+     "aplicacion",
+     "descargas",
+     "erratico",
+     "ligero",
+     "navegacion",
+     "ofimatica"
+    ],
+    "resultado": "cumple"
+   },
+   "E5": {
+    "lecturas_del_set": 137,
+    "motivo": "origen ausente del set",
+    "resultado": "cumple",
+    "retirada_d5_menos_fin_s": 101.8,
+    "via": "retirada_explicita"
+   },
+   "duracion_s": 90.0,
+   "episodio": "fuerza_bruta_http-r4",
+   "estado_generador": "completo",
+   "familia": "fuerza_bruta_http",
+   "intentos_generador": 959,
+   "t_fin": 1794375073.877106,
+   "t_inicio": 1794374983.89595
+  },
+  {
+   "E1": {
+    "margen_antes_del_fin_s": 63.99,
+    "otras_reglas_en_ventana": [],
+    "paquetes_kali_en_ventana_evidencia_y_episodio": 196,
+    "resultado": "verificado",
+    "resultado_senal": "verificado",
+    "señal_publicador": "dns_entropy",
+    "t_det_menos_t_inicio": 25.2,
+    "ventana_evidencia_vs_inicio_s": [
+     -38.9,
+     21.1
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "motivo": "DNS: DC1 no tiene punto de aplicación; el agente de srv-dmz ignora las entradas de DC1 (`ajenas`)",
+    "resultado": "no_aplica"
+   },
+   "E3": {
+    "motivo": "sin punto de aplicación",
+    "resultado": "no_aplica"
+   },
+   "E4": {
+    "motivo": "0 fallos atribuibles",
+    "n": 456,
+    "perfiles": [
+     "aplicacion",
+     "descargas",
+     "erratico",
+     "ligero",
+     "navegacion",
+     "ofimatica"
+    ],
+    "resultado": "cumple"
+   },
+   "E5": {
+    "motivo": "no hubo regla que retirar",
+    "resultado": "no_aplica"
+   },
+   "duracion_s": 89.2,
+   "episodio": "dns_inusual-r1",
+   "estado_generador": "completo",
+   "familia": "dns_inusual",
+   "intentos_generador": 207,
+   "t_fin": 1794375438.077748,
+   "t_inicio": 1794375348.889539
+  },
+  {
+   "E1": {
+    "margen_antes_del_fin_s": 82.44,
+    "otras_reglas_en_ventana": [],
+    "paquetes_kali_en_ventana_evidencia_y_episodio": 1438,
+    "resultado": "verificado",
+    "resultado_senal": "verificado",
+    "señal_publicador": "brute_force",
+    "t_det_menos_t_inicio": 8.25,
+    "ventana_evidencia_vs_inicio_s": [
+     -58.1,
+     1.9
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "confirmacion": "confirmada",
+    "id_regla": "09d60098e8b295aa",
+    "margen_antes_del_fin_s": 80.85,
+    "motivo": "regla confirmada antes del fin",
+    "resultado": "cumple",
+    "t_apl_menos_t_inicio": 9.84,
+    "violaciones": []
+   },
+   "E3": {
+    "b0": null,
+    "continuidad": null,
+    "huecos_del_espejo": 0.0,
+    "motivo": "efecto sostenido 3 bloques",
+    "primer_descarte_host_menos_t_inicio": 9.92,
+    "resultado": "cumple",
+    "serie": {
+     "posterior_aceptadas_media": 0.0,
+     "previo10_aceptadas_media": 126.8,
+     "resp_posterior_media": 0.0,
+     "syn_posterior_media": 2.0
+    },
+    "t_efecto_menos_t_inicio": 9.9,
+    "via_continuidad": null
+   },
+   "E4": {
+    "motivo": "0 fallos atribuibles",
+    "n": 464,
+    "perfiles": [
+     "aplicacion",
+     "descargas",
+     "erratico",
+     "ligero",
+     "navegacion",
+     "ofimatica"
+    ],
+    "resultado": "cumple"
+   },
+   "E5": {
+    "lecturas_del_set": 135,
+    "motivo": "origen ausente del set",
+    "resultado": "cumple",
+    "retirada_d5_menos_fin_s": 95.8,
+    "via": "retirada_explicita"
+   },
+   "duracion_s": 90.7,
+   "episodio": "fuerza_bruta_http-r3",
+   "estado_generador": "completo",
+   "familia": "fuerza_bruta_http",
+   "intentos_generador": 738,
+   "t_fin": 1794375798.773026,
+   "t_inicio": 1794375708.087663
+  },
+  {
+   "E1": {
+    "margen_antes_del_fin_s": 61.36,
+    "otras_reglas_en_ventana": [],
+    "paquetes_kali_en_ventana_evidencia_y_episodio": 200,
+    "resultado": "verificado",
+    "resultado_senal": "verificado",
+    "señal_publicador": "dns_entropy",
+    "t_det_menos_t_inicio": 27.92,
+    "ventana_evidencia_vs_inicio_s": [
+     -38.8,
+     21.2
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "motivo": "DNS: DC1 no tiene punto de aplicación; el agente de srv-dmz ignora las entradas de DC1 (`ajenas`)",
+    "resultado": "no_aplica"
+   },
+   "E3": {
+    "motivo": "sin punto de aplicación",
+    "resultado": "no_aplica"
+   },
+   "E4": {
+    "motivo": "0 fallos atribuibles",
+    "n": 512,
+    "perfiles": [
+     "aplicacion",
+     "descargas",
+     "erratico",
+     "ligero",
+     "navegacion",
+     "ofimatica"
+    ],
+    "resultado": "cumple"
+   },
+   "E5": {
+    "motivo": "no hubo regla que retirar",
+    "resultado": "no_aplica"
+   },
+   "duracion_s": 89.3,
+   "episodio": "dns_inusual-r3",
+   "estado_generador": "completo",
+   "familia": "dns_inusual",
+   "intentos_generador": 207,
+   "t_fin": 1794376158.056364,
+   "t_inicio": 1794376068.783301
+  },
+  {
+   "E1": {
+    "margen_antes_del_fin_s": 74.57,
+    "otras_reglas_en_ventana": [],
+    "paquetes_kali_en_ventana_evidencia_y_episodio": 25942,
+    "resultado": "verificado",
+    "resultado_senal": "verificado",
+    "señal_publicador": "http_abuse",
+    "t_det_menos_t_inicio": 15.98,
+    "ventana_evidencia_vs_inicio_s": [
+     -48.1,
+     11.9
+    ],
+    "ventana_toca_episodio_anterior": false
+   },
+   "E2": {
+    "confirmacion": "confirmada",
+    "id_regla": "42ec653360a5e5b2",
+    "margen_antes_del_fin_s": 72.96,
+    "motivo": "regla confirmada antes del fin",
+    "resultado": "cumple",
+    "t_apl_menos_t_inicio": 17.59,
+    "violaciones": []
+   },
+   "E3": {
+    "b0": null,
+    "continuidad": {
+     "b0_intentos_salida": 156.0,
+     "b0_syn": 312.2,
+     "salida": false,
+     "span": false
+    },
+    "huecos_del_espejo": 0.0,
+    "motivo": "I2 el generador no siguió intentando 5 bloques tras t_apl (ni SPAN ni salida)",
+    "primer_descarte_host_menos_t_inicio": null,
+    "resultado": "indeterminado",
+    "serie": {
+     "posterior_aceptadas_media": 32.6,
+     "previo10_aceptadas_media": 312.2,
+     "resp_posterior_media": 174.1,
+     "syn_posterior_media": 37.9
+    },
+    "t_efecto_menos_t_inicio": null,
+    "via_continuidad": null
+   },
+   "E4": {
+    "motivo": "0 fallos atribuibles",
+    "n": 511,
+    "perfiles": [
+     "aplicacion",
+     "descargas",
+     "erratico",
+     "ligero",
+     "navegacion",
+     "ofimatica"
+    ],
+    "resultado": "cumple"
+   },
+   "E5": {
+    "lecturas_del_set": 200,
+    "motivo": "origen ausente del set",
+    "resultado": "cumple",
+    "retirada_d5_menos_fin_s": 97.1,
+    "via": "retirada_explicita"
+   },
+   "duracion_s": 90.5,
+   "episodio": "inundacion_http-r3",
+   "estado_generador": "completo",
+   "familia": "inundacion_http",
+   "intentos_generador": 3947,
+   "t_fin": 1794376518.617296,
+   "t_inicio": 1794376428.067825
+  }
+ ],
+ "transacciones_total": 14107
+}
