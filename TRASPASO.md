@@ -1,5 +1,14 @@
 # Traspaso — CyberFlow (tesis PPI)
 
+> **Actualización 18-nov-2026.** El estado vigente está en `ESTADO.md` («Corte vigente — 18 de
+> noviembre») y en la [nota T](04-evidencias/cyberflow/T-demo-escenarios-y-sincronizar-2026-11-18/README.md).
+> En corto: 3 escenarios validados en vivo (escaneo BLOCK, fuerza bruta BLOCK, flood HTTP
+> LIMIT), tráfico legítimo sin alerta, «Limpiar» libera el firewall (`--sincronizar`), L3 ICMP
+> pendiente en el motor vivo. Lo que corre en cada equipo: producto `9d67875`,
+> `deploy/laboratorio-2026-11-18/MANIFIESTO-ESTADO-2026-11-18.json`. Las ramas del producto
+> están subidas; la integración en `main` queda para después de la exposición. Lo de abajo
+> es el traspaso original del 1-oct y sus actualizaciones; manda lo más reciente.
+
 **Para:** el agente que continúe este trabajo.
 **Fecha del traspaso:** 1 de octubre de 2026.
 **Estado en una frase:** sistema desplegado y sano sobre tráfico real; el piloto
