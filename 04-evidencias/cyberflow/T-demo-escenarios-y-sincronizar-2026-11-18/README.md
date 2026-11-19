@@ -10,7 +10,7 @@ el panel (`https://10.10.60.11:8788/`, vía la extensión de Chrome), el firewal
 | Equipo | Componente | Fuente |
 |---|---|---|
 | Sensor1 | motor `ppi-motor` | árbol sellado `ec78ca5` (`heuristicos` 2026-11-02.1, sin `icmp_flood`), α 0,01, umbral −0,6223889502 |
-| Sensor1 | panel `ppi-dashboard` | producto `a0df76d` (desplegado, sha256 `6a74fbd6…`); en `main` sin la parte ICMP |
+| Sensor1 | panel `ppi-dashboard` | `main` del producto, sin la parte ICMP (redesplegado el 18-nov, sha256 `1b93ecea…`); durante las pruebas corría `a0df76d` |
 | SRV-DMZ | agente v2 `--aplicar --sincronizar` | producto `9d67875`, sha256 `e7836c42…` (igual en `main`) |
 
 Todo está integrado en `main` del producto con la etiqueta `estado-lab-2026-11-18`.
